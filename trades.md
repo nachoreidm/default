@@ -453,3 +453,91 @@ is generated from.
 ```
 
 ---
+### 2026-09-06T16:59:44.936Z — BTC/USD — NO TRADE
+
+**Reasoning:** No fresh trigger. RSI 4h neutral at 52.6. SMA fast-above-slow, no crossover this candle. Volume 0.43x 7d avg, not flagged. Price actually flat-to-slightly-down over 48h (-0.05%/-0.11%), order book notably ask-heavy (-0.44). News context: mildly positive but nothing new since last cycle (ETF inflows, dormant-wallet movement noted, nothing trade-relevant); no quant signal for it to corroborate.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 52.63,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "volume_ratio": 0.43,
+  "volume_flag_above_2x": false,
+  "price_action_1h_pct": -0.05,
+  "price_action_4h_pct": -0.11,
+  "order_book_imbalance": -0.437,
+  "news_context": "No new material news since last cycle; continued ETF inflows, a large dormant-wallet transfer noted. Nothing bearish or urgent."
+}
+```
+
+---
+### 2026-09-06T16:59:49.283Z — ETH/USD — NO TRADE
+
+**Reasoning:** No fresh trigger. RSI 4h neutral at 52.9. SMA fast-above-slow, no crossover this candle. Volume 0.83x 7d avg, not flagged. Order book mildly ask-heavy (-0.07). News context: continued ETF inflows and bullish social sentiment, but no new catalyst since last cycle and no quant signal for it to corroborate.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 52.86,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "volume_ratio": 0.83,
+  "volume_flag_above_2x": false,
+  "price_action_1h_pct": 0.8,
+  "price_action_4h_pct": 1,
+  "order_book_imbalance": -0.069,
+  "news_context": "Continued ETF inflows, bullish social sentiment (36.5% bullish vs 10.3% bearish). No new material catalyst since last cycle."
+}
+```
+
+---
+### 2026-09-06T16:59:50.896Z — SOL/USD — NO TRADE
+
+**Reasoning:** No fresh trigger. RSI 61.5 (elevated but not overbought), no SMA crossover this candle, volume still below average (0.84x, not flagged) - momentum remains unconfirmed by volume. News context: same as last cycle, SEC ETF-asset recognition remains the notable positive item; no fresh negative headline surfaced this search. Still no quant trigger for news to corroborate.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 61.47,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "volume_ratio": 0.84,
+  "volume_flag_above_2x": false,
+  "price_action_1h_pct": 3.87,
+  "price_action_4h_pct": 3.97,
+  "order_book_imbalance": 0.166,
+  "news_context": "SEC named SOL a core ETF asset (recurring positive item); no new negative headline this search. Rent-cost reduction and latency upgrade also positive but not new."
+}
+```
+
+---
+### 2026-09-06T16:59:53.827Z — POL/USD — NO TRADE
+
+**Reasoning:** No fresh trigger. 4h SMA still bearish (fast_below_slow, no crossover), volume well below average (0.27x, not flagged), RSI neutral at 54.2. News context: same positive items as last cycle (security-patch hard forks, 8B tx milestone, enterprise payment usage), nothing new; trend structure still bearish so no trade regardless.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 54.25,
+  "sma_crossover_4h": {
+    "state": "fast_below_slow",
+    "crossed_this_candle": false
+  },
+  "volume_ratio": 0.27,
+  "volume_flag_above_2x": false,
+  "price_action_1h_pct": 4.56,
+  "price_action_4h_pct": 4.13,
+  "order_book_imbalance": 0.034,
+  "news_context": "Same positive items as last cycle (Austin/Kyoto security hard forks, 8B tx milestone, Visa/Meta/Revolut usage); nothing new or negative."
+}
+```
+
+---
