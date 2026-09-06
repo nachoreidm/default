@@ -23,17 +23,36 @@ precedence over improvising.
 
 ## Setup
 
-`.claude/hooks/session-start.sh` builds the MCP server automatically on
-every Claude Code on the web / cloud session (`npm install && npm run
-build` in `mcp-server/`, skipped if already built and up to date). Locally,
-build it yourself once and after any code change:
+`mcp-server/dist/` (built output) and `mcp-server/node_modules/`
+(production deps only — `@modelcontextprotocol/sdk`, `zod`, and their
+transitive deps, ~26MB, no native binaries) are **committed**, not
+gitignored. This is deliberate: the harness connects to the MCP server at
+session bootstrap, before any `SessionStart` hook gets a chance to run, so
+a build step that only happens in a hook is too late — the first
+connection attempt hits missing files, fails, and never retries for that
+session's lifetime. Committing the built artifacts means the server is
+launchable the instant the repo is cloned, no build race possible.
+
+**If you change anything in `mcp-server/src/`, you must rebuild and commit
+`dist/` (and `node_modules/` if dependencies changed) before pushing** —
+otherwise sessions keep running the old committed code even though the
+source has moved on. `.claude/hooks/session-start.sh` only warns about
+this drift on cloud sessions; it can't fix it for the current session (see
+above), only remind you to fix it for the next one.
 
 ```
-cd mcp-server && npm install && npm run build
+cd mcp-server && npm install && npm run build   # full install incl. devDeps (typescript, tsx)
+npm test                                         # indicator-math unit checks + live Kraken smoke test
+rm -rf node_modules && npm install --omit=dev    # prune back to production-only before committing
 ```
 
-`npm test` (in `mcp-server/`) runs indicator-math unit checks plus a live
-Kraken API smoke test — useful after changing any calculation.
+Verify the pruned build still runs before committing — a stray runtime
+import from a devDependency won't show up until node_modules is pruned:
+
+```
+echo '{"jsonrpc":"2.0","id":1,"method":"initialize","params":{"protocolVersion":"2024-11-05","capabilities":{},"clientInfo":{"name":"test","version":"1.0"}}}' \
+  | NODE_USE_ENV_PROXY=1 node dist/index.js
+```
 
 ## Network access
 
