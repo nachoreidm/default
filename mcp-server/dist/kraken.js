@@ -3,6 +3,8 @@ const KRAKEN_API_BASE = "https://api.kraken.com/0/public";
 const PAIR_CODE = {
     "BTC/USD": "XBTUSD",
     "ETH/USD": "ETHUSD",
+    "SOL/USD": "SOLUSD",
+    "POL/USD": "POLUSD",
 };
 export const INTERVAL_MINUTES = {
     "1h": 60,

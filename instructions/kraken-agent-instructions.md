@@ -30,15 +30,15 @@ followed by a git commit and push to the current branch **before ending
 the turn**. A monitoring cycle that doesn't end with a push may as well not
 have happened; the next run has no way to know what you did. Use a short,
 factual commit message (e.g. "Paper trade: opened LONG BTC/USD",
-"Monitoring cycle: stops clean, no trade on either pair").
+"Monitoring cycle: stops clean, no trade on any pair").
 
 ## Scope
 
-- Pairs in scope: **BTC/USD, ETH/USD** only. The MCP server enforces this in
-  code — `kraken_get_ticker`, `kraken_get_ohlc`, `compute_signals`, and
-  `portfolio_open_position` will all reject any other pair. If asked to
-  look at something else, say so and ask before doing anything manual to
-  route around that.
+- Pairs in scope: **BTC/USD, ETH/USD, SOL/USD, POL/USD** only. The MCP
+  server enforces this in code — `kraken_get_ticker`, `kraken_get_ohlc`,
+  `compute_signals`, and `portfolio_open_position` will all reject any
+  other pair. If asked to look at something else, say so and ask before
+  doing anything manual to route around that.
 - **Long only.** Spot trading has no short-selling; this account uses no
   margin, leverage, or derivatives. Never describe a paper position as a
   "short." "Direction" is always `long`; closing a position is not a short.

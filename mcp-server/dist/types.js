@@ -1,4 +1,4 @@
-export const ALLOWED_PAIRS = ["BTC/USD", "ETH/USD"];
+export const ALLOWED_PAIRS = ["BTC/USD", "ETH/USD", "SOL/USD", "POL/USD"];
 export function isAllowedPair(pair) {
     return ALLOWED_PAIRS.includes(pair);
 }
