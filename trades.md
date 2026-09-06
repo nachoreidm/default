@@ -717,3 +717,91 @@ is generated from.
 ```
 
 ---
+### 2026-09-06T19:59:19.907Z — BTC/USD — NO TRADE
+
+**Reasoning:** No fresh trigger. RSI 4h neutral at 52.6. SMA fast-above-slow, no crossover this candle. Volume 0.43x 7d avg, not flagged. Order book bid-heavy (+0.38). News context: unchanged, continued ETF inflows, nothing new.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 52.63,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "volume_ratio": 0.43,
+  "volume_flag_above_2x": false,
+  "price_action_1h_pct": 0.18,
+  "price_action_4h_pct": -0.11,
+  "order_book_imbalance": 0.382,
+  "news_context": "Unchanged: continued ETF inflows, nothing new or bearish."
+}
+```
+
+---
+### 2026-09-06T19:59:21.833Z — ETH/USD — NO TRADE
+
+**Reasoning:** No fresh trigger. RSI 4h neutral at 52.9. SMA fast-above-slow, no crossover this candle. Volume 0.83x 7d avg, not flagged. Order book strongly bid-heavy (+0.66). News context: unchanged, 12th day of ETF inflows, no new catalyst.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 52.86,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "volume_ratio": 0.83,
+  "volume_flag_above_2x": false,
+  "price_action_1h_pct": 1.59,
+  "price_action_4h_pct": 1,
+  "order_book_imbalance": 0.657,
+  "news_context": "Unchanged: continued ETH ETF inflows, nothing new."
+}
+```
+
+---
+### 2026-09-06T19:59:26.092Z — SOL/USD — NO TRADE
+
+**Reasoning:** No fresh trigger. RSI 61.5, no SMA crossover this candle, volume still below average (0.84x, not flagged) - momentum remains unconfirmed by volume. News context: the prior data-center/staking-outage incident is being reported with more alarming language this cycle ("within striking distance of a full freeze"), though Foundation says blocks/transactions never stopped; combined with SEC ETF-asset status this stays mixed. No quant trigger present regardless, so no trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 61.47,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "volume_ratio": 0.84,
+  "volume_flag_above_2x": false,
+  "price_action_1h_pct": 4.21,
+  "price_action_4h_pct": 3.97,
+  "order_book_imbalance": 0.039,
+  "news_context": "Mixed: SEC ETF-asset status positive; staking/data-center outage now described as bringing network 'within striking distance of a full freeze' (blocks/txns reportedly uninterrupted). No quant trigger."
+}
+```
+
+---
+### 2026-09-06T19:59:28.703Z — POL/USD — NO TRADE
+
+**Reasoning:** No fresh trigger. 4h SMA still bearish (fast_below_slow, no crossover), volume well below average (0.27x, not flagged), RSI neutral at 54.2. Order book roughly balanced (+0.01). News context: unchanged positive items, nothing new; trend structure still bearish so no trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 54.25,
+  "sma_crossover_4h": {
+    "state": "fast_below_slow",
+    "crossed_this_candle": false
+  },
+  "volume_ratio": 0.27,
+  "volume_flag_above_2x": false,
+  "price_action_1h_pct": 4.4,
+  "price_action_4h_pct": 4.13,
+  "order_book_imbalance": 0.012,
+  "news_context": "Unchanged: security hard forks, tx milestone, Polymarket fee surge. No new headline; SMA remains bearish."
+}
+```
+
+---
