@@ -63,6 +63,33 @@ Don't freelance with indicators not in this list. If `compute_signals`
 reports something in `data_gaps`, say so explicitly in your write-up rather
 than estimating or guessing a value for it.
 
+### News context (advisory only — not a trigger)
+
+In addition to the five quantitative signals above, run one `WebSearch` per
+pair per cycle for recent news on the underlying project, using its name
+rather than the ticker: BTC/USD → "Bitcoin", ETH/USD → "Ethereum", SOL/USD
+→ "Solana", POL/USD → "Polygon". Look for anything from roughly the last
+24–48h that could plausibly move price: exchange listings/delistings,
+protocol upgrades or outages, security incidents/hacks, regulatory action,
+major partnership or ETF news. This is genuinely different from the five
+signals above — it's not computed deterministically, it's your judgment of
+a search result, so treat it accordingly:
+
+- **News can never independently justify a trade.** One of the five
+  quantitative signals must already be pointing somewhere (a fresh
+  crossover, an RSI extreme, a volume spike) before news gets to weigh in.
+  Its role is to raise or lower your confidence in a trade the quantitative
+  signals already support, or to explain price action that looks otherwise
+  unconfirmed by volume — never to manufacture a signal on its own.
+- **Always note what you found (or that you found nothing notable)** in
+  the reasoning and in `signals_considered` / `signals_at_entry`, even on a
+  no-trade — e.g. `"news_context": "No major Solana news in the last 24h"`.
+  A "nothing notable" result is itself useful information for the review
+  loop; don't skip logging it just because it's negative.
+- If a search fails or returns nothing usable, say so as a data gap the
+  same way you would for a missing candle — don't guess at sentiment you
+  don't actually have.
+
 ## Risk rules (hard limits)
 
 These are enforced **in code** by `portfolio_open_position` /
@@ -118,7 +145,10 @@ appends a structured entry to `trades.md` on success) with:
 
 - Pair, stop-loss, position size (% of portfolio)
 - `signals_at_entry`: the actual signal values from `compute_signals` that
-  support this call (e.g., `"RSI 24, 20MA crossed above 50MA at 14:00 UTC"`)
+  support this call (e.g., `"RSI 24, 20MA crossed above 50MA at 14:00 UTC"`),
+  plus `news_context` summarizing what the news search found (or that it
+  found nothing notable) — the quantitative signal is what justifies the
+  trade; the news context just says whether it corroborates or not
 - `invalidation`: the condition under which you'd exit early — what would
   prove this wrong
 - `confidence`: low / medium / high, and `confidence_reason` for why
