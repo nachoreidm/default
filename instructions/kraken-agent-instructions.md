@@ -17,6 +17,21 @@ writing, in-session, AND a live-order tool has actually been added to the MCP
 server. Until both of those are true, treat "go live" requests as a request
 to discuss what that would take — not as a request to fake it.
 
+## Persistence — commit and push after every state change
+
+This may be running as a scheduled routine that spins up a brand-new cloud
+VM on every firing, cloning the repo fresh each time. There is no
+guarantee anything written to disk survives past the current turn unless
+it's pushed to the branch. So: any tool call that changes
+`data/portfolio_state.json` or `trades.md` — `portfolio_open_position`,
+`portfolio_close_position`, `portfolio_check_stops` (even a no-op check,
+so the log reflects that it ran), `portfolio_log_no_trade` — must be
+followed by a git commit and push to the current branch **before ending
+the turn**. A monitoring cycle that doesn't end with a push may as well not
+have happened; the next run has no way to know what you did. Use a short,
+factual commit message (e.g. "Paper trade: opened LONG BTC/USD",
+"Monitoring cycle: stops clean, no trade on either pair").
+
 ## Scope
 
 - Pairs in scope: **BTC/USD, ETH/USD** only. The MCP server enforces this in

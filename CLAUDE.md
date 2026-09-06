@@ -23,7 +23,10 @@ precedence over improvising.
 
 ## Setup
 
-The MCP server needs to be built once (and after any code change to it):
+`.claude/hooks/session-start.sh` builds the MCP server automatically on
+every Claude Code on the web / cloud session (`npm install && npm run
+build` in `mcp-server/`, skipped if already built and up to date). Locally,
+build it yourself once and after any code change:
 
 ```
 cd mcp-server && npm install && npm run build
@@ -32,11 +35,13 @@ cd mcp-server && npm install && npm run build
 `npm test` (in `mcp-server/`) runs indicator-math unit checks plus a live
 Kraken API smoke test — useful after changing any calculation.
 
-## Known constraint
+## Network access
 
-`api.kraken.com` is not reachable from Claude Code **on the web / cloud
-sessions** by default — it's blocked by the sandbox's organization egress
-policy, independent of this code. It works from a local Claude Code CLI
-session on a machine with normal internet access. If you want scheduled,
-unattended monitoring to run in a cloud environment, `api.kraken.com` needs
-to be added to that environment's network policy allowlist first.
+This environment's network policy has `api.kraken.com` allowlisted
+(Custom network access, set in the environment's settings on claude.ai/code).
+Node's built-in `fetch` doesn't honor `HTTPS_PROXY` by default, so
+`NODE_USE_ENV_PROXY=1` is set on the MCP server process (in `.mcp.json`)
+and in `mcp-server/package.json`'s scripts — without it, calls to Kraken
+fail even when the domain is allowlisted. If this is ever run in a
+*different* cloud environment, that environment needs the same domain
+added before any Kraken tool call will work.
