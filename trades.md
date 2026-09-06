@@ -197,3 +197,87 @@ is generated from.
 ```
 
 ---
+### 2026-09-06T15:33:08.971Z — BTC/USD — NO TRADE
+
+**Reasoning:** No fresh trigger. RSI 4h neutral at 55.2 (no overbought/oversold). SMA already fast-above-slow but no crossover this candle (trend already priced in, not a fresh signal). 24h volume at 0.43x the 7-day average — well below the 2x flag threshold, so the modest +0.16%/+0.63% price drift isn't volume-confirmed. Order book roughly balanced (+0.057). Nothing here rises above noise.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 55.19,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "volume_ratio": 0.43,
+  "volume_flag_above_2x": false,
+  "price_action_1h_pct": 0.16,
+  "price_action_4h_pct": 0.63,
+  "order_book_imbalance": 0.057
+}
+```
+
+---
+### 2026-09-06T15:33:10.865Z — ETH/USD — NO TRADE
+
+**Reasoning:** No fresh trigger. RSI 4h neutral at 59.6. SMA fast-above-slow but no crossover this candle. 24h volume at 0.83x the 7-day average, not flagged. Positive price action (+1.08%/+2.03%) but unconfirmed by volume, and order book actually skews slightly toward asks (-0.074), which cuts against chasing the move. No actionable signal combination per the rules.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 59.59,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "volume_ratio": 0.83,
+  "volume_flag_above_2x": false,
+  "price_action_1h_pct": 1.08,
+  "price_action_4h_pct": 2.03,
+  "order_book_imbalance": -0.074
+}
+```
+
+---
+### 2026-09-06T15:33:14.284Z — SOL/USD — NO TRADE
+
+**Reasoning:** Signals conflict. Strong price momentum (+4.2%/+4.94% over 48h) and RSI climbing to 65.5 (approaching but not overbought), but no SMA crossover this candle (trend state unchanged) and 24h volume is actually below its 7-day average (0.84x, not flagged) — the move isn't volume-confirmed, which is a warning sign for chasing a rally already in progress. Order book roughly flat (-0.036). Not logging a trade on unconfirmed momentum alone.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 65.51,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "volume_ratio": 0.84,
+  "volume_flag_above_2x": false,
+  "price_action_1h_pct": 4.2,
+  "price_action_4h_pct": 4.94,
+  "order_book_imbalance": -0.036
+}
+```
+
+---
+### 2026-09-06T15:33:17.389Z — POL/USD — NO TRADE
+
+**Reasoning:** Signals conflict. Sharp price rally (+5.01%/+6.01% over 48h) and strong bid-side order book imbalance (+0.335), but the 4h SMA state is still bearish (fast_below_slow, no crossover yet) and 24h volume is well below its 7-day average (0.27x, not flagged) — the rally is not confirmed by either trend structure or volume. RSI neutral at 56.7. Conflicting signals mean no trade this cycle.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 56.67,
+  "sma_crossover_4h": {
+    "state": "fast_below_slow",
+    "crossed_this_candle": false
+  },
+  "volume_ratio": 0.27,
+  "volume_flag_above_2x": false,
+  "price_action_1h_pct": 5.01,
+  "price_action_4h_pct": 6.01,
+  "order_book_imbalance": 0.335
+}
+```
+
+---
