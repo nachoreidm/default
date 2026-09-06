@@ -365,3 +365,91 @@ is generated from.
 ```
 
 ---
+### 2026-09-06T15:53:52.526Z — BTC/USD — NO TRADE
+
+**Reasoning:** No fresh quantitative trigger. RSI 4h neutral at 55.2. SMA fast-above-slow, no crossover this candle. Volume 0.43x 7d avg, not flagged. Order book ask-heavy (-0.31). News context: broadly positive (BTC cleared $81k in a rally, ~$1B weekly ETF inflows) but nothing (listing, hack, regulatory action) that would independently justify a trade, and no quant signal is pointing anywhere for it to corroborate.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 55.19,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "volume_ratio": 0.43,
+  "volume_flag_above_2x": false,
+  "price_action_1h_pct": 0.16,
+  "price_action_4h_pct": 0.63,
+  "order_book_imbalance": -0.306,
+  "news_context": "Positive: BTC cleared $81k in a broad rally, ~$1B weekly spot ETF inflows. Nothing bearish or trade-relevant (no hack/listing/regulatory shock)."
+}
+```
+
+---
+### 2026-09-06T15:53:55.743Z — ETH/USD — NO TRADE
+
+**Reasoning:** No fresh quantitative trigger. RSI 4h neutral at 59.6. SMA fast-above-slow, no crossover this candle. Volume 0.83x 7d avg, not flagged. Order book now bid-heavy (+0.61). News context: positive (12th straight day of spot ETH ETF inflows, L2 volume strong, Hegotá upgrade progressing) but no quant signal is pointing anywhere for news to corroborate, so still no trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 59.59,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "volume_ratio": 0.83,
+  "volume_flag_above_2x": false,
+  "price_action_1h_pct": 1.08,
+  "price_action_4h_pct": 2.03,
+  "order_book_imbalance": 0.614,
+  "news_context": "Positive: 12th consecutive day of spot ETH ETF inflows, strong L2 (Robinhood Chain) volume, Hegotá upgrade progressing. Nothing bearish or urgent."
+}
+```
+
+---
+### 2026-09-06T15:53:59.858Z — SOL/USD — NO TRADE
+
+**Reasoning:** No fresh quantitative trigger despite continued momentum. RSI 65.5, no SMA crossover this candle, volume still below average (0.84x, not flagged) - price move remains unconfirmed by volume. News context is mixed: SEC named SOL a core ETF asset (positive) but a data-center routing glitch also knocked ~29% of staked SOL offline today (though the Foundation says blocks/transactions never stopped). Per the rule, news can't independently justify a trade absent a quant trigger, and here it's mixed anyway - staying no-trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 65.51,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "volume_ratio": 0.84,
+  "volume_flag_above_2x": false,
+  "price_action_1h_pct": 4.2,
+  "price_action_4h_pct": 4.94,
+  "order_book_imbalance": 0.078,
+  "news_context": "Mixed: SEC named SOL a core ETF asset (positive), but a routing/data-center incident knocked ~29% of staked SOL offline today (blocks/txns reportedly uninterrupted)."
+}
+```
+
+---
+### 2026-09-06T15:54:02.324Z — POL/USD — NO TRADE
+
+**Reasoning:** No fresh quantitative trigger. 4h SMA still bearish (fast_below_slow, no crossover), volume well below average (0.27x, not flagged) despite the price rally, RSI neutral at 56.7. News context: positive (Austin & Kyoto hard forks proactively patched critical security vulnerabilities on Aug 31, 8B cumulative transactions milestone, Visa/Meta/Revolut payment usage) but no quant signal is pointing anywhere for it to corroborate, and trend structure is still bearish - no trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 56.67,
+  "sma_crossover_4h": {
+    "state": "fast_below_slow",
+    "crossed_this_candle": false
+  },
+  "volume_ratio": 0.27,
+  "volume_flag_above_2x": false,
+  "price_action_1h_pct": 5.01,
+  "price_action_4h_pct": 6.01,
+  "order_book_imbalance": 0.332,
+  "news_context": "Positive: Austin & Kyoto hard forks (Aug 31) proactively patched critical security vulnerabilities; 8B cumulative tx milestone; Visa/Meta/Revolut payment usage. Nothing bearish."
+}
+```
+
+---
