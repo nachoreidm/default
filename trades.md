@@ -281,3 +281,87 @@ is generated from.
 ```
 
 ---
+### 2026-09-06T15:39:59.026Z — BTC/USD — NO TRADE
+
+**Reasoning:** No fresh trigger. RSI 4h neutral at 55.2. SMA fast-above-slow, no crossover this candle. Volume 0.43x 7d avg, not flagged. Price action flat/mild (+0.16%/+0.63%). Order book now mildly ask-heavy (-0.19), no confirmation for a long entry.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 55.19,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "volume_ratio": 0.43,
+  "volume_flag_above_2x": false,
+  "price_action_1h_pct": 0.16,
+  "price_action_4h_pct": 0.63,
+  "order_book_imbalance": -0.189
+}
+```
+
+---
+### 2026-09-06T15:40:01.011Z — ETH/USD — NO TRADE
+
+**Reasoning:** No fresh trigger. RSI 4h neutral at 59.6. SMA fast-above-slow, no crossover this candle. Volume 0.83x 7d avg, not flagged. Order book now more ask-heavy (-0.37) despite positive recent price action, which argues against chasing the move. No actionable combination.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 59.59,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "volume_ratio": 0.83,
+  "volume_flag_above_2x": false,
+  "price_action_1h_pct": 1.08,
+  "price_action_4h_pct": 2.03,
+  "order_book_imbalance": -0.369
+}
+```
+
+---
+### 2026-09-06T15:40:03.562Z — SOL/USD — NO TRADE
+
+**Reasoning:** Unchanged from prior cycle. Strong 48h momentum (+4.2%/+4.94%) and RSI 65.5, but no SMA crossover this candle and volume still below average (0.84x, not flagged) - momentum remains unconfirmed by volume. Not chasing.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 65.51,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "volume_ratio": 0.84,
+  "volume_flag_above_2x": false,
+  "price_action_1h_pct": 4.2,
+  "price_action_4h_pct": 4.94,
+  "order_book_imbalance": -0.078
+}
+```
+
+---
+### 2026-09-06T15:40:05.261Z — POL/USD — NO TRADE
+
+**Reasoning:** Unchanged from prior cycle. Strong rally (+5.01%/+6.01%) and heavy bid-side imbalance (+0.345), but 4h SMA still bearish (fast_below_slow, no crossover) and volume well below average (0.27x, not flagged) - trend structure and volume both fail to confirm. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 56.67,
+  "sma_crossover_4h": {
+    "state": "fast_below_slow",
+    "crossed_this_candle": false
+  },
+  "volume_ratio": 0.27,
+  "volume_flag_above_2x": false,
+  "price_action_1h_pct": 5.01,
+  "price_action_4h_pct": 6.01,
+  "order_book_imbalance": 0.345
+}
+```
+
+---
