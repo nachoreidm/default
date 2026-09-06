@@ -159,3 +159,41 @@ is generated from.
 ```
 
 ---
+### 2026-09-06T15:25:01.806Z — BTC/USD — NO TRADE
+
+**Reasoning:** No fresh trigger. Fast SMA still above slow SMA with no new crossover, RSI 14 (4h) neutral at 55.2, 24h volume still well below its 7-day average (0.43x, no spike flag). Order book has drifted slightly ask-heavy (imbalance -0.15) but remains close to neutral - not a meaningful signal on its own.
+
+**Signals considered:**
+```json
+{
+  "price_action_1h_48h_pct_change": 0.15801846108905568,
+  "price_action_4h_48h_pct_change": 0.6274151327543793,
+  "volume_ratio": 0.4308728868759966,
+  "volume_flag_above_2x": false,
+  "rsi_14_4h": 55.18731516597179,
+  "sma_crossover_4h_state": "fast_above_slow",
+  "sma_crossover_4h_crossed_this_candle": false,
+  "order_book_imbalance_top10": -0.15275281816696615
+}
+```
+
+---
+### 2026-09-06T15:25:08.390Z — ETH/USD — NO TRADE
+
+**Reasoning:** No fresh trigger. Fast SMA still above slow SMA with no new crossover, RSI 14 (4h) neutral at 59.6, 24h volume still below its 7-day average (0.83x, no spike flag). Order book has settled back to fully neutral (imbalance -0.01), resolving last cycle's conflicting ask-heavy tilt without producing any new actionable signal.
+
+**Signals considered:**
+```json
+{
+  "price_action_1h_48h_pct_change": 1.0757643105606824,
+  "price_action_4h_48h_pct_change": 2.0304133822144093,
+  "volume_ratio": 0.8269586772557853,
+  "volume_flag_above_2x": false,
+  "rsi_14_4h": 59.591311376719304,
+  "sma_crossover_4h_state": "fast_above_slow",
+  "sma_crossover_4h_crossed_this_candle": false,
+  "order_book_imbalance_top10": -0.005976949879388971
+}
+```
+
+---
