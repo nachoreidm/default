@@ -2,7 +2,10 @@
   "mcpServers": {
     "kraken-paper-trading": {
       "command": "node",
-      "args": ["mcp-server/dist/index.js"]
+      "args": ["mcp-server/dist/index.js"],
+      "env": {
+        "NODE_USE_ENV_PROXY": "1"
+      }
     }
   }
 }
