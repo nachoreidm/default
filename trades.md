@@ -541,3 +541,91 @@ is generated from.
 ```
 
 ---
+### 2026-09-06T17:59:59.553Z — BTC/USD — NO TRADE
+
+**Reasoning:** No fresh trigger. RSI 4h neutral at 52.6. SMA fast-above-slow, no crossover this candle. Volume 0.43x 7d avg, not flagged. Order book ask-heavy (-0.19). News context: mixed to mildly negative - continued ETF inflows, but a new item that BTC dipped on Fed rate-hike speculation this month. No quant trigger for news to weigh in on either way.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 52.63,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "volume_ratio": 0.43,
+  "volume_flag_above_2x": false,
+  "price_action_1h_pct": 0.26,
+  "price_action_4h_pct": -0.11,
+  "order_book_imbalance": -0.188,
+  "news_context": "New this cycle: BTC dipped on Fed rate-hike speculation. Still-positive ETF inflows continue. No quant trigger present."
+}
+```
+
+---
+### 2026-09-06T18:00:02.609Z — ETH/USD — NO TRADE
+
+**Reasoning:** No fresh trigger. RSI 4h neutral at 52.9. SMA fast-above-slow, no crossover this candle. Volume 0.83x 7d avg, not flagged. Order book now more ask-heavy (-0.37). News context: unchanged, continued ETF inflows (12th day) and L2 volume strength, nothing new. No quant trigger for it to corroborate.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 52.86,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "volume_ratio": 0.83,
+  "volume_flag_above_2x": false,
+  "price_action_1h_pct": 1.58,
+  "price_action_4h_pct": 1,
+  "order_book_imbalance": -0.369,
+  "news_context": "Unchanged: 12th consecutive day of ETH ETF inflows, strong L2 volume. Nothing new or bearish."
+}
+```
+
+---
+### 2026-09-06T18:00:10.443Z — SOL/USD — NO TRADE
+
+**Reasoning:** No fresh trigger. RSI 61.5, no SMA crossover this candle, volume still below average (0.84x, not flagged) - momentum remains unconfirmed by volume. News context: unchanged positive items (SEC ETF-asset recognition, rent-cost reduction, new tx format); no fresh negative headline this search. Still no quant trigger for news to corroborate.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 61.47,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "volume_ratio": 0.84,
+  "volume_flag_above_2x": false,
+  "price_action_1h_pct": 4.75,
+  "price_action_4h_pct": 3.97,
+  "order_book_imbalance": -0.118,
+  "news_context": "Unchanged positive items: SEC ETF-asset status, rent-cost reduction upgrade, new v1 tx format. No new negative headline."
+}
+```
+
+---
+### 2026-09-06T18:00:11.883Z — POL/USD — NO TRADE
+
+**Reasoning:** No fresh trigger. 4h SMA still bearish (fast_below_slow, no crossover), volume well below average (0.27x, not flagged), RSI neutral at 54.2. News context: unchanged positive items (security-patch hard forks, 8B tx milestone) plus a new note that Polygon briefly surpassed Ethereum in daily fees on Polymarket surge - notable but not a quant trigger, and trend structure is still bearish. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 54.25,
+  "sma_crossover_4h": {
+    "state": "fast_below_slow",
+    "crossed_this_candle": false
+  },
+  "volume_ratio": 0.27,
+  "volume_flag_above_2x": false,
+  "price_action_1h_pct": 4.94,
+  "price_action_4h_pct": 4.13,
+  "order_book_imbalance": 0.236,
+  "news_context": "Unchanged positive items (security hard forks, 8B tx milestone) plus new: Polygon briefly surpassed Ethereum in daily fees amid Polymarket surge. Still no quant trigger; SMA remains bearish."
+}
+```
+
+---
