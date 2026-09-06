@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "kraken-paper-trading": {
+      "command": "node",
+      "args": ["mcp-server/dist/index.js"]
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "name": "kraken-paper-trading-mcp",
+  "version": "0.1.0",
+  "description": "MCP server exposing Kraken public market data, computed indicators, and a paper-trading portfolio engine with hard-coded risk limits.",
+  "type": "module",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "start": "node dist/index.js",
+    "dev": "tsx src/index.ts",
+    "test": "tsx src/selftest.ts"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.12.0",
+    "zod": "^3.24.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.6.0",
+    "tsx": "^4.19.0",
+    "@types/node": "^22.10.0"
+  }
+}
