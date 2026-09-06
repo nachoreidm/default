@@ -805,3 +805,99 @@ is generated from.
 ```
 
 ---
+### 2026-09-06T20:59:36.866Z — POL/USD — LONG — OPENED
+
+- Entry price: $0.10
+- Stop-loss: $0.10
+- Position size: 3% of portfolio ($300.00, qty 3054.62488148)
+- Entry fee (paper): $1.20
+- Confidence: medium — Fresh bullish 20/50 SMA crossover this candle is a real, listed trigger, RSI is comfortably neutral (55.8, not overbought) leaving room to run, price action confirms a strong 48h uptrend (+5%/+5.1%), and order book is bid-heavy (+0.23). Confidence capped at medium rather than high because 24h volume is still below its 7-day average (0.27x, not flagged) - the crossover isn't volume-confirmed - and news carries a minor new caution (reported layoffs/team-stability concerns) alongside the dominant positive items (8B tx milestone, security hard forks, enterprise adoption).
+- Invalidation (what proves this wrong): Price closes back below the 50-period 4h SMA (~0.09525, near the stop level), which would invalidate the fresh bullish crossover thesis. Also invalidated if RSI rolls over sharply or the crossover reverses (fast back below slow) within the next few candles.
+- Signals supporting this trade:
+```json
+{
+  "rsi_14_4h": 55.78,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": true,
+    "crossover_direction": "bullish",
+    "fast_value": 0.095611,
+    "slow_value": 0.0952538
+  },
+  "volume_ratio": 0.27,
+  "volume_flag_above_2x": false,
+  "price_action_1h_pct": 4.96,
+  "price_action_4h_pct": 5.11,
+  "order_book_imbalance": 0.226,
+  "news_context": "Mostly positive: 8B cumulative tx milestone, Austin/Kyoto security hard forks, Visa/Meta/Revolut enterprise usage. New minor caution: reports of layoffs and a strategic pivot toward payments raising team-stability concerns. Nothing severe enough to override the quant trigger."
+}
+```
+- Position id: 0d46d29c-18fc-4353-a4d2-527d052da80b
+
+---
+### 2026-09-06T20:59:43.976Z — BTC/USD — NO TRADE
+
+**Reasoning:** No fresh trigger. RSI 4h neutral at 53.9. SMA fast-above-slow, no crossover this candle. Volume 0.43x 7d avg, not flagged. News context: unchanged (ETF inflows, Fed rate-hike speculation noted last cycle), nothing new.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 53.9,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "volume_ratio": 0.43,
+  "volume_flag_above_2x": false,
+  "price_action_1h_pct": 0.14,
+  "price_action_4h_pct": 0.19,
+  "order_book_imbalance": 0.198,
+  "news_context": "Unchanged: ETF inflows continue, Fed rate-hike speculation noted. Nothing new."
+}
+```
+
+---
+### 2026-09-06T20:59:51.884Z — ETH/USD — NO TRADE
+
+**Reasoning:** No fresh trigger. RSI 4h neutral at 55.5. SMA fast-above-slow, no crossover this candle. Volume 0.83x 7d avg, not flagged. News context: unchanged, ETF inflows and bullish sentiment continue, nothing new.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 55.48,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "volume_ratio": 0.83,
+  "volume_flag_above_2x": false,
+  "price_action_1h_pct": 1.58,
+  "price_action_4h_pct": 1.39,
+  "order_book_imbalance": 0.085,
+  "news_context": "Unchanged: continued ETF inflows, bullish sentiment. Nothing new."
+}
+```
+
+---
+### 2026-09-06T20:59:53.253Z — SOL/USD — NO TRADE
+
+**Reasoning:** No fresh trigger. RSI 59.9, no SMA crossover this candle, volume still below average (0.84x, not flagged). News context: unchanged - SEC ETF-asset status positive, staking/data-center outage still being reported, no new development this cycle.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 59.9,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "volume_ratio": 0.84,
+  "volume_flag_above_2x": false,
+  "price_action_1h_pct": 3.64,
+  "price_action_4h_pct": 3.47,
+  "order_book_imbalance": -0.117,
+  "news_context": "Unchanged: SEC ETF-asset status, staking outage story continues. No new development."
+}
+```
+
+---
