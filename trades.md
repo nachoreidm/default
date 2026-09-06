@@ -901,3 +901,93 @@ is generated from.
 ```
 
 ---
+### 2026-09-06T21:59:36.888Z — BTC/USD — NO TRADE
+
+**Reasoning:** No fresh trigger. RSI 4h neutral at 53.9. SMA fast-above-slow, no crossover this candle. Volume 0.43x 7d avg, not flagged. News context: BTC briefly topped $82k on eased Fed rate-hike fears and falling yields, ETF inflows extended to a 3-week/$3.8B streak - net positive but the upcoming Fed decision is flagged as the key near-term risk. No quant trigger for news to act on.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 53.9,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "volume_ratio": 0.43,
+  "volume_flag_above_2x": false,
+  "price_action_1h_pct": 0.31,
+  "price_action_4h_pct": 0.19,
+  "order_book_imbalance": 0.084,
+  "news_context": "Positive: brief run above $82k, eased Fed rate-hike fears, 3-week/$3.8B ETF inflow streak. Upcoming Fed decision flagged as key near-term risk. No quant trigger."
+}
+```
+
+---
+### 2026-09-06T21:59:39.032Z — ETH/USD — NO TRADE
+
+**Reasoning:** No fresh trigger. RSI 4h neutral at 55.5. SMA fast-above-slow, no crossover this candle. Volume 0.83x 7d avg, not flagged. News context: unchanged, 12th day of ETF inflows, decoupling narrative from BTC. Nothing new to act on.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 55.48,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "volume_ratio": 0.83,
+  "volume_flag_above_2x": false,
+  "price_action_1h_pct": 1.9,
+  "price_action_4h_pct": 1.39,
+  "order_book_imbalance": 0.104,
+  "news_context": "Unchanged: continued ETF inflows, decoupling from BTC narrative. Nothing new."
+}
+```
+
+---
+### 2026-09-06T21:59:42.302Z — SOL/USD — NO TRADE
+
+**Reasoning:** No fresh trigger. RSI 59.9, no SMA crossover this candle, volume still below average (0.84x, not flagged). Order book flipped ask-heavy this cycle (-0.30). News context: unchanged SEC ETF-asset status positive; mixed trader sentiment noted (support buyers at ~$102 vs breakdown-risk warnings). No quant trigger.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 59.9,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "volume_ratio": 0.84,
+  "volume_flag_above_2x": false,
+  "price_action_1h_pct": 4.02,
+  "price_action_4h_pct": 3.47,
+  "order_book_imbalance": -0.302,
+  "news_context": "Unchanged: SEC ETF-asset status. New: mixed trader sentiment, some see $102 support buy, others warn of breakdown risk. No quant trigger."
+}
+```
+
+---
+### 2026-09-06T21:59:46.273Z — POL/USD — NO TRADE
+
+**Reasoning:** Already holding an open LONG from the prior cycle's fresh bullish crossover (opened 2026-09-06T20:59:36Z, entry $0.09782). Signals this cycle still show the crossover flag set (same underlying candle, not a new event) - not adding to the position. Price has moved favorably to $0.09838, well above the $0.0955 stop. RSI still neutral (55.8), no SMA reversal. News unchanged, still net-positive. No new action - monitoring the existing position via portfolio_check_stops (clean this cycle).
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 55.78,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": true,
+    "note": "same crossover event as prior cycle's entry, not a new signal"
+  },
+  "volume_ratio": 0.27,
+  "volume_flag_above_2x": false,
+  "price_action_1h_pct": 5.36,
+  "price_action_4h_pct": 5.11,
+  "order_book_imbalance": 0.13,
+  "current_position": "Open LONG since 2026-09-06T20:59:36Z, entry 0.09782, stop 0.0955, currently 0.09838 (favorable)",
+  "news_context": "Unchanged: security hard forks, tx milestone, enterprise usage remain the dominant positive items."
+}
+```
+
+---
