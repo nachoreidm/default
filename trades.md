@@ -2665,3 +2665,114 @@ The XRP/USD position logged above (id `96537a2c-86f0-4cbd-8b80-b5f5bc8ada22`, op
 ```
 
 ---
+### 2026-09-07T15:15:09.350Z — BTC/USD — NO TRADE
+
+**Reasoning:** No fresh quantitative trigger: RSI neutral (48.4), SMA fast-above-slow with no cross this candle, volume 0.71x 7d avg (not flagged), price action negative (-0.79%/-0.51%), order book now ask-heavy (-0.47). News: BTC continues to be rejected near $82K, strong August jobs data and record-high core PCE push toward a Fed hike (the biggest headwind to a breakout); a Liquid Network attacker reportedly plans to return most of the stolen 4,000 BTC after a bug fix. Nothing trigger-worthy for this pair today. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 48.37,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "volume_ratio": 0.71,
+  "volume_flag_above_2x": false,
+  "price_action_1h_pct": -0.79,
+  "price_action_4h_pct": -0.51,
+  "order_book_imbalance": -0.465,
+  "news_context": "BTC opened $80,351 Monday, rejected at low-$82K repeatedly; strong jobs data/core PCE pushing Fed toward a hike (key headwind); Liquid Network attacker reportedly planning to return most of the stolen 4,000 BTC. No trigger-worthy event now."
+}
+```
+
+---
+### 2026-09-07T15:15:12.661Z — ETH/USD — NO TRADE
+
+**Reasoning:** No fresh quantitative trigger: RSI neutral (53.4), SMA fast-above-slow, no cross this candle, volume 1.04x 7d avg (not flagged), price action positive (+1.21%/+1.18%), order book ask-heavy (-0.22). News: ETH slipped slightly intraday to ~$2,490 after opening higher Monday; record ETF inflows (~$987M last week) still constructive; Geth v1.17.5 maintenance release noted. Nothing trigger-worthy today. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 53.39,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "volume_ratio": 1.04,
+  "volume_flag_above_2x": false,
+  "price_action_1h_pct": 1.21,
+  "price_action_4h_pct": 1.18,
+  "order_book_imbalance": -0.217,
+  "news_context": "ETH ~$2,489-2,490, opened $2,514.80 Monday (+1.4%) but slipped intraday; record spot ETH ETF inflows (~$987M last week); Geth v1.17.5 release. No trigger-worthy event this cycle."
+}
+```
+
+---
+### 2026-09-07T15:15:16.638Z — SOL/USD — NO TRADE
+
+**Reasoning:** No fresh quantitative trigger: RSI neutral (54.9), SMA fast-above-slow, no cross this candle, volume 1.06x 7d avg (not flagged), price action still positive on the 48h window (+1.63%/+1.91%). Order book now slightly ask-heavy (-0.06). News notes SOL fell 1.4% intraday after another rejection near $107, with weakening capital flows and nearby liquidation clusters raising volatility risk - worth watching but not itself a listed trigger, and the longer-term catalysts (SEC ETF recognition, Transaction V1 Sept 9) remain constructive. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 54.86,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "volume_ratio": 1.06,
+  "volume_flag_above_2x": false,
+  "price_action_1h_pct": 1.63,
+  "price_action_4h_pct": 1.91,
+  "order_book_imbalance": -0.064,
+  "news_context": "SOL fell 1.4% intraday after rejection near $107, weakening capital flows and nearby liquidation clusters flagged as a near-term risk; SEC core ETF asset recognition and Transaction V1 (Sept 9) remain constructive longer-term. No trigger-worthy event this cycle."
+}
+```
+
+---
+### 2026-09-07T15:15:21.848Z — POL/USD — NO TRADE
+
+**Reasoning:** Still holding the open medium-confidence long (opened 2026-09-06T20:59:36Z); checked clean by portfolio_check_stops this cycle, though price ($0.09575) has drifted down to roughly 0.3% above the $0.0955 stop - closer than any prior cycle, worth watching next cycle. No new trigger to add: RSI neutral (53.8), SMA fast-above-slow with no fresh cross, volume still well below average (0.46x, not flagged). Price action remains net positive on the 48h window (+1.62%/+2.01%) despite the recent pullback; order book still bid-heavy (+0.16). News: no acute negative catalyst, general narrative of slow price recovery continues. No new trade; will monitor the stop closely next cycle.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 53.79,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "volume_ratio": 0.462,
+  "volume_flag_above_2x": false,
+  "price_action_1h_pct": 1.62,
+  "price_action_4h_pct": 2.01,
+  "order_book_imbalance": 0.156,
+  "existing_position": "medium confidence long, 3% size, opened 2026-09-06T20:59:36Z, stop clean this cycle but price ($0.09575) now only ~0.3% above the $0.0955 stop",
+  "news_context": "Gigagas 100K TPS roadmap ongoing, 1.4B 2025 transactions and a Feb 2026 100M POL burn noted but price recovery has been slow. No new acute catalyst since entry."
+}
+```
+
+---
+### 2026-09-07T15:15:24.955Z — XRP/USD — NO TRADE
+
+**Reasoning:** No fresh quantitative trigger: RSI neutral (46.7), SMA fast-above-slow, no cross this candle, volume 0.76x 7d avg (not flagged), price action negative (-0.99%/-0.97%), order book bid-heavy (+0.36). News: XRP balanced near $1.40 Bollinger midline; RLUSD stablecoin supply now majority on XRPL vs Ethereum for the first time; XRPL 3.3.0 upgrade possible Sept 11. No trigger-worthy event this cycle. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 46.73,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "volume_ratio": 0.759,
+  "volume_flag_above_2x": false,
+  "price_action_1h_pct": -0.99,
+  "price_action_4h_pct": -0.97,
+  "order_book_imbalance": 0.36,
+  "news_context": "XRP ~$1.40, Bollinger midline; RLUSD now majority on XRPL ($810M/51.7%) vs Ethereum ($756M/48.3%) for the first time; XRPL 3.3.0 upgrade possible Sept 11. No trigger-worthy event this cycle."
+}
+```
+
+---
