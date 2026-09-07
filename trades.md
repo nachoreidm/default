@@ -3446,3 +3446,113 @@ The XRP/USD position logged above (id `96537a2c-86f0-4cbd-8b80-b5f5bc8ada22`, op
 ```
 
 ---
+### 2026-09-07T22:12:43.023Z — BTC/USD — NO TRADE
+
+**Reasoning:** No fresh quantitative trigger: RSI neutral (48.6), SMA fast-above-slow with no cross this candle, volume 0.71x 7d avg (not flagged), price action negative (-0.79%/-0.59%), order book roughly balanced (+0.15). News unchanged - repeatedly rejected near $82K, range-bound trading, Fed-hike expectations remain the headwind, CPI due Fri Sept 11. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 48.59,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "volume_ratio": 0.71,
+  "volume_flag_above_2x": false,
+  "price_action_1h_pct": -0.79,
+  "price_action_4h_pct": -0.59,
+  "order_book_imbalance": 0.154,
+  "news_context": "BTC repeatedly rejected near $82K, range-bound holiday trading, Fed-hike expectations remain the headwind. CPI Fri Sept 11, CLARITY Act vote Sept 15, FOMC Sept 16. No trigger-worthy event now."
+}
+```
+
+---
+### 2026-09-07T22:12:46.703Z — ETH/USD — NO TRADE
+
+**Reasoning:** No fresh quantitative trigger: RSI neutral (54.6), SMA fast-above-slow, no cross this candle, volume 1.04x 7d avg (not flagged), price action modestly positive (+0.39%/+0.61%), order book ask-heavy (-0.70). News unchanged - record ETF inflows (~$987M last week), Hegotá scoping phase / Glamsterdam progressing, post-quantum L1 readiness targeted for 2029. Liquid Network breach remains a Bitcoin-sidechain story, not applicable. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 54.61,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "volume_ratio": 1.04,
+  "volume_flag_above_2x": false,
+  "price_action_1h_pct": 0.39,
+  "price_action_4h_pct": 0.61,
+  "order_book_imbalance": -0.698,
+  "news_context": "Record spot ETH ETF inflows (~$987M last week), Ethereum targets 2029 for post-quantum L1 readiness, Hegotá scoping/Glamsterdam progress. Liquid Network breach not applicable to ETH. No trigger-worthy event this cycle."
+}
+```
+
+---
+### 2026-09-07T22:12:49.298Z — SOL/USD — NO TRADE
+
+**Reasoning:** No fresh quantitative trigger: RSI neutral (52.0), SMA fast-above-slow, no cross this candle, volume 1.06x 7d avg (not flagged), price action modestly positive on 1h but softer on 4h (+0.48%/+1.15%), order book now ask-heavy (-0.28). News unchanged - rejected near $107 resistance, weakening capital flows flagged as near-term risk; SEC core ETF recognition and Transaction V1 (Sept 9) remain constructive longer-term; OpenSea added Solana NFT support. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 52.04,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "volume_ratio": 1.06,
+  "volume_flag_above_2x": false,
+  "price_action_1h_pct": 0.48,
+  "price_action_4h_pct": 1.15,
+  "order_book_imbalance": -0.281,
+  "news_context": "SOL rejected near $107, weakening capital flows flagged; SEC core ETF recognition, Transaction V1 launching Sept 9, OpenSea added Solana NFT support. No trigger-worthy event this cycle."
+}
+```
+
+---
+### 2026-09-07T22:12:52.728Z — POL/USD — NO TRADE
+
+**Reasoning:** No open position. No fresh entry trigger: RSI neutral (49.9), SMA fast-above-slow with no fresh cross, volume still low (0.46x, not flagged), price action negative (-1.40%/-1.88%), order book bid-heavy (+0.22). News unchanged - 99% MATIC-to-POL migration nearly complete, Gigagas roadmap ongoing, waning-retail-interest downtrend narrative persists. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 49.88,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "volume_ratio": 0.462,
+  "volume_flag_above_2x": false,
+  "price_action_1h_pct": -1.4,
+  "price_action_4h_pct": -1.88,
+  "order_book_imbalance": 0.215,
+  "news_context": "99% MATIC-to-POL migration nearly complete, Gigagas 100K TPS roadmap ongoing, waning-retail-interest downtrend narrative continues. No new catalyst since the stop-out."
+}
+```
+
+---
+### 2026-09-07T22:12:55.903Z — XRP/USD — NO TRADE
+
+**Reasoning:** No fresh quantitative trigger: RSI neutral (48.8), SMA fast-above-slow, no cross this candle, volume 0.76x 7d avg (not flagged), price action negative (-1.25%/-0.76%), order book roughly balanced (+0.03). News unchanged and constructive-to-neutral: sitting near the $1.40 Bollinger midline, RLUSD majority now on XRPL, 7 spot ETFs with $2B AUM; possible XRPL 3.3.0 upgrade Sept 11 and Fed meeting Sept 15-16 remain the key catalysts ahead. No trigger-worthy event. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 48.82,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "volume_ratio": 0.759,
+  "volume_flag_above_2x": false,
+  "price_action_1h_pct": -1.25,
+  "price_action_4h_pct": -0.76,
+  "order_book_imbalance": 0.026,
+  "news_context": "XRP near $1.40 Bollinger midline, RLUSD majority now on XRPL vs Ethereum, 7 spot ETFs with $2B AUM. XRPL 3.3.0 possible Sept 11, Fed meeting Sept 15-16. No trigger-worthy event this cycle."
+}
+```
+
+---
