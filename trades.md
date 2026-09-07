@@ -1527,3 +1527,92 @@ is generated from.
 ```
 
 ---
+### 2026-09-07T05:00:06.354Z — BTC/USD — NO TRADE
+
+**Reasoning:** No fresh trigger. RSI 4h at 50.1, fully neutral. SMA fast-above-slow, no crossover this candle. Volume 0.71x 7d avg, not flagged. News context: unchanged/recurring, ETF inflows and price/gold comparison noted.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 50.12,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "volume_ratio": 0.71,
+  "volume_flag_above_2x": false,
+  "price_action_1h_pct": 0.07,
+  "price_action_4h_pct": -0.17,
+  "order_book_imbalance": 0.608,
+  "news_context": "Unchanged: ETF inflows, BTC/gold comparison. Nothing new or urgent."
+}
+```
+
+---
+### 2026-09-07T05:00:08.351Z — ETH/USD — NO TRADE
+
+**Reasoning:** No fresh trigger. RSI 4h at 55.6, neutral. SMA fast-above-slow, no crossover this candle. Volume ratio 1.04x, not flagged. News context: unchanged, ETF inflow streak continues.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 55.62,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "volume_ratio": 1.04,
+  "volume_flag_above_2x": false,
+  "price_action_1h_pct": 1.94,
+  "price_action_4h_pct": 1.6,
+  "order_book_imbalance": 0.353,
+  "news_context": "Unchanged: continued ETF inflows. Nothing new."
+}
+```
+
+---
+### 2026-09-07T05:00:10.817Z — SOL/USD — NO TRADE
+
+**Reasoning:** No fresh trigger. RSI 55.2, neutral. SMA fast-above-slow, no crossover this candle. Volume ratio 1.06x, not flagged. News context: unchanged, SEC ETF-asset status and staking outage story recurring.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 55.22,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "volume_ratio": 1.06,
+  "volume_flag_above_2x": false,
+  "price_action_1h_pct": 3.1,
+  "price_action_4h_pct": 2.65,
+  "order_book_imbalance": -0.211,
+  "news_context": "Unchanged: SEC ETF-asset status, staking outage story recurring. No new development."
+}
+```
+
+---
+### 2026-09-07T05:00:12.288Z — POL/USD — NO TRADE
+
+**Reasoning:** Already holding open LONG from prior cycle (entry $0.09782, stop $0.0955). No fresh crossover. Price at $0.09706, slightly below entry, still above stop (~1.6% buffer). News unchanged. Stops check clean this cycle.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 53.55,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "volume_ratio": 0.46,
+  "volume_flag_above_2x": false,
+  "price_action_1h_pct": 2.77,
+  "price_action_4h_pct": 1.98,
+  "order_book_imbalance": 0.308,
+  "current_position": "Open LONG since 2026-09-06T20:59:36Z, entry 0.09782, stop 0.0955, currently 0.09706 (slightly below entry, above stop)",
+  "news_context": "Unchanged: security hard forks, tx milestone, enterprise usage remain dominant positive items."
+}
+```
+
+---
