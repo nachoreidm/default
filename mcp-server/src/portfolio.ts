@@ -312,7 +312,7 @@ export async function checkStops(): Promise<StopCheckAction[]> {
   return actions;
 }
 
-export async function logNoTrade(input: { pair: string; reasoning: string; signals_considered: Record<string, unknown> }): Promise<void> {
+export async function logNoTrade(input: { pair: string; reasoning: string; signals_considered: Record<string, unknown> }): Promise<{ ok: true; pair: string; logged_at: string }> {
   const ts = new Date().toISOString();
   const lines = [
     `### ${ts} — ${input.pair} — NO TRADE`,
@@ -328,6 +328,7 @@ export async function logNoTrade(input: { pair: string; reasoning: string; signa
     "",
   ];
   await appendTradeLog(lines.join("\n"));
+  return { ok: true, pair: input.pair, logged_at: ts };
 }
 
 function formatOpenEntry(p: Position): string {

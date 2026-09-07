@@ -1888,3 +1888,114 @@ is generated from.
 The XRP/USD position logged above (id `96537a2c-86f0-4cbd-8b80-b5f5bc8ada22`, opened 2026-09-07T07:58:25Z) was not a real trading decision — it was an accidental write from testing the new confidence-based sizing cap directly against the live portfolio tools while adding XRP/USD support. Removed from `data/portfolio_state.json` and cash restored to $9,700 (unaffected by this entry). No paper capital was actually at risk; this note stands in place of silently deleting the log entry.
 
 ---
+### 2026-09-07T08:04:36.481Z — BTC/USD — NO TRADE
+
+**Reasoning:** No fresh quantitative trigger: RSI neutral (48.0, no extreme), SMA stays fast-above-slow but did not cross this candle (stale trend, not new), volume 0.71x 7d avg (not flagged), price action mildly negative (-0.34%/-0.30% over 48h). Order book is bid-heavy (+0.71) but that alone isn't a listed trigger. News is constructive (ETF inflows ~$4.25B/30d, price near resistance $80-82K) but corroborates no existing quant signal and can't manufacture one on its own. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 48.02,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "volume_ratio": 0.71,
+  "volume_flag_above_2x": false,
+  "price_action_1h_pct": -0.34,
+  "price_action_4h_pct": -0.3,
+  "order_book_imbalance": 0.709,
+  "news_context": "Constructive: BTC near $79K, ETF inflows ~$4.25B/30d, resistance at $80-82K, Fed rate-hike odds (59%) a near-term overhang. No news event severe enough to matter absent a quant trigger."
+}
+```
+
+---
+### 2026-09-07T08:04:40.146Z — ETH/USD — NO TRADE
+
+**Reasoning:** No fresh quantitative trigger: RSI neutral (53.3), SMA fast-above-slow but no cross this candle, volume 1.04x 7d avg (essentially average, not flagged), price action modestly positive (+1.3%/+1.4% over 48h) but not extreme. News is constructive (record ETF inflows, ~$987M last week) and technical outlook is bullish toward $2,800-2,920, but it's advisory only and no quant signal is currently pointing anywhere fresh. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 53.32,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "volume_ratio": 1.04,
+  "volume_flag_above_2x": false,
+  "price_action_1h_pct": 1.3,
+  "price_action_4h_pct": 1.42,
+  "order_book_imbalance": 0.489,
+  "news_context": "Constructive: record spot ETH ETF inflows (~$987M last week, 2nd straight record week), Geth v1.17.5 maintenance release, mixed-to-constructive sentiment. No trigger-worthy event."
+}
+```
+
+---
+### 2026-09-07T08:04:44.875Z — SOL/USD — NO TRADE
+
+**Reasoning:** No fresh quantitative trigger: RSI neutral (52.9), SMA fast-above-slow but no cross this candle, volume 1.06x 7d avg (not flagged), price action positive (+1.8%/+2.0%) but not extreme, order book roughly balanced (-0.07). News is notably positive (SEC recognized SOL as core ETF asset alongside BTC/ETH on Sept 5, Transaction V1 launching Sept 9, strong ETF inflows) but per the rules this can only raise confidence on a trade a quant signal already supports, not manufacture one — none of the five signals is currently flagged. No trade, though this is a pair to watch closely given the regulatory news and imminent protocol upgrade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 52.86,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "volume_ratio": 1.06,
+  "volume_flag_above_2x": false,
+  "price_action_1h_pct": 1.82,
+  "price_action_4h_pct": 2.03,
+  "order_book_imbalance": -0.069,
+  "news_context": "Notably positive: SEC formally recognized SOL as core ETF asset (Sept 5), Transaction V1 launch Sept 9, phased rent reduction underway, SOL ETFs pulled $153.87M (strongest week since Oct 2025). Watch for a quant trigger confirming this into next cycle."
+}
+```
+
+---
+### 2026-09-07T08:04:50.044Z — POL/USD — NO TRADE
+
+**Reasoning:** Already holding an open medium-confidence long (opened 2026-09-06T20:59:36Z on a fresh bullish crossover) - checked clean by portfolio_check_stops this cycle. Current signals show no new trigger to add to the position: RSI neutral (52.6), SMA still fast-above-slow but the crossover already happened at entry (not fresh this candle), volume still well below average (0.46x, not flagged). Price action remains positive (+2.68%/+2.53%) consistent with the existing thesis holding, not a new signal. News is mixed-to-positive (8B tx milestone, prior security hard forks already priced in, payments pivot bullish narrative) similar to what supported the original entry, with the CEO/community commentary and LeBron/Polymarket tease being noise. No new trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 52.64,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "volume_ratio": 0.462,
+  "volume_flag_above_2x": false,
+  "price_action_1h_pct": 2.68,
+  "price_action_4h_pct": 2.53,
+  "order_book_imbalance": 0.028,
+  "existing_position": "medium confidence long, 3% size, opened 2026-09-06T20:59:36Z, currently -1.34% unrealized, stop clean",
+  "news_context": "8B cumulative tx milestone (Sept 1), payments pivot narrative bullish, CEO vacation commentary and LeBron/Polymarket tease are noise, no new negative catalyst since entry."
+}
+```
+
+---
+### 2026-09-07T08:04:54.055Z — XRP/USD — NO TRADE
+
+**Reasoning:** No fresh quantitative trigger: RSI neutral (46.6), SMA fast-above-slow but no cross this candle, volume 0.76x 7d avg (not flagged), price action mildly negative (-0.55%/-0.40%). News is mixed: constructive partnerships (Mastercard, JPMorgan, OKX, Ondo, Florida Athletics deal) and BIS testing XRPL for tamper-resistant statistics, offset by a 1B XRP escrow unlock (Sept 1, supply overhang) and price stalled below resistance. Nothing here overrides the lack of a quant trigger. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 46.64,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "volume_ratio": 0.759,
+  "volume_flag_above_2x": false,
+  "price_action_1h_pct": -0.55,
+  "price_action_4h_pct": -0.4,
+  "order_book_imbalance": 0.103,
+  "news_context": "Mixed: 1B XRP escrow unlock Sept 1 (supply overhang), price stalled below resistance near $1.41-1.43; offset by new partnerships (Mastercard/JPMorgan/OKX/Ondo, Florida Athletics deal) and BIS testing XRPL. No trigger-worthy catalyst either direction."
+}
+```
+
+---

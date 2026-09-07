@@ -240,6 +240,7 @@ export async function logNoTrade(input) {
         "",
     ];
     await appendTradeLog(lines.join("\n"));
+    return { ok: true, pair: input.pair, logged_at: ts };
 }
 function formatOpenEntry(p) {
     const lines = [
