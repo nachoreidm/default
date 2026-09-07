@@ -4,7 +4,7 @@ import { z } from "zod";
 import { fetchOHLC, fetchDepth, fetchTicker, closedCandles, INTERVAL_MINUTES } from "./kraken.js";
 import { computeSignals } from "./signals.js";
 import { getSnapshot, openPosition, closePosition, checkStops, logNoTrade } from "./portfolio.js";
-import { ALLOWED_PAIRS, RISK_LIMITS } from "./types.js";
+import { ALLOWED_PAIRS, RISK_LIMITS, CONFIDENCE_MAX_SIZE_PCT } from "./types.js";
 
 const server = new McpServer({ name: "kraken-paper-trading", version: "0.1.0" });
 
@@ -67,7 +67,7 @@ server.tool(
 
 server.tool(
   "portfolio_open_position",
-  `Open a new paper LONG position (spot only, no margin/short). All risk limits are enforced here in code and will reject the call if violated: max ${RISK_LIMITS.MAX_POSITION_PCT}% of portfolio per trade, max ${RISK_LIMITS.MAX_TOTAL_EXPOSURE_PCT}% total exposure, max ${RISK_LIMITS.MAX_OPEN_POSITIONS} open positions, and a same-UTC-day halt once realized paper losses hit ${RISK_LIMITS.MAX_DAILY_LOSS_PCT}% of portfolio value. Fill price is simulated from the live ask plus modeled fee/slippage. Automatically appends a structured entry to trades.md on success.`,
+  `Open a new paper LONG position (spot only, no margin/short). All risk limits are enforced here in code and will reject the call if violated: max ${RISK_LIMITS.MAX_POSITION_PCT}% of portfolio per trade, max ${RISK_LIMITS.MAX_TOTAL_EXPOSURE_PCT}% total exposure, max ${RISK_LIMITS.MAX_OPEN_POSITIONS} open positions, a same-UTC-day halt once realized paper losses hit ${RISK_LIMITS.MAX_DAILY_LOSS_PCT}% of portfolio value, and a confidence-based size cap: low confidence doesn't trade at all (call portfolio_log_no_trade instead), medium caps at ${CONFIDENCE_MAX_SIZE_PCT.medium}%, high can use the full ${CONFIDENCE_MAX_SIZE_PCT.high}%. Fill price is simulated from the live ask plus modeled fee/slippage. Automatically appends a structured entry to trades.md on success.`,
   {
     pair: pairSchema,
     size_pct: z.number().positive().max(RISK_LIMITS.MAX_POSITION_PCT),

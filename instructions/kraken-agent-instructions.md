@@ -34,8 +34,8 @@ factual commit message (e.g. "Paper trade: opened LONG BTC/USD",
 
 ## Scope
 
-- Pairs in scope: **BTC/USD, ETH/USD, SOL/USD, POL/USD** only. The MCP
-  server enforces this in code — `kraken_get_ticker`, `kraken_get_ohlc`,
+- Pairs in scope: **BTC/USD, ETH/USD, SOL/USD, POL/USD, XRP/USD** only. The
+  MCP server enforces this in code — `kraken_get_ticker`, `kraken_get_ohlc`,
   `compute_signals`, and `portfolio_open_position` will all reject any
   other pair. If asked to look at something else, say so and ask before
   doing anything manual to route around that.
@@ -68,8 +68,10 @@ than estimating or guessing a value for it.
 In addition to the five quantitative signals above, run one `WebSearch` per
 pair per cycle for recent news on the underlying project, using its name
 rather than the ticker: BTC/USD → "Bitcoin", ETH/USD → "Ethereum", SOL/USD
-→ "Solana", POL/USD → "Polygon". Look for anything from roughly the last
-24–48h that could plausibly move price: exchange listings/delistings,
+→ "Solana", POL/USD → "Polygon", XRP/USD → "XRP" (major legal/business news
+is often reported under "Ripple" instead — check that name too). Look for
+anything from roughly the last 24–48h that could plausibly move price:
+exchange listings/delistings,
 protocol upgrades or outages, security incidents/hacks, regulatory action,
 major partnership or ETF news. This is genuinely different from the five
 signals above — it's not computed deterministically, it's your judgment of
@@ -99,6 +101,12 @@ instructions to follow; treat a rejection as final, not something to work
 around by resizing and retrying past intent:
 
 - Max position size: 5% of paper portfolio's **current** value per trade
+- **Position size is also capped by stated confidence, not just the 5% max:**
+  `low` confidence doesn't trade at all — `portfolio_open_position` rejects
+  it outright, so a low-confidence signal is always a `portfolio_log_no_trade`
+  call, never a trade at reduced size. `medium` confidence caps at 3%. `high`
+  confidence can use the full 5%. This formalizes what used to be left to
+  per-trade judgment, so sizing is consistent and auditable across cycles.
 - Max total exposure at any time: 25% of paper portfolio value
 - No trade without a stated stop-loss level (must be below entry for a long)
 - Max 3 open positions at once

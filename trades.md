@@ -1794,3 +1794,8 @@ is generated from.
 ```
 
 ---
+### CORRECTION — 2026-09-07T08:00:00.000Z
+
+The XRP/USD position logged above (id `96537a2c-86f0-4cbd-8b80-b5f5bc8ada22`, opened 2026-09-07T07:58:25Z) was not a real trading decision — it was an accidental write from testing the new confidence-based sizing cap directly against the live portfolio tools while adding XRP/USD support. Removed from `data/portfolio_state.json` and cash restored to $9,700 (unaffected by this entry). No paper capital was actually at risk; this note stands in place of silently deleting the log entry.
+
+---

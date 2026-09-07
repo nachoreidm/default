@@ -8,6 +8,7 @@ const PAIR_CODE: Record<AllowedPair, string> = {
   "ETH/USD": "ETHUSD",
   "SOL/USD": "SOLUSD",
   "POL/USD": "POLUSD",
+  "XRP/USD": "XRPUSD",
 };
 
 export const INTERVAL_MINUTES = {
