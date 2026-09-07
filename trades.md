@@ -2776,3 +2776,123 @@ The XRP/USD position logged above (id `96537a2c-86f0-4cbd-8b80-b5f5bc8ada22`, op
 ```
 
 ---
+### 2026-09-07T16:13:28.067Z — POL/USD — LONG — CLOSED
+
+- Exit price: $0.10
+- Exit fee (paper): $1.16
+- Reason: Stop-loss auto-triggered (price 0.09516 <= stop 0.0955).
+- Realized P&L: $-10.57 (-0.11% of portfolio)
+- Position id: 0d46d29c-18fc-4353-a4d2-527d052da80b
+
+---
+### 2026-09-07T16:14:08.571Z — BTC/USD — NO TRADE
+
+**Reasoning:** No fresh quantitative trigger despite the pullback: RSI has dropped to 42.2 but is not yet oversold (<30), SMA remains fast-above-slow with no cross this candle, volume 0.71x 7d avg (not flagged), price action clearly negative (-1.55%/-1.19%), order book bid-heavy (+0.66). News: Bloomberg now confirms the Liquid Network breach at ~$320M stolen (roughly 4,000 of 4,200 BTC in the wallet) - a real Bitcoin-related security incident weighing on sentiment alongside Fed-hike expectations from strong jobs/PCE data. This news corroborates the negative price action but there is still no quantitative trigger (RSI not oversold, no crossover, no volume spike) to act on. No trade - watching for RSI to reach oversold territory.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 42.24,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "volume_ratio": 0.71,
+  "volume_flag_above_2x": false,
+  "price_action_1h_pct": -1.55,
+  "price_action_4h_pct": -1.19,
+  "order_book_imbalance": 0.658,
+  "news_context": "Bloomberg confirms Liquid Network breach at ~$320M (4,000 of 4,200 BTC stolen from a wallet used to move BTC across exchanges) - a real Bitcoin security incident. Strong jobs/PCE data pushing Fed toward a hike remains the bigger headwind. CLARITY Act vote Sept 15, Fed Sept 16. RSI weakening (42.2) but not yet oversold."
+}
+```
+
+---
+### 2026-09-07T16:14:11.759Z — ETH/USD — NO TRADE
+
+**Reasoning:** No fresh quantitative trigger: RSI neutral (47.9), SMA fast-above-slow, no cross this candle, volume 1.04x 7d avg (not flagged), price action roughly flat-to-slightly negative (-0.07%/-0.34%), order book strongly bid-heavy (+0.60). News unchanged from prior cycles - record ETF inflows (~$987M last week), Geth v1.17.5 release; the Liquid Network breach remains a Bitcoin-sidechain story, not applicable to ETH. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 47.92,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "volume_ratio": 1.04,
+  "volume_flag_above_2x": false,
+  "price_action_1h_pct": -0.07,
+  "price_action_4h_pct": -0.34,
+  "order_book_imbalance": 0.6,
+  "news_context": "Record spot ETH ETF inflows (~$987M last week), Geth v1.17.5 maintenance release. Liquid Network breach confirmed as Bitcoin-related, not applicable to ETH. No trigger-worthy event this cycle."
+}
+```
+
+---
+### 2026-09-07T16:14:15.763Z — SOL/USD — NO TRADE
+
+**Reasoning:** No fresh quantitative trigger: RSI neutral (47.3), SMA fast-above-slow, no cross this candle, volume 1.06x 7d avg (not flagged), price action modestly negative (-0.17%/-0.16%), order book roughly balanced (-0.01). News still constructive on a longer horizon: SOL up 40.5% over the past month, SEC core ETF asset recognition, Transaction V1 launching Sept 9, but nothing trigger-worthy today amid the broader market pullback. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 47.34,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "volume_ratio": 1.06,
+  "volume_flag_above_2x": false,
+  "price_action_1h_pct": -0.17,
+  "price_action_4h_pct": -0.16,
+  "order_book_imbalance": -0.008,
+  "news_context": "SOL up 40.53% over the past month, SEC core ETF asset recognition (Sept 5), Transaction V1 launches Sept 9, SOL ETFs pulled $153.87M (strongest week since Oct 2025). No trigger-worthy event this cycle."
+}
+```
+
+---
+### 2026-09-07T16:14:21.945Z — POL/USD — NO TRADE
+
+**Reasoning:** The open medium-confidence long from 2026-09-06T20:59:36Z was auto-closed by portfolio_check_stops this cycle: price fell to 0.09516 (<= stop 0.0955), exit 0.09513241, realized loss -$10.57 (-0.11% of portfolio). The invalidation condition specified at entry (close back below the 50-period 4h SMA, near the stop) is exactly what played out. No new entry trigger this cycle: RSI neutral-to-soft (46.1, not oversold), SMA still fast-above-slow with no fresh cross, volume still low (0.46x, not flagged), price action negative (-0.20%/-0.48%). News: no acute new catalyst beyond the general slow-recovery narrative and payments-pivot progress (409% surge in payment processor volumes, partnerships with Revolut/Flutterwave/Shift4). No trade - would need a fresh bullish signal to re-enter.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 46.13,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "volume_ratio": 0.462,
+  "volume_flag_above_2x": false,
+  "price_action_1h_pct": -0.2,
+  "price_action_4h_pct": -0.48,
+  "order_book_imbalance": 0.089,
+  "stop_event": "Prior medium-confidence long (opened 2026-09-06T20:59:36Z, 3% size) auto-closed by stop-loss this cycle at 0.09513241, realized pnl -$10.57 (-0.11% of portfolio)",
+  "news_context": "409% surge in payment processor volumes, partnerships with Revolut/Flutterwave/Shift4 (Open Money Stack strategy); Gigagas 100K TPS roadmap ongoing. No acute new catalyst since the stop-out."
+}
+```
+
+---
+### 2026-09-07T16:14:26.158Z — XRP/USD — NO TRADE
+
+**Reasoning:** No fresh quantitative trigger: RSI has dropped to 41.3 but is not yet oversold (<30), SMA fast-above-slow, no cross this candle, volume 0.76x 7d avg (not flagged), price action clearly negative (-2.28%/-2.33%, the largest pullback among the five pairs this cycle), order book ask-heavy (-0.19). News: XRP still up 39% over the past month per one source, sitting in the critical 1.38-1.42 range; no negative catalyst found beyond the broader market pullback. No trigger-worthy event yet, but RSI weakening toward oversold territory is worth watching next cycle. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 41.27,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "volume_ratio": 0.759,
+  "volume_flag_above_2x": false,
+  "price_action_1h_pct": -2.28,
+  "price_action_4h_pct": -2.33,
+  "order_book_imbalance": -0.188,
+  "news_context": "XRP up ~39% over the past month, sitting in the critical $1.38-1.42 range; 7 spot ETFs with $2B AUM; XRPL 3.3.0 possible Sept 11; Fed meeting Sept 15-16 the next catalyst. No specific negative news found for today's pullback - appears to track the broader market decline. RSI weakening but not yet oversold."
+}
+```
+
+---
