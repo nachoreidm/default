@@ -3226,3 +3226,113 @@ The XRP/USD position logged above (id `96537a2c-86f0-4cbd-8b80-b5f5bc8ada22`, op
 ```
 
 ---
+### 2026-09-07T20:12:50.498Z — BTC/USD — NO TRADE
+
+**Reasoning:** No fresh quantitative trigger: RSI neutral (48.6), SMA fast-above-slow with no cross this candle, volume 0.71x 7d avg (not flagged), price action negative (-0.49%/-0.59%), order book strongly ask-heavy (-0.78). News unchanged - repeatedly rejected near $82K, Fed-hike expectations remain the headwind, Liquid Network attacker reportedly returning most of the stolen BTC, CPI due Fri Sept 11. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 48.59,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "volume_ratio": 0.71,
+  "volume_flag_above_2x": false,
+  "price_action_1h_pct": -0.49,
+  "price_action_4h_pct": -0.59,
+  "order_book_imbalance": -0.777,
+  "news_context": "BTC repeatedly rejected near $82K, Fed-hike expectations remain the headwind, Liquid Network attacker reportedly returning most of stolen BTC. CPI Fri Sept 11, CLARITY Act vote Sept 15, FOMC Sept 16. No trigger-worthy event now."
+}
+```
+
+---
+### 2026-09-07T20:12:54.383Z — ETH/USD — NO TRADE
+
+**Reasoning:** No fresh quantitative trigger: RSI neutral (54.6), SMA fast-above-slow, no cross this candle, volume 1.04x 7d avg (not flagged), price action positive (+0.72%/+0.61%), order book strongly ask-heavy (-0.83). News: exchange balances fell 116,000 ETH in two days (reducing liquid supply, mildly bullish structurally) but spot demand is fading and institutional flows favor Bitcoin - a mixed signal, not itself a listed trigger. Record ETF inflows (~$987M last week) still constructive. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 54.61,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "volume_ratio": 1.04,
+  "volume_flag_above_2x": false,
+  "price_action_1h_pct": 0.72,
+  "price_action_4h_pct": 0.61,
+  "order_book_imbalance": -0.835,
+  "news_context": "Exchange balances fell 116,000 ETH in two days (reduced liquid supply) but fading spot demand and institutional flows favoring BTC raise rejection risk; record spot ETH ETF inflows (~$987M last week). No trigger-worthy event this cycle."
+}
+```
+
+---
+### 2026-09-07T20:12:56.994Z — SOL/USD — NO TRADE
+
+**Reasoning:** No fresh quantitative trigger: RSI neutral (52.0), SMA fast-above-slow, no cross this candle, volume 1.06x 7d avg (not flagged), price action positive (+1.08%/+1.15%), order book roughly balanced (-0.03). News unchanged and constructive - SEC core ETF asset recognition, Transaction V1 launching Sept 9, Alpenglow targeted for October. No trigger-worthy event this cycle. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 52.04,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "volume_ratio": 1.06,
+  "volume_flag_above_2x": false,
+  "price_action_1h_pct": 1.08,
+  "price_action_4h_pct": 1.15,
+  "order_book_imbalance": -0.029,
+  "news_context": "SEC core ETF asset recognition (Sept 5), $3B tokenized stock boom, Transaction V1 launching Sept 9, Alpenglow targeted October. No trigger-worthy event this cycle."
+}
+```
+
+---
+### 2026-09-07T20:13:00.329Z — POL/USD — NO TRADE
+
+**Reasoning:** No open position. No fresh entry trigger: RSI neutral (49.9), SMA fast-above-slow with no fresh cross, volume still low (0.46x, not flagged), price action negative especially on the 4h window (-0.15%/-1.88%), order book roughly balanced (-0.02). News unchanged - Gigagas roadmap ongoing, waning-retail-interest downtrend narrative persists, no acute new catalyst. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 49.88,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "volume_ratio": 0.462,
+  "volume_flag_above_2x": false,
+  "price_action_1h_pct": -0.15,
+  "price_action_4h_pct": -1.88,
+  "order_book_imbalance": -0.023,
+  "news_context": "Gigagas 100K TPS roadmap ongoing, waning-retail-interest downtrend narrative continues, no acute new catalyst since the stop-out."
+}
+```
+
+---
+### 2026-09-07T20:13:03.444Z — XRP/USD — NO TRADE
+
+**Reasoning:** No fresh quantitative trigger: RSI back to neutral (48.8), SMA fast-above-slow, no cross this candle, volume 0.76x 7d avg (not flagged), price action negative (-0.93%/-0.76%), order book roughly balanced (-0.03). News unchanged and constructive-to-neutral: sitting near the $1.40 Bollinger midline, 7 spot ETFs with $2B AUM, Fed meeting Sept 15-16 remains the key catalyst ahead. No trigger-worthy event. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 48.82,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "volume_ratio": 0.759,
+  "volume_flag_above_2x": false,
+  "price_action_1h_pct": -0.93,
+  "price_action_4h_pct": -0.76,
+  "order_book_imbalance": -0.028,
+  "news_context": "XRP near $1.40 Bollinger midline, 7 spot ETFs with $2B AUM, Fed meeting Sept 15-16 the next flagged catalyst. No trigger-worthy event this cycle."
+}
+```
+
+---
