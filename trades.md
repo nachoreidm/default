@@ -3006,3 +3006,113 @@ The XRP/USD position logged above (id `96537a2c-86f0-4cbd-8b80-b5f5bc8ada22`, op
 ```
 
 ---
+### 2026-09-07T18:12:34.298Z — BTC/USD — NO TRADE
+
+**Reasoning:** No fresh quantitative trigger: RSI neutral-soft (42.2, unchanged from last cycle), SMA fast-above-slow with no cross this candle, volume 0.71x 7d avg (not flagged), price action negative (-1.04%/-1.19%), order book bid-heavy (+0.62). News unchanged - repeatedly rejected near $82K, Fed-hike expectations remain the headwind, Liquid Network attacker reportedly returning most of the stolen BTC, CPI due Fri Sept 11. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 42.24,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "volume_ratio": 0.71,
+  "volume_flag_above_2x": false,
+  "price_action_1h_pct": -1.04,
+  "price_action_4h_pct": -1.19,
+  "order_book_imbalance": 0.622,
+  "news_context": "BTC repeatedly rejected near $82K, Fed-hike expectations from strong jobs/PCE data remain the headwind; Liquid Network attacker reportedly returning most of stolen BTC. CPI Fri Sept 11, CLARITY Act vote Sept 15, FOMC Sept 16. No trigger-worthy event now."
+}
+```
+
+---
+### 2026-09-07T18:12:35.669Z — ETH/USD — NO TRADE
+
+**Reasoning:** No fresh quantitative trigger: RSI neutral (47.9), SMA fast-above-slow, no cross this candle, volume 1.04x 7d avg (not flagged), price action modestly positive (+0.58%/-0.34%), order book bid-heavy (+0.50). News unchanged - record ETF inflows (~$987M last week), Geth v1.17.5 release; Liquid Network breach remains a Bitcoin-sidechain story, not applicable. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 47.92,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "volume_ratio": 1.04,
+  "volume_flag_above_2x": false,
+  "price_action_1h_pct": 0.58,
+  "price_action_4h_pct": -0.34,
+  "order_book_imbalance": 0.505,
+  "news_context": "Record spot ETH ETF inflows (~$987M last week), Geth v1.17.5 release. Liquid Network breach not applicable to ETH. No trigger-worthy event this cycle."
+}
+```
+
+---
+### 2026-09-07T18:12:38.483Z — SOL/USD — NO TRADE
+
+**Reasoning:** No fresh quantitative trigger: RSI neutral (47.3), SMA fast-above-slow, no cross this candle, volume 1.06x 7d avg (not flagged), price action roughly flat (+0.07%/-0.16%), order book bid-heavy (+0.11). News unchanged - closed -1.4% after rejection at $106.80-107.50 resistance; SEC core ETF recognition and Transaction V1 (Sept 9) remain constructive longer-term. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 47.34,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "volume_ratio": 1.06,
+  "volume_flag_above_2x": false,
+  "price_action_1h_pct": 0.07,
+  "price_action_4h_pct": -0.16,
+  "order_book_imbalance": 0.107,
+  "news_context": "SOL rejected at $106.80-107.50 resistance, closed -1.4%; SEC core ETF asset recognition, Transaction V1 launching Sept 9, averaging 9.5M new addresses/day. No trigger-worthy event this cycle."
+}
+```
+
+---
+### 2026-09-07T18:12:42.441Z — POL/USD — NO TRADE
+
+**Reasoning:** No open position. No fresh entry trigger: RSI neutral-soft (46.1), SMA fast-above-slow with no fresh cross, volume still low (0.46x, not flagged), price action mixed (+0.83% 1h, -0.48% 4h). News unchanged - 99% MATIC-to-POL migration complete, Gigagas roadmap ongoing, waning-retail-interest downtrend narrative persists. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 46.13,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "volume_ratio": 0.462,
+  "volume_flag_above_2x": false,
+  "price_action_1h_pct": 0.83,
+  "price_action_4h_pct": -0.48,
+  "order_book_imbalance": 0.258,
+  "news_context": "99% of MATIC migrated to POL, Gigagas 100K TPS roadmap ongoing, waning-retail-interest downtrend narrative continues. No new catalyst since the stop-out."
+}
+```
+
+---
+### 2026-09-07T18:12:45.097Z — XRP/USD — NO TRADE
+
+**Reasoning:** No fresh quantitative trigger: RSI still soft (41.3, unchanged), SMA fast-above-slow, no cross this candle, volume 0.76x 7d avg (not flagged), price action negative (-1.40%/-2.33%), order book roughly balanced (+0.03). News constructive: holding above 20/50/200 daily EMAs despite the pullback, RLUSD majority now on XRPL, 7 spot ETFs with $2B AUM. No trigger-worthy event this cycle. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 41.27,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "volume_ratio": 0.759,
+  "volume_flag_above_2x": false,
+  "price_action_1h_pct": -1.4,
+  "price_action_4h_pct": -2.33,
+  "order_book_imbalance": 0.031,
+  "news_context": "XRP holding above 20/50/200 daily EMAs despite recent pullback, RLUSD majority now on XRPL vs Ethereum, 7 spot ETFs with $2B AUM. No trigger-worthy event this cycle; RSI still soft but not oversold."
+}
+```
+
+---
