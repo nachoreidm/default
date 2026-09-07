@@ -1349,3 +1349,92 @@ is generated from.
 ```
 
 ---
+### 2026-09-07T02:59:52.843Z — BTC/USD — NO TRADE
+
+**Reasoning:** No fresh trigger. RSI 4h at 59.1, neutral-elevated but not overbought. SMA fast-above-slow, no crossover this candle. Volume 0.71x 7d avg, not flagged. Order book now sharply ask-heavy (-0.98) but no quant trigger present. News context: unchanged.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 59.08,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "volume_ratio": 0.71,
+  "volume_flag_above_2x": false,
+  "price_action_1h_pct": 0.4,
+  "price_action_4h_pct": 0.92,
+  "order_book_imbalance": -0.982,
+  "news_context": "Unchanged: ETF inflows, BTC/gold outperformance noted. Nothing new."
+}
+```
+
+---
+### 2026-09-07T02:59:54.840Z — ETH/USD — NO TRADE
+
+**Reasoning:** No fresh trigger. RSI 4h at 60.7, neutral-elevated but not overbought. SMA fast-above-slow, no crossover this candle. Volume ratio 1.04x, not flagged. News context: unchanged, ETF inflow streak continues.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 60.68,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "volume_ratio": 1.04,
+  "volume_flag_above_2x": false,
+  "price_action_1h_pct": 2.04,
+  "price_action_4h_pct": 2.5,
+  "order_book_imbalance": -0.131,
+  "news_context": "Unchanged: continued ETF inflows. Nothing new."
+}
+```
+
+---
+### 2026-09-07T02:59:57.701Z — SOL/USD — NO TRADE
+
+**Reasoning:** No fresh trigger. RSI 63.7, elevated but not overbought. SMA fast-above-slow, no crossover this candle. Volume ratio 1.06x, not flagged. News context: staking outage story recurring; new items - a network governance vote (disinflation proposal) narrowly passed, and a new Lend v2 DeFi product launched. Neither is alarming nor a quant trigger.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 63.68,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "volume_ratio": 1.06,
+  "volume_flag_above_2x": false,
+  "price_action_1h_pct": 3.29,
+  "price_action_4h_pct": 4.55,
+  "order_book_imbalance": -0.04,
+  "news_context": "New: governance vote (disinflation proposal) narrowly passed; new Lend v2 DeFi product launched. Recurring: staking outage story, SEC ETF-asset status. No quant trigger."
+}
+```
+
+---
+### 2026-09-07T03:00:00.418Z — POL/USD — NO TRADE
+
+**Reasoning:** Already holding open LONG from prior cycle (entry $0.09782, stop $0.0955). No fresh crossover. Price recovered slightly to $0.09778, essentially flat vs entry and comfortably above stop. News unchanged. Stops check clean this cycle.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 58.41,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "volume_ratio": 0.46,
+  "volume_flag_above_2x": false,
+  "price_action_1h_pct": 2.84,
+  "price_action_4h_pct": 4.19,
+  "order_book_imbalance": 0.085,
+  "current_position": "Open LONG since 2026-09-06T20:59:36Z, entry 0.09782, stop 0.0955, currently 0.09778 (roughly flat)",
+  "news_context": "Unchanged: security hard forks, tx milestone, enterprise usage remain dominant positive items."
+}
+```
+
+---
