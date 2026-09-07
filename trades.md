@@ -2332,3 +2332,114 @@ The XRP/USD position logged above (id `96537a2c-86f0-4cbd-8b80-b5f5bc8ada22`, op
 ```
 
 ---
+### 2026-09-07T12:19:43.310Z — BTC/USD — NO TRADE
+
+**Reasoning:** No fresh quantitative trigger: RSI neutral (48.4), SMA fast-above-slow with no cross this candle, volume 0.71x 7d avg (not flagged), price action mildly negative (-0.40%/-0.51%), order book bid-heavy (+0.64). News: BTC holding uptrend near $79.4K above daily EMAs, but MACD histogram has turned negative on short timeframes and total crypto market cap dropped 3.12% in 24h - a caution signal, not a trigger. PPI (Thu)/CPI (Fri) and Sept 15-16 FOMC still the key upcoming catalysts. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 48.37,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "volume_ratio": 0.71,
+  "volume_flag_above_2x": false,
+  "price_action_1h_pct": -0.4,
+  "price_action_4h_pct": -0.51,
+  "order_book_imbalance": 0.641,
+  "news_context": "BTC ~$79,414, holding above daily EMA20/50/200, daily RSI14 63.9 (bullish but not overbought), MACD histogram turned negative, total crypto market cap down 3.12% in 24h, Fear & Greed 71. PPI/CPI this week and Sept 15-16 FOMC are the key catalysts ahead. No trigger-worthy event now."
+}
+```
+
+---
+### 2026-09-07T12:19:47.620Z — ETH/USD — NO TRADE
+
+**Reasoning:** No fresh quantitative trigger: RSI neutral (53.4), SMA fast-above-slow, no cross this candle, volume 1.04x 7d avg (not flagged), price action modestly positive (+1.22%/+1.18%), order book strongly bid-heavy (+0.78). News: ETH holding bullish daily structure above EMA20/50/200 but daily MACD histogram decelerating; must hold $2,438 Fibonacci support for the bullish case toward $2,920. Record ETF inflows (~$987M last week) constructive. The Liquid Network breach remains a Bitcoin-sidechain story, not applicable to ETH. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 53.39,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "volume_ratio": 1.04,
+  "volume_flag_above_2x": false,
+  "price_action_1h_pct": 1.22,
+  "price_action_4h_pct": 1.18,
+  "order_book_imbalance": 0.783,
+  "news_context": "ETH ~$2,488-2,490, bullish daily structure but decelerating momentum (daily RSI14 63.1, MACD histogram -13.3), must hold $2,438 support for bullish case toward $2,920. Record spot ETH ETF inflows (~$987M last week). Liquid Network breach is a Bitcoin sidechain story, not applicable."
+}
+```
+
+---
+### 2026-09-07T12:19:51.030Z — SOL/USD — NO TRADE
+
+**Reasoning:** No fresh quantitative trigger: RSI neutral (54.9, edging up but well short of overbought), SMA fast-above-slow, no cross this candle, volume 1.06x 7d avg (not flagged), price action positive (+1.67%/+1.91%), order book roughly balanced (+0.01). News unchanged and constructive (SEC core ETF asset recognition Sept 5, Transaction V1 launching Sept 9) - still advisory only. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 54.86,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "volume_ratio": 1.06,
+  "volume_flag_above_2x": false,
+  "price_action_1h_pct": 1.67,
+  "price_action_4h_pct": 1.91,
+  "order_book_imbalance": 0.009,
+  "news_context": "SEC named SOL a core ETF asset (Sept 5) with a new 'Hidden 15% Rule' for trusts, Transaction V1 launches Sept 9, $3B tokenized stock boom continues. No trigger-worthy event this cycle."
+}
+```
+
+---
+### 2026-09-07T12:19:55.081Z — POL/USD — NO TRADE
+
+**Reasoning:** Still holding the open medium-confidence long (opened 2026-09-06T20:59:36Z); checked clean by portfolio_check_stops this cycle. No new trigger to add: RSI neutral (53.8), SMA fast-above-slow with no fresh cross, volume still well below average (0.46x, not flagged). Price action remains positive (+2.18%/+2.01%) and order book bid-heavy (+0.25), consistent with the existing thesis holding. News unchanged - Gigagas roadmap progress vs. a lagging-price/waning-retail-interest narrative - nothing that changes the invalidation condition. No new trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 53.79,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "volume_ratio": 0.462,
+  "volume_flag_above_2x": false,
+  "price_action_1h_pct": 2.18,
+  "price_action_4h_pct": 2.01,
+  "order_book_imbalance": 0.245,
+  "existing_position": "medium confidence long, 3% size, opened 2026-09-06T20:59:36Z, stop clean this cycle",
+  "news_context": "Gigagas 100K TPS roadmap ongoing, mixed community sentiment (bullish breakout talk vs waning-retail-interest downtrend narrative), market cap ~$1.04B. No new catalyst since entry."
+}
+```
+
+---
+### 2026-09-07T12:19:59.026Z — XRP/USD — NO TRADE
+
+**Reasoning:** No fresh quantitative trigger: RSI neutral (46.7), SMA fast-above-slow, no cross this candle, volume 0.76x 7d avg (not flagged), price action negative (-1.11%/-0.97%, largest pullback of the five pairs this cycle but still not RSI-extreme), order book bid-heavy (+0.13). News: XRP sitting at a balanced decision zone ($1.40, Bollinger midline); XRPL 3.3.0 upgrade possible Sept 11 and a reported Sept 15 CLARITY Act vote flagged as upcoming catalysts, but nothing trigger-worthy today. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 46.73,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "volume_ratio": 0.759,
+  "volume_flag_above_2x": false,
+  "price_action_1h_pct": -1.11,
+  "price_action_4h_pct": -0.97,
+  "order_book_imbalance": 0.134,
+  "news_context": "XRP ~$1.40, balanced at Bollinger midline/pivot; XRPL 3.3.0 upgrade possible Sept 11, reported Sept 15 CLARITY Act vote as a catalyst to watch, 7 spot ETFs with $2B AUM. No trigger-worthy event this cycle."
+}
+```
+
+---
