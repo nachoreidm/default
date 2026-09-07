@@ -1794,3 +1794,92 @@ is generated from.
 ```
 
 ---
+### 2026-09-07T07:59:00.476Z — BTC/USD — NO TRADE
+
+**Reasoning:** No fresh trigger. RSI 4h at 50.1, fully neutral. SMA fast-above-slow, no crossover this candle. Volume 0.71x 7d avg, not flagged. News context: unchanged - US-Iran tensions and Liquid Network exploit continue to be cited, no new development. No quant trigger.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 50.12,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "volume_ratio": 0.71,
+  "volume_flag_above_2x": false,
+  "price_action_1h_pct": -0.09,
+  "price_action_4h_pct": -0.17,
+  "order_book_imbalance": -0.307,
+  "news_context": "Unchanged: US-Iran tensions, Liquid Network exploit still cited. No new development."
+}
+```
+
+---
+### 2026-09-07T07:59:02.897Z — ETH/USD — NO TRADE
+
+**Reasoning:** No fresh trigger. RSI 4h at 55.6, neutral. SMA fast-above-slow, no crossover this candle. Volume ratio 1.04x, not flagged. News context: unchanged, ETF inflow streak continues, whales buying dips noted.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 55.62,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "volume_ratio": 1.04,
+  "volume_flag_above_2x": false,
+  "price_action_1h_pct": 1.63,
+  "price_action_4h_pct": 1.6,
+  "order_book_imbalance": 0.117,
+  "news_context": "Unchanged: ETF inflows continue, whale accumulation noted. Nothing new."
+}
+```
+
+---
+### 2026-09-07T07:59:05.127Z — SOL/USD — NO TRADE
+
+**Reasoning:** No fresh trigger. RSI 55.2, neutral. SMA fast-above-slow, no crossover this candle. Volume ratio 1.06x, not flagged. News context: unchanged, SEC ETF-asset status and staking outage story recurring.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 55.22,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "volume_ratio": 1.06,
+  "volume_flag_above_2x": false,
+  "price_action_1h_pct": 2.78,
+  "price_action_4h_pct": 2.65,
+  "order_book_imbalance": -0.024,
+  "news_context": "Unchanged: SEC ETF-asset status, staking outage story recurring. No new development."
+}
+```
+
+---
+### 2026-09-07T07:59:07.712Z — POL/USD — NO TRADE
+
+**Reasoning:** Already holding open LONG from prior cycle (entry $0.09782, stop $0.0955). No fresh crossover. Price at $0.0969, still below entry, comfortably above stop (~1.4% buffer). News unchanged. Stops check clean this cycle.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 53.55,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "volume_ratio": 0.46,
+  "volume_flag_above_2x": false,
+  "price_action_1h_pct": 1.81,
+  "price_action_4h_pct": 1.98,
+  "order_book_imbalance": 0.212,
+  "current_position": "Open LONG since 2026-09-06T20:59:36Z, entry 0.09782, stop 0.0955, currently 0.0969 (below entry, above stop)",
+  "news_context": "Unchanged: security hard forks, tx milestone, enterprise usage remain dominant positive items."
+}
+```
+
+---
