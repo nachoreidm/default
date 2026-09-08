@@ -5411,3 +5411,88 @@ The XRP/USD position logged above (id `96537a2c-86f0-4cbd-8b80-b5f5bc8ada22`, op
 ```
 
 ---
+### 2026-09-08T17:12:30.510Z — BTC/USD — NO TRADE
+
+**Reasoning:** No fresh quantitative trigger: SMA fast_above_slow with no cross, RSI 45.9 neutral, volume ratio 0.63x below the 2x flag. Price down ~1.2% over 48h, still range-bound in the high-$78Ks. News: mixed institutional signals (Capital B bought $29M BTC; but Friday's ETF inflow was a 76% drop from Thursday) alongside ongoing Iran-conflict/pre-CPI macro pressure. No quant trigger to act on.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 45.9,
+  "sma_crossover_4h": "fast_above_slow, no cross",
+  "volume_ratio_24h": 0.63,
+  "price_action_48h_pct": -1.17,
+  "order_book_imbalance_top10": 0.1,
+  "news_context": "Mixed institutional signals (Capital B $29M buy vs. Friday's ETF inflow down 76% from Thursday); Iran conflict and pre-CPI macro pressure persist - advisory only, no quant trigger"
+}
+```
+
+---
+### 2026-09-08T17:12:32.430Z — ETH/USD — NO TRADE
+
+**Reasoning:** No fresh quantitative trigger: SMA fast_above_slow with no cross, RSI 55.2 neutral, volume ratio 0.84x below the 2x flag. Price modestly positive over 48h. News unchanged: ETH above $2,500, strong ETF inflows continuing - advisory only, no quant signal.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 55.24,
+  "sma_crossover_4h": "fast_above_slow, no cross",
+  "volume_ratio_24h": 0.84,
+  "price_action_48h_pct": 0.31,
+  "order_book_imbalance_top10": 0.25,
+  "news_context": "ETH holding above $2,500, ETF inflows remain strong - advisory only, no quant trigger"
+}
+```
+
+---
+### 2026-09-08T17:12:34.639Z — SOL/USD — NO TRADE
+
+**Reasoning:** No fresh quantitative trigger on our 4h signals: SMA fast_above_slow with no cross, RSI 52.8 neutral, volume ratio 0.79x below the 2x flag. Price down ~1.1% over 48h. News: SEC ETF-asset designation and tomorrow's Transaction V1 upgrade remain bullish tailwinds but advisory only.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 52.83,
+  "sma_crossover_4h": "fast_above_slow, no cross",
+  "volume_ratio_24h": 0.79,
+  "price_action_48h_pct": -1.07,
+  "order_book_imbalance_top10": 0.04,
+  "news_context": "SEC named SOL a core ETF asset; Transaction V1 upgrade lands tomorrow (Sept 9) - bullish tailwinds, advisory only, no quant trigger"
+}
+```
+
+---
+### 2026-09-08T17:12:37.423Z — POL/USD — NO TRADE
+
+**Reasoning:** No fresh quantitative trigger: SMA fast_above_slow with no cross, RSI 56.3 neutral, volume ratio 0.26x well below the 2x flag despite the 1h window showing a firmer +1.6% move. No fresh 24-48h catalyst beyond the ongoing Gigagas roadmap.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 56.32,
+  "sma_crossover_4h": "fast_above_slow, no cross",
+  "volume_ratio_24h": 0.264,
+  "price_action_48h_pct": 0.31,
+  "order_book_imbalance_top10": 0.07,
+  "news_context": "No fresh 24-48h catalyst; POL now #1 most active stablecoin chain per prior reporting, Gigagas roadmap ongoing - advisory only"
+}
+```
+
+---
+### 2026-09-08T17:12:41.438Z — XRP/USD — NO TRADE
+
+**Reasoning:** Price holding near the new 48h high (+1.73-1.91% over 48h) with RSI still at 60.5 (stable from last cycle) - firm but still below the 70 overbought threshold, and the 4h 20/50 SMA remains fast_above_slow with no cross this candle; volume ratio 1.05x stays below the 2x flag. Still no formal trigger under the three-condition rule despite continued strength. News: weekly cup-and-handle breakout structure still intact, largest weekly XRP ETF inflow of 2026, RLUSD now majority-held on XRP Ledger over Ethereum - all consistent with the bullish tape but can't independently justify a trade. Continuing to watch for an RSI break above 70 or an SMA cross.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 60.46,
+  "sma_crossover_4h": "fast_above_slow, no cross",
+  "volume_ratio_24h": 1.053,
+  "price_action_48h_pct": 1.91,
+  "order_book_imbalance_top10": -0.03,
+  "news_context": "XRP holding near 48h high; cup-and-handle breakout structure intact; largest weekly XRP ETF inflow of 2026; RLUSD majority now on XRPL over Ethereum - strong tape, no quant trigger fired yet"
+}
+```
+
+---
