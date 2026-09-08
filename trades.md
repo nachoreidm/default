@@ -5071,3 +5071,88 @@ The XRP/USD position logged above (id `96537a2c-86f0-4cbd-8b80-b5f5bc8ada22`, op
 ```
 
 ---
+### 2026-09-08T13:16:49.411Z — BTC/USD — NO TRADE
+
+**Reasoning:** No fresh quantitative trigger: SMA remains fast_above_slow with no cross this candle, RSI 39.6 soft but not oversold, volume ratio 0.63x well below the 2x flag. Price down ~1.8% over 48h. News: BTC rejected near $80,500 resistance again, short-term whales sitting on unrealized profits, leveraged long liquidations adding to selling pressure, macro risk (Iran conflict, pre-CPI) unchanged from prior cycle. Consistent bearish-drift backdrop but no quant signal to act on.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 39.61,
+  "sma_crossover_4h": "fast_above_slow, no cross",
+  "volume_ratio_24h": 0.63,
+  "price_action_48h_pct": -1.76,
+  "order_book_imbalance_top10": 0.23,
+  "news_context": "BTC rejected near $80,500 again; leveraged long liquidations adding selling pressure; macro risk (Iran conflict, pre-Sept 11 CPI) unchanged"
+}
+```
+
+---
+### 2026-09-08T13:16:52.447Z — ETH/USD — NO TRADE
+
+**Reasoning:** No fresh quantitative trigger: SMA fast_above_slow with no cross, RSI 48.5 neutral, volume ratio 0.84x below the 2x flag. Price roughly flat over 48h. News: ETH spot ETFs saw their strongest three-week inflow stretch of 2026 ($3.8B), a constructive institutional signal, but this doesn't substitute for a quant trigger per the rules (news is advisory only). No action.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 48.46,
+  "sma_crossover_4h": "fast_above_slow, no cross",
+  "volume_ratio_24h": 0.84,
+  "price_action_48h_pct": -0.23,
+  "order_book_imbalance_top10": 0.9,
+  "news_context": "US spot ETH ETFs recorded strongest 3-week inflow stretch of 2026 ($3.8B) while ETH trades above $2,500 - constructive but advisory only, no quant trigger"
+}
+```
+
+---
+### 2026-09-08T13:16:55.220Z — SOL/USD — NO TRADE
+
+**Reasoning:** No fresh quantitative trigger: SMA fast_above_slow with no cross, RSI 45.6 neutral, volume ratio 0.79x below 2x flag. Price down ~2.75% over 48h. News: SEC named SOL a core ETF asset (Sept 5) and Transaction V1 upgrade lands Sept 9 with whales opening $9M in long positions - notable tailwinds, but still advisory only absent a quant signal.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 45.6,
+  "sma_crossover_4h": "fast_above_slow, no cross",
+  "volume_ratio_24h": 0.79,
+  "price_action_48h_pct": -2.75,
+  "order_book_imbalance_top10": 0.12,
+  "news_context": "SEC named SOL a core ETF asset Sept 5; Transaction V1 upgrade Sept 9 with whales opening $9M long positions - bullish tailwinds but advisory only, no quant trigger yet"
+}
+```
+
+---
+### 2026-09-08T13:16:57.828Z — POL/USD — NO TRADE
+
+**Reasoning:** No fresh quantitative trigger: SMA fast_above_slow with no cross, RSI 51.5 neutral, volume ratio 0.26x well below the 2x flag (thin participation). Price roughly flat over 48h. No fresh 24-48h catalyst beyond the ongoing Gigagas scaling roadmap and prior security patches.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 51.48,
+  "sma_crossover_4h": "fast_above_slow, no cross",
+  "volume_ratio_24h": 0.264,
+  "price_action_48h_pct": -0.58,
+  "order_book_imbalance_top10": 0.53,
+  "news_context": "No fresh 24-48h catalyst; ongoing Gigagas (100k TPS) scaling roadmap and prior Aug 27 security patches remain the backdrop"
+}
+```
+
+---
+### 2026-09-08T13:17:00.993Z — XRP/USD — NO TRADE
+
+**Reasoning:** No fresh quantitative trigger on our 4h 20/50 SMA (still fast_above_slow, no cross) or RSI (46.7, neutral); volume ratio 1.05x in line with average. Price down ~1.3% over 48h. News mentions a daily-timeframe 50/150-day SMA approaching a golden cross - a different indicator/timeframe than our authorized 4h 20/50 signal, so it's noted as context only and doesn't itself trigger a trade per the rules against freelancing indicators not in the authorized set.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 46.72,
+  "sma_crossover_4h": "fast_above_slow, no cross",
+  "volume_ratio_24h": 1.053,
+  "price_action_48h_pct": -1.19,
+  "order_book_imbalance_top10": -0.065,
+  "news_context": "Daily-timeframe 50/150-day SMA nearing a golden cross (not yet formed) per news - different indicator/timeframe than our authorized 4h 20/50 SMA, noted as context only, not a trigger"
+}
+```
+
+---
