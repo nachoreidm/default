@@ -3776,3 +3776,113 @@ The XRP/USD position logged above (id `96537a2c-86f0-4cbd-8b80-b5f5bc8ada22`, op
 ```
 
 ---
+### 2026-09-08T01:12:44.788Z — BTC/USD — NO TRADE
+
+**Reasoning:** No fresh quantitative trigger: RSI neutral (46.0), SMA fast-above-slow with no cross this candle, volume 0.63x 7d avg (not flagged), price action negative (-0.84%/-1.19%), order book bid-heavy (+0.46). News: BTC choppy around $79K, dip-buying seen intraday near $78.7K, $78K max-pain for the Sept 18 options expiry, $75-77K flagged as near-term support shelf. No trigger-worthy event. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 45.98,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "volume_ratio": 0.63,
+  "volume_flag_above_2x": false,
+  "price_action_1h_pct": -0.84,
+  "price_action_4h_pct": -1.19,
+  "order_book_imbalance": 0.459,
+  "news_context": "BTC choppy near $79K, dip-buying seen at $78.7K, $78K max-pain for Sept 18 options expiry, $75-77K near-term support shelf. No trigger-worthy event now."
+}
+```
+
+---
+### 2026-09-08T01:12:47.870Z — ETH/USD — NO TRADE
+
+**Reasoning:** No fresh quantitative trigger: RSI neutral (52.9), SMA fast-above-slow, no cross this candle, volume 0.84x 7d avg (not flagged), price action modestly negative (-0.42%/-0.81%), order book bid-heavy (+0.58). News: record ETF inflows continue (~$987M last week), support flagged at $2,484, resistance above $2,600; a monthly close above $2,534 would open the path to $2,800. No trigger-worthy event. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 52.93,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "volume_ratio": 0.84,
+  "volume_flag_above_2x": false,
+  "price_action_1h_pct": -0.42,
+  "price_action_4h_pct": -0.81,
+  "order_book_imbalance": 0.578,
+  "news_context": "Record spot ETH ETF inflows (~$987M last week), support at $2,484, resistance at $2,600, monthly close above $2,534 could open $2,800 target. No trigger-worthy event this cycle."
+}
+```
+
+---
+### 2026-09-08T01:12:51.866Z — SOL/USD — NO TRADE
+
+**Reasoning:** No fresh quantitative trigger: RSI neutral (49.6), SMA fast-above-slow, no cross this candle, volume 0.79x 7d avg (not flagged), price action roughly flat on 1h but negative on 4h (+0.03%/-2.07%), order book bid-heavy (+0.10). News unchanged and constructive - Transaction V1 launches tomorrow (Sept 9), Alpenglow targeting ~150ms finality with October mainnet target, strong ETF and address-growth metrics. No trigger-worthy event. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 49.55,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "volume_ratio": 0.79,
+  "volume_flag_above_2x": false,
+  "price_action_1h_pct": 0.03,
+  "price_action_4h_pct": -2.07,
+  "order_book_imbalance": 0.102,
+  "news_context": "Transaction V1 launches Sept 9 (max tx size 1,232->4,096 bytes), Alpenglow targeting ~150ms finality (currently ~12.8s) with Oct mainnet target, SOL ETFs pulled $153.87M (strongest week since Oct 2025). No trigger-worthy event this cycle."
+}
+```
+
+---
+### 2026-09-08T01:12:55.491Z — POL/USD — NO TRADE
+
+**Reasoning:** No open position. No fresh entry trigger: RSI neutral-soft (46.2, not oversold), SMA fast-above-slow with no fresh cross, volume very low (0.26x, not flagged), price action still sharply negative (-3.00%/-4.99%) but decline has stabilized versus prior cycle. Order book roughly balanced (+0.03). News: Polygon is now the #1 most active stablecoin chain per the Open Money Stack strategy - a positive structural story, but not a quant trigger. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 46.22,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "volume_ratio": 0.264,
+  "volume_flag_above_2x": false,
+  "price_action_1h_pct": -3,
+  "price_action_4h_pct": -4.99,
+  "order_book_imbalance": 0.028,
+  "news_context": "Polygon now #1 most active stablecoin chain (Open Money Stack strategy), Gigagas 100K TPS roadmap ongoing. No trigger-worthy event this cycle despite the recent decline; RSI still neutral, not oversold."
+}
+```
+
+---
+### 2026-09-08T01:12:58.650Z — XRP/USD — NO TRADE
+
+**Reasoning:** No fresh quantitative trigger: RSI neutral (47.0), SMA fast-above-slow, no cross this candle, volume roughly average (1.05x, not flagged), price action negative (-1.15%/-1.96%), order book roughly balanced (+0.06). News unchanged: stalled below the $1.43 resistance wall, ETF inflows continue (~$1.68B net as of Sept 4), procedural CLARITY Act Senate vote reportedly delayed. No trigger-worthy event. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 46.99,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "volume_ratio": 1.053,
+  "volume_flag_above_2x": false,
+  "price_action_1h_pct": -1.15,
+  "price_action_4h_pct": -1.96,
+  "order_book_imbalance": 0.062,
+  "news_context": "XRP stalled below $1.43 resistance, ETF inflows ~$1.68B net as of Sept 4, CLARITY Act procedural Senate vote reportedly delayed. No trigger-worthy event this cycle."
+}
+```
+
+---
