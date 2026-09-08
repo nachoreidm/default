@@ -3996,3 +3996,113 @@ The XRP/USD position logged above (id `96537a2c-86f0-4cbd-8b80-b5f5bc8ada22`, op
 ```
 
 ---
+### 2026-09-08T03:12:29.786Z — BTC/USD — NO TRADE
+
+**Reasoning:** No fresh quantitative trigger: RSI neutral (46.0), SMA fast-above-slow with no cross this candle, volume 0.63x 7d avg (not flagged), price action negative (-1.41%/-1.19%), order book bid-heavy (+0.32). News: $217M BTC ETF inflows plus Strategy's purchase of 4,603 BTC keeping institutional demand in focus; Fed-hike odds at 59%; $78K max-pain for the Sept 18 options expiry, $75-77K near-term support. No trigger-worthy event. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 45.98,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "volume_ratio": 0.63,
+  "volume_flag_above_2x": false,
+  "price_action_1h_pct": -1.41,
+  "price_action_4h_pct": -1.19,
+  "order_book_imbalance": 0.318,
+  "news_context": "$217M BTC ETF inflows, Strategy bought 4,603 BTC; Fed-hike odds 59%; $78K max-pain for Sept 18 options expiry, $75-77K support shelf, weekly close above $85K needed to confirm the rebound. No trigger-worthy event now."
+}
+```
+
+---
+### 2026-09-08T03:12:33.778Z — ETH/USD — NO TRADE
+
+**Reasoning:** No fresh quantitative trigger: RSI neutral (52.9), SMA fast-above-slow, no cross this candle, volume 0.84x 7d avg (not flagged), price action negative (-1.03%/-0.81%), order book ask-heavy (-0.49). News: strongest 3-week ETF inflow stretch of 2026 (~$3.8B total) remains constructive; needs to clear $2,550 resistance to confirm a wedge breakout toward $2,800. Liquid Network breach remains a Bitcoin-sidechain story, not applicable. No trigger-worthy event. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 52.93,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "volume_ratio": 0.84,
+  "volume_flag_above_2x": false,
+  "price_action_1h_pct": -1.03,
+  "price_action_4h_pct": -0.81,
+  "order_book_imbalance": -0.489,
+  "news_context": "Strongest 3-week ETF inflow stretch of 2026 (~$3.8B total), needs to clear $2,550 resistance to confirm wedge breakout toward $2,800. Liquid Network breach not applicable to ETH. No trigger-worthy event this cycle."
+}
+```
+
+---
+### 2026-09-08T03:12:36.931Z — SOL/USD — NO TRADE
+
+**Reasoning:** No fresh quantitative trigger: RSI neutral (49.6), SMA fast-above-slow, no cross this candle, volume 0.79x 7d avg (not flagged), price action negative (-2.54%/-2.07%), order book bid-heavy (+0.11). News unchanged and constructive - Transaction V1 launches tomorrow (Sept 9), Alpenglow targeting ~150ms finality with October mainnet target, strong network adoption. No trigger-worthy event. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 49.55,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "volume_ratio": 0.79,
+  "volume_flag_above_2x": false,
+  "price_action_1h_pct": -2.54,
+  "price_action_4h_pct": -2.07,
+  "order_book_imbalance": 0.106,
+  "news_context": "Transaction V1 launches Sept 9 (max tx size 1,232->4,096 bytes), Alpenglow targeting ~150ms finality with Oct mainnet target, SOL ETFs pulled $153.87M. No trigger-worthy event this cycle."
+}
+```
+
+---
+### 2026-09-08T03:12:40.082Z — POL/USD — NO TRADE
+
+**Reasoning:** No open position. No fresh entry trigger: RSI neutral-soft (46.2, not oversold), SMA fast-above-slow with no fresh cross, volume very low (0.26x, not flagged), price action still sharply negative (-4.65%/-4.99%). Order book bid-heavy (+0.42). News: Gigagas roadmap and AggLayer cross-chain interoperability progress noted as positives, but no acute new catalyst tied to the ongoing decline. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 46.22,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "volume_ratio": 0.264,
+  "volume_flag_above_2x": false,
+  "price_action_1h_pct": -4.65,
+  "price_action_4h_pct": -4.99,
+  "order_book_imbalance": 0.422,
+  "news_context": "Gigagas 100K TPS roadmap, AggLayer full maturity targeted for 2026 (cross-chain interoperability). No trigger-worthy event this cycle; RSI still neutral, not oversold, despite the ongoing decline."
+}
+```
+
+---
+### 2026-09-08T03:12:42.923Z — XRP/USD — NO TRADE
+
+**Reasoning:** No fresh quantitative trigger: RSI neutral (47.0), SMA fast-above-slow, no cross this candle, volume roughly average (1.05x, not flagged), price action negative (-2.29%/-1.96%), order book bid-heavy (+0.12). News unchanged: stalled below the $1.43 resistance, up 38.87% over the past month per one source, ETF inflows continue (~$1.68B net as of Sept 4). No trigger-worthy event. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 46.99,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "volume_ratio": 1.053,
+  "volume_flag_above_2x": false,
+  "price_action_1h_pct": -2.29,
+  "price_action_4h_pct": -1.96,
+  "order_book_imbalance": 0.125,
+  "news_context": "XRP stalled below $1.43 resistance, up 38.87% over the past month, ETF inflows ~$1.68B net as of Sept 4, CLARITY Act vote delayed. No trigger-worthy event this cycle."
+}
+```
+
+---
