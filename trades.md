@@ -6007,3 +6007,94 @@ The XRP/USD position logged above (id `96537a2c-86f0-4cbd-8b80-b5f5bc8ada22`, op
 ```
 
 ---
+### 2026-09-08T22:08:18.342Z — BTC/USD — NO TRADE
+
+**Reasoning:** No quantitative signal points anywhere actionable: RSI(4h) 41.6 is neutral (not oversold/overbought), the 20/50 SMA is fast-above-slow but did not cross this candle (no fresh signal), and 24h volume is at 0.63x its 7d average (no spike). Price is down ~2.4% over the last 48h on 4h candles, consistent with a broader pullback rather than a specific setup. Order book is ask-heavy (imbalance -0.64) which if anything leans bearish, but that's not one of the five decision signals and doesn't override the lack of a primary trigger. News is supportive (ETF inflows ~$1.03B/7d, cautiously bullish sentiment) but news alone cannot justify a trade absent a quantitative trigger.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 41.58,
+  "sma_crossover_4h": "fast_above_slow, crossed_this_candle=false",
+  "volume_ratio": 0.63,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -2.36,
+  "order_book_imbalance_top10": -0.637,
+  "news_context": "Bitcoin cautiously bullish per Yahoo Finance/CoinStats: 22% monthly rally, spot ETF inflows ~$1.03B over 7 days ($730M single-day on Sep 3, strongest since Jan 14), but resistance at $80K-$82.5K and price pulled back below $80K after a stronger US jobs report pushed rates higher. No hack/regulatory/exchange-halt news found."
+}
+```
+
+---
+### 2026-09-08T22:08:23.096Z — ETH/USD — NO TRADE
+
+**Reasoning:** No quantitative trigger: RSI(4h) 50.5 is dead-neutral, SMA stays fast-above-slow with no crossover this candle, and 24h volume is 0.84x average (no spike). Price action is a mild ~1.3% pullback over 48h on 4h candles — unremarkable. Order book is heavily ask-weighted (imbalance -0.86) but that's not a primary decision signal. News shows strong institutional ETF inflows and a bullish technical setup (needs to hold $2,438 Fib support for a push to $2,920), which is corroborating background but not a substitute for an actual signal.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 50.52,
+  "sma_crossover_4h": "fast_above_slow, crossed_this_candle=false",
+  "volume_ratio": 0.84,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -1.27,
+  "order_book_imbalance_top10": -0.858,
+  "news_context": "Ethereum ETFs posted record weekly inflows ($986.9M last week, 2nd straight record week); ETH needs to hold $2,438 weekly Fib support and clear $2,550 resistance to confirm a bullish wedge breakout toward $2,800-$2,920. Amsterdam fork/Geth v1.17.5 maintenance release ongoing, no security incidents reported. No major negative news found."
+}
+```
+
+---
+### 2026-09-08T22:08:28.583Z — SOL/USD — NO TRADE
+
+**Reasoning:** No actionable signal: RSI(4h) 47.7 neutral, SMA fast-above-slow with no crossover this candle, volume at 0.79x average (no spike). Price down ~3.1% over 48h on 4h candles. Order book is mildly bid-heavy (imbalance +0.12), the only sign of near-term buy pressure, but it's a secondary/optional signal and doesn't clear the bar alone. News is strongly positive (SEC named SOL a core ETF asset Sep 5, Transaction V1 launch, rent-reduction rollout, #1 in RWA inflows) — genuinely notable, but per the rules news can't manufacture a trade without one of the five quantitative signals already pointing somewhere, and none currently are.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 47.73,
+  "sma_crossover_4h": "fast_above_slow, crossed_this_candle=false",
+  "volume_ratio": 0.79,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -3.11,
+  "order_book_imbalance_top10": 0.122,
+  "news_context": "SEC named SOL a core ETF asset on Sep 5, 2026; Transaction V1 launched Sep 9 raising max tx size for ZK proofs; phased rent-reduction program underway; SOL ETFs attracted $153.87M (strongest week since Oct 2025); Solana now #1 blockchain by RWA net inflows. Notably positive but no quantitative signal is currently triggering, so it stays advisory only."
+}
+```
+
+---
+### 2026-09-08T22:08:34.008Z — POL/USD — NO TRADE
+
+**Reasoning:** No trigger present: RSI(4h) 49.1 neutral, SMA fast-above-slow with no crossover this candle, and volume is notably low at 0.26x its 7d average (opposite of a spike). Price down ~2.5% over 48h on 4h candles. Order book is bid-heavy (imbalance +0.44) but again a secondary signal only. This is the first cycle since reverting to the 5-pair crypto-only scope; verified compute_signals returned real values with data_gaps: [] for POL/USD (no stale/placeholder data). News shows solid fundamentals (8B cumulative transactions milestone, record stablecoin volume, Visa/Revolut integrations) but nothing from the last 24-48h sharp enough to move price, and no quantitative signal to pair it with anyway.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 49.06,
+  "sma_crossover_4h": "fast_above_slow, crossed_this_candle=false",
+  "volume_ratio": 0.264,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -2.55,
+  "order_book_imbalance_top10": 0.436,
+  "data_gaps": [],
+  "news_context": "Polygon surpassed 8 billion cumulative transactions on Sep 1, 2026 with record stablecoin volume; Austin & Kyoto hard forks (network upgrade + proactive security patches) landed Aug 31; ongoing Visa/Revolut integration push. No hacks, delistings, or regulatory action found in the last 24-48h."
+}
+```
+
+---
+### 2026-09-08T22:08:38.146Z — XRP/USD — NO TRADE
+
+**Reasoning:** No trigger: RSI(4h) 56.2 is neutral (not overbought), SMA stays fast-above-slow with no crossover this candle, and volume is essentially in line with average (1.05x, no spike). Price is nearly flat over 48h on 4h candles (-0.01%). Order book is close to balanced (imbalance +0.06). News includes a large scheduled escrow unlock (1B XRP, ~$1.38B, executed Sep 1) which is a known/priced-in event rather than a surprise, plus a pending amendment activation window — informative background, not a trigger, and there's still no quantitative signal for it to corroborate.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 56.21,
+  "sma_crossover_4h": "fast_above_slow, crossed_this_candle=false",
+  "volume_ratio": 1.053,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -0.006,
+  "order_book_imbalance_top10": 0.062,
+  "news_context": "Ripple released the scheduled 1B XRP escrow unlock (~$1.38B) on Sep 1, 2026, reducing locked supply to 31.28B tokens; XRP up 28.5% in August (best August since 2021), trading near $1.41-$1.42 with a $1.43 resistance wall ahead of the Sep 16 Fed decision; fixCleanup3_3_0 amendment bundle (vaults/lending/AMM bug fixes) in its final activation window. No hacks or adverse regulatory news found."
+}
+```
+
+---
