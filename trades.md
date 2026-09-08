@@ -4546,3 +4546,113 @@ The XRP/USD position logged above (id `96537a2c-86f0-4cbd-8b80-b5f5bc8ada22`, op
 ```
 
 ---
+### 2026-09-08T08:13:21.069Z — BTC/USD — NO TRADE
+
+**Reasoning:** No fresh quantitative trigger: RSI weakening to 40.0 but still not oversold (<30), SMA fast-above-slow with no cross this candle, volume 0.63x 7d avg (not flagged), price action negative (-1.75%/-1.84%), order book bid-heavy (+0.45). News: BTC rejected near $80,500, fell below $79K on strong jobs data/higher yields; the $320M Liquid Network hack (Bitcoin-linked) is a reputational overhang for institutional adoption; CPI Sept 11 the next catalyst. No trigger-worthy event yet - watching for RSI to reach oversold. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 40,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "volume_ratio": 0.63,
+  "volume_flag_above_2x": false,
+  "price_action_1h_pct": -1.75,
+  "price_action_4h_pct": -1.84,
+  "order_book_imbalance": 0.451,
+  "news_context": "BTC rejected near $80,500, fell below $79K on strong jobs/yields; $320M Liquid Network hack (Bitcoin-linked) weighing on institutional-adoption narrative; CPI Sept 11 next catalyst. RSI weakening (40.0) but not yet oversold."
+}
+```
+
+---
+### 2026-09-08T08:13:25.458Z — ETH/USD — NO TRADE
+
+**Reasoning:** No fresh quantitative trigger: RSI neutral (49.8), SMA fast-above-slow, no cross this candle, volume 0.84x 7d avg (not flagged), price action negative (-0.69%/-0.94%), order book roughly balanced (-0.07). News: mixed - ETF inflows collapsed to $218.4M from $824M the prior week (slowdown) and mid-tier holders dumped 307K ETH, but exchange reserves fell >116K ETH in 48h (tightening supply) and the Hegotá upgrade roadmap (EIP-8141 stablecoin gas fees) is a constructive long-term development. No trigger-worthy event. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 49.77,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "volume_ratio": 0.84,
+  "volume_flag_above_2x": false,
+  "price_action_1h_pct": -0.69,
+  "price_action_4h_pct": -0.94,
+  "order_book_imbalance": -0.07,
+  "news_context": "ETF inflows slowed to $218.4M from $824M prior week, mid-tier holders dumped 307K ETH, but exchange reserves fell >116K ETH in 48h; Hegotá upgrade roadmap released (EIP-8141 stablecoin gas fees). No trigger-worthy event this cycle."
+}
+```
+
+---
+### 2026-09-08T08:13:27.911Z — SOL/USD — NO TRADE
+
+**Reasoning:** No fresh quantitative trigger: RSI neutral (46.0), SMA fast-above-slow, no cross this candle, volume 0.79x 7d avg (not flagged), price action negative (-2.16%/-3.32%), order book roughly balanced (+0.07). News unchanged and constructive - Transaction V1 launches tomorrow (Sept 9), strong network adoption metrics continue despite the price pullback. No trigger-worthy event. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 45.99,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "volume_ratio": 0.79,
+  "volume_flag_above_2x": false,
+  "price_action_1h_pct": -2.16,
+  "price_action_4h_pct": -3.32,
+  "order_book_imbalance": 0.072,
+  "news_context": "Transaction V1 launches Sept 9, exchange supply fell 4.91%, SOL ETFs attracted $153.87M. No trigger-worthy event this cycle."
+}
+```
+
+---
+### 2026-09-08T08:13:31.388Z — POL/USD — NO TRADE
+
+**Reasoning:** No open position. No fresh entry trigger: RSI neutral (50.6), SMA fast-above-slow with no fresh cross, volume very low (0.26x, not flagged), price action less negative than recent cycles (-2.17%/-1.54%) as the decline stabilizes. Order book bid-heavy (+0.20). News: 99% MATIC-to-POL migration nearly complete, social sentiment score 3.8/5 (mildly positive). No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 50.56,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "volume_ratio": 0.264,
+  "volume_flag_above_2x": false,
+  "price_action_1h_pct": -2.17,
+  "price_action_4h_pct": -1.54,
+  "order_book_imbalance": 0.197,
+  "news_context": "99% MATIC-to-POL migration nearly complete, social sentiment 3.8/5, Gigagas roadmap ongoing. No trigger-worthy event this cycle; RSI back to neutral."
+}
+```
+
+---
+### 2026-09-08T08:13:34.922Z — XRP/USD — NO TRADE
+
+**Reasoning:** No fresh quantitative trigger: RSI weakening to 43.8 but not oversold, SMA fast-above-slow, no cross this candle, volume roughly average (1.05x, not flagged), price action negative (-1.98%/-2.33%), order book roughly balanced (-0.02). News unchanged: stalled below the $1.43 wall, up 38.87% over the past month, XRPL stablecoin/tokenized-asset value up ~43x in six quarters - a constructive long-term story, not a trigger. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 43.81,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "volume_ratio": 1.053,
+  "volume_flag_above_2x": false,
+  "price_action_1h_pct": -1.98,
+  "price_action_4h_pct": -2.33,
+  "order_book_imbalance": -0.022,
+  "news_context": "XRP stalled below $1.43 wall, up 38.87% over the past month, XRPL stablecoin/tokenized-asset value up ~43x in six quarters. No trigger-worthy event this cycle; RSI weakening but not yet oversold."
+}
+```
+
+---
