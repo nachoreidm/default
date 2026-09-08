@@ -3666,3 +3666,113 @@ The XRP/USD position logged above (id `96537a2c-86f0-4cbd-8b80-b5f5bc8ada22`, op
 ```
 
 ---
+### 2026-09-08T00:13:22.960Z — BTC/USD — NO TRADE
+
+**Reasoning:** No fresh quantitative trigger: RSI neutral (46.0), SMA fast-above-slow with no cross this candle, volume 0.63x 7d avg (not flagged), price action negative (-0.99%/-1.19%), order book strongly ask-heavy (-0.84). News: BTC ETF flows recently mixed (net outflow Sept 1, inflows Sept 2-3), Fed-hike odds elevated to 59% after the jobs report - a headwind. No trigger-worthy event today. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 45.98,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "volume_ratio": 0.63,
+  "volume_flag_above_2x": false,
+  "price_action_1h_pct": -0.99,
+  "price_action_4h_pct": -1.19,
+  "order_book_imbalance": -0.842,
+  "news_context": "BTC ETF flows mixed recently (Sept 1 outflow, Sept 2-3 inflows), Fed-hike odds at 59% after jobs report. CPI Fri Sept 11, FOMC Sept 16. No trigger-worthy event now."
+}
+```
+
+---
+### 2026-09-08T00:13:27.200Z — ETH/USD — NO TRADE
+
+**Reasoning:** No fresh quantitative trigger: RSI neutral (52.9), SMA fast-above-slow, no cross this candle, volume 0.84x 7d avg (not flagged), price action roughly flat-to-slightly negative (-0.03%/-0.81%), order book strongly ask-heavy (-0.86). News: strongest three-week ETF inflow stretch of 2026 (~$3.8B total) constructive; needs to hold $2,438 Fibonacci support for the bullish case. No trigger-worthy event. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 52.93,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "volume_ratio": 0.84,
+  "volume_flag_above_2x": false,
+  "price_action_1h_pct": -0.03,
+  "price_action_4h_pct": -0.81,
+  "order_book_imbalance": -0.86,
+  "news_context": "Strongest 3-week ETF inflow stretch of 2026 (~$3.8B total), needs to hold $2,438 support for bullish case toward $2,920. No trigger-worthy event this cycle."
+}
+```
+
+---
+### 2026-09-08T00:13:30.049Z — SOL/USD — NO TRADE
+
+**Reasoning:** No fresh quantitative trigger: RSI neutral (49.6), SMA fast-above-slow, no cross this candle, volume 0.79x 7d avg (not flagged), price action mixed (+0.46% 1h, -2.07% 4h), order book roughly balanced (-0.06). News unchanged and constructive - Transaction V1 launching Sept 9 (max tx size 1,232->4,096 bytes), Alpenglow targeting ~150ms finality with October mainnet target, strong network adoption metrics. No trigger-worthy event. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 49.55,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "volume_ratio": 0.79,
+  "volume_flag_above_2x": false,
+  "price_action_1h_pct": 0.46,
+  "price_action_4h_pct": -2.07,
+  "order_book_imbalance": -0.062,
+  "news_context": "Transaction V1 launches Sept 9 (max tx size 1,232->4,096 bytes), Alpenglow targeting ~150ms finality with Oct mainnet target, strong network adoption (9.5M new addresses/day). No trigger-worthy event this cycle."
+}
+```
+
+---
+### 2026-09-08T00:13:34.364Z — POL/USD — NO TRADE
+
+**Reasoning:** No open position. No fresh entry trigger despite an accelerating decline: RSI neutral-soft (46.2, not oversold), SMA fast-above-slow with no fresh cross, volume very low (0.26x, not flagged), price action sharply negative (-3.89%/-4.99%). Order book bid-heavy (+0.14). News: mixed - Ithaca hardfork and security patches noted as positives, but broader context flags fewer new project deployments than competitors and ongoing token-utility-capture questions. No trigger-worthy event (no crossover, no RSI extreme, no volume spike) despite the drop. No trade - watching closely for a potential oversold reading next cycle.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 46.22,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "volume_ratio": 0.264,
+  "volume_flag_above_2x": false,
+  "price_action_1h_pct": -3.89,
+  "price_action_4h_pct": -4.99,
+  "order_book_imbalance": 0.139,
+  "news_context": "Ithaca hardfork and security patches are positives, but fewer new project deployments than Solana/competitors and questions about token utility capture persist. No trigger-worthy event this cycle despite the accelerating decline; RSI still neutral, not oversold."
+}
+```
+
+---
+### 2026-09-08T00:13:37.392Z — XRP/USD — NO TRADE
+
+**Reasoning:** No fresh quantitative trigger: RSI neutral (47.0), SMA fast-above-slow, no cross this candle, volume roughly average (1.05x, not flagged), price action negative (-1.26%/-1.96%), order book strongly ask-heavy (-0.75). News: stalled below the $1.43 resistance wall for days, ETF inflows continue (~$1.68B net as of Sept 4), the procedural CLARITY Act Senate vote (was Sept 15) has reportedly been delayed - a mild negative for near-term regulatory clarity but not a quant trigger. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 46.99,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "volume_ratio": 1.053,
+  "volume_flag_above_2x": false,
+  "price_action_1h_pct": -1.26,
+  "price_action_4h_pct": -1.96,
+  "order_book_imbalance": -0.749,
+  "news_context": "XRP stalled below $1.43 resistance for days, ETF inflows ~$1.68B net as of Sept 4, procedural CLARITY Act Senate vote (was Sept 15) reportedly delayed. No trigger-worthy event this cycle."
+}
+```
+
+---
