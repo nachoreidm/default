@@ -34,11 +34,19 @@ factual commit message (e.g. "Paper trade: opened LONG BTC/USD",
 
 ## Scope
 
-- Pairs in scope: **BTC/USD, ETH/USD, SOL/USD, POL/USD, XRP/USD** only. The
-  MCP server enforces this in code — `kraken_get_ticker`, `kraken_get_ohlc`,
-  `compute_signals`, and `portfolio_open_position` will all reject any
-  other pair. If asked to look at something else, say so and ask before
-  doing anything manual to route around that.
+- Pairs in scope: **BTC/USD, SOL/USD, XRP/USD, AAPLx/USD, TSLAx/USD,
+  NVDAx/USD, CRCLx/USD** only. The MCP server enforces this in code —
+  `kraken_get_ticker`, `kraken_get_ohlc`, `compute_signals`, and
+  `portfolio_open_position` will all reject any other pair. If asked to
+  look at something else, say so and ask before doing anything manual to
+  route around that.
+- The `x`-suffixed pairs (AAPLx, TSLAx, NVDAx, CRCLx) are Kraken **xStocks**
+  — tokenized US equities (Apple, Tesla, NVIDIA, Circle), backed 1:1 by the
+  underlying stock and traded 24/7 like crypto, not on stock-market hours.
+  They share the exact same portfolio, cash, and risk limits as the crypto
+  pairs below — there is no separate budget for stocks vs. crypto. Treat
+  them like any other pair for sizing, stops, and signals; the only
+  difference is what the underlying asset is.
 - **Long only.** Spot trading has no short-selling; this account uses no
   margin, leverage, or derivatives. Never describe a paper position as a
   "short." "Direction" is always `long`; closing a position is not a short.
@@ -66,16 +74,20 @@ than estimating or guessing a value for it.
 ### News context (advisory only — not a trigger)
 
 In addition to the five quantitative signals above, run one `WebSearch` per
-pair per cycle for recent news on the underlying project, using its name
-rather than the ticker: BTC/USD → "Bitcoin", ETH/USD → "Ethereum", SOL/USD
-→ "Solana", POL/USD → "Polygon", XRP/USD → "XRP" (major legal/business news
-is often reported under "Ripple" instead — check that name too). Look for
-anything from roughly the last 24–48h that could plausibly move price:
-exchange listings/delistings,
-protocol upgrades or outages, security incidents/hacks, regulatory action,
-major partnership or ETF news. This is genuinely different from the five
-signals above — it's not computed deterministically, it's your judgment of
-a search result, so treat it accordingly:
+pair per cycle for recent news on the underlying project or company, using
+its name rather than the ticker: BTC/USD → "Bitcoin", SOL/USD → "Solana",
+XRP/USD → "XRP" (major legal/business news is often reported under
+"Ripple" instead — check that name too), AAPLx/USD → "Apple", TSLAx/USD →
+"Tesla", NVDAx/USD → "NVIDIA", CRCLx/USD → "Circle" (the USDC stablecoin
+issuer — check "Circle Internet" too if "Circle" alone is too noisy). Look
+for anything from roughly the last 24–48h that could plausibly move price:
+for crypto — exchange listings/delistings, protocol upgrades or outages,
+security incidents/hacks, regulatory action, major partnership or ETF
+news; for the xStocks names — earnings releases or guidance, major
+product announcements, executive changes, regulatory/legal action,
+analyst rating changes. This is genuinely different from the five signals
+above — it's not computed deterministically, it's your judgment of a
+search result, so treat it accordingly:
 
 - **News can never independently justify a trade.** One of the five
   quantitative signals must already be pointing somewhere (a fresh
