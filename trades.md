@@ -5666,3 +5666,88 @@ The XRP/USD position logged above (id `96537a2c-86f0-4cbd-8b80-b5f5bc8ada22`, op
 ```
 
 ---
+### 2026-09-08T20:12:26.489Z — BTC/USD — NO TRADE
+
+**Reasoning:** No fresh quantitative trigger: SMA fast_above_slow with no cross, RSI 45.9 neutral, volume ratio 0.63x below the 2x flag. Price down ~1.6% intraday to $78,370, still consolidating after rejection near $81,000. News: Iran conflict/pre-CPI risk persists, September ETF month-to-date inflows a positive $770M despite the drawdown, Capital B added $29M BTC. No quant trigger to act on.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 45.9,
+  "sma_crossover_4h": "fast_above_slow, no cross",
+  "volume_ratio_24h": 0.63,
+  "price_action_48h_pct": -1.17,
+  "order_book_imbalance_top10": 0.31,
+  "news_context": "BTC consolidating after $81,000 rejection, drop driven by leveraged-position liquidations; Sept MTD ETF inflows $770M positive; Capital B bought $29M BTC - advisory only, no quant trigger"
+}
+```
+
+---
+### 2026-09-08T20:12:28.456Z — ETH/USD — NO TRADE
+
+**Reasoning:** No fresh quantitative trigger: SMA fast_above_slow with no cross, RSI 55.2 neutral, volume ratio 0.84x below the 2x flag. Price roughly flat over 48h. News unchanged: ETH near $2,500, strong ETF inflows - advisory only, no quant signal.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 55.24,
+  "sma_crossover_4h": "fast_above_slow, no cross",
+  "volume_ratio_24h": 0.84,
+  "price_action_48h_pct": 0.31,
+  "order_book_imbalance_top10": 0.55,
+  "news_context": "ETH near $2,500, ETF inflows remain strong - advisory only, no quant trigger"
+}
+```
+
+---
+### 2026-09-08T20:12:30.727Z — SOL/USD — NO TRADE
+
+**Reasoning:** No fresh quantitative trigger: SMA fast_above_slow with no cross, RSI 52.8 neutral, volume ratio 0.79x below the 2x flag. Price down ~1.1-2.2% over 48h. News: Transaction V1 upgrade lands tomorrow (Sept 9) - advisory only, no quant trigger yet.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 52.83,
+  "sma_crossover_4h": "fast_above_slow, no cross",
+  "volume_ratio_24h": 0.79,
+  "price_action_48h_pct": -1.07,
+  "order_book_imbalance_top10": 0.11,
+  "news_context": "Transaction V1 upgrade lands tomorrow (Sept 9); SEC core-ETF-asset designation remains a bullish tailwind - advisory only, no quant trigger"
+}
+```
+
+---
+### 2026-09-08T20:12:32.817Z — POL/USD — NO TRADE
+
+**Reasoning:** No fresh quantitative trigger: SMA fast_above_slow with no cross, RSI 56.3 neutral, volume ratio 0.26x well below the 2x flag. Price essentially flat over 48h. News unchanged: mixed-but-bullish-leaning enterprise payments narrative vs. underperforming token price - no quant trigger.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 56.32,
+  "sma_crossover_4h": "fast_above_slow, no cross",
+  "volume_ratio_24h": 0.264,
+  "price_action_48h_pct": 0.31,
+  "order_book_imbalance_top10": 0.06,
+  "news_context": "No fresh catalyst; enterprise payments/stablecoin narrative vs. L2 competition remains the backdrop - no quant trigger"
+}
+```
+
+---
+### 2026-09-08T20:12:36.396Z — XRP/USD — NO TRADE
+
+**Reasoning:** Price has pulled back slightly from the 48h high, now roughly flat over the 4h window (-0.01%) though still up modestly on the 1h window; RSI eased to 56.2 from 60.5, still neutral. 4h 20/50 SMA remains fast_above_slow with no cross; volume ratio 1.05x stays below the 2x flag. No quant trigger this cycle - the earlier strengthening setup has cooled off without ever clearing the trigger bar.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 56.21,
+  "sma_crossover_4h": "fast_above_slow, no cross",
+  "volume_ratio_24h": 1.053,
+  "price_action_48h_pct": -0.01,
+  "order_book_imbalance_top10": 0.3,
+  "news_context": "No fresh headline this cycle; prior bullish momentum (cup-and-handle structure, ETF inflows) cooling slightly as RSI eases back from 60.5 to 56.2 - no quant trigger"
+}
+```
+
+---
