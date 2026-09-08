@@ -5879,3 +5879,131 @@ The XRP/USD position logged above (id `96537a2c-86f0-4cbd-8b80-b5f5bc8ada22`, op
 ```
 
 ---
+### 2026-09-08T21:13:11.311Z — BTC/USD — NO TRADE
+
+**Reasoning:** No quantitative trigger, unchanged from last cycle: RSI(14,4h) 41.6 neutral, no SMA crossover this candle (fast still above slow), volume 0.63x average (no spike), order book roughly balanced (+0.026). Price down -2.36% over 48h with no confirming signal. News: institutional buying continues (Strive +1,375 BTC, Capital B +376 BTC) and price holding near $80K resistance, but a Liquid Network exploit ($320M, unbacked BTC mint bug) is a sector security incident, not specific to BTC itself and not a trade trigger. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 41.58,
+  "sma_crossover_4h": "fast_above_slow, not crossed this candle",
+  "volume_ratio": 0.633,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -2.36,
+  "order_book_imbalance_top10": 0.0262,
+  "news_context": "Continued institutional accumulation (Strive, Capital B) near $80K ceiling; separate Liquid Network exploit ($320M unbacked BTC mint) is a sidechain security incident, not a BTC/USD-specific catalyst. No quant trigger regardless."
+}
+```
+
+---
+### 2026-09-08T21:13:14.732Z — SOL/USD — NO TRADE
+
+**Reasoning:** No quantitative trigger, unchanged from last cycle: RSI(14,4h) 47.7 neutral, no SMA crossover this candle, volume 0.79x average (no spike), order book mildly ask-skewed (-0.089). Price down -3.1% over 48h with no confirming signal. News: a data-center routing glitch knocked ~29% of staked SOL offline temporarily (a negative infra incident) alongside continued ecosystem growth (MoneyGram integration, Jupiter Lend v2) -- mixed, and neither is a technical trigger. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 47.73,
+  "sma_crossover_4h": "fast_above_slow, not crossed this candle",
+  "volume_ratio": 0.794,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -3.11,
+  "order_book_imbalance_top10": -0.0893,
+  "news_context": "Routing glitch at a data-center provider briefly knocked ~29% of staked SOL offline (mildly negative); MoneyGram integration and Jupiter Lend v2 launch (positive ecosystem growth). Mixed, no confirming quant trigger."
+}
+```
+
+---
+### 2026-09-08T21:13:18.282Z — XRP/USD — NO TRADE
+
+**Reasoning:** No quantitative trigger: RSI(14,4h) 56.2 neutral, no SMA crossover this candle, volume 1.05x average (normal), order book now more bid-skewed (+0.35) than last cycle but that alone isn't a flagged trigger type. Price essentially flat over the 4h/48h window. News: RLUSD now live via Wormhole NTT across 40+ chains (incremental positive), Swell conference dates confirmed for Nov 4-5 (forward-looking, not a near-term catalyst). No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 56.21,
+  "sma_crossover_4h": "fast_above_slow, not crossed this candle",
+  "volume_ratio": 1.053,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -0.006,
+  "order_book_imbalance_top10": 0.3478,
+  "news_context": "RLUSD now live across 40+ chains via Wormhole NTT; Ripple's Swell conference confirmed for Nov 4-5 in New York. Incremental positive, no near-term technical trigger."
+}
+```
+
+---
+### 2026-09-08T21:13:23.867Z — AAPLx/USD — NO TRADE
+
+**Reasoning:** Same conflicting signal as last cycle: RSI(14,4h) 28.44 remains flagged oversold (<30), but the 4h SMA state is still bearish (fast_below_slow) and 24h volume is still extremely thin at 0.075x the 7-day average (44.8 vs ~600.5 avg) -- too illiquid to trust the RSI reading as a reliable reversal signal. Order book roughly balanced (+0.056). Per the no-trade criteria this remains a conflicting-signals case, not a low-confidence entry. News: Apple's major iPhone/Watch/AirPods event is tomorrow (Sep 9) and Tim Cook's CEO transition to John Ternus is now confirmed effective Sep 1 -- event-anticipation news that cuts both ways and doesn't resolve the technical conflict. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 28.44,
+  "rsi_flag": "oversold",
+  "sma_crossover_4h": "fast_below_slow, not crossed this candle",
+  "volume_ratio": 0.0746,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -1.46,
+  "order_book_imbalance_top10": 0.0557,
+  "news_context": "Apple's Sep 9 event (iPhone 18 Pro/Pro Max, foldable 'iPhone Ultra', new Watches/AirPods) is tomorrow; John Ternus now confirmed as CEO (Cook stepped down Sep 1 to executive chairman). Event-anticipation news, doesn't resolve the oversold-RSI-vs-bearish-SMA conflict or thin-volume reliability issue."
+}
+```
+
+---
+### 2026-09-08T21:13:28.584Z — TSLAx/USD — NO TRADE
+
+**Reasoning:** No confirmed quantitative trigger, unchanged from last cycle: RSI(14,4h) 68.77 remains elevated but below the 70 overbought flag. No SMA crossover this candle (4h SMA state still bearish, fast_below_slow, despite the 48h price rally of +3.47%). Volume 1.24x average is elevated but short of the 2x spike flag. Order book strongly bid-skewed (+0.345), notable but not one of the three trigger types needed before news can weigh in. News: Tesla began paid public Cybercab rides in Austin this month, which is a positive operational milestone, but the company still faces regulatory scrutiny and skepticism about fleet expansion following the underwhelming Sept 3 launch event. No flagged quant trigger, so no trade regardless of the mixed news.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 68.77,
+  "rsi_flag": "none (below 70 overbought threshold)",
+  "sma_crossover_4h": "fast_below_slow, not crossed this candle",
+  "volume_ratio": 1.239,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": 3.47,
+  "order_book_imbalance_top10": 0.3452,
+  "news_context": "Tesla started paid public Cybercab rides in Austin this month (positive operational step) but still faces regulatory scrutiny/fleet-expansion skepticism post-launch; analyst sentiment remains divided. No quant trigger to act on."
+}
+```
+
+---
+### 2026-09-08T21:13:32.473Z — NVDAx/USD — NO TRADE
+
+**Reasoning:** No quantitative trigger, unchanged from last cycle: RSI(14,4h) 32.46 is approaching but hasn't crossed below the 30 oversold threshold. No SMA crossover this candle (fast remains above slow). Volume 0.29x average is well below normal, not a spike. Order book now more strongly bid-skewed (+0.463) than last cycle, but that alone isn't a flagged trigger type. Price down -2.5% over 48h with no confirming signal. News: no material new headline since the Hugging Face acquisition and Q2 earnings beat already priced in from earlier in the month; NVIDIA-MediaTek collaboration deepening is incremental. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 32.46,
+  "sma_crossover_4h": "fast_above_slow, not crossed this candle",
+  "volume_ratio": 0.288,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -2.5,
+  "order_book_imbalance_top10": 0.4626,
+  "news_context": "No new material headline this cycle beyond the already-known Hugging Face acquisition and Q2 earnings beat; NVIDIA-MediaTek collaboration deepening is a minor incremental item. No confirming technical trigger."
+}
+```
+
+---
+### 2026-09-08T21:13:38.870Z — CRCLx/USD — NO TRADE
+
+**Reasoning:** No quantitative trigger despite the continued large drawdown: price down -8.32% over the 48h 4h window (unchanged from last cycle -- looks like this decline has now stabilized rather than continuing). RSI(14,4h) 35.31 has not crossed below the 30 oversold threshold, no SMA crossover this candle, volume 1.40x average is elevated but short of the 2x flag. Order book now ask-skewed (-0.103). A large drawdown without a confirming RSI/crossover/volume-spike signal remains a no-chase situation per the rules. News: Circle is acquiring Tazapay for ~$400M to expand USDC payment infrastructure in APAC/emerging markets (bullish), BlackRock and Visa confirmed as initial Arc partners (bullish), but an insider sale (director M. Michele Burns, ~$1.38M) is a minor negative data point. Note: one search result quoted CRCL's underlying-stock price at $102.05, well above our tokenized xStock quote of $96.54 -- flagging this discrepancy as a data point, not acting on it (advisory only, no data_gaps reported by compute_signals). No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 35.31,
+  "sma_crossover_4h": "fast_above_slow, not crossed this candle",
+  "volume_ratio": 1.404,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -8.32,
+  "order_book_imbalance_top10": -0.103,
+  "news_context": "Circle to acquire Tazapay (~$400M) to expand USDC in APAC/emerging markets; BlackRock and Visa confirmed as initial Arc partners (bullish); one director sold ~$1.38M in shares (minor negative). Noted a price discrepancy between the underlying CRCL stock quote (~$102.05) and the CRCLx tokenized quote (~$96.54) in search results -- advisory observation only, no data_gaps flagged by compute_signals, not acted on."
+}
+```
+
+---
