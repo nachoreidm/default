@@ -4656,3 +4656,113 @@ The XRP/USD position logged above (id `96537a2c-86f0-4cbd-8b80-b5f5bc8ada22`, op
 ```
 
 ---
+### 2026-09-08T09:12:22.901Z — BTC/USD — NO TRADE
+
+**Reasoning:** No fresh quantitative trigger: RSI unchanged at 40.0, still not oversold (<30), SMA fast-above-slow with no cross this candle, volume 0.63x 7d avg (not flagged), price action negative (-1.90%/-1.84%), order book ask-heavy (-0.64). News unchanged - rejected near $80,500, $78K key support (break risks $77.2K), CPI Sept 11 next catalyst. No trigger-worthy event. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 40,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "volume_ratio": 0.63,
+  "volume_flag_above_2x": false,
+  "price_action_1h_pct": -1.9,
+  "price_action_4h_pct": -1.84,
+  "order_book_imbalance": -0.638,
+  "news_context": "BTC rejected near $80,500, $78K key support (break risks $77.2K), CPI Sept 11 next catalyst. No trigger-worthy event; RSI still not oversold."
+}
+```
+
+---
+### 2026-09-08T09:12:26.575Z — ETH/USD — NO TRADE
+
+**Reasoning:** No fresh quantitative trigger: RSI neutral (49.8), SMA fast-above-slow, no cross this candle, volume 0.84x 7d avg (not flagged), price action negative (-0.92%/-0.94%), order book bid-heavy (+0.21). News: Ethereum Foundation released the Hegotá upgrade roadmap and set a Dec 2029 quantum-resistance target - long-horizon developments, not triggers; record 3-week ETF inflow stretch remains constructive; CPI Sept 11 next catalyst. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 49.77,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "volume_ratio": 0.84,
+  "volume_flag_above_2x": false,
+  "price_action_1h_pct": -0.92,
+  "price_action_4h_pct": -0.94,
+  "order_book_imbalance": 0.214,
+  "news_context": "Hegotá upgrade roadmap released, Dec 2029 quantum-resistance target set, strongest 3-week ETF inflow stretch of 2026 (~$3.8B total). No trigger-worthy event this cycle."
+}
+```
+
+---
+### 2026-09-08T09:12:30.530Z — SOL/USD — NO TRADE
+
+**Reasoning:** No fresh quantitative trigger: RSI neutral (46.0), SMA fast-above-slow, no cross this candle, volume 0.79x 7d avg (not flagged), price action negative (-3.30%/-3.32%), order book roughly balanced (+0.01). News: whale addresses opened $9M in long positions ahead of tomorrow's Transaction V1 upgrade - a notable directional signal from smart money, but not itself one of the five listed quant signals; daily RSI14 (61.1, separate timeframe) still healthy per one source though MACD histogram cooling. No trigger-worthy event on the authorized signal set. No trade - one to watch closely into the Sept 9 upgrade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 45.99,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "volume_ratio": 0.79,
+  "volume_flag_above_2x": false,
+  "price_action_1h_pct": -3.3,
+  "price_action_4h_pct": -3.32,
+  "order_book_imbalance": 0.015,
+  "news_context": "Whale addresses opened $9M in long positions ahead of Sept 9 Transaction V1 upgrade; SEC core ETF asset recognition. No trigger-worthy event on the authorized signal set this cycle."
+}
+```
+
+---
+### 2026-09-08T09:12:33.765Z — POL/USD — NO TRADE
+
+**Reasoning:** No open position. No fresh entry trigger: RSI neutral (50.6), SMA fast-above-slow with no fresh cross, volume very low (0.26x, not flagged), price action modestly negative and decelerating (-0.71%/-1.54%). Order book bid-heavy (+0.33). News unchanged - Gigagas roadmap, AggLayer cross-chain interoperability targeted for full maturity in 2026. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 50.56,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "volume_ratio": 0.264,
+  "volume_flag_above_2x": false,
+  "price_action_1h_pct": -0.71,
+  "price_action_4h_pct": -1.54,
+  "order_book_imbalance": 0.329,
+  "news_context": "Gigagas 100K TPS roadmap, AggLayer full maturity targeted for 2026. No trigger-worthy event this cycle."
+}
+```
+
+---
+### 2026-09-08T09:12:36.381Z — XRP/USD — NO TRADE
+
+**Reasoning:** No fresh quantitative trigger: RSI neutral (43.8, unchanged), SMA fast-above-slow, no cross this candle, volume roughly average (1.05x, not flagged), price action negative (-2.10%/-2.33%), order book bid-heavy (+0.23). News unchanged: stalled below the $1.43 wall, up 38.87% over the past month, Fear & Greed at 71 (Greed), one forecast targeting $1.45 by Sept 10. No trigger-worthy event. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 43.81,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "volume_ratio": 1.053,
+  "volume_flag_above_2x": false,
+  "price_action_1h_pct": -2.1,
+  "price_action_4h_pct": -2.33,
+  "order_book_imbalance": 0.231,
+  "news_context": "XRP stalled below $1.43 wall, up 38.87% over the past month, Fear & Greed 71, one forecast targeting $1.45 by Sept 10. No trigger-worthy event this cycle."
+}
+```
+
+---
