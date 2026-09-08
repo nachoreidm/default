@@ -5581,3 +5581,88 @@ The XRP/USD position logged above (id `96537a2c-86f0-4cbd-8b80-b5f5bc8ada22`, op
 ```
 
 ---
+### 2026-09-08T19:12:02.295Z — BTC/USD — NO TRADE
+
+**Reasoning:** No fresh quantitative trigger: SMA fast_above_slow with no cross, RSI 45.9 neutral, volume ratio 0.63x below the 2x flag. Price still range-bound in the high-$78Ks/low-$79Ks. News unchanged: Iran conflict and pre-CPI (Sept 11)/FOMC (Sept 16) macro risk continue to weigh, offset partially by positive ETF flows and institutional buys. No quant trigger to act on.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 45.9,
+  "sma_crossover_4h": "fast_above_slow, no cross",
+  "volume_ratio_24h": 0.63,
+  "price_action_48h_pct": -1.17,
+  "order_book_imbalance_top10": 0.4,
+  "news_context": "Same macro backdrop as prior cycles: Iran conflict, pre-CPI/FOMC risk, mixed but net-positive institutional flows - advisory only, no quant trigger"
+}
+```
+
+---
+### 2026-09-08T19:12:04.502Z — ETH/USD — NO TRADE
+
+**Reasoning:** No fresh quantitative trigger: SMA fast_above_slow with no cross, RSI 55.2 neutral, volume ratio 0.84x below the 2x flag. Price roughly flat over 48h. News unchanged: ETH near $2,500, strong ETF inflows continuing, Hegotá upgrade roadmap - advisory only, no quant signal.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 55.24,
+  "sma_crossover_4h": "fast_above_slow, no cross",
+  "volume_ratio_24h": 0.84,
+  "price_action_48h_pct": 0.31,
+  "order_book_imbalance_top10": 0.68,
+  "news_context": "ETH near $2,500, ETF inflows remain strong - advisory only, no quant trigger"
+}
+```
+
+---
+### 2026-09-08T19:12:07.287Z — SOL/USD — NO TRADE
+
+**Reasoning:** No fresh quantitative trigger: SMA fast_above_slow with no cross, RSI 52.8 neutral, volume ratio 0.79x below the 2x flag. Price down ~1.1-2.2% over 48h. News: Transaction V1 upgrade goes live tomorrow (Sept 9) - notable but advisory only, no quant trigger yet.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 52.83,
+  "sma_crossover_4h": "fast_above_slow, no cross",
+  "volume_ratio_24h": 0.79,
+  "price_action_48h_pct": -1.07,
+  "order_book_imbalance_top10": 0.02,
+  "news_context": "Transaction V1 upgrade lands tomorrow (Sept 9); SEC core-ETF-asset designation remains a bullish tailwind - advisory only, no quant trigger"
+}
+```
+
+---
+### 2026-09-08T19:12:09.862Z — POL/USD — NO TRADE
+
+**Reasoning:** No fresh quantitative trigger: SMA fast_above_slow with no cross, RSI 56.3 neutral, volume ratio 0.26x well below the 2x flag. Price essentially flat over 48h. News: mixed-but-leaning-bullish sentiment on enterprise payments/stablecoin adoption narrative, but token price continues underperforming amid L2 competition - net neutral, no quant trigger.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 56.32,
+  "sma_crossover_4h": "fast_above_slow, no cross",
+  "volume_ratio_24h": 0.264,
+  "price_action_48h_pct": 0.31,
+  "order_book_imbalance_top10": 0.03,
+  "news_context": "Mixed-but-bullish-leaning sentiment on enterprise payments/stablecoin narrative vs. ongoing L2 competition and underperforming price - no quant trigger"
+}
+```
+
+---
+### 2026-09-08T19:12:13.126Z — XRP/USD — NO TRADE
+
+**Reasoning:** Price remains firm near the 48h high (+1.73%) with RSI holding steady at 60.5 for a fourth consecutive cycle - still below the 70 overbought threshold; 4h 20/50 SMA remains fast_above_slow with no cross; volume ratio 1.05x stays below the 2x flag. Still no formal trigger. No material new XRP-specific headlines beyond the established themes (cup-and-handle structure, ETF inflows, RLUSD majority on XRPL) - treating this as continuity of the prior cycle's context.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 60.46,
+  "sma_crossover_4h": "fast_above_slow, no cross",
+  "volume_ratio_24h": 1.053,
+  "price_action_48h_pct": 1.73,
+  "order_book_imbalance_top10": 0.09,
+  "news_context": "No material new headline this cycle; continuity of prior bullish backdrop (cup-and-handle structure, ETF inflows, RLUSD majority on XRPL) - no quant trigger fired yet"
+}
+```
+
+---
