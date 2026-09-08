@@ -4216,3 +4216,113 @@ The XRP/USD position logged above (id `96537a2c-86f0-4cbd-8b80-b5f5bc8ada22`, op
 ```
 
 ---
+### 2026-09-08T05:14:13.372Z — BTC/USD — NO TRADE
+
+**Reasoning:** No fresh quantitative trigger: RSI neutral (44.2), SMA fast-above-slow with no cross this candle, volume 0.63x 7d avg (not flagged), price action negative (-1.67%/-1.15%), order book bid-heavy (+0.52). News unchanged - BTC trading sideways below $80K on hawkish Fed expectations, $76K flagged as key support, $217M ETF inflows constructive. No trigger-worthy event. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 44.17,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "volume_ratio": 0.63,
+  "volume_flag_above_2x": false,
+  "price_action_1h_pct": -1.67,
+  "price_action_4h_pct": -1.15,
+  "order_book_imbalance": 0.52,
+  "news_context": "BTC sideways below $80K on hawkish Fed expectations, $76K key support, $217M ETF inflows constructive. No trigger-worthy event now."
+}
+```
+
+---
+### 2026-09-08T05:14:16.869Z — ETH/USD — NO TRADE
+
+**Reasoning:** No fresh quantitative trigger: RSI neutral (51.7), SMA fast-above-slow, no cross this candle, volume 0.84x 7d avg (not flagged), price action negative (-1.39%/-0.47%), order book strongly bid-heavy (+0.62). News: Ethereum Foundation targeting full post-quantum security by Dec 2029 (Hegotá upgrade) - a long-horizon development, not a trigger; resistance $2,511-2,546, CPI due Sept 11 as next catalyst. No trigger-worthy event. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 51.72,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "volume_ratio": 0.84,
+  "volume_flag_above_2x": false,
+  "price_action_1h_pct": -1.39,
+  "price_action_4h_pct": -0.47,
+  "order_book_imbalance": 0.623,
+  "news_context": "Ethereum Foundation targeting post-quantum security by Dec 2029 (Hegotá upgrade), resistance $2,511-2,546, August CPI due Sept 11. No trigger-worthy event this cycle."
+}
+```
+
+---
+### 2026-09-08T05:14:19.386Z — SOL/USD — NO TRADE
+
+**Reasoning:** No fresh quantitative trigger: RSI neutral (47.7), SMA fast-above-slow, no cross this candle, volume 0.79x 7d avg (not flagged), price action negative (-3.21%/-1.80%), order book now ask-heavy (-0.22). News unchanged and constructive - Transaction V1 launches tomorrow (Sept 9), exchange supply fell 4.91%, SOL ETFs on a strong inflow run. No trigger-worthy event. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 47.73,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "volume_ratio": 0.79,
+  "volume_flag_above_2x": false,
+  "price_action_1h_pct": -3.21,
+  "price_action_4h_pct": -1.8,
+  "order_book_imbalance": -0.217,
+  "news_context": "Transaction V1 launches Sept 9, exchange supply fell 4.91%, SOL ETFs attracted $153.87M (strongest week since Oct 2025). No trigger-worthy event this cycle."
+}
+```
+
+---
+### 2026-09-08T05:14:22.697Z — POL/USD — NO TRADE
+
+**Reasoning:** No open position. No fresh entry trigger: RSI neutral (47.6, not oversold), SMA fast-above-slow with no fresh cross, volume very low (0.26x, not flagged), price action still negative (-3.07%/-4.05%). Order book roughly balanced (-0.01). News unchanged - Gigagas roadmap ongoing, network lagging peer L2s in the current cycle. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 47.64,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "volume_ratio": 0.264,
+  "volume_flag_above_2x": false,
+  "price_action_1h_pct": -3.07,
+  "price_action_4h_pct": -4.05,
+  "order_book_imbalance": -0.012,
+  "news_context": "Gigagas 100K TPS roadmap ongoing, POL lagging other Ethereum scaling chains in the current cycle. No trigger-worthy event this cycle; RSI still neutral, not oversold."
+}
+```
+
+---
+### 2026-09-08T05:14:26.120Z — XRP/USD — NO TRADE
+
+**Reasoning:** No fresh quantitative trigger: RSI neutral (46.3), SMA fast-above-slow, no cross this candle, volume roughly average (1.05x, not flagged), price action negative (-2.39%/-1.60%), order book roughly balanced (-0.07). News unchanged: stalled below the $1.43 resistance, up 38.87% over the past month, daily XRPL transactions above 2M since early September, CLARITY Act delay assessed as neutral given XRP's already-resolved SEC legal standing. No trigger-worthy event. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 46.28,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "volume_ratio": 1.053,
+  "volume_flag_above_2x": false,
+  "price_action_1h_pct": -2.39,
+  "price_action_4h_pct": -1.6,
+  "order_book_imbalance": -0.072,
+  "news_context": "XRP stalled below $1.43 resistance, up 38.87% over the past month, daily XRPL transactions above 2M since early Sept, CLARITY Act delay neutral given resolved SEC case. No trigger-worthy event this cycle."
+}
+```
+
+---
