@@ -4986,3 +4986,88 @@ The XRP/USD position logged above (id `96537a2c-86f0-4cbd-8b80-b5f5bc8ada22`, op
 ```
 
 ---
+### 2026-09-08T12:17:33.052Z — BTC/USD — NO TRADE
+
+**Reasoning:** No fresh quantitative trigger: SMA stays fast_above_slow with no cross this candle, RSI 39.6 is soft but not oversold (<30), and 24h volume ratio 0.63x is well below the 2x flag. Price down ~1.9% over 48h, rejected near $80,500 resistance per news, with U.S.-Iran conflict and pre-CPI (Sept 11) macro risk pressuring risk assets broadly. News is consistent with the mild bearish drift but doesn't independently justify a trade absent a quant signal.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 39.61,
+  "sma_crossover_4h": "fast_above_slow, no cross",
+  "volume_ratio_24h": 0.63,
+  "price_action_48h_pct": -1.9,
+  "order_book_imbalance_top10": 0.4,
+  "news_context": "BTC rejected near $80,500 resistance, sliding on U.S.-Iran conflict pushing oil near $100/bbl and inflation concerns ahead of Sept 11 CPI and Sept 15 FOMC meeting"
+}
+```
+
+---
+### 2026-09-08T12:17:36.680Z — ETH/USD — NO TRADE
+
+**Reasoning:** No fresh quantitative trigger: SMA fast_above_slow with no cross this candle, RSI 48.5 is neutral, and volume ratio 0.84x is below the 2x flag. Price roughly flat over 48h (-0.23%). News shows ETH holding near $2,470-2,500 with resistance at $2,511-2,546, plus a released Hegotá upgrade roadmap and a Dec 2029 quantum-resistance target - informative but neither event is a price-moving catalyst today and none of the quant signals point anywhere actionable.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 48.46,
+  "sma_crossover_4h": "fast_above_slow, no cross",
+  "volume_ratio_24h": 0.84,
+  "price_action_48h_pct": -0.23,
+  "order_book_imbalance_top10": 0.57,
+  "news_context": "ETH holding near $2,470-2,500, resistance $2,511-2,546; Ethereum Foundation released Hegotá upgrade roadmap/EIP tier list and a Dec 2029 quantum-resistance target - no near-term price catalyst"
+}
+```
+
+---
+### 2026-09-08T12:17:40.114Z — SOL/USD — NO TRADE
+
+**Reasoning:** No fresh quantitative trigger: SMA fast_above_slow with no cross this candle, RSI 45.6 neutral, volume ratio 0.79x below the 2x flag. Price down ~2.75% over 48h. News flags a Sept 9 Transaction V1 network upgrade (tripling max tx size) with whales reportedly opening $9M in long positions ahead of it - notable but advisory only, and no quant signal currently supports entering ahead of the event.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 45.6,
+  "sma_crossover_4h": "fast_above_slow, no cross",
+  "volume_ratio_24h": 0.79,
+  "price_action_48h_pct": -2.75,
+  "order_book_imbalance_top10": 0.06,
+  "news_context": "Solana Transaction V1 upgrade activates Sept 9 (tripling max tx size); whale addresses reportedly opened $9M in long positions ahead of it - advisory, no quant trigger yet"
+}
+```
+
+---
+### 2026-09-08T12:17:43.324Z — POL/USD — NO TRADE
+
+**Reasoning:** No fresh quantitative trigger: SMA fast_above_slow with no cross this candle, RSI 51.5 neutral, and volume ratio 0.26x is far below the 2x flag (weak participation). Price roughly flat over 48h (-0.58%). News notes recent security hard-fork patches (Aug 27) and the ongoing "Open Money Stack" payments pivot, but nothing from the last 24-48h that would move price, and low volume argues against reading much into the current drift.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 51.48,
+  "sma_crossover_4h": "fast_above_slow, no cross",
+  "volume_ratio_24h": 0.264,
+  "price_action_48h_pct": -0.58,
+  "order_book_imbalance_top10": -0.03,
+  "news_context": "No fresh 24-48h Polygon catalyst; recent items are the Aug 27 security hard-fork patches and the ongoing Open Money Stack payments strategy - not price-moving today"
+}
+```
+
+---
+### 2026-09-08T12:17:46.062Z — XRP/USD — NO TRADE
+
+**Reasoning:** No fresh quantitative trigger: SMA fast_above_slow with no cross this candle, RSI 46.7 neutral, volume ratio 1.05x essentially in line with average (well below the 2x flag). Price down ~1.2% over 48h, stalling below the $1.43 resistance per news, up 38.87% over the past month with two macro events in mid-September that could break the range either way - genuinely two-sided and not a basis for a directional trade without a quant signal.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 46.72,
+  "sma_crossover_4h": "fast_above_slow, no cross",
+  "volume_ratio_24h": 1.053,
+  "price_action_48h_pct": -1.19,
+  "order_book_imbalance_top10": 0.0008,
+  "news_context": "XRP stalled below $1.43 resistance, up 38.87% over the past month; two macro events in mid-September could break the range either direction - two-sided, no directional edge"
+}
+```
+
+---
