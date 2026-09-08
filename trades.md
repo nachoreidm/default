@@ -5496,3 +5496,88 @@ The XRP/USD position logged above (id `96537a2c-86f0-4cbd-8b80-b5f5bc8ada22`, op
 ```
 
 ---
+### 2026-09-08T18:11:53.139Z — BTC/USD — NO TRADE
+
+**Reasoning:** No fresh quantitative trigger: SMA fast_above_slow with no cross, RSI 45.9 neutral, volume ratio 0.63x below the 2x flag. Price down ~1.2-1.8% over 48h, still range-bound in the high-$78Ks. News: mixed - Capital B bought $29M BTC and Friday ETF inflows were positive ($174.6M), but Iran conflict and pre-CPI (Sept 11)/FOMC (Sept 16) macro risk persist. No quant trigger to act on.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 45.9,
+  "sma_crossover_4h": "fast_above_slow, no cross",
+  "volume_ratio_24h": 0.63,
+  "price_action_48h_pct": -1.17,
+  "order_book_imbalance_top10": 0.25,
+  "news_context": "Capital B bought $29M BTC; Friday spot ETF inflows $174.6M; Iran conflict and pre-CPI/FOMC macro risk persist - advisory only, no quant trigger"
+}
+```
+
+---
+### 2026-09-08T18:11:55.810Z — ETH/USD — NO TRADE
+
+**Reasoning:** No fresh quantitative trigger: SMA fast_above_slow with no cross, RSI 55.2 neutral, volume ratio 0.84x below the 2x flag. Price roughly flat over 48h. News unchanged: ETH near $2,500 with strong ETF inflows ($986.9M last week) - advisory only, no quant signal.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 55.24,
+  "sma_crossover_4h": "fast_above_slow, no cross",
+  "volume_ratio_24h": 0.84,
+  "price_action_48h_pct": 0.31,
+  "order_book_imbalance_top10": 0.83,
+  "news_context": "ETH near $2,500, ETF inflows remain strong ($986.9M last week) - advisory only, no quant trigger"
+}
+```
+
+---
+### 2026-09-08T18:11:58.020Z — SOL/USD — NO TRADE
+
+**Reasoning:** No fresh quantitative trigger: SMA fast_above_slow with no cross, RSI 52.8 neutral, volume ratio 0.79x below the 2x flag. Price down ~1.1-2.2% over 48h. News: SEC ETF-asset designation and tomorrow's Transaction V1 upgrade remain bullish tailwinds but advisory only.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 52.83,
+  "sma_crossover_4h": "fast_above_slow, no cross",
+  "volume_ratio_24h": 0.79,
+  "price_action_48h_pct": -1.07,
+  "order_book_imbalance_top10": -0.05,
+  "news_context": "SEC named SOL a core ETF asset; Transaction V1 upgrade lands tomorrow (Sept 9) - bullish tailwinds, advisory only, no quant trigger"
+}
+```
+
+---
+### 2026-09-08T18:12:00.305Z — POL/USD — NO TRADE
+
+**Reasoning:** No fresh quantitative trigger: SMA fast_above_slow with no cross, RSI 56.3 neutral, volume ratio 0.26x well below the 2x flag. Price essentially flat over 48h. No fresh 24-48h catalyst; same Gigagas roadmap backdrop.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 56.32,
+  "sma_crossover_4h": "fast_above_slow, no cross",
+  "volume_ratio_24h": 0.264,
+  "price_action_48h_pct": 0.31,
+  "order_book_imbalance_top10": 0.39,
+  "news_context": "No fresh 24-48h catalyst; ongoing Gigagas (100k TPS) roadmap remains the backdrop"
+}
+```
+
+---
+### 2026-09-08T18:12:04.263Z — XRP/USD — NO TRADE
+
+**Reasoning:** Price still firm near the 48h high (+1.73% on the 4h window) with RSI holding at 60.5 - unchanged for the third consecutive cycle and still below the 70 overbought threshold; 4h 20/50 SMA remains fast_above_slow with no cross; volume ratio 1.05x stays below the 2x flag. Still no formal trigger under the three-condition rule. News: still defending its recovery level, daily 50/150-day SMAs continuing to converge toward a golden cross (different timeframe, not our signal), RLUSD majority now on XRPL. Consistent bullish backdrop but no quant trigger fired.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 60.46,
+  "sma_crossover_4h": "fast_above_slow, no cross",
+  "volume_ratio_24h": 1.053,
+  "price_action_48h_pct": 1.73,
+  "order_book_imbalance_top10": -0.19,
+  "news_context": "XRP defending recovery level after August rally; daily 50/150-day SMA still converging toward a golden cross (different timeframe); RLUSD majority now on XRPL over Ethereum - no quant trigger fired yet"
+}
+```
+
+---
