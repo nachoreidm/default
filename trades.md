@@ -6098,3 +6098,94 @@ The XRP/USD position logged above (id `96537a2c-86f0-4cbd-8b80-b5f5bc8ada22`, op
 ```
 
 ---
+### 2026-09-08T23:13:47.836Z — BTC/USD — NO TRADE
+
+**Reasoning:** No quantitative trigger: RSI(4h) 41.6 neutral, SMA fast-above-slow with no crossover this candle, volume 0.63x average (no spike). Price down ~2.4% over 48h on 4h candles, order book now near-balanced (imbalance -0.09, much less skewed than last cycle). News shows continued institutional accumulation (Strive +1,375 BTC, Capital B +376 BTC) and a rejection at $80.5K with bulls defending $79K — informative but no signal to corroborate.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 41.58,
+  "sma_crossover_4h": "fast_above_slow, crossed_this_candle=false",
+  "volume_ratio": 0.63,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -2.36,
+  "order_book_imbalance_top10": -0.087,
+  "news_context": "Institutional buying continues (Strive bought 1,375 BTC ~$109M; Capital B bought 376 BTC, treasury now 3,521 BTC). Price rejected at $80.5K, bulls defending $79K; BTC and XRP have been moving in tandem since their peaks last week. No hacks/regulatory/exchange news found."
+}
+```
+
+---
+### 2026-09-08T23:13:52.115Z — ETH/USD — NO TRADE
+
+**Reasoning:** No trigger: RSI(4h) 50.5 dead-neutral, SMA fast-above-slow with no crossover this candle, volume 0.84x average (no spike). Price roughly flat/slightly down over 48h on 4h candles. Order book now mildly bid-heavy (imbalance +0.25, flipped from ask-heavy last cycle) but that's a secondary signal only. News is quiet — modest 24h gain in line with the broader market, technical discussion of EIP-8148 validator threshold changes, nothing acute.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 50.52,
+  "sma_crossover_4h": "fast_above_slow, crossed_this_candle=false",
+  "volume_ratio": 0.84,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -1.27,
+  "order_book_imbalance_top10": 0.255,
+  "news_context": "ETH roughly flat (+0.61% 24h, -0.40% 7d), underperforming the broader market slightly. Discussion of EIP-8148 (raising validator threshold range 32-2,048 ETH) and quantum-resistance upgrade proposals, but nothing acute or price-moving in the last 24-48h."
+}
+```
+
+---
+### 2026-09-08T23:13:57.067Z — SOL/USD — NO TRADE
+
+**Reasoning:** No trigger: RSI(4h) 47.7 neutral, SMA fast-above-slow with no crossover this candle, volume 0.79x average (no spike). Order book close to balanced (imbalance -0.05). Notable news: a data-center routing glitch reportedly knocked ~29% of staked SOL offline, bringing the network within striking distance of a full freeze, though the Foundation says blocks/transactions never actually stopped. This is a real risk signal worth flagging, but it's still advisory only per the rules — no quantitative signal is currently pointing anywhere for it to corroborate, so still no trade rather than treating the incident as a standalone bearish trigger.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 47.73,
+  "sma_crossover_4h": "fast_above_slow, crossed_this_candle=false",
+  "volume_ratio": 0.79,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -3.11,
+  "order_book_imbalance_top10": -0.054,
+  "news_context": "A routing glitch at a major data center provider reportedly knocked ~29% of Solana's staked tokens offline, bringing the network within striking distance of a full freeze; Foundation says blocks and transactions never actually stopped. Also: Solana wallets/apps can now tap MoneyGram's network for on/off-ramping. Flagging the staking-outage story as a real risk item to watch even though it isn't pairing with a quantitative trigger this cycle."
+}
+```
+
+---
+### 2026-09-08T23:14:02.279Z — POL/USD — NO TRADE
+
+**Reasoning:** No trigger: RSI(4h) 49.1 neutral, SMA fast-above-slow with no crossover this candle, volume still low at 0.26x average. Order book bid-heavy (imbalance +0.48) but secondary signal only. News: two mandatory hard forks (Austin, Kyoto) patched validator/DoS vulnerabilities and cut consensus time; enterprise/stablecoin partnership news (Bank of England Digital Pound Lab Phase 2) continues to build a bullish fundamental case, but again nothing quantitative is triggering this cycle.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 49.06,
+  "sma_crossover_4h": "fast_above_slow, crossed_this_candle=false",
+  "volume_ratio": 0.264,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -2.55,
+  "order_book_imbalance_top10": 0.479,
+  "data_gaps": [],
+  "news_context": "Austin/Kyoto hard forks patched a critical validator vulnerability and DoS risks, cut consensus time to ~1 second and block time to 1.75s; joined Phase 2 of Bank of England's Digital Pound Lab (SME trade finance pilot with NOBO Finance, Dun & Bradstreet). Some trader chatter about a bullish descending-channel breakout, but no confirmed quantitative signal yet."
+}
+```
+
+---
+### 2026-09-08T23:14:05.525Z — XRP/USD — NO TRADE
+
+**Reasoning:** No trigger: RSI(4h) 56.2 neutral, SMA fast-above-slow with no crossover this candle, volume roughly in line with average (1.05x). Price nearly flat over 48h on 4h candles. Order book now notably bid-heavy (imbalance +0.65) but that's a secondary signal only and doesn't clear the bar alone. News is quiet/positive: RLUSD stablecoin now live via Wormhole NTT, Swell conference dates confirmed for Nov 4-5 — no acute catalyst in the last 24-48h.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 56.21,
+  "sma_crossover_4h": "fast_above_slow, crossed_this_candle=false",
+  "volume_ratio": 1.053,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -0.006,
+  "order_book_imbalance_top10": 0.648,
+  "news_context": "Ripple's RLUSD stablecoin now live across ecosystems via Wormhole's Native Token Transfers; Swell conference confirmed for Nov 4-5 in New York. XRP moving in tandem with BTC since last week's peaks. No hacks or adverse regulatory news found."
+}
+```
+
+---
