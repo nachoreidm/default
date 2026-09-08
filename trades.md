@@ -5241,3 +5241,88 @@ The XRP/USD position logged above (id `96537a2c-86f0-4cbd-8b80-b5f5bc8ada22`, op
 ```
 
 ---
+### 2026-09-08T15:16:07.303Z — BTC/USD — NO TRADE
+
+**Reasoning:** No fresh quantitative trigger: SMA fast_above_slow with no cross, RSI 39.6 soft but not oversold, volume ratio 0.63x below the 2x flag. Price down ~1.5% over 48h, still in distribution/defensive posture per news after failing to reclaim $80,000, with elevated odds (58-60%) of a Sept 16 Fed rate hike now cited as a fresh macro headwind. No quant trigger to act on.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 39.61,
+  "sma_crossover_4h": "fast_above_slow, no cross",
+  "volume_ratio_24h": 0.63,
+  "price_action_48h_pct": -1.47,
+  "order_book_imbalance_top10": 0.98,
+  "news_context": "BTC still in distribution/defensive posture below $80,000; CME FedWatch now pricing 58-60% odds of a 25bp hike Sept 16, adding to inflation-driven macro pressure"
+}
+```
+
+---
+### 2026-09-08T15:16:09.112Z — ETH/USD — NO TRADE
+
+**Reasoning:** No fresh quantitative trigger: SMA fast_above_slow with no cross, RSI 48.5 neutral, volume ratio 0.84x below the 2x flag. Price roughly flat over 48h (now slightly positive on the 1h window). News unchanged: ETH holding near/above $2,500, strong ETF inflows continue - advisory only, no quant signal to act on.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 48.46,
+  "sma_crossover_4h": "fast_above_slow, no cross",
+  "volume_ratio_24h": 0.84,
+  "price_action_48h_pct": -0.23,
+  "order_book_imbalance_top10": 0.43,
+  "news_context": "ETH holding above $2,500; ETF inflows remain strong ($3.8B/3wk) - advisory only, no quant trigger"
+}
+```
+
+---
+### 2026-09-08T15:16:12.956Z — SOL/USD — NO TRADE
+
+**Reasoning:** No fresh quantitative trigger on our own 4h signals: SMA fast_above_slow with no cross, RSI 45.6 neutral (note: this differs from a daily-timeframe RSI14 of 61.1 cited in one news source - not our authorized 4h reading, so not used), volume ratio 0.79x below the 2x flag. Price down ~2.3% over 48h. News: SEC ETF-asset designation and Transaction V1 upgrade tomorrow remain bullish tailwinds but advisory only.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 45.6,
+  "sma_crossover_4h": "fast_above_slow, no cross",
+  "volume_ratio_24h": 0.79,
+  "price_action_48h_pct": -2.75,
+  "order_book_imbalance_top10": -0.01,
+  "news_context": "SEC named SOL a core ETF asset; Transaction V1 upgrade lands Sept 9; one source notes daily MACD histogram turning negative inside a broader uptrend - advisory only, no 4h quant trigger"
+}
+```
+
+---
+### 2026-09-08T15:16:15.137Z — POL/USD — NO TRADE
+
+**Reasoning:** No fresh quantitative trigger: SMA fast_above_slow with no cross, RSI 51.5 neutral, volume ratio 0.26x well below the 2x flag. Price essentially flat over 48h. No new catalyst; same Gigagas roadmap and security-patch backdrop as prior cycles.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 51.48,
+  "sma_crossover_4h": "fast_above_slow, no cross",
+  "volume_ratio_24h": 0.264,
+  "price_action_48h_pct": -0.58,
+  "order_book_imbalance_top10": 0.37,
+  "news_context": "No fresh 24-48h catalyst; ongoing Gigagas (100k TPS) roadmap and Open Money Stack payments focus remain the backdrop"
+}
+```
+
+---
+### 2026-09-08T15:16:18.027Z — XRP/USD — NO TRADE
+
+**Reasoning:** No fresh quantitative trigger on our 4h 20/50 SMA (fast_above_slow, no cross) or RSI (46.7, neutral); volume ratio 1.05x in line with average. Price roughly flat to slightly positive over 48h. News: XRP ETFs posted their largest weekly inflow of 2026 ($110.5M) and a daily-timeframe golden cross is still approaching (not our authorized signal/timeframe) - both advisory context only, no quant trigger.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 46.72,
+  "sma_crossover_4h": "fast_above_slow, no cross",
+  "volume_ratio_24h": 1.053,
+  "price_action_48h_pct": -1.19,
+  "order_book_imbalance_top10": 0.23,
+  "news_context": "XRP ETFs saw largest weekly inflow of 2026 ($110.5M, cumulative $1.68B); daily 50/150-day SMA still approaching a golden cross (different timeframe than our 4h signal) - advisory only"
+}
+```
+
+---
