@@ -1,15 +1,31 @@
 import type { AllowedPair, Candle, OrderBook, Ticker } from "./types.js";
-import { isAllowedPair } from "./types.js";
+import { ALLOWED_PAIRS, isAllowedPair } from "./types.js";
 
 const KRAKEN_API_BASE = "https://api.kraken.com/0/public";
 
 const PAIR_CODE: Record<AllowedPair, string> = {
   "BTC/USD": "XBTUSD",
-  "ETH/USD": "ETHUSD",
   "SOL/USD": "SOLUSD",
-  "POL/USD": "POLUSD",
   "XRP/USD": "XRPUSD",
+  "AAPLx/USD": "AAPLxUSD",
+  "TSLAx/USD": "TSLAxUSD",
+  "NVDAx/USD": "NVDAxUSD",
+  "CRCLx/USD": "CRCLxUSD",
 };
+
+// xStocks (tokenized equities) live on a separate Kraken asset class from
+// crypto and are invisible to public/private endpoints unless this is set -
+// without it Kraken returns "Unknown asset pair" even for a pair that exists.
+const TOKENIZED_ASSET_PAIRS = new Set<AllowedPair>([
+  "AAPLx/USD",
+  "TSLAx/USD",
+  "NVDAx/USD",
+  "CRCLx/USD",
+]);
+
+function assetClassParam(pair: AllowedPair): Record<string, string> {
+  return TOKENIZED_ASSET_PAIRS.has(pair) ? { asset_class: "tokenized_asset" } : {};
+}
 
 export const INTERVAL_MINUTES = {
   "1h": 60,
@@ -23,7 +39,7 @@ class KrakenApiError extends Error {}
 function assertAllowedPair(pair: string): AllowedPair {
   if (!isAllowedPair(pair)) {
     throw new KrakenApiError(
-      `Pair "${pair}" is out of scope. This agent is only authorized to look at: BTC/USD, ETH/USD.`
+      `Pair "${pair}" is out of scope. This agent is only authorized to look at: ${ALLOWED_PAIRS.join(", ")}.`
     );
   }
   return pair;
@@ -60,6 +76,7 @@ export async function fetchOHLC(pair: string, interval: IntervalKey): Promise<Ca
   const result = await krakenFetch<Record<string, unknown>>("OHLC", {
     pair: PAIR_CODE[p],
     interval: String(INTERVAL_MINUTES[interval]),
+    ...assetClassParam(p),
   });
   const key = firstResultKey(result);
   const rows = result[key] as string[][];
@@ -84,7 +101,10 @@ export function closedCandles(candles: Candle[]): Candle[] {
 
 export async function fetchTicker(pair: string): Promise<Ticker> {
   const p = assertAllowedPair(pair);
-  const result = await krakenFetch<Record<string, any>>("Ticker", { pair: PAIR_CODE[p] });
+  const result = await krakenFetch<Record<string, any>>("Ticker", {
+    pair: PAIR_CODE[p],
+    ...assetClassParam(p),
+  });
   const key = firstResultKey(result);
   const t = result[key];
   return {
@@ -104,6 +124,7 @@ export async function fetchDepth(pair: string, count = 10): Promise<OrderBook> {
   const result = await krakenFetch<Record<string, any>>("Depth", {
     pair: PAIR_CODE[p],
     count: String(count),
+    ...assetClassParam(p),
   });
   const key = firstResultKey(result);
   const d = result[key];

@@ -1,12 +1,26 @@
-import { isAllowedPair } from "./types.js";
+import { ALLOWED_PAIRS, isAllowedPair } from "./types.js";
 const KRAKEN_API_BASE = "https://api.kraken.com/0/public";
 const PAIR_CODE = {
     "BTC/USD": "XBTUSD",
-    "ETH/USD": "ETHUSD",
     "SOL/USD": "SOLUSD",
-    "POL/USD": "POLUSD",
     "XRP/USD": "XRPUSD",
+    "AAPLx/USD": "AAPLxUSD",
+    "TSLAx/USD": "TSLAxUSD",
+    "NVDAx/USD": "NVDAxUSD",
+    "CRCLx/USD": "CRCLxUSD",
 };
+// xStocks (tokenized equities) live on a separate Kraken asset class from
+// crypto and are invisible to public/private endpoints unless this is set -
+// without it Kraken returns "Unknown asset pair" even for a pair that exists.
+const TOKENIZED_ASSET_PAIRS = new Set([
+    "AAPLx/USD",
+    "TSLAx/USD",
+    "NVDAx/USD",
+    "CRCLx/USD",
+]);
+function assetClassParam(pair) {
+    return TOKENIZED_ASSET_PAIRS.has(pair) ? { asset_class: "tokenized_asset" } : {};
+}
 export const INTERVAL_MINUTES = {
     "1h": 60,
     "4h": 240,
@@ -16,7 +30,7 @@ class KrakenApiError extends Error {
 }
 function assertAllowedPair(pair) {
     if (!isAllowedPair(pair)) {
-        throw new KrakenApiError(`Pair "${pair}" is out of scope. This agent is only authorized to look at: BTC/USD, ETH/USD.`);
+        throw new KrakenApiError(`Pair "${pair}" is out of scope. This agent is only authorized to look at: ${ALLOWED_PAIRS.join(", ")}.`);
     }
     return pair;
 }
@@ -49,6 +63,7 @@ export async function fetchOHLC(pair, interval) {
     const result = await krakenFetch("OHLC", {
         pair: PAIR_CODE[p],
         interval: String(INTERVAL_MINUTES[interval]),
+        ...assetClassParam(p),
     });
     const key = firstResultKey(result);
     const rows = result[key];
@@ -71,7 +86,10 @@ export function closedCandles(candles) {
 }
 export async function fetchTicker(pair) {
     const p = assertAllowedPair(pair);
-    const result = await krakenFetch("Ticker", { pair: PAIR_CODE[p] });
+    const result = await krakenFetch("Ticker", {
+        pair: PAIR_CODE[p],
+        ...assetClassParam(p),
+    });
     const key = firstResultKey(result);
     const t = result[key];
     return {
@@ -90,6 +108,7 @@ export async function fetchDepth(pair, count = 10) {
     const result = await krakenFetch("Depth", {
         pair: PAIR_CODE[p],
         count: String(count),
+        ...assetClassParam(p),
     });
     const key = firstResultKey(result);
     const d = result[key];

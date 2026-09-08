@@ -1,4 +1,12 @@
-export const ALLOWED_PAIRS = ["BTC/USD", "ETH/USD", "SOL/USD", "POL/USD", "XRP/USD"] as const;
+export const ALLOWED_PAIRS = [
+  "BTC/USD",
+  "SOL/USD",
+  "XRP/USD",
+  "AAPLx/USD",
+  "TSLAx/USD",
+  "NVDAx/USD",
+  "CRCLx/USD",
+] as const;
 export type AllowedPair = (typeof ALLOWED_PAIRS)[number];
 
 export function isAllowedPair(pair: string): pair is AllowedPair {
