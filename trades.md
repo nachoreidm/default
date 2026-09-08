@@ -5666,3 +5666,131 @@ The XRP/USD position logged above (id `96537a2c-86f0-4cbd-8b80-b5f5bc8ada22`, op
 ```
 
 ---
+### 2026-09-08T20:14:59.057Z — BTC/USD — NO TRADE
+
+**Reasoning:** No quantitative trigger present: RSI(14,4h) 41.6 is neutral (no overbought/oversold flag), no SMA 20/50 crossover this candle (fast already above slow, unchanged), 24h volume at 0.63x the 7-day average (no spike), order book roughly balanced (-0.026). Price is down -2.36% over the last 48h on 4h candles but with no confirming signal. News is cautiously bullish (strong spot ETF inflows, ~22% monthly rally) but faces resistance at $80-82.5K and rising Fed rate-hike odds -- mixed and not actionable on its own. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 41.58,
+  "sma_crossover_4h": "fast_above_slow, not crossed this candle",
+  "volume_ratio": 0.633,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -2.36,
+  "order_book_imbalance_top10": -0.0257,
+  "news_context": "Cautiously bullish: strong spot BTC ETF inflows (~$1.03B/7d), 22% monthly rally, but resistance at $80K-$82.5K and rising Fed rate-hike odds (59% from 52%) after strong jobs data. Not decisive."
+}
+```
+
+---
+### 2026-09-08T20:15:03.090Z — SOL/USD — NO TRADE
+
+**Reasoning:** No quantitative trigger: RSI(14,4h) 47.7 is neutral, no SMA crossover this candle (fast already above slow), 24h volume at 0.79x the 7-day average (no spike), order book mildly bid-skewed (+0.10) but not extreme. Price down -3.1% over the 48h 4h window with no confirming signal. News is fundamentally bullish (SEC named SOL a Core ETF asset, Transaction V1 upgrade launched, strong ETF inflows, leading RWA/tokenized-equity growth) but that's medium-term fundamental news, not a short-term technical trigger -- per the rules, news alone can't manufacture a signal. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 47.73,
+  "sma_crossover_4h": "fast_above_slow, not crossed this candle",
+  "volume_ratio": 0.794,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -3.11,
+  "order_book_imbalance_top10": 0.102,
+  "news_context": "Bullish fundamentals: SEC named SOL a Core ETF Asset (Sep 5), Transaction V1 upgrade, strong SOL ETF inflows ($153.87M, best week since Oct 2025), leading in tokenized-equity/RWA volume. No near-term price-moving catalyst confirmed by technicals."
+}
+```
+
+---
+### 2026-09-08T20:15:07.099Z — XRP/USD — NO TRADE
+
+**Reasoning:** No quantitative trigger: RSI(14,4h) 56.2 is neutral, no SMA crossover this candle, 24h volume at 1.05x average (normal, no spike), order book mildly ask-skewed (-0.10). Price essentially flat over the 4h/48h window (-0.006%). News shows XRP absorbed a 1B-token escrow release without a negative price reaction and ledger activity is elevated, which is mildly reassuring but doesn't constitute a fresh technical signal on its own, and the upcoming Fed meeting (Sep 15-16) is a forward risk, not a current trigger. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 56.21,
+  "sma_crossover_4h": "fast_above_slow, not crossed this candle",
+  "volume_ratio": 1.053,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -0.006,
+  "order_book_imbalance_top10": -0.1016,
+  "news_context": "Ripple released 1B XRP from escrow (Sep 1) which price absorbed without flinching; XRP Ledger payment volume up 521% in a week (institutional-driven); Fed meeting Sep 15-16 is a forward risk. Nothing that confirms a directional trade today."
+}
+```
+
+---
+### 2026-09-08T20:15:13.999Z — AAPLx/USD — NO TRADE
+
+**Reasoning:** Signals conflict: RSI(14,4h) at 28.44 is flagged oversold (<30), which would normally support a contrarian long. However this is directly contradicted by the 4h SMA state (fast_below_slow, a bearish trend read) and, more importantly, by extremely thin 24h volume at just 0.075x the 7-day average (44.8 vs ~600.5 avg) -- volume this thin undermines confidence that the RSI reading reflects a reliable move rather than noise from illiquid trading. Order book is roughly balanced (-0.013), offering no confirmation either way. Per the no-trade criteria, an RSI extreme with a conflicting trend signal and unreliable (very low) volume is a textbook no-trade rather than a low-confidence entry. News: Apple has a major product event on Sep 9 (iPhone 18 Pro/Pro Max, foldable iPhone Ultra, new Watches/AirPods) which could be a catalyst, but that cuts both ways (event-anticipation selloff vs. post-event pop) and doesn't resolve the technical conflict. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 28.44,
+  "rsi_flag": "oversold",
+  "sma_crossover_4h": "fast_below_slow, not crossed this candle",
+  "volume_ratio": 0.0746,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -1.46,
+  "order_book_imbalance_top10": -0.0126,
+  "news_context": "Apple's Sep 9 event previews iPhone 18 Pro/Pro Max, foldable 'iPhone Ultra', A20 Pro 2nm chip, new Watches/AirPods. Positive product cycle news, but doesn't confirm direction and stock has been drifting down into the event (mildly ambiguous)."
+}
+```
+
+---
+### 2026-09-08T20:15:19.515Z — TSLAx/USD — NO TRADE
+
+**Reasoning:** No confirmed quantitative trigger: RSI(14,4h) at 68.77 is elevated but has not crossed the 70 overbought threshold, so it isn't flagged. No SMA crossover this candle (in fact the 4h SMA state is fast_below_slow, i.e. bearish, despite the recent 48h price rally of +3.47% -- an internal inconsistency that argues for caution rather than chasing the move). 24h volume at 1.24x average is elevated but well short of the 2x spike flag. Order book is strongly bid-skewed (+0.40), which is notable but is an auxiliary/optional signal, not one of the three trigger types (RSI extreme, fresh crossover, volume spike) required before news can weigh in. News is negative near-term: the Sep 3 Cybercab launch event "underwhelmed" Wall Street and the stock dropped 6% on it. Given no flagged quant trigger and negative news, no trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 68.77,
+  "rsi_flag": "none (below 70 overbought threshold)",
+  "sma_crossover_4h": "fast_below_slow, not crossed this candle",
+  "volume_ratio": 1.239,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": 3.47,
+  "order_book_imbalance_top10": 0.4005,
+  "news_context": "Tesla's Sep 3 Cybercab robotaxi launch event in Austin underwhelmed investors; stock fell 6% following the event. Negative catalyst, no quant trigger to act on regardless."
+}
+```
+
+---
+### 2026-09-08T20:15:23.537Z — NVDAx/USD — NO TRADE
+
+**Reasoning:** No quantitative trigger: RSI(14,4h) at 32.46 is approaching oversold but has not crossed below the 30 threshold, so it isn't flagged. No SMA crossover this candle (fast remains above slow). 24h volume at 0.29x average is well below normal, not a spike. Order book roughly balanced (-0.023). Price down -2.5% over the 48h 4h window with no confirming signal. News is strongly positive fundamentally (definitive agreement to acquire Hugging Face for ~$12.9B, Q2 revenue of $96.2B up 106% YoY, upcoming dividend) but that's fundamental/medium-term news, not a technical trigger, and per the rules can't manufacture a signal on its own. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 32.46,
+  "sma_crossover_4h": "fast_above_slow, not crossed this candle",
+  "volume_ratio": 0.288,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -2.5,
+  "order_book_imbalance_top10": -0.023,
+  "news_context": "NVIDIA agreed to acquire Hugging Face (~$12.93B, announced Sep 2); Q2 FY27 revenue $96.2B, up 106% YoY; quarterly dividend of $0.25 payable Oct 1. Strongly positive fundamentals but no confirming near-term technical trigger."
+}
+```
+
+---
+### 2026-09-08T20:15:29.855Z — CRCLx/USD — NO TRADE
+
+**Reasoning:** No quantitative trigger despite a sharp move: price is down -8.32% over the 48h 4h window, but RSI(14,4h) at 35.31 has not crossed below the 30 oversold threshold, there's no SMA crossover this candle (fast remains above slow), and 24h volume at 1.40x average is elevated but short of the 2x spike flag. Order book is mildly bid-skewed (+0.056). A large price drop without a confirming RSI/crossover/volume-spike signal is exactly the kind of move the rules say not to chase. News is strongly bullish medium-term (Arc mainnet launching Sep 16 with BlackRock/DTCC/Mastercard/Visa as founding validators, USDC circulation near record with a net weekly gain of ~$610M), which may explain why the stock had rallied hard into early September before this pullback, but doesn't confirm a trade today. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 35.31,
+  "sma_crossover_4h": "fast_above_slow, not crossed this candle",
+  "volume_ratio": 1.404,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -8.32,
+  "order_book_imbalance_top10": 0.0559,
+  "news_context": "Circle's Arc blockchain mainnet launches Sep 16 with BlackRock, DTCC, Mastercard, Visa, ICE, Standard Chartered as founding validators; USDC circulation ~$74.33B with a ~$610M net weekly gain. Bullish medium-term catalyst but a sharp -8.3% pullback with no confirming technical signal to act on now."
+}
+```
+
+---
