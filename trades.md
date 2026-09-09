@@ -8282,3 +8282,94 @@ The XRP/USD position logged above (id `96537a2c-86f0-4cbd-8b80-b5f5bc8ada22`, op
 ```
 
 ---
+### 2026-09-09T23:12:24.654Z — BTC/USD — NO TRADE
+
+**Reasoning:** Same bearish 20/50 SMA crossover persists (same 4h candle) - still not actionable for a long-only strategy with no open position. RSI(4h) 40.9 unchanged, weak but not oversold. Volume 0.88x average (no spike). Price down ~1.1-1.5% over 48h on both windows, order book ask-heavy (imbalance -0.16). News unchanged from prior cycles (historic-low volatility, ~$264M liquidations, Strategy's brief return to buying) - no new catalyst.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 40.9,
+  "sma_crossover_4h": "fast_below_slow, crossed_this_candle=true, crossover_direction=bearish (unchanged candle)",
+  "volume_ratio": 0.877,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -1.112,
+  "order_book_imbalance_top10": -0.164,
+  "news_context": "Same story continuing: volatility at historic low; ~$264M liquidations ahead of CPI; Strategy's brief return to buying. No new catalyst; bearish crossover remains not actionable for this long-only account."
+}
+```
+
+---
+### 2026-09-09T23:12:27.518Z — ETH/USD — NO TRADE
+
+**Reasoning:** No trigger: RSI(4h) 44.5 neutral, SMA fast-above-slow with no crossover this candle, volume 1.05x average (no spike). Price down over 48h on both windows (-1.60% on 1h), order book ask-heavy (imbalance -0.33), softening alongside BTC. News unchanged from prior cycles (Hegota upgrade, Harmony migration, Tom Lee's target) - no new catalyst.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 44.52,
+  "sma_crossover_4h": "fast_above_slow, crossed_this_candle=false",
+  "volume_ratio": 1.046,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -1.002,
+  "order_book_imbalance_top10": -0.335,
+  "news_context": "Same story continuing: Hegota gas-fee feature; Harmony (ONE) migrating to Ethereum as an ERC-20; Tom Lee's $6,000 ETH target. No new catalyst since last cycle."
+}
+```
+
+---
+### 2026-09-09T23:12:30.106Z — SOL/USD — NO TRADE
+
+**Reasoning:** No trigger: RSI(4h) 43.6 neutral, SMA fast-above-slow with no crossover this candle, volume 1.28x average (elevated but below 2x flag). Price down over 48h on both windows (-2.87% on 1h), order book perfectly balanced (imbalance ~0). News unchanged from prior cycles (staking-outage story, MoneyGram, Jupiter Lend v2) - no new catalyst.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 43.57,
+  "sma_crossover_4h": "fast_above_slow, crossed_this_candle=false",
+  "volume_ratio": 1.284,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -1.388,
+  "order_book_imbalance_top10": -0.005,
+  "news_context": "Same stories continuing to circulate (staking outage, network never halted; MoneyGram integration; Jupiter Lend v2). No new catalyst since last cycle."
+}
+```
+
+---
+### 2026-09-09T23:12:33.228Z — POL/USD — NO TRADE
+
+**Reasoning:** No trigger: RSI(4h) 48.1 neutral, SMA fast-above-slow with no crossover this candle, volume still low at 0.55x average. Price up modestly over 48h on both windows (+1.29% on 1h), order book bid-heavy (imbalance +0.13), holding up better than the broader market this cycle. News unchanged from prior cycles (hard forks, BoE Digital Pound Lab, reported Bitcoin ATM acquisition) - no quantitative trigger.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 48.13,
+  "sma_crossover_4h": "fast_above_slow, crossed_this_candle=false",
+  "volume_ratio": 0.546,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": 0.905,
+  "order_book_imbalance_top10": 0.129,
+  "data_gaps": [],
+  "news_context": "Same story continuing: hard-fork security patches, BoE Digital Pound Lab, reported Bitcoin ATM provider acquisition. No new catalyst, no quantitative trigger."
+}
+```
+
+---
+### 2026-09-09T23:12:35.429Z — XRP/USD — NO TRADE
+
+**Reasoning:** No trigger: RSI(4h) 46.8 neutral, SMA fast-above-slow with no crossover this candle, volume 1.12x average (in line, not a spike). Price down modestly over 48h on the 1h window (-0.88%) but flat-to-positive on the 4h window, order book ask-heavy (imbalance -0.21), softening alongside the broader market. News unchanged from prior cycles (spot ETFs live, elevated spot volume) - no new catalyst.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 46.82,
+  "sma_crossover_4h": "fast_above_slow, crossed_this_candle=false",
+  "volume_ratio": 1.116,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": 0.319,
+  "order_book_imbalance_top10": -0.209,
+  "news_context": "Same story continuing: spot XRP ETFs live since Nov 2025; spot trading volume elevated. No new catalyst since last cycle."
+}
+```
+
+---
