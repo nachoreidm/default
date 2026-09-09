@@ -6462,3 +6462,94 @@ The XRP/USD position logged above (id `96537a2c-86f0-4cbd-8b80-b5f5bc8ada22`, op
 ```
 
 ---
+### 2026-09-09T03:12:11.039Z — BTC/USD — NO TRADE
+
+**Reasoning:** No trigger: RSI(4h) 41.7 neutral, SMA fast-above-slow with no crossover this candle, volume 0.88x average (no spike). Price down ~1.4% over 48h on 4h candles, order book bid-heavy (imbalance +0.38). News unchanged from last cycle (falling S&P500 correlation, continued institutional buying, resistance at $80K) - no new catalyst.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 41.73,
+  "sma_crossover_4h": "fast_above_slow, crossed_this_candle=false",
+  "volume_ratio": 0.877,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -1.42,
+  "order_book_imbalance_top10": 0.383,
+  "news_context": "Same story continuing: BTC-S&P500 correlation at lowest since 2015; continued institutional accumulation (Strive, Capital B); resistance around $80K. No new catalyst since last cycle."
+}
+```
+
+---
+### 2026-09-09T03:12:14.963Z — ETH/USD — NO TRADE
+
+**Reasoning:** No trigger: RSI(4h) 51.3 neutral, SMA fast-above-slow with no crossover this candle, volume 1.05x average (no spike). Price roughly flat over 48h on 4h candles (-0.49%), order book mildly bid-heavy (imbalance +0.16). New item: Bitmine Immersion Technologies bought 28,086 ETH (~$69.5M) last week with Tom Lee flagging a potential sharp upside move - notable institutional accumulation, but still no quantitative trigger this cycle.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 51.26,
+  "sma_crossover_4h": "fast_above_slow, crossed_this_candle=false",
+  "volume_ratio": 1.046,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -0.49,
+  "order_book_imbalance_top10": 0.157,
+  "news_context": "Bitmine Immersion Technologies bought 28,086 ETH (~$69.5M) last week; Tom Lee (Bitmine chairman) flagged a potential sharp upside move. Hegota gas-fee feature and Harmony/ONE migration stories continuing. Institutional accumulation noted but no quantitative trigger."
+}
+```
+
+---
+### 2026-09-09T03:12:17.481Z — SOL/USD — NO TRADE
+
+**Reasoning:** No trigger: RSI(4h) 48.4 neutral, SMA fast-above-slow with no crossover this candle, volume 1.28x average (elevated but below 2x flag). Price down ~1.5% over 48h on 4h candles, order book mildly ask-heavy (imbalance -0.09). News unchanged from prior cycles (staking-outage story, MoneyGram integration) - no new catalyst.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 48.4,
+  "sma_crossover_4h": "fast_above_slow, crossed_this_candle=false",
+  "volume_ratio": 1.284,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -1.5,
+  "order_book_imbalance_top10": -0.094,
+  "news_context": "Same stories continuing to circulate (staking outage, network never halted; MoneyGram integration). No new catalyst since last cycle."
+}
+```
+
+---
+### 2026-09-09T03:12:20.619Z — POL/USD — NO TRADE
+
+**Reasoning:** No trigger: RSI(4h) 47.8 neutral, SMA fast-above-slow with no crossover this candle, volume low at 0.55x average. Price down ~1.6% over 48h on 4h candles, order book bid-heavy (imbalance +0.47). News unchanged from prior cycles (hard forks, BoE Digital Pound Lab, MATIC-to-POL ticker migration noted as background) - no new catalyst.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 47.77,
+  "sma_crossover_4h": "fast_above_slow, crossed_this_candle=false",
+  "volume_ratio": 0.546,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -1.64,
+  "order_book_imbalance_top10": 0.466,
+  "data_gaps": [],
+  "news_context": "Same hard-fork and BoE Digital Pound Lab story continuing; on-chain activity holding up despite sector-wide fee declines. No new catalyst since last cycle."
+}
+```
+
+---
+### 2026-09-09T03:12:23.471Z — XRP/USD — NO TRADE
+
+**Reasoning:** No trigger: RSI(4h) 53.9 neutral, SMA fast-above-slow with no crossover this candle, volume 1.12x average (in line). Price modestly positive over 48h on 4h candles (+0.79%) but not an extreme or crossover. Order book close to balanced (imbalance -0.02). News unchanged from prior cycles (RLUSD/Wormhole, Swell conference, spot XRP ETFs already approved/trading since Nov 2025) - no new catalyst.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 53.87,
+  "sma_crossover_4h": "fast_above_slow, crossed_this_candle=false",
+  "volume_ratio": 1.116,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": 0.785,
+  "order_book_imbalance_top10": -0.017,
+  "news_context": "Same story continuing: RLUSD/Wormhole NTT expansion; confirmed Nov 4-5 Swell conference; spot XRP ETFs (Bitwise, Grayscale, 21Shares, Canary, Franklin Templeton) already live since Nov 2025. No new catalyst since last cycle."
+}
+```
+
+---
