@@ -6735,3 +6735,94 @@ The XRP/USD position logged above (id `96537a2c-86f0-4cbd-8b80-b5f5bc8ada22`, op
 ```
 
 ---
+### 2026-09-09T06:15:52.443Z — BTC/USD — NO TRADE
+
+**Reasoning:** No trigger: RSI(4h) 44.2 neutral, SMA fast-above-slow with no crossover this candle, volume 0.88x average (no spike). Price down ~0.9% over 48h on 4h candles, order book now heavily ask-heavy (imbalance -0.96). News unchanged from prior cycles (rejected twice from $82K, falling S&P500 correlation, continued institutional accumulation) - no new catalyst.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 44.16,
+  "sma_crossover_4h": "fast_above_slow, crossed_this_candle=false",
+  "volume_ratio": 0.877,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -0.94,
+  "order_book_imbalance_top10": -0.959,
+  "news_context": "BTC trading flat below $80K after being rejected from $82K twice; BTC-S&P500 correlation at lowest since 2015; continued institutional accumulation (Strive, Capital B). No new catalyst since last cycle."
+}
+```
+
+---
+### 2026-09-09T06:15:56.079Z — ETH/USD — NO TRADE
+
+**Reasoning:** No trigger: RSI(4h) 52.3 neutral, SMA fast-above-slow with no crossover this candle, volume 1.05x average (no spike). Price essentially flat over 48h on 4h candles (-0.01%), order book now ask-heavy (imbalance -0.58). News unchanged from prior cycles (Bitmine's 28,086 ETH purchase, Tom Lee's $6,000 target, Hegota upgrade package being finalized) - no new catalyst.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 52.33,
+  "sma_crossover_4h": "fast_above_slow, crossed_this_candle=false",
+  "volume_ratio": 1.046,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -0.009,
+  "order_book_imbalance_top10": -0.581,
+  "news_context": "Same stories continuing: Bitmine's 28,086 ETH purchase (~$69.5M); Tom Lee's $6,000 ETH target; Hegota upgrade package (wallet approval/payment changes) being finalized. No new catalyst since last cycle."
+}
+```
+
+---
+### 2026-09-09T06:15:59.113Z — SOL/USD — NO TRADE
+
+**Reasoning:** No trigger: RSI(4h) 48.1 neutral, SMA fast-above-slow with no crossover this candle, volume 1.28x average (elevated but below 2x flag). Price down ~1.1% over 48h on 4h candles, order book mildly bid-heavy (imbalance +0.09). New item: Solana's first network-wide governance vote (a disinflation proposal) narrowly passed after some validators switched sides late - notable governance news but not a quantitative trigger.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 48.11,
+  "sma_crossover_4h": "fast_above_slow, crossed_this_candle=false",
+  "volume_ratio": 1.284,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -1.08,
+  "order_book_imbalance_top10": 0.085,
+  "news_context": "Solana's first network-wide vote (a disinflation proposal) narrowly passed after Kraken- and Galaxy-linked validators switched sides late; same staking-outage and MoneyGram stories continuing. Community sentiment described as bullish. No quantitative trigger."
+}
+```
+
+---
+### 2026-09-09T06:16:02.753Z — POL/USD — NO TRADE
+
+**Reasoning:** No trigger: RSI(4h) 46.5 neutral, SMA fast-above-slow with no crossover this candle, volume low at 0.55x average. Price down ~1.7% over 48h on 4h candles, order book bid-heavy (imbalance +0.19). News notes POL has fallen ~40% from its yearly high amid market-wide weakness, with mixed community sentiment (comeback excitement vs skepticism) - a real bearish data point but still not a quantitative trigger this cycle.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 46.52,
+  "sma_crossover_4h": "fast_above_slow, crossed_this_candle=false",
+  "volume_ratio": 0.546,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -1.74,
+  "order_book_imbalance_top10": 0.192,
+  "data_gaps": [],
+  "news_context": "POL down ~40% from its yearly high amid broader market weakness; community sentiment mixed (comeback excitement vs skepticism about token utility); same hard-fork/BoE Digital Pound Lab story continuing. No quantitative trigger despite the notable drawdown context."
+}
+```
+
+---
+### 2026-09-09T06:16:06.293Z — XRP/USD — NO TRADE
+
+**Reasoning:** No trigger: RSI(4h) 53.7 neutral, SMA fast-above-slow with no crossover this candle, volume 1.12x average (in line). Price up modestly over 48h on both 1h (+1.29%) and 4h (+1.29%) windows, still not an extreme or crossover. Order book close to balanced (imbalance -0.05). News unchanged from prior cycles (RLUSD/Wormhole, Swell conference, still up 5.5% over 7d outperforming the market) plus new mention of Ripple expanding its DC policy presence - no quantitative trigger.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 53.71,
+  "sma_crossover_4h": "fast_above_slow, crossed_this_candle=false",
+  "volume_ratio": 1.116,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": 1.292,
+  "order_book_imbalance_top10": -0.052,
+  "news_context": "Same story continuing: RLUSD/Wormhole NTT expansion; confirmed Nov 4-5 Swell conference; XRP still up 5.5% over 7d outperforming the broader market; Ripple expanding its Washington D.C. policy presence. RSI/SMA remain neutral/no-crossover, so still no quantitative trigger."
+}
+```
+
+---
