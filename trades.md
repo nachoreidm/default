@@ -7190,3 +7190,94 @@ The XRP/USD position logged above (id `96537a2c-86f0-4cbd-8b80-b5f5bc8ada22`, op
 ```
 
 ---
+### 2026-09-09T11:14:41.018Z — BTC/USD — NO TRADE
+
+**Reasoning:** No trigger: RSI(4h) 51.7 neutral, SMA fast-above-slow with no crossover this candle, volume 0.88x average (no spike). Price down modestly over 48h on 4h candles (-0.19%), order book near-balanced (imbalance -0.09). News unchanged from prior cycles (still below $80K, falling S&P500 correlation) plus a BTC treasury firm doubling its buyback authorization to $2B - no new quantitative trigger.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 51.69,
+  "sma_crossover_4h": "fast_above_slow, crossed_this_candle=false",
+  "volume_ratio": 0.877,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -0.19,
+  "order_book_imbalance_top10": -0.094,
+  "news_context": "Same story continuing: still hasn't recovered $80K; BTC-S&P500 correlation at lowest since 2015; a BTC treasury firm spent $176.3M on its own preferred stock and doubled its buyback authorization to $2B. No new quantitative catalyst."
+}
+```
+
+---
+### 2026-09-09T11:14:43.757Z — ETH/USD — NO TRADE
+
+**Reasoning:** No trigger: RSI(4h) 58.1 rising but still below the 70 overbought threshold, SMA fast-above-slow with no crossover this candle, volume 1.05x average (no spike). Price roughly flat over 48h on 4h candles (+0.85%), order book ask-heavy (imbalance -0.16). News unchanged from prior cycles (Tom Lee's target, Bitmine's purchase, Hegota upgrade, quantum-resistant key proposal) - no new catalyst.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 58.14,
+  "sma_crossover_4h": "fast_above_slow, crossed_this_candle=false",
+  "volume_ratio": 1.046,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": 0.847,
+  "order_book_imbalance_top10": -0.156,
+  "news_context": "Same story continuing: Tom Lee's $6,000 ETH target; Bitmine's ETH purchase; Hegota upgrade finalization; quantum-resistant validator key proposal in draft. No new catalyst."
+}
+```
+
+---
+### 2026-09-09T11:14:46.921Z — SOL/USD — NO TRADE
+
+**Reasoning:** No trigger: RSI(4h) 54.2 neutral, SMA fast-above-slow with no crossover this candle, volume 1.28x average (elevated but below 2x flag). Price down modestly over 48h on 1h candles (-1.10%), order book near-balanced (imbalance +0.04). News unchanged from prior cycles (staking-outage story, MoneyGram integration) - no new catalyst.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 54.25,
+  "sma_crossover_4h": "fast_above_slow, crossed_this_candle=false",
+  "volume_ratio": 1.284,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -0.32,
+  "order_book_imbalance_top10": 0.037,
+  "news_context": "Same stories continuing to circulate (staking outage, network never halted; MoneyGram integration). No new catalyst since last cycle."
+}
+```
+
+---
+### 2026-09-09T11:14:49.914Z — POL/USD — NO TRADE
+
+**Reasoning:** No trigger: RSI(4h) 59.5 rising but still below the 70 overbought threshold, SMA fast-above-slow with no crossover this candle, volume still low at 0.55x average (no volume confirmation). Price roughly flat on the 1h window, up ~2% on the 4h window over 48h, order book bid-heavy (imbalance +0.29). News unchanged from prior cycles (hard forks, BoE Digital Pound Lab, ~40% down from yearly high but stablecoin/app revenue surging) - no quantitative trigger.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 59.48,
+  "sma_crossover_4h": "fast_above_slow, crossed_this_candle=false",
+  "volume_ratio": 0.546,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": 2.005,
+  "order_book_imbalance_top10": 0.289,
+  "data_gaps": [],
+  "news_context": "Same story continuing: hard-fork security patches, BoE Digital Pound Lab, down ~40% from yearly high but stablecoin market/app revenues surging. Still no volume confirmation for the price bounce, so no quantitative trigger."
+}
+```
+
+---
+### 2026-09-09T11:14:53.339Z — XRP/USD — NO TRADE
+
+**Reasoning:** No trigger: RSI(4h) 60.9 rising but still below the 70 overbought threshold, SMA fast-above-slow with no crossover this candle, volume 1.12x average (in line, not a spike). Price up ~1.7-3.0% over 48h on both windows, order book ask-heavy (imbalance -0.19). News unchanged from prior cycles (RLUSD/Wormhole, DC office expansion, Swell conference, upcoming ledger amendment that could decouple XRP from BTC) - RSI climbing but not yet extreme, still no quantitative trigger.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 60.95,
+  "sma_crossover_4h": "fast_above_slow, crossed_this_candle=false",
+  "volume_ratio": 1.116,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": 3.008,
+  "order_book_imbalance_top10": -0.194,
+  "news_context": "Same story continuing: RLUSD/Wormhole NTT expansion; Ripple expanding its DC office; confirmed Nov 4-5 Swell conference; upcoming XRP Ledger amendment that could decouple XRP from its BTC correlation. RSI climbing toward overbought but not there yet, and volume hasn't spiked, so still no quantitative trigger this cycle."
+}
+```
+
+---
