@@ -6553,3 +6553,94 @@ The XRP/USD position logged above (id `96537a2c-86f0-4cbd-8b80-b5f5bc8ada22`, op
 ```
 
 ---
+### 2026-09-09T04:12:15.227Z — BTC/USD — NO TRADE
+
+**Reasoning:** No trigger: RSI(4h) 44.2 neutral, SMA fast-above-slow with no crossover this candle, volume 0.88x average (no spike). Price down ~0.9% over 48h on 4h candles, order book bid-heavy (imbalance +0.75). News unchanged from prior cycles (falling S&P500 correlation flagged as potentially bullish decoupling, continued institutional buying) - no new catalyst.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 44.16,
+  "sma_crossover_4h": "fast_above_slow, crossed_this_candle=false",
+  "volume_ratio": 0.877,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -0.94,
+  "order_book_imbalance_top10": 0.746,
+  "news_context": "Same story continuing: BTC-S&P500 correlation at lowest since 2015 (Bitwise flagged as potentially bullish); continued institutional accumulation (Strive). No new catalyst since last cycle."
+}
+```
+
+---
+### 2026-09-09T04:12:18.068Z — ETH/USD — NO TRADE
+
+**Reasoning:** No trigger: RSI(4h) 52.3 neutral, SMA fast-above-slow with no crossover this candle, volume 1.05x average (no spike). Price essentially flat over 48h on 4h candles (-0.01%), order book bid-heavy (imbalance +0.33). News unchanged from prior cycles (Hegota gas-fee feature, Harmony/ONE migration) - no new catalyst.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 52.33,
+  "sma_crossover_4h": "fast_above_slow, crossed_this_candle=false",
+  "volume_ratio": 1.046,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -0.009,
+  "order_book_imbalance_top10": 0.334,
+  "news_context": "Same story continuing: Hegota gas-fee-without-ETH feature; Harmony (ONE) migrating to Ethereum as an ERC-20. No new catalyst since last cycle."
+}
+```
+
+---
+### 2026-09-09T04:12:20.656Z — SOL/USD — NO TRADE
+
+**Reasoning:** No trigger: RSI(4h) 48.1 neutral, SMA fast-above-slow with no crossover this candle, volume 1.28x average (elevated but below 2x flag). Price down ~1.1% over 48h on 4h candles, order book essentially balanced (imbalance +0.005). News unchanged from prior cycles (staking-outage story, MoneyGram integration, Jupiter Lend v2) - no new catalyst.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 48.11,
+  "sma_crossover_4h": "fast_above_slow, crossed_this_candle=false",
+  "volume_ratio": 1.284,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -1.08,
+  "order_book_imbalance_top10": 0.005,
+  "news_context": "Same stories continuing to circulate (staking outage, network never halted; MoneyGram integration; Jupiter Lend v2). No new catalyst since last cycle."
+}
+```
+
+---
+### 2026-09-09T04:12:23.654Z — POL/USD — NO TRADE
+
+**Reasoning:** No trigger: RSI(4h) 46.5 neutral, SMA fast-above-slow with no crossover this candle, volume low at 0.55x average. Price down ~1.7% over 48h on 4h candles, order book bid-heavy (imbalance +0.19). News unchanged from prior cycles (hard forks, BoE Digital Pound Lab, moderately positive social sentiment 3.8/5) - no new catalyst.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 46.52,
+  "sma_crossover_4h": "fast_above_slow, crossed_this_candle=false",
+  "volume_ratio": 0.546,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -1.74,
+  "order_book_imbalance_top10": 0.19,
+  "data_gaps": [],
+  "news_context": "Same hard-fork and BoE Digital Pound Lab story continuing; social sentiment moderately positive (3.8/5); traders noting a bullish descending-channel breakout pattern. No new catalyst since last cycle."
+}
+```
+
+---
+### 2026-09-09T04:12:26.864Z — XRP/USD — NO TRADE
+
+**Reasoning:** No trigger: RSI(4h) 53.7 neutral, SMA fast-above-slow with no crossover this candle, volume 1.12x average (in line). Price modestly positive over 48h on 4h candles (+1.29%) but not an extreme or crossover. Order book now ask-heavy (imbalance -0.17). News unchanged from prior cycles (RLUSD/Wormhole, confirmed Swell dates, spot XRP ETFs live since Nov 2025) - no new catalyst.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 53.71,
+  "sma_crossover_4h": "fast_above_slow, crossed_this_candle=false",
+  "volume_ratio": 1.116,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": 1.292,
+  "order_book_imbalance_top10": -0.169,
+  "news_context": "Same story continuing: RLUSD/Wormhole NTT expansion; confirmed Nov 4-5 Swell conference; spot XRP ETFs (Bitwise, Grayscale, 21Shares, Canary, Franklin Templeton) already live. No new catalyst since last cycle."
+}
+```
+
+---
