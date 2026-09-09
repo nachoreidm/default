@@ -7008,3 +7008,94 @@ The XRP/USD position logged above (id `96537a2c-86f0-4cbd-8b80-b5f5bc8ada22`, op
 ```
 
 ---
+### 2026-09-09T09:12:43.770Z — BTC/USD — NO TRADE
+
+**Reasoning:** No trigger: RSI(4h) 51.7 neutral, SMA fast-above-slow with no crossover this candle, volume 0.88x average (no spike). Price roughly flat over 48h on 4h candles (-0.19%), order book bid-heavy (imbalance +0.60). News unchanged from prior cycles (still below $80K, falling S&P500 correlation, continued institutional buying) - no new catalyst.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 51.69,
+  "sma_crossover_4h": "fast_above_slow, crossed_this_candle=false",
+  "volume_ratio": 0.877,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -0.19,
+  "order_book_imbalance_top10": 0.595,
+  "news_context": "Same story continuing: still hasn't recovered $80K; BTC-S&P500 correlation at lowest since 2015; continued institutional accumulation (Strive). No new catalyst since last cycle."
+}
+```
+
+---
+### 2026-09-09T09:12:47.297Z — ETH/USD — NO TRADE
+
+**Reasoning:** No trigger: RSI(4h) 58.1 rising but still well below the 70 overbought threshold, SMA fast-above-slow with no crossover this candle, volume 1.05x average (no spike). Price up modestly over 48h on both 1h (+1.42%) and 4h (+0.85%) windows. Order book bid-heavy (imbalance +0.43). News unchanged from prior cycles (Tom Lee's $6,000 target, Bitmine's ETH purchase, Hegota gas-fee feature) - no new catalyst.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 58.14,
+  "sma_crossover_4h": "fast_above_slow, crossed_this_candle=false",
+  "volume_ratio": 1.046,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": 0.847,
+  "order_book_imbalance_top10": 0.429,
+  "news_context": "Same story continuing: Tom Lee's $6,000 ETH target; Bitmine's 28,086 ETH purchase; Hegota gas-fee-without-ETH feature. No new catalyst since last cycle."
+}
+```
+
+---
+### 2026-09-09T09:12:50.782Z — SOL/USD — NO TRADE
+
+**Reasoning:** No trigger: RSI(4h) 54.2 neutral, SMA fast-above-slow with no crossover this candle, volume 1.28x average (elevated but below 2x flag). Price roughly flat over 48h on 4h candles (-0.32%), order book mildly bid-heavy (imbalance +0.10). New item: Charles Schwab will add Solana (along with Avalanche and Chainlink) to its crypto platform for 39 million brokerage accounts - a notable distribution/access catalyst, but still no quantitative trigger this cycle.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 54.25,
+  "sma_crossover_4h": "fast_above_slow, crossed_this_candle=false",
+  "volume_ratio": 1.284,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -0.32,
+  "order_book_imbalance_top10": 0.102,
+  "news_context": "Charles Schwab will add Solana, Avalanche, and Chainlink to its crypto platform, opening access to ~39 million brokerage accounts - a notable positive distribution catalyst. Same staking-outage and MoneyGram stories continuing. No quantitative trigger yet."
+}
+```
+
+---
+### 2026-09-09T09:12:54.831Z — POL/USD — NO TRADE
+
+**Reasoning:** No trigger: RSI(4h) 59.5 rising but still below the 70 overbought threshold, SMA fast-above-slow with no crossover this candle, volume still low at 0.55x average (no volume confirmation). Price up ~2% over both 1h and 4h windows over the last 48h, order book near-balanced (imbalance +0.04). News now notes POL crashed and erased its earlier-year gains despite strong fundamentals (growing payment market share, burn rate) - mixed signal, and the price bounce still lacks volume confirmation, so no trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 59.48,
+  "sma_crossover_4h": "fast_above_slow, crossed_this_candle=false",
+  "volume_ratio": 0.546,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": 2.005,
+  "order_book_imbalance_top10": 0.04,
+  "data_gaps": [],
+  "news_context": "POL price crashed and erased its earlier-2026 gains despite strong fundamentals (growing payments market share, growing burn rate); same hard-fork/BoE Digital Pound Lab story continuing. Price up ~2% but no volume confirmation, so still no quantitative trigger."
+}
+```
+
+---
+### 2026-09-09T09:12:58.099Z — XRP/USD — NO TRADE
+
+**Reasoning:** No trigger: RSI(4h) 60.9 rising but still below the 70 overbought threshold, SMA fast-above-slow with no crossover this candle, volume 1.12x average (in line, not a spike). Price up ~3% over 48h on both windows, order book ask-heavy (imbalance -0.17). News unchanged from prior cycles (RLUSD/Wormhole, Swell conference, still outperforming the broader market at +5.5% over 7d) - RSI climbing but not yet extreme and volume hasn't confirmed the move, so still no quantitative trigger.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 60.95,
+  "sma_crossover_4h": "fast_above_slow, crossed_this_candle=false",
+  "volume_ratio": 1.116,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": 3.008,
+  "order_book_imbalance_top10": -0.166,
+  "news_context": "Same story continuing: RLUSD/Wormhole NTT expansion; confirmed Nov 4-5 Swell conference; XRP still outperforming the broader market (+5.5% over 7d). RSI climbing toward overbought but not there yet, and volume hasn't spiked, so still no quantitative trigger this cycle."
+}
+```
+
+---
