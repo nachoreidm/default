@@ -7645,3 +7645,94 @@ The XRP/USD position logged above (id `96537a2c-86f0-4cbd-8b80-b5f5bc8ada22`, op
 ```
 
 ---
+### 2026-09-09T16:13:35.078Z — BTC/USD — NO TRADE
+
+**Reasoning:** No trigger: RSI(4h) 44.3 neutral, SMA fast-above-slow with no crossover this candle, volume 0.88x average (no spike). Price down modestly over 48h on both windows (-0.98% on 4h), order book near-balanced (imbalance -0.09). News unchanged from prior cycles (historic-low volatility, ~$264M liquidations) - no new catalyst.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 44.25,
+  "sma_crossover_4h": "fast_above_slow, crossed_this_candle=false",
+  "volume_ratio": 0.877,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -0.979,
+  "order_book_imbalance_top10": -0.089,
+  "news_context": "Same story continuing: volatility at historic low; ~$264M liquidations; BTC-S&P500 correlation at lowest since 2015. No new catalyst."
+}
+```
+
+---
+### 2026-09-09T16:13:37.822Z — ETH/USD — NO TRADE
+
+**Reasoning:** No trigger: RSI(4h) 51.5 neutral, SMA fast-above-slow with no crossover this candle, volume 1.05x average (no spike). Price roughly flat over 48h on both windows, order book bid-heavy (imbalance +0.29). News unchanged from prior cycles (Hegota upgrade, Harmony migration) - no new catalyst.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 51.47,
+  "sma_crossover_4h": "fast_above_slow, crossed_this_candle=false",
+  "volume_ratio": 1.046,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -0.24,
+  "order_book_imbalance_top10": 0.292,
+  "news_context": "Same story continuing: Hegota upgrade transaction/wallet-approval features; Harmony (ONE) migrating to Ethereum as an ERC-20. No new catalyst since last cycle."
+}
+```
+
+---
+### 2026-09-09T16:13:40.637Z — SOL/USD — NO TRADE
+
+**Reasoning:** No trigger: RSI(4h) 46.7 neutral, SMA fast-above-slow with no crossover this candle, volume 1.28x average (elevated but below 2x flag). Price down modestly over 48h on both windows (-1.26% on 4h), order book near-balanced (imbalance +0.02). News unchanged from prior cycles (staking-outage story, MoneyGram, governance vote) - no new catalyst.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 46.67,
+  "sma_crossover_4h": "fast_above_slow, crossed_this_candle=false",
+  "volume_ratio": 1.284,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -1.255,
+  "order_book_imbalance_top10": 0.024,
+  "news_context": "Same stories continuing to circulate (staking outage, network never halted; MoneyGram integration; disinflation governance vote narrowly passed). No new catalyst since last cycle."
+}
+```
+
+---
+### 2026-09-09T16:13:44.381Z — POL/USD — NO TRADE
+
+**Reasoning:** No trigger: RSI(4h) 50.0 neutral (cooled from ~59 over the last few cycles), SMA fast-above-slow with no crossover this candle, volume still low at 0.55x average. Price now roughly flat over 48h on both windows (the earlier multi-cycle run-up has fully unwound), order book now ask-heavy (imbalance -0.21). Same hard-fork/BoE Digital Pound Lab story continuing plus renewed skepticism about token utility - no quantitative trigger; the earlier momentum has faded without ever getting volume confirmation.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 49.98,
+  "sma_crossover_4h": "fast_above_slow, crossed_this_candle=false",
+  "volume_ratio": 0.546,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": 0.364,
+  "order_book_imbalance_top10": -0.212,
+  "data_gaps": [],
+  "news_context": "Same hard-fork and BoE Digital Pound Lab story continuing; skeptics questioning token utility amid price underperformance. The earlier price run-up (RSI had reached ~59) has fully unwound back to neutral without volume confirmation. No quantitative trigger."
+}
+```
+
+---
+### 2026-09-09T16:13:47.364Z — XRP/USD — NO TRADE
+
+**Reasoning:** No trigger: RSI(4h) 52.0 neutral (cooled from ~55-61 over recent cycles), SMA fast-above-slow with no crossover this candle, volume 1.12x average (in line, not a spike). Price up modestly over 48h on both windows (+1.1-1.5%), order book essentially balanced (imbalance -0.01). News unchanged from prior cycles (RLUSD/Wormhole, Swell conference, still up 8.6% over 7d per news) - no quantitative trigger.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 52.02,
+  "sma_crossover_4h": "fast_above_slow, crossed_this_candle=false",
+  "volume_ratio": 1.116,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": 1.102,
+  "order_book_imbalance_top10": -0.007,
+  "news_context": "Same story continuing: RLUSD/Wormhole NTT expansion; confirmed Nov 4-5 Swell conference; XRP still up 8.6% over 7 days. RSI has cooled back toward neutral, no crossover, so still no quantitative trigger."
+}
+```
+
+---
