@@ -8009,3 +8009,94 @@ The XRP/USD position logged above (id `96537a2c-86f0-4cbd-8b80-b5f5bc8ada22`, op
 ```
 
 ---
+### 2026-09-09T20:13:20.195Z — BTC/USD — NO TRADE
+
+**Reasoning:** A real signal fired: the 20/50 SMA crossed bearish this candle (fast_below_slow, crossed_this_candle=true). However, this strategy is long-only (spot, no shorting) and there is no existing BTC position to close, so a bearish crossover is not actionable - it signals "don't buy," not a trigger to open or close anything. RSI(4h) 40.9 is weak but not oversold (<30). Volume 0.88x average (no spike). Price down ~1.1-1.3% over 48h on both windows, order book notably ask-heavy (imbalance -0.66), consistent with the bearish tone. News unchanged from prior cycles (historic-low volatility, ~$264M liquidations ahead of CPI). No trade: the one real signal present points bearish, which a long-only account cannot act on.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 40.9,
+  "sma_crossover_4h": "fast_below_slow, crossed_this_candle=true, crossover_direction=bearish",
+  "volume_ratio": 0.877,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -1.112,
+  "order_book_imbalance_top10": -0.657,
+  "news_context": "Same story continuing: volatility at historic low; ~$264M liquidations ahead of CPI; continued institutional accumulation (Strive, Capital B). No new catalyst. Note: a bearish SMA crossover just printed but is not actionable for a long-only strategy with no open position to close."
+}
+```
+
+---
+### 2026-09-09T20:13:23.457Z — ETH/USD — NO TRADE
+
+**Reasoning:** No trigger: RSI(4h) 44.5 neutral, SMA fast-above-slow with no crossover this candle, volume 1.05x average (no spike). Price down modestly over 48h on both windows (-1.00% on 4h), order book ask-heavy (imbalance -0.48), consistent with the broader market pullback alongside BTC. News unchanged from prior cycles (Hegota upgrade, Harmony migration, Tom Lee's target) - no new catalyst.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 44.52,
+  "sma_crossover_4h": "fast_above_slow, crossed_this_candle=false",
+  "volume_ratio": 1.046,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -1.002,
+  "order_book_imbalance_top10": -0.476,
+  "news_context": "Same story continuing: Hegota gas-fee feature; Harmony (ONE) migrating to Ethereum as an ERC-20; Tom Lee's $6,000 ETH target. No new catalyst since last cycle; price softening in tandem with the broader market pullback."
+}
+```
+
+---
+### 2026-09-09T20:13:26.245Z — SOL/USD — NO TRADE
+
+**Reasoning:** No trigger: RSI(4h) 43.6 neutral, SMA fast-above-slow with no crossover this candle, volume 1.28x average (elevated but below 2x flag). Price down over 48h on both windows (-1.39% on 4h), order book perfectly balanced (imbalance ~0). News unchanged from prior cycles (staking-outage story, MoneyGram integration) - no new catalyst.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 43.57,
+  "sma_crossover_4h": "fast_above_slow, crossed_this_candle=false",
+  "volume_ratio": 1.284,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -1.388,
+  "order_book_imbalance_top10": 0.001,
+  "news_context": "Same stories continuing to circulate (staking outage, network never halted; MoneyGram integration). No new catalyst since last cycle; price softening alongside the broader market."
+}
+```
+
+---
+### 2026-09-09T20:13:28.981Z — POL/USD — NO TRADE
+
+**Reasoning:** No trigger: RSI(4h) 48.1 neutral, SMA fast-above-slow with no crossover this candle, volume still low at 0.55x average. Price roughly flat over 48h on both windows, order book bid-heavy (imbalance +0.54). Same hard-fork/BoE Digital Pound Lab story continuing - no quantitative trigger.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 48.13,
+  "sma_crossover_4h": "fast_above_slow, crossed_this_candle=false",
+  "volume_ratio": 0.546,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": 0.905,
+  "order_book_imbalance_top10": 0.544,
+  "data_gaps": [],
+  "news_context": "Same hard-fork and BoE Digital Pound Lab story continuing. No new catalyst; signals remain neutral, holding up better than the broader market this cycle."
+}
+```
+
+---
+### 2026-09-09T20:13:32.136Z — XRP/USD — NO TRADE
+
+**Reasoning:** No trigger: RSI(4h) 46.8 neutral, SMA fast-above-slow with no crossover this candle, volume 1.12x average (in line, not a spike). Price roughly flat over 48h on both windows, order book bid-heavy (imbalance +0.15). This cycle's news search returned some clearly stale/cached content (an old $2.60 price reference and dated political news) that was disregarded as unreliable; confirmed current price/volume data was used instead. No new verified catalyst.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 46.82,
+  "sma_crossover_4h": "fast_above_slow, crossed_this_candle=false",
+  "volume_ratio": 1.116,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": 0.319,
+  "order_book_imbalance_top10": 0.153,
+  "news_context": "News search returned stale/unreliable content this cycle (an outdated $2.60 price reference and old political news); disregarded. Confirmed price action shows XRP roughly flat, pulling back slightly from recent highs alongside the broader market. No verified new catalyst."
+}
+```
+
+---
