@@ -8100,3 +8100,94 @@ The XRP/USD position logged above (id `96537a2c-86f0-4cbd-8b80-b5f5bc8ada22`, op
 ```
 
 ---
+### 2026-09-09T21:12:24.094Z — BTC/USD — NO TRADE
+
+**Reasoning:** Same bearish 20/50 SMA crossover from last cycle persists (same 4h candle, fast_below_slow, crossed_this_candle=true) - still not actionable for a long-only strategy with no open position. RSI(4h) 40.9 unchanged, weak but not oversold. Volume 0.88x average (no spike). Price down ~1.1% over 48h on both windows, order book ask-heavy (imbalance -0.41). News unchanged from prior cycles, now with focus shifting to the upcoming Fed decision and CPI data as primary market drivers (rate hike odds ~60%) - no new catalyst, still no trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 40.9,
+  "sma_crossover_4h": "fast_below_slow, crossed_this_candle=true, crossover_direction=bearish (same candle as last cycle)",
+  "volume_ratio": 0.877,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -1.112,
+  "order_book_imbalance_top10": -0.406,
+  "news_context": "Same story continuing: rejected from $82K twice, trading flat below $80K; upcoming Fed decision and CPI data now the primary market drivers (rate hike odds ~60%); continued institutional buyback activity. Bearish crossover remains not actionable for this long-only account."
+}
+```
+
+---
+### 2026-09-09T21:12:26.845Z — ETH/USD — NO TRADE
+
+**Reasoning:** No trigger: RSI(4h) 44.5 neutral, SMA fast-above-slow with no crossover this candle, volume 1.05x average (no spike). Price down modestly over 48h on both windows (-1.00% on 4h), order book bid-heavy (imbalance +0.18). News unchanged from prior cycles (Hegota upgrade finalization) - no new catalyst.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 44.52,
+  "sma_crossover_4h": "fast_above_slow, crossed_this_candle=false",
+  "volume_ratio": 1.046,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -1.002,
+  "order_book_imbalance_top10": 0.178,
+  "news_context": "Same story continuing: Hegota upgrade (wallet approval/privacy tooling) being finalized. No new catalyst since last cycle."
+}
+```
+
+---
+### 2026-09-09T21:12:29.628Z — SOL/USD — NO TRADE
+
+**Reasoning:** No trigger: RSI(4h) 43.6 neutral, SMA fast-above-slow with no crossover this candle, volume 1.28x average (elevated but below 2x flag). Price down modestly over 48h on both windows (-1.39% on 4h), order book perfectly balanced (imbalance ~0). News unchanged from prior cycles (staking-outage story, MoneyGram, Jupiter Lend v2) - no new catalyst.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 43.57,
+  "sma_crossover_4h": "fast_above_slow, crossed_this_candle=false",
+  "volume_ratio": 1.284,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -1.388,
+  "order_book_imbalance_top10": 0.0003,
+  "news_context": "Same stories continuing to circulate (staking outage, network never halted; MoneyGram integration; Jupiter Lend v2). No new catalyst since last cycle."
+}
+```
+
+---
+### 2026-09-09T21:12:32.768Z — POL/USD — NO TRADE
+
+**Reasoning:** No trigger: RSI(4h) 48.1 neutral, SMA fast-above-slow with no crossover this candle, volume still low at 0.55x average. Price roughly flat/slightly positive over 48h on both windows, order book now ask-heavy (imbalance -0.21). New item: Polygon reportedly paying $100-125M to acquire a Bitcoin ATM provider - a notable acquisition, but not a quantitative trigger.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 48.13,
+  "sma_crossover_4h": "fast_above_slow, crossed_this_candle=false",
+  "volume_ratio": 0.546,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": 0.905,
+  "order_book_imbalance_top10": -0.214,
+  "data_gaps": [],
+  "news_context": "Polygon reportedly paying $100-125M to acquire a Bitcoin ATM provider - a notable strategic move, but no quantitative trigger this cycle. Same hard-fork/BoE Digital Pound Lab story continuing."
+}
+```
+
+---
+### 2026-09-09T21:12:35.826Z — XRP/USD — NO TRADE
+
+**Reasoning:** No trigger: RSI(4h) 46.8 neutral, SMA fast-above-slow with no crossover this candle, volume 1.12x average (in line, not a spike). Price roughly flat/slightly positive over 48h on both windows, order book near-balanced (imbalance +0.03). This cycle's news search again surfaced the same stale/outdated content (old Garlinghouse-Trump/Gensler resignation item) seen last cycle - disregarded as unreliable; confirmed price/volume data used instead. No verified new catalyst.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 46.82,
+  "sma_crossover_4h": "fast_above_slow, crossed_this_candle=false",
+  "volume_ratio": 1.116,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": 0.319,
+  "order_book_imbalance_top10": 0.029,
+  "news_context": "Search again returned the same stale content flagged last cycle (outdated Garlinghouse/Trump/Gensler item); disregarded. No verified new catalyst; price essentially flat."
+}
+```
+
+---
