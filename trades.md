@@ -7918,3 +7918,94 @@ The XRP/USD position logged above (id `96537a2c-86f0-4cbd-8b80-b5f5bc8ada22`, op
 ```
 
 ---
+### 2026-09-09T19:12:15.581Z — BTC/USD — NO TRADE
+
+**Reasoning:** No trigger: RSI(4h) 44.3 neutral, SMA fast-above-slow with no crossover this candle, volume 0.88x average (no spike). Price down modestly over 48h on both windows (-0.98% on 4h), order book perfectly balanced (imbalance ~0). News unchanged from prior cycles (historic-low volatility, ~$264M liquidations ahead of CPI) - no new catalyst.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 44.25,
+  "sma_crossover_4h": "fast_above_slow, crossed_this_candle=false",
+  "volume_ratio": 0.877,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -0.979,
+  "order_book_imbalance_top10": 0.002,
+  "news_context": "Same story continuing: volatility at historic low; ~$264M liquidations ahead of CPI; BTC-S&P500 correlation at lowest since 2015; community sentiment described as bullish. No new catalyst."
+}
+```
+
+---
+### 2026-09-09T19:12:18.378Z — ETH/USD — NO TRADE
+
+**Reasoning:** No trigger: RSI(4h) 51.5 neutral, SMA fast-above-slow with no crossover this candle, volume 1.05x average (no spike). Price down modestly over 48h on both windows (-0.24% on 4h), order book bid-heavy (imbalance +0.30). News unchanged from prior cycles (Hegota upgrade, Harmony migration, Tom Lee's target) - no new catalyst.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 51.47,
+  "sma_crossover_4h": "fast_above_slow, crossed_this_candle=false",
+  "volume_ratio": 1.046,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -0.24,
+  "order_book_imbalance_top10": 0.3,
+  "news_context": "Same story continuing: Hegota gas-fee feature; Harmony (ONE) migrating to Ethereum as an ERC-20; Tom Lee's $6,000 ETH target. No new catalyst since last cycle."
+}
+```
+
+---
+### 2026-09-09T19:12:21.095Z — SOL/USD — NO TRADE
+
+**Reasoning:** No trigger: RSI(4h) 46.7 neutral, SMA fast-above-slow with no crossover this candle, volume 1.28x average (elevated but below 2x flag). Price down modestly over 48h on both windows (-1.26% on 4h), order book near-balanced (imbalance +0.02). News unchanged from prior cycles (staking-outage story, MoneyGram integration, Jupiter Lend v2) - no new catalyst.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 46.67,
+  "sma_crossover_4h": "fast_above_slow, crossed_this_candle=false",
+  "volume_ratio": 1.284,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -1.255,
+  "order_book_imbalance_top10": 0.018,
+  "news_context": "Same stories continuing to circulate (staking outage, network never halted; MoneyGram integration; Jupiter Lend v2). No new catalyst since last cycle."
+}
+```
+
+---
+### 2026-09-09T19:12:24.252Z — POL/USD — NO TRADE
+
+**Reasoning:** No trigger: RSI(4h) 50.0 neutral, SMA fast-above-slow with no crossover this candle, volume still low at 0.55x average. Price roughly flat over 48h on both windows, order book now strongly bid-heavy (imbalance +0.69) but that's a secondary signal only. Same hard-fork/BoE Digital Pound Lab story continuing - no quantitative trigger.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 49.98,
+  "sma_crossover_4h": "fast_above_slow, crossed_this_candle=false",
+  "volume_ratio": 0.546,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": 0.364,
+  "order_book_imbalance_top10": 0.695,
+  "data_gaps": [],
+  "news_context": "Same hard-fork and BoE Digital Pound Lab story continuing. No new catalyst; signals remain neutral."
+}
+```
+
+---
+### 2026-09-09T19:12:27.578Z — XRP/USD — NO TRADE
+
+**Reasoning:** No trigger: RSI(4h) 52.0 neutral, SMA fast-above-slow with no crossover this candle, volume 1.12x average (in line, not a spike). Price up modestly over 48h on both windows (+1.1%), order book now heavily ask-heavy (imbalance -0.73, a notable shift from balanced last cycle) but that's a secondary signal only. News unchanged from prior cycles (SBI Ripple Asia Japan launch, spot ETFs live, still up 8.6% over 7d) - no quantitative trigger despite the order-book shift.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 52.02,
+  "sma_crossover_4h": "fast_above_slow, crossed_this_candle=false",
+  "volume_ratio": 1.116,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": 1.102,
+  "order_book_imbalance_top10": -0.732,
+  "news_context": "Same story continuing: SBI Ripple Asia's Japan-focused prepaid token launch; spot XRP ETFs live; XRP still up 8.6% over 7d, spot volume near its highest since February. RSI/SMA remain neutral with no crossover, so still no quantitative trigger despite the notable order-book shift to ask-heavy."
+}
+```
+
+---
