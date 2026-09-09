@@ -6371,3 +6371,94 @@ The XRP/USD position logged above (id `96537a2c-86f0-4cbd-8b80-b5f5bc8ada22`, op
 ```
 
 ---
+### 2026-09-09T02:12:35.346Z — BTC/USD — NO TRADE
+
+**Reasoning:** No trigger: RSI(4h) 41.7 neutral, SMA fast-above-slow with no crossover this candle, volume 0.88x average (no spike). Price down ~1.4% over 48h on 4h candles, order book now heavily ask-heavy (imbalance -0.99). News notes BTC has three dates left to escape the $80K ceiling per one analysis, and falling correlation with the S&P 500 (lowest since 2015) flagged as a potentially bullish decoupling signal - interesting context but no quantitative trigger this cycle.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 41.73,
+  "sma_crossover_4h": "fast_above_slow, crossed_this_candle=false",
+  "volume_ratio": 0.877,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -1.42,
+  "order_book_imbalance_top10": -0.993,
+  "news_context": "BTC-S&P 500 correlation has fallen to its lowest since 2015 (flagged as a possible bullish decoupling signal); one analysis says BTC has three key dates left to break the $80K ceiling. Continued institutional buying (Strive, Capital B). No hacks or regulatory news beyond the already-known Liquid Network story."
+}
+```
+
+---
+### 2026-09-09T02:12:38.765Z — ETH/USD — NO TRADE
+
+**Reasoning:** No trigger: RSI(4h) 51.3 neutral, SMA fast-above-slow with no crossover this candle, volume 1.05x average (no spike). Price roughly flat over 48h on 4h candles (-0.49%), order book now ask-heavy (imbalance -0.58, flipped from bid-heavy last cycle). News unchanged from last cycle (gas-fee-without-ETH feature live via Hegota upgrade, Harmony/ONE migration to Ethereum) - no new catalyst.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 51.26,
+  "sma_crossover_4h": "fast_above_slow, crossed_this_candle=false",
+  "volume_ratio": 1.046,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -0.49,
+  "order_book_imbalance_top10": -0.579,
+  "news_context": "Same story continuing: Hegota upgrade's gas-fee-without-ETH feature live; Harmony (ONE) migrating to Ethereum as an ERC-20. No new catalyst since last cycle."
+}
+```
+
+---
+### 2026-09-09T02:12:41.901Z — SOL/USD — NO TRADE
+
+**Reasoning:** No trigger: RSI(4h) 48.4 neutral, SMA fast-above-slow with no crossover this candle, volume 1.28x average (elevated but below 2x flag). Price down ~1.5% over 48h on 4h candles, order book mildly bid-heavy (imbalance +0.14). News unchanged from last two cycles (staking-outage story, MoneyGram integration, Jupiter Lend v2) - no new catalyst.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 48.4,
+  "sma_crossover_4h": "fast_above_slow, crossed_this_candle=false",
+  "volume_ratio": 1.284,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -1.5,
+  "order_book_imbalance_top10": 0.143,
+  "news_context": "Same stories continuing to circulate (staking outage, MoneyGram integration, Jupiter Lend v2). Community sentiment described as positive on near-term outlook. No new catalyst since last cycle."
+}
+```
+
+---
+### 2026-09-09T02:12:44.663Z — POL/USD — NO TRADE
+
+**Reasoning:** No trigger: RSI(4h) 47.8 neutral, SMA fast-above-slow with no crossover this candle, volume low at 0.55x average. Price down ~1.6% over 48h on 4h candles, order book now mildly ask-heavy (imbalance -0.14, flipped from bid-heavy last cycle). News unchanged from prior cycles (Austin/Kyoto hard forks, BoE Digital Pound Lab, bullish trader chatter on descending-channel breakout) - no new catalyst.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 47.77,
+  "sma_crossover_4h": "fast_above_slow, crossed_this_candle=false",
+  "volume_ratio": 0.546,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -1.64,
+  "order_book_imbalance_top10": -0.144,
+  "data_gaps": [],
+  "news_context": "Same hard-fork and BoE Digital Pound Lab story continuing; traders noting a bullish descending-channel breakout pattern. No new catalyst since last cycle."
+}
+```
+
+---
+### 2026-09-09T02:12:47.817Z — XRP/USD — NO TRADE
+
+**Reasoning:** No trigger: RSI(4h) 53.9 neutral, SMA fast-above-slow with no crossover this candle, volume 1.12x average (in line). Price modestly positive over 48h on 4h candles (+0.79%) but not an extreme or crossover. Order book now notably ask-heavy (imbalance -0.38, flipped from bid-heavy last cycle). News unchanged from prior cycles (RLUSD/Wormhole expansion, Swell conference confirmed, XRP-BTC correlation with a possible decoupling amendment ahead) - no new catalyst.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 53.87,
+  "sma_crossover_4h": "fast_above_slow, crossed_this_candle=false",
+  "volume_ratio": 1.116,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": 0.785,
+  "order_book_imbalance_top10": -0.377,
+  "news_context": "Same story continuing: RLUSD/Wormhole NTT expansion; confirmed Nov 4-5 Swell conference; XRP still moving in tandem with BTC pending the ledger amendment. No new catalyst since last cycle."
+}
+```
+
+---
