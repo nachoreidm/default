@@ -9728,3 +9728,93 @@ The XRP/USD position logged above (id `96537a2c-86f0-4cbd-8b80-b5f5bc8ada22`, op
 ```
 
 ---
+### 2026-09-10T21:12:36.397Z — BTC/USD — NO TRADE
+
+**Reasoning:** No trigger: same 4h candle continuing - RSI(4h) 31.6 unchanged, SMA remains fast_below_slow with no fresh crossover. Volume 1.00x average (no spike). News unchanged: PPI/CPI/FOMC calendar, ETF outflows, Germany tax proposal. No new catalyst.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 31.6,
+  "sma_crossover_4h": "fast_below_slow, crossed_this_candle=false (same candle continuing)",
+  "volume_ratio": 0.999,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -1.679,
+  "order_book_imbalance_top10": 0.109,
+  "news_context": "Same items continuing: PPI/CPI/FOMC calendar, BTC ETF outflows, Germany tax proposal. No new quantitative catalyst."
+}
+```
+
+---
+### 2026-09-10T21:12:38.911Z — ETH/USD — NO TRADE
+
+**Reasoning:** No trigger: same 4h candle continuing - RSI(4h) 45.8 unchanged, SMA fast-above-slow with no crossover, volume 1.15x average (no spike). News unchanged (BitMine, Trezor, SGX, Vitalik proposal) - no new catalyst.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 45.79,
+  "sma_crossover_4h": "fast_above_slow, crossed_this_candle=false (same candle continuing)",
+  "volume_ratio": 1.155,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -0.925,
+  "order_book_imbalance_top10": 0.117,
+  "news_context": "Same items continuing (BitMine ETH accumulation, Trezor ERC-7730, SGX CFTC clearance, Vitalik proposal). No new quantitative catalyst."
+}
+```
+
+---
+### 2026-09-10T21:12:41.603Z — SOL/USD — NO TRADE
+
+**Reasoning:** No trigger: same 4h candle continuing - RSI(4h) 33.4 unchanged, SMA fast-below-slow (continuing bearish state, no fresh cross). Volume 1.14x average (no spike). No new catalyst (same Transaction V1/SEC ETF/World.xyz items); no open position to act on the still-bearish trend.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 33.4,
+  "sma_crossover_4h": "fast_below_slow, crossed_this_candle=false (same candle continuing)",
+  "volume_ratio": 1.139,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -3.608,
+  "order_book_imbalance_top10": 0.019,
+  "news_context": "Same items continuing (Transaction V1, SEC Core ETF Asset status, World.xyz live). No new catalyst."
+}
+```
+
+---
+### 2026-09-10T21:12:44.321Z — POL/USD — NO TRADE
+
+**Reasoning:** No trigger: same 4h candle continuing - RSI(4h) 42.0 unchanged, SMA fast-above-slow with no crossover, volume 1.07x average (no spike). Order book strongly bid-heavy (imbalance +0.56) but not confirmed by volume or a crossover. News: same Polygon payments-stack/Ithaca hardfork items - no new catalyst.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 42,
+  "sma_crossover_4h": "fast_above_slow, crossed_this_candle=false (same candle continuing)",
+  "volume_ratio": 1.066,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -2.208,
+  "order_book_imbalance_top10": 0.561,
+  "news_context": "Same Polygon payments-stack and Ithaca hardfork items. No new catalyst; order book skew unconfirmed by volume or SMA crossover."
+}
+```
+
+---
+### 2026-09-10T21:12:46.916Z — XRP/USD — NO TRADE
+
+**Reasoning:** No trigger: same 4h candle continuing - RSI(4h) 32.9 unchanged, SMA fast-below-slow (continuing bearish state, no fresh cross). Volume 1.04x average (no spike). News unchanged (Mastercard RLUSD integration, ETF inflow streak, rate-hike odds at 70%) - no new catalyst; no open position to act on the still-bearish trend.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 32.94,
+  "sma_crossover_4h": "fast_below_slow, crossed_this_candle=false (same candle continuing)",
+  "volume_ratio": 1.039,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -4.715,
+  "order_book_imbalance_top10": 0.021,
+  "news_context": "Same items continuing: Mastercard/RLUSD integration, ETF inflow streak (>$1.7B), rate-hike odds at 70%. No new quantitative catalyst."
+}
+```
+
+---
