@@ -8555,3 +8555,94 @@ The XRP/USD position logged above (id `96537a2c-86f0-4cbd-8b80-b5f5bc8ada22`, op
 ```
 
 ---
+### 2026-09-10T02:12:35.579Z — BTC/USD — NO TRADE
+
+**Reasoning:** No trigger: RSI(4h) 41.9 weak but not oversold, SMA remains fast_below_slow with no fresh crossover this candle. Volume 1.00x average (no spike). Price down ~0.8-1.1% over 48h on both windows, order book heavily ask-heavy (imbalance -0.70). News unchanged from prior cycles (historic-low volatility, ~$264M liquidations, continued institutional accumulation) - no new catalyst.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 41.91,
+  "sma_crossover_4h": "fast_below_slow, crossed_this_candle=false (bearish state continuing)",
+  "volume_ratio": 0.999,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -0.781,
+  "order_book_imbalance_top10": -0.697,
+  "news_context": "Same story continuing: volatility at historic low; ~$264M liquidations ahead of CPI; continued institutional accumulation (Capital B). No new catalyst."
+}
+```
+
+---
+### 2026-09-10T02:12:38.295Z — ETH/USD — NO TRADE
+
+**Reasoning:** No trigger: RSI(4h) 45.6 neutral, SMA fast-above-slow with no crossover this candle, volume 1.15x average (no spike). Price down modestly over 48h on both windows (-0.70% on 4h), order book bid-heavy (imbalance +0.36). News unchanged from prior cycles (Hegota upgrade, Harmony migration) - no new catalyst.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 45.56,
+  "sma_crossover_4h": "fast_above_slow, crossed_this_candle=false",
+  "volume_ratio": 1.155,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -0.698,
+  "order_book_imbalance_top10": 0.356,
+  "news_context": "Same story continuing: Hegota upgrade finalization; Harmony (ONE) migrating to Ethereum as an ERC-20. No new catalyst since last cycle."
+}
+```
+
+---
+### 2026-09-10T02:12:41.414Z — SOL/USD — NO TRADE
+
+**Reasoning:** No trigger: RSI(4h) 40.3 weak but not oversold, SMA fast-above-slow with no crossover this candle, volume 1.14x average (no spike). Price down over 48h on both windows (-2.17% on 1h), order book mildly bid-heavy (imbalance +0.11). News unchanged from prior cycles (staking-outage story, MoneyGram, Jupiter Lend v2, governance vote) - no new catalyst.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 40.33,
+  "sma_crossover_4h": "fast_above_slow, crossed_this_candle=false",
+  "volume_ratio": 1.139,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -1.751,
+  "order_book_imbalance_top10": 0.109,
+  "news_context": "Same stories continuing to circulate (staking outage, network never halted; MoneyGram integration; Jupiter Lend v2; governance vote narrowly passed). No new catalyst since last cycle."
+}
+```
+
+---
+### 2026-09-10T02:12:44.106Z — POL/USD — NO TRADE
+
+**Reasoning:** No trigger: RSI(4h) 54.1 neutral, SMA fast-above-slow with no crossover this candle, volume 1.07x average (no spike, still no confirmation for the earlier price gain). Price up modestly on the 1h window (+1.15%), order book near-balanced (imbalance +0.04). Same hard-fork/BoE Digital Pound Lab story continuing - no quantitative trigger.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 54.1,
+  "sma_crossover_4h": "fast_above_slow, crossed_this_candle=false",
+  "volume_ratio": 1.066,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": 2.557,
+  "order_book_imbalance_top10": 0.043,
+  "data_gaps": [],
+  "news_context": "Same story continuing: hard-fork security patches, BoE Digital Pound Lab. No new catalyst; still no volume confirmation."
+}
+```
+
+---
+### 2026-09-10T02:12:47.088Z — XRP/USD — NO TRADE
+
+**Reasoning:** No trigger: RSI(4h) 45.0 neutral, SMA fast-above-slow with no crossover this candle, volume 1.04x average (no spike). Price down modestly on the 1h window (-0.64%) but flat on the 4h window, order book near-balanced (imbalance -0.03). New item: Ripple launched an institutional minting platform and added RLUSD to Notabene's compliance network, though monthly transfer volume reportedly fell to $10.95B - mixed signal, no quantitative trigger.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 45.03,
+  "sma_crossover_4h": "fast_above_slow, crossed_this_candle=false",
+  "volume_ratio": 1.039,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": 0.033,
+  "order_book_imbalance_top10": -0.025,
+  "news_context": "Ripple launched an institutional minting platform and added RLUSD to Notabene's compliance network (holder growth up, but monthly transfer volume fell to $10.95B); upcoming XRP Ledger amendment could differentiate XRP's price action from BTC. Mixed news, no quantitative trigger."
+}
+```
+
+---
