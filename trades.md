@@ -9188,3 +9188,93 @@ The XRP/USD position logged above (id `96537a2c-86f0-4cbd-8b80-b5f5bc8ada22`, op
 ```
 
 ---
+### 2026-09-10T15:14:25.357Z — BTC/USD — NO TRADE
+
+**Reasoning:** No trigger: RSI(4h) 37.3 weak but not oversold, SMA remains fast_below_slow with no fresh crossover this candle. Volume 1.00x average (no spike). Price down -1.93% on 1h, order book now balanced (imbalance -0.01). News: Core PPI came in hot at 4.6% (highest since June 2026), rising sovereign yields, and US spot BTC ETFs saw $166.8M in net outflows over two days after a 3-week, $3.8B inflow run - this corroborates the macro-driven weakness but is not itself a quantitative trigger under this account's rules.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 37.28,
+  "sma_crossover_4h": "fast_below_slow, crossed_this_candle=false (bearish state continuing)",
+  "volume_ratio": 0.999,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -1.367,
+  "order_book_imbalance_top10": -0.013,
+  "news_context": "Core PPI at 4.6% (hottest since June 2026), rising sovereign yields, and BTC spot ETFs posting $166.8M in 2-day net outflows after a 3-week $3.8B inflow streak. Confirms macro-driven weakness; no new BTC-specific quantitative catalyst."
+}
+```
+
+---
+### 2026-09-10T15:14:28.693Z — ETH/USD — NO TRADE
+
+**Reasoning:** No trigger: RSI(4h) 43.9 neutral, SMA fast-above-slow with no crossover this candle, volume 1.15x average (no spike). Price down -2.20% on 1h, order book mildly bid-heavy (imbalance +0.15). News: same macro pre-CPI/hot-PPI driver as BTC; BitMine accumulation and Vitalik's EIP-8288 unchanged, non-catalytic near-term.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 43.86,
+  "sma_crossover_4h": "fast_above_slow, crossed_this_candle=false",
+  "volume_ratio": 1.155,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -1.462,
+  "order_book_imbalance_top10": 0.151,
+  "news_context": "Same macro driver as BTC (hot PPI, rising yields). BitMine ETH accumulation, Vitalik's EIP-8288 proposal unchanged from prior cycles. No new quantitative catalyst."
+}
+```
+
+---
+### 2026-09-10T15:14:31.845Z — SOL/USD — NO TRADE
+
+**Reasoning:** No trigger: RSI(4h) 38.4 weak but not oversold, SMA fast-above-slow with no crossover this candle, volume 1.14x average (no spike). Price down -4.02% on 1h, order book near-balanced (imbalance +0.03). News unchanged from prior cycles (World.xyz prediction market, SEC ETF asset status, Transaction V1) - decline still tracks broad macro-driven pullback, not SOL-specific.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 38.43,
+  "sma_crossover_4h": "fast_above_slow, crossed_this_candle=false",
+  "volume_ratio": 1.139,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -3.23,
+  "order_book_imbalance_top10": 0.034,
+  "news_context": "Same items continuing (World.xyz prediction market live, SEC Core ETF Asset status, Transaction V1). No new catalyst; price move tracks the broader hot-PPI-driven market pullback."
+}
+```
+
+---
+### 2026-09-10T15:14:35.329Z — POL/USD — NO TRADE
+
+**Reasoning:** No trigger: RSI(4h) 39.6 weak but not oversold, SMA still fast-above-slow with no fresh crossover this candle, volume 1.07x average - still unconfirmed despite the deepest 1h decline yet this cycle (-5.79%). Order book bid-heavy (imbalance +0.15). News: no new POL-specific catalyst; same Ithaca hardfork/security-hardfork items. Decline continues to track the broad macro-driven (hot PPI) pullback rather than a POL-specific event.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 39.62,
+  "sma_crossover_4h": "fast_above_slow, crossed_this_candle=false",
+  "volume_ratio": 1.066,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -5.172,
+  "order_book_imbalance_top10": 0.154,
+  "news_context": "No new POL-specific catalyst; same Ithaca hardfork (July 30) and Austin/Kyoto security-hardfork items as prior cycles. Continued decline still unconfirmed by volume or SMA crossover; tracks broad macro-driven weakness."
+}
+```
+
+---
+### 2026-09-10T15:14:38.673Z — XRP/USD — NO TRADE
+
+**Reasoning:** No trigger: RSI(4h) 39.5 weak but not oversold, SMA fast-above-slow with no crossover this candle, volume 1.04x average (no spike). Price down -5.21% on 1h (the deepest decline of the five pairs this cycle), order book near-balanced (imbalance +0.01). News unchanged: 8-week ETF inflow streak continues (>$1.7B), RLUSD growth, Japan partnerships, upcoming CLARITY Act vote (~Sept 15) - all advisory, no quantitative trigger; decline tracks broad macro-driven weakness.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 39.53,
+  "sma_crossover_4h": "fast_above_slow, crossed_this_candle=false",
+  "volume_ratio": 1.039,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -4.05,
+  "order_book_imbalance_top10": 0.007,
+  "news_context": "Same items continuing: 8-week green streak for spot XRP ETFs (>$1.7B cumulative inflows), RLUSD market cap at $2.32B, Japan institutional partnerships, CLARITY Act Senate vote expected ~Sept 15. No new quantitative catalyst; decline tracks broad macro-driven weakness (hot PPI)."
+}
+```
+
+---
