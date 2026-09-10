@@ -9818,3 +9818,93 @@ The XRP/USD position logged above (id `96537a2c-86f0-4cbd-8b80-b5f5bc8ada22`, op
 ```
 
 ---
+### 2026-09-10T22:13:41.012Z — BTC/USD — NO TRADE
+
+**Reasoning:** No trigger: same 4h candle continuing - RSI(4h) 31.6 unchanged, SMA remains fast_below_slow with no fresh crossover. Volume 1.00x average (no spike). Order book now ask-heavy (imbalance -0.44). News unchanged: PPI/CPI/FOMC calendar, ETF outflows, Middle East geopolitical tension cited as a broader fragility factor. No new catalyst.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 31.6,
+  "sma_crossover_4h": "fast_below_slow, crossed_this_candle=false (same candle continuing)",
+  "volume_ratio": 0.999,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -1.679,
+  "order_book_imbalance_top10": -0.436,
+  "news_context": "Same items continuing: PPI/CPI/FOMC calendar, BTC ETF outflows, Middle East geopolitical tension. No new quantitative catalyst."
+}
+```
+
+---
+### 2026-09-10T22:13:42.948Z — ETH/USD — NO TRADE
+
+**Reasoning:** No trigger: same 4h candle continuing - RSI(4h) 45.8 unchanged, SMA fast-above-slow with no crossover, volume 1.15x average (no spike). News unchanged (BitMine, Trezor, 37 EU banks/public Ethereum stablecoin item) - no new catalyst.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 45.79,
+  "sma_crossover_4h": "fast_above_slow, crossed_this_candle=false (same candle continuing)",
+  "volume_ratio": 1.155,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -0.925,
+  "order_book_imbalance_top10": -0.215,
+  "news_context": "Same items continuing (BitMine ETH accumulation, Trezor ERC-7730, 37 European banks choosing public Ethereum for euro stablecoin). No new quantitative catalyst."
+}
+```
+
+---
+### 2026-09-10T22:13:45.624Z — SOL/USD — NO TRADE
+
+**Reasoning:** No trigger: same 4h candle continuing - RSI(4h) 33.4 unchanged, SMA fast-below-slow (continuing bearish state, no fresh cross). Volume 1.14x average (no spike). No new catalyst (same Transaction V1/SEC ETF/World.xyz items); no open position to act on the still-bearish trend.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 33.4,
+  "sma_crossover_4h": "fast_below_slow, crossed_this_candle=false (same candle continuing)",
+  "volume_ratio": 1.139,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -3.608,
+  "order_book_imbalance_top10": -0.093,
+  "news_context": "Same items continuing (Transaction V1, SEC Core ETF Asset status, World.xyz live). No new catalyst."
+}
+```
+
+---
+### 2026-09-10T22:13:48.000Z — POL/USD — NO TRADE
+
+**Reasoning:** No trigger: same 4h candle continuing - RSI(4h) 42.0 unchanged, SMA fast-above-slow with no crossover, volume 1.07x average (no spike). Order book bid-heavy (imbalance +0.27) but not confirmed by volume or a crossover. News: same Polygon/Ithaca hardfork items - no new catalyst.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 42,
+  "sma_crossover_4h": "fast_above_slow, crossed_this_candle=false (same candle continuing)",
+  "volume_ratio": 1.066,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -2.208,
+  "order_book_imbalance_top10": 0.272,
+  "news_context": "Same Polygon payments-stack and Ithaca hardfork items. No new catalyst."
+}
+```
+
+---
+### 2026-09-10T22:13:51.157Z — XRP/USD — NO TRADE
+
+**Reasoning:** No trigger: same 4h candle continuing - RSI(4h) 32.9 unchanged, SMA fast-below-slow (continuing bearish state, no fresh cross). Volume 1.04x average (no spike). Confirmed: today's 4.9% decline was driven by the hot PPI print (wholesale prices +5.4% YoY) sweeping XRP into a broader sell-off, consistent with the macro story already priced in. No new catalyst; no open position to act on the still-bearish trend.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 32.94,
+  "sma_crossover_4h": "fast_below_slow, crossed_this_candle=false (same candle continuing)",
+  "volume_ratio": 1.039,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -4.715,
+  "order_book_imbalance_top10": -0.465,
+  "news_context": "Confirmed: XRP's decline today driven by the hot PPI print (wholesale prices +5.4% YoY), same macro driver as other pairs. Mastercard/RLUSD integration and ETF inflow streak unchanged. No new quantitative catalyst."
+}
+```
+
+---
