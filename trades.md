@@ -9638,3 +9638,93 @@ The XRP/USD position logged above (id `96537a2c-86f0-4cbd-8b80-b5f5bc8ada22`, op
 ```
 
 ---
+### 2026-09-10T20:12:24.002Z — BTC/USD — NO TRADE
+
+**Reasoning:** No trigger: new 4h candle - RSI(4h) 31.6, still weak but not below the 30 oversold threshold, SMA remains fast_below_slow with no fresh crossover. Volume 1.00x average (no spike). Order book now notably ask-heavy (imbalance -0.66). News: rate-hike odds for the Sept 15-16 FOMC meeting have risen further to 70% (from 59% last cycle) on continued hot inflation data - macro-driven, corroborates weakness but not a BTC-specific trigger.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 31.6,
+  "sma_crossover_4h": "fast_below_slow, crossed_this_candle=false (new candle, no fresh cross)",
+  "volume_ratio": 0.999,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -1.679,
+  "order_book_imbalance_top10": -0.66,
+  "news_context": "Fed rate-hike odds for Sept 15-16 meeting rose to 70% (from 59%) on continued hot inflation data. Same PPI/CPI/ETF-outflow story. No new BTC-specific quantitative catalyst."
+}
+```
+
+---
+### 2026-09-10T20:12:26.734Z — ETH/USD — NO TRADE
+
+**Reasoning:** No trigger: new 4h candle - RSI(4h) 45.8, moved up but still neutral, SMA fast-above-slow with no crossover, volume 1.15x average (no spike). Order book very strongly ask-heavy (imbalance -0.95, secondary signal only, not confirmed by volume). News unchanged (BitMine, Trezor, SGX) - no new catalyst.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 45.79,
+  "sma_crossover_4h": "fast_above_slow, crossed_this_candle=false (new candle, no fresh cross)",
+  "volume_ratio": 1.155,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -0.925,
+  "order_book_imbalance_top10": -0.954,
+  "news_context": "Same items continuing (BitMine ETH accumulation, Trezor ERC-7730, SGX CFTC clearance). No new quantitative catalyst."
+}
+```
+
+---
+### 2026-09-10T20:12:30.098Z — SOL/USD — NO TRADE
+
+**Reasoning:** No trigger: new 4h candle - the SMA crossover from prior candle has resolved into a continuing fast_below_slow state with no fresh cross this candle. RSI 33.4, still weak but not oversold. Volume 1.14x average (no spike). No new catalyst (same Transaction V1/SEC ETF/Alpenglow items); no position exists to act on the still-bearish trend anyway.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 33.4,
+  "sma_crossover_4h": "fast_below_slow, crossed_this_candle=false (new candle, prior cross now settled into continuing bearish state)",
+  "volume_ratio": 1.139,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -3.608,
+  "order_book_imbalance_top10": 0.023,
+  "news_context": "Same items continuing (Transaction V1, SEC Core ETF Asset status, Alpenglow upgrade planned Oct 2026). No new catalyst."
+}
+```
+
+---
+### 2026-09-10T20:12:32.372Z — POL/USD — NO TRADE
+
+**Reasoning:** No trigger: new 4h candle - RSI(4h) 42.0 neutral, SMA fast-above-slow with no crossover, volume 1.07x average (no spike). Order book bid-heavy (imbalance +0.20). News: same Polygon payments-stack/Ithaca hardfork items - no new catalyst.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 42,
+  "sma_crossover_4h": "fast_above_slow, crossed_this_candle=false (new candle)",
+  "volume_ratio": 1.066,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -2.208,
+  "order_book_imbalance_top10": 0.196,
+  "news_context": "Same Polygon payments-stack and Ithaca hardfork items. No new catalyst."
+}
+```
+
+---
+### 2026-09-10T20:12:36.762Z — XRP/USD — NO TRADE
+
+**Reasoning:** No trigger: new 4h candle - the SMA crossover from prior candle has resolved into a continuing fast_below_slow state with no fresh cross this candle. RSI 32.9, still weak but not oversold. Volume 1.04x average (no spike). News: RLUSD gained a notable integration - Mastercard's new AI-powered merchant payment platform will use RLUSD - a positive development, but no quantitative signal is pointing anywhere to let it weigh in; also noted U.S. wholesale inflation hit 5.4% YoY per one source, pushing rate-hike odds to 70%, consistent with the broader macro story. No trade: no position exists to act on the still-bearish trend.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 32.94,
+  "sma_crossover_4h": "fast_below_slow, crossed_this_candle=false (new candle, prior cross now settled into continuing bearish state)",
+  "volume_ratio": 1.039,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -4.715,
+  "order_book_imbalance_top10": -0.038,
+  "news_context": "New: Ripple's RLUSD stablecoin gained integration into Mastercard's AI-powered merchant payment platform; XRP ETF shares now used as collateral in institutional lending. Broader market still fragile on inflation/rate-hike odds (70%) and Middle East tension. No new quantitative catalyst; no position to act on."
+}
+```
+
+---
