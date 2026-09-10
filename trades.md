@@ -9008,3 +9008,93 @@ The XRP/USD position logged above (id `96537a2c-86f0-4cbd-8b80-b5f5bc8ada22`, op
 ```
 
 ---
+### 2026-09-10T13:15:15.868Z — BTC/USD — NO TRADE
+
+**Reasoning:** No trigger: RSI(4h) 37.3 weak but not oversold (<30), SMA remains fast_below_slow with no fresh crossover this candle. Volume 1.00x average (no spike). Continued weakness pre-CPI, price down -1.37% on both 1h/4h windows; order book now notably bid-heavy (imbalance +0.59). News: same PPI/CPI/FOMC calendar story, Germany tax proposal, Alby Lightning wallet vuln - no new quantitative catalyst.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 37.28,
+  "sma_crossover_4h": "fast_below_slow, crossed_this_candle=false (bearish state continuing)",
+  "volume_ratio": 0.999,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -1.367,
+  "order_book_imbalance_top10": 0.587,
+  "news_context": "Same PPI (Sept 10)/CPI (Sept 11)/FOMC (Sept 15-16) calendar story; Germany's proposed 25% tax on long-term BTC gains from 2027 still pending; Alby Lightning wallet vulnerability disclosed. No new quantitative catalyst."
+}
+```
+
+---
+### 2026-09-10T13:15:19.382Z — ETH/USD — NO TRADE
+
+**Reasoning:** No trigger: RSI(4h) 43.9 neutral, SMA fast-above-slow with no crossover this candle, volume 1.15x average (no spike). Price down further on 1h (-1.81%) though 4h window unchanged from last cycle, order book now bid-heavy (imbalance +0.58). News: SGX gained CFTC clearance for US access to BTC/ETH perpetual futures - a market-structure positive but not a near-term price catalyst; Vitalik's EIP-8288 remains long-horizon.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 43.86,
+  "sma_crossover_4h": "fast_above_slow, crossed_this_candle=false",
+  "volume_ratio": 1.155,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -1.462,
+  "order_book_imbalance_top10": 0.578,
+  "news_context": "SGX gained CFTC clearance for US access to its BTC/ETH perpetual futures; Vitalik proposed EIP-8288 (long-horizon); BitMine and Trezor items unchanged from last cycle. No new near-term catalyst."
+}
+```
+
+---
+### 2026-09-10T13:15:23.207Z — SOL/USD — NO TRADE
+
+**Reasoning:** No trigger: RSI(4h) 38.4 weak but not oversold, SMA fast-above-slow with no crossover this candle, volume 1.14x average (no spike). Price extending its decline (-3.64% on 1h), order book near-balanced/mildly ask-heavy (imbalance -0.08). News unchanged from prior cycles (Transaction V1, SEC ETF asset status, World prediction market) - no new catalyst; price consolidating near $100 per one source, consistent with broad market pullback rather than SOL-specific news.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 38.43,
+  "sma_crossover_4h": "fast_above_slow, crossed_this_candle=false",
+  "volume_ratio": 1.139,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -3.23,
+  "order_book_imbalance_top10": -0.076,
+  "news_context": "Same recent items continuing (Transaction V1 live, SEC core ETF asset status, World prediction market). One source described SOL as \"consolidating near $100\". No new catalyst; decline tracks broad market weakness."
+}
+```
+
+---
+### 2026-09-10T13:15:27.355Z — POL/USD — NO TRADE
+
+**Reasoning:** No trigger: RSI(4h) 39.6 weak but not oversold, SMA still fast-above-slow with no fresh crossover this candle, volume only 1.07x average - still no spike despite continued weakness (1h now -4.70%). Order book has flipped ask-heavy (imbalance -0.16) versus bid-heavy last cycle, but this is a secondary/optional signal and not a trigger on its own. News: no new POL-specific catalyst found; same Ithaca hardfork/Polymarket items as before. Decline continues to look broad-market-driven, unconfirmed by volume or a crossover.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 39.62,
+  "sma_crossover_4h": "fast_above_slow, crossed_this_candle=false",
+  "volume_ratio": 1.066,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -5.172,
+  "order_book_imbalance_top10": -0.157,
+  "news_context": "No new POL-specific catalyst; same Ithaca hardfork (July 30) and Polymarket/LeBron James items as prior cycle. Continued decline still unconfirmed by volume or SMA crossover; order book flipped ask-heavy this cycle."
+}
+```
+
+---
+### 2026-09-10T13:15:30.487Z — XRP/USD — NO TRADE
+
+**Reasoning:** No trigger: RSI(4h) 39.5 weak but not oversold, SMA fast-above-slow with no crossover this candle, volume 1.04x average (no spike). Price continuing to decline (-3.22% on 1h), order book ask-heavy (imbalance -0.09). News unchanged: 8-week ETF inflow streak continues, RLUSD growth, upcoming CLARITY Act vote (~Sept 15) - all advisory, no quantitative trigger this cycle.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 39.53,
+  "sma_crossover_4h": "fast_above_slow, crossed_this_candle=false",
+  "volume_ratio": 1.039,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -4.05,
+  "order_book_imbalance_top10": -0.087,
+  "news_context": "Same items continuing: 8-week green streak for spot XRP ETFs (>$1.7B cumulative inflows), RLUSD market cap at $2.32B, CLARITY Act Senate vote expected ~Sept 15. No new quantitative catalyst; decline tracks broad market weakness."
+}
+```
+
+---
