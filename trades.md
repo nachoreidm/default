@@ -9548,3 +9548,93 @@ The XRP/USD position logged above (id `96537a2c-86f0-4cbd-8b80-b5f5bc8ada22`, op
 ```
 
 ---
+### 2026-09-10T19:12:03.872Z — BTC/USD — NO TRADE
+
+**Reasoning:** No trigger: same 4h candle continuing - RSI(4h) 32.3 unchanged, SMA remains fast_below_slow with no fresh crossover. Volume 1.00x average (no spike). News unchanged: PPI/CPI/FOMC calendar, ETF outflows, Germany tax proposal. No new catalyst.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 32.31,
+  "sma_crossover_4h": "fast_below_slow, crossed_this_candle=false (same candle continuing)",
+  "volume_ratio": 0.999,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -1.546,
+  "order_book_imbalance_top10": -0.224,
+  "news_context": "Same items continuing: hot Core PPI (4.6%), BTC ETF outflows, PPI/CPI/FOMC calendar, Germany tax proposal. No new quantitative catalyst."
+}
+```
+
+---
+### 2026-09-10T19:12:06.775Z — ETH/USD — NO TRADE
+
+**Reasoning:** No trigger: same 4h candle continuing - RSI(4h) 38.2 unchanged, SMA fast-above-slow with no crossover, volume 1.15x average (no spike). Order book now strongly ask-heavy (imbalance -0.89, secondary signal only). News unchanged (BitMine, Trezor, SGX, Vitalik items) - no new catalyst.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 38.24,
+  "sma_crossover_4h": "fast_above_slow, crossed_this_candle=false (same candle continuing)",
+  "volume_ratio": 1.155,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -1.698,
+  "order_book_imbalance_top10": -0.889,
+  "news_context": "Same items continuing (BitMine ETH accumulation, Trezor ERC-7730, SGX CFTC clearance, Vitalik proposal). No new quantitative catalyst."
+}
+```
+
+---
+### 2026-09-10T19:12:09.684Z — SOL/USD — NO TRADE
+
+**Reasoning:** Same 4h candle continuing - the bearish SMA crossover remains flagged (not fresh), RSI 33.6 unchanged. Still non-actionable: long-only account, no open SOL position to close. No new catalyst (same Transaction V1/SEC ETF/Alpenglow items).
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 33.61,
+  "sma_crossover_4h": "fast_below_slow, crossed_this_candle=true (same flagged candle continuing, not new)",
+  "volume_ratio": 1.139,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -3.42,
+  "order_book_imbalance_top10": 0.109,
+  "news_context": "Same items continuing (Transaction V1, SEC Core ETF Asset status, Alpenglow upgrade planned Oct 2026). No new catalyst; bearish crossover still non-actionable under long-only constraint with no existing position."
+}
+```
+
+---
+### 2026-09-10T19:12:12.105Z — POL/USD — NO TRADE
+
+**Reasoning:** No trigger: same 4h candle continuing - RSI(4h) 40.6 unchanged, SMA fast-above-slow with no crossover, volume 1.07x average (no spike). Order book now ask-heavy (imbalance -0.24). News: same Polygon payments-stack/Ithaca hardfork items - no new catalyst.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 40.62,
+  "sma_crossover_4h": "fast_above_slow, crossed_this_candle=false (same candle continuing)",
+  "volume_ratio": 1.066,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -2.992,
+  "order_book_imbalance_top10": -0.243,
+  "news_context": "Same Polygon payments-stack and Ithaca hardfork items. No new catalyst."
+}
+```
+
+---
+### 2026-09-10T19:12:14.784Z — XRP/USD — NO TRADE
+
+**Reasoning:** Same 4h candle continuing - the bearish SMA crossover remains flagged (not fresh), RSI 34.4 unchanged. Still non-actionable: long-only account, no open XRP position to close. News unchanged: geopolitical tension (Middle East/Strait of Hormuz), ETF inflow streak continues (>$1.7B), bullish long-term price targets circulating - none of this creates a fresh trigger.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 34.36,
+  "sma_crossover_4h": "fast_below_slow, crossed_this_candle=true (same flagged candle continuing, not new)",
+  "volume_ratio": 1.039,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -4.708,
+  "order_book_imbalance_top10": 0.036,
+  "news_context": "Same items continuing: geopolitical tension cited as market fragility factor, ETF inflow streak (>$1.7B), bullish long-term price targets. No new quantitative catalyst; bearish crossover still non-actionable under long-only constraint with no existing position."
+}
+```
+
+---
