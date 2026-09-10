@@ -9368,3 +9368,93 @@ The XRP/USD position logged above (id `96537a2c-86f0-4cbd-8b80-b5f5bc8ada22`, op
 ```
 
 ---
+### 2026-09-10T17:39:58.580Z — BTC/USD — NO TRADE
+
+**Reasoning:** No trigger: same 4h candle as last cycle - RSI(4h) 32.3 unchanged, approaching but not below the 30 oversold threshold, SMA remains fast_below_slow with no fresh crossover. Volume 1.00x average (no spike). News: Core PPI confirmed at 4.6% (highest since June), and Fed rate-hike odds for the Sept 15-16 meeting jumped to 59% from 52% after the print - macro-driven, corroborates weakness but not a BTC-specific quantitative trigger.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 32.31,
+  "sma_crossover_4h": "fast_below_slow, crossed_this_candle=false (same candle as last cycle, no new cross)",
+  "volume_ratio": 0.999,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -1.546,
+  "order_book_imbalance_top10": 0.146,
+  "news_context": "Core PPI confirmed at 4.6%; Fed rate-hike odds for Sept 15-16 meeting rose to 59% from 52% post-print. Same macro driver as prior cycles, no new BTC-specific catalyst."
+}
+```
+
+---
+### 2026-09-10T17:40:01.004Z — ETH/USD — NO TRADE
+
+**Reasoning:** No trigger: same 4h candle as last cycle - RSI(4h) 38.2 unchanged, SMA fast-above-slow with no crossover, volume 1.15x average (no spike). News: 37 European banks chose public Ethereum (not a private bank chain) for their euro stablecoin - a longer-term institutional-adoption positive, but not a near-term price catalyst and no quantitative signal is pointing anywhere to let it weigh in.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 38.24,
+  "sma_crossover_4h": "fast_above_slow, crossed_this_candle=false (same candle as last cycle)",
+  "volume_ratio": 1.155,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -1.698,
+  "order_book_imbalance_top10": 0.561,
+  "news_context": "37 European banks chose public Ethereum for their euro stablecoin (Sept 8) - a positive institutional-adoption signal but not a near-term catalyst. Same BitMine/Trezor/SGX items as before. No new quantitative trigger."
+}
+```
+
+---
+### 2026-09-10T17:40:05.761Z — SOL/USD — NO TRADE
+
+**Reasoning:** Same 4h candle as last cycle - the bearish SMA crossover flagged last cycle is continuing (not a fresh cross this time), RSI 33.6 unchanged. Still non-actionable: long-only account, no open SOL position to close. No new catalyst in the news (same Transaction V1/SEC ETF asset/Alpenglow items).
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 33.61,
+  "sma_crossover_4h": "fast_below_slow, crossed_this_candle=true (same flagged candle as last cycle, not a new event this check)",
+  "volume_ratio": 1.139,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -3.42,
+  "order_book_imbalance_top10": 0.02,
+  "news_context": "Same items continuing (Transaction V1, SEC Core ETF Asset status, Alpenglow upgrade planned Oct 2026). No new catalyst. Bearish crossover from last cycle still non-actionable: long-only, no existing position."
+}
+```
+
+---
+### 2026-09-10T17:40:07.652Z — POL/USD — NO TRADE
+
+**Reasoning:** No trigger: same 4h candle as last cycle - RSI(4h) 40.6 unchanged, SMA fast-above-slow with no crossover, volume 1.07x average (no spike). News: same Polygon payments-stack/Ithaca hardfork items as prior cycle, no new catalyst. Order book bid-heavy (imbalance +0.21) but not confirmed by volume or a crossover.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 40.62,
+  "sma_crossover_4h": "fast_above_slow, crossed_this_candle=false (same candle as last cycle)",
+  "volume_ratio": 1.066,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -2.992,
+  "order_book_imbalance_top10": 0.208,
+  "news_context": "Same Polygon payments-stack and Ithaca hardfork items as prior cycle. No new catalyst."
+}
+```
+
+---
+### 2026-09-10T17:40:11.495Z — XRP/USD — NO TRADE
+
+**Reasoning:** Same 4h candle as last cycle - the bearish SMA crossover flagged last cycle is continuing (not a fresh cross this time), RSI 34.4 unchanged. Still non-actionable: long-only account, no open XRP position to close. News: one source now cites geopolitical tensions (Middle East, Strait of Hormuz shipping risk) as a broader market fragility factor, alongside continuing ETF inflow streak and some analysts flagging potential recovery levels ($1.48/$1.55) - none of this overrides the existing bearish quantitative signal or creates a fresh trigger.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 34.36,
+  "sma_crossover_4h": "fast_below_slow, crossed_this_candle=true (same flagged candle as last cycle, not a new event this check)",
+  "volume_ratio": 1.039,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -4.708,
+  "order_book_imbalance_top10": 0.131,
+  "news_context": "New: geopolitical tensions (Middle East, Strait of Hormuz) cited as a broader market fragility factor; some analysts flagging possible recovery levels at $1.48/$1.55. ETF inflow streak (>$1.7B) continues. None of this overrides the existing bearish crossover; no trade under long-only constraint with no existing position."
+}
+```
+
+---
