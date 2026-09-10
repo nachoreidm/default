@@ -9908,3 +9908,93 @@ The XRP/USD position logged above (id `96537a2c-86f0-4cbd-8b80-b5f5bc8ada22`, op
 ```
 
 ---
+### 2026-09-10T23:13:30.307Z — BTC/USD — NO TRADE
+
+**Reasoning:** No trigger: same 4h candle continuing - RSI(4h) 31.6 unchanged, SMA remains fast_below_slow with no fresh crossover. Volume 1.00x average (no spike). Order book now strongly ask-heavy (imbalance -0.66). News unchanged: PPI/CPI/FOMC calendar, ETF outflows, Middle East geopolitical tension, Germany tax proposal. No new catalyst.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 31.6,
+  "sma_crossover_4h": "fast_below_slow, crossed_this_candle=false (same candle continuing)",
+  "volume_ratio": 0.999,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -1.679,
+  "order_book_imbalance_top10": -0.663,
+  "news_context": "Same items continuing: PPI/CPI/FOMC calendar, BTC ETF outflows, Middle East geopolitical tension, Germany tax proposal. No new quantitative catalyst."
+}
+```
+
+---
+### 2026-09-10T23:13:33.703Z — ETH/USD — NO TRADE
+
+**Reasoning:** No trigger: same 4h candle continuing - RSI(4h) 45.8 unchanged, SMA fast-above-slow with no crossover, volume 1.15x average (no spike). News unchanged (BitMine, Trezor, Vitalik proposal) - no new catalyst. Analysts note $2,438 as key support keeping the September outlook bullish; price still above it.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 45.79,
+  "sma_crossover_4h": "fast_above_slow, crossed_this_candle=false (same candle continuing)",
+  "volume_ratio": 1.155,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -0.925,
+  "order_book_imbalance_top10": -0.261,
+  "news_context": "Same items continuing (BitMine ETH accumulation, Trezor ERC-7730, Vitalik proposal). Analysts flag $2,438 support / $2,920 target. No new quantitative catalyst."
+}
+```
+
+---
+### 2026-09-10T23:13:36.536Z — SOL/USD — NO TRADE
+
+**Reasoning:** No trigger: same 4h candle continuing - RSI(4h) 33.4 unchanged, SMA fast-below-slow (continuing bearish state, no fresh cross). Volume 1.14x average (no spike). No new catalyst (same Transaction V1/SEC ETF/World.xyz items); no open position to act on the still-bearish trend.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 33.4,
+  "sma_crossover_4h": "fast_below_slow, crossed_this_candle=false (same candle continuing)",
+  "volume_ratio": 1.139,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -3.608,
+  "order_book_imbalance_top10": 0.139,
+  "news_context": "Same items continuing (Transaction V1, SEC Core ETF Asset status, World.xyz live). No new catalyst."
+}
+```
+
+---
+### 2026-09-10T23:13:38.868Z — POL/USD — NO TRADE
+
+**Reasoning:** No trigger: same 4h candle continuing - RSI(4h) 42.0 unchanged, SMA fast-above-slow with no crossover, volume 1.07x average (no spike). Order book bid-heavy (imbalance +0.28) but not confirmed by volume or a crossover. News: same Polygon/Ithaca hardfork items - no new catalyst.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 42,
+  "sma_crossover_4h": "fast_above_slow, crossed_this_candle=false (same candle continuing)",
+  "volume_ratio": 1.066,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -2.208,
+  "order_book_imbalance_top10": 0.283,
+  "news_context": "Same Polygon payments-stack and Ithaca hardfork items. No new catalyst."
+}
+```
+
+---
+### 2026-09-10T23:13:41.389Z — XRP/USD — NO TRADE
+
+**Reasoning:** No trigger: same 4h candle continuing - RSI(4h) 32.9 unchanged, SMA fast-below-slow (continuing bearish state, no fresh cross). Volume 1.04x average (no spike). News unchanged (Mastercard/RLUSD integration, ETF inflow streak, institutional lending collateral use) - no new catalyst; no open position to act on the still-bearish trend.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 32.94,
+  "sma_crossover_4h": "fast_below_slow, crossed_this_candle=false (same candle continuing)",
+  "volume_ratio": 1.039,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -4.715,
+  "order_book_imbalance_top10": -0.018,
+  "news_context": "Same items continuing: Mastercard/RLUSD integration, ETF inflow streak (>$1.7B), XRP ETF shares used as lending collateral. No new quantitative catalyst."
+}
+```
+
+---
