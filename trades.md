@@ -8918,3 +8918,93 @@ The XRP/USD position logged above (id `96537a2c-86f0-4cbd-8b80-b5f5bc8ada22`, op
 ```
 
 ---
+### 2026-09-10T12:15:26.637Z — BTC/USD — NO TRADE
+
+**Reasoning:** No trigger: RSI(4h) 37.3 weak but not oversold (<30), SMA remains fast_below_slow with no fresh crossover this candle. Volume 1.00x average (no spike). Price down over 48h (-1.4% on 4h) amid broad pre-CPI market weakness, order book ask-heavy (imbalance -0.35). News: market awaiting Sept 10 PPI/Sept 11 CPI ahead of the Sept 15-16 FOMC meeting; Germany proposing to end tax-free BTC long-term-holder gains from 2027; Alby Lightning wallet vulnerability disclosed (Lightning-layer, not BTC mainnet). None is a quantitative trigger.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 37.28,
+  "sma_crossover_4h": "fast_below_slow, crossed_this_candle=false (bearish state continuing)",
+  "volume_ratio": 0.999,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -1.367,
+  "order_book_imbalance_top10": -0.351,
+  "news_context": "Market awaiting PPI (Sept 10) and CPI (Sept 11) ahead of Sept 15-16 FOMC; Germany proposing to end tax-free long-term BTC gains from 2027 (pending); Alby Lightning wallet vulnerability disclosed (not BTC mainnet). No new quantitative catalyst."
+}
+```
+
+---
+### 2026-09-10T12:15:30.198Z — ETH/USD — NO TRADE
+
+**Reasoning:** No trigger: RSI(4h) 43.9 neutral, SMA fast-above-slow with no crossover this candle, volume 1.15x average (no spike). Price down over 48h (-1.5% on 4h), order book notably ask-heavy (imbalance -0.39). News: BitMine continuing weekly ETH accumulation, Vitalik Buterin proposed EIP-8288 (recursive STARK mempool design, long-horizon), Trezor ERC-7730 adoption - none are near-term catalysts and no quantitative signal is pointing anywhere to let news weigh in.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 43.86,
+  "sma_crossover_4h": "fast_above_slow, crossed_this_candle=false",
+  "volume_ratio": 1.155,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -1.462,
+  "order_book_imbalance_top10": -0.394,
+  "news_context": "BitMine bought another $70M ETH; Vitalik proposed EIP-8288 (recursive STARK mempool, long-term roadmap); Trezor adopted ERC-7730. No new near-term catalyst; price weakness consistent with broad pre-CPI market pullback."
+}
+```
+
+---
+### 2026-09-10T12:15:34.121Z — SOL/USD — NO TRADE
+
+**Reasoning:** No trigger: RSI(4h) 38.4 weak but not oversold, SMA fast-above-slow with no crossover this candle, volume 1.14x average (no spike). Price down over 48h (-3.2% on 4h), order book mildly bid-heavy (imbalance +0.11). News: Transaction V1 upgrade live (Sept 9), 263,000 daily token launches, World's Solana-based prediction market opened to 1M+ waitlisted users, Alpenglow upgrade planned for October - all positive but not confirmed by volume or a quantitative crossover; price decline consistent with broad market pullback.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 38.43,
+  "sma_crossover_4h": "fast_above_slow, crossed_this_candle=false",
+  "volume_ratio": 1.139,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -3.23,
+  "order_book_imbalance_top10": 0.113,
+  "news_context": "Transaction V1 upgrade live (Sept 9); 263K daily token launches; World's Solana prediction market opened to 1M+ users; Alpenglow upgrade planned Oct 2026. Positive ecosystem news but no quantitative trigger this cycle; decline tracks broad market weakness."
+}
+```
+
+---
+### 2026-09-10T12:15:38.413Z — POL/USD — NO TRADE
+
+**Reasoning:** No trigger despite a larger-than-usual 48h decline (-5.2% on 4h, -3.95% on 1h): RSI(4h) 39.6 weak but not oversold, SMA still fast-above-slow with no fresh crossover this candle, volume only 1.07x average - no spike confirming the drop. Order book bid-heavy (imbalance +0.22), suggesting some dip-buying interest. News: no new negative catalyst found (Ithaca hardfork stable since July 30, community sentiment still described as bullish-leaning) - the price move looks like broad-market-driven weakness rather than something POL-specific, and remains unconfirmed by volume or a crossover.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 39.62,
+  "sma_crossover_4h": "fast_above_slow, crossed_this_candle=false",
+  "volume_ratio": 1.066,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -5.172,
+  "order_book_imbalance_top10": 0.216,
+  "news_context": "No new negative POL-specific catalyst found; Ithaca hardfork (July 30) stable, community sentiment still leaning bullish. Decline looks broad-market-driven (BTC/ETH/SOL/XRP also down this cycle), not confirmed by volume or SMA crossover."
+}
+```
+
+---
+### 2026-09-10T12:15:41.687Z — XRP/USD — NO TRADE
+
+**Reasoning:** No trigger: RSI(4h) 39.5 weak but not oversold, SMA fast-above-slow with no crossover this candle, volume 1.04x average (no spike). Price down over 48h (-4.05% on 4h, -1.56% on 1h) alongside broad market pullback, order book ask-heavy (imbalance -0.08). News: spot XRP ETFs registering eight consecutive green weeks (>$1.7B cumulative inflows), RLUSD stablecoin growing, upcoming CLARITY Act Senate vote (~Sept 15) - all advisory/positive but no quantitative trigger this cycle.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 39.53,
+  "sma_crossover_4h": "fast_above_slow, crossed_this_candle=false",
+  "volume_ratio": 1.039,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -4.05,
+  "order_book_imbalance_top10": -0.082,
+  "news_context": "Spot XRP ETFs on an 8-week green streak with >$1.7B cumulative inflows; RLUSD market cap growing; CLARITY Act Senate vote expected ~Sept 15. Positive but no new quantitative catalyst; decline tracks broad pre-CPI market weakness."
+}
+```
+
+---
