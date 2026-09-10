@@ -9278,3 +9278,93 @@ The XRP/USD position logged above (id `96537a2c-86f0-4cbd-8b80-b5f5bc8ada22`, op
 ```
 
 ---
+### 2026-09-10T16:13:12.392Z — BTC/USD — NO TRADE
+
+**Reasoning:** No trigger: RSI(4h) 32.3 approaching oversold but not yet below the 30 threshold, SMA remains fast_below_slow with no fresh crossover this candle (bearish state persisting, not new). Volume 1.00x average (no spike). Price down -1.55% on 4h, order book mildly bid-heavy (imbalance +0.15). News unchanged: PPI/CPI/FOMC calendar, hot Core PPI (4.6%), BTC ETF outflows. No new quantitative catalyst.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 32.31,
+  "sma_crossover_4h": "fast_below_slow, crossed_this_candle=false (bearish state continuing, not a fresh cross)",
+  "volume_ratio": 0.999,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -1.546,
+  "order_book_imbalance_top10": 0.146,
+  "news_context": "Same items continuing: hot Core PPI (4.6%), BTC spot ETF outflows, PPI/CPI/FOMC calendar. RSI approaching but not yet at the 30 oversold threshold. No new quantitative catalyst."
+}
+```
+
+---
+### 2026-09-10T16:13:15.578Z — ETH/USD — NO TRADE
+
+**Reasoning:** No trigger: RSI(4h) 38.2 weak but not oversold, SMA fast-above-slow with no crossover this candle, volume 1.15x average (no spike). Price down -1.70% on 4h, order book strongly bid-heavy (imbalance +0.92, a secondary/optional signal not a standalone trigger). News unchanged from prior cycles (BitMine, Trezor, Vitalik's EIP-8288) - no new catalyst.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 38.24,
+  "sma_crossover_4h": "fast_above_slow, crossed_this_candle=false",
+  "volume_ratio": 1.155,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -1.698,
+  "order_book_imbalance_top10": 0.916,
+  "news_context": "Same items continuing (BitMine ETH accumulation, Trezor ERC-7730, Vitalik EIP-8288). No new quantitative catalyst; order book skew is a secondary signal only."
+}
+```
+
+---
+### 2026-09-10T16:13:19.618Z — SOL/USD — NO TRADE
+
+**Reasoning:** Fresh bearish SMA crossover this candle (fast crossed below slow) plus RSI 33.6 approaching oversold - a real signal, but this account is long-only with no open SOL position, so a bearish crossover is not actionable (nothing to close, and shorting is prohibited). No trade. Volume 1.14x average (no spike confirming the move). News unchanged (Transaction V1, SEC ETF asset status, World.xyz live) - no new catalyst, and news cannot independently justify entering a long against a bearish signal anyway.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 33.61,
+  "sma_crossover_4h": "fast_below_slow, crossed_this_candle=true, crossover_direction=bearish (fresh cross this candle)",
+  "volume_ratio": 1.139,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -3.42,
+  "order_book_imbalance_top10": 0.072,
+  "news_context": "Same items continuing (Transaction V1, SEC Core ETF Asset status, World.xyz live). No new catalyst. Bearish crossover noted but non-actionable: long-only account, no existing SOL position to close."
+}
+```
+
+---
+### 2026-09-10T16:13:22.494Z — POL/USD — NO TRADE
+
+**Reasoning:** No trigger: RSI(4h) 40.6 neutral, SMA still fast-above-slow with no fresh crossover this candle, volume 1.07x average (no spike). Order book near-balanced (imbalance +0.01). News: Polygon highlighted its onchain payments stack today - a marketing/product item, not a near-term price catalyst. Decline continues to track broad macro weakness, unconfirmed by volume or a crossover.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 40.62,
+  "sma_crossover_4h": "fast_above_slow, crossed_this_candle=false",
+  "volume_ratio": 1.066,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -2.992,
+  "order_book_imbalance_top10": 0.01,
+  "news_context": "Polygon highlighted its onchain payments stack (Sept 10) - a product/marketing item, not price-moving. Same Ithaca hardfork background. No new quantitative catalyst."
+}
+```
+
+---
+### 2026-09-10T16:13:26.324Z — XRP/USD — NO TRADE
+
+**Reasoning:** Fresh bearish SMA crossover this candle (fast crossed below slow) plus RSI 34.4 approaching oversold - a real signal, but this account is long-only with no open XRP position, so a bearish crossover is not actionable (nothing to close, and shorting is prohibited). No trade. Volume 1.04x average (no spike). News unchanged (8-week ETF inflow streak, RLUSD growth, upcoming CLARITY Act vote, bullish long-term price targets circulating) - none of it can override a bearish quantitative signal to justify a long entry, and there's no bullish trigger to combine it with anyway.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 34.36,
+  "sma_crossover_4h": "fast_below_slow, crossed_this_candle=true, crossover_direction=bearish (fresh cross this candle)",
+  "volume_ratio": 1.039,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -4.708,
+  "order_book_imbalance_top10": -0.038,
+  "news_context": "8-week ETF inflow streak continues (>$1.7B), RLUSD market cap $2.32B, CLARITY Act vote expected ~Sept 15, some bullish long-term price targets circulating. None of this overrides the fresh bearish crossover; no trade under long-only constraint with no existing position."
+}
+```
+
+---
