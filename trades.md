@@ -8737,3 +8737,94 @@ The XRP/USD position logged above (id `96537a2c-86f0-4cbd-8b80-b5f5bc8ada22`, op
 ```
 
 ---
+### 2026-09-10T04:12:11.000Z — BTC/USD — NO TRADE
+
+**Reasoning:** No trigger: RSI(4h) 42.0 weak but not oversold, SMA remains fast_below_slow with no fresh crossover this candle. Volume 1.00x average (no spike). Price roughly flat over 48h on both windows, order book mildly ask-heavy (imbalance -0.15). News unchanged from prior cycles (historic-low volatility) plus a new item about hackers using Blockstream/Bitcoin as an onchain message board - not a price-moving security incident, no new trade catalyst.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 42.04,
+  "sma_crossover_4h": "fast_below_slow, crossed_this_candle=false (bearish state continuing)",
+  "volume_ratio": 0.999,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -0.191,
+  "order_book_imbalance_top10": -0.153,
+  "news_context": "Same story continuing: volatility at historic low; continued institutional accumulation. New item: hackers reportedly using Bitcoin/Blockstream infrastructure as an onchain message board - not price-moving. No new catalyst."
+}
+```
+
+---
+### 2026-09-10T04:12:13.909Z — ETH/USD — NO TRADE
+
+**Reasoning:** No trigger: RSI(4h) 47.7 neutral, SMA fast-above-slow with no crossover this candle, volume 1.15x average (no spike). Price essentially flat over 48h on both windows, order book near-balanced (imbalance +0.03). News unchanged from prior cycles plus a new item: Ethereum Foundation targeting quantum-resistant Layer-1 by December 2029 - long-horizon, not a near-term catalyst.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 47.65,
+  "sma_crossover_4h": "fast_above_slow, crossed_this_candle=false",
+  "volume_ratio": 1.155,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -0.165,
+  "order_book_imbalance_top10": 0.032,
+  "news_context": "Same story continuing: Hegota upgrade. New: Ethereum Foundation targeting a quantum-resistant Layer-1 by December 2029 - a long-term roadmap item, not price-moving near-term. No new catalyst."
+}
+```
+
+---
+### 2026-09-10T04:12:16.614Z — SOL/USD — NO TRADE
+
+**Reasoning:** No trigger: RSI(4h) 41.8 weak but not oversold, SMA fast-above-slow with no crossover this candle, volume 1.14x average (no spike). Price down modestly over 48h on both windows (-1.16% on 1h), order book mildly bid-heavy (imbalance +0.09). News unchanged from prior cycles (staking-outage story, MoneyGram) - no new catalyst.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 41.84,
+  "sma_crossover_4h": "fast_above_slow, crossed_this_candle=false",
+  "volume_ratio": 1.139,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -1.107,
+  "order_book_imbalance_top10": 0.09,
+  "news_context": "Same stories continuing to circulate (staking outage, network never halted; MoneyGram integration). No new catalyst since last cycle."
+}
+```
+
+---
+### 2026-09-10T04:12:19.611Z — POL/USD — NO TRADE
+
+**Reasoning:** No trigger: RSI(4h) 54.0 neutral, SMA fast-above-slow with no crossover this candle, volume 1.07x average (no spike, still no confirmation for the persistent price gain). Price up ~1.7-2.7% over 48h on both windows, order book ask-heavy (imbalance -0.14). Same hard-fork/BoE Digital Pound Lab story continuing - no quantitative trigger.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 54.03,
+  "sma_crossover_4h": "fast_above_slow, crossed_this_candle=false",
+  "volume_ratio": 1.066,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": 1.694,
+  "order_book_imbalance_top10": -0.142,
+  "data_gaps": [],
+  "news_context": "Same story continuing: hard-fork security patches, BoE Digital Pound Lab, bullish breakout chatter. No new catalyst; still no volume confirmation despite the sustained price gain."
+}
+```
+
+---
+### 2026-09-10T04:12:22.187Z — XRP/USD — NO TRADE
+
+**Reasoning:** No trigger: RSI(4h) 43.8 neutral, SMA fast-above-slow with no crossover this candle, volume 1.04x average (no spike). Price essentially flat over 48h on both windows, order book near-balanced (imbalance +0.01). News unchanged from prior cycles (institutional minting platform, RLUSD/Notabene, upcoming ledger amendment) - no new catalyst.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 43.75,
+  "sma_crossover_4h": "fast_above_slow, crossed_this_candle=false",
+  "volume_ratio": 1.039,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": 0.218,
+  "order_book_imbalance_top10": 0.013,
+  "news_context": "Same story continuing: institutional minting platform, RLUSD added to Notabene's compliance network; upcoming XRP Ledger amendment that could differentiate XRP's price action from BTC. No new catalyst since last cycle."
+}
+```
+
+---
