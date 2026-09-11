@@ -10448,3 +10448,93 @@ The XRP/USD position logged above (id `96537a2c-86f0-4cbd-8b80-b5f5bc8ada22`, op
 ```
 
 ---
+### 2026-09-11T07:15:15.616Z — BTC/USD — NO TRADE
+
+**Reasoning:** No trigger: same 4h candle continuing - RSI(4h) 32.6 unchanged, SMA remains fast_below_slow with no fresh crossover. Volume 1.15x average (no spike). News unchanged: CPI due today 8:30am ET, BTC ETF outflows ($449M/3 days), hot PPI (+5.4%) still weighing. No new quantitative trigger.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 32.6,
+  "sma_crossover_4h": "fast_below_slow, crossed_this_candle=false (same candle continuing)",
+  "volume_ratio": 1.15,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -3.03,
+  "order_book_imbalance_top10": 0.093,
+  "news_context": "Same items continuing: CPI due today 8:30am ET, BTC ETF outflows, hot PPI. No new quantitative trigger."
+}
+```
+
+---
+### 2026-09-11T07:15:18.356Z — ETH/USD — NO TRADE
+
+**Reasoning:** No trigger: same 4h candle continuing - RSI(4h) 42.8 unchanged, SMA fast-above-slow with no crossover, volume 1.23x average (no spike). News: ETH testing support near 20-day EMA ($2,400-2,405) after crude oil rally; spot ETH ETF weekly inflows moderated to $218.4M from a $824M peak. CPI due today - key catalyst pending.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 42.8,
+  "sma_crossover_4h": "fast_above_slow, crossed_this_candle=false (same candle continuing)",
+  "volume_ratio": 1.231,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -2.539,
+  "order_book_imbalance_top10": -0.092,
+  "news_context": "ETH testing 20-day EMA support ($2,400-2,405); ETF weekly inflows moderated to $218.4M. CPI due today, key catalyst pending. No new quantitative trigger."
+}
+```
+
+---
+### 2026-09-11T07:15:20.614Z — SOL/USD — NO TRADE
+
+**Reasoning:** No trigger: same 4h candle continuing - RSI(4h) 34.6 unchanged, SMA fast-below-slow with no crossover, volume 0.89x average (no spike). News: same $97-99 support level, SEC/Transaction V1 items already priced in. No new quantitative trigger; no open position to act on the bearish trend.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 34.58,
+  "sma_crossover_4h": "fast_below_slow, crossed_this_candle=false (same candle continuing)",
+  "volume_ratio": 0.888,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -5.068,
+  "order_book_imbalance_top10": 0.013,
+  "news_context": "Same items continuing: $97-99 support level, SEC Core ETF Asset status, Transaction V1. No new quantitative catalyst."
+}
+```
+
+---
+### 2026-09-11T07:15:23.080Z — POL/USD — NO TRADE
+
+**Reasoning:** No trigger: same 4h candle continuing - RSI(4h) 41.1 unchanged, SMA fast-above-slow with no crossover, volume still low at 0.54x average. Order book now notably ask-heavy (imbalance -0.34). News: same Polygon Gigagas/hardfork items, no new catalyst.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 41.14,
+  "sma_crossover_4h": "fast_above_slow, crossed_this_candle=false (same candle continuing)",
+  "volume_ratio": 0.54,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -6.493,
+  "order_book_imbalance_top10": -0.344,
+  "news_context": "Same Polygon Gigagas roadmap/Austin-Kyoto hardfork items. No new catalyst; volume remains below average."
+}
+```
+
+---
+### 2026-09-11T07:15:25.672Z — XRP/USD — NO TRADE
+
+**Reasoning:** No trigger: same 4h candle continuing - RSI(4h) 33.3 unchanged, SMA fast-below-slow with no crossover, volume 0.95x average (no spike). News: same fixCleanup3_3_0 amendment (activating later today)/Mastercard-RLUSD/ETF items, no new catalyst; no open position to act on the bearish trend.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 33.34,
+  "sma_crossover_4h": "fast_below_slow, crossed_this_candle=false (same candle continuing)",
+  "volume_ratio": 0.953,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -6.845,
+  "order_book_imbalance_top10": -0.166,
+  "news_context": "Same items continuing: fixCleanup3_3_0 XRPL amendment activating later today, Mastercard/RLUSD integration, 7 spot ETFs with $2B AUM. No new quantitative catalyst."
+}
+```
+
+---
