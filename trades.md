@@ -10268,3 +10268,93 @@ The XRP/USD position logged above (id `96537a2c-86f0-4cbd-8b80-b5f5bc8ada22`, op
 ```
 
 ---
+### 2026-09-11T05:14:33.857Z — BTC/USD — NO TRADE
+
+**Reasoning:** No trigger: same 4h candle continuing - RSI(4h) 32.6 unchanged, SMA remains fast_below_slow with no fresh crossover. Volume 1.15x average (no spike). News: crypto market under pressure after hot PPI (+5.4%); CPI due today 12:30 UTC / 8:30am ET, the key pending catalyst. Liquid Network attacker returned 3,400 BTC (sidechain, minor positive). No new quantitative trigger.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 32.6,
+  "sma_crossover_4h": "fast_below_slow, crossed_this_candle=false (same candle continuing)",
+  "volume_ratio": 1.15,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -3.03,
+  "order_book_imbalance_top10": 0.16,
+  "news_context": "Market under pressure after hot PPI (+5.4%); CPI due today 12:30 UTC, the key pending catalyst. Liquid Network attacker returned 3,400 BTC. No new quantitative trigger."
+}
+```
+
+---
+### 2026-09-11T05:14:35.913Z — ETH/USD — NO TRADE
+
+**Reasoning:** No trigger: same 4h candle continuing - RSI(4h) 42.8 unchanged, SMA fast-above-slow with no crossover, volume 1.23x average (no spike). News: CPI due today 12:30 UTC, same BitMine/Trezor items. No new quantitative catalyst.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 42.8,
+  "sma_crossover_4h": "fast_above_slow, crossed_this_candle=false (same candle continuing)",
+  "volume_ratio": 1.231,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -2.539,
+  "order_book_imbalance_top10": -0.597,
+  "news_context": "CPI due today 12:30 UTC/8:30am ET - key pending catalyst. Same BitMine/Trezor items. No new quantitative catalyst."
+}
+```
+
+---
+### 2026-09-11T05:14:39.000Z — SOL/USD — NO TRADE
+
+**Reasoning:** No trigger: same 4h candle continuing - RSI(4h) 34.6 unchanged, SMA fast-below-slow with no crossover, volume 0.89x average (no spike). News: analysts note $97-99 as support, losing it opens a slide to $95; SEC ruling and Transaction V1 seen as SOL's best catalysts this year but already priced in. No new quantitative trigger; no open position to act on the bearish trend.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 34.58,
+  "sma_crossover_4h": "fast_below_slow, crossed_this_candle=false (same candle continuing)",
+  "volume_ratio": 0.888,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -5.068,
+  "order_book_imbalance_top10": 0.031,
+  "news_context": "Analysts note $97-99 support level; SEC ETF ruling and Transaction V1 seen as best catalysts this year, already priced in. No new quantitative trigger."
+}
+```
+
+---
+### 2026-09-11T05:14:41.732Z — POL/USD — NO TRADE
+
+**Reasoning:** No trigger: same 4h candle continuing - RSI(4h) 41.1 unchanged, SMA fast-above-slow with no crossover, volume still low at 0.54x average. Order book now bid-heavy (imbalance +0.43) but unconfirmed by volume or a crossover. News: same Polygon Gigagas/hardfork items, no new catalyst.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 41.14,
+  "sma_crossover_4h": "fast_above_slow, crossed_this_candle=false (same candle continuing)",
+  "volume_ratio": 0.54,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -6.493,
+  "order_book_imbalance_top10": 0.425,
+  "news_context": "Same Polygon Gigagas roadmap/Austin-Kyoto hardfork items. No new catalyst; volume remains below average."
+}
+```
+
+---
+### 2026-09-11T05:14:44.207Z — XRP/USD — NO TRADE
+
+**Reasoning:** No trigger: same 4h candle continuing - RSI(4h) 33.3 unchanged, SMA fast-below-slow with no crossover, volume 0.95x average (no spike). News: same fixCleanup3_3_0 amendment/RLUSD-milestone/ETF items, no new catalyst; no open position to act on the bearish trend.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 33.34,
+  "sma_crossover_4h": "fast_below_slow, crossed_this_candle=false (same candle continuing)",
+  "volume_ratio": 0.953,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -6.845,
+  "order_book_imbalance_top10": -0.143,
+  "news_context": "Same items continuing: fixCleanup3_3_0 XRPL amendment, RLUSD majority on XRP Ledger, 7 spot ETFs with $2B AUM. No new quantitative catalyst."
+}
+```
+
+---
