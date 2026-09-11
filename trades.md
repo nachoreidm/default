@@ -11443,3 +11443,93 @@ The XRP/USD position logged above (id `96537a2c-86f0-4cbd-8b80-b5f5bc8ada22`, op
 ```
 
 ---
+### 2026-09-11T17:12:24.726Z — BTC/USD — NO TRADE
+
+**Reasoning:** No qualifying long-entry signal. RSI 45.4, neutral. SMA 20/50 on 4h fast_below_slow, no crossover this candle. Volume ratio 1.15x, no spike. Order book positive (0.234). Price roughly flat on 4h/48h (-0.65%). News: mixed/soft pullback commentary, still digesting last night's brief high near $81K before retreating. No trigger.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 45.4,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 1.15,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": -0.65,
+  "order_book_imbalance_top10": 0.234,
+  "news_context": "Soft pullback narrative continues; price sources cluster $77-79.5K after briefly touching $81K overnight. Nothing new to corroborate a trade. No trigger."
+}
+```
+
+---
+### 2026-09-11T17:12:28.583Z — ETH/USD — NO TRADE
+
+**Reasoning:** No qualifying long-entry signal, unchanged from last cycle (same 4h candle). RSI still 66.1, hasn't crossed the >70 overbought flag. SMA 20/50 on 4h still fast_below_slow, no crossover. Volume ratio 1.23x, no spike. Order book strongly bid-weighted (0.594). Price consolidating around $2,500-2,577 per multiple sources; Consensys MetaMask split reiterated as the main headline, no fresh catalyst. Continuing to watch for RSI to cross 70 or a bullish SMA cross.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 66.14,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 1.23,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": 3.83,
+  "order_book_imbalance_top10": 0.594,
+  "news_context": "Consolidating around $2,500 with active on-chain usage; Consensys MetaMask/institutional split confirmed as the primary headline (no new catalyst this cycle). RSI unchanged at 66.1, still below the 70 trigger threshold. No trade."
+}
+```
+
+---
+### 2026-09-11T17:12:32.534Z — SOL/USD — NO TRADE
+
+**Reasoning:** No qualifying long-entry signal. RSI 49.2, neutral. SMA 20/50 on 4h fast_below_slow, no crossover this candle. Volume ratio 0.89x, below average. Order book positive (0.120). Price roughly flat on 4h/48h (-0.75%). News: sources disagree sharply on 24h direction (some +4.9%, others -3.5%), reflecting exchange-to-exchange noise rather than a clear move; a major protocol upgrade is on the horizon per one source but unspecified/not yet a catalyst. No trigger.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 49.21,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 0.888,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": -0.75,
+  "order_book_imbalance_top10": 0.12,
+  "news_context": "Conflicting 24h price direction across sources (+4.9% vs -3.5%), suggesting noise rather than a clean signal. A major protocol upgrade mentioned as 'on the horizon' but unspecified. No fresh quant trigger."
+}
+```
+
+---
+### 2026-09-11T17:12:36.491Z — POL/USD — NO TRADE
+
+**Reasoning:** No qualifying long-entry signal. RSI 50.9, neutral. SMA 20/50 on 4h fast_below_slow, no crossover this candle. Volume ratio 0.54x, well below average. Order book positive (0.240). Price roughly flat on 4h/48h (-0.52%). News continues to describe a 50%+ multi-week rally from an August analysis that has not been corroborated by our live signals in any recent cycle - treating this as stale/unreliable news rather than current. No trigger.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 50.87,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 0.54,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": -0.52,
+  "order_book_imbalance_top10": 0.24,
+  "news_context": "Same recurring 50%+ rally narrative traced back to a late-August article - stale relative to our live data, which has shown only modest, roughly flat price action for several cycles running. No trigger; treating live compute_signals as authoritative."
+}
+```
+
+---
+### 2026-09-11T17:12:39.143Z — XRP/USD — NO TRADE
+
+**Reasoning:** No qualifying long-entry signal. RSI 48.0, neutral. SMA 20/50 on 4h fast_below_slow, no crossover this candle. Volume ratio 0.95x, no spike. Order book roughly flat (-0.020). Price down modestly on 4h/48h (-1.89%). News: XRP reportedly rebounded as BTC reclaimed $79K, a market-correlation move rather than an XRP-specific catalyst; traders watching for macro volatility this week. No trigger.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 48.02,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 0.953,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": -1.89,
+  "order_book_imbalance_top10": -0.02,
+  "news_context": "XRP rebounded in step with BTC reclaiming $79K - a correlated market move, not an XRP-specific catalyst. Traders bracing for a heavy macro week. No fresh quant trigger."
+}
+```
+
+---
