@@ -10718,3 +10718,93 @@ The XRP/USD position logged above (id `96537a2c-86f0-4cbd-8b80-b5f5bc8ada22`, op
 ```
 
 ---
+### 2026-09-11T09:25:42.413Z — BTC/USD — NO TRADE
+
+**Reasoning:** No qualifying long-entry signal. RSI 37.8 is neutral, not oversold (<30). SMA 20/50 on 4h is fast_below_slow with no crossover this candle. Volume ratio 1.15x, well below the 2x flag threshold. Order book imbalance near flat (-0.042). Price down -2.65% on the 4h/48h window, consistent with a mild pullback, not a reversal setup. News is mixed-to-cautiously-bullish (ETF inflows ~$1.03B/7d, but resistance at $80K-$82.5K and a pullback already underway from above $80K) — doesn't matter here since no quant signal is present to corroborate.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 37.77,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 1.15,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": -2.65,
+  "order_book_imbalance_top10": -0.0416,
+  "news_context": "Cautiously bullish: strong ETF inflows (~$1.03B/7d) and August's 22% rally, offset by resistance at $80K-$82.5K; BTC just gave back the $80K level after holding it for four sessions. Fed meeting Sept 16 seen as a key upcoming catalyst. Nothing actionable in the last 24-48h."
+}
+```
+
+---
+### 2026-09-11T09:25:47.292Z — ETH/USD — NO TRADE
+
+**Reasoning:** No qualifying long-entry signal — if anything the quant signals lean bearish for a long-only book. RSI 48.8 is neutral. SMA 20/50 on 4h just crossed bearish this candle (fast_below_slow, crossed_this_candle=true, direction=bearish), the opposite of what a long entry needs. Volume ratio 1.23x, no spike. Order book heavily skewed toward asks (imbalance -0.577). Price down -1.36% on 4h/48h. News is constructive (BitMine accumulating ETH, record ETH ETF weekly inflows, Trezor security standard adoption, price testing $2,520-$2,560 resistance) but cannot override a fresh bearish crossover and lopsided order book — no quant trigger to corroborate a long.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 48.8,
+  "sma_crossover_4h": "bearish cross this candle (fast_below_slow)",
+  "volume_ratio": 1.23,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": -1.36,
+  "order_book_imbalance_top10": -0.577,
+  "news_context": "Constructive: BitMine bought $70M more ETH (Sept 8), record weekly ETH ETF inflows for a second straight week, Trezor adopted ERC-7730 security standard. Price consolidating near $2,520-$2,560 resistance, momentum cooling. Nothing bearish in the last 24-48h to explain the fresh bearish crossover, but not strong enough on its own to justify a long against that crossover."
+}
+```
+
+---
+### 2026-09-11T09:25:51.378Z — SOL/USD — NO TRADE
+
+**Reasoning:** No qualifying long-entry signal. RSI 37.5 is neutral-to-soft, not oversold (<30). SMA 20/50 on 4h is fast_below_slow with no crossover this candle. Volume ratio 0.89x — below average, no spike. Order book mildly positive (0.083) but not a strong tilt. Price down -4.34% on the 4h/48h window. News is positive (SEC named SOL a core ETF asset, Transaction V1 network upgrade launched Sept 9, strongest ETF inflow week since Oct 2025) but with no quant trigger present, news alone can't manufacture a signal per the rules.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 37.54,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 0.888,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": -4.34,
+  "order_book_imbalance_top10": 0.0831,
+  "news_context": "Positive: SEC named SOL a core ETF asset (Sept 5), Transaction V1 upgrade launched (Sept 9) enabling ZK proofs, SOL ETFs pulled in $153.87M in the strongest week since Oct 2025, exchange supply falling. Price still capped just under $100. Bullish backdrop but no fresh quant signal to pair it with this cycle."
+}
+```
+
+---
+### 2026-09-11T09:25:58.712Z — POL/USD — NO TRADE
+
+**Reasoning:** No qualifying long-entry signal. RSI 42.2 is neutral. SMA 20/50 on 4h is fast_above_slow but crossed_this_candle=false — this is a stale/existing state, not a fresh crossover trigger, so it doesn't count as a new signal per the spec. Volume ratio 0.54x — well below average, no spike (and a bullish move on below-average volume is itself a reason for caution, not confirmation). Order book positive (0.389) but that alone isn't one of the five authorized signals firing fresh. Price down -6.1% on the 4h/48h window despite the SMA state, reflecting a recent slide. News is mixed: 8B transactions milestone and a security hard fork patch are positive, but persistent skepticism about token utility and price underperformance tempers it. No trade this cycle; would revisit if a fresh bullish crossover or RSI move materializes.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 42.24,
+  "sma_crossover_4h": "fast_above_slow (existing state), no cross this candle",
+  "volume_ratio": 0.54,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": -6.1,
+  "order_book_imbalance_top10": 0.389,
+  "news_context": "Mixed: Polygon surpassed 8B transactions (Sept 1) with record stablecoin volume, a security hard fork patched vulnerabilities (Aug 27), LeBron James teased a Polymarket partnership (Sept 5) — but persistent skepticism on token utility/price underperformance and a reported downtrend theme in coverage. No clear directional catalyst in the last 24-48h."
+}
+```
+
+---
+### 2026-09-11T09:26:01.222Z — XRP/USD — NO TRADE
+
+**Reasoning:** No qualifying long-entry signal. RSI 37.2 is neutral, not oversold (<30). SMA 20/50 on 4h is fast_below_slow with no crossover this candle. Volume ratio 0.95x, no spike. Order book mildly positive (0.096). Price down -5.32% on the 4h/48h window. News is constructive longer-term (Mastercard integrated RLUSD into its Agent Connect/Agent Pay platform Sept 9, XRP ETF shares now usable as collateral at Schwab, RLUSD market cap crossed $2.32B, absorbed the Sept 1 billion-XRP escrow unlock without a selloff) but momentum is described as currently low and there's no fresh quant trigger to pair with it.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 37.18,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 0.953,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": -5.32,
+  "order_book_imbalance_top10": 0.0955,
+  "news_context": "Constructive: Mastercard integrated RLUSD into its new 'Agent Connect'/'Agent Pay' AI payments platform (Sept 9), XRP ETF shares now used as institutional loan collateral via Schwab (Sept 8), RLUSD stablecoin market cap crossed $2.32B, and the market absorbed Ripple's Sept 1 escrow release of 1B XRP without a selloff. Momentum currently described as low. No fresh quant trigger this cycle."
+}
+```
+
+---
