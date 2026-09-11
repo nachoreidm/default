@@ -10988,3 +10988,93 @@ The XRP/USD position logged above (id `96537a2c-86f0-4cbd-8b80-b5f5bc8ada22`, op
 ```
 
 ---
+### 2026-09-11T12:13:55.295Z — BTC/USD — NO TRADE
+
+**Reasoning:** No qualifying long-entry signal. RSI 36.0, neutral, not oversold. SMA 20/50 on 4h fast_below_slow, no crossover this candle. Volume ratio 1.15x, no spike. Order book mildly positive (0.086). Price down -2.0% on 4h/48h. News: institutional accumulation (Strive, Capital B) and steady ETF inflows are a bullish undercurrent, but Fed decision/CPI remain the dominant near-term driver with ~60% rate-hike odds still a headwind. No fresh quant trigger to act on.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 35.99,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 1.15,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": -2.01,
+  "order_book_imbalance_top10": 0.0864,
+  "news_context": "Cautiously constructive: continued ETF inflows and corporate accumulation (Strive, Capital B), Chainlink-Bottomline SWIFT settlement deal. Countered by looming Fed decision/CPI with ~60% rate-hike odds. No quant trigger this cycle."
+}
+```
+
+---
+### 2026-09-11T12:13:59.058Z — ETH/USD — NO TRADE
+
+**Reasoning:** No qualifying long-entry signal. RSI 46.5, neutral. SMA 20/50 on 4h fast_below_slow, no fresh cross this candle (prior bearish cross has aged out of "this candle" but the trend state remains bearish). Volume ratio 1.23x, no spike. Order book sharply skewed toward asks (-0.740). Price down -1.29% on 4h/48h. News: continued BitMine accumulation and Trezor security upgrade are positive but don't offset the lopsided order book and lack of any bullish quant trigger.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 46.46,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 1.23,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": -1.29,
+  "order_book_imbalance_top10": -0.74,
+  "news_context": "BitMine bought another $70M ETH (Sept 8), Trezor adopted ERC-7730 security standard, Ethereum Foundation published a roadmap update (Scale/UX/Harden L1 tracks). Consolidating near $2,520-$2,560 resistance. No fresh quant trigger; order book heavily ask-weighted."
+}
+```
+
+---
+### 2026-09-11T12:14:02.802Z — SOL/USD — NO TRADE
+
+**Reasoning:** No qualifying long-entry signal. RSI 36.5, neutral, not oversold. SMA 20/50 on 4h fast_below_slow, no crossover this candle. Volume ratio 0.89x, below average. Order book positive (0.132). Price down -3.49% on 4h/48h. News: SEC ETF-asset recognition, Agave 4.2 rent-reduction upgrade, OpenSea NFT integration, strong RWA inflows ($348M/30d) are all constructive but none of the five authorized quant signals fired this cycle.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 36.47,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 0.888,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": -3.49,
+  "order_book_imbalance_top10": 0.132,
+  "news_context": "Constructive: SEC named SOL a core ETF asset, Agave 4.2 validator release begins 90% rent-cost reduction, OpenSea added Solana NFT trading, $348M in 30-day RWA inflows, MoneyGram on/off-ramp integration. No fresh quant trigger this cycle despite the positive fundamentals."
+}
+```
+
+---
+### 2026-09-11T12:14:07.912Z — POL/USD — NO TRADE
+
+**Reasoning:** No qualifying long-entry signal — if anything the quant picture turned more bearish this cycle. RSI 42.1, neutral. SMA 20/50 on 4h just crossed bearish this candle (fast_below_slow, crossed_this_candle=true), reversing last cycle's fast_above_slow state — the opposite of a long trigger. Volume ratio 0.54x, well below average. Order book positive (0.306) but doesn't offset the fresh bearish cross. Price down -3.62% on 4h/48h, now at $0.093, down nearly 40% from its yearly high per news coverage. Payments pivot and privacy-layer launch are longer-term positives but don't override a fresh bearish crossover.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 42.12,
+  "sma_crossover_4h": "bearish cross this candle (fast_below_slow)",
+  "volume_ratio": 0.54,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": -3.62,
+  "order_book_imbalance_top10": 0.306,
+  "news_context": "Mixed: Polygon down ~40% from yearly high amid market-wide weakness (though reportedly outperforming the broader market's -3.4% today); positives include a new privacy layer for stablecoin transfers and continued payments-focused partnerships (~$100-125M bitcoin ATM provider acquisition reported). Fresh bearish SMA crossover this cycle is the dominant signal - no trade."
+}
+```
+
+---
+### 2026-09-11T12:14:14.475Z — XRP/USD — NO TRADE
+
+**Reasoning:** No qualifying long-entry signal, though RSI is approaching the oversold zone. RSI 32.0 — closer to the <30 oversold threshold than any pair this cycle, but not yet crossed into oversold territory, so it doesn't qualify as a trigger per the spec (flag is >70/<30). SMA 20/50 on 4h fast_below_slow, no crossover this candle. Volume ratio 0.95x, no spike. Order book mildly positive (0.098). Price down -6.25% on 4h/48h, new 48h low ($1.3198). News: Goldman Sachs disclosed a $153.8M position across 4 spot XRP ETFs (largest institutional holder) and SBI Ripple Asia launching prepaid tokens in Japan are constructive institutional signals, but with RSI still above the oversold line and no crossover, there's no confirmed reversal to act on. Will watch for RSI to cross below 30 next cycle.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 31.98,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 0.953,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": -6.25,
+  "order_book_imbalance_top10": 0.0976,
+  "news_context": "Constructive institutional signals: Goldman Sachs disclosed a $153.8M position across 4 spot XRP ETFs (largest institutional XRP holder), SBI Ripple Asia launching prepaid XRPL tokens targeting Japan's $200B market, XRPL v3.3.0 upgrade pending (confidential transfers, batch processing). RSI approaching but not yet at the oversold (<30) threshold - no trigger yet."
+}
+```
+
+---
