@@ -10088,3 +10088,93 @@ The XRP/USD position logged above (id `96537a2c-86f0-4cbd-8b80-b5f5bc8ada22`, op
 ```
 
 ---
+### 2026-09-11T03:12:16.228Z — BTC/USD — NO TRADE
+
+**Reasoning:** Same 4h candle continuing - RSI(4h) 27.4 still oversold, SMA remains fast_below_slow with no confirming crossover; still a conflicting signal (oversold vs. bearish trend), not a clean entry. Volume 1.15x average (no spike). News: today's CPI release (8:30am ET) is the key pending catalyst - not yet released; rising oil prices (Brent >$100) on US-Iran tensions adding inflation-concern pressure; BlackRock IBIT joined ETF outflows. Staying out until CPI prints and/or a confirming crossover appears.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 27.45,
+  "sma_crossover_4h": "fast_below_slow, crossed_this_candle=false (same candle, oversold RSI still unconfirmed by a bullish cross)",
+  "volume_ratio": 1.15,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -2.657,
+  "order_book_imbalance_top10": -0.053,
+  "news_context": "CPI report due today 8:30am ET, the key pending catalyst. Rising oil prices (Brent >$100) on US-Iran tensions; BlackRock IBIT joined BTC ETF outflows. No confirming quantitative trigger yet."
+}
+```
+
+---
+### 2026-09-11T03:12:18.815Z — ETH/USD — NO TRADE
+
+**Reasoning:** No trigger: RSI(4h) 39.9 neutral, SMA fast-above-slow with no crossover, volume 1.23x average (no spike). News: same CPI-pending story as BTC; ETH facing resistance $2,511-$2,546 with a $2,800 upside target if that breaks - no new quantitative catalyst.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 39.85,
+  "sma_crossover_4h": "fast_above_slow, crossed_this_candle=false",
+  "volume_ratio": 1.231,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -2.061,
+  "order_book_imbalance_top10": -0.294,
+  "news_context": "CPI report pending today (key catalyst). ETH facing resistance $2,511-$2,546, $2,800 target if broken. Same BitMine/Trezor items. No new quantitative catalyst."
+}
+```
+
+---
+### 2026-09-11T03:12:21.602Z — SOL/USD — NO TRADE
+
+**Reasoning:** No trigger: RSI(4h) 30.0, right at the oversold boundary but not flagged (<30 not breached), SMA fast_below_slow with no crossover. Volume 0.89x average (no spike). News: OpenSea added Solana NFT support (Aug 31), same Transaction V1/SEC ETF items - no new catalyst; no open position to act on the bearish trend.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 30.01,
+  "sma_crossover_4h": "fast_below_slow, crossed_this_candle=false",
+  "volume_ratio": 0.888,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -4.52,
+  "order_book_imbalance_top10": 0.067,
+  "news_context": "OpenSea added Solana NFT support (Aug 31); same Transaction V1/SEC Core ETF Asset items. No new quantitative catalyst."
+}
+```
+
+---
+### 2026-09-11T03:12:24.130Z — POL/USD — NO TRADE
+
+**Reasoning:** No trigger: RSI(4h) 38.6 neutral, SMA fast-above-slow with no crossover, volume still low at 0.54x average. News: same Polygon Gigagas/payments-pivot items, no new catalyst.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 38.55,
+  "sma_crossover_4h": "fast_above_slow, crossed_this_candle=false",
+  "volume_ratio": 0.54,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -3.308,
+  "order_book_imbalance_top10": 0.013,
+  "news_context": "Same Polygon items (Gigagas TPS roadmap, payments pivot, Austin/Kyoto hardforks). No new catalyst; volume remains below average."
+}
+```
+
+---
+### 2026-09-11T03:12:27.681Z — XRP/USD — NO TRADE
+
+**Reasoning:** Same 4h candle continuing - RSI(4h) 29.4 still oversold, SMA remains fast_below_slow with no confirming crossover; still a conflicting signal, not a clean entry. Volume 0.95x average (no spike). News: the fixCleanup3_3_0 XRPL amendment activates today (technical bugfix, not price-moving); notable milestone - RLUSD now has more supply on XRP Ledger than Ethereum for the first time. No confirming quantitative trigger; no open position to act on the bearish trend.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 29.41,
+  "sma_crossover_4h": "fast_below_slow, crossed_this_candle=false (same candle, oversold RSI still unconfirmed)",
+  "volume_ratio": 0.953,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -5.844,
+  "order_book_imbalance_top10": 0.192,
+  "news_context": "fixCleanup3_3_0 XRPL amendment activates today (technical, non-catalytic). RLUSD supply now majority on XRP Ledger vs Ethereum for first time - a milestone but not a near-term price trigger. No confirming quantitative signal."
+}
+```
+
+---
