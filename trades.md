@@ -11353,3 +11353,93 @@ The XRP/USD position logged above (id `96537a2c-86f0-4cbd-8b80-b5f5bc8ada22`, op
 ```
 
 ---
+### 2026-09-11T16:12:55.356Z — BTC/USD — NO TRADE
+
+**Reasoning:** No qualifying long-entry signal. RSI 45.4, neutral. SMA 20/50 on 4h fast_below_slow, no crossover this candle. Volume ratio 1.15x, no spike. Order book sharply ask-weighted (-0.824). Price roughly flat to slightly down on 4h/48h (-0.65%). News: BTC briefly touched $81,455 overnight (highest since May) but has since pulled back; Fed rate-hike concerns and Iran-U.S. tensions are headwinds; Clarity Act vote next week is a potential catalyst but not yet resolved. No quant trigger.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 45.4,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 1.15,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": -0.65,
+  "order_book_imbalance_top10": -0.824,
+  "news_context": "BTC briefly hit $81,455 overnight (highest since May 15) before pulling back; ETF outflows continued ($120M Wednesday); Fed rate-hike concerns and renewed Iran-U.S. tensions weighing on price; Senate to vote on the Clarity Act next week (potential catalyst, not yet resolved). No trigger."
+}
+```
+
+---
+### 2026-09-11T16:13:01.473Z — ETH/USD — NO TRADE
+
+**Reasoning:** Closest call this cycle but still no qualifying trigger. RSI climbed to 66.1 (strongest reading yet, approaching but not crossing the >70 overbought flag) as price rallied 3.83% on the 4h/48h window. However, SMA 20/50 on 4h remains fast_below_slow with no crossover this candle - the trend-following signal hasn't confirmed. Volume ratio 1.23x, no 2x spike. Order book roughly balanced (0.064). News strongly corroborates the move (SEC proposed a new crypto regulatory framework, spot ETH ETFs saw their highest weekly inflows in 10 months, BlackRock/Fidelity bought $500M+ ETH) - but per the rules, one of the five quant signals must already be triggering before news can weigh in, and none has crossed its threshold yet (RSI <70, no SMA cross, no volume spike). Watching closely for RSI to cross 70 or a bullish SMA cross next cycle.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 66.14,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 1.23,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": 3.83,
+  "order_book_imbalance_top10": 0.064,
+  "news_context": "Strongly bullish: ETH up sharply (some sources cite a 37% rally over 10 days / 28% weekly gain) after the SEC proposed a new crypto regulatory framework and spot ETH ETFs recorded their highest weekly inflows in 10 months; BlackRock and Fidelity bought $500M+ ETH. Currently consolidating below $2,500-2,560 resistance per some sources. Strong corroborating news, but no quant signal has crossed its trigger threshold yet - no trade this cycle, watching closely."
+}
+```
+
+---
+### 2026-09-11T16:13:04.929Z — SOL/USD — NO TRADE
+
+**Reasoning:** No qualifying long-entry signal. RSI 49.2, neutral. SMA 20/50 on 4h fast_below_slow, no crossover this candle. Volume ratio 0.89x, below average. Order book positive (0.094). Price roughly flat on 4h/48h (-0.75%). News continues constructive (SEC ETF asset status, Transaction V1, slot-time reduction to 200ms, Agave 4.2 rent cuts, strong August ETF inflows) but no fresh quant trigger.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 49.21,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 0.888,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": -0.75,
+  "order_book_imbalance_top10": 0.094,
+  "news_context": "Constructive: SEC ETF-asset status, Transaction V1 upgrade, planned slot-time reduction from 400ms to 200ms, Agave 4.2 rent-cost reduction, August SOL ETF inflows above $174M with Bitwise's BSOL setting a single-day volume record. No fresh quant trigger this cycle."
+}
+```
+
+---
+### 2026-09-11T16:13:09.950Z — POL/USD — NO TRADE
+
+**Reasoning:** No qualifying long-entry signal. RSI 50.9, neutral - the highest reading in several cycles, but still mid-range. SMA 20/50 on 4h fast_below_slow, no crossover this candle - the earlier bearish cross has aged out but no bullish cross has occurred to replace it. Volume ratio 0.54x, well below average. Order book positive (0.171). Price roughly flat on 4h/48h (-0.52%), suggesting some stabilization versus recent cycles' steeper declines. News continues to conflict with live data (claims of a 50%+ multi-week rally and staking overhaul) - price action has stabilized somewhat this cycle but nowhere near confirming that scale of move; no quant trigger regardless.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 50.87,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 0.54,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": -0.52,
+  "order_book_imbalance_top10": 0.171,
+  "news_context": "Same recurring conflict: news continues to describe a 50%+ multi-week rally, 8B+ cumulative transactions, Austin/Kyoto security hard forks, and a staking/tokenomics overhaul proposal - live compute_signals data shows only a roughly flat 4h/48h window, well short of confirming that scale of move. No quant trigger; trusting live data."
+}
+```
+
+---
+### 2026-09-11T16:13:13.777Z — XRP/USD — NO TRADE
+
+**Reasoning:** No qualifying long-entry signal. RSI recovered to 48.0, no longer near the oversold boundary from prior cycles. SMA 20/50 on 4h fast_below_slow, no crossover this candle. Volume ratio 0.95x, no spike. Order book roughly balanced (0.028). Price down modestly on 4h/48h (-1.89%). News: Ripple's national trust bank progress, RLUSD expansion via Wormhole NTT, and speculation about a post-midterm-election rally are all longer-horizon items, not near-term triggers. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 48.02,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 0.953,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": -1.89,
+  "order_book_imbalance_top10": 0.028,
+  "news_context": "Ripple's national trust bank application progressing, RLUSD now live via Wormhole Native Token Transfers, institutional minting platform launched. Some analysts speculate XRP could rally after the Nov 3 midterms / Clarity Act passage - speculative and longer-horizon, not a near-term catalyst. RSI recovered off its prior lows; no trigger."
+}
+```
+
+---
