@@ -10898,3 +10898,93 @@ The XRP/USD position logged above (id `96537a2c-86f0-4cbd-8b80-b5f5bc8ada22`, op
 ```
 
 ---
+### 2026-09-11T11:14:39.616Z — BTC/USD — NO TRADE
+
+**Reasoning:** No qualifying long-entry signal. RSI 37.8 neutral, not oversold. SMA 20/50 on 4h fast_below_slow, no crossover this candle. Volume ratio 1.15x, no spike. Order book flipped mildly positive (0.186) but not a strong signal. Price down -2.65% on 4h/48h. Macro backdrop is risk-off market-wide: Brent crude above $108/bbl, US 10Y yield at 4.95%, today's CPI print and next week's Fed decision creating rate-hike odds (62% rising to 71% by October per Polymarket) — a broad headwind, not stock-specific, reinforcing no-trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 37.78,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 1.15,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": -2.65,
+  "order_book_imbalance_top10": 0.186,
+  "news_context": "Risk-off macro: Brent crude >$108/bbl, US 10Y yield 4.95%, today's CPI report and next week's Fed meeting driving rate-hike odds higher; BTC touched $76.5K. Liquid Network attacker returned 3,400 BTC after a bug fix (isolated, not price-relevant). No bullish catalyst."
+}
+```
+
+---
+### 2026-09-11T11:14:43.905Z — ETH/USD — NO TRADE
+
+**Reasoning:** No qualifying long-entry signal. RSI 48.8 neutral. SMA 20/50 on 4h still shows the bearish crossover from prior cycles (fast_below_slow, crossed_this_candle=true) — a bearish signal, not a long trigger. Volume ratio 1.23x, no spike. Order book now positive (0.689) but that alone isn't an authorized signal. Price down -1.36% on 4h/48h. Same risk-off macro (oil/yields/CPI) pressuring ETH toward $2,420; BitMine accumulation and $34.75M ETF inflows are positive counterpoints but don't offset the bearish crossover and macro headwind.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 48.8,
+  "sma_crossover_4h": "bearish cross persisting (fast_below_slow)",
+  "volume_ratio": 1.23,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": -1.36,
+  "order_book_imbalance_top10": 0.689,
+  "news_context": "Risk-off macro pressure (oil >$105, yields, CPI) pushed ETH toward $2,420-$2,441. Positives: BitMine bought another $70M ETH, spot ETH ETFs pulled in $34.75M despite falling prices. No bullish quant trigger to pair with the news."
+}
+```
+
+---
+### 2026-09-11T11:14:48.038Z — SOL/USD — NO TRADE
+
+**Reasoning:** No qualifying long-entry signal. RSI 37.5 neutral, not oversold. SMA 20/50 on 4h fast_below_slow, no crossover this candle. Volume ratio 0.89x, below average. Order book roughly flat (0.016). Price down -4.34% on 4h/48h, now trading at $98.70, below the psychological $100 level. News notes SOL technically holding above longer-term EMAs per some sources but daily MACD showing bearish momentum divergence — mixed technical picture externally, and nothing in the authorized signal set fires. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 37.54,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 0.888,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": -4.34,
+  "order_book_imbalance_top10": 0.0162,
+  "news_context": "Mixed: some sources note SOL holding above EMA20/50/200 in an uptrend structure, but daily MACD histogram shows bearish momentum divergence. SEC named SOL a core ETF asset (Sept 5), Transaction V1 launched (Sept 9), leading in RWA inflows. Broad risk-off macro also weighing on price. No fresh quant trigger this cycle."
+}
+```
+
+---
+### 2026-09-11T11:14:52.339Z — POL/USD — NO TRADE
+
+**Reasoning:** No qualifying long-entry signal. RSI 42.2 neutral. SMA 20/50 on 4h remains fast_above_slow with no fresh cross this candle — same stale state persisting across cycles, not a qualifying trigger. Volume ratio 0.54x, well below average. Order book mildly positive (0.052). Price down -6.1% on 4h/48h, now at $0.0933, a new low for the window. News: MATIC-to-POL migration ~99% complete, Gigagas roadmap targeting 100k TPS, prior Austin/Kyoto security hard forks — constructive long-term narrative but no near-term catalyst or fresh quant signal.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 42.24,
+  "sma_crossover_4h": "fast_above_slow (existing state), no cross this candle",
+  "volume_ratio": 0.54,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": -6.1,
+  "order_book_imbalance_top10": 0.0523,
+  "news_context": "Constructive long-term: MATIC-to-POL migration ~99% complete, 'Gigagas' roadmap targeting 100k+ TPS in 2026, prior mandatory security hard forks (Austin/Kyoto) already patched. Still no near-term catalyst or quant trigger this cycle; price made a new window low."
+}
+```
+
+---
+### 2026-09-11T11:14:56.607Z — XRP/USD — NO TRADE
+
+**Reasoning:** No qualifying long-entry signal. RSI 37.2 neutral, not oversold. SMA 20/50 on 4h fast_below_slow, no crossover this candle. Volume ratio 0.95x, no spike. Order book skewed toward asks (-0.102). Price down -5.32% on 4h/48h and now trading at $1.32371, below the 48h period low of $1.32886 — a fresh low, but RSI hasn't reached oversold territory and there's no crossover to confirm a reversal. News: the fixCleanup3_3_0 XRPL amendment activates today (technical maintenance, not price-relevant), Mastercard/RLUSD and Schwab-collateral news already priced in from prior cycles. No fresh bullish trigger.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 37.18,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 0.953,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": -5.32,
+  "order_book_imbalance_top10": -0.102,
+  "news_context": "fixCleanup3_3_0 XRPL amendment activating today is a technical bugfix, not price-relevant. 7 spot XRP ETFs now trading with ~$2B combined AUM. Price made a fresh low ($1.324) amid broad risk-off macro; RSI still neutral, not oversold, so no reversal confirmation."
+}
+```
+
+---
