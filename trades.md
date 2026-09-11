@@ -10808,3 +10808,93 @@ The XRP/USD position logged above (id `96537a2c-86f0-4cbd-8b80-b5f5bc8ada22`, op
 ```
 
 ---
+### 2026-09-11T10:13:22.529Z — BTC/USD — NO TRADE
+
+**Reasoning:** No qualifying long-entry signal. RSI 37.8 neutral, not oversold. SMA 20/50 on 4h fast_below_slow, no crossover this candle. Volume ratio 1.15x, no spike. Order book now sharply skewed toward asks (-0.808, worse than last cycle's -0.042), a bearish tell if anything. Price down -2.65% on 4h/48h. News: ETF outflows this week ($120M Wednesday), Iran-U.S. tensions weighing on price, though MicroStrategy signaling resumed buying — net mixed/soft, no bullish quant trigger to pair it with.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 37.78,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 1.15,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": -2.65,
+  "order_book_imbalance_top10": -0.808,
+  "news_context": "Soft/mixed: Bitcoin ETF funds shed $120M Wednesday (more than double Tuesday's loss), Iran-U.S. geopolitical tension cited as a price headwind; MicroStrategy/Saylor signaling a resumption of BTC purchases is a positive counterpoint. No fresh bullish catalyst in the last 24h."
+}
+```
+
+---
+### 2026-09-11T10:13:26.406Z — ETH/USD — NO TRADE
+
+**Reasoning:** No qualifying long-entry signal. RSI 48.8 neutral. SMA 20/50 on 4h shows a bearish crossover that occurred this candle (fast_below_slow, crossed_this_candle=true) — same fresh bearish cross persisting from last cycle, the opposite of a long trigger. Volume ratio 1.23x, no spike. Order book roughly balanced (-0.054). Price down -1.36% on 4h/48h. No major actionable ETH-specific news found this search beyond routine price/market-cap data — nothing to weigh against the bearish crossover.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 48.8,
+  "sma_crossover_4h": "bearish cross this candle (fast_below_slow)",
+  "volume_ratio": 1.23,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": -1.36,
+  "order_book_imbalance_top10": -0.054,
+  "news_context": "Nothing notable found beyond routine price/market-cap reporting; no specific catalyst news in the last 24h. Fresh bearish SMA crossover persists from the prior cycle, arguing against a long."
+}
+```
+
+---
+### 2026-09-11T10:13:30.458Z — SOL/USD — NO TRADE
+
+**Reasoning:** No qualifying long-entry signal. RSI 37.5 neutral, not oversold. SMA 20/50 on 4h fast_below_slow, no crossover this candle. Volume ratio 0.89x, below average. Order book now mildly negative (-0.083, flipped from +0.083 last cycle). Price down -4.34% on 4h/48h. News flagged a real infrastructure risk: a data-center routing glitch reportedly knocked ~29% of Solana's staked tokens offline, bringing the network within range of a full freeze — a negative data point, reinforcing no-trade rather than supporting a long.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 37.54,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 0.888,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": -4.34,
+  "order_book_imbalance_top10": -0.0833,
+  "news_context": "Cautionary: a routing glitch at a major data-center provider reportedly knocked ~29% of Solana's staked tokens offline, bringing the network within striking distance of a full freeze. Positives noted (MoneyGram on-ramp integration, Jupiter Lend v2 liquidity product) don't offset the infra risk. No quant trigger present regardless."
+}
+```
+
+---
+### 2026-09-11T10:13:34.959Z — POL/USD — NO TRADE
+
+**Reasoning:** No qualifying long-entry signal. RSI 42.2 neutral. SMA 20/50 on 4h remains fast_above_slow but still no fresh cross this candle (same stale state as last cycle) — not a qualifying trigger. Volume ratio 0.54x, well below average. Order book positive (0.229). Price down -6.1% on 4h/48h. News: two mandatory security hard forks (Austin, Kyoto) patched validator/DoS vulnerabilities, consensus time cut to ~1s, a new Bank of England Digital Pound Lab partnership, and chatter about a bullish breakout — constructive, but still no fresh quantitative trigger to pair with it per the rules.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 42.24,
+  "sma_crossover_4h": "fast_above_slow (existing state), no cross this candle",
+  "volume_ratio": 0.54,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": -6.1,
+  "order_book_imbalance_top10": 0.229,
+  "news_context": "Constructive: mandatory Austin/Kyoto hard forks patched a critical validator vulnerability and DoS risks, consensus time cut to ~1s, joined BoE Digital Pound Lab Phase 2 (with Dun & Bradstreet) for SME trade finance testing, and some chatter of a bullish descending-channel breakout. No fresh quant signal this cycle despite the positive backdrop."
+}
+```
+
+---
+### 2026-09-11T10:13:38.951Z — XRP/USD — NO TRADE
+
+**Reasoning:** No qualifying long-entry signal. RSI 37.2 neutral, not oversold. SMA 20/50 on 4h fast_below_slow, no crossover this candle. Volume ratio 0.95x, no spike. Order book skewed toward asks (-0.140, flipped negative from +0.096 last cycle). Price down -5.32% on 4h/48h. News is commentary-level (Ripple CTO Emeritus speculating XRP could someday overtake Bitcoin's market cap) rather than a near-term catalyst; broader reporting notes continued weekly price weakness despite ETF adoption. No quant trigger to pair with it.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 37.18,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 0.953,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": -5.32,
+  "order_book_imbalance_top10": -0.14,
+  "news_context": "Mostly commentary: Ripple CTO Emeritus speculated XRP could someday surpass Bitcoin's market cap (long-horizon opinion, not a near-term catalyst). Broader coverage notes continued weekly price softness despite spot XRP ETF adoption since Nov 2025. Nothing actionable in the last 24h."
+}
+```
+
+---
