@@ -10178,3 +10178,93 @@ The XRP/USD position logged above (id `96537a2c-86f0-4cbd-8b80-b5f5bc8ada22`, op
 ```
 
 ---
+### 2026-09-11T04:12:18.824Z — BTC/USD — NO TRADE
+
+**Reasoning:** No trigger: new 4h candle - RSI(4h) 32.6, recovered off the oversold low, no longer flagged. SMA remains fast_below_slow with no fresh crossover. Volume 1.15x average (no spike). News: August CPI report due today 8:30am ET (core CPI expected 0.2%m/0.2.5%y, headline 0.1%m/3.4%y) - the key pending catalyst, not yet released. No new quantitative trigger.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 32.6,
+  "sma_crossover_4h": "fast_below_slow, crossed_this_candle=false (new candle, no fresh cross)",
+  "volume_ratio": 1.15,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -3.03,
+  "order_book_imbalance_top10": -0.298,
+  "news_context": "August CPI due today 8:30am ET (core expected 0.2%m/2.5%y, headline 0.1%m/3.4%y) - key pending catalyst, not yet released. No new quantitative trigger."
+}
+```
+
+---
+### 2026-09-11T04:12:21.446Z — ETH/USD — NO TRADE
+
+**Reasoning:** No trigger: RSI(4h) 42.8 neutral, SMA fast-above-slow with no crossover, volume 1.23x average (no spike). News: same CPI-pending story; ETH consolidating below $2,510 resistance with a $2,800 target if broken. No new quantitative catalyst.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 42.8,
+  "sma_crossover_4h": "fast_above_slow, crossed_this_candle=false",
+  "volume_ratio": 1.231,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -2.539,
+  "order_book_imbalance_top10": 0.427,
+  "news_context": "CPI report pending today (key catalyst). ETH consolidating below $2,510 resistance, $2,800 target. Same BitMine/Trezor items. No new quantitative catalyst."
+}
+```
+
+---
+### 2026-09-11T04:12:24.379Z — SOL/USD — NO TRADE
+
+**Reasoning:** No trigger: RSI(4h) 34.6, off the earlier oversold-boundary level, SMA fast_below_slow with no fresh crossover. Volume 0.89x average (no spike). News: Solana Foundation announced Payment Channels (1M payments/sec) on Sept 3 - not a new item this cycle. No new catalyst; no open position to act on the bearish trend.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 34.58,
+  "sma_crossover_4h": "fast_below_slow, crossed_this_candle=false",
+  "volume_ratio": 0.888,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -5.068,
+  "order_book_imbalance_top10": 0.105,
+  "news_context": "Same items continuing (Transaction V1, SEC Core ETF Asset status, Payment Channels from Sept 3). No new quantitative catalyst."
+}
+```
+
+---
+### 2026-09-11T04:12:26.922Z — POL/USD — NO TRADE
+
+**Reasoning:** No trigger: RSI(4h) 41.1 neutral, SMA fast-above-slow with no crossover, volume still low at 0.54x average. Order book now ask-heavy (imbalance -0.19). News: same Polygon Gigagas/payments items, no new catalyst.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 41.14,
+  "sma_crossover_4h": "fast_above_slow, crossed_this_candle=false",
+  "volume_ratio": 0.54,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -6.493,
+  "order_book_imbalance_top10": -0.192,
+  "news_context": "Same Polygon items (Gigagas TPS roadmap, payments pivot, Austin/Kyoto hardforks). No new catalyst; volume remains below average."
+}
+```
+
+---
+### 2026-09-11T04:12:29.480Z — XRP/USD — NO TRADE
+
+**Reasoning:** No trigger: RSI(4h) 33.3, recovered off the oversold low, no longer flagged. SMA remains fast_below_slow with no fresh crossover. Volume 0.95x average (no spike). News: same fixCleanup3_3_0 amendment/RLUSD-milestone items, no new catalyst; no open position to act on the bearish trend.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 33.34,
+  "sma_crossover_4h": "fast_below_slow, crossed_this_candle=false",
+  "volume_ratio": 0.953,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -6.845,
+  "order_book_imbalance_top10": -0.038,
+  "news_context": "Same items continuing: fixCleanup3_3_0 XRPL amendment (technical, non-catalytic), RLUSD now majority on XRP Ledger vs Ethereum. No new quantitative catalyst."
+}
+```
+
+---
