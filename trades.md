@@ -11168,3 +11168,97 @@ The XRP/USD position logged above (id `96537a2c-86f0-4cbd-8b80-b5f5bc8ada22`, op
 ```
 
 ---
+### 2026-09-11T14:17:27.762Z — BTC/USD — NO TRADE
+
+**Reasoning:** No qualifying long-entry signal. RSI 36.0, neutral, not oversold. SMA 20/50 on 4h fast_below_slow, no crossover this candle. Volume ratio 1.15x, no spike. Order book positive (0.386). Price up modestly on 1h (0.29%) but the 4h window still shows -2.0%. News flags a potential "golden cross" (50-day/200-day EMA) projected around today - a different timeframe than our authorized 20/50 4h SMA signal, so it doesn't count as a trigger per the rules; noting it as context only.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 35.99,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 1.15,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": -2.01,
+  "order_book_imbalance_top10": 0.386,
+  "news_context": "A 50-day/200-day EMA 'golden cross' is reportedly close to confirming (~Sept 11), which would be bullish longer-term, but that's a different indicator/timeframe than our authorized 20/50 4h SMA crossover - not a qualifying trigger. Market still digesting inflation data and last week's pullback from $80K."
+}
+```
+
+---
+### 2026-09-11T14:17:32.351Z — ETH/USD — NO TRADE
+
+**Reasoning:** No qualifying long-entry signal despite a notable 1h bounce (+5.24%) as price recovered from an intraday dip. RSI 46.5, still neutral, not overbought. SMA 20/50 on 4h fast_below_slow, no crossover this candle - the 4h trend structure hasn't confirmed the 1h bounce yet. Volume ratio 1.23x, no spike. Order book roughly balanced (-0.068). Per the rules, we trade off the authorized 4h signal set, not a 1h price swing alone, so no trade this cycle; would revisit if the 4h SMA turns bullish.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 46.46,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 1.23,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": -1.29,
+  "price_action_1h_48h_pct": 5.24,
+  "order_book_imbalance_top10": -0.068,
+  "news_context": "ETH bounced sharply intraday after dipping below $2,400, recovering to ~$2,500-2,600 depending on source/timing. Recovery momentum noted but sources disagree on net 24h direction. 4h indicators haven't confirmed a trend change; no qualifying trigger."
+}
+```
+
+---
+### 2026-09-11T14:17:36.054Z — SOL/USD — NO TRADE
+
+**Reasoning:** No qualifying long-entry signal. RSI 36.5, neutral, not oversold. SMA 20/50 on 4h fast_below_slow, no crossover this candle. Volume ratio 0.89x, below average. Order book positive (0.240). Price up modestly on 1h (+1.31%), reflecting some of the same broad bounce seen in BTC/ETH, but 4h window still down -3.49% and the 4h trend indicators haven't turned. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 36.47,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 0.888,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": -3.49,
+  "price_action_1h_48h_pct": 1.31,
+  "order_book_imbalance_top10": 0.24,
+  "news_context": "Prices vary by exchange source ($99-106 range cited); broadly in line with the wider market bounce. No new fundamental catalyst beyond previously noted items (SEC ETF asset status, Schwab listing). No fresh quant trigger this cycle."
+}
+```
+
+---
+### 2026-09-11T14:17:40.694Z — POL/USD — NO TRADE
+
+**Reasoning:** No qualifying long-entry signal. RSI 42.1, neutral. SMA 20/50 on 4h still fast_below_slow with the bearish cross reading persisting from prior cycles (same 4h candle, not fresh) - still the dominant technical read, opposite of a long trigger. Volume ratio 0.54x, well below average. Order book positive (0.184). Price up modestly on 1h (+1.68%) alongside the broader market bounce, but 4h window still down -3.62%. News sources continue to show conflicting price levels for POL versus our own live data; treating compute_signals as authoritative. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 42.12,
+  "sma_crossover_4h": "bearish cross (persisting, same 4h candle)",
+  "volume_ratio": 0.54,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": -3.62,
+  "price_action_1h_48h_pct": 1.68,
+  "order_book_imbalance_top10": 0.184,
+  "news_context": "Price sources continue to diverge ($0.092-0.098 range cited across exchanges); no major new catalyst this cycle beyond prior notes on staking/tokenomics overhaul talk. 4h SMA still reads bearish - no trade."
+}
+```
+
+---
+### 2026-09-11T14:17:45.034Z — XRP/USD — NO TRADE
+
+**Reasoning:** No qualifying long-entry signal. RSI 32.0, still hovering just above the oversold (<30) threshold, unchanged from the last two cycles (same 4h candle). SMA 20/50 on 4h fast_below_slow, no crossover this candle. Volume ratio 0.95x, no spike. Order book skewed toward asks (-0.412). Price recovered somewhat on 1h (roughly flat, -0.71%) after touching a new low near $1.315 earlier, but the 4h signal set hasn't confirmed a reversal. No trade; continuing to watch for an RSI cross below 30 or a bullish SMA cross.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 31.98,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 0.953,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": -6.25,
+  "price_action_1h_48h_pct": -0.71,
+  "order_book_imbalance_top10": -0.412,
+  "news_context": "No major new catalyst this cycle beyond previously noted items (Permissioned DEX, Flare FXRP, SBI Ripple Asia). Price stabilizing intraday after touching a new low near $1.315-1.32. RSI still at 32.0, not yet oversold; no confirmed trigger."
+}
+```
+
+---
