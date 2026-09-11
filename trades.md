@@ -11893,3 +11893,93 @@ The XRP/USD position logged above (id `96537a2c-86f0-4cbd-8b80-b5f5bc8ada22`, op
 ```
 
 ---
+### 2026-09-11T22:12:07.608Z — BTC/USD — NO TRADE
+
+**Reasoning:** No qualifying long-entry signal. RSI 41.3, neutral. SMA 20/50 on 4h fast_below_slow, no crossover this candle. Volume ratio 1.15x, no spike. Order book roughly flat (-0.097). Price down modestly on 4h/48h (-1.31%). News: SGX opening BTC/ETH perpetual futures to US institutions is a structural positive but not a near-term catalyst; continued ETF outflows. No trigger.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 41.28,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 1.15,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": -1.31,
+  "order_book_imbalance_top10": -0.097,
+  "news_context": "Singapore Exchange now allows US institutions to trade its BTC/ETH perpetual futures - a structural liquidity bridge, not a near-term catalyst. BTC ETF funds shed $120M. No trigger."
+}
+```
+
+---
+### 2026-09-11T22:12:11.207Z — ETH/USD — NO TRADE
+
+**Reasoning:** No qualifying long-entry signal. RSI unchanged at 61.2, same 4h candle as last two cycles, still below the 70 flag. SMA 20/50 on 4h fast_below_slow, no crossover. Volume ratio 1.23x, no spike. Order book positive (0.338). News is largely recycled (Consensys/MetaMask rebrand, quantum-safety roadmap) with no new near-term catalyst; social sentiment reported positive (4.1/5) but that's not one of the five authorized signals. No trigger.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 61.16,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 1.23,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": 2.84,
+  "order_book_imbalance_top10": 0.338,
+  "news_context": "Recycled: Consensys/MetaMask rebrand, quantum-safety roadmap. Social sentiment reported at 4.1/5 (not an authorized signal). RSI unchanged at 61.2, still short of 70. No trigger."
+}
+```
+
+---
+### 2026-09-11T22:12:14.467Z — SOL/USD — NO TRADE
+
+**Reasoning:** No qualifying long-entry signal. RSI 51.4, neutral. SMA 20/50 on 4h fast_below_slow, no crossover this candle. Volume ratio 0.89x, below average. Order book roughly flat (0.011). Price roughly flat on 4h/48h (+0.47%). News is recycled (Transaction v1, slot-time reduction, Agave 4.2, SEC ETF status, Bitwise BSOL volume record). No trigger.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 51.44,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 0.888,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": 0.47,
+  "order_book_imbalance_top10": 0.0115,
+  "news_context": "Recycled fundamentals: Transaction v1, planned slot-time reduction to 200ms, Agave 4.2 rent reduction, SEC core ETF asset status, Bitwise BSOL single-day volume record ($108M). No fresh quant trigger."
+}
+```
+
+---
+### 2026-09-11T22:12:18.424Z — POL/USD — NO TRADE
+
+**Reasoning:** No qualifying long-entry signal. RSI 52.9, neutral. SMA 20/50 on 4h fast_below_slow, no crossover this candle. Volume ratio 0.54x, well below average. Order book positive (0.148). Price down modestly on 4h/48h (-1.87%). News continues to recycle the same late-August 50%+ rally narrative (now claiming POL "trading around $0.12" after rising from $0.08) which is starkly inconsistent with live compute_signals data showing POL at $0.096 - a clear stale/unreliable source; trusting live data. No trigger.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 52.89,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 0.54,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": -1.87,
+  "order_book_imbalance_top10": 0.148,
+  "news_context": "Recycled late-August narrative now claims POL trading 'around $0.12' after rising from $0.08 - directly contradicted by live compute_signals showing $0.096. Treating this as a stale/unreliable source; live data is authoritative. No trigger."
+}
+```
+
+---
+### 2026-09-11T22:12:21.792Z — XRP/USD — NO TRADE
+
+**Reasoning:** No qualifying long-entry signal. RSI 45.0, neutral. SMA 20/50 on 4h fast_below_slow, no crossover this candle. Volume ratio 0.95x, no spike. Order book roughly flat (-0.039). Price down modestly on 4h/48h (-2.34%). News is recycled (national trust bank approval, RLUSD/Wormhole NTT, Swell conference Nov 4-5, midterm-election speculation) with nothing new and no near-term catalyst. No trigger.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 44.99,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 0.953,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": -2.34,
+  "order_book_imbalance_top10": -0.0391,
+  "news_context": "Recycled: national trust bank conditional approval, RLUSD live via Wormhole NTT, Swell conference (Nov 4-5), midterm-election rally speculation. Nothing new this cycle. No trigger."
+}
+```
+
+---
