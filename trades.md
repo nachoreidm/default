@@ -11262,3 +11262,94 @@ The XRP/USD position logged above (id `96537a2c-86f0-4cbd-8b80-b5f5bc8ada22`, op
 ```
 
 ---
+### 2026-09-11T15:14:32.528Z — BTC/USD — NO TRADE
+
+**Reasoning:** No qualifying long-entry signal. RSI 36.0, neutral, not oversold. SMA 20/50 on 4h fast_below_slow, no crossover this candle. Volume ratio 1.15x, no spike. Order book skewed toward asks (-0.586). Price roughly flat on 1h. News: continued macro pressure (inflation, oil, bond yields), Iran turning to Bitcoin/Tether amid financial isolation (geopolitical, not a trading signal for this book). No trigger.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 35.99,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 1.15,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": -2.01,
+  "order_book_imbalance_top10": -0.586,
+  "news_context": "Macro headwinds persist (inflation, oil, bond yields). Iran reportedly using BTC/Tether to bypass financial isolation - geopolitical curiosity, not price-actionable. VerifiedX raised $15M for BTC custody/exchange infrastructure. No trigger."
+}
+```
+
+---
+### 2026-09-11T15:14:36.767Z — ETH/USD — NO TRADE
+
+**Reasoning:** No qualifying long-entry signal despite the ongoing 1h bounce (+4.73%). RSI 46.5, neutral, not overbought (one news source cites a different RSI of 58, likely a different timeframe/methodology than our authorized 4h calc - not used). SMA 20/50 on 4h fast_below_slow, no crossover this candle. Volume ratio 1.23x, no spike. Order book heavily ask-weighted (-0.831). Consolidating below the $2,500-2,560 resistance per news. No trigger from the 4h signal set.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 46.46,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 1.23,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": -1.29,
+  "price_action_1h_48h_pct": 4.73,
+  "order_book_imbalance_top10": -0.831,
+  "news_context": "BitMine added 7,430 ETH this week (now ~5.78M ETH, ~5% of supply). Consensys confirmed the MetaMask/institutional split by year-end. Robinhood's new L2 seen as a positive catalyst. Consolidating at resistance; no fresh quant trigger."
+}
+```
+
+---
+### 2026-09-11T15:14:40.349Z — SOL/USD — NO TRADE
+
+**Reasoning:** No qualifying long-entry signal. RSI 36.5, neutral, not oversold. SMA 20/50 on 4h fast_below_slow, no crossover this candle. Volume ratio 0.89x, below average. Order book positive (0.084). Price roughly flat on 1h. News remains constructive (SEC ETF asset status, Transaction V1, Agave 4.2 rent reduction, Western Union adoption commentary) but no authorized quant signal fired.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 36.47,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 0.888,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": -3.49,
+  "order_book_imbalance_top10": 0.0837,
+  "news_context": "Constructive fundamentals continue: SEC ETF-asset status, Transaction V1 upgrade, Agave 4.2 rent reduction, $4.7T in stablecoin volume moved over the past year, Western Union cited as validating real-world adoption. No fresh quant trigger this cycle."
+}
+```
+
+---
+### 2026-09-11T15:14:44.825Z — POL/USD — NO TRADE
+
+**Reasoning:** No qualifying long-entry signal. RSI 42.1, neutral. SMA 20/50 on 4h still reads bearish cross persisting from the same 4h candle across several cycles - dominant technical signal remains bearish, not a long trigger. Volume ratio 0.54x, well below average. Order book positive (0.343). News continues to conflict sharply with our own live price data (claims of a 50%+ 7-day rally and deflationary burn milestone vs. compute_signals showing a bearish crossover and price down on the 4h/48h window) - treating compute_signals as authoritative per the rules and flagging the discrepancy again.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 42.12,
+  "sma_crossover_4h": "bearish cross (persisting, same 4h candle)",
+  "volume_ratio": 0.54,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": -3.62,
+  "order_book_imbalance_top10": 0.343,
+  "news_context": "CONFLICTING again: news claims POL up 50%+ over 7 days, a deflationary state with 107M+ POL burned this year, and a staking/tokenomics overhaul proposal - but compute_signals' live price action still shows a bearish 4h SMA cross and a down 48h window. Trusting the live computed data per the rules; no trade."
+}
+```
+
+---
+### 2026-09-11T15:14:48.693Z — XRP/USD — NO TRADE
+
+**Reasoning:** No qualifying long-entry signal. RSI 32.0, unchanged from prior cycles (same 4h candle), still above the <30 oversold threshold. SMA 20/50 on 4h fast_below_slow, no crossover this candle. Volume ratio 0.95x, no spike. Order book positive (0.104). Price recovering somewhat intraday. News: Mastercard/RLUSD Agent Pay integration and Schwab ETF-collateral news continue as previously noted; a new On-Chain Cosigner proposal for XRPL is a protocol development, not price-actionable near-term. No trigger yet.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 31.98,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 0.953,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": -6.25,
+  "order_book_imbalance_top10": 0.104,
+  "news_context": "Mastercard's Agent Pay/RLUSD integration and Schwab ETF-collateral news persist from prior cycles. New On-Chain Cosigner proposal for XRPL is a longer-term protocol development. RSI still at 32.0, no confirmed oversold cross; no trigger."
+}
+```
+
+---
