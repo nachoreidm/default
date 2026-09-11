@@ -11078,3 +11078,93 @@ The XRP/USD position logged above (id `96537a2c-86f0-4cbd-8b80-b5f5bc8ada22`, op
 ```
 
 ---
+### 2026-09-11T13:14:05.650Z — BTC/USD — NO TRADE
+
+**Reasoning:** No qualifying long-entry signal. RSI 36.0, neutral, not oversold. SMA 20/50 on 4h fast_below_slow, no crossover this candle. Volume ratio 1.15x, no spike. Order book skewed toward asks (-0.261). Price down -2.0% on 4h/48h. News: continued inflation/bond-yield pressure and a down week (-5%+ per some sources), though Coinbase's Armstrong suggested the cycle bottom may be in - speculative opinion, not a quant trigger.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 35.99,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 1.15,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": -2.01,
+  "order_book_imbalance_top10": -0.261,
+  "news_context": "Soft: inflation/bond-yield pressure continues, BTC down over 5% on the week per some sources. Coinbase CEO Brian Armstrong opined the price-cycle bottom has likely passed (speculative, not corroborating any quant signal). No trigger."
+}
+```
+
+---
+### 2026-09-11T13:14:09.649Z — ETH/USD — NO TRADE
+
+**Reasoning:** No qualifying long-entry signal. RSI 46.5, neutral. SMA 20/50 on 4h fast_below_slow, no crossover this candle. Volume ratio 1.23x, no spike. Order book strongly bid-weighted (0.839) but that alone isn't an authorized fresh signal. Price roughly flat to down -1.29% on 4h/48h. News: ETH reportedly outperforming the broader market today on relative resilience and on-chain activity, and Consensys announced a split into MetaMask and an institutional blockchain firm - notable but not a quant trigger.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 46.46,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 1.23,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": -1.29,
+  "order_book_imbalance_top10": 0.839,
+  "news_context": "ETH outperformed the broader index today (down only ~1-2% vs market's ~3%), citing positive technical updates and active network usage. Consensys announced plans to split into MetaMask and an institutional blockchain firm by end of 2026. Order book strongly bid-weighted but no authorized quant signal fired."
+}
+```
+
+---
+### 2026-09-11T13:14:13.410Z — SOL/USD — NO TRADE
+
+**Reasoning:** No qualifying long-entry signal. RSI 36.5, neutral, not oversold. SMA 20/50 on 4h fast_below_slow, no crossover this candle. Volume ratio 0.89x, below average. Order book roughly flat (-0.031). Price down -3.49% on 4h/48h, trading near its 7-day low ($98.57). News: mixed - Schwab added SOL to its platform (positive institutional signal) and validators burned 18.9M SOL to curb inflation, but technical commentary flags breakdown risk toward $74 support. No quant trigger regardless.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 36.47,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 0.888,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": -3.49,
+  "order_book_imbalance_top10": -0.0309,
+  "news_context": "Mixed: Charles Schwab added Solana to its crypto platform (alongside Avalanche, Chainlink) - a positive institutional signal. Validators cancelled 18.9M SOL to curb inflation. Some technical commentary warns of breakdown risk toward $74 support even as others cite buy signals near $102. No fresh quant trigger this cycle."
+}
+```
+
+---
+### 2026-09-11T13:14:19.394Z — POL/USD — NO TRADE
+
+**Reasoning:** No qualifying long-entry signal per the authorized signal set, despite conflicting external news. RSI 42.1, neutral. SMA 20/50 on 4h shows a bearish crossover that occurred this candle (fast_below_slow, crossed_this_candle=true) - same fresh bearish signal as last cycle, unchanged (4h candle hasn't rolled). Volume ratio 0.54x, well below average - no spike to confirm any move. Order book roughly flat (-0.020). compute_signals shows price down -3.6% on 4h/48h at $0.097; some news sources claim a 50%+ 7-day rally toward $0.12-0.14 breakout targets, which conflicts sharply with the live computed price action - flagging this discrepancy rather than acting on the unverified news figure. Per the rules, the quantitative signal from compute_signals governs, and it shows a bearish crossover, not a breakout. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 42.12,
+  "sma_crossover_4h": "bearish cross this candle (fast_below_slow)",
+  "volume_ratio": 0.54,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": -3.62,
+  "order_book_imbalance_top10": -0.0197,
+  "news_context": "CONFLICTING: some news sources claim POL rallied 50%+ over 7 days breaking out toward $0.12-0.14 targets, and cite a planned staking/tokenomics overhaul from co-founder Sandeep Nailwal - but this directly contradicts compute_signals' live price action (down -3.6% on 4h/48h, fresh bearish SMA cross). Treating the live computed data as authoritative per the rules; flagging the news discrepancy as a data-quality gap rather than trusting it. No trade."
+}
+```
+
+---
+### 2026-09-11T13:14:23.881Z — XRP/USD — NO TRADE
+
+**Reasoning:** No qualifying long-entry signal. RSI 32.0, still approaching but not yet crossed the oversold (<30) threshold - unchanged from last cycle (4h candle hasn't rolled). SMA 20/50 on 4h fast_below_slow, no crossover this candle. Volume ratio 0.95x, no spike. Order book mildly ask-weighted (-0.054). Price down -6.25% on 4h/48h. News: XRPL's new Permissioned DEX, Flare's FXRP DeFi bridge, BIS testing XRPL for data verification, and SBI Ripple Asia's Japan prepaid-token launch are all constructive but none confirm a reversal without RSI actually crossing into oversold or a bullish crossover. Continue watching.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 31.98,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 0.953,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": -6.25,
+  "order_book_imbalance_top10": -0.0542,
+  "news_context": "Constructive: XRPL's new Permissioned DEX for regulated institutions, Flare's FXRP enabling XRP in DeFi, BIS testing XRPL for data verification (cited by Ripple CEO), SBI Ripple Asia launching prepaid XRPL tokens in Japan. RSI still at 32.0, hasn't crossed below 30 - no confirmed oversold trigger yet."
+}
+```
+
+---
