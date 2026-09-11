@@ -11803,3 +11803,93 @@ The XRP/USD position logged above (id `96537a2c-86f0-4cbd-8b80-b5f5bc8ada22`, op
 ```
 
 ---
+### 2026-09-11T21:12:26.850Z — BTC/USD — NO TRADE
+
+**Reasoning:** No qualifying long-entry signal. RSI 41.3, neutral. SMA 20/50 on 4h fast_below_slow, no crossover this candle. Volume ratio 1.15x, no spike. Order book roughly flat (0.071). Price down modestly on 4h/48h (-1.31%). News: hotter-than-forecast core CPI (0.3% in August) raising Fed rate-hike odds; continued Liquid Network hack fallout and unrelated crypto-crime headlines, neither price-material. No trigger.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 41.28,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 1.15,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": -1.31,
+  "order_book_imbalance_top10": 0.071,
+  "news_context": "Core CPI rose a faster-than-forecast 0.3% in August, raising Fed rate-hike odds. Consolidating in the $77-80K range. No trigger."
+}
+```
+
+---
+### 2026-09-11T21:12:30.692Z — ETH/USD — NO TRADE
+
+**Reasoning:** No qualifying long-entry signal. RSI unchanged at 61.2, still below the >70 flag, same 4h candle as last cycle. SMA 20/50 on 4h fast_below_slow, no crossover. Volume ratio 1.23x, no spike. Order book positive (0.475). News this cycle leans cautious: options markets are showing concentrated downside protection (traders betting on a pullback toward $2,250) ahead of the Fed decision and Senate CLARITY Act vote - reinforces staying out rather than chasing.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 61.16,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 1.23,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": 2.84,
+  "order_book_imbalance_top10": 0.475,
+  "news_context": "Options markets show concentrated downside protection with traders betting on a $2,250 pullback ahead of the Fed decision and Senate CLARITY Act vote. Long-term quantum-safety roadmap ('Strawmap') reiterated as background. No trigger; near-term sentiment leans cautious."
+}
+```
+
+---
+### 2026-09-11T21:12:34.190Z — SOL/USD — NO TRADE
+
+**Reasoning:** No qualifying long-entry signal. RSI 51.4, neutral. SMA 20/50 on 4h fast_below_slow, no crossover this candle. Volume ratio 0.89x, below average. Order book positive (0.105). Price roughly flat on 4h/48h (+0.47%). News reiterates prior constructive items (SEC ETF status, Transaction v1, Agave 4.2, MoneyGram, OpenSea NFT integration, record August RWA activity) without a fresh near-term catalyst. No trigger.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 51.44,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 0.888,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": 0.47,
+  "order_book_imbalance_top10": 0.105,
+  "news_context": "Reiterates prior constructive fundamentals (SEC ETF status, Transaction v1, Agave 4.2 rent reduction, MoneyGram/OpenSea integrations, record August activity). No fresh quant trigger."
+}
+```
+
+---
+### 2026-09-11T21:12:37.982Z — POL/USD — NO TRADE
+
+**Reasoning:** No qualifying long-entry signal. RSI 52.9, neutral. SMA 20/50 on 4h fast_below_slow, no crossover this candle. Volume ratio 0.54x, well below average. Order book turned more negative this cycle (-0.238, from -0.140 last cycle). Price down modestly on 4h/48h (-1.87%). News flags FalconX moving $1.29M of POL to Binance "amid Polygon's ongoing price correction" - a mildly bearish signal (potential sell pressure) that corroborates our live data better than the recycled rally narrative. No trigger.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 52.89,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 0.54,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": -1.87,
+  "order_book_imbalance_top10": -0.238,
+  "news_context": "FalconX moved $1.29M POL to Binance 'amid Polygon's ongoing price correction' - a mild bearish signal, more consistent with our live data (which has shown flat-to-down price action for many cycles) than the recycled 50% rally narrative. No trigger."
+}
+```
+
+---
+### 2026-09-11T21:12:41.445Z — XRP/USD — NO TRADE
+
+**Reasoning:** No qualifying long-entry signal. RSI 45.0, neutral. SMA 20/50 on 4h fast_below_slow, no crossover this candle. Volume ratio 0.95x, no spike. Order book positive (0.074). Price down modestly on 4h/48h (-2.34%). News: Goldman Sachs' $153.8M XRP ETF position (largest institutional holder) and SBI Ripple Asia's Japan launch are constructive but recurring from prior cycles; technical commentary still flags low momentum below $1.50. No trigger.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 44.99,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 0.953,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": -2.34,
+  "order_book_imbalance_top10": 0.0736,
+  "news_context": "Goldman Sachs disclosed a $153.8M position across 4 spot XRP ETFs (largest institutional XRP holder); SBI Ripple Asia launching prepaid XRPL tokens in Japan; RLUSD to launch on XRPL/Ethereum late 2026. All recurring from prior cycles. Momentum still described as low below $1.50. No trigger."
+}
+```
+
+---
