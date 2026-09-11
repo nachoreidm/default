@@ -10358,3 +10358,93 @@ The XRP/USD position logged above (id `96537a2c-86f0-4cbd-8b80-b5f5bc8ada22`, op
 ```
 
 ---
+### 2026-09-11T06:15:40.881Z — BTC/USD — NO TRADE
+
+**Reasoning:** No trigger: same 4h candle continuing - RSI(4h) 32.6 unchanged, SMA remains fast_below_slow with no fresh crossover. Volume 1.15x average (no spike). News: BTC ETFs lost $449M over 3 days ahead of CPI; crude oil surged past $105 adding inflation pressure; CPI due today 8:30am ET, still the key pending catalyst. No new quantitative trigger.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 32.6,
+  "sma_crossover_4h": "fast_below_slow, crossed_this_candle=false (same candle continuing)",
+  "volume_ratio": 1.15,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -3.03,
+  "order_book_imbalance_top10": -0.247,
+  "news_context": "BTC ETFs lost $449M over 3 days ahead of CPI; crude oil above $105 adding inflation pressure. CPI due today 8:30am ET, key pending catalyst. No new quantitative trigger."
+}
+```
+
+---
+### 2026-09-11T06:15:43.898Z — ETH/USD — NO TRADE
+
+**Reasoning:** No trigger: same 4h candle continuing - RSI(4h) 42.8 unchanged, SMA fast-above-slow with no crossover, volume 1.23x average (no spike). News: ETH under pressure from crude oil surge and rate-hike odds around 62% for the Sept 15-16 FOMC meeting; spot ETH ETFs still saw $34.75M net inflows despite the price decline. CPI due today - key catalyst pending.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 42.8,
+  "sma_crossover_4h": "fast_above_slow, crossed_this_candle=false (same candle continuing)",
+  "volume_ratio": 1.231,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -2.539,
+  "order_book_imbalance_top10": -0.144,
+  "news_context": "ETH under pressure from crude oil surge (>$105) and ~62% rate-hike odds; spot ETH ETFs saw $34.75M net inflows despite price decline. CPI due today, key catalyst pending. No new quantitative trigger."
+}
+```
+
+---
+### 2026-09-11T06:15:46.823Z — SOL/USD — NO TRADE
+
+**Reasoning:** No trigger: same 4h candle continuing - RSI(4h) 34.6 unchanged, SMA fast-below-slow with no crossover, volume 0.89x average (no spike). News: same $97-99 support level noted, SEC ETF status/Transaction V1 already priced in. No new quantitative trigger; no open position to act on the bearish trend.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 34.58,
+  "sma_crossover_4h": "fast_below_slow, crossed_this_candle=false (same candle continuing)",
+  "volume_ratio": 0.888,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -5.068,
+  "order_book_imbalance_top10": -0.02,
+  "news_context": "Same items continuing: $97-99 support level, SEC Core ETF Asset status, Transaction V1. No new quantitative catalyst."
+}
+```
+
+---
+### 2026-09-11T06:15:49.613Z — POL/USD — NO TRADE
+
+**Reasoning:** No trigger: same 4h candle continuing - RSI(4h) 41.1 unchanged, SMA fast-above-slow with no crossover, volume still low at 0.54x average. Order book bid-heavy (imbalance +0.41) but unconfirmed. News: same Polygon Gigagas/hardfork items, no new catalyst.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 41.14,
+  "sma_crossover_4h": "fast_above_slow, crossed_this_candle=false (same candle continuing)",
+  "volume_ratio": 0.54,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -6.493,
+  "order_book_imbalance_top10": 0.414,
+  "news_context": "Same Polygon Gigagas roadmap/Austin-Kyoto hardfork items. No new catalyst; volume remains below average."
+}
+```
+
+---
+### 2026-09-11T06:15:52.357Z — XRP/USD — NO TRADE
+
+**Reasoning:** No trigger: same 4h candle continuing - RSI(4h) 33.3 unchanged, SMA fast-below-slow with no crossover, volume 0.95x average (no spike). News: same fixCleanup3_3_0 amendment (activating ~11:15am ET, later today)/RLUSD/ETF items, no new catalyst; no open position to act on the bearish trend.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 33.34,
+  "sma_crossover_4h": "fast_below_slow, crossed_this_candle=false (same candle continuing)",
+  "volume_ratio": 0.953,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -6.845,
+  "order_book_imbalance_top10": 0.023,
+  "news_context": "Same items continuing: fixCleanup3_3_0 XRPL amendment activating later today (11:15am ET), RLUSD $2.32B market cap, 7 spot ETFs with $2B AUM. No new quantitative catalyst."
+}
+```
+
+---
