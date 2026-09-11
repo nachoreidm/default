@@ -9998,3 +9998,93 @@ The XRP/USD position logged above (id `96537a2c-86f0-4cbd-8b80-b5f5bc8ada22`, op
 ```
 
 ---
+### 2026-09-11T02:12:41.336Z — BTC/USD — NO TRADE
+
+**Reasoning:** Conflicting signals: RSI(4h) 27.4 is now flagged oversold (<30) for the first time this session, but SMA remains fast_below_slow with no fresh crossover confirming a reversal - the downtrend is still intact, this is a falling-knife risk rather than a confirmed bounce setup. Volume 1.15x average (no spike). News: today's US CPI report (8:30am ET) is the next major catalyst, not yet released; Liquid Network attacker returned 3,400 BTC (minor positive, not BTC mainnet). Given the conflict between an oversold RSI and a still-bearish, unconfirmed SMA trend, and with CPI still pending, staying out this cycle rather than manufacturing a bounce trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 27.45,
+  "sma_crossover_4h": "fast_below_slow, crossed_this_candle=false (RSI oversold but no confirming bullish crossover - conflicting signals)",
+  "volume_ratio": 1.15,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -2.657,
+  "order_book_imbalance_top10": -0.087,
+  "news_context": "US CPI report due today at 8:30am ET, not yet released - the next major catalyst. Liquid Network attacker returned 3,400 BTC (sidechain, minor positive). No confirming quantitative trigger; RSI oversold conflicts with continuing bearish SMA trend."
+}
+```
+
+---
+### 2026-09-11T02:12:44.562Z — ETH/USD — NO TRADE
+
+**Reasoning:** No trigger: RSI(4h) 39.9 neutral, SMA fast-above-slow with no crossover, volume 1.23x average (no spike). News: today's CPI report pending; BitMine/Trezor items unchanged; ETH facing resistance $2,511-$2,546 with whale accumulation offsetting slower ETF inflows - no new quantitative catalyst.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 39.85,
+  "sma_crossover_4h": "fast_above_slow, crossed_this_candle=false",
+  "volume_ratio": 1.231,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -2.061,
+  "order_book_imbalance_top10": 0.59,
+  "news_context": "US CPI report pending today. ETH facing resistance $2,511-$2,546; whale accumulation vs slower ETF inflows. Same BitMine/Trezor items. No new quantitative catalyst."
+}
+```
+
+---
+### 2026-09-11T02:12:48.122Z — SOL/USD — NO TRADE
+
+**Reasoning:** No trigger: RSI(4h) 30.0, right at the oversold boundary but not flagged (<30 threshold not breached), SMA fast_below_slow with no fresh crossover. Volume 0.89x average (below average, no spike either way). News unchanged (Transaction V1, SEC ETF asset status) - analysts note $103 as a key level, currently trading just below it; no new catalyst and no open position to act on the bearish trend.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 30.01,
+  "sma_crossover_4h": "fast_below_slow, crossed_this_candle=false",
+  "volume_ratio": 0.888,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -4.52,
+  "order_book_imbalance_top10": 0.117,
+  "news_context": "Same items continuing (Transaction V1, SEC Core ETF Asset status). Analysts flag $103 as key support/resistance pivot, $94.40/$85.79 below. No new quantitative catalyst."
+}
+```
+
+---
+### 2026-09-11T02:12:51.059Z — POL/USD — NO TRADE
+
+**Reasoning:** No trigger: RSI(4h) 38.6 neutral, SMA fast-above-slow with no crossover, volume notably low at 0.54x average (no spike, opposite - a lull). News: same Polygon "Gigagas" roadmap/security-hardfork items - no new catalyst.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 38.55,
+  "sma_crossover_4h": "fast_above_slow, crossed_this_candle=false",
+  "volume_ratio": 0.54,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -3.308,
+  "order_book_imbalance_top10": 0.234,
+  "news_context": "Same Polygon items (Gigagas TPS roadmap, Austin/Kyoto hardforks). No new catalyst; volume actually below average this cycle."
+}
+```
+
+---
+### 2026-09-11T02:12:54.612Z — XRP/USD — NO TRADE
+
+**Reasoning:** Conflicting signals: RSI(4h) 29.4 is now flagged oversold (<30) for the first time this session, but SMA remains fast_below_slow with no fresh crossover confirming a reversal. Volume 0.95x average (no spike). News: the XRPL fixCleanup3_3_0 amendment activates today (11:15am ET) - a technical bugfix patch, not price-moving; Mastercard/RLUSD and ETF-collateral items unchanged. Given the conflict between an oversold RSI and a still-bearish, unconfirmed SMA trend, staying out this cycle; no open position exists to act on the bearish trend either way.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 29.41,
+  "sma_crossover_4h": "fast_below_slow, crossed_this_candle=false (RSI oversold but no confirming bullish crossover - conflicting signals)",
+  "volume_ratio": 0.953,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -5.844,
+  "order_book_imbalance_top10": 0.073,
+  "news_context": "XRPL fixCleanup3_3_0 amendment activates today (technical bugfix, not price-moving). Mastercard/RLUSD integration and ETF-collateral items unchanged. RSI oversold conflicts with continuing bearish SMA trend; no confirming trigger."
+}
+```
+
+---
