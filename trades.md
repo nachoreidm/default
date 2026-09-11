@@ -11533,3 +11533,93 @@ The XRP/USD position logged above (id `96537a2c-86f0-4cbd-8b80-b5f5bc8ada22`, op
 ```
 
 ---
+### 2026-09-11T18:11:55.638Z — BTC/USD — NO TRADE
+
+**Reasoning:** No qualifying long-entry signal. RSI 45.4, neutral. SMA 20/50 on 4h fast_below_slow, no crossover this candle. Volume ratio 1.15x, no spike. Order book skewed toward asks (-0.543). Price roughly flat on 4h/48h (-0.65%). News: consolidating after rejection near $81K resistance; Capital B added $29M BTC to treasury, a positive but incremental data point. No trigger.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 45.4,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 1.15,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": -0.65,
+  "order_book_imbalance_top10": -0.543,
+  "news_context": "Consolidating after rejection at $81K resistance; a strong US jobs report added some volatility; Capital B bought $29M BTC (Sept 8) as continued corporate treasury demand. No trigger."
+}
+```
+
+---
+### 2026-09-11T18:11:59.946Z — ETH/USD — NO TRADE
+
+**Reasoning:** No qualifying long-entry signal, unchanged from the last two cycles (same 4h candle). RSI still 66.1, below the >70 overbought flag. SMA 20/50 on 4h fast_below_slow, no crossover. Volume ratio 1.23x, no spike. Order book strongly bid-weighted (0.791). News this cycle actually leans cautionary: multiple sources cite an already-overbought daily RSI (as high as 80 on a different timeframe/date) and warn of a pullback to $2,426-$2,463 support - reinforcing, not undermining, the case for staying out until our own 4h signal set actually confirms a trigger.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 66.14,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 1.23,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": 3.83,
+  "order_book_imbalance_top10": 0.791,
+  "news_context": "Mixed-to-cautionary: record ETF inflows ($697M week ending Aug 21) and institutional demand are bullish drivers, but multiple sources warn of overbought conditions (daily RSI as high as 80.39 on Aug 25) and a possible pullback to $2,426-$2,463 support. Reinforces staying out until our 4h RSI/SMA actually triggers. No trade."
+}
+```
+
+---
+### 2026-09-11T18:12:03.530Z — SOL/USD — NO TRADE
+
+**Reasoning:** No qualifying long-entry signal. RSI 49.2, neutral. SMA 20/50 on 4h fast_below_slow, no crossover this candle. Volume ratio 0.89x, below average. Order book roughly flat (0.019). Price roughly flat on 4h/48h (-0.75%). News: continued constructive fundamentals (SEC ETF status, Transaction v1 launched Sept 9, Agave 4.2 rent reduction, Western Union adoption, upcoming Alpenglow upgrade teased for next quarter) but no fresh quant trigger.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 49.21,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 0.888,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": -0.75,
+  "order_book_imbalance_top10": 0.019,
+  "news_context": "SEC ETF-asset status, Transaction v1 launched, Agave 4.2 rent reduction, $348M 30-day RWA inflows, Western Union adoption cited, and co-founder teased the Alpenglow upgrade for next quarter. Constructive backdrop, no fresh quant trigger this cycle."
+}
+```
+
+---
+### 2026-09-11T18:12:07.699Z — POL/USD — NO TRADE
+
+**Reasoning:** No qualifying long-entry signal. RSI 50.9, neutral. SMA 20/50 on 4h fast_below_slow, no crossover this candle. Volume ratio 0.54x, well below average. Order book flipped sharply negative this cycle (-0.414, from +0.240 last cycle) - a notable shift toward asks, reinforcing caution rather than supporting a long. Price roughly flat on 4h/48h (-0.52%). News still recycling the same stale 50%+ rally narrative from late August; not corroborated by live data. No trigger.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 50.87,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 0.54,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": -0.52,
+  "order_book_imbalance_top10": -0.414,
+  "news_context": "Same recycled late-August rally narrative (50%+ gain, deflationary burn, staking overhaul) continues to appear but isn't reflected in live price action. Order book turned notably ask-heavy this cycle. No trigger."
+}
+```
+
+---
+### 2026-09-11T18:12:10.438Z — XRP/USD — NO TRADE
+
+**Reasoning:** No qualifying long-entry signal. RSI 48.0, neutral. SMA 20/50 on 4h fast_below_slow, no crossover this candle. Volume ratio 0.95x, no spike. Order book positive (0.307). Price down modestly on 4h/48h (-1.89%). News: Mastercard/RLUSD Agent Connect integration and Schwab ETF-collateral news persist from prior cycles; On-Chain Cosigner is a longer-term protocol development. No trigger.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 48.02,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 0.953,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": -1.89,
+  "order_book_imbalance_top10": 0.307,
+  "news_context": "Mastercard's Agent Connect/RLUSD integration and Schwab ETF-collateral news continue as previously noted; On-Chain Cosigner proposal targets institutional custodians (longer-term). No fresh near-term catalyst; no trigger."
+}
+```
+
+---
