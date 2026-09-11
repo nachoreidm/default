@@ -10628,3 +10628,93 @@ The XRP/USD position logged above (id `96537a2c-86f0-4cbd-8b80-b5f5bc8ada22`, op
 ```
 
 ---
+### 2026-09-11T09:12:52.308Z — BTC/USD — NO TRADE
+
+**Reasoning:** No trigger: same 4h candle continuing - RSI(4h) 37.8 unchanged, SMA remains fast_below_slow with no fresh crossover. Volume 1.15x average (no spike). News: BTC steady near $77,081, holding fragile $76,500-77,000 support ahead of CPI (12:30 UTC / 8:30am ET, still pending). No new quantitative trigger.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 37.77,
+  "sma_crossover_4h": "fast_below_slow, crossed_this_candle=false (same candle continuing)",
+  "volume_ratio": 1.15,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -2.652,
+  "order_book_imbalance_top10": -0.163,
+  "news_context": "BTC steady near $77,081, holding fragile support ahead of CPI (still pending, 12:30 UTC). Same PPI/rate-hike-odds story. No new quantitative trigger."
+}
+```
+
+---
+### 2026-09-11T09:12:57.010Z — ETH/USD — NO TRADE
+
+**Reasoning:** Same 4h candle continuing - the bearish SMA crossover flagged last cycle remains from that same candle (not fresh again). RSI 48.8 neutral. Still non-actionable: long-only account, no open ETH position to close. News: same CPI-pending story; Fed rate-hike odds at 62% for Sept meeting, 71% by October per Polymarket; Glamsterdam upgrade testing ongoing. No new quantitative trigger.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 48.8,
+  "sma_crossover_4h": "fast_below_slow, crossed_this_candle=true (same flagged candle as last cycle, not a new event)",
+  "volume_ratio": 1.231,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -1.359,
+  "order_book_imbalance_top10": 0.222,
+  "news_context": "CPI due 12:30 UTC, still pending. Fed rate-hike odds 62% (Sept), 71% (Oct) per Polymarket. Glamsterdam upgrade testing ongoing. Bearish crossover from prior cycle still non-actionable: long-only, no existing position."
+}
+```
+
+---
+### 2026-09-11T09:12:59.497Z — SOL/USD — NO TRADE
+
+**Reasoning:** No trigger: same 4h candle continuing - RSI(4h) 37.5 unchanged, SMA fast-below-slow with no crossover, volume 0.89x average (no spike). News: SOL capped just under $100, mixed signals across timeframes per analysts - no new catalyst; no open position to act on the bearish trend.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 37.54,
+  "sma_crossover_4h": "fast_below_slow, crossed_this_candle=false (same candle continuing)",
+  "volume_ratio": 0.888,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -4.337,
+  "order_book_imbalance_top10": -0.006,
+  "news_context": "SOL capped just under $100; analysts note mixed signals across timeframes, calling for patience over conviction. No new quantitative catalyst."
+}
+```
+
+---
+### 2026-09-11T09:13:01.736Z — POL/USD — NO TRADE
+
+**Reasoning:** No trigger: same 4h candle continuing - RSI(4h) 42.2 unchanged, SMA fast-above-slow with no crossover, volume still low at 0.54x average. Order book now ask-heavy (imbalance -0.36). News: same Gigagas roadmap items, no new catalyst.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 42.24,
+  "sma_crossover_4h": "fast_above_slow, crossed_this_candle=false (same candle continuing)",
+  "volume_ratio": 0.54,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -6.096,
+  "order_book_imbalance_top10": -0.364,
+  "news_context": "Same Polygon Gigagas roadmap/MATIC-to-POL migration items. No new catalyst; volume remains below average."
+}
+```
+
+---
+### 2026-09-11T09:13:04.211Z — XRP/USD — NO TRADE
+
+**Reasoning:** No trigger: same 4h candle continuing - RSI(4h) 37.2 unchanged, SMA fast-below-slow with no crossover, volume 0.95x average (no spike). News: XRP stalling near $1.36; fixCleanup3_3_0 amendment activating later today (~11:15am ET). No new catalyst; no open position to act on the bearish trend.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 37.18,
+  "sma_crossover_4h": "fast_below_slow, crossed_this_candle=false (same candle continuing)",
+  "volume_ratio": 0.953,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -5.324,
+  "order_book_imbalance_top10": -0.113,
+  "news_context": "XRP stalling near $1.36 amid mixed signals; fixCleanup3_3_0 XRPL amendment activating later today. No new quantitative catalyst."
+}
+```
+
+---
