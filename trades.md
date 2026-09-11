@@ -11713,3 +11713,93 @@ The XRP/USD position logged above (id `96537a2c-86f0-4cbd-8b80-b5f5bc8ada22`, op
 ```
 
 ---
+### 2026-09-11T20:12:07.983Z — BTC/USD — NO TRADE
+
+**Reasoning:** No qualifying long-entry signal. RSI 41.3, neutral, not oversold. SMA 20/50 on 4h fast_below_slow, no crossover this candle. Volume ratio 1.15x, no spike. Order book skewed toward asks (-0.414). Price down modestly on 4h/48h (-1.31%). News: Clarity Act Senate vote next week is the key upcoming catalyst; Liquid Network hack standoff continues but is not price-material for this book. No trigger.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 41.28,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 1.15,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": -1.31,
+  "order_book_imbalance_top10": -0.414,
+  "news_context": "Clarity Act Senate vote scheduled for next week is the key upcoming catalyst. Continued Liquid Network hack standoff (Blockstream refused a 10% bounty). No trigger."
+}
+```
+
+---
+### 2026-09-11T20:12:12.386Z — ETH/USD — NO TRADE
+
+**Reasoning:** No qualifying long-entry signal. RSI eased to 61.2 from 66.1 last cycle, still below the >70 overbought flag and no longer as elevated. SMA 20/50 on 4h fast_below_slow, no crossover this candle. Volume ratio 1.23x, no spike. Order book positive (0.344). News: Consensys/MetaMask rebrand progressing with Joe Lubin as chairman/CEO; Ethereum Foundation flagged quantum-resistance as a long-term upgrade priority - background items, not near-term catalysts. No trigger.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 61.16,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 1.23,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": 2.84,
+  "order_book_imbalance_top10": 0.344,
+  "news_context": "Consensys formally rebranding as MetaMask (Joe Lubin as chairman/CEO); Ethereum Foundation prioritizing quantum-resistance upgrades on a long horizon. RSI eased off its recent high (66.1 to 61.2), still short of the 70 trigger. No trade."
+}
+```
+
+---
+### 2026-09-11T20:12:15.680Z — SOL/USD — NO TRADE
+
+**Reasoning:** No qualifying long-entry signal. RSI 51.4, neutral. SMA 20/50 on 4h fast_below_slow, no crossover this candle. Volume ratio 0.89x, below average. Order book positive (0.117). Price roughly flat to slightly up on 4h/48h (+0.47%). News reiterates the August data-center routing glitch (29% of staked SOL briefly offline, but blocks never stopped) alongside continued record network activity and stablecoin volume. No trigger.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 51.44,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 0.888,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": 0.47,
+  "order_book_imbalance_top10": 0.117,
+  "news_context": "August saw record transactions and $4B in RWAs; the previously reported data-center routing glitch (29% of staked SOL briefly offline) is reiterated as a known past risk, not new. No fresh quant trigger."
+}
+```
+
+---
+### 2026-09-11T20:12:19.329Z — POL/USD — NO TRADE
+
+**Reasoning:** No qualifying long-entry signal. RSI 52.9, neutral, highest reading in recent cycles but still mid-range. SMA 20/50 on 4h fast_below_slow, no crossover this candle. Volume ratio 0.54x, well below average. Order book skewed toward asks (-0.140). Price down modestly on 4h/48h (-1.87%). News continues to repeat the same late-August 50%+ rally narrative, still not corroborated by live data across many cycles now. No trigger.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 52.89,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 0.54,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": -1.87,
+  "order_book_imbalance_top10": -0.14,
+  "news_context": "Same recycled late-August rally narrative continues to appear in search results without corroboration in live price data across many consecutive cycles. Austin/Kyoto security hard forks and 'Open Money Stack' payments narrative reiterated as background. No trigger."
+}
+```
+
+---
+### 2026-09-11T20:12:23.032Z — XRP/USD — NO TRADE
+
+**Reasoning:** No qualifying long-entry signal. RSI 45.0, neutral. SMA 20/50 on 4h fast_below_slow, no crossover this candle. Volume ratio 0.95x, no spike. Order book roughly flat (0.030). Price down modestly on 4h/48h (-2.34%). News: XRP still down ~70% from its ATH, waiting on Congress/Clarity Act progress; Swell conference (Nov 4-5) and midterm-election speculation are longer-horizon items, not near-term catalysts. No trigger.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 44.99,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 0.953,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": -2.34,
+  "order_book_imbalance_top10": 0.0303,
+  "news_context": "XRP remains ~70% below its ATH, still awaiting Congressional progress on crypto legislation; Ripple's Swell conference set for Nov 4-5; some analysts speculate a post-midterm rally contingent on the Clarity Act. No fresh near-term catalyst; no trigger."
+}
+```
+
+---
