@@ -11983,3 +11983,93 @@ The XRP/USD position logged above (id `96537a2c-86f0-4cbd-8b80-b5f5bc8ada22`, op
 ```
 
 ---
+### 2026-09-11T23:12:48.084Z — BTC/USD — NO TRADE
+
+**Reasoning:** No qualifying long-entry signal. RSI 41.3, neutral. SMA 20/50 on 4h fast_below_slow, no crossover this candle. Volume ratio 1.15x, no spike. Order book positive (0.203). Price down modestly on 4h/48h (-1.31%). News: consolidating after $81K rejection, market watching upcoming CPI/Fed signals; Capital B's $29M BTC buy reiterated as prior institutional demand. No trigger.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 41.28,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 1.15,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": -1.31,
+  "order_book_imbalance_top10": 0.203,
+  "news_context": "Consolidating after rejection near $81K; traders watching upcoming CPI report and Fed signals. Bitcoin Core 31.0 release and Bitunix yield products are background items. No trigger."
+}
+```
+
+---
+### 2026-09-11T23:12:52.172Z — ETH/USD — NO TRADE
+
+**Reasoning:** No qualifying long-entry signal, unchanged for the fourth consecutive cycle (same 4h candle). RSI still 61.2, below the >70 flag; one news source cites a different (daily) RSI of 58 cooling off, consistent with our own reading of moderating momentum. SMA 20/50 on 4h fast_below_slow, no crossover. Volume ratio 1.23x, no spike. Order book roughly flat (0.005). News: Amsterdam hardfork config added to client codebase (technical prep, not a near-term catalyst); SGX institutional futures access reiterated. No trigger.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 61.16,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 1.23,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": 2.84,
+  "order_book_imbalance_top10": 0.005,
+  "news_context": "Consolidating below $2,500-2,560 resistance; one source cites a cooling daily RSI (58) consistent with moderating momentum. Amsterdam hardfork configuration added to codebase (future prep, not near-term). No trigger."
+}
+```
+
+---
+### 2026-09-11T23:12:55.682Z — SOL/USD — NO TRADE
+
+**Reasoning:** No qualifying long-entry signal. RSI 51.4, neutral. SMA 20/50 on 4h fast_below_slow, no crossover this candle. Volume ratio 0.89x, below average. Order book roughly flat (0.009). Price roughly flat on 4h/48h (+0.47%). News is recycled fundamentals (SEC ETF status, Transaction v1, slot-time reduction, Agave 4.2, Western Union commentary). No trigger.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 51.44,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 0.888,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": 0.47,
+  "order_book_imbalance_top10": 0.00876,
+  "news_context": "Recycled: SEC core ETF asset status, Transaction v1, planned 200ms slot times, Agave 4.2 rent reduction, $348M 30-day RWA inflows, Western Union adoption commentary. No fresh quant trigger."
+}
+```
+
+---
+### 2026-09-11T23:13:00.033Z — POL/USD — NO TRADE
+
+**Reasoning:** No qualifying long-entry signal. RSI 52.9, neutral. SMA 20/50 on 4h fast_below_slow, no crossover this candle. Volume ratio 0.54x, well below average. Order book roughly flat (-0.046). Price down modestly on 4h/48h (-1.87%), live price $0.0974. News this cycle finally stopped repeating the unconfirmed 50%+ rally claim and instead cites verifiable items (8B cumulative transactions, Austin/Kyoto hard forks, 99% MATIC-to-POL migration, deflationary burn, BoE Digital Pound Lab, Kansai Electric loyalty integration) - constructive long-term but no near-term quant trigger.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 52.89,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 0.54,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": -1.87,
+  "order_book_imbalance_top10": -0.046,
+  "news_context": "More grounded this cycle: 8B+ cumulative transactions, Austin/Kyoto security hard forks, 99% MATIC-to-POL migration complete, deflationary state (107M+ POL burned in 2026), BoE Digital Pound Lab involvement, Kansai Electric loyalty-points integration. Constructive long-term narrative, no near-term quant trigger."
+}
+```
+
+---
+### 2026-09-11T23:13:03.016Z — XRP/USD — NO TRADE
+
+**Reasoning:** No qualifying long-entry signal. RSI 45.0, neutral. SMA 20/50 on 4h fast_below_slow, no crossover this candle. Volume ratio 0.95x, no spike. Order book positive (0.058). Price down modestly on 4h/48h (-2.34%). News: Mastercard/RLUSD Agent Connect and Schwab ETF-collateral news continue to recur; On-Chain Cosigner is a longer-term protocol item. No trigger.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 44.99,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 0.953,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": -2.34,
+  "order_book_imbalance_top10": 0.058,
+  "news_context": "Recurring: Mastercard's Agent Connect/RLUSD integration, Schwab ETF-collateral filing, On-Chain Cosigner XRPL proposal. Momentum still described as low. No fresh trigger."
+}
+```
+
+---
