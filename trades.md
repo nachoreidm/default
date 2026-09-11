@@ -11623,3 +11623,93 @@ The XRP/USD position logged above (id `96537a2c-86f0-4cbd-8b80-b5f5bc8ada22`, op
 ```
 
 ---
+### 2026-09-11T19:14:45.358Z — BTC/USD — NO TRADE
+
+**Reasoning:** No qualifying long-entry signal. RSI 45.4, neutral. SMA 20/50 on 4h fast_below_slow, no crossover this candle. Volume ratio 1.15x, no spike. Order book roughly flat (0.071). Price roughly flat on 4h/48h (-0.65%). News: down over 5% on the week per some sources, second straight ETF outflow, though Armstrong's cycle-bottom comment is a repeated but unconfirmed opinion. No trigger.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 45.4,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 1.15,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": -0.65,
+  "order_book_imbalance_top10": 0.071,
+  "news_context": "Down ~5% on the week per some sources; second straight BTC ETF outflow. No new catalyst since last cycle. No trigger."
+}
+```
+
+---
+### 2026-09-11T19:14:50.814Z — ETH/USD — NO TRADE
+
+**Reasoning:** No qualifying long-entry signal, unchanged for the fourth consecutive cycle (same 4h candle). RSI still 66.1, below the >70 flag. SMA 20/50 on 4h fast_below_slow, no crossover. Volume ratio 1.23x, no spike. Order book positive (0.288). News reports ETH briefly tapped $2,600 (a 7-month high) after a cooler-than-expected core CPI print, and whale accumulation continues ($94M by one entity this month) - genuinely bullish, but our 4h signal set still hasn't confirmed a trigger. Notably, options traders are positioning protective puts ahead of the Sept 15 CLARITY Act cloture vote and Sept 16 Fed decision - added near-term risk that argues for continued patience rather than chasing the move.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 66.14,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 1.23,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": 3.83,
+  "order_book_imbalance_top10": 0.288,
+  "news_context": "ETH tapped $2,600 (first time in 7 months) after a cooler core CPI print; one whale bought $94M ETH this month. But options traders are buying protective puts ahead of the Sept 15 CLARITY Act cloture vote and Sept 16 Fed decision - real near-term event risk. RSI still 66.1, no SMA cross - no trigger yet despite the strong narrative."
+}
+```
+
+---
+### 2026-09-11T19:14:54.708Z — SOL/USD — NO TRADE
+
+**Reasoning:** No qualifying long-entry signal. RSI 49.2, neutral. SMA 20/50 on 4h fast_below_slow, no crossover this candle. Volume ratio 0.89x, below average. Order book positive (0.162). Price roughly flat on 4h/48h (-0.75%). News: Schwab listing, validators cutting inflation via SOL cancellation, tokenized equities on Solana hit a new ATH ($684M, +47% in 3 weeks) - constructive, but sentiment described as a tug-of-war with breakdown risk warnings toward $74. No trigger.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 49.21,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 0.888,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": -0.75,
+  "order_book_imbalance_top10": 0.162,
+  "news_context": "Schwab added SOL to its platform; validators cancelled 18.9M SOL and approved doubling the disinflation rate; tokenized equities on Solana hit a new ATH ($684M, +47% in 3 weeks). Sentiment split between bullish momentum calls at $102 and breakdown-risk warnings toward $74 support. No fresh quant trigger."
+}
+```
+
+---
+### 2026-09-11T19:14:58.489Z — POL/USD — NO TRADE
+
+**Reasoning:** No qualifying long-entry signal. RSI 50.9, neutral. SMA 20/50 on 4h fast_below_slow, no crossover this candle. Volume ratio 0.54x, well below average. Order book roughly flat (-0.037). Price roughly flat on 4h/48h (-0.52%). News keeps repeating the same stale 50%+ rally / $0.12-0.13 breakout-target narrative from late August, still not corroborated by several cycles of live compute_signals data showing only modest, range-bound price action. No trigger; continuing to trust live data over recycled news.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 50.87,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 0.54,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": -0.52,
+  "order_book_imbalance_top10": -0.037,
+  "news_context": "Same recycled late-August rally/breakout-target narrative persists across cycles without confirmation in live price data, which has shown only modest, range-bound movement (~$0.093-0.097) for several hours running. No trigger."
+}
+```
+
+---
+### 2026-09-11T19:15:02.277Z — XRP/USD — NO TRADE
+
+**Reasoning:** No qualifying long-entry signal. RSI 48.0, neutral. SMA 20/50 on 4h fast_below_slow, no crossover this candle. Volume ratio 0.95x, no spike. Order book skewed toward asks (-0.079). Price down modestly on 4h/48h (-1.89%). News: Ripple's AI-in-treasury-management push is a company-specific catalyst but the market reaction has been tempered by wider forces; XRP ETFs pulled in a modest $18.98M this week even as BTC/ETH ETFs saw large outflows - a relative positive but not a quant trigger, and some sources flag technical risk of a short-term correction.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 48.02,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 0.953,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": -1.89,
+  "order_book_imbalance_top10": -0.0786,
+  "news_context": "Ripple's AI-in-treasury-management adoption is a company-specific catalyst though market response was tempered; XRP ETFs pulled in $18.98M this week versus large BTC/ETH ETF outflows - relatively resilient, but some technical commentary warns of a short-term correction. No fresh quant trigger."
+}
+```
+
+---
