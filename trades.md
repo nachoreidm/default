@@ -10538,3 +10538,93 @@ The XRP/USD position logged above (id `96537a2c-86f0-4cbd-8b80-b5f5bc8ada22`, op
 ```
 
 ---
+### 2026-09-11T08:13:10.627Z — BTC/USD — NO TRADE
+
+**Reasoning:** No trigger: RSI(4h) 37.8 recovered further off oversold, SMA remains fast_below_slow with no fresh crossover. Volume 1.15x average (no spike). News: BTC holding fragile $76,500-77,000 support ahead of CPI due in ~20 minutes (8:30am ET); hot Core PPI (4.6%) and rising oil prices add hotter-CPI risk. No new quantitative trigger; awaiting the print.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 37.77,
+  "sma_crossover_4h": "fast_below_slow, crossed_this_candle=false",
+  "volume_ratio": 1.15,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -2.652,
+  "order_book_imbalance_top10": 0.092,
+  "news_context": "BTC holding fragile $76,500-77,000 support ahead of CPI due imminently (8:30am ET); hot Core PPI (4.6%), rising oil prices add hotter-CPI risk. No new quantitative trigger; awaiting the print."
+}
+```
+
+---
+### 2026-09-11T08:13:14.120Z — ETH/USD — NO TRADE
+
+**Reasoning:** Fresh bearish SMA crossover this candle (fast crossed below slow) - a real signal, but this account is long-only with no open ETH position, so a bearish crossover is not actionable (nothing to close, and shorting is prohibited). RSI 48.8 neutral, volume 1.23x (no spike). News: CPI due imminently (8:30am ET); ETH testing 20-day EMA support ~$2,400-2,405 after crude oil rally. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 48.8,
+  "sma_crossover_4h": "fast_below_slow, crossed_this_candle=true, crossover_direction=bearish (fresh cross this candle)",
+  "volume_ratio": 1.231,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -1.359,
+  "order_book_imbalance_top10": -0.206,
+  "news_context": "CPI due imminently (8:30am ET). ETH testing 20-day EMA support ~$2,400-2,405 after crude oil rally past $105. Bearish crossover noted but non-actionable: long-only account, no existing ETH position to close."
+}
+```
+
+---
+### 2026-09-11T08:13:17.595Z — SOL/USD — NO TRADE
+
+**Reasoning:** No trigger: RSI(4h) 37.5, SMA fast-below-slow with no crossover, volume 0.89x average (no spike). News: same $97-99 support level, no new catalyst; no open position to act on the bearish trend.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 37.54,
+  "sma_crossover_4h": "fast_below_slow, crossed_this_candle=false",
+  "volume_ratio": 0.888,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -4.337,
+  "order_book_imbalance_top10": 0.012,
+  "news_context": "Same items continuing: $97-99 support level, SEC Core ETF Asset status. No new quantitative catalyst."
+}
+```
+
+---
+### 2026-09-11T08:13:20.335Z — POL/USD — NO TRADE
+
+**Reasoning:** No trigger: RSI(4h) 42.2 neutral, SMA fast-above-slow with no crossover, volume still low at 0.54x average. Order book bid-heavy (imbalance +0.34) but unconfirmed. News: same Polygon Gigagas/hardfork items, no new catalyst.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 42.24,
+  "sma_crossover_4h": "fast_above_slow, crossed_this_candle=false",
+  "volume_ratio": 0.54,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -6.096,
+  "order_book_imbalance_top10": 0.342,
+  "news_context": "Same Polygon Gigagas roadmap/Austin-Kyoto hardfork items. No new catalyst; volume remains below average."
+}
+```
+
+---
+### 2026-09-11T08:13:22.489Z — XRP/USD — NO TRADE
+
+**Reasoning:** No trigger: RSI(4h) 37.2, SMA fast-below-slow with no crossover, volume 0.95x average (no spike). News: fixCleanup3_3_0 amendment activating later today (~11:15am ET), CLARITY Act Senate vote scheduled Sept 15 - no new near-term catalyst; no open position to act on the bearish trend.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 37.18,
+  "sma_crossover_4h": "fast_below_slow, crossed_this_candle=false",
+  "volume_ratio": 0.953,
+  "flag_above_2x": false,
+  "price_action_4h_48h_pct": -5.324,
+  "order_book_imbalance_top10": 0.075,
+  "news_context": "fixCleanup3_3_0 XRPL amendment activating later today; CLARITY Act Senate vote scheduled Sept 15. No new quantitative catalyst."
+}
+```
+
+---
