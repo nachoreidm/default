@@ -13475,3 +13475,79 @@ The XRP/USD position logged above (id `96537a2c-86f0-4cbd-8b80-b5f5bc8ada22`, op
 ```
 
 ---
+### 2026-09-12T17:18:22.134Z — BTC/USD — NO TRADE
+
+**Reasoning:** No qualifying signal. RSI 43.2 neutral, no 4h SMA crossover (fast_below_slow), volume ratio 1.68x (<2x flag). Price action flat (+0.07% 1h/48h, +0.30% 4h/48h). News: MicroStrategy resuming BTC purchases, ETF flows rotating back into BTC from gold, Kraken/Nasdaq tokenization partnership, Liquid Network white-hat recovery update. WebSearch price ($79,571) diverges from live compute_signals (~$77,300) — treating compute_signals as authoritative per data-quality policy. No trigger firing regardless, so no trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 43.2,
+  "sma_crossover_4h": "fast_below_slow, not crossed this candle",
+  "volume_ratio": 1.68,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": 0.3,
+  "price_action_1h_48h_pct": 0.07,
+  "order_book_imbalance_top10": 0.286,
+  "news_context": "MicroStrategy resuming BTC purchase announcements; ETF capital rotating from gold back to BTC; Kraken/Nasdaq tokenization partnership; Liquid Network sidechain incident being resolved by white-hat actors. WebSearch price ($79,571) inconsistent with live compute_signals (~$77,300); compute_signals treated as authoritative."
+}
+```
+
+---
+### 2026-09-12T17:18:25.805Z — SOL/USD — NO TRADE
+
+**Reasoning:** No qualifying signal. RSI 51.4 neutral, no 4h SMA crossover (fast_below_slow), volume ratio 1.68x (<2x flag). Price action positive (+2.1-2.4%) but unconfirmed by volume or crossover. News: a data-center routing glitch briefly knocked ~29% of staked SOL offline (network kept producing blocks per Foundation), MoneyGram integration for on/off ramps, Jupiter Lend v2 launch — mixed but nothing rising to trigger status, and none of the three quantitative signals is firing. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 51.42,
+  "sma_crossover_4h": "fast_below_slow, not crossed this candle",
+  "volume_ratio": 1.68,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": 2.41,
+  "price_action_1h_48h_pct": 2.08,
+  "order_book_imbalance_top10": 0.09,
+  "news_context": "Routing glitch at a data center briefly took ~29% of staked SOL offline (chain kept producing blocks); MoneyGram network integration for on/off ramps; Jupiter Lend v2 liquidity product launched."
+}
+```
+
+---
+### 2026-09-12T17:18:29.511Z — POL/USD — NO TRADE
+
+**Reasoning:** No qualifying signal. RSI 57.2 neutral, 4h SMA still fast_below_slow (0.095467 vs 0.0959088), volume ratio only 1.18x. Price action positive (+3.3-4.3%) but unconfirmed. News: Austin/Kyoto hard forks addressed DoS and validator security flaws, block time cut to ~1.75s, continued payments/stablecoin focus, though POL is still ~40% off its yearly high per one source. No trigger firing, so no trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 57.18,
+  "sma_crossover_4h": "fast_below_slow, narrowing but not crossed this candle",
+  "volume_ratio": 1.18,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": 4.34,
+  "price_action_1h_48h_pct": 3.28,
+  "order_book_imbalance_top10": -0.161,
+  "news_context": "Austin/Kyoto hard forks patched DoS and validator security vulnerabilities; block time reduced to ~1.75s; continued focus on stablecoin/payments infrastructure; POL still ~40% below its yearly high per one source."
+}
+```
+
+---
+### 2026-09-12T17:18:32.180Z — XRP/USD — NO TRADE
+
+**Reasoning:** No qualifying signal. RSI 48.6 neutral, 4h SMA fast_below_slow with no crossover, volume ratio 1.40x (<2x). Price action mildly positive (+0.7-1.6%). News: XRP spot ETFs pulled in $18.98M this week while BTC/ETH ETFs saw combined outflows — mildly positive relative flow but not a quantitative trigger. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 48.63,
+  "sma_crossover_4h": "fast_below_slow, not crossed this candle",
+  "volume_ratio": 1.4,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": 1.63,
+  "price_action_1h_48h_pct": 0.71,
+  "order_book_imbalance_top10": 0.09,
+  "news_context": "XRP spot ETFs pulled in $18.98M this week while BTC/ETH ETFs saw combined outflows of ~$479M; regulatory clarity maintained across multiple jurisdictions."
+}
+```
+
+---
