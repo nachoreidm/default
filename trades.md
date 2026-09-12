@@ -12343,3 +12343,93 @@ The XRP/USD position logged above (id `96537a2c-86f0-4cbd-8b80-b5f5bc8ada22`, op
 ```
 
 ---
+### 2026-09-12T03:12:44.454Z — BTC/USD — NO TRADE
+
+**Reasoning:** No qualifying long-entry signal. RSI 40.8, neutral. SMA 20/50 on 4h fast_below_slow, no crossover this candle. Volume ratio 1.68x, elevated but below the 2x flag. Order book roughly flat (-0.036). Price down modestly on 4h/48h (-1.39%). News is largely recycled (Kraken-Nasdaq tokenization deal, Coinbase CEO's long-term $400K prediction, Liquid Network standoff). No trigger.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 40.84,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 1.68,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": -1.39,
+  "order_book_imbalance_top10": -0.036,
+  "news_context": "Recycled: Kraken-Nasdaq tokenization infrastructure deal, Coinbase CEO's long-term $400K-by-2030 prediction, ongoing Liquid Network hack standoff. No trigger."
+}
+```
+
+---
+### 2026-09-12T03:12:48.299Z — ETH/USD — NO TRADE
+
+**Reasoning:** Same conflicting-signal case persists for the fourth consecutive cycle (identical 4h candle): volume flag_above_2x still true (2.52x), but RSI remains neutral at 56.3 and SMA 20/50 on 4h is still fast_below_slow with no crossover. News this cycle is recycled (Consensys/MetaMask rebrand, quantum-safety roadmap) with nothing fresh. No trade; this setup has now gone stale across four cycles without RSI or SMA confirming - will continue monitoring but not chasing it.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 56.31,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 2.52,
+  "volume_flag_above_2x": true,
+  "price_action_4h_48h_pct": 1.68,
+  "order_book_imbalance_top10": 0.713,
+  "news_context": "Recycled: Consensys/MetaMask rebrand, quantum-safety roadmap. No new catalyst. Volume spike has persisted unconfirmed for 4 consecutive cycles - still a no-trade per the conflicting-signal rule."
+}
+```
+
+---
+### 2026-09-12T03:12:51.760Z — SOL/USD — NO TRADE
+
+**Reasoning:** No qualifying long-entry signal. RSI 53.4, neutral. SMA 20/50 on 4h fast_below_slow, no crossover this candle. Volume ratio 1.68x, elevated but below the 2x flag. Order book roughly flat (0.019). Price roughly flat on 4h/48h (+0.62%). News reiterates the prior data-center routing glitch (already priced in from earlier cycles) alongside recycled fundamentals. No trigger.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 53.44,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 1.684,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": 0.62,
+  "order_book_imbalance_top10": 0.0188,
+  "news_context": "Recycled: SEC ETF status, Transaction v1, Agave 4.2, plus the previously reported data-center routing glitch (29% of staked SOL briefly offline). No fresh quant trigger."
+}
+```
+
+---
+### 2026-09-12T03:12:55.616Z — POL/USD — NO TRADE
+
+**Reasoning:** No qualifying long-entry signal. RSI 57.0, neutral. SMA 20/50 on 4h fast_below_slow, no crossover this candle. Volume ratio 1.18x, no spike. Order book positive (0.336). Price down modestly on 4h/48h (-0.48%). News this cycle is internally inconsistent (claims both a 50% 7-day gain AND a price near $0.076, a ~40% contradiction within the same summary) - further evidence this recurring narrative is unreliable. Continuing to trust live compute_signals data ($0.0965). No trigger.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 56.95,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 1.182,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": -0.48,
+  "order_book_imbalance_top10": 0.336,
+  "news_context": "News source now internally contradicts itself (50% 7-day gain claim alongside a cited price of ~$0.076, a mismatch of nearly 40% from other figures) - reinforcing that this recurring rally narrative is unreliable. Live data ($0.0965) remains authoritative. No trigger."
+}
+```
+
+---
+### 2026-09-12T03:12:58.540Z — XRP/USD — NO TRADE
+
+**Reasoning:** No qualifying long-entry signal. RSI 43.5, neutral. SMA 20/50 on 4h fast_below_slow, no crossover this candle. Volume ratio 1.40x, elevated but below the 2x flag. Order book positive (0.145). Price down modestly on 4h/48h (-2.49%). News is fully recurring (national trust bank, RLUSD/Wormhole, Swell conference, midterm speculation) with nothing new. No trigger.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 43.51,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 1.403,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": -2.49,
+  "order_book_imbalance_top10": 0.145,
+  "news_context": "Fully recurring: national trust bank conditional approval, RLUSD via Wormhole NTT, Swell conference lineup, midterm-election speculation. Nothing new. No trigger."
+}
+```
+
+---
