@@ -13180,3 +13180,76 @@ The XRP/USD position logged above (id `96537a2c-86f0-4cbd-8b80-b5f5bc8ada22`, op
 ```
 
 ---
+### 2026-09-12T13:12:09.330Z — BTC/USD — NO TRADE
+
+**Reasoning:** No qualifying long-entry signal. RSI 42.7, neutral. SMA 20/50 on 4h fast_below_slow, no crossover this candle. Volume ratio 1.68x, below the 2x flag. Order book skewed toward asks (-0.395). Price roughly flat on 4h/48h (+0.15%). News fully recycled. No trigger.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 42.74,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 1.68,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": 0.15,
+  "order_book_imbalance_top10": -0.395,
+  "news_context": "Fully recycled: Liquid Network standoff, Kraken-Nasdaq tokenization deal, Middle East tensions. No trigger."
+}
+```
+
+---
+### 2026-09-12T13:12:11.935Z — SOL/USD — NO TRADE
+
+**Reasoning:** No qualifying long-entry signal. RSI 51.8, neutral. SMA 20/50 on 4h fast_below_slow, no crossover this candle - the 4h trend structure still hasn't caught up to the price bounce. Volume ratio 1.68x, below the 2x flag. Order book positive (0.128). News fully recycled. No trigger.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 51.84,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 1.684,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": 2.42,
+  "order_book_imbalance_top10": 0.128,
+  "news_context": "Fully recycled fundamentals. Price bounce persists but 4h SMA structure still hasn't confirmed. No trigger."
+}
+```
+
+---
+### 2026-09-12T13:12:15.382Z — POL/USD — NO TRADE
+
+**Reasoning:** No qualifying long-entry signal. RSI 53.2, neutral. SMA 20/50 on 4h fast_below_slow, no crossover this candle - same reading as last cycle (SMAs at 0.09555 vs 0.09586, still very close but unchanged). Volume ratio 1.18x, no spike. Order book positive (0.174). Price continues to hold gains (+5.31% on 1h/48h) but the SMA structure hasn't crossed yet. News fully recycled. Continuing to watch closely for the crossover.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 53.21,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle (SMAs still close, unchanged)",
+  "volume_ratio": 1.182,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": 3.55,
+  "price_action_1h_48h_pct": 5.31,
+  "order_book_imbalance_top10": 0.174,
+  "news_context": "Fully recycled fundamentals. Price gains holding but SMA crossover still hasn't triggered. No trade; watching closely."
+}
+```
+
+---
+### 2026-09-12T13:12:17.596Z — XRP/USD — NO TRADE
+
+**Reasoning:** No qualifying long-entry signal. RSI 48.5, neutral. SMA 20/50 on 4h fast_below_slow, no crossover this candle. Volume ratio 1.40x, below the 2x flag. Order book skewed toward asks (-0.101). Price roughly flat on 4h/48h (+1.14%). News fully recurring. No trigger.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 48.52,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 1.403,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": 1.14,
+  "order_book_imbalance_top10": -0.101,
+  "news_context": "Fully recurring: national trust bank, RLUSD/Wormhole, Swell conference. No trigger."
+}
+```
+
+---
