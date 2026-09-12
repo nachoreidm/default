@@ -12962,3 +12962,75 @@ The XRP/USD position logged above (id `96537a2c-86f0-4cbd-8b80-b5f5bc8ada22`, op
 ```
 
 ---
+### 2026-09-12T10:12:12.173Z — BTC/USD — NO TRADE
+
+**Reasoning:** No qualifying long-entry signal. RSI 41.5, neutral. SMA 20/50 on 4h fast_below_slow, no crossover this candle. Volume ratio 1.68x, below the 2x flag. Order book positive (0.446, thin book). Price down modestly on 4h/48h (-0.72%). News recycled (Liquid Network standoff, Coinbase CEO prediction), with one source noting BTC recovering toward $77,300 as zcash-related leverage unwinds. No trigger.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 41.45,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 1.68,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": -0.72,
+  "order_book_imbalance_top10": 0.446,
+  "news_context": "Recovering toward $77,300 as zcash-related leverage unwinds; Liquid Network standoff and Coinbase CEO's long-term prediction recycled. No trigger."
+}
+```
+
+---
+### 2026-09-12T10:12:14.793Z — SOL/USD — NO TRADE
+
+**Reasoning:** No qualifying long-entry signal. RSI 49.3, neutral. SMA 20/50 on 4h fast_below_slow, no crossover this candle. Volume ratio 1.68x, below the 2x flag. Order book roughly flat (-0.052). Price roughly flat on 4h/48h (+0.66%). News notes strong institutional FOMO into Solana ETFs (August inflows above $174M) - constructive but not a fresh quant trigger.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 49.29,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 1.684,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": 0.66,
+  "order_book_imbalance_top10": -0.0519,
+  "news_context": "Wall Street FOMO into Solana ETFs, August inflows above $174M. Constructive but no fresh quant trigger."
+}
+```
+
+---
+### 2026-09-12T10:12:18.900Z — POL/USD — NO TRADE
+
+**Reasoning:** No qualifying long-entry signal. RSI 53.6, neutral. SMA 20/50 on 4h fast_below_slow, no crossover this candle - the two SMAs remain close (0.09549 vs 0.09581) but haven't crossed despite the sustained +4% move on the 4h/48h window. Volume ratio 1.18x, no spike. Order book positive (0.193). News this cycle is more candid, noting Polygon "struggling in 2026 amid Layer-2 competition, weak demand, TVL outflows" alongside the recycled 50%-rally claim - a useful corrective on sentiment. Still no crossover; continuing to watch.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 53.57,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle (SMAs still converging)",
+  "volume_ratio": 1.182,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": 3.97,
+  "order_book_imbalance_top10": 0.193,
+  "news_context": "This cycle's coverage candidly notes Polygon has been struggling in 2026 (L2 competition, weak demand, TVL outflows) alongside the recycled 50%-rally claim - a useful corrective. Live price has firmed but no SMA crossover yet. No trigger."
+}
+```
+
+---
+### 2026-09-12T10:12:20.918Z — XRP/USD — NO TRADE
+
+**Reasoning:** No qualifying long-entry signal. RSI 47.5, neutral. SMA 20/50 on 4h fast_below_slow, no crossover this candle. Volume ratio 1.40x, below the 2x flag. Order book positive (0.068). Price roughly flat on 4h/48h (-0.55%). News fully recurring. No trigger.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 47.48,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 1.403,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": -0.55,
+  "order_book_imbalance_top10": 0.0684,
+  "news_context": "Fully recurring: national trust bank, RLUSD/Wormhole, Swell conference, Congressional delay. No trigger."
+}
+```
+
+---
