@@ -13551,3 +13551,79 @@ The XRP/USD position logged above (id `96537a2c-86f0-4cbd-8b80-b5f5bc8ada22`, op
 ```
 
 ---
+### 2026-09-12T18:15:10.303Z — BTC/USD — NO TRADE
+
+**Reasoning:** No qualifying signal. RSI 43.2 neutral, no 4h SMA crossover (fast_below_slow), volume ratio 1.68x (<2x flag). Price flat to slightly negative (-0.03% 1h/48h, +0.30% 4h/48h). News: ETF flows rotating back into BTC from gold, MSTR resuming purchases, Kraken/Nasdaq tokenization deal — mildly constructive but no trigger firing. WebSearch price ($79,571) again diverges from live compute_signals (~$77,162); compute_signals treated as authoritative. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 43.2,
+  "sma_crossover_4h": "fast_below_slow, not crossed this candle",
+  "volume_ratio": 1.68,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": 0.3,
+  "price_action_1h_48h_pct": -0.03,
+  "order_book_imbalance_top10": -0.16,
+  "news_context": "ETF capital rotating from gold back to BTC; MicroStrategy resuming purchase announcements; Kraken/Nasdaq tokenization partnership. WebSearch price ($79,571) inconsistent with live compute_signals (~$77,162); compute_signals treated as authoritative."
+}
+```
+
+---
+### 2026-09-12T18:15:13.350Z — SOL/USD — NO TRADE
+
+**Reasoning:** No qualifying signal. RSI 51.4 neutral, no 4h SMA crossover (fast_below_slow), volume ratio 1.68x (<2x). Price action positive (+2.0-2.4%) but unconfirmed. News unchanged from last cycle (data-center routing glitch briefly affected staked SOL, network unaffected; MoneyGram integration). No trigger firing, no trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 51.42,
+  "sma_crossover_4h": "fast_below_slow, not crossed this candle",
+  "volume_ratio": 1.68,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": 2.41,
+  "price_action_1h_48h_pct": 2.05,
+  "order_book_imbalance_top10": -0.025,
+  "news_context": "Data-center routing glitch briefly affected ~29% of staked SOL (chain unaffected, blocks continued); MoneyGram network integration for on/off ramps."
+}
+```
+
+---
+### 2026-09-12T18:15:16.516Z — POL/USD — NO TRADE
+
+**Reasoning:** No qualifying signal. RSI 57.2 neutral, SMA still fast_below_slow (0.095467 vs 0.0959088), volume ratio only 1.18x. Price action positive (+3.3-4.3%) but unconfirmed. News: Austin/Kyoto security hard forks, block time reduced to 1.75s, Bank of England Digital Pound Lab Phase 2 partnership with NOBO Finance and Dun & Bradstreet. No trigger firing, no trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 57.18,
+  "sma_crossover_4h": "fast_below_slow, narrowing but not crossed this candle",
+  "volume_ratio": 1.18,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": 4.34,
+  "price_action_1h_48h_pct": 3.25,
+  "order_book_imbalance_top10": 0.314,
+  "news_context": "Austin/Kyoto hard forks patched DoS and validator security vulnerabilities; block time reduced to 1.75s; Polygon Labs joined Bank of England Digital Pound Lab Phase 2 with NOBO Finance and Dun & Bradstreet for SME trade finance."
+}
+```
+
+---
+### 2026-09-12T18:15:19.903Z — XRP/USD — NO TRADE
+
+**Reasoning:** No qualifying signal. RSI 48.6 neutral, no 4h SMA crossover (fast_below_slow), volume ratio 1.40x (<2x). Price action mildly positive on compute_signals (+0.78% 1h/48h, +1.63% 4h/48h), though one WebSearch source cited a -4.20% 24h decline — inconsistent with live data; compute_signals treated as authoritative. News: continued modest XRP ETF inflows ($18.98M this week) vs BTC/ETH outflows, nothing trigger-worthy. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 48.63,
+  "sma_crossover_4h": "fast_below_slow, not crossed this candle",
+  "volume_ratio": 1.4,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": 1.63,
+  "price_action_1h_48h_pct": 0.78,
+  "order_book_imbalance_top10": -0.004,
+  "news_context": "XRP spot ETFs pulled in $18.98M this week while BTC/ETH ETFs saw combined outflows of ~$479M. One WebSearch source cited a -4.2% 24h price move inconsistent with live compute_signals; compute_signals treated as authoritative."
+}
+```
+
+---
