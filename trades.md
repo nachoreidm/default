@@ -12253,3 +12253,93 @@ The XRP/USD position logged above (id `96537a2c-86f0-4cbd-8b80-b5f5bc8ada22`, op
 ```
 
 ---
+### 2026-09-12T02:12:06.748Z — BTC/USD — NO TRADE
+
+**Reasoning:** No qualifying long-entry signal. RSI 40.8, neutral. SMA 20/50 on 4h fast_below_slow, no crossover this candle. Volume ratio 1.68x, elevated but below the 2x flag. Order book positive (0.211). Price down modestly on 4h/48h (-1.39%). News: continued ETF outflows for BTC specifically (though ETH/XRP/SOL funds took in money), MSTR signaling resumed purchases, SGX institutional futures access. No trigger.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 40.84,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 1.68,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": -1.39,
+  "order_book_imbalance_top10": 0.211,
+  "news_context": "BTC funds shed $120M while ETH/XRP/SOL funds took in money - a relative rotation away from BTC. MicroStrategy signaling resumed purchases. SGX opened BTC/ETH futures to US institutions. No trigger."
+}
+```
+
+---
+### 2026-09-12T02:12:10.797Z — ETH/USD — NO TRADE
+
+**Reasoning:** Same conflicting-signal case persists for the third consecutive cycle (same 4h candle): volume flag_above_2x still true (2.52x), but RSI remains neutral at 56.3 and SMA 20/50 on 4h is still fast_below_slow with no crossover. News this cycle is comparatively quiet (Hegotá upgrade progress, Consensys/MetaMask rebrand reiterated) - no fresh catalyst to reassess the setup. No trade; the volume spike alone still doesn't qualify per the instructions' conflicting-signal example.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 56.31,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 2.52,
+  "volume_flag_above_2x": true,
+  "price_action_4h_48h_pct": 1.68,
+  "order_book_imbalance_top10": 0.213,
+  "news_context": "Quieter cycle: Hegotá upgrade progress (Frame Transactions locked in per Vitalik), Consensys/MetaMask rebrand reiterated. No new catalyst. Volume spike persists but RSI/SMA remain unconfirmed - still a no-trade per the conflicting-signal rule."
+}
+```
+
+---
+### 2026-09-12T02:12:13.837Z — SOL/USD — NO TRADE
+
+**Reasoning:** No qualifying long-entry signal. RSI 53.4, neutral. SMA 20/50 on 4h fast_below_slow, no crossover this candle. Volume ratio 1.68x, elevated but below the 2x flag. Order book roughly flat (0.016). Price roughly flat on 4h/48h (+0.62%). News recycled (SEC ETF status, Transaction v1, Agave 4.2). No trigger.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 53.44,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 1.684,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": 0.62,
+  "order_book_imbalance_top10": 0.016,
+  "news_context": "Recycled fundamentals: SEC core ETF asset status, Transaction v1, Agave 4.2 rent reduction, $4.7T stablecoin volume over the past year. No fresh quant trigger."
+}
+```
+
+---
+### 2026-09-12T02:12:16.405Z — POL/USD — NO TRADE
+
+**Reasoning:** No qualifying long-entry signal. RSI 57.0, neutral. SMA 20/50 on 4h fast_below_slow, no crossover this candle. Volume ratio 1.18x, no spike. Order book positive (0.242). Price roughly flat on 4h/48h (-0.48%). News continues to repeat the same unconfirmed late-August "50% in 7 days" claim, still not matching live data. No trigger.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 56.95,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 1.182,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": -0.48,
+  "order_book_imbalance_top10": 0.242,
+  "news_context": "Same recycled late-August rally claim persists, unconfirmed by live data across many cycles. No trigger."
+}
+```
+
+---
+### 2026-09-12T02:12:18.997Z — XRP/USD — NO TRADE
+
+**Reasoning:** No qualifying long-entry signal. RSI 43.5, neutral. SMA 20/50 on 4h fast_below_slow, no crossover this candle. Volume ratio 1.40x, elevated but below the 2x flag. Order book roughly flat (-0.050). Price down modestly on 4h/48h (-2.49%). News recurring (national trust bank, RLUSD/Wormhole, Swell conference lineup details). No trigger.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 43.51,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 1.403,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": -2.49,
+  "order_book_imbalance_top10": -0.0501,
+  "news_context": "Recurring: national trust bank conditional approval, RLUSD via Wormhole NTT, Swell conference speaker lineup details (Franklin Templeton, Citibank). Nothing new to trigger a trade."
+}
+```
+
+---
