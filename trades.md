@@ -13627,3 +13627,79 @@ The XRP/USD position logged above (id `96537a2c-86f0-4cbd-8b80-b5f5bc8ada22`, op
 ```
 
 ---
+### 2026-09-12T19:15:11.931Z — BTC/USD — NO TRADE
+
+**Reasoning:** No qualifying signal. RSI 43.2 neutral, no 4h SMA crossover (fast_below_slow), volume ratio 1.68x (<2x flag). Price flat (-0.01% 1h/48h, +0.30% 4h/48h). News: Ether ETFs gained $216M inflows while BTC ETFs extended a 4-day outflow streak; Binance reserves hit 693k BTC near a $85K resistance wall; MSTR resuming purchases. No trigger firing regardless. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 43.2,
+  "sma_crossover_4h": "fast_below_slow, not crossed this candle",
+  "volume_ratio": 1.68,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": 0.3,
+  "price_action_1h_48h_pct": -0.01,
+  "order_book_imbalance_top10": 0.229,
+  "news_context": "Ether ETFs gained $216M while BTC ETFs extended a 4-day outflow streak; Binance reserves hit 693,000 BTC near an $85K resistance wall; MicroStrategy resuming purchase announcements."
+}
+```
+
+---
+### 2026-09-12T19:15:15.001Z — SOL/USD — NO TRADE
+
+**Reasoning:** No qualifying signal. RSI 51.4 neutral, no 4h SMA crossover (fast_below_slow), volume ratio 1.68x (<2x). Price action positive (+2.0-2.4%) but unconfirmed. News: Solana's first network-wide governance vote narrowly passed a disinflation proposal after some validators switched sides late; no new material catalyst beyond prior cycles. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 51.42,
+  "sma_crossover_4h": "fast_below_slow, not crossed this candle",
+  "volume_ratio": 1.68,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": 2.41,
+  "price_action_1h_48h_pct": 1.98,
+  "order_book_imbalance_top10": -0.027,
+  "news_context": "Solana's first network-wide vote narrowly passed a disinflation proposal after some Kraken/Galaxy-linked validators switched sides; MoneyGram integration ongoing."
+}
+```
+
+---
+### 2026-09-12T19:15:18.300Z — POL/USD — NO TRADE
+
+**Reasoning:** No qualifying signal. RSI 57.2 neutral, SMA still fast_below_slow (0.095467 vs 0.0959088), volume ratio only 1.18x. Price action positive (+3.2-4.3%) but unconfirmed. News unchanged from last cycle (Austin/Kyoto security hard forks, block time cut to 1.75s, stablecoin/payments focus). No trigger firing, no trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 57.18,
+  "sma_crossover_4h": "fast_below_slow, narrowing but not crossed this candle",
+  "volume_ratio": 1.18,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": 4.34,
+  "price_action_1h_48h_pct": 3.18,
+  "order_book_imbalance_top10": 0.281,
+  "news_context": "Austin/Kyoto hard forks patched DoS and validator security vulnerabilities; block time reduced to 1.75s; continued stablecoin/payments infrastructure focus."
+}
+```
+
+---
+### 2026-09-12T19:15:21.563Z — XRP/USD — NO TRADE
+
+**Reasoning:** No qualifying signal. RSI 48.6 neutral, no 4h SMA crossover (fast_below_slow), volume ratio 1.40x (<2x). Price action mildly positive on compute_signals (+0.95% 1h/48h, +1.63% 4h/48h); one WebSearch source again cited a -4.20% 24h decline, inconsistent with live data — treating compute_signals as authoritative. News: continued modest XRP ETF inflows vs BTC/ETH outflows, nothing trigger-worthy. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 48.63,
+  "sma_crossover_4h": "fast_below_slow, not crossed this candle",
+  "volume_ratio": 1.4,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": 1.63,
+  "price_action_1h_48h_pct": 0.95,
+  "order_book_imbalance_top10": 0.134,
+  "news_context": "XRP spot ETFs pulled in $18.98M this week while BTC/ETH ETFs saw combined outflows of ~$479M. WebSearch again showed a -4.2% 24h move inconsistent with live compute_signals; compute_signals treated as authoritative."
+}
+```
+
+---
