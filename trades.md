@@ -13399,3 +13399,79 @@ The XRP/USD position logged above (id `96537a2c-86f0-4cbd-8b80-b5f5bc8ada22`, op
 ```
 
 ---
+### 2026-09-12T16:14:38.170Z — BTC/USD — NO TRADE
+
+**Reasoning:** No qualifying signal. RSI 43.2 is neutral (no oversold/overbought extreme). SMA 20/50 4h remains fast_below_slow with no crossover this candle. 24h volume at 1.68x the 7-day average is elevated but below the 2x flag. Price action is modestly positive (+0.30% 4h/48h) but unconfirmed by any of the three trigger signals. News: BTC consolidating near $77K after hot CPI/PPI data raised Fed rate-hike odds to >85% and Middle East tensions pushed oil higher; spot BTC ETFs just ended a 3-week inflow streak with ~$463M in redemptions over 4 sessions (smallest outflow of the month today); a Liquid Network sidechain incident drained 4,000 BTC (3,400 later returned) — net risk-off/cautious backdrop, but moot since no quantitative trigger is firing.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 43.2,
+  "sma_crossover_4h": "fast_below_slow, not crossed this candle",
+  "volume_ratio": 1.68,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": 0.3,
+  "price_action_1h_48h_pct": 0.27,
+  "order_book_imbalance_top10": 0.302,
+  "news_context": "BTC ~$77K, consolidating after hot inflation prints raised Fed hike odds; ETF inflow streak ended with ~$463M redemptions over 4 sessions; Liquid Network sidechain drained 4,000 BTC (3,400 returned); Revolut confirmed a data breach exposing BTC transaction histories."
+}
+```
+
+---
+### 2026-09-12T16:14:42.531Z — SOL/USD — NO TRADE
+
+**Reasoning:** No qualifying signal. RSI 51.4 is neutral. SMA 20/50 4h is fast_below_slow with no crossover this candle. Volume ratio 1.68x is elevated but below the 2x flag. Price action is positive (+2.4% on both 1h/48h and 4h/48h) but not confirmed by volume or a crossover. News is constructive (SEC named SOL a Core ETF Asset, strong SOL ETF inflows, exchange supply falling, Transaction V1/Alpenglow upgrades in progress, bounce off a death cross) but per the rules news can't manufacture a trigger on its own — none of the three quantitative triggers (RSI extreme, fresh crossover, volume >2x) is firing, so no trade this cycle.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 51.42,
+  "sma_crossover_4h": "fast_below_slow, not crossed this candle",
+  "volume_ratio": 1.68,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": 2.41,
+  "price_action_1h_48h_pct": 2.42,
+  "order_book_imbalance_top10": -0.0078,
+  "news_context": "SOL rebounded above $100 after a short-term death cross; SEC named SOL a Core ETF Asset on Sep 5; SOL ETFs pulled in $153.9M this week (strongest since Oct 2025); exchange supply down 4.91%; Transaction V1 and Alpenglow upgrades progressing."
+}
+```
+
+---
+### 2026-09-12T16:14:48.104Z — POL/USD — NO TRADE
+
+**Reasoning:** No qualifying signal. RSI 57.2 is neutral. SMA 20/50 4h remains fast_below_slow (fast 0.095467 vs slow 0.0959088) — gap has narrowed further but has not crossed this candle. Volume ratio only 1.18x, well below the 2x flag. Price action is positive (+4.3-4.8%) but unconfirmed by volume or a crossover. Data-quality note: WebSearch news results for POL are again inconsistent with live data — one source cites a "$0.117 September target" and a "descending channel breakout," another describes POL as being in a persistent downtrend ("why POL keeps falling") — these are contradictory and don't clearly corroborate the live compute_signals price of ~$0.097; treating compute_signals as authoritative per the operating rules. No trigger signal is firing regardless, so no trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 57.18,
+  "sma_crossover_4h": "fast_below_slow (0.095467 vs 0.0959088), narrowing but not crossed this candle",
+  "volume_ratio": 1.18,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": 4.34,
+  "price_action_1h_48h_pct": 4.82,
+  "order_book_imbalance_top10": -0.225,
+  "news_context": "Mixed/contradictory: some sources cite a bullish descending-channel breakout with a ~$0.117 September target, others describe a persistent 2026 downtrend; Polygon Labs conducted a second 2026 layoff round while finalizing the Coinme acquisition and joined Phase 2 of the Bank of England's Digital Pound Lab. Treating compute_signals (~$0.097) as authoritative over inconsistent news price claims."
+}
+```
+
+---
+### 2026-09-12T16:14:52.171Z — XRP/USD — NO TRADE
+
+**Reasoning:** No qualifying signal. RSI 48.6 is neutral. SMA 20/50 4h is fast_below_slow with no crossover this candle. Volume ratio 1.40x is below the 2x flag. Price action is mildly positive (+1.4-1.6%). News is mixed-to-neutral: Ripple approaching its 10th 1B-XRP escrow unlock of 2026 (Oct 1, a known/recurring supply event that the market has historically absorbed without much impact) and an AI treasury platform expansion; nothing that would override the lack of a quantitative trigger. No trade this cycle.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 48.63,
+  "sma_crossover_4h": "fast_below_slow, not crossed this candle",
+  "volume_ratio": 1.4,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": 1.63,
+  "price_action_1h_48h_pct": 1.36,
+  "order_book_imbalance_top10": -0.107,
+  "news_context": "Ripple approaching its 10th 1B-XRP escrow unlock of 2026 (Oct 1); Ripple expanded its GSmart AI treasury platform integrating XRP/RLUSD; XRP up 28.5% in August (best since 2021); spot XRP ETFs pulled in $153.55M in August."
+}
+```
+
+---
