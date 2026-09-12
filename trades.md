@@ -12793,3 +12793,99 @@ The XRP/USD position logged above (id `96537a2c-86f0-4cbd-8b80-b5f5bc8ada22`, op
 ```
 
 ---
+### 2026-09-12T08:14:01.374Z — ETH/USD — LONG — OPENED
+
+- Entry price: $2526.10
+- Stop-loss: $2470.00
+- Position size: 3% of portfolio ($299.68, qty 0.11815998)
+- Entry fee (paper): $1.20
+- Confidence: medium — Two quantitative signals align: a fresh bullish 20/50 SMA crossover on the 4h chart this candle, confirmed by 24h volume at 2.52x the 7-day average (above the 2x flag). RSI at 57.5 is neutral with room to run before overbought. Price action confirms (+2.51% on 4h/48h, +2.14% on 1h/48h). News strongly corroborates: ETH ETFs pulled in ~$1.2B this month (highest since Aug 2025), sentiment flipped from Fear to Extreme Greed, and ~116,000 ETH (~$300M) left exchanges in 48h reducing available sell-side supply. Capped at medium rather than high because the top-10 order book is notably ask-heavy (imbalance -0.64, thin book) suggesting some near-term selling pressure, and "Extreme Greed" readings carry contrarian pullback risk.
+- Invalidation (what proves this wrong): Price closes back below the 50-period 4h SMA (~2484) or the bullish crossover reverses (fast SMA crosses back below slow SMA) — either would invalidate the breakout thesis.
+- Signals supporting this trade:
+```json
+{
+  "rsi_14_4h": 57.53,
+  "sma_crossover_4h": "bullish cross this candle (fast_above_slow)",
+  "volume_ratio": 2.52,
+  "volume_flag_above_2x": true,
+  "price_action_4h_48h_pct": 2.51,
+  "price_action_1h_48h_pct": 2.14,
+  "order_book_imbalance_top10": -0.642,
+  "news_context": "ETH ETFs saw ~$1.2B inflows this month (highest since Aug 2025), market sentiment jumped from Fear (<40) to Extreme Greed (80), and ~116,000 ETH (~$300M) left exchanges in the last 48h. Analysts eyeing $2,800 if $2,560 resistance breaks on a daily close."
+}
+```
+- Position id: 84ff8cff-7e51-4be0-a108-ee1e84ff087f
+
+---
+### 2026-09-12T08:14:10.506Z — BTC/USD — NO TRADE
+
+**Reasoning:** No qualifying long-entry signal. RSI 41.5, neutral. SMA 20/50 on 4h fast_below_slow, no crossover this candle. Volume ratio 1.68x, below the 2x flag. Order book shows extreme imbalance (+0.978) but the book is very thin (bid 5.7, ask 0.06) - likely noise rather than a real signal. Price down modestly on 4h/48h (-0.72%). News fully recycled (Liquid Network standoff, Coinbase CEO's long-term prediction). No trigger.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 41.45,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 1.68,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": -0.72,
+  "order_book_imbalance_top10": 0.978,
+  "news_context": "Recycled: Liquid Network standoff, Coinbase CEO's long-term $400K prediction. Extreme order-book imbalance is likely just thin-book noise (ask side near-empty). No trigger."
+}
+```
+
+---
+### 2026-09-12T08:14:14.175Z — SOL/USD — NO TRADE
+
+**Reasoning:** No qualifying long-entry signal. RSI 49.3, neutral. SMA 20/50 on 4h fast_below_slow, no crossover this candle. Volume ratio 1.68x, below the 2x flag. Order book roughly flat (0.047). Price up modestly on 4h/48h (+0.66%), consistent with the broader ETH-led bounce, but no confirming quant trigger of its own. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 49.29,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 1.684,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": 0.66,
+  "order_book_imbalance_top10": 0.0469,
+  "news_context": "Recycled fundamentals (SEC ETF status, Transaction v1, Agave 4.2, Bitwise BSOL volume record). Modest price uptick likely tracks the broader crypto bounce led by ETH. No fresh quant trigger."
+}
+```
+
+---
+### 2026-09-12T08:14:18.292Z — POL/USD — NO TRADE
+
+**Reasoning:** No qualifying long-entry signal, though price action has firmed up notably this cycle (+3.97% on the 4h/48h window, versus roughly flat in prior cycles). RSI 53.6, neutral. SMA 20/50 on 4h still fast_below_slow, no crossover yet - the two SMAs are converging (0.09549 vs 0.09581) but haven't crossed. Volume ratio 1.18x, no spike. Order book positive (0.367). Watching closely for a bullish crossover next cycle if this move continues; no trigger yet.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 53.57,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle (SMAs converging)",
+  "volume_ratio": 1.182,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": 3.97,
+  "order_book_imbalance_top10": 0.367,
+  "news_context": "Recycled fundamentals (8B transactions, hard forks, tokenomics overhaul proposal). Live price action has firmed noticeably this cycle (+3.97% on 4h/48h) and the 20/50 SMAs are converging, but no crossover yet - watching closely next cycle."
+}
+```
+
+---
+### 2026-09-12T08:14:20.127Z — XRP/USD — NO TRADE
+
+**Reasoning:** No qualifying long-entry signal. RSI 47.5, neutral. SMA 20/50 on 4h fast_below_slow, no crossover this candle. Volume ratio 1.40x, below the 2x flag. Order book roughly flat (-0.058). Price roughly flat on 4h/48h (-0.55%). News fully recurring. No trigger.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 47.48,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 1.403,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": -0.55,
+  "order_book_imbalance_top10": -0.0579,
+  "news_context": "Fully recurring: institutional minting platform, RLUSD/Wormhole, national trust bank, Swell conference. No trigger."
+}
+```
+
+---

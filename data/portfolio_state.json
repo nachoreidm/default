@@ -1,7 +1,34 @@
 {
   "starting_balance": 10000,
-  "cash": 9989.43145131503,
-  "open_positions": [],
+  "cash": 9689.74850777558,
+  "open_positions": [
+    {
+      "id": "84ff8cff-7e51-4be0-a108-ee1e84ff087f",
+      "pair": "ETH/USD",
+      "direction": "long",
+      "entry_price": 2526.10242,
+      "stop_loss": 2470,
+      "size_pct": 3,
+      "size_usd": 299.6829435394509,
+      "quantity": 0.1181599801346507,
+      "entry_fee": 1.1987317741578036,
+      "opened_at": "2026-09-12T08:14:01.374Z",
+      "signals_at_entry": {
+        "rsi_14_4h": 57.53,
+        "sma_crossover_4h": "bullish cross this candle (fast_above_slow)",
+        "volume_ratio": 2.52,
+        "volume_flag_above_2x": true,
+        "price_action_4h_48h_pct": 2.51,
+        "price_action_1h_48h_pct": 2.14,
+        "order_book_imbalance_top10": -0.642,
+        "news_context": "ETH ETFs saw ~$1.2B inflows this month (highest since Aug 2025), market sentiment jumped from Fear (<40) to Extreme Greed (80), and ~116,000 ETH (~$300M) left exchanges in the last 48h. Analysts eyeing $2,800 if $2,560 resistance breaks on a daily close."
+      },
+      "invalidation": "Price closes back below the 50-period 4h SMA (~2484) or the bullish crossover reverses (fast SMA crosses back below slow SMA) — either would invalidate the breakout thesis.",
+      "confidence": "medium",
+      "confidence_reason": "Two quantitative signals align: a fresh bullish 20/50 SMA crossover on the 4h chart this candle, confirmed by 24h volume at 2.52x the 7-day average (above the 2x flag). RSI at 57.5 is neutral with room to run before overbought. Price action confirms (+2.51% on 4h/48h, +2.14% on 1h/48h). News strongly corroborates: ETH ETFs pulled in ~$1.2B this month (highest since Aug 2025), sentiment flipped from Fear to Extreme Greed, and ~116,000 ETH (~$300M) left exchanges in 48h reducing available sell-side supply. Capped at medium rather than high because the top-10 order book is notably ask-heavy (imbalance -0.64, thin book) suggesting some near-term selling pressure, and \"Extreme Greed\" readings carry contrarian pullback risk.",
+      "status": "open"
+    }
+  ],
   "closed_positions": [
     {
       "id": "0d46d29c-18fc-4353-a4d2-527d052da80b",
@@ -52,8 +79,13 @@
       "date": "2026-09-07",
       "realized_pnl_usd": -10.568548684970153,
       "halted": false
+    },
+    {
+      "date": "2026-09-12",
+      "realized_pnl_usd": 0,
+      "halted": false
     }
   ],
   "created_at": "2026-09-06T14:02:11.057Z",
-  "updated_at": "2026-09-07T16:13:28.080Z"
+  "updated_at": "2026-09-12T08:14:01.374Z"
 }
