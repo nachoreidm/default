@@ -13253,3 +13253,76 @@ The XRP/USD position logged above (id `96537a2c-86f0-4cbd-8b80-b5f5bc8ada22`, op
 ```
 
 ---
+### 2026-09-12T14:17:59.794Z — BTC/USD — NO TRADE
+
+**Reasoning:** No qualifying long-entry signal. RSI 42.7, neutral. SMA 20/50 on 4h fast_below_slow, no crossover this candle. Volume ratio 1.68x, below the 2x flag. Order book skewed toward asks (-0.122). Price roughly flat on 4h/48h (+0.15%). News fully recycled. No trigger.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 42.74,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 1.68,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": 0.15,
+  "order_book_imbalance_top10": -0.122,
+  "news_context": "Fully recycled: Kraken-Nasdaq deal, Liquid Network hack, Coinbase CEO's long-term prediction. No trigger."
+}
+```
+
+---
+### 2026-09-12T14:18:02.460Z — SOL/USD — NO TRADE
+
+**Reasoning:** No qualifying long-entry signal. RSI 51.8, neutral. SMA 20/50 on 4h fast_below_slow, no crossover this candle. Volume ratio 1.68x, below the 2x flag. Order book roughly flat (0.032). News notes over 90% of tokenized equities now on Solana - constructive but not a fresh quant trigger. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 51.84,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 1.684,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": 2.42,
+  "order_book_imbalance_top10": 0.0324,
+  "news_context": "Over 90% of tokenized equities now on Solana per this cycle's coverage; otherwise recycled fundamentals. No fresh quant trigger."
+}
+```
+
+---
+### 2026-09-12T14:18:06.092Z — POL/USD — NO TRADE
+
+**Reasoning:** No qualifying long-entry signal. RSI 53.2, neutral. SMA 20/50 on 4h fast_below_slow, no crossover this candle - still the same 4h candle reading. Volume ratio 1.18x, no spike. Order book flipped notably ask-heavy this cycle (-0.234, from +0.174 last cycle) despite price continuing to hold gains (+5.12% on 1h/48h). This is a caution flag against chasing the move even if a crossover eventually fires. News fully recycled. No trigger.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 53.21,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle (still same 4h candle)",
+  "volume_ratio": 1.182,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": 3.55,
+  "price_action_1h_48h_pct": 5.12,
+  "order_book_imbalance_top10": -0.234,
+  "news_context": "Fully recycled fundamentals. Order book turned notably ask-heavy this cycle despite continued price strength - a caution signal. No trigger."
+}
+```
+
+---
+### 2026-09-12T14:18:08.677Z — XRP/USD — NO TRADE
+
+**Reasoning:** No qualifying long-entry signal. RSI 48.5, neutral. SMA 20/50 on 4h fast_below_slow, no crossover this candle. Volume ratio 1.40x, below the 2x flag. Order book positive (0.243). Price roughly flat on 4h/48h (+1.14%). News: Mastercard expanding settlement capabilities to include stablecoin options is a mild positive for RLUSD, but not a fresh quant trigger. No trigger.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 48.52,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 1.403,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": 1.14,
+  "order_book_imbalance_top10": 0.243,
+  "news_context": "Mastercard expanding settlement options to include stablecoin (mild positive for RLUSD ecosystem); otherwise recurring fundamentals. No trigger."
+}
+```
+
+---
