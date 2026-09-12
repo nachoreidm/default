@@ -12433,3 +12433,93 @@ The XRP/USD position logged above (id `96537a2c-86f0-4cbd-8b80-b5f5bc8ada22`, op
 ```
 
 ---
+### 2026-09-12T04:12:11.947Z — BTC/USD — NO TRADE
+
+**Reasoning:** No qualifying long-entry signal. RSI 41.5, neutral. SMA 20/50 on 4h fast_below_slow, no crossover this candle. Volume ratio 1.68x, elevated but below the 2x flag. Order book roughly flat (-0.109). Price down modestly on 4h/48h (-1.06%). News mentions an unspecified indicator flipping positive for the first time since May as BTC eyes reclaiming $80K - interesting but not one of our five authorized signals and too vague to act on. No trigger.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 41.54,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 1.68,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": -1.06,
+  "order_book_imbalance_top10": -0.109,
+  "news_context": "An unnamed technical indicator reportedly flipped positive for the first time since May as BTC looks to reclaim $80K - vague and not one of the authorized signals. Kraken-Nasdaq deal and Liquid Network standoff recycled. No trigger."
+}
+```
+
+---
+### 2026-09-12T04:12:21.259Z — ETH/USD — NO TRADE
+
+**Reasoning:** Volume flag_above_2x remains true (2.52x) for the fifth consecutive cycle, but RSI eased slightly to 55.7 (still well short of 70) and SMA 20/50 on 4h remains fast_below_slow with no crossover. News is fully recycled (Consensys/MetaMask rebrand, quantum-safety roadmap) with no fresh catalyst. This setup continues to not qualify per the conflicting-signal rule; no trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 55.69,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 2.52,
+  "volume_flag_above_2x": true,
+  "price_action_4h_48h_pct": 1.66,
+  "order_book_imbalance_top10": 0.346,
+  "news_context": "Fully recycled: Consensys/MetaMask rebrand, quantum-safety roadmap. RSI eased slightly to 55.7. Volume spike persists into a 5th cycle without RSI/SMA confirmation - still no trade."
+}
+```
+
+---
+### 2026-09-12T04:12:23.616Z — SOL/USD — NO TRADE
+
+**Reasoning:** No qualifying long-entry signal. RSI 49.2, neutral. SMA 20/50 on 4h fast_below_slow, no crossover this candle. Volume ratio 1.68x, elevated but below the 2x flag. Order book skewed toward asks (-0.144). Price roughly flat on 4h/48h (+0.35%). News: a new Solana-based prediction-market platform ("World") launched with 150K+ live markets - notable ecosystem growth but not a quant trigger. No trigger.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 49.18,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 1.684,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": 0.35,
+  "order_book_imbalance_top10": -0.144,
+  "news_context": "New Solana-based prediction market 'World' opened to 1M+ waitlisted users with 150K+ live markets - notable ecosystem growth, not a quant trigger. No trade."
+}
+```
+
+---
+### 2026-09-12T04:12:25.624Z — POL/USD — NO TRADE
+
+**Reasoning:** No qualifying long-entry signal. RSI 53.5, neutral. SMA 20/50 on 4h fast_below_slow, no crossover this candle. Volume ratio 1.18x, no spike. Order book positive (0.274). Price roughly flat on 4h/48h (-0.10%). News continues to repeat the same unconfirmed late-August rally claim. No trigger.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 53.54,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 1.182,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": -0.1,
+  "order_book_imbalance_top10": 0.274,
+  "news_context": "Same recycled late-August rally claim persists, unconfirmed by live data. No trigger."
+}
+```
+
+---
+### 2026-09-12T04:12:27.848Z — XRP/USD — NO TRADE
+
+**Reasoning:** No qualifying long-entry signal. RSI 45.9, neutral. SMA 20/50 on 4h fast_below_slow, no crossover this candle. Volume ratio 1.40x, elevated but below the 2x flag. Order book positive (0.049). Price down modestly on 4h/48h (-1.33%). News fully recurring (national trust bank, RLUSD/Wormhole, Swell conference, midterm speculation). No trigger.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 45.94,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 1.403,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": -1.33,
+  "order_book_imbalance_top10": 0.0491,
+  "news_context": "Fully recurring: national trust bank conditional approval, RLUSD via Wormhole NTT, Swell conference, midterm-election speculation. No trigger."
+}
+```
+
+---
