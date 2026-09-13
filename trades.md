@@ -14666,3 +14666,98 @@ fields changed; this is a schema backfill, not a trade action.
 ```
 
 ---
+### 2026-09-13T06:12:43.748Z — BTC/USD — NO TRADE
+
+**Reasoning:** No qualifying signal: SMA still fast_below_slow, no crossover this candle; RSI 41.7 neutral; volume ratio 0.28x (well below 2x flag). Price is roughly flat (+0.05% 1h/48h, -0.04% 4h/48h). Order book flipped to modestly bid-heavy (+0.45) but that alone isn't in the trigger set. News: BTC holding above $77K but capped below $80K amid hawkish Fed expectations ahead of the Sep 16 FOMC decision (hot CPI, ~87% hike odds), CoinShares says no dovish catalyst; Symbiosis bridge exploit recovery/bounty window closed today. Net neutral-to-cautious, no independent trigger. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 41.66777797584144,
+  "sma_crossover_4h": "fast_below_slow, not crossed this candle",
+  "volume_ratio": 0.2762641331307323,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": -0.03898595081035837,
+  "price_action_1h_48h_pct": 0.04698208080141711,
+  "order_book_imbalance_top10": 0.4534209509083881,
+  "news_context": "BTC holding above $77K, capped below $80K on hawkish Fed expectations ahead of Sep 16 FOMC (CPI hot, ~87% hike odds, CoinShares: no dovish catalyst); Symbiosis BTC-bridge exploit bounty window closing today. No quant signal to corroborate."
+}
+```
+
+---
+### 2026-09-13T06:12:49.820Z — ETH/USD — NO TRADE
+
+**Reasoning:** Already holding the medium-confidence long from a prior cycle (entry 2526.10, stop 2470, TP 2638.31), now ~-0.56% unrealized. No fresh signal this cycle: SMA still fast_above_slow but not crossed this candle, RSI 55.2 neutral, volume ratio 0.60x (below 2x flag). Order book is notably ask-heavy (-0.75) this cycle, a mild headwind. News: ETH pulled back below $2,600 after the CPI-driven rally, consolidating ahead of the Sep 16 FOMC decision; increased whale activity (>$1M txns up ~14%) during the earlier move up, but momentum has cooled. No basis to add or adjust; position held under its existing stop/take-profit.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 55.20022192772605,
+  "sma_crossover_4h": "fast_above_slow, not crossed this candle",
+  "volume_ratio": 0.5980995925126551,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": 2.173040513421359,
+  "price_action_1h_48h_pct": 2.28350128753626,
+  "order_book_imbalance_top10": -0.7535268774814856,
+  "news_context": "ETH fell back below $2,600 after its CPI rally, consolidating ahead of Sep 16 FOMC; whale (>$1M) transaction count rose ~14% during the earlier move to $2,665. No fresh quant signal; existing open position held unchanged."
+}
+```
+
+---
+### 2026-09-13T06:12:55.189Z — SOL/USD — NO TRADE
+
+**Reasoning:** No qualifying signal: SMA remains fast_below_slow with no crossover, RSI 49.0 neutral, volume ratio 0.32x (well below 2x flag) despite the recent price gain. Order book near-flat (-0.01). News is constructive (SEC named SOL a core ETF asset Sep 5, Transaction V1 live, phased rent reduction underway, Alpenglow upgrade due October, strong address growth and ETF inflows) but per policy this can't manufacture a trade without a quantitative signal already pointing somewhere. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 48.99226437938462,
+  "sma_crossover_4h": "fast_below_slow, not crossed this candle",
+  "volume_ratio": 0.32023544696362494,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": 1.90552602547388,
+  "price_action_1h_48h_pct": 2.02445379835638,
+  "order_book_imbalance_top10": -0.013749113398036767,
+  "news_context": "Constructive: SEC named SOL a core ETF asset (Sep 5), Transaction V1 live since Sep 9, phased rent reduction started Aug 31, Alpenglow consensus upgrade due October, strong address growth and $153.87M weekly ETF inflows. No quant signal for it to corroborate this cycle."
+}
+```
+
+---
+### 2026-09-13T06:13:01.055Z — POL/USD — NO TRADE
+
+**Reasoning:** No qualifying signal: SMA still fast_below_slow (fast 0.09533 vs slow 0.09607, unchanged from last cycle, still not crossed), RSI 51.7 neutral, volume ratio 0.53x (below 2x flag). Price action strengthened intraday (+4.19% 1h/48h) and book is now more bid-heavy (+0.41), but without a confirmed crossover or volume spike this still doesn't clear the bar. News: mixed as before — security hardening and a payments-focused strategic pivot cited as bullish, other coverage still flags a persistent downtrend; ~99% of MATIC now migrated to POL. No trade — watching for the SMA crossover to complete.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 51.67838058298355,
+  "sma_crossover_4h": "fast_below_slow (fast 0.09533 vs slow 0.09607), not crossed this candle",
+  "volume_ratio": 0.5345884189420033,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": 3.407136715391236,
+  "price_action_1h_48h_pct": 4.190517334485359,
+  "order_book_imbalance_top10": 0.4105334281460657,
+  "news_context": "Mixed: security hard forks (Aug 27) and payments strategic pivot cited as bullish catalysts, ~99% of MATIC migrated to POL, but other coverage still describes a persistent downtrend; Sep 2026 average price forecast ~$0.105. No quant signal to corroborate."
+}
+```
+
+---
+### 2026-09-13T06:13:05.118Z — XRP/USD — NO TRADE
+
+**Reasoning:** No qualifying signal: SMA remains fast_below_slow with no crossover, RSI 45.8 neutral, volume ratio 0.61x (below 2x flag). Price action modestly positive (+0.92% 4h/48h) but unconfirmed by volume or crossover. News is mixed: fixCleanup3_3_0 amendment activated Sep 11 and RLUSD stablecoin market cap crossed $2.32B (constructive), but a large escrow unlock on Sep 1 (~$1.38B) and a reported 4.94% pullback amid broader market outflows are headwinds. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 45.84803730430045,
+  "sma_crossover_4h": "fast_below_slow, not crossed this candle",
+  "volume_ratio": 0.6109852393354567,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": 0.9156790607812505,
+  "price_action_1h_48h_pct": 1.1021014583810698,
+  "order_book_imbalance_top10": 0.10348692808443283,
+  "news_context": "Mixed: fixCleanup3_3_0 amendment activated Sep 11, RLUSD stablecoin market cap crossed $2.32B; offset by a ~$1.38B escrow unlock on Sep 1 and a reported 4.94% price pullback amid broad market outflows. No quant signal to act on."
+}
+```
+
+---
