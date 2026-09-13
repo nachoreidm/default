@@ -15426,3 +15426,98 @@ fields changed; this is a schema backfill, not a trade action.
 ```
 
 ---
+### 2026-09-13T14:12:07.365Z — BTC/USD — NO TRADE
+
+**Reasoning:** No qualifying signal: SMA still fast_below_slow, no crossover; RSI 36.3 weakening but not oversold; volume ratio 0.28x (below 2x flag). Price down over the 48h window (-2.48% 1h/48h), order book ask-heavy (-0.47). News: broader risk-off from rising oil prices, bond yields, and Middle East tensions dragging equities and crypto together; spot BTC ETFs saw $462.7M outflows Sep 8-11 while spot ETH ETFs took in $197M inflows in the same window — a notable divergence; Fed hike odds at 85.4% for Sep 16. No independent trigger. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 36.309880744344085,
+  "sma_crossover_4h": "fast_below_slow, not crossed this candle",
+  "volume_ratio": 0.2762641331307323,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": -1.2293979643445028,
+  "price_action_1h_48h_pct": -2.4773308045898217,
+  "order_book_imbalance_top10": -0.47053186391950175,
+  "news_context": "Broad risk-off (oil prices, bond yields, Middle East tensions) hitting equities and crypto together; spot BTC ETFs saw $462.7M outflows Sep 8-11 vs. $197M inflows into spot ETH ETFs in the same window; Fed hike odds 85.4% for Sep 16. No quant signal to corroborate."
+}
+```
+
+---
+### 2026-09-13T14:12:12.098Z — ETH/USD — NO TRADE
+
+**Reasoning:** Existing medium-confidence long held (entry 2526.10, stop 2470, TP 2638.31), now ~-2.10% unrealized, current price 2482.94 — ticked up slightly from last cycle, still comfortably above the $2,470 stop. No fresh signal: SMA still fast_above_slow, not crossed; RSI 45.3 neutral. Order book still ask-heavy (-0.73). News: ETH ETFs notably took in $197M in net inflows Sep 8-11 even as BTC ETFs saw outflows — a relative-strength signal — though ETH itself is still trading below its recent highs. No basis to add or exit early; position held per code-enforced stop/TP.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 45.28767719349872,
+  "sma_crossover_4h": "fast_above_slow, not crossed this candle",
+  "volume_ratio": 0.5980995925126551,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": -3.071109530638807,
+  "price_action_1h_48h_pct": -4.951581046616414,
+  "order_book_imbalance_top10": -0.7258022466306209,
+  "news_context": "Spot ETH ETFs took in $197M net inflows Sep 8-11 even as BTC ETFs saw $462.7M outflows in the same window — relative strength; ETH's tokenized-assets pool stays near half of sector total value despite the price dip. No fresh quant signal; existing position held, stop not breached."
+}
+```
+
+---
+### 2026-09-13T14:12:15.221Z — SOL/USD — NO TRADE
+
+**Reasoning:** No qualifying signal: SMA remains fast_below_slow, no crossover; RSI 39.2 weakening but not oversold; volume ratio 0.32x (below 2x flag). Price down with the broader market (-3.09% 1h/48h). News constructive long-term (SEC core ETF asset, strong network growth) but September token unlocks remain an overhang and no quant signal corroborates a trade. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 39.21431803890665,
+  "sma_crossover_4h": "fast_below_slow, not crossed this candle",
+  "volume_ratio": 0.32023544696362494,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": -1.7426405434675556,
+  "price_action_1h_48h_pct": -3.0889900261450545,
+  "order_book_imbalance_top10": -0.0777073991555131,
+  "news_context": "SEC named SOL a core ETF asset (Sep 5); strong network growth/ETF inflows continue; September token unlocks remain a supply overhang. Broad market pullback this cycle, no quant signal to corroborate."
+}
+```
+
+---
+### 2026-09-13T14:12:18.727Z — POL/USD — NO TRADE
+
+**Reasoning:** No qualifying signal: SMA still fast_below_slow (fast 0.09514 vs slow 0.09616), not crossed; RSI 49.5 neutral; volume ratio 0.53x (below 2x flag). Price essentially flat, once again notably more resilient than the other four pairs this cycle. Book bid-heavy (+0.40). News unchanged from prior cycles. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 49.516756964488614,
+  "sma_crossover_4h": "fast_below_slow (fast 0.09514 vs slow 0.09616), not crossed this candle",
+  "volume_ratio": 0.5345884189420033,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": 0.34594821260089836,
+  "price_action_1h_48h_pct": 0.17651334233204194,
+  "order_book_imbalance_top10": 0.4031959154629805,
+  "news_context": "Security hard forks and Gigagas TPS roadmap remain the technical focus; mixed breakout vs downtrend sentiment persists. No quant signal to corroborate; POL again notably resilient vs. the broader market pullback."
+}
+```
+
+---
+### 2026-09-13T14:12:22.108Z — XRP/USD — NO TRADE
+
+**Reasoning:** No qualifying signal: SMA remains fast_below_slow, no crossover; RSI 39.2 weakening but not oversold; volume ratio 0.61x (below 2x flag). Price down with the broader market (-3.82% 1h/48h). News: XRP ETF funds posted a third straight inflow day and defied broader selling pressure — a relative-strength signal similar to ETH's — while institutional-lending narrative (XLS-65/66, v1.1 upgrade due Sep 19) stays constructive medium-term. No quant signal to act on. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 39.20213746516953,
+  "sma_crossover_4h": "fast_below_slow, not crossed this candle",
+  "volume_ratio": 0.6109852393354567,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": -2.286766150331415,
+  "price_action_1h_48h_pct": -3.8204051206330636,
+  "order_book_imbalance_top10": 0.12281362432544796,
+  "news_context": "XRP ETF funds posted a third straight inflow day, defying broader selling pressure that hit BTC ETFs; institutional-lending narrative (XLS-65/66 amendments, v1.1 lending upgrade due Sep 19) remains constructive medium-term. No quant signal to corroborate."
+}
+```
+
+---
