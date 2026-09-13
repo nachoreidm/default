@@ -16281,3 +16281,98 @@ fields changed; this is a schema backfill, not a trade action.
 ```
 
 ---
+### 2026-09-13T23:12:13.385Z — BTC/USD — NO TRADE
+
+**Reasoning:** No qualifying signal: SMA still fast_below_slow, no crossover; RSI 45.5 neutral; volume ratio 0.28x (below 2x flag). Price down modestly (-0.69% 1h/48h). News unchanged: 85.4% Fed hike odds for Sep 16, hot CPI/PPI prints, BTC ETF outflows vs ETH ETF inflows. No independent trigger. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 45.51885650044389,
+  "sma_crossover_4h": "fast_below_slow, not crossed this candle",
+  "volume_ratio": 0.2762641331307323,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": 0.05556210327817541,
+  "price_action_1h_48h_pct": -0.6872086713145311,
+  "order_book_imbalance_top10": -0.08370927318295746,
+  "news_context": "Same pre-FOMC backdrop (85.4% hike odds Sep 16, hot CPI/PPI prints); BTC ETF outflows persist vs ETH ETF inflows. No quant signal to corroborate."
+}
+```
+
+---
+### 2026-09-13T23:12:18.858Z — ETH/USD — NO TRADE
+
+**Reasoning:** Existing medium-confidence long held (entry 2526.10, stop 2470, TP 2638.31), now ~-2.41% unrealized, current price 2475.01 close to but still above the $2,470 stop (check_stops confirmed clean this cycle). No fresh signal: SMA still fast_above_slow, not crossed; RSI 51.4 neutral. News: same analyst thesis repeats (weekly close above $2,550/$2,600 could open a run toward $2,800-3,000); Vitalik's CROPS framework remarks at ETH Taipei are long-horizon, not price-actionable. No basis to add or exit early since the stop hasn't triggered; will monitor very closely next cycle given proximity to the stop.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 51.4208440700979,
+  "sma_crossover_4h": "fast_above_slow, not crossed this candle",
+  "volume_ratio": 0.5980995925126551,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": -0.4324341511691086,
+  "price_action_1h_48h_pct": -1.6490526591918007,
+  "order_book_imbalance_top10": 0.2069857156007062,
+  "news_context": "Analyst thesis repeats (break above $2,600 opens a run at $2,800); Vitalik Buterin's CROPS framework remarks at ETH Taipei are long-horizon and not price-actionable. No fresh quant signal; existing position held, price close to stop but not breached per check_stops."
+}
+```
+
+---
+### 2026-09-13T23:12:23.049Z — SOL/USD — NO TRADE
+
+**Reasoning:** No qualifying signal: SMA remains fast_below_slow, no crossover; RSI 47.0 neutral; volume ratio 0.32x (below 2x flag). Price down further (-2.68% 1h/48h) with the broader market. News unchanged from prior cycles (SEC core ETF asset, tokenized-stock listings, phased rent reduction). No quant signal to act on. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 47.02553494182004,
+  "sma_crossover_4h": "fast_below_slow, not crossed this candle",
+  "volume_ratio": 0.32023544696362494,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": -1.4546519574343542,
+  "price_action_1h_48h_pct": -2.6847603241237916,
+  "order_book_imbalance_top10": -0.16561313203120118,
+  "news_context": "SEC named SOL a core ETF asset (Sep 5); GameStop/GMEx and $FLWS tokenized listings; phased rent reduction ongoing. No quant signal to corroborate."
+}
+```
+
+---
+### 2026-09-13T23:12:27.839Z — POL/USD — NO TRADE
+
+**Reasoning:** No qualifying signal: SMA still fast_below_slow (fast 0.09540 vs slow 0.09626), not crossed; RSI 56.4 neutral; volume ratio 0.53x (below 2x flag). Price down modestly this cycle (-1.61% 1h/48h) despite one headline referencing a prior 13% rise tied to a new stablecoin framework announcement (unclear timing, doesn't match current price action, treated as a data gap/stale reference rather than acted on). No quant signal to act on. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 56.3520597752527,
+  "sma_crossover_4h": "fast_below_slow (fast 0.09540 vs slow 0.09626), not crossed this candle",
+  "volume_ratio": 0.5345884189420033,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": 0.02054231717336919,
+  "price_action_1h_48h_pct": -1.6125718981101087,
+  "order_book_imbalance_top10": 0.13188135447896232,
+  "news_context": "One headline references a prior 13% POL rise tied to a new stablecoin framework announcement, but timing is unclear and doesn't match this cycle's actual price action (down modestly); treated as unconfirmed/stale rather than acted on. No quant signal to corroborate."
+}
+```
+
+---
+### 2026-09-13T23:12:31.810Z — XRP/USD — NO TRADE
+
+**Reasoning:** No qualifying signal: SMA remains fast_below_slow, no crossover; RSI 44.7 neutral; volume ratio 0.61x (below 2x flag). Price down modestly (-1.43% 1h/48h). News: RLUSD now has more supply on XRPL than Ethereum for the first time ($810M vs $756M), a constructive structural shift for the ledger; Senate CLARITY Act vote this week remains the dominant catalyst. No quant signal to act on. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 44.65707613477247,
+  "sma_crossover_4h": "fast_below_slow, not crossed this candle",
+  "volume_ratio": 0.6109852393354567,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": -0.10987066232099868,
+  "price_action_1h_48h_pct": -1.4305307711593096,
+  "order_book_imbalance_top10": 0.2969580233758149,
+  "news_context": "RLUSD now has more supply on XRPL than Ethereum for the first time ($810M vs $756M), a constructive structural shift; Senate CLARITY Act vote this week remains the dominant catalyst. No quant signal to corroborate."
+}
+```
+
+---
