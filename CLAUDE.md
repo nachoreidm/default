@@ -126,7 +126,17 @@ lost between sessions:
   rejected outright just because earlier slots were already filled, even
   when total risk would still be well within bounds - the position-count
   limit shouldn't be what blocks a good trade when the dollar-risk limits
-  already do that job. Bundle in an explicit "max one open position per
+  already do that job. **`MAX_TOTAL_EXPOSURE_PCT` should NOT scale up with
+  the pair count** (confirmed with user 2026-09-13) - it answers a
+  different question than position count does (aggregate capital at risk
+  if everything moves against you at once, vs. how many distinct
+  opportunities you can hold), and crypto pairs are highly correlated in
+  market-wide risk-on/risk-off moves - 7 positions isn't 7 independent
+  bets, it's closer to one leveraged crypto-market bet split 7 ways.
+  Keeping exposure fixed while raising position count is the *safer*
+  combination: same total dollar risk, spread across more/smaller
+  positions instead of concentrated in 3 bigger ones. Bundle in an
+  explicit "max one open position per
   pair" check at the same time (not currently enforced anywhere - only
   implicitly true because each pair is evaluated once per cycle), so
   raising the count doesn't accidentally allow stacking two positions on
