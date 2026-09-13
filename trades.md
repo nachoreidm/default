@@ -14571,3 +14571,98 @@ fields changed; this is a schema backfill, not a trade action.
 ```
 
 ---
+### 2026-09-13T05:16:29.564Z — BTC/USD — NO TRADE
+
+**Reasoning:** No qualifying signal: SMA stays fast_below_slow with no crossover this candle, RSI 41.7 is neutral (not oversold), and 24h volume is only 0.28x the 7-day average (well below the 2x flag). Price action is flat-to-slightly-down (-0.04% 1h/48h, -0.04% 4h/48h) and the top-10 book is ask-heavy (-0.28), consistent with the drift rather than confirming a reversal. News is net-bearish/macro-risk-off: hotter CPI/PPI pushed Fed hike odds for Sep 16 to 87.3%, spot BTC ETFs just ended a 3-week inflow streak with ~$463M in redemptions over 4 sessions, plus a Revolut data-exposure incident and a Symbiosis BTC-bridge exploit. None of this independently justifies a trade, but there's no quantitative signal for it to corroborate either way, so no trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 41.67777797584144,
+  "sma_crossover_4h": "fast_below_slow, not crossed this candle",
+  "volume_ratio": 0.2762641331307323,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": -0.03898595081035837,
+  "price_action_1h_48h_pct": -0.04363883104908926,
+  "order_book_imbalance_top10": -0.28002769124264454,
+  "news_context": "Net risk-off: hot CPI/PPI pushed Fed hike odds to 87.3% for Sep 16, spot BTC ETFs saw ~$463M in redemptions over 4 sessions ending a 3-week inflow streak, Revolut customer-data exposure incident, and a Symbiosis Bitcoin Bridge exploit (~15 BTC recovered). No signal for it to corroborate."
+}
+```
+
+---
+### 2026-09-13T05:16:37.660Z — ETH/USD — NO TRADE
+
+**Reasoning:** Already holding a medium-confidence long (opened prior cycle on the bullish crossover + volume spike) — stop 2470, take-profit 2638.31, currently -0.59% unrealized, well within both levels. This cycle: no fresh signal to act on. SMA is still fast_above_slow but crossover already happened on a prior candle (not this one), RSI 55.2 is neutral, and volume ratio is 0.60 (below the 2x flag) — the conditions that justified the original entry aren't repeating, so no basis to add to the position or change it. Price action is still positive (+2.17% 4h/48h). News is mixed: bullish long-term (analyst eyeing a breakout toward multi-year resistance, Fear&Greed at 63/Greed) but also a note that bears were gaining control on Sep 11 with weakening momentum below $2,500 resistance — doesn't add conviction either way. No new trade; existing position stands under its current stop/take-profit.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 55.20022192772605,
+  "sma_crossover_4h": "fast_above_slow, not crossed this candle (existing position already captured the crossover)",
+  "volume_ratio": 0.5980995925126551,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": 2.173040513421359,
+  "price_action_1h_48h_pct": 2.09208750866132,
+  "order_book_imbalance_top10": -0.11737137559870219,
+  "news_context": "Mixed: bears seen gaining control Sep 11 with weakening momentum below $2,500 resistance, but longer-term bullish case (potential retest of multi-year resistance, Fear&Greed at 63/Greed, Consensys MetaMask spin-off announced). No fresh quant signal to act on; existing open position (entered on prior crossover+volume spike) held unchanged."
+}
+```
+
+---
+### 2026-09-13T05:16:43.504Z — SOL/USD — NO TRADE
+
+**Reasoning:** No qualifying signal: SMA remains fast_below_slow with no crossover, RSI 49.0 is squarely neutral, and volume ratio is 0.32x (well below the 2x flag) despite positive price action (+1.91% 4h/48h). Without volume confirmation the price move isn't corroborated by the other signals. Order book is modestly ask-heavy (-0.13). News is constructive (Transaction V1 upgrade live, Alpenglow consensus upgrade expected in October, strong address growth, SOL ETF inflows at a multi-month high) but per policy news alone can't manufacture a trade without a quantitative signal already pointing somewhere. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 48.99226437938462,
+  "sma_crossover_4h": "fast_below_slow, not crossed this candle",
+  "volume_ratio": 0.32023544696362494,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": 1.90552602547388,
+  "price_action_1h_48h_pct": 1.8525936310835112,
+  "order_book_imbalance_top10": -0.12602458482119344,
+  "news_context": "Constructive: Transaction V1 upgrade activated Sep 9, Alpenglow consensus upgrade expected October, ~9.5M new addresses/day, exchange supply down 4.91%, SOL ETFs pulled $153.87M (strongest week since Oct 2025). No quant signal for it to corroborate this cycle."
+}
+```
+
+---
+### 2026-09-13T05:16:49.558Z — POL/USD — NO TRADE
+
+**Reasoning:** No qualifying signal: SMA is still fast_below_slow (fast 0.09533 vs slow 0.09607) — converging but not crossed this candle — RSI 51.7 is neutral, and volume ratio is 0.53x (below the 2x flag). Price action is positive (+3.41% 4h/48h) and the book is bid-heavy (+0.20), but without a confirmed crossover or volume spike this doesn't clear the bar for a trade. News is mixed: some coverage flags POL in a persistent downtrend while other coverage flags a bullish descending-channel breakout with a ~$0.117 September target; conflicting signals, no independent trigger. No trade — worth rechecking next cycle if the SMA crossover completes.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 51.67838058298355,
+  "sma_crossover_4h": "fast_below_slow (converging: fast 0.09533 vs slow 0.09607), not crossed this candle",
+  "volume_ratio": 0.5345884189420033,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": 3.407136715391236,
+  "price_action_1h_48h_pct": 3.4093353409335414,
+  "order_book_imbalance_top10": 0.19983960262791475,
+  "news_context": "Mixed: some analysis describes POL in a persistent downtrend, other coverage flags a bullish descending-channel breakout with a ~$0.117 September target; Polygon Labs also joined Bank of England Digital Pound Lab Phase 2. Conflicting and not corroborating an unconfirmed quant signal."
+}
+```
+
+---
+### 2026-09-13T05:16:54.371Z — XRP/USD — NO TRADE
+
+**Reasoning:** No qualifying signal: SMA remains fast_below_slow with no crossover, RSI 45.8 is neutral, and volume ratio is 0.61x (below the 2x flag). Price action is modestly positive (+0.92% 4h/48h) but unconfirmed by volume or a crossover. News leans cautionary: XRP down 6.2% over the week and 10% off its late-August peak, with Ripple's 10th scheduled 1B-XRP escrow unlock of 2026 coming Oct 1 (a known supply overhang), partially offset by a constructive institutional-lending product update from Ripple. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 45.84803730430045,
+  "sma_crossover_4h": "fast_below_slow, not crossed this candle",
+  "volume_ratio": 0.6109852393354567,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": 0.9156790607812505,
+  "price_action_1h_48h_pct": 1.0935241131333964,
+  "order_book_imbalance_top10": -0.05861128131263785,
+  "news_context": "Cautionary: XRP down 6.2% over the week, 10% off late-Aug peak, Ripple's 10th scheduled 1B-XRP escrow unlock of 2026 due Oct 1 (supply overhang); offset somewhat by Ripple highlighting new XRPL institutional lending features. No quant signal to act on."
+}
+```
+
+---
