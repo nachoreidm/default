@@ -14007,3 +14007,79 @@ The XRP/USD position logged above (id `96537a2c-86f0-4cbd-8b80-b5f5bc8ada22`, op
 ```
 
 ---
+### 2026-09-13T00:11:51.146Z — BTC/USD — NO TRADE
+
+**Reasoning:** No qualifying signal. RSI 42.8 neutral, no 4h SMA crossover (fast_below_slow), volume ratio 0.28x (well below 2x flag, actually a low-volume period). Price mildly positive (+0.50% 1h/48h, +0.53% 4h/48h). News unchanged (BTC ETF outflow streak, Middle East tensions, MSTR resuming purchases). No trigger firing. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 42.8,
+  "sma_crossover_4h": "fast_below_slow, not crossed this candle",
+  "volume_ratio": 0.28,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": 0.53,
+  "price_action_1h_48h_pct": 0.5,
+  "order_book_imbalance_top10": -0.153,
+  "news_context": "BTC ETFs on a 4-day outflow streak; Middle East tensions weighing on price; MicroStrategy resuming purchase announcements."
+}
+```
+
+---
+### 2026-09-13T00:11:53.959Z — SOL/USD — NO TRADE
+
+**Reasoning:** No qualifying signal. RSI 49.9 neutral, no 4h SMA crossover (fast_below_slow), volume ratio 0.32x (well below 2x flag). Price action positive (+2.5-2.6%) but unconfirmed. News unchanged (prediction market expansion, Transaction V1 live). No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 49.85,
+  "sma_crossover_4h": "fast_below_slow, not crossed this candle",
+  "volume_ratio": 0.32,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": 2.49,
+  "price_action_1h_48h_pct": 2.63,
+  "order_book_imbalance_top10": 0.211,
+  "news_context": "World's Solana-based prediction market opened to 1M+ users; Transaction V1 live since Sep 9; Alpenglow upgrade queued."
+}
+```
+
+---
+### 2026-09-13T00:11:56.409Z — POL/USD — NO TRADE
+
+**Reasoning:** No qualifying signal. SMA gap essentially unchanged (fast 0.095314 vs slow 0.0960074) — still fast_below_slow, not crossed. RSI 52.8 neutral, volume ratio 0.53x. Price action positive (+4.0-4.1%) but unconfirmed. News unchanged. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 52.79,
+  "sma_crossover_4h": "fast_below_slow (0.095314 vs 0.0960074), not crossed this candle",
+  "volume_ratio": 0.53,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": 4.02,
+  "price_action_1h_48h_pct": 4.08,
+  "order_book_imbalance_top10": 0.487,
+  "news_context": "No new material catalyst; security hard forks and BoE Digital Pound Lab partnership remain the recent headlines."
+}
+```
+
+---
+### 2026-09-13T00:11:59.283Z — XRP/USD — NO TRADE
+
+**Reasoning:** No qualifying signal. RSI 46.8 neutral, no 4h SMA crossover (fast_below_slow), volume ratio 0.61x. Price action mildly positive on compute_signals (+1.83% 1h/48h, +1.77% 4h/48h); WebSearch again cited a -4.20% 24h decline inconsistent with live data — compute_signals treated as authoritative. News unchanged. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 46.84,
+  "sma_crossover_4h": "fast_below_slow, not crossed this candle",
+  "volume_ratio": 0.61,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": 1.77,
+  "price_action_1h_48h_pct": 1.83,
+  "order_book_imbalance_top10": -0.257,
+  "news_context": "Ripple integrated AI agents into its treasury software; MoneyGram chose Circle's USDC over Ripple. WebSearch price move (-4.2%) inconsistent with live compute_signals; compute_signals treated as authoritative."
+}
+```
+
+---
