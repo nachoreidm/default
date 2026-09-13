@@ -129,6 +129,24 @@ lost between sessions:
   make room. That's a deliberate absence, not a bug - swapping requires
   comparing trades against each other, which is a meaningfully bigger
   design decision than a fixed threshold. Left as-is for now.
+- **Add ADA/USD, LINK/USD, DOGE/USD as three more crypto pairs.** Checked
+  live Kraken 24h volume on 2026-09-13 before recommending (current scope
+  for comparison: BTC $67.6M, ETH $46.5M, XRP $22.8M, SOL $16.4M, POL only
+  $267K - POL is already the thinnest pair in scope). All three candidates
+  clear $2.8M+ in daily volume, comfortably above POL and in SOL's range:
+  ADA ~$2.86M, LINK ~$2.29M, DOGE ~$3.07M. Picked for real diversification,
+  not just more correlated L1s - LINK is oracle/infra (a genuinely
+  different sector), DOGE has its own social-sentiment-driven volatility
+  character distinct from the others, ADA is a high-volume major currently
+  unrepresented. Other candidates checked and rejected for now: NEAR
+  (~$3.84M) and UNI (~$3.17M) also cleared the bar and are reasonable
+  future adds if more diversification is wanted later; AVAX, BCH, TRX,
+  DOT, TON, ATOM, SHIB were all at or below POL's volume and not worth
+  adding - SHIB in particular has a misleadingly huge unit-volume number
+  (tiny price, meme-coin tokenomics) but is genuinely low-quality for
+  clean technical signals. Re-verify volume live again before actually
+  adding, rather than trusting these numbers unchanged - crypto volume
+  shifts fast and this was a point-in-time check, not a standing fact.
 
 ## Network access
 
