@@ -15236,3 +15236,98 @@ fields changed; this is a schema backfill, not a trade action.
 ```
 
 ---
+### 2026-09-13T12:12:13.863Z — BTC/USD — NO TRADE
+
+**Reasoning:** No qualifying signal: SMA still fast_below_slow, no crossover; RSI 36.3 lower but not below the 30 oversold threshold; volume ratio 0.28x (below 2x flag). Price pulled back further (-1.63% 1h/48h, -1.23% 4h/48h) amid broad market weakness ahead of the dense Sep 15-16 macro window (CLARITY Act vote, FOMC). News: Blockstream refused a ransom for stolen Liquid Network BTC (recovered 85%, ~598.5 BTC still missing) — another security-sentiment drag alongside the Symbiosis bridge exploit. No independent trigger despite the pullback. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 36.309880744344085,
+  "sma_crossover_4h": "fast_below_slow, not crossed this candle",
+  "volume_ratio": 0.2762641331307323,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": -1.2293979643445028,
+  "price_action_1h_48h_pct": -1.6280524381053114,
+  "order_book_imbalance_top10": 0.29836629406706777,
+  "news_context": "Broad market pullback ahead of dense Sep 15-16 macro window (CLARITY Act vote, FOMC); Blockstream refused ransom for stolen Liquid Network BTC (85% recovered, ~598.5 BTC still missing), adding to security-sentiment overhang alongside Symbiosis exploit. RSI weakening (36.3) but not yet oversold; no quant signal to corroborate."
+}
+```
+
+---
+### 2026-09-13T12:12:18.846Z — ETH/USD — NO TRADE
+
+**Reasoning:** Existing medium-confidence long held (entry 2526.10, stop 2470, TP 2638.31), now ~-2.23% unrealized, current price 2479.77 still above the $2,470 stop (check_stops confirmed clean). No fresh signal: SMA still fast_above_slow, not crossed; RSI 45.3 neutral. Price pulled back with the broader market (-1.18% 1h/48h, -3.07% 4h/48h) but this is market-wide risk-off rather than an ETH-specific reversal signal. News: still capped below $2,500-2,600 resistance ahead of Sep 16 FOMC; Glamsterdam upgrade mainnet slipped to Q4, Sepolia fork Sep 28. No basis to add or exit early since the code-enforced stop hasn't triggered; position held.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 45.28767719349872,
+  "sma_crossover_4h": "fast_above_slow, not crossed this candle",
+  "volume_ratio": 0.5980995925126551,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": -3.071109530638807,
+  "price_action_1h_48h_pct": -1.1804545726180795,
+  "order_book_imbalance_top10": -0.14439801421479334,
+  "news_context": "ETH still capped below $2,500-2,600 resistance ahead of Sep 16 FOMC; broad market pullback dragging price toward the stop; Glamsterdam upgrade mainnet slipped to Q4 2026 (Sepolia fork Sep 28). No fresh quant signal; existing position held, stop not breached per check_stops."
+}
+```
+
+---
+### 2026-09-13T12:12:22.054Z — SOL/USD — NO TRADE
+
+**Reasoning:** No qualifying signal: SMA remains fast_below_slow, no crossover; RSI 39.2 lower but not oversold; volume ratio 0.32x (below 2x flag). Price pulled back with the broader market (-1.79% 1h/48h). News constructive long-term (SEC core ETF asset, network growth, slot-time reduction to 200ms ongoing) but no quant signal to corroborate this cycle's pullback. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 39.21431803890665,
+  "sma_crossover_4h": "fast_below_slow, not crossed this candle",
+  "volume_ratio": 0.32023544696362494,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": -1.7426405434675556,
+  "price_action_1h_48h_pct": -1.7909860263727686,
+  "order_book_imbalance_top10": 0.042126347627215954,
+  "news_context": "SEC named SOL a core ETF asset (Sep 5); network growth strong; slot-time reduction to 200ms ongoing. Broad market pullback this cycle, no quant signal to corroborate."
+}
+```
+
+---
+### 2026-09-13T12:12:26.072Z — POL/USD — NO TRADE
+
+**Reasoning:** No qualifying signal: SMA still fast_below_slow (fast 0.09514 vs slow 0.09616), not crossed; RSI 49.5 neutral; volume ratio 0.53x (below 2x flag). Price roughly flat this cycle, notably resilient vs. the broader pullback in BTC/ETH/SOL/XRP. Book bid-heavy (+0.15). News unchanged from prior cycles (security hard forks, Gigagas roadmap, mixed breakout vs downtrend sentiment). No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 49.516756964488614,
+  "sma_crossover_4h": "fast_below_slow (fast 0.09514 vs slow 0.09616), not crossed this candle",
+  "volume_ratio": 0.5345884189420033,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": 0.34594821260089836,
+  "price_action_1h_48h_pct": 0.07318348144276071,
+  "order_book_imbalance_top10": 0.14536818394707282,
+  "news_context": "Security hard forks and Gigagas TPS roadmap remain the technical focus; mixed sentiment between bullish breakout chatter and persistent downtrend/TVL-outflow concerns. No quant signal to corroborate; POL notably resilient vs. broader market pullback this cycle."
+}
+```
+
+---
+### 2026-09-13T12:12:29.772Z — XRP/USD — NO TRADE
+
+**Reasoning:** No qualifying signal: SMA remains fast_below_slow, no crossover; RSI 39.2 lower but not oversold; volume ratio 0.61x (below 2x flag). Price pulled back with the broader market (-1.71% 1h/48h, -2.29% 4h/48h). News: XRP had just ended a five-day losing streak per one source, but the pending Sep 15 CLARITY Act Senate vote remains a binary regulatory catalyst ahead; new XLS-65/66 lending amendments and a v1.1 lending protocol upgrade (week of Sep 19) are constructive medium-term. No quant signal to act on. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 39.20213746516953,
+  "sma_crossover_4h": "fast_below_slow, not crossed this candle",
+  "volume_ratio": 0.6109852393354567,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": -2.286766150331415,
+  "price_action_1h_48h_pct": -1.7060549948401127,
+  "order_book_imbalance_top10": 0.09916164801125965,
+  "news_context": "XRP had ended a five-day losing streak per one source before this cycle's pullback; pending Sep 15 CLARITY Act Senate vote remains a binary regulatory risk; new XLS-65/66 lending amendments and v1.1 lending protocol upgrade (week of Sep 19) are constructive medium-term. No quant signal to corroborate."
+}
+```
+
+---
