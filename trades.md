@@ -16186,3 +16186,98 @@ fields changed; this is a schema backfill, not a trade action.
 ```
 
 ---
+### 2026-09-13T22:12:19.214Z — BTC/USD — NO TRADE
+
+**Reasoning:** No qualifying signal: SMA still fast_below_slow, no crossover; RSI 45.5 neutral; volume ratio 0.28x (below 2x flag). Price modestly up (+0.20% 1h/48h), order book now notably bid-heavy (+0.74). News unchanged: 85.4% Fed hike odds for Sep 16, dense 9-day macro window (PPI/CPI/CLARITY Act vote/Fed/BoJ). No independent trigger. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 45.51885650044389,
+  "sma_crossover_4h": "fast_below_slow, not crossed this candle",
+  "volume_ratio": 0.2762641331307323,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": 0.05556210327817541,
+  "price_action_1h_48h_pct": 0.1957802230857297,
+  "order_book_imbalance_top10": 0.7397923875432526,
+  "news_context": "Same pre-FOMC backdrop persists (85.4% hike odds Sep 16, dense 9-day macro window). No quant signal to corroborate."
+}
+```
+
+---
+### 2026-09-13T22:12:24.795Z — ETH/USD — NO TRADE
+
+**Reasoning:** Existing medium-confidence long held (entry 2526.10, stop 2470, TP 2638.31), now ~-1.84% unrealized, current price 2489.66 still comfortably above the $2,470 stop (check_stops confirmed clean). No fresh signal: SMA still fast_above_slow, not crossed; RSI 51.4 neutral. News: Vitalik Buterin spoke at ETH Taipei 2026 about a five-year protocol scope reduction (long-horizon, not price-actionable); analyst thesis on a $2,550 breakout toward $3,000 repeats. No basis to add or exit early; position held, stop not breached.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 51.4208440700979,
+  "sma_crossover_4h": "fast_above_slow, not crossed this candle",
+  "volume_ratio": 0.5980995925126551,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": -0.4324341511691086,
+  "price_action_1h_48h_pct": -0.11947383722087923,
+  "order_book_imbalance_top10": 0.4478448517459785,
+  "news_context": "Vitalik Buterin discussed a five-year protocol scope-reduction plan at ETH Taipei 2026 (long-horizon, not price-actionable); analyst thesis on $2,550 breakout toward $3,000 repeats. No fresh quant signal; existing position held, stop not breached."
+}
+```
+
+---
+### 2026-09-13T22:12:28.694Z — SOL/USD — NO TRADE
+
+**Reasoning:** No qualifying signal: SMA remains fast_below_slow, no crossover; RSI 47.0 neutral; volume ratio 0.32x (below 2x flag). Price roughly flat (-0.51% 1h/48h). News unchanged from prior cycles (SEC core ETF asset, $FLWS tokenized listing, slot-time reductions ongoing). No quant signal to act on. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 47.02553494182004,
+  "sma_crossover_4h": "fast_below_slow, not crossed this candle",
+  "volume_ratio": 0.32023544696362494,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": -1.4546519574343542,
+  "price_action_1h_48h_pct": -0.5105547373588571,
+  "order_book_imbalance_top10": 0.05348359991095413,
+  "news_context": "SEC named SOL a core ETF asset (Sep 5); $FLWS tokenized stock listing on Solana; slot-time reductions to 200ms ongoing. No quant signal to corroborate."
+}
+```
+
+---
+### 2026-09-13T22:12:32.478Z — POL/USD — NO TRADE
+
+**Reasoning:** No qualifying signal: SMA still fast_below_slow (fast 0.09540 vs slow 0.09626), not crossed; RSI 56.4 neutral; volume ratio 0.53x (below 2x flag). Price up modestly (+0.85% 1h/48h), order book flipped ask-heavy (-0.23). News unchanged from prior cycles. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 56.3520597752527,
+  "sma_crossover_4h": "fast_below_slow (fast 0.09540 vs slow 0.09626), not crossed this candle",
+  "volume_ratio": 0.5345884189420033,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": 0.02054231717336919,
+  "price_action_1h_48h_pct": 0.8488612836438937,
+  "order_book_imbalance_top10": -0.2308881505461653,
+  "news_context": "Security hard forks and Gigagas TPS roadmap remain the technical focus; mixed breakout vs downtrend sentiment persists. No quant signal to corroborate."
+}
+```
+
+---
+### 2026-09-13T22:12:36.314Z — XRP/USD — NO TRADE
+
+**Reasoning:** No qualifying signal: SMA remains fast_below_slow, no crossover; RSI 44.7 neutral; volume ratio 0.61x (below 2x flag). Price up modestly (+0.55% 1h/48h). News: Clearpool Finance proposed migrating to the XRP Ledger with Ripple committing to invest in XRP/RLUSD yield products (constructive), Senate CLARITY Act vote confirmed for Sep 16. No quant signal to act on. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 44.65707613477247,
+  "sma_crossover_4h": "fast_below_slow, not crossed this candle",
+  "volume_ratio": 0.6109852393354567,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": -0.10987066232099868,
+  "price_action_1h_48h_pct": 0.5489458166031971,
+  "order_book_imbalance_top10": 0.19125039651457298,
+  "news_context": "Clearpool Finance proposed migrating to XRP Ledger, Ripple committing to XRP/RLUSD yield product investment (constructive); Senate CLARITY Act vote confirmed for Sep 16. No quant signal to corroborate."
+}
+```
+
+---
