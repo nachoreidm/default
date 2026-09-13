@@ -14951,3 +14951,98 @@ fields changed; this is a schema backfill, not a trade action.
 ```
 
 ---
+### 2026-09-13T09:12:34.609Z — BTC/USD — NO TRADE
+
+**Reasoning:** No qualifying signal: SMA still fast_below_slow, no crossover; RSI 40.7 neutral; volume ratio 0.28x (below 2x flag). Price drifting slightly down (-0.31% 1h/48h), order book near-flat (+0.10). News: BTC capped below $80K on hawkish pre-FOMC (Sep 16) positioning, negative ETP flows this week; Senate CLARITY Act procedural vote due Sep 15 targeting DINO protocols; Symbiosis bridge exploit fallout continues. Mixed technical sentiment (20 bullish vs 13 bearish indicators per one source) but no quant trigger here. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 40.69387826819033,
+  "sma_crossover_4h": "fast_below_slow, not crossed this candle",
+  "volume_ratio": 0.2762641331307323,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": 0.13428571428570674,
+  "price_action_1h_48h_pct": -0.3135402655809388,
+  "order_book_imbalance_top10": 0.09929506545820761,
+  "news_context": "BTC capped below $80K on hawkish pre-FOMC (Sep 16) positioning, negative digital-asset ETP flows this week; Senate CLARITY Act procedural vote due Sep 15; Symbiosis bridge exploit fallout continues. No quant signal to corroborate."
+}
+```
+
+---
+### 2026-09-13T09:12:40.849Z — ETH/USD — NO TRADE
+
+**Reasoning:** Existing medium-confidence long held (entry 2526.10, stop 2470, TP 2638.31), now ~-1.70% unrealized but still well clear of the stop (current 2493.05 vs stop 2470). No fresh signal: SMA still fast_above_slow, not crossed this candle; RSI 54.4 neutral; volume ratio 0.60x (below 2x flag). News: ETH consolidating below $2,500-2,550 resistance ahead of Sep 16 FOMC, some analysts flag falling open interest raising risk of a retest toward $2,200-2,250, others note Coinbase premium recovery supporting a $2,550 breakout toward $3,000 — genuinely mixed. No basis to add or exit early; invalidation (close below ~2484 50-SMA or bearish re-cross) not yet triggered. Position held unchanged.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 54.38714825235205,
+  "sma_crossover_4h": "fast_above_slow, not crossed this candle",
+  "volume_ratio": 0.5980995925126551,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": 2.4283854166666785,
+  "price_action_1h_48h_pct": 0.9972537042587792,
+  "order_book_imbalance_top10": 0.6640869016663333,
+  "news_context": "Mixed: some analysts see falling open interest raising risk of a retest to $2,200-2,250; others see Coinbase premium recovery supporting a breakout toward $2,550/$3,000. ETH still consolidating below resistance ahead of Sep 16 FOMC. No fresh quant signal; existing position held, invalidation level not reached."
+}
+```
+
+---
+### 2026-09-13T09:12:45.495Z — SOL/USD — NO TRADE
+
+**Reasoning:** No qualifying signal: SMA remains fast_below_slow, no crossover; RSI 43.6 neutral; volume ratio 0.32x (below 2x flag). Order book modestly ask-heavy (-0.06). News constructive (SEC named SOL core ETF asset, strong ETF inflows/network growth) but several ecosystem token unlocks (TRUMP, PUMP, CARDS, YZY) loom this month as a mild overhang. No quant signal to act on. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 43.60688206716976,
+  "sma_crossover_4h": "fast_below_slow, not crossed this candle",
+  "volume_ratio": 0.32023544696362494,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": 1.2368024132730056,
+  "price_action_1h_48h_pct": 0.6037432078889199,
+  "order_book_imbalance_top10": -0.06254285733529523,
+  "news_context": "SEC named SOL core ETF asset (Sep 5); strong ETF inflows/network growth continue; several September token unlocks (TRUMP, PUMP, CARDS, YZY) are a mild overhang. No quant signal to corroborate."
+}
+```
+
+---
+### 2026-09-13T09:12:50.052Z — POL/USD — NO TRADE
+
+**Reasoning:** No qualifying signal: SMA still fast_below_slow (fast 0.09524 vs slow 0.09613), not crossed; RSI 51.2 neutral; volume ratio 0.53x (below 2x flag). Book strongly bid-heavy (+0.65) but not itself a trigger. News mixed/repeat: security hard forks and payments pivot cited as bullish, but one source explicitly describes POL struggling in 2026 amid L2 competition, weak demand and TVL outflows. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 51.204824920819746,
+  "sma_crossover_4h": "fast_below_slow (fast 0.09524 vs slow 0.09613), not crossed this candle",
+  "volume_ratio": 0.5345884189420033,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": 3.3333333333333397,
+  "price_action_1h_48h_pct": 0.6240744658345749,
+  "order_book_imbalance_top10": 0.6516508712874304,
+  "news_context": "Mixed: security hard forks/payments pivot cited as bullish catalysts, ~99% MATIC-to-POL migration complete; but POL described as struggling in 2026 amid Layer-2 competition, weak demand, and TVL outflows. No quant signal to corroborate."
+}
+```
+
+---
+### 2026-09-13T09:12:55.307Z — XRP/USD — NO TRADE
+
+**Reasoning:** No qualifying signal: SMA remains fast_below_slow, no crossover; RSI 43.8 neutral; volume ratio 0.61x (below 2x flag). Price has drifted down to $1.349 (down ~4.9% per one source amid broader market weakness). News: fixCleanup3_3_0 amendment activated Sep 11 and a lending protocol v1.1 upgrade due week of Sep 19 are constructive medium-term, but MoneyGram choosing a rival stablecoin over RLUSD and a new inverse XRP ETF (effective Oct 11) reflect mixed sentiment; Fed decision Sep 16 remains the dominant macro overhang. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 43.779232586155665,
+  "sma_crossover_4h": "fast_below_slow, not crossed this candle",
+  "volume_ratio": 0.6109852393354567,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": 2.1670568222019897,
+  "price_action_1h_48h_pct": 0.4734530759538087,
+  "order_book_imbalance_top10": 0.09116151043306189,
+  "news_context": "fixCleanup3_3_0 amendment activated Sep 11; lending protocol v1.1 upgrade due week of Sep 19; MoneyGram chose a rival stablecoin over RLUSD; a new inverse (2x short) XRP ETF becomes effective Oct 11. Fed decision Sep 16 remains the dominant macro overhang. No quant signal to act on."
+}
+```
+
+---
