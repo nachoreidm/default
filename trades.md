@@ -14387,3 +14387,15 @@ The XRP/USD position logged above (id `96537a2c-86f0-4cbd-8b80-b5f5bc8ada22`, op
 ```
 
 ---
+### CORRECTION — 2026-09-13T00:00:00.000Z — ETH/USD — take-profit backfilled
+
+The fixed 2:1 risk/reward take-profit rule was added to the MCP server
+after this position (entry $2526.10242, stop $2470, opened
+2026-09-12T08:14:01.374Z) was already open under the old schema, which
+had no `take_profit` field. Backfilled `take_profit: 2638.3072600000005`
+on the open position in `data/portfolio_state.json` (= entry + 2 × (entry
+− stop)) so it's governed by the same rule as every trade opened from now
+on, rather than being silently exempt for the rest of its life. No other
+fields changed; this is a schema backfill, not a trade action.
+
+---

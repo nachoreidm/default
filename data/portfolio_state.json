@@ -8,6 +8,7 @@
       "direction": "long",
       "entry_price": 2526.10242,
       "stop_loss": 2470,
+      "take_profit": 2638.3072600000005,
       "size_pct": 3,
       "size_usd": 299.6829435394509,
       "quantity": 0.1181599801346507,
