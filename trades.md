@@ -15046,3 +15046,98 @@ fields changed; this is a schema backfill, not a trade action.
 ```
 
 ---
+### 2026-09-13T10:12:06.114Z — BTC/USD — NO TRADE
+
+**Reasoning:** No qualifying signal: SMA still fast_below_slow, no crossover; RSI 40.7 neutral; volume ratio 0.28x (below 2x flag). Price drifting slightly down (-0.26% 1h/48h), order book modestly bid-heavy (+0.22). News: BTC capped below $80K on hawkish pre-FOMC (Sep 16) positioning, negative ETP flows this week, Symbiosis bridge exploit fallout continues; a positive but unrelated item on Canadian bank blockchain-deposit products doesn't move the near-term picture. No independent trigger. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 40.69387826819033,
+  "sma_crossover_4h": "fast_below_slow, not crossed this candle",
+  "volume_ratio": 0.2762641331307323,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": 0.13428571428570674,
+  "price_action_1h_48h_pct": -0.2594470153849314,
+  "order_book_imbalance_top10": 0.21824272094820932,
+  "news_context": "BTC capped below $80K on hawkish pre-FOMC (Sep 16) positioning, negative ETP flows this week, continued Symbiosis bridge exploit fallout; Canada regulator allowing blockchain deposit products in 2026 is a longer-horizon positive. No quant signal to corroborate."
+}
+```
+
+---
+### 2026-09-13T10:12:13.021Z — ETH/USD — NO TRADE
+
+**Reasoning:** Existing medium-confidence long held (entry 2526.10, stop 2470, TP 2638.31), now ~-2.11% unrealized. Current price 2482.66 vs stop 2470 — price has drifted closer to the stop but check_stops confirms it has not been breached. No fresh signal: SMA still fast_above_slow, not crossed; RSI 54.4 neutral; volume ratio 0.60x (below 2x flag). Invalidation condition (close below ~2484 50-SMA or bearish re-cross) is right at the edge given current price 2482.66, worth close monitoring next cycle. News: ETH still capped below $2,500-2,550 resistance, buyers defending $2,400-2,430; positive counterpoint of ETF inflows and a $2,700 target from one source. No basis to add or exit early since the stop itself hasn't triggered; position held per code-enforced stop/TP.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 54.38714825235205,
+  "sma_crossover_4h": "fast_above_slow, not crossed this candle",
+  "volume_ratio": 0.5980995925126551,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": 2.4283854166666785,
+  "price_action_1h_48h_pct": 0.9381831183922957,
+  "order_book_imbalance_top10": 0.807817257404251,
+  "news_context": "ETH capped below $2,500-2,550 resistance, buyers defending $2,400-2,430 support ahead of Sep 16 FOMC; ETH ETFs pulled ~$1B with some analysts eyeing $2,700. No fresh quant signal; existing position held, stop/TP enforced in code."
+}
+```
+
+---
+### 2026-09-13T10:12:17.369Z — SOL/USD — NO TRADE
+
+**Reasoning:** No qualifying signal: SMA remains fast_below_slow, no crossover; RSI 43.6 neutral; volume ratio 0.32x (below 2x flag). Order book essentially flat. News constructive (SEC core ETF asset status, tokenized-stock volume boom) but a dozen+ ecosystem token unlocks this month (TRUMP, PUMP, CARDS, YZY) remain a supply overhang. No quant signal to act on. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 43.60688206716976,
+  "sma_crossover_4h": "fast_below_slow, not crossed this candle",
+  "volume_ratio": 0.32023544696362494,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": 1.2368024132730056,
+  "price_action_1h_48h_pct": 0.6554401532721503,
+  "order_book_imbalance_top10": -0.000939712140138421,
+  "news_context": "SEC named SOL a core ETF asset (Sep 5); Solana leads $3B tokenized-stock volume boom; a dozen+ September token unlocks (TRUMP, PUMP, CARDS, YZY) are a supply overhang. No quant signal to corroborate."
+}
+```
+
+---
+### 2026-09-13T10:12:21.813Z — POL/USD — NO TRADE
+
+**Reasoning:** No qualifying signal: SMA still fast_below_slow (fast 0.09524 vs slow 0.09613), not crossed; RSI 51.2 neutral; volume ratio 0.53x (below 2x flag). Order book near-flat. News repeats prior cycles: security hard forks, Gigagas roadmap, ~99% MATIC-to-POL migration complete, but persistent characterization of POL struggling in 2026 amid L2 competition and TVL outflows. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 51.204824920819746,
+  "sma_crossover_4h": "fast_below_slow (fast 0.09524 vs slow 0.09613), not crossed this candle",
+  "volume_ratio": 0.5345884189420033,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": 3.3333333333333397,
+  "price_action_1h_48h_pct": 1.5314261405934242,
+  "order_book_imbalance_top10": 0.021860429040567207,
+  "news_context": "Security hard forks and Gigagas TPS roadmap remain the technical focus; ~99% MATIC-to-POL migration complete; but POL described as struggling in 2026 amid L2 competition, weak demand, and TVL outflows. No quant signal to corroborate."
+}
+```
+
+---
+### 2026-09-13T10:12:26.510Z — XRP/USD — NO TRADE
+
+**Reasoning:** No qualifying signal: SMA remains fast_below_slow, no crossover; RSI 43.8 neutral; volume ratio 0.61x (below 2x flag). Price continues drifting lower ($1.344). News mixed: fixCleanup3_3_0 amendment activated Sep 11 (bullish for institutional use) and a lending protocol v1.1 upgrade due week of Sep 19 are constructive; XRP ETF funds saw 3 straight inflow days contrasting with BTC ETF outflows; but MoneyGram's stablecoin choice bypassing Ripple is a minor setback. No quant signal to act on. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 43.779232586155665,
+  "sma_crossover_4h": "fast_below_slow, not crossed this candle",
+  "volume_ratio": 0.6109852393354567,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": 2.1670568222019897,
+  "price_action_1h_48h_pct": 0.9022533815736247,
+  "order_book_imbalance_top10": -0.05898434653735475,
+  "news_context": "fixCleanup3_3_0 amendment activated Sep 11 (bullish for institutional/bank use); lending protocol v1.1 upgrade due week of Sep 19; XRP ETF funds saw 3 straight inflow days vs. BTC ETF outflows; MoneyGram chose a different stablecoin over Ripple's RLUSD. No quant signal to corroborate."
+}
+```
+
+---
