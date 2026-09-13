@@ -165,6 +165,29 @@ lost between sessions:
   new) = **7 pairs total** - remember to size `MAX_OPEN_POSITIONS` to
   match (see above), not leave it at 5. Also re-verify POL's volume hasn't
   recovered before actually dropping it, same caveat as the adds.
+- **Upgrade exit logic beyond a pure fixed 2:1 take-profit.** Discussed
+  2026-09-13. The fixed target isn't wrong - it's a genuinely common,
+  fully mechanical baseline - but its real weakness is capping upside on
+  trades that would have run further (a trade that hits +2R and keeps
+  going gets closed the same as one that barely ticks up to +2R and
+  reverses). Keep the fixed 2:1 as the hard backstop/floor - never remove
+  the mechanical safety net - but layer in:
+  1. **Move stop to breakeven at +1R.** Once a position is up by its own
+     risk amount (entry-to-stop distance), shift `stop_loss` to
+     `entry_price`. Cheap, nearly free (that cushion is already earned),
+     and standard practice almost everywhere - after this point the trade
+     can no longer lose money.
+  2. **Trail the stop past +1R**, e.g. below the rising 20-period 4h SMA
+     (already computed by `compute_signals`, no new indicator needed) or a
+     fixed ATR-style distance, instead of exiting flat at 2:1 - lets
+     strong trends run further while still cutting on a real reversal.
+  Both need `checkStops` to re-derive the effective stop each cycle
+  instead of just comparing against the value stored at entry, so this is
+  a real code change, not just a constant tweak like the original
+  take-profit rule was. Partial exits (closing half at +1R, letting the
+  rest ride) and pure signal-reversal exits (closing when the entry
+  crossover flips, independent of price) were also discussed as
+  standard-practice alternatives but not chosen as the default plan.
 
 ## Network access
 
