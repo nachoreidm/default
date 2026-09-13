@@ -107,22 +107,32 @@ These are agreed changes for a future version - **don't implement without
 the user explicitly asking**, they're recorded here so the decision isn't
 lost between sessions:
 
-- **Raise `MAX_OPEN_POSITIONS` from 3 to 5 (one per pair).** Analysis as of
-  2026-09-13: this doesn't loosen the actual risk ceiling, since
+- **Raise `MAX_OPEN_POSITIONS` to match the pair count (one per pair).**
+  Analysis as of 2026-09-13, written when scope was still 5 pairs (so "5"
+  appears below) - **recompute against whatever the final pair list is at
+  build time**, don't just hardcode 5. If POL is dropped and ADA/LINK/DOGE
+  are added per the note below, that's 4 remaining + 3 new = 7 pairs, so
+  the cap should be 7, not 5. The reasoning holds regardless of the exact
+  number: this doesn't loosen the actual risk ceiling, since
   `MAX_TOTAL_EXPOSURE_PCT` (25%) and the per-trade/confidence size caps are
-  the real binding constraints either way - 5 positions at the medium cap
-  (3%) is only 15% exposure, and 5 at the max high-confidence size (5%)
-  lands exactly at 25%, not over it. What it fixes: right now a genuinely
-  good 4th or 5th signal gets rejected outright just because two slots
-  were already filled, even when total risk would still be well within
-  bounds - the position-count limit shouldn't be what blocks a good trade
-  when the dollar-risk limits already do that job. Bundle in an explicit
-  "max one open position per pair" check at the same time (not currently
-  enforced anywhere - only implicitly true because each pair is evaluated
-  once per cycle), so raising the count doesn't accidentally allow
-  stacking two positions on the same pair. Revisit when building the live
-  version or the next paper-trading iteration - no rush while the account
-  has only ever held one open position at a time.
+  the real binding constraints either way - N positions at the medium cap
+  (3%) each is 3N% exposure (21% at N=7, still under 25%), and even N
+  positions at the max high-confidence size (5%) only becomes a problem
+  once N > 5 (5%×7=35%, over the cap) - but that scenario requires 7
+  simultaneous high-confidence signals, and the exposure cap would correctly
+  block the excess anyway, so it's not a real loosening of risk, just a
+  possible source of rejected trades in an already-rare scenario. What the
+  position-count raise fixes: right now a genuinely good extra signal gets
+  rejected outright just because earlier slots were already filled, even
+  when total risk would still be well within bounds - the position-count
+  limit shouldn't be what blocks a good trade when the dollar-risk limits
+  already do that job. Bundle in an explicit "max one open position per
+  pair" check at the same time (not currently enforced anywhere - only
+  implicitly true because each pair is evaluated once per cycle), so
+  raising the count doesn't accidentally allow stacking two positions on
+  the same pair. Revisit when building the live version or the next
+  paper-trading iteration - no rush while the account has only ever held
+  one open position at a time.
 - **No opportunity-cost / position-swap logic.** Separately: even with 5
   slots, once all slots are full the agent still just rejects a new
   opportunity rather than ever closing an existing (weaker) position to
@@ -147,6 +157,14 @@ lost between sessions:
   clean technical signals. Re-verify volume live again before actually
   adding, rather than trusting these numbers unchanged - crypto volume
   shifts fast and this was a point-in-time check, not a standing fact.
+- **Drop POL/USD for the live version.** User's call (2026-09-13), same
+  volume reasoning as above - POL's ~$267K 24h volume is the thinnest in
+  scope by a wide margin, well below every pair being added and every
+  pair already there. Net effect if this and the pair-add above both
+  land: BTC, ETH, SOL, XRP (4 existing, POL removed) + ADA, LINK, DOGE (3
+  new) = **7 pairs total** - remember to size `MAX_OPEN_POSITIONS` to
+  match (see above), not leave it at 5. Also re-verify POL's volume hasn't
+  recovered before actually dropping it, same caveat as the adds.
 
 ## Network access
 
