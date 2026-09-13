@@ -14761,3 +14761,98 @@ fields changed; this is a schema backfill, not a trade action.
 ```
 
 ---
+### 2026-09-13T07:12:01.314Z — BTC/USD — NO TRADE
+
+**Reasoning:** No qualifying signal: SMA still fast_below_slow, no crossover; RSI 41.7 neutral; volume ratio 0.28x (below 2x flag). Price drifting slightly down (-0.15% 1h/48h, -0.04% 4h/48h), order book near-flat. News: BTC pinned below $80K on hawkish pre-FOMC (Sep 16) expectations with ~87% hike odds and no dovish CPI catalyst; a $320M bridge hack (Sep 7) and the Symbiosis bridge exploit continue to weigh on security sentiment; Senate CLARITY Act procedural vote looms Sep 15. Net cautious, no independent trigger. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 41.66777797584144,
+  "sma_crossover_4h": "fast_below_slow, not crossed this candle",
+  "volume_ratio": 0.2762641331307323,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": -0.03898595081035837,
+  "price_action_1h_48h_pct": -0.14545256730905354,
+  "order_book_imbalance_top10": -0.001316944688323043,
+  "news_context": "BTC held below $80K on hawkish pre-FOMC expectations (~87% hike odds); a separate $320M bridge hack (Sep 7) and the Symbiosis BTC-bridge exploit add security-sentiment overhang; CLARITY Act Senate procedural vote due Sep 15. No quant signal to corroborate."
+}
+```
+
+---
+### 2026-09-13T07:12:07.780Z — ETH/USD — NO TRADE
+
+**Reasoning:** Existing medium-confidence long held (entry 2526.10, stop 2470, TP 2638.31), now ~-0.86% unrealized. No fresh signal: SMA still fast_above_slow but not crossed this candle, RSI 55.2 neutral, volume ratio 0.60x (below 2x flag). News: ETH consolidating below $2,600 post-CPI rally ahead of the Sep 16 FOMC, bears gaining control per one source with options markets showing downside protection toward $2,250; Consensys/MetaMask separation news and the Glamsterdam upgrade (mainnet slipped to Q4, Sepolia fork Sep 28) are longer-horizon and not actionable now. No basis to add; position held under its existing stop/take-profit, price still comfortably above the $2,470 stop.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 55.20022192772605,
+  "sma_crossover_4h": "fast_above_slow, not crossed this candle",
+  "volume_ratio": 0.5980995925126551,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": 2.173040513421359,
+  "price_action_1h_48h_pct": 1.8564090505515698,
+  "order_book_imbalance_top10": 0.5025423354114161,
+  "news_context": "ETH consolidating below $2,600 ahead of Sep 16 FOMC; some options positioning targets a $2,250 pullback; Consensys/MetaMask separation confirmed; Glamsterdam mainnet slipped to Q4 2026 (Sepolia fork Sep 28). No fresh quant signal; existing position held unchanged."
+}
+```
+
+---
+### 2026-09-13T07:12:12.632Z — SOL/USD — NO TRADE
+
+**Reasoning:** No qualifying signal: SMA remains fast_below_slow with no crossover, RSI 49.0 neutral, volume ratio 0.32x (below 2x flag). Order book mildly bid-heavy (+0.07). News constructive (SEC named SOL a core ETF asset alongside BTC/ETH/XRP on Sep 5, Transaction V1 live, strong address growth, $153.87M weekly ETF inflows, $3B tokenized-stock volume) but no quant signal for it to corroborate this cycle. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 48.99226437938462,
+  "sma_crossover_4h": "fast_below_slow, not crossed this candle",
+  "volume_ratio": 0.32023544696362494,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": 1.90552602547388,
+  "price_action_1h_48h_pct": 1.504362651689901,
+  "order_book_imbalance_top10": 0.07412738536175024,
+  "news_context": "SEC named SOL a core ETF asset (Sep 5, alongside BTC/ETH/XRP under Nasdaq Texas Rule 5711(d)); Transaction V1 live; strong network growth ($153.87M weekly ETF inflows, $3B tokenized-stock volume). No quant signal to act on."
+}
+```
+
+---
+### 2026-09-13T07:12:17.665Z — POL/USD — NO TRADE
+
+**Reasoning:** No qualifying signal: SMA still fast_below_slow (fast 0.09533 vs slow 0.09607, essentially unchanged from prior cycles, not crossed), RSI 51.7 neutral, volume ratio 0.53x (below 2x flag). Book stays bid-heavy (+0.37). News: network surpassed 8B transactions (Sep 1) and Austin/Kyoto security hard forks (Aug 31), payments strategic pivot still cited as bullish, but skepticism persists over token utility/underperformance. No confirmed crossover or volume spike to act on. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 51.67838058298355,
+  "sma_crossover_4h": "fast_below_slow (fast 0.09533 vs slow 0.09607), not crossed this candle",
+  "volume_ratio": 0.5345884189420033,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": 3.407136715391236,
+  "price_action_1h_48h_pct": 3.1814273430782505,
+  "order_book_imbalance_top10": 0.3679769592661882,
+  "news_context": "Polygon surpassed 8B transactions (Sep 1) and deployed Austin/Kyoto security hard forks (Aug 31); payments pivot still cited as bullish, but skeptics flag token utility/underperformance. No quant signal to corroborate."
+}
+```
+
+---
+### 2026-09-13T07:12:22.071Z — XRP/USD — NO TRADE
+
+**Reasoning:** No qualifying signal: SMA remains fast_below_slow, no crossover; RSI 45.8 neutral; volume ratio 0.61x (below 2x flag). Price modestly positive but unconfirmed. News: XRP holding $1.30 support amid Fed and CLARITY Act risk, new XLS-65/66 amendments enabling institutional lending features are constructive medium-term, RLUSD regulatory clarity work ongoing; still net cautious given macro/regulatory overhang. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 45.84803730430045,
+  "sma_crossover_4h": "fast_below_slow, not crossed this candle",
+  "volume_ratio": 0.6109852393354567,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": 0.9156790607812505,
+  "price_action_1h_48h_pct": 0.72395644417466,
+  "order_book_imbalance_top10": -0.1035148768914141,
+  "news_context": "XRP defending $1.30 support amid Fed (Sep 16) and CLARITY Act (Sep 15 Senate vote) risk; new XLS-65/66 amendments enabling institutional lending are constructive medium-term; RLUSD regulatory-structure detail published. No quant signal to act on."
+}
+```
+
+---
