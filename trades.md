@@ -14399,3 +14399,99 @@ on, rather than being silently exempt for the rest of its life. No other
 fields changed; this is a schema backfill, not a trade action.
 
 ---
+### 2026-09-13T05:03:57.753Z — BTC/USD — NO TRADE
+
+**Reasoning:** No quantitative signal is triggering. RSI 41.67 is neutral (not oversold), the 20/50 SMA on 4h remains fast_below_slow with no crossover this candle, 24h volume is only 0.28x the 7-day average (well below the 2x flag), and price action is flat-to-slightly-negative (-0.04%/-0.04% over 1h/4h 48h windows). Order book is modestly ask-heavy (-0.18). News: Fed rate-hike odds jumped to ~87% after hot CPI, spot BTC ETFs just ended a 3-week inflow streak with ~$463M in redemptions, and there's a security incident on the Liquid Network sidechain (4,000 BTC drained, 3,400 returned) plus a Symbiosis Bitcoin Bridge exploit. All bearish-leaning but there is no quantitative signal for this news to corroborate, so per the news-context rule it cannot independently justify a trade. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 41.67777797584144,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 0.2762641331307323,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": -0.03898595081035837,
+  "price_action_1h_48h_pct": -0.04363883104908926,
+  "order_book_imbalance_top10": -0.18344459279038725,
+  "news_context": "Fed rate-hike odds ~87% after hot CPI (bearish for risk assets); spot BTC ETFs saw ~$463M in redemptions ending a 3-week inflow streak; Liquid Network sidechain drained 4,000 BTC (3,400 returned) and Symbiosis Bitcoin Bridge exploited. Bearish-leaning but no quantitative signal present for it to corroborate."
+}
+```
+
+---
+### 2026-09-13T05:04:05.236Z — ETH/USD — NO TRADE
+
+**Reasoning:** Already holding one open long ETH/USD position (entry ~$2526.10, stop $2470, take-profit ~$2638.31, opened 2026-09-12). portfolio_check_stops confirms it is still open this cycle - current price $2520.47 is between stop and take-profit, so it did not close on either leg. No new entry signal this cycle: the 20/50 SMA crossover that supported the original entry happened on a prior candle, not this one (state remains fast_above_slow but crossed_this_candle=false), RSI 55.2 is neutral, and 24h volume is only 0.6x the 7-day average (no fresh volume confirmation). Invalidation condition (price closing back below the ~2484 4h 50-SMA, or the crossover reversing) has not been met. News: ETH retested multi-year resistance near $2,600 after a CPI-driven rally, whale activity (>$1M transfers) rose ~14% on the move, but ETH has since pulled back below $2,600 ahead of the Sept 16 FOMC decision - broadly consistent with the existing thesis, not a reason to add or exit early. Decision: hold the existing position unchanged, no new trade this cycle.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 55.20022192772605,
+  "sma_crossover_4h": "fast_above_slow, no new cross this candle (established prior to this cycle)",
+  "volume_ratio": 0.5980995925126551,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": 2.173040513421359,
+  "price_action_1h_48h_pct": 2.09208750866132,
+  "order_book_imbalance_top10": 0.0032477039797683986,
+  "existing_position_status": "open, current price 2520.47, between stop 2470 and take-profit 2638.31, invalidation level (~2484 4h 50SMA) not breached",
+  "news_context": "ETH retested multi-year resistance near $2,600 post-CPI rally with rising whale transfer activity, then pulled back below $2,600 ahead of the Sept 16 FOMC decision. Consistent with existing thesis, not a new independent signal."
+}
+```
+
+---
+### 2026-09-13T05:04:11.317Z — SOL/USD — NO TRADE
+
+**Reasoning:** No fresh quantitative signal. RSI 48.99 is neutral, the 20/50 SMA on 4h is fast_below_slow with no crossover this candle, and 24h volume is only 0.32x the 7-day average (no confirmation despite the 1.9%/1.85% price bounce over the 48h windows). Price move looks like continuation of a broader bounce off recent lows rather than a signal-confirmed setup. News: SOL rebounded from ~$98 to ~$104 this week on Transaction V1 (launched Sept 9) and reports of SOL ETFs pulling in ~$154M (strongest week since Oct 2025) plus regulators recognizing SOL alongside BTC/ETH for commodity-based trusts - all constructive, but per the news-context rule this cannot substitute for a missing quantitative trigger. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 48.99226437938462,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 0.32023544696362494,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": 1.90552602547388,
+  "price_action_1h_48h_pct": 1.8525936310835112,
+  "order_book_imbalance_top10": 0.08753555489539257,
+  "news_context": "SOL bounced from ~$98 to ~$104 on Transaction V1 launch (Sept 9) and ~$154M SOL ETF inflows (strongest week since Oct 2025); regulators recognized SOL for commodity-based trusts. Constructive but no quantitative signal present for it to corroborate."
+}
+```
+
+---
+### 2026-09-13T05:04:17.510Z — POL/USD — NO TRADE
+
+**Reasoning:** No fresh quantitative signal. RSI 51.68 is neutral, the 20/50 SMA on 4h is fast_below_slow (fast 0.09533 vs slow 0.09607) and has not crossed this candle - close but not confirmed - and 24h volume is only 0.53x the 7-day average, well short of the 2x flag despite the notable +3.4%/+3.41% price move over the 1h/4h 48h windows. The price move is unconfirmed by volume or a crossover, so it doesn't meet the bar for a trade. News: Polygon surpassed 8B transactions on Sept 1 with record stablecoin volume, and August's Austin & Kyoto hard forks patched security vulnerabilities - no news specifically dated Sept 12-13 found. Generally constructive background but nothing that corroborates an active quantitative trigger this cycle. No trade; worth re-checking next cycle in case the SMA crossover confirms.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 51.67838058298355,
+  "sma_crossover_4h": "fast_below_slow (0.09533 vs 0.09607), no cross this candle, converging",
+  "volume_ratio": 0.5345884189420033,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": 3.407136715391236,
+  "price_action_1h_48h_pct": 3.4093353409335414,
+  "order_book_imbalance_top10": 0.14982462275635233,
+  "news_context": "Polygon surpassed 8B transactions (Sept 1) with record stablecoin volume; Aug 31 Austin/Kyoto hard forks patched security vulnerabilities. No news specific to Sept 12-13 found. Constructive background but no confirming quantitative signal this cycle."
+}
+```
+
+---
+### 2026-09-13T05:04:22.729Z — XRP/USD — NO TRADE
+
+**Reasoning:** No quantitative signal is triggering. RSI 45.85 is neutral, the 20/50 SMA on 4h remains fast_below_slow with no crossover this candle, 24h volume is only 0.61x the 7-day average, and price action is modestly positive but unremarkable (+1.09%/+0.92% over 1h/4h 48h windows). Order book is ask-heavy (-0.13). News: Ripple highlighted new XRPL institutional lending features (Sept 12), XRP spot ETFs now hold ~$2B AUM across 7 funds, RLUSD stablecoin supply on XRPL just overtook Ethereum for the first time, and a 2x short XRP ETF has an SEC effectiveness date of Oct 11 - net mildly constructive but nothing severe enough or paired with a quantitative trigger to justify a trade. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 45.84803730430045,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 0.6109852393354567,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": 0.9156790607812505,
+  "price_action_1h_48h_pct": 1.0935241131333964,
+  "order_book_imbalance_top10": -0.12814601674906403,
+  "news_context": "Ripple highlighted new XRPL institutional lending features (Sept 12); 7 XRP spot ETFs now hold ~$2B AUM; RLUSD stablecoin supply on XRPL overtook Ethereum for the first time; a 2x short XRP ETF has an SEC effectiveness date of Oct 11. Mildly constructive, no confirming quantitative signal this cycle."
+}
+```
+
+---
