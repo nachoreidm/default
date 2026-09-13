@@ -101,6 +101,35 @@ re-click approve each time. Fix the always-allow setting first (Settings →
 Connectors → Notion, per-tool), *then* do one more cutover to a fresh
 session so the fix actually takes.
 
+## Planned but not yet built
+
+These are agreed changes for a future version - **don't implement without
+the user explicitly asking**, they're recorded here so the decision isn't
+lost between sessions:
+
+- **Raise `MAX_OPEN_POSITIONS` from 3 to 5 (one per pair).** Analysis as of
+  2026-09-13: this doesn't loosen the actual risk ceiling, since
+  `MAX_TOTAL_EXPOSURE_PCT` (25%) and the per-trade/confidence size caps are
+  the real binding constraints either way - 5 positions at the medium cap
+  (3%) is only 15% exposure, and 5 at the max high-confidence size (5%)
+  lands exactly at 25%, not over it. What it fixes: right now a genuinely
+  good 4th or 5th signal gets rejected outright just because two slots
+  were already filled, even when total risk would still be well within
+  bounds - the position-count limit shouldn't be what blocks a good trade
+  when the dollar-risk limits already do that job. Bundle in an explicit
+  "max one open position per pair" check at the same time (not currently
+  enforced anywhere - only implicitly true because each pair is evaluated
+  once per cycle), so raising the count doesn't accidentally allow
+  stacking two positions on the same pair. Revisit when building the live
+  version or the next paper-trading iteration - no rush while the account
+  has only ever held one open position at a time.
+- **No opportunity-cost / position-swap logic.** Separately: even with 5
+  slots, once all slots are full the agent still just rejects a new
+  opportunity rather than ever closing an existing (weaker) position to
+  make room. That's a deliberate absence, not a bug - swapping requires
+  comparing trades against each other, which is a meaningfully bigger
+  design decision than a fixed threshold. Left as-is for now.
+
 ## Network access
 
 This environment's network policy has `api.kraken.com` allowlisted
