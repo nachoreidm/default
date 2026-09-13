@@ -46,6 +46,7 @@ export interface Position {
   direction: "long";
   entry_price: number;
   stop_loss: number;
+  take_profit: number;
   size_pct: number;
   size_usd: number;
   quantity: number;
@@ -90,6 +91,14 @@ export const RISK_LIMITS = {
   MAX_OPEN_POSITIONS: 3,
   MAX_DAILY_LOSS_PCT: 5,
 } as const;
+
+// Fixed profit-taking rule: take-profit is set automatically at entry, at
+// this multiple of the trade's own risk (entry-to-stop distance) above
+// entry - a standard risk/reward target, not something the agent chooses
+// or can override. A 2:1 target means a trade risking $1/unit to the stop
+// takes profit at $2/unit of gain. Checked every cycle by
+// portfolio_check_stops alongside the stop-loss.
+export const TAKE_PROFIT_RR_MULTIPLE = 2;
 
 // Position size is capped by stated confidence, not just the global 5% max.
 // Formalizes a pattern the agent was already applying ad hoc (e.g. sizing a

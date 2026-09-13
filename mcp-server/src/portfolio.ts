@@ -9,6 +9,7 @@ import {
   CONFIDENCE_MAX_SIZE_PCT,
   TAKER_FEE_PCT,
   SLIPPAGE_PCT,
+  TAKE_PROFIT_RR_MULTIPLE,
   isAllowedPair,
   type AllowedPair,
   type ClosedPosition,
@@ -206,6 +207,7 @@ export async function openPosition(input: OpenPositionInput): Promise<OpenPositi
 
   const fee = newSizeUsd * (TAKER_FEE_PCT / 100);
   const quantity = (newSizeUsd - fee) / fillPrice;
+  const takeProfit = fillPrice + TAKE_PROFIT_RR_MULTIPLE * (fillPrice - input.stop_loss);
 
   const position: Position = {
     id: randomUUID(),
@@ -213,6 +215,7 @@ export async function openPosition(input: OpenPositionInput): Promise<OpenPositi
     direction: "long",
     entry_price: fillPrice,
     stop_loss: input.stop_loss,
+    take_profit: takeProfit,
     size_pct: input.size_pct,
     size_usd: newSizeUsd,
     quantity,
@@ -290,19 +293,27 @@ export async function closePosition(input: ClosePositionInput): Promise<ClosePos
 export interface StopCheckAction {
   position_id: string;
   pair: AllowedPair;
-  triggered: "stop_loss";
+  triggered: "stop_loss" | "take_profit";
   closed: ClosedPosition;
 }
 
 // Meant to be called on a schedule (or on demand) to auto-close any open
-// position whose stop-loss has been breached, independent of whether
-// anyone is actively chatting with the agent.
+// position whose stop-loss or take-profit has been breached, independent
+// of whether anyone is actively chatting with the agent. Take-profit is
+// checked first so a candle that gaps through both levels in one tick
+// (rare, but possible with slippage) is recorded as the win it is rather
+// than the loss the stop would otherwise claim.
 export async function checkStops(): Promise<StopCheckAction[]> {
   const state = await loadState();
   const actions: StopCheckAction[] = [];
   for (const pos of [...state.open_positions]) {
     const ticker = await fetchTicker(pos.pair);
-    if (ticker.last <= pos.stop_loss) {
+    if (ticker.last >= pos.take_profit) {
+      const result = await closePosition({ position_id: pos.id, reason: `Take-profit auto-triggered (price ${ticker.last} >= target ${pos.take_profit}, ${TAKE_PROFIT_RR_MULTIPLE}:1 risk/reward).` });
+      if (result.ok) {
+        actions.push({ position_id: pos.id, pair: pos.pair, triggered: "take_profit", closed: result.position });
+      }
+    } else if (ticker.last <= pos.stop_loss) {
       const result = await closePosition({ position_id: pos.id, reason: `Stop-loss auto-triggered (price ${ticker.last} <= stop ${pos.stop_loss}).` });
       if (result.ok) {
         actions.push({ position_id: pos.id, pair: pos.pair, triggered: "stop_loss", closed: result.position });
@@ -337,6 +348,7 @@ function formatOpenEntry(p: Position): string {
     "",
     `- Entry price: $${p.entry_price.toFixed(2)}`,
     `- Stop-loss: $${p.stop_loss.toFixed(2)}`,
+    `- Take-profit: $${p.take_profit.toFixed(2)} (${TAKE_PROFIT_RR_MULTIPLE}:1 risk/reward, fixed at entry)`,
     `- Position size: ${p.size_pct}% of portfolio ($${p.size_usd.toFixed(2)}, qty ${p.quantity.toFixed(8)})`,
     `- Entry fee (paper): $${p.entry_fee.toFixed(2)}`,
     `- Confidence: ${p.confidence} — ${p.confidence_reason}`,

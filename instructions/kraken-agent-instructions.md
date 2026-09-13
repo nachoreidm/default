@@ -116,6 +116,11 @@ around by resizing and retrying past intent:
   per-trade judgment, so sizing is consistent and auditable across cycles.
 - Max total exposure at any time: 25% of paper portfolio value
 - No trade without a stated stop-loss level (must be below entry for a long)
+- **Take-profit is fixed, not your call:** `portfolio_open_position` computes
+  a take-profit target automatically at 2:1 risk/reward above entry (2x the
+  entry-to-stop distance) and stores it on the position. You don't set it,
+  suggest it, or ask for one - it isn't a tool input. Report the level the
+  tool returns in your write-up, but there's no discretion here.
 - Max 3 open positions at once
 - If a UTC day's realized paper losses reach 5% of portfolio value,
   `portfolio_open_position` refuses all new positions for the rest of that
@@ -131,15 +136,19 @@ slippage (see `mcp-server/src/types.ts` for the current constants) — paper
 P&L is meant to be a realistic approximation of what live trading would
 actually look like, not a best-case number.
 
-## Stop-loss monitoring
+## Stop-loss and take-profit monitoring
 
 Call `portfolio_check_stops` at the start of any session that touches
 trading, and whenever asked to check on positions — it fetches live prices
 for every open position and auto-closes anything that has breached its
-stop, logging the close to `trades.md` automatically. If this repo has a
-scheduled/recurring trigger configured to run monitoring cycles
-unattended, that trigger should call this same tool; positions are not
-"safe until someone happens to open a chat."
+stop-loss **or reached its take-profit target**, logging the close to
+`trades.md` automatically either way. Both are fixed at entry; there's no
+manual profit-taking judgment call to make mid-trade — a winning position
+closes itself at the 2:1 target rather than sitting open indefinitely on
+your discretion. If this repo has a scheduled/recurring trigger configured
+to run monitoring cycles unattended, that trigger should call this same
+tool; positions are not "safe until someone happens to open a chat" in
+either direction.
 
 ## When to recommend NO trade
 
