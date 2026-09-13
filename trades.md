@@ -16091,3 +16091,98 @@ fields changed; this is a schema backfill, not a trade action.
 ```
 
 ---
+### 2026-09-13T21:12:26.038Z — BTC/USD — NO TRADE
+
+**Reasoning:** No qualifying signal: SMA still fast_below_slow, no crossover; RSI 45.5 neutral; volume ratio 0.28x (below 2x flag). Price modestly up (+0.28% 1h/48h). News unchanged: 85.4% Fed hike odds for Sep 16, $462.7M BTC ETF outflows (Grayscale, Ark, Fidelity redemptions named), dense 9-day macro window. No independent trigger. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 45.51885650044389,
+  "sma_crossover_4h": "fast_below_slow, not crossed this candle",
+  "volume_ratio": 0.2762641331307323,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": 0.05556210327817541,
+  "price_action_1h_48h_pct": 0.2750994171160941,
+  "order_book_imbalance_top10": 0.15215818664094513,
+  "news_context": "Same pre-FOMC backdrop persists (85.4% hike odds Sep 16); BTC ETF outflows of $462.7M Sep 8-11 with redemptions from Grayscale, Ark, Fidelity named specifically. No quant signal to corroborate."
+}
+```
+
+---
+### 2026-09-13T21:12:30.903Z — ETH/USD — NO TRADE
+
+**Reasoning:** Existing medium-confidence long held (entry 2526.10, stop 2470, TP 2638.31), now ~-0.88% unrealized and continuing to recover, current price 2513.82 comfortably clear of the $2,470 stop. No fresh signal: SMA still fast_above_slow, not crossed; RSI 51.4 neutral. News: same analyst thesis repeats (weekly close above $2,550 could open a run to $3,000); ETH ETFs continue outperforming BTC ETFs in flows. No basis to add or exit early; position held, stop not breached.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 51.4208440700979,
+  "sma_crossover_4h": "fast_above_slow, not crossed this candle",
+  "volume_ratio": 0.5980995925126551,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": -0.4324341511691086,
+  "price_action_1h_48h_pct": -0.1518415759724683,
+  "order_book_imbalance_top10": 0.581974445279566,
+  "news_context": "Analyst thesis repeats: weekly close above $2,550 could open a run to $3,000; ETH ETFs continue outperforming BTC ETFs in flows. No fresh quant signal; existing position held, stop not breached."
+}
+```
+
+---
+### 2026-09-13T21:12:35.492Z — SOL/USD — NO TRADE
+
+**Reasoning:** No qualifying signal: SMA remains fast_below_slow, no crossover; RSI 47.0 neutral; volume ratio 0.32x (below 2x flag). Price modestly down (-0.63% 1h/48h). News unchanged from prior cycles (SEC core ETF asset, GameStop/GMEx and $FLWS tokenized listings, Alpenglow consensus upgrade expected October). No quant signal to act on. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 47.02553494182004,
+  "sma_crossover_4h": "fast_below_slow, not crossed this candle",
+  "volume_ratio": 0.32023544696362494,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": -1.4546519574343542,
+  "price_action_1h_48h_pct": -0.6269592476489034,
+  "order_book_imbalance_top10": 0.040870083715039814,
+  "news_context": "SEC named SOL a core ETF asset (Sep 5); GameStop/GMEx and $FLWS tokenized listings on Solana; Alpenglow consensus upgrade expected October. No quant signal to corroborate."
+}
+```
+
+---
+### 2026-09-13T21:12:39.338Z — POL/USD — NO TRADE
+
+**Reasoning:** No qualifying signal: SMA still fast_below_slow (fast 0.09540 vs slow 0.09626), not crossed; RSI 56.4 neutral; volume ratio 0.53x (below 2x flag). Price up modestly (+1.46% 1h/48h). News unchanged from prior cycles. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 56.3520597752527,
+  "sma_crossover_4h": "fast_below_slow (fast 0.09540 vs slow 0.09626), not crossed this candle",
+  "volume_ratio": 0.5345884189420033,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": 0.02054231717336919,
+  "price_action_1h_48h_pct": 1.4575741801145221,
+  "order_book_imbalance_top10": 0.202050475448597,
+  "news_context": "Security hard forks and Gigagas TPS roadmap remain the technical focus; payments pivot cited as bullish; TVL outflows and L2 competition remain a headwind. No quant signal to corroborate."
+}
+```
+
+---
+### 2026-09-13T21:12:43.477Z — XRP/USD — NO TRADE
+
+**Reasoning:** No qualifying signal: SMA remains fast_below_slow, no crossover; RSI 44.7 neutral; volume ratio 0.61x (below 2x flag). Price up modestly (+0.61% 1h/48h). News: institutional-lending narrative (XLS-65/66, v1.1 upgrade due Sep 19) remains constructive; MoneyGram choosing Circle's stablecoin over Ripple's RLUSD is a minor setback repeated from prior cycles. No quant signal to act on. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 44.65707613477247,
+  "sma_crossover_4h": "fast_below_slow, not crossed this candle",
+  "volume_ratio": 0.6109852393354567,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": -0.10987066232099868,
+  "price_action_1h_48h_pct": 0.6123037559067229,
+  "order_book_imbalance_top10": -0.08636777548310141,
+  "news_context": "Institutional-lending narrative (XLS-65/66 amendments, v1.1 upgrade due Sep 19) remains constructive; MoneyGram chose Circle's stablecoin over Ripple's RLUSD, a minor repeated setback. No quant signal to corroborate."
+}
+```
+
+---
