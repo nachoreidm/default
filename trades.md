@@ -15806,3 +15806,98 @@ fields changed; this is a schema backfill, not a trade action.
 ```
 
 ---
+### 2026-09-13T18:13:23.844Z — BTC/USD — NO TRADE
+
+**Reasoning:** No qualifying signal: SMA still fast_below_slow, no crossover; RSI 43.0 neutral; volume ratio 0.28x (below 2x flag). Price flat-to-slightly-up (+0.35% 1h/48h). News: same macro drivers persist (85.4% Fed hike odds for Sep 16, technical rejection near $80K) but longer-term outlook remains constructive (reclaimed 20/50/200-week EMAs). No independent trigger. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 42.97781542981942,
+  "sma_crossover_4h": "fast_below_slow, not crossed this candle",
+  "volume_ratio": 0.2762641331307323,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": -0.199843128321562,
+  "price_action_1h_48h_pct": 0.3460885888127334,
+  "order_book_imbalance_top10": -0.3526877692451771,
+  "news_context": "Same pre-FOMC macro backdrop (85.4% hike odds Sep 16, technical rejection near $80K); longer-term outlook constructive (reclaimed 20/50/200-week EMAs, historically not followed by new cycle lows). No quant signal to corroborate."
+}
+```
+
+---
+### 2026-09-13T18:13:28.411Z — ETH/USD — NO TRADE
+
+**Reasoning:** Existing medium-confidence long held (entry 2526.10, stop 2470, TP 2638.31), now ~-1.22% unrealized, current price 2505.23 comfortably clear of the $2,470 stop. No fresh signal: SMA still fast_above_slow, not crossed; RSI 47.8 neutral. News: ETH ETFs took in $216M on Sep 11 alone, led by BlackRock's ETHA fund ($148M) — continued institutional demand; Glamsterdam upgrade mainnet still slipped to Q4, Sepolia fork Sep 28. No basis to add or exit early; position held, stop not breached.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 47.81316550141011,
+  "sma_crossover_4h": "fast_above_slow, not crossed this candle",
+  "volume_ratio": 0.5980995925126551,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": -1.8832836902904406,
+  "price_action_1h_48h_pct": -1.281207252027264,
+  "order_book_imbalance_top10": -0.8164382312025359,
+  "news_context": "ETH ETFs took in $216M on Sep 11 alone, led by BlackRock's ETHA fund ($148M); Glamsterdam upgrade mainnet slipped to Q4 2026 (Sepolia fork Sep 28). No fresh quant signal; existing position held, stop not breached."
+}
+```
+
+---
+### 2026-09-13T18:13:31.333Z — SOL/USD — NO TRADE
+
+**Reasoning:** No qualifying signal: SMA remains fast_below_slow, no crossover; RSI 42.1 neutral; volume ratio 0.32x (below 2x flag). Price essentially flat (-0.05% 1h/48h). News constructive (SEC core ETF asset, GameStop tokenized-stock listing as GMEx on Sep 12 alongside the earlier $FLWS listing) but no quant signal corroborates a trade. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 42.13871938267191,
+  "sma_crossover_4h": "fast_below_slow, not crossed this candle",
+  "volume_ratio": 0.32023544696362494,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": -1.7741619290335253,
+  "price_action_1h_48h_pct": -0.04949025042066431,
+  "order_book_imbalance_top10": -0.015085859722852797,
+  "news_context": "SEC named SOL a core ETF asset (Sep 5); GameStop tokenized stock (GMEx) listed on Solana Sep 12, following the $FLWS listing the same day — growing tokenized-equity ecosystem. No quant signal to corroborate."
+}
+```
+
+---
+### 2026-09-13T18:13:34.584Z — POL/USD — NO TRADE
+
+**Reasoning:** No qualifying signal: SMA still fast_below_slow (fast 0.09517 vs slow 0.09620), not crossed; RSI 55.5 neutral; volume ratio 0.53x (below 2x flag). Price up modestly (+2.32% 1h/48h), continuing to outperform the other four pairs. Book strongly bid-heavy (+0.63). News unchanged from prior cycles. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 55.53984366677713,
+  "sma_crossover_4h": "fast_below_slow (fast 0.09517 vs slow 0.09620), not crossed this candle",
+  "volume_ratio": 0.5345884189420033,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": 1.1976671526765383,
+  "price_action_1h_48h_pct": 2.322892579356741,
+  "order_book_imbalance_top10": 0.6341159648245441,
+  "news_context": "Security hard forks and Gigagas TPS roadmap remain the technical focus; mixed breakout vs downtrend sentiment persists. No quant signal to corroborate; POL continues outperforming the broader market this cycle."
+}
+```
+
+---
+### 2026-09-13T18:13:37.979Z — XRP/USD — NO TRADE
+
+**Reasoning:** No qualifying signal: SMA remains fast_below_slow, no crossover; RSI 39.3 weakening but not oversold; volume ratio 0.61x (below 2x flag). Price roughly flat (+0.26% 1h/48h). News: institutional-lending narrative (XLS-65/66, v1.1 upgrade due Sep 19) remains constructive, but Polymarket odds on a September Fed hike have nearly tripled in three weeks, adding to macro uncertainty ahead of Sep 15-16. No quant signal to act on. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 39.26421742724351,
+  "sma_crossover_4h": "fast_below_slow, not crossed this candle",
+  "volume_ratio": 0.6109852393354567,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": -1.4035602862910646,
+  "price_action_1h_48h_pct": 0.2567099695203046,
+  "order_book_imbalance_top10": 0.03238921395758802,
+  "news_context": "Institutional-lending narrative (XLS-65/66 amendments, v1.1 upgrade due Sep 19) remains constructive; Polymarket odds on a September Fed hike have nearly tripled in three weeks, adding macro uncertainty ahead of Sep 15-16. No quant signal to corroborate."
+}
+```
+
+---
