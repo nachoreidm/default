@@ -15331,3 +15331,98 @@ fields changed; this is a schema backfill, not a trade action.
 ```
 
 ---
+### 2026-09-13T13:12:40.550Z — BTC/USD — NO TRADE
+
+**Reasoning:** No qualifying signal: SMA still fast_below_slow, no crossover; RSI 36.3 weakening but not below the 30 oversold threshold; volume ratio 0.28x (below 2x flag). Price down further over the 48h window (-3.09% 1h/48h) amid broad pre-FOMC risk-off. News: same drivers as prior cycles — dense Sep 15-16 macro window (CLARITY Act vote, FOMC), Symbiosis bridge exploit fallout. No independent trigger. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 36.309880744344085,
+  "sma_crossover_4h": "fast_below_slow, not crossed this candle",
+  "volume_ratio": 0.2762641331307323,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": -1.2293979643445028,
+  "price_action_1h_48h_pct": -3.0908186103378306,
+  "order_book_imbalance_top10": 0.38403451995684995,
+  "news_context": "BTC pressured pre-FOMC/CLARITY Act vote (Sep 15-16), Symbiosis bridge exploit fallout continues. RSI weakening (36.3) but not oversold; no quant signal to corroborate."
+}
+```
+
+---
+### 2026-09-13T13:12:44.902Z — ETH/USD — NO TRADE
+
+**Reasoning:** Existing medium-confidence long held (entry 2526.10, stop 2470, TP 2638.31), now ~-2.40% unrealized, current price 2475.48 still above the $2,470 stop (check_stops confirmed clean). No fresh signal: SMA still fast_above_slow, not crossed; RSI 45.3 neutral. Order book turned notably ask-heavy (-0.67) this cycle, a headwind worth noting. Price continues drifting down with the broader market (-5.82% 1h/48h now reflecting the wider 48h high). News: still capped below $2,500-2,600 resistance ahead of Sep 16 FOMC, though one source notes a prior 37% 10-day gain and a potential bullish flag formation. No basis to add or exit early since the code-enforced stop hasn't triggered; position held, will watch very closely next cycle.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 45.28767719349872,
+  "sma_crossover_4h": "fast_above_slow, not crossed this candle",
+  "volume_ratio": 0.5980995925126551,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": -3.071109530638807,
+  "price_action_1h_48h_pct": -5.816160056587201,
+  "order_book_imbalance_top10": -0.6656474209085277,
+  "news_context": "ETH still capped below $2,500-2,600 resistance ahead of Sep 16 FOMC; one source notes a prior 37% 10-day gain and a potential bullish flag formation despite the current pullback. No fresh quant signal; existing position held, stop not breached per check_stops."
+}
+```
+
+---
+### 2026-09-13T13:12:48.019Z — SOL/USD — NO TRADE
+
+**Reasoning:** No qualifying signal: SMA remains fast_below_slow, no crossover; RSI 39.2 weakening but not oversold; volume ratio 0.32x (below 2x flag). Price down further with the broader market (-4.92% 1h/48h). News constructive long-term (SEC core ETF asset, strong network growth/adoption) but no quant signal to corroborate this cycle's pullback. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 39.21431803890665,
+  "sma_crossover_4h": "fast_below_slow, not crossed this candle",
+  "volume_ratio": 0.32023544696362494,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": -1.7426405434675556,
+  "price_action_1h_48h_pct": -4.921785578023652,
+  "order_book_imbalance_top10": -0.04478421169835608,
+  "news_context": "SEC named SOL a core ETF asset (Sep 5); strong network growth/ETF inflows continue. Broad market pullback this cycle, no quant signal to corroborate."
+}
+```
+
+---
+### 2026-09-13T13:12:51.555Z — POL/USD — NO TRADE
+
+**Reasoning:** No qualifying signal: SMA still fast_below_slow (fast 0.09514 vs slow 0.09616), not crossed; RSI 49.5 neutral; volume ratio 0.53x (below 2x flag). Price modestly down (-1.12% 1h/48h) but again notably more resilient than BTC/ETH/SOL/XRP this cycle. Book bid-heavy (+0.17). News unchanged from prior cycles. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 49.516756964488614,
+  "sma_crossover_4h": "fast_below_slow (fast 0.09514 vs slow 0.09616), not crossed this candle",
+  "volume_ratio": 0.5345884189420033,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": 0.34594821260089836,
+  "price_action_1h_48h_pct": -1.1181780878128784,
+  "order_book_imbalance_top10": 0.17396934823236215,
+  "news_context": "Security hard forks and Gigagas TPS roadmap remain the technical focus; ~99% MATIC-to-POL migration nearly complete; mixed breakout vs downtrend sentiment persists. No quant signal to corroborate; POL again notably more resilient than the other four pairs this cycle."
+}
+```
+
+---
+### 2026-09-13T13:12:55.326Z — XRP/USD — NO TRADE
+
+**Reasoning:** No qualifying signal: SMA remains fast_below_slow, no crossover; RSI 39.2 weakening but not oversold; volume ratio 0.61x (below 2x flag). Price down further with the broader market (-5.31% 1h/48h). News: institutional-lending narrative (XLS-65/66 amendments, v1.1 lending upgrade due Sep 19) remains constructive medium-term, but XRP needs to clear resistance quickly to keep its $1.50 target alive and the Sep 15 CLARITY Act vote remains a binary risk. No quant signal to act on. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 39.20213746516953,
+  "sma_crossover_4h": "fast_below_slow, not crossed this candle",
+  "volume_ratio": 0.6109852393354567,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": -2.286766150331415,
+  "price_action_1h_48h_pct": -5.3144431882419445,
+  "order_book_imbalance_top10": -0.01774042600650741,
+  "news_context": "Institutional-lending narrative constructive (XLS-65/66, v1.1 upgrade due Sep 19); XRP needs to clear resistance quickly to keep its $1.50 target alive; Sep 15 CLARITY Act Senate vote remains a binary regulatory risk. No quant signal to corroborate."
+}
+```
+
+---
