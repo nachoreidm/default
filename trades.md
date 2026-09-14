@@ -17231,3 +17231,98 @@ fields changed; this is a schema backfill, not a trade action.
 ```
 
 ---
+### 2026-09-14T09:12:25.842Z — BTC/USD — NO TRADE
+
+**Reasoning:** No qualifying signal: SMA stays fast_below_slow with no crossover this candle, RSI neutral (54.5), volume well below average (0.54x, no spike). Price action mildly positive (+0.66% 4h/48h). News: BTC ~$77.7K, CLARITY Act Senate vote Sept 15 and FOMC Sept 16 (~60% odds of a 25bp hike) are the dominant near-term catalysts; external commentary again mentions a golden cross but our own compute_signals shows fast_below_slow, no crossover this candle - sticking with the deterministic signal. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 54.54,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 0.54,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": 0.66,
+  "price_action_1h_48h_pct": 0.48,
+  "order_book_imbalance_top10": -0.427,
+  "news_context": "BTC ~$77.7K holding; market in holding pattern ahead of Sept 15 CLARITY Act Senate vote and Sept 16 FOMC decision (~60% odds 25bp hike). External golden-cross claim not confirmed by our own signals."
+}
+```
+
+---
+### 2026-09-14T09:12:29.840Z — ETH/USD — NO TRADE
+
+**Reasoning:** Already holding an open medium-confidence ETH/USD long from 2026-09-12 (unrealized ~-0.84%); no new entry. Current signals: SMA fast_above_slow (no new cross this candle), RSI neutral (54.8), volume below average (0.75x, no spike), price action slightly negative (-0.53% 4h/48h). News: mixed, whale accumulation ($94M this month) vs. pre-FOMC de-risking; Consensys corporate split into MetaMask + Consensys by end of 2026; Glamsterdam upgrade mainnet slipped to Q4, Sepolia fork Sept 28. No fresh quantitative trigger, no action.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 54.84,
+  "sma_crossover_4h": "fast_above_slow, no new cross this candle",
+  "volume_ratio": 0.75,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": -0.53,
+  "price_action_1h_48h_pct": -0.51,
+  "order_book_imbalance_top10": 0.639,
+  "news_context": "Mixed: whale accumulation ($94M this month) vs. pre-FOMC de-risking pullback. Consensys announced planned split into MetaMask + Consensys entities by end of 2026. Already have an open ETH long; no fresh signal to act on."
+}
+```
+
+---
+### 2026-09-14T09:12:33.123Z — SOL/USD — NO TRADE
+
+**Reasoning:** No qualifying signal: SMA stays fast_below_slow with no crossover this candle, RSI neutral (51.5), volume well below average (0.48x, no spike). Price action mildly negative (-0.54% 4h/48h). News is bullish (record tokenized-equity volume, $7.9M daily app revenue - highest of 2026, SEC named SOL a core ETF asset on Sept 5) but per the rules news alone cannot trigger a trade without a quantitative signal already pointing somewhere - none do here. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 51.51,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 0.48,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": -0.54,
+  "price_action_1h_48h_pct": -0.57,
+  "order_book_imbalance_top10": -0.004,
+  "news_context": "Bullish external narrative: record tokenized-equity trading volume, highest daily app revenue of 2026 ($7.9M), SEC named SOL a core ETF asset Sept 5. Not acted on since compute_signals shows no crossover, neutral RSI, and no volume spike."
+}
+```
+
+---
+### 2026-09-14T09:12:36.790Z — POL/USD — NO TRADE
+
+**Reasoning:** No qualifying signal: SMA stays fast_below_slow with no crossover this candle, RSI neutral (49.8), volume well below average (0.43x, no spike). Price roughly flat (-0.01% 1h/48h, -0.38% 4h/48h). News routine/mixed - MATIC-to-POL migration ~99% complete, Gigagas throughput roadmap ongoing, continued use as payment rail (Stripe/Mastercard/BlackRock), but also described as lagging other L2s on retail interest. Nothing that would move price near-term. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 49.82,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 0.43,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": -0.38,
+  "price_action_1h_48h_pct": -0.01,
+  "order_book_imbalance_top10": 0.313,
+  "news_context": "Mixed/routine: continued use as payments rail (Stripe, Mastercard, BlackRock), Gigagas roadmap ongoing, but described as lagging peer L2s on retail interest/new deployments. Nothing notable that would move price near-term."
+}
+```
+
+---
+### 2026-09-14T09:12:40.560Z — XRP/USD — NO TRADE
+
+**Reasoning:** No qualifying signal: SMA stays fast_below_slow with no crossover this candle, RSI neutral (57.4), volume well below average (0.52x, no spike). Price action positive (+1.33% 4h/48h, +1.12% 1h/48h) but unconfirmed by volume or a crossover. News: CLARITY Act Senate cloture vote Sept 15 remains the dominant binary catalyst (needs 60 votes to advance); XRPL processed a record 2,768 tx in 3.8s on Sept 13 without disruption; a Schwab money-market fund reported holding ~$4.8M in XRP ETF shares as repo collateral. Forward-looking/event risk, not a current-signal trigger. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 57.38,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 0.52,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": 1.33,
+  "price_action_1h_48h_pct": 1.12,
+  "order_book_imbalance_top10": 0.292,
+  "news_context": "Senate CLARITY Act cloture vote Sept 15 (needs 60 votes) remains the major binary catalyst; XRPL set a stress-test record (2,768 tx in 3.8s) on Sept 13; Schwab money-market fund holds ~$4.8M in XRP ETF shares as repo collateral. Not acted on - no quantitative signal confirms a move."
+}
+```
+
+---
