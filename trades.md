@@ -17801,3 +17801,98 @@ fields changed; this is a schema backfill, not a trade action.
 ```
 
 ---
+### 2026-09-14T15:13:53.730Z — BTC/USD — NO TRADE
+
+**Reasoning:** No qualifying signal: SMA stays fast_below_slow with no crossover this candle, RSI neutral (53.0), volume well below average (0.54x, no spike). Price action positive (+1.45% 1h/48h). News: BTC ~$78K, open interest down 13.5% (deleveraging), Fed rate-hike odds 86.5%, Strive acquired 469 BTC ($36.6M), Strategy holds 845,050 BTC unchanged. No confirming quantitative signal. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 53.01,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 0.54,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": 0.49,
+  "price_action_1h_48h_pct": 1.45,
+  "order_book_imbalance_top10": -0.523,
+  "news_context": "BTC ~$78K; open interest down 13.5% (deleveraging); Fed rate-hike odds 86.5%; Strive bought 469 BTC ($36.6M); Strategy holds 845,050 BTC unchanged."
+}
+```
+
+---
+### 2026-09-14T15:13:57.373Z — ETH/USD — NO TRADE
+
+**Reasoning:** Already holding an open medium-confidence ETH/USD long from 2026-09-12 (unrealized ~-1.29%); no new entry. Current signals: SMA fast_above_slow (no new cross this candle), RSI neutral (51.6), volume below average (0.75x, no spike), price action negative (-1.33% 1h/48h). News: BitMine reported ETH treasury of 5.96M tokens (98% of its 5%-of-supply goal), ETH ETFs pulled in $216.4M Sept 11, analyst target $3,000 if week closes above $2,550. No fresh quantitative trigger, no action.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 51.61,
+  "sma_crossover_4h": "fast_above_slow, no new cross this candle",
+  "volume_ratio": 0.75,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": -1.04,
+  "price_action_1h_48h_pct": -1.33,
+  "order_book_imbalance_top10": 0.762,
+  "news_context": "BitMine's ETH treasury reached 5.96M tokens (98% of its 5%-of-supply target); ETH ETFs pulled in $216.4M Sept 11; analyst target $3,000 if week closes above $2,550. Already have an open ETH long; no fresh signal to act on."
+}
+```
+
+---
+### 2026-09-14T15:14:00.466Z — SOL/USD — NO TRADE
+
+**Reasoning:** No qualifying signal: SMA stays fast_below_slow with no crossover this candle, RSI neutral (50.3), volume well below average (0.48x, no spike). Price action mildly negative (-0.70% 4h/48h). News: SOL still consolidating in a tightening symmetrical triangle near $100-$102 with heavy liquidation clusters on both sides - a setup, not yet a confirmed breakout. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 50.33,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 0.48,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": -0.7,
+  "price_action_1h_48h_pct": -0.42,
+  "order_book_imbalance_top10": 0.026,
+  "news_context": "SOL still in a tightening symmetrical triangle near $100-$102 with heavy liquidation clusters on both sides, defending the $98-$100 support zone. Not acted on - compute_signals shows no crossover, neutral RSI, no volume spike."
+}
+```
+
+---
+### 2026-09-14T15:14:03.776Z — POL/USD — NO TRADE
+
+**Reasoning:** No qualifying signal: SMA stays fast_below_slow with no crossover this candle, RSI neutral (53.6), volume well below average (0.43x, no spike). Price mixed (+0.89% 1h/48h, -0.72% 4h/48h). News routine - Fear & Greed at 61 (Greed), Gigagas roadmap ongoing, but analysts still describe an overall downtrend/waning retail interest. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 53.57,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 0.43,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": -0.72,
+  "price_action_1h_48h_pct": 0.89,
+  "order_book_imbalance_top10": 0.597,
+  "news_context": "Fear & Greed Index at 61 (Greed), Gigagas roadmap ongoing, but broader downtrend/waning retail interest still cited by analysts. Nothing that would move price near-term."
+}
+```
+
+---
+### 2026-09-14T15:14:07.793Z — XRP/USD — NO TRADE
+
+**Reasoning:** No qualifying signal: SMA stays fast_below_slow with no crossover this candle, RSI neutral (59.5, below overbought), volume well below average (0.52x, no spike). Price action positive (+2.01% 1h/48h, +1.87% 4h/48h) but unconfirmed by volume or a crossover. News: CLARITY Act Senate cloture vote Sept 15 remains the dominant binary catalyst; XRP trading above its EMA20/50/200 but capital reported rotating out of altcoins into safety; XRPL processed a record 2,768 tx in 3.8s on Sept 13. Forward-looking event risk, not a current-signal trigger. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 59.48,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 0.52,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": 1.87,
+  "price_action_1h_48h_pct": 2.01,
+  "order_book_imbalance_top10": -0.315,
+  "news_context": "Senate CLARITY Act cloture vote Sept 15 remains the major binary catalyst; XRP above EMA20/50/200 but capital reported rotating out of altcoins into safety; XRPL stress-test record (2,768 tx in 3.8s) Sept 13. Not acted on - no quantitative signal confirms a move."
+}
+```
+
+---
