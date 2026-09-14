@@ -18393,3 +18393,97 @@ this is a schema backfill, not a trade action.
 ```
 
 ---
+### 2026-09-14T20:12:11.334Z — BTC/USD — NO TRADE
+
+**Reasoning:** No signal triggers. RSI 65.5 elevated but not overbought (>70). No fresh SMA crossover (fast_below_slow, not crossed). Volume ratio 0.54x, well below the 2x flag. Momentum trigger not flagged (2.40% 1h/48h vs 6% threshold). Order book mildly bid-heavy (+0.29), not itself a listed trigger. News: Fed rate-hike odds still elevated (86.5%) into this week's meeting; Middle East pipeline attack pushed oil up >11% over 5 days adding macro risk-off pressure; Strive added 469 BTC. Nothing here is a fresh catalyst and there's no quant signal for it to corroborate anyway.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 65.46976253277376,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "volume_ratio": 0.5376565115516222,
+  "momentum_trigger_flagged": false,
+  "momentum_trigger_pct_1h_48h": 2.4027044683873853,
+  "order_book_imbalance_top10": 0.2940387481371088,
+  "news_context": "Fed rate-hike odds at 86.5% into this week's meeting (headwind); Middle East pipeline attack lifted oil >11% over 5 days, adding macro risk-off pressure; Strive bought another 469 BTC ($36.6M). No fresh dated catalyst and no quant signal flagged for it to corroborate."
+}
+```
+
+---
+### 2026-09-14T20:12:15.200Z — ETH/USD — NO TRADE
+
+**Reasoning:** No new trigger this cycle - the open ETH/USD position (opened 2026-09-12, confirmed crossover + volume spike) is unaffected, stops checked clean. RSI 58.0 neutral, SMA state fast_above_slow but not a fresh cross this candle, volume ratio 0.75x not flagged, momentum trigger not flagged (0.76% 1h/48h). No basis for a second entry on the same pair this cycle.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 58.00573345152666,
+  "sma_crossover_4h_state": "fast_above_slow",
+  "sma_crossover_4h_crossed_this_candle": false,
+  "volume_ratio": 0.7496552577253115,
+  "momentum_trigger_flagged": false,
+  "momentum_trigger_pct_1h_48h": 0.7634769151405638,
+  "order_book_imbalance_top10": 0.043690543690543704,
+  "news_context": "Spot ETH ETFs saw $197M inflows last week vs BTC funds bleeding $463M; revised Senate crypto bill with White House-backed concessions boosting regulatory optimism; Sepolia testnet fork for Glamsterdam upgrade set for Sept 28 (not immediate). Supportive backdrop but no fresh quant trigger this cycle; already have an open position from the prior confirmed crossover."
+}
+```
+
+---
+### 2026-09-14T20:12:19.427Z — SOL/USD — NO TRADE
+
+**Reasoning:** No signal triggers. RSI 59.1 neutral. No fresh SMA crossover (fast_below_slow, not crossed). Volume ratio 0.48x, well below the 2x flag. Momentum trigger not flagged (1.87% 1h/48h vs 6% threshold). Order book close to flat (+0.05). News is mixed: record tokenized-equity trading volume on Solana (positive, structural) alongside reports of the spot price down roughly 2% intraday on macro pressure and weaker ETF demand - neither is a fresh catalyst and there's no quant signal for either to corroborate.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 59.09919199661677,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "volume_ratio": 0.4802014942791778,
+  "momentum_trigger_flagged": false,
+  "momentum_trigger_pct_1h_48h": 1.8650088809946719,
+  "order_book_imbalance_top10": 0.05264697488936131,
+  "news_context": "Solana tokenized-equity daily volume topped Nasdaq+NYSE combined (Sept 14), record app revenue Sept 13 - structurally positive but not a price-move catalyst; separately reported down ~2% intraday on macro pressure and weaker ETF demand. Mixed, no quant signal flagged for either side to corroborate."
+}
+```
+
+---
+### 2026-09-14T20:12:23.734Z — POL/USD — NO TRADE
+
+**Reasoning:** No fresh trigger this cycle. Last cycle's bullish SMA crossover is no longer new (crossed_this_candle now false) and was already logged as no-trade for lacking volume confirmation; that hasn't changed - volume ratio still 0.43x, below POL's own 7-day average. RSI 54.2 neutral. Momentum not flagged (0.84% 1h/48h). Order book has turned more ask-heavy (-0.38 vs -0.07 last cycle), a mild negative tilt. News: 8B cumulative transactions milestone (Sept 1) and continued Gigagas roadmap work - structural, not a fresh price catalyst; price forecast roughly flat (~$0.098-0.10) into mid-September.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 54.21529906707296,
+  "sma_crossover_4h_state": "fast_above_slow",
+  "sma_crossover_4h_crossed_this_candle": false,
+  "volume_ratio": 0.42511600666885474,
+  "momentum_trigger_flagged": false,
+  "momentum_trigger_pct_1h_48h": 0.8399875557399059,
+  "order_book_imbalance_top10": -0.38093839479892666,
+  "news_context": "Polygon passed 8B cumulative transactions (Sept 1); continued focus on the Gigagas (100k TPS) roadmap; price forecast roughly flat, ~$0.098-0.10 through mid-September. Structural news only, no fresh dated catalyst."
+}
+```
+
+---
+### 2026-09-14T20:12:30.564Z — XRP/USD — NO TRADE
+
+**Reasoning:** Holding the existing open momentum-only position (opened last cycle at 1.4604, stop 1.40, take-profit 1.5812) - not a new entry, no stacking on the same pair. momentum_trigger is still flagged and now even more extended (7.33% 1h/48h, up from 8.40% peak last cycle but still well above the 6% threshold), and RSI has moved into overbought territory (72.58, was 60.8 last cycle) - a caution flag, though stop/take-profit management is handled automatically by portfolio_check_stops (clean this cycle, no breach). News continues to corroborate the original catalyst: Trump agreed Sept 13 to ~80% of the Senate Democrats' ethics demands on the CLARITY Act, Senate Republicans released final 635-page text, and a cloture vote is scheduled Sept 15 2:15pm ET - the thesis is intact and hasn't been invalidated.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 72.58092711363952,
+  "rsi_note": "now overbought (>70), was 60.8 at entry last cycle",
+  "sma_crossover_4h_state": "fast_below_slow",
+  "volume_ratio": 0.5222150208532466,
+  "momentum_trigger_flagged": true,
+  "momentum_trigger_pct_1h_48h": 7.32638863434768,
+  "order_book_imbalance_top10": -0.04316691825389711,
+  "existing_position": "LONG opened 2026-09-14T19:27:21Z at 1.4604, stop 1.40, take-profit 1.5812, momentum_only=true, medium confidence - held, not a new entry",
+  "news_context": "Trump agreed Sept 13 to ~80% of Senate Democrats' ethics demands on the CLARITY Act; Senate Republicans released final 635-page text same night; XRP rose 3.9% in the 24h window on this news (3x Bitcoin's move in the same window). Senate cloture vote scheduled Sept 15 2:15pm ET - thesis intact, not yet resolved."
+}
+```
+
+---
