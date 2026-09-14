@@ -18674,3 +18674,97 @@ this is a schema backfill, not a trade action.
 ```
 
 ---
+### 2026-09-14T23:11:54.349Z — BTC/USD — NO TRADE
+
+**Reasoning:** No signal triggers. RSI 65.5 elevated but not overbought, unchanged. No fresh crossover (fast_below_slow). Volume ratio 0.54x not flagged. Momentum not flagged (1.65% vs 6%). Order book mildly bid-heavy (+0.13). News unchanged: Fed decision this week (86.5% odds of a hike), oil elevated on Middle East tensions, market in a holding pattern ahead of the Fed.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 65.46976253277376,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "volume_ratio": 0.5376565115516222,
+  "momentum_trigger_flagged": false,
+  "momentum_trigger_pct_1h_48h": 1.6515908258471907,
+  "order_book_imbalance_top10": 0.12929406360063292,
+  "news_context": "Unchanged: Fed rate-hike odds ~86.5% into this week's decision; oil elevated on Middle East tensions; market in a holding pattern ahead of the Fed. No fresh catalyst."
+}
+```
+
+---
+### 2026-09-14T23:11:58.718Z — ETH/USD — NO TRADE
+
+**Reasoning:** No new trade - existing open position held, stops checked clean. RSI 58.0 neutral, no fresh crossover, volume 0.75x not flagged, momentum not flagged (0.30% vs 6%). News turned mildly softer intraday (reported down ~1% on weak momentum, failing to clear $2,550 resistance) but nothing that invalidates the existing position's thesis (price still above its ~2484 invalidation level per our own signals) and no basis for a new entry regardless.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 58.00573345152666,
+  "sma_crossover_4h_state": "fast_above_slow",
+  "sma_crossover_4h_crossed_this_candle": false,
+  "volume_ratio": 0.7496552577253115,
+  "momentum_trigger_flagged": false,
+  "momentum_trigger_pct_1h_48h": 0.29658198175366596,
+  "order_book_imbalance_top10": 0.1342298105059566,
+  "news_context": "Weak momentum and tighter Fed expectations kept ETH below the $2,550 resistance level; one report has ETH down ~1% intraday. Institutional backdrop still constructive (ETF inflows, revised CLARITY Act draft). Already holding a position; no new trigger."
+}
+```
+
+---
+### 2026-09-14T23:12:01.917Z — SOL/USD — NO TRADE
+
+**Reasoning:** No signal triggers. RSI 59.1 neutral, unchanged. No fresh crossover (fast_below_slow). Volume ratio 0.48x not flagged. Momentum not flagged (1.10% vs 6%). Order book essentially flat (-0.02). News is a tug-of-war: technical optimism (buy signal near $102, RSI strength) against fundamental caution (breakdown risk toward $74 support flagged by another analyst) - genuinely mixed, no quant signal to corroborate either side.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 59.09919199661677,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "volume_ratio": 0.4802014942791778,
+  "momentum_trigger_flagged": false,
+  "momentum_trigger_pct_1h_48h": 1.1007371007371052,
+  "order_book_imbalance_top10": -0.016456504002381127,
+  "news_context": "Mixed: one trader flags a buy signal near $102 on bullish momentum/RSI strength, another warns of breakdown risk toward $74 support. No quant signal confirms either side."
+}
+```
+
+---
+### 2026-09-14T23:12:06.482Z — POL/USD — NO TRADE
+
+**Reasoning:** No trigger. RSI 54.2 neutral, unchanged. Stale crossover, still unconfirmed by volume (0.43x). Order book ask-heavy (-0.19). News: co-founder Sandeep Nailwal disclosed a planned POL staking/tokenomics overhaul (native PoS staking, priority fees routed to stakers) - potentially significant longer-term but not a dated, immediate price catalyst; other reported price levels ($0.095-$0.13 range across different sources) are inconsistent/noisy, treating as unreliable rather than a signal.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 54.21529906707296,
+  "sma_crossover_4h_state": "fast_above_slow",
+  "sma_crossover_4h_crossed_this_candle": false,
+  "volume_ratio": 0.42511600666885474,
+  "momentum_trigger_flagged": false,
+  "momentum_trigger_pct_1h_48h": 0.34203980099502174,
+  "order_book_imbalance_top10": -0.18654581310604454,
+  "news_context": "Co-founder Sandeep Nailwal disclosed a planned POL staking/tokenomics overhaul (native PoS staking, priority fees to stakers) - structural, not an immediate catalyst. Price reporting across sources was inconsistent this cycle; treating as unreliable, relying on our own $0.0967 quote."
+}
+```
+
+---
+### 2026-09-14T23:12:12.163Z — XRP/USD — NO TRADE
+
+**Reasoning:** Holding the existing open momentum-only position, not a new entry. Position continues pulling back (now 1.42985, down from 1.4604 entry) and the buffer to the 1.40 stop has narrowed to about 2.1% - stops checked clean this cycle, no breach, so no action taken (stop/take-profit management is automatic per the tool, not a manual discretion call). News sharpens the uncertainty into tomorrow's vote: two concrete ethics gaps remain unresolved (provisions naming Trump's sons, a January 2029 expiry clause) and the bill still needs 9 Democratic votes despite Trump conceding state AG enforcement rights - real two-sided risk into the Sept 15 2:15pm ET vote, consistent with the pullback. Thesis not invalidated (price hasn't closed below 1.40), so continuing to hold per the stop-loss/take-profit rules rather than closing early on discretion.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 72.58092711363952,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "volume_ratio": 0.5222150208532466,
+  "momentum_trigger_flagged": true,
+  "momentum_trigger_pct_1h_48h": 5.052848861041161,
+  "momentum_trigger_pct_4h_48h": 7.165339345318267,
+  "order_book_imbalance_top10": 0.055141797839491136,
+  "existing_position": "LONG opened 2026-09-14T19:27:21Z at 1.4604, stop 1.40, take-profit 1.5812, momentum_only=true, medium confidence - held, not a new entry, price now 1.42985, ~2.1% above stop",
+  "news_context": "Two concrete ethics gaps remain unresolved: provisions naming Trump's sons, and a Jan 2029 expiry clause. Bill still needs 9 Democratic votes despite Trump conceding state AG enforcement rights. Vote scheduled Sept 15 2:15pm ET - genuine two-sided risk into the vote."
+}
+```
+
+---
