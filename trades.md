@@ -17041,3 +17041,98 @@ fields changed; this is a schema backfill, not a trade action.
 ```
 
 ---
+### 2026-09-14T07:14:36.686Z — BTC/USD — NO TRADE
+
+**Reasoning:** No qualifying signal: SMA still fast_below_slow, no crossover; RSI 51.0 neutral; volume ratio 0.54x (below 2x flag). Price roughly flat (+0.39% 1h/48h). News unchanged: BTC holding $77,700 ahead of tomorrow's CLARITY Act vote and Sep 16 Fed decision; LINK's Bottomline banking deal cited as notable but unrelated to BTC directly. No independent trigger. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 51.02600360431909,
+  "sma_crossover_4h": "fast_below_slow, not crossed this candle",
+  "volume_ratio": 0.5376565115516222,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": 0.3966147943531505,
+  "price_action_1h_48h_pct": 0.387294864459738,
+  "order_book_imbalance_top10": -0.2813852813852813,
+  "news_context": "BTC holding $77,700 ahead of Sep 15 CLARITY Act vote and Sep 16 Fed decision; dominance steady at 57.9%. No quant signal to corroborate."
+}
+```
+
+---
+### 2026-09-14T07:14:40.281Z — ETH/USD — NO TRADE
+
+**Reasoning:** Existing medium-confidence long held (entry 2526.10, stop 2470, TP 2638.31), now ~-0.73% unrealized, current price 2517.84 comfortably clear of the $2,470 stop. No fresh signal: SMA still fast_above_slow, not crossed; RSI 52.8 neutral. News repeats prior cycles (weekly MA $3,061 as bullish-reversal level, whale accumulation, Glamsterdam slipped to Q4). No basis to add or exit early; position held, stop not breached.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 52.83619500654808,
+  "sma_crossover_4h": "fast_above_slow, not crossed this candle",
+  "volume_ratio": 0.7496552577253115,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": -0.46797668437924517,
+  "price_action_1h_48h_pct": -0.3998208929201248,
+  "order_book_imbalance_top10": 0.44832838618965787,
+  "news_context": "Weekly MA $3,061 remains bullish-reversal level; whale accumulation continues; Glamsterdam slipped to Q4 2026. No fresh quant signal; existing position held, stop not breached."
+}
+```
+
+---
+### 2026-09-14T07:14:45.204Z — SOL/USD — NO TRADE
+
+**Reasoning:** No qualifying signal: our computed SMA still shows fast_below_slow with no crossover this candle, and RSI is 48.5 (neutral) with volume at 0.48x average — none of which clear the trigger bar, despite news describing SOL as trading above all major EMAs with bullish momentum toward $108/$128/$147 targets. Per instructions, only the deterministically computed signals from compute_signals are actionable, not third-party technical claims that conflict with them; news can corroborate but never independently trigger. No trade, but this divergence (bullish narrative vs. neutral computed signals) is worth flagging for next cycle.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 48.54204878204972,
+  "sma_crossover_4h": "fast_below_slow, not crossed this candle",
+  "volume_ratio": 0.4802014942791778,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": -0.688637481554356,
+  "price_action_1h_48h_pct": -0.1574028529267199,
+  "order_book_imbalance_top10": -0.005010146894144887,
+  "news_context": "News describes SOL surging past $100 and trading above all major EMAs (20/50/100/200) with analysts eyeing $108/$128/$147 targets, plus record tokenized-equity volume and $7.9M daily app revenue (2026 high) — bullish narrative, but our own computed SMA/RSI/volume signals remain neutral/unconfirmed this cycle. No quant trigger per the deterministic signals."
+}
+```
+
+---
+### 2026-09-14T07:14:49.055Z — POL/USD — NO TRADE
+
+**Reasoning:** No qualifying signal: SMA still fast_below_slow (fast 0.09568 vs slow 0.09628), not crossed; RSI 50.8 neutral; volume ratio 0.43x (below 2x flag). Price down modestly (-0.59% 1h/48h). News unchanged from prior cycles (bullish triangle setup vs. persistent downtrend narrative). No quant signal to act on. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 50.794476087216815,
+  "sma_crossover_4h": "fast_below_slow (fast 0.09568 vs slow 0.09628), not crossed this candle",
+  "volume_ratio": 0.42511600666885474,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": -0.25920165889061714,
+  "price_action_1h_48h_pct": -0.5909797822705932,
+  "order_book_imbalance_top10": 0.31389937727152456,
+  "news_context": "Bullish triangle breakout setup ($0.11 target) vs. persistent downtrend/waning-retail-interest narrative; Gigagas roadmap remains technical focus. No quant signal to corroborate."
+}
+```
+
+---
+### 2026-09-14T07:14:52.574Z — XRP/USD — NO TRADE
+
+**Reasoning:** No qualifying signal: SMA gap continues narrowing (fast 1.3564 vs slow 1.3848) but still not crossed this candle; RSI 52.0 neutral; volume ratio 0.52x (below 2x flag). Price up further (+1.26% 1h/48h), continuing to outperform. News: CLARITY Act Senate vote tomorrow remains the dominant binary catalyst; XRPL software v3.4.0 (including the v1.1 Lending Protocol update) scheduled for release next week. No quant signal to act on yet — worth watching the SMA crossover closely next cycle. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 52.04706656261527,
+  "sma_crossover_4h": "fast_below_slow (fast 1.35642 vs slow 1.38476), gap continuing to narrow, not crossed this candle",
+  "volume_ratio": 0.5222150208532466,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": 0.23524598547611744,
+  "price_action_1h_48h_pct": 1.2595157731702626,
+  "order_book_imbalance_top10": 0.03390347198693947,
+  "news_context": "CLARITY Act Senate vote tomorrow (Sep 15) remains the dominant binary catalyst; XRPL software v3.4.0 (incl. v1.1 Lending Protocol) scheduled for release next week. No quant signal to corroborate yet; SMA crossover worth watching closely."
+}
+```
+
+---
