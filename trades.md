@@ -18086,3 +18086,98 @@ fields changed; this is a schema backfill, not a trade action.
 ```
 
 ---
+### 2026-09-14T18:12:27.958Z — BTC/USD — NO TRADE
+
+**Reasoning:** No qualifying signal: SMA stays fast_below_slow with no crossover this candle, RSI neutral (61.7, below overbought), volume well below average (0.54x, no spike). Price action strongly positive (+2.34% 1h/48h). News: BTC ~$78.9K, $80.5K-$83K resistance zone still blocking confirmed breakout; OI down 13.5% (deleveraging); Fed rate-hike odds 86.5%. No confirming crossover or volume spike. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 61.69,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 0.54,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": 1.88,
+  "price_action_1h_48h_pct": 2.34,
+  "order_book_imbalance_top10": -0.123,
+  "news_context": "BTC ~$78.9K; $80.5K-$83K resistance zone still blocking confirmed breakout; open interest down 13.5% (deleveraging); Fed rate-hike odds 86.5%."
+}
+```
+
+---
+### 2026-09-14T18:12:31.655Z — ETH/USD — NO TRADE
+
+**Reasoning:** Already holding an open medium-confidence ETH/USD long from 2026-09-12 (unrealized ~-0.21%, near breakeven); no new entry. Current signals: SMA fast_above_slow (no new cross this candle), RSI neutral (51.5), volume below average (0.75x, no spike), price action mildly positive (+0.44% 1h/48h). News: BitMine added $68M more ETH (nearing 5% accumulation goal), ETH up ~58% in Q3 (ending a 3-quarter losing streak), revised CLARITY Act boosting sentiment. No fresh quantitative trigger for a new entry.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 51.5,
+  "sma_crossover_4h": "fast_above_slow, no new cross this candle",
+  "volume_ratio": 0.75,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": -0.45,
+  "price_action_1h_48h_pct": 0.44,
+  "order_book_imbalance_top10": -0.019,
+  "news_context": "BitMine added $68M more ETH, nearing its 5%-of-supply accumulation goal; ETH up ~58% in Q3, ending a 3-quarter losing streak; revised CLARITY Act boosting sentiment. Already have an open ETH long; no fresh signal to act on."
+}
+```
+
+---
+### 2026-09-14T18:12:35.366Z — SOL/USD — NO TRADE
+
+**Reasoning:** No qualifying signal: SMA stays fast_below_slow with no crossover this candle, RSI neutral (53.4), volume well below average (0.48x, no spike). Price action positive (+1.41% 1h/48h). News: SOL confirmed 30 months 100% uptime, continued institutional adoption (Western Union, Franklin Templeton, MoneyGram), slot times reduced to 300ms en route to Alpenglow's 150ms target. Still no quantitative signal confirms a move. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 53.43,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 0.48,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": 0.68,
+  "price_action_1h_48h_pct": 1.41,
+  "order_book_imbalance_top10": -0.277,
+  "news_context": "SOL confirmed 30 months of 100% uptime; institutional adoption growing (Western Union, Franklin Templeton, MoneyGram); slot times cut to 300ms en route to Alpenglow's 150ms target. Not acted on - compute_signals shows no crossover, neutral RSI, no volume spike."
+}
+```
+
+---
+### 2026-09-14T18:12:39.486Z — POL/USD — NO TRADE
+
+**Reasoning:** Same unconfirmed marginal crossover persisting from the last two cycles - SMA values essentially unchanged (fast 0.096341 vs slow 0.096153, still ~0.19% apart), volume ratio still 0.43x (well below average, no confirmation), RSI neutral (59.4). News continues to flag whale-selling pressure on POL amid broader 2026 weakness (Layer-2 competition, TVL outflows, weak retail interest), offsetting the 8B-transaction and payments-rail positives. Still too weak/unconfirmed to act on. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 59.42,
+  "sma_crossover_4h": "bullish cross flagged (same candle, unchanged for 3rd cycle) - SMAs only ~0.19% apart, still marginal, no volume confirmation",
+  "volume_ratio": 0.43,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": 2.34,
+  "price_action_1h_48h_pct": 0.89,
+  "order_book_imbalance_top10": -0.027,
+  "news_context": "Continued reports of whale-selling pressure on POL amid broader 2026 weakness (Layer-2 competition, TVL outflows, weak retail interest), offsetting the 8B-transaction milestone and payments-rail growth. Crossover remains unconfirmed by volume."
+}
+```
+
+---
+### 2026-09-14T18:12:43.772Z — XRP/USD — NO TRADE
+
+**Reasoning:** No qualifying signal: SMA stays fast_below_slow with no crossover this candle, RSI neutral (60.8, below overbought), volume well below average (0.52x, no spike). Price action very strongly positive (+5.22% 1h/48h, +2.97% 4h/48h), the largest move seen across pairs this cycle, driven by the revised CLARITY Act news and Ripple's RLUSD stablecoin crossing $2.44B market cap (up 50% in a month, >$1B on the XRPL itself). Still, per the rules, news and price momentum alone cannot trigger a trade without a confirming crossover or volume spike - neither is present. No trade, watching closely given the strength of the move.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 60.81,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 0.52,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": 2.97,
+  "price_action_1h_48h_pct": 5.22,
+  "order_book_imbalance_top10": -0.326,
+  "news_context": "Strong rally driven by revised CLARITY Act optimism ahead of the Sept 15 cloture vote; Ripple's RLUSD stablecoin crossed $2.44B market cap (up 50% in a month, >$1B on-ledger). Not acted on - no crossover or volume spike confirms the move technically despite the strong price action."
+}
+```
+
+---
