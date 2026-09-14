@@ -16471,3 +16471,98 @@ fields changed; this is a schema backfill, not a trade action.
 ```
 
 ---
+### 2026-09-14T01:12:08.356Z — BTC/USD — NO TRADE
+
+**Reasoning:** No qualifying signal: SMA still fast_below_slow, no crossover; RSI 39.7 weakening but not oversold; volume ratio 0.54x (below 2x flag). Price down modestly (-0.62% 1h/48h). News unchanged: BTC lost $80K, 20-day EMA next test with a possible bounce toward $82K if it holds; Treasury/CLARITY Act and PayPal PYUSDx news repeat from prior cycles. No independent trigger. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 39.66846886425103,
+  "sma_crossover_4h": "fast_below_slow, not crossed this candle",
+  "volume_ratio": 0.5376565115516222,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": -0.5977065051383641,
+  "price_action_1h_48h_pct": -0.6157849089332139,
+  "order_book_imbalance_top10": -0.12182952182952198,
+  "news_context": "BTC lost $80K, watching 20-day EMA for a bounce toward $82K; same CLARITY Act/PYUSDx items as prior cycles. No quant signal to corroborate."
+}
+```
+
+---
+### 2026-09-14T01:12:12.552Z — ETH/USD — NO TRADE
+
+**Reasoning:** Existing medium-confidence long held (entry 2526.10, stop 2470, TP 2638.31), now ~-2.03% unrealized, current price 2484.75 comfortably clear of the $2,470 stop. No fresh signal: SMA still fast_above_slow, not crossed; RSI 44.8 neutral. News: one source describes the pullback as institutional tactical de-risking ahead of the Fed decision with leveraged-position trimming/liquidations, but also notes cumulative institutional inflows and resilient network activity as structural positives. No basis to add or exit early; position held, stop not breached.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 44.83730626810421,
+  "sma_crossover_4h": "fast_above_slow, not crossed this candle",
+  "volume_ratio": 0.7496552577253115,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": -1.4790438938208064,
+  "price_action_1h_48h_pct": -1.1963873637304117,
+  "order_book_imbalance_top10": 0.8973697702238725,
+  "news_context": "Pullback attributed to institutional tactical de-risking and leveraged-position trimming/liquidations ahead of the Fed decision; cumulative institutional inflows and resilient network activity cited as structural positives. No fresh quant signal; existing position held, stop not breached."
+}
+```
+
+---
+### 2026-09-14T01:12:15.501Z — SOL/USD — NO TRADE
+
+**Reasoning:** No qualifying signal: SMA remains fast_below_slow, no crossover; RSI 38.8 weakening but not oversold; volume ratio 0.48x (below 2x flag). Price down with the broader market (-2.31% 1h/48h). News unchanged from prior cycles (SEC core ETF asset, Alpenglow upgrade next in October, strong network adoption metrics). No quant signal to act on. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 38.845935772768925,
+  "sma_crossover_4h": "fast_below_slow, not crossed this candle",
+  "volume_ratio": 0.4802014942791778,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": -2.3418282003345428,
+  "price_action_1h_48h_pct": -2.3139523482694377,
+  "order_book_imbalance_top10": 0.14027345705448124,
+  "news_context": "SEC named SOL a core ETF asset (Sep 5); Alpenglow upgrade next in October; strong network adoption metrics continue. No quant signal to corroborate."
+}
+```
+
+---
+### 2026-09-14T01:12:20.087Z — POL/USD — NO TRADE
+
+**Reasoning:** No qualifying signal: SMA still fast_below_slow (fast 0.09554 vs slow 0.09627), not crossed; RSI 49.6 neutral; volume ratio 0.43x (below 2x flag). Price down modestly (-0.97% 1h/48h), order book ask-heavy (-0.20). News more constructive this cycle: a bullish triangle breakout setup targeting $0.11 is cited, plus enterprise adoption (Stripe, Mastercard, BlackRock using Polygon rails, stablecoin TVL above $3B) — genuinely positive but still no confirmed crossover or volume spike to act on. No trade; worth watching if the SMA gap continues narrowing.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 49.57170094123768,
+  "sma_crossover_4h": "fast_below_slow (fast 0.09554 vs slow 0.09627), not crossed this candle",
+  "volume_ratio": 0.42511600666885474,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": -0.5391953546246295,
+  "price_action_1h_48h_pct": -0.9696719620383706,
+  "order_book_imbalance_top10": -0.19567476993064725,
+  "news_context": "Bullish triangle breakout setup cited, targeting $0.11; enterprise adoption highlighted (Stripe, Mastercard, BlackRock use Polygon rails; stablecoin TVL above $3B). Constructive but no quant signal (crossover/volume spike) to corroborate yet."
+}
+```
+
+---
+### 2026-09-14T01:12:23.375Z — XRP/USD — NO TRADE
+
+**Reasoning:** No qualifying signal: SMA remains fast_below_slow, no crossover; RSI 40.0 weakening but not oversold; volume ratio 0.52x (below 2x flag). Price down modestly (-1.00% 1h/48h). News: Senate CLARITY Act vote confirmed for Sep 15 (tomorrow) — a binary regulatory catalyst directly ahead; August ETF inflows ($153.55M) and fixCleanup3_3_0 amendment remain constructive. No quant signal to act on. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 40.004882823832624,
+  "sma_crossover_4h": "fast_below_slow, not crossed this candle",
+  "volume_ratio": 0.5222150208532466,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": -1.7039622254157203,
+  "price_action_1h_48h_pct": -1.0049549350859448,
+  "order_book_imbalance_top10": 0.042879166984332265,
+  "news_context": "Senate CLARITY Act vote confirmed for Sep 15 (tomorrow), a binary regulatory catalyst directly ahead; August ETF inflows ($153.55M) and fixCleanup3_3_0 amendment remain constructive. No quant signal to corroborate."
+}
+```
+
+---
