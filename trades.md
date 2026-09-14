@@ -17611,3 +17611,98 @@ fields changed; this is a schema backfill, not a trade action.
 ```
 
 ---
+### 2026-09-14T13:13:51.181Z — BTC/USD — NO TRADE
+
+**Reasoning:** No qualifying signal: SMA stays fast_below_slow with no crossover this candle, RSI neutral (53.0), volume well below average (0.54x, no spike). Price action mildly positive (+0.41% 1h/48h). News: BTC ~$78K, Fed rate-hike odds at 86.5%, oil prices up on Middle East tensions, $78K key resistance level, CLARITY Act Senate vote still expected Sept 15. No confirming quantitative signal. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 53.01,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 0.54,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": 0.49,
+  "price_action_1h_48h_pct": 0.41,
+  "order_book_imbalance_top10": -0.746,
+  "news_context": "BTC ~$78K, Fed rate-hike odds 86.5%; oil prices rising on Middle East tension reports; $78K is the key resistance level being watched; CLARITY Act Senate vote still on track for Sept 15."
+}
+```
+
+---
+### 2026-09-14T13:13:55.416Z — ETH/USD — NO TRADE
+
+**Reasoning:** Already holding an open medium-confidence ETH/USD long from 2026-09-12 (unrealized ~-1.53%, still well inside stop $2,470); no new entry. Current signals: SMA fast_above_slow (no new cross this candle), RSI neutral (51.6), volume below average (0.75x, no spike), price action negative (-1.57% 1h/48h). News: price stuck below $2,550 resistance on weak momentum/tighter Fed expectations, exchange ETH balances at a multi-year low (~14.88M, bullish supply signal), ETH ETFs pulled in $216.4M Sept 11. No fresh quantitative trigger, no action.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 51.61,
+  "sma_crossover_4h": "fast_above_slow, no new cross this candle",
+  "volume_ratio": 0.75,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": -1.04,
+  "price_action_1h_48h_pct": -1.57,
+  "order_book_imbalance_top10": -0.855,
+  "news_context": "ETH stuck below $2,550 resistance on weak momentum and tighter Fed expectations; exchange balances at multi-year low (~14.88M ETH) - a bullish supply signal; ETH ETFs pulled in $216.4M Sept 11. Already have an open ETH long; no fresh signal to act on."
+}
+```
+
+---
+### 2026-09-14T13:13:58.603Z — SOL/USD — NO TRADE
+
+**Reasoning:** No qualifying signal: SMA stays fast_below_slow with no crossover this candle, RSI neutral (50.3), volume well below average (0.48x, no spike). Price action mildly negative (-0.70% 4h/48h). News remains bullish (SEC core ETF asset designation, strong ETF inflows, leading RWA net inflows) but no quantitative signal confirms a move. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 50.33,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 0.48,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": -0.7,
+  "price_action_1h_48h_pct": -0.62,
+  "order_book_imbalance_top10": 0.146,
+  "news_context": "Bullish: SEC named SOL a core ETF asset Sept 5; SOL ETFs attracted $153.9M this week; Solana led blockchains with $229M in 30-day RWA net inflows. Not acted on - compute_signals shows no crossover, neutral RSI, no volume spike."
+}
+```
+
+---
+### 2026-09-14T13:14:01.610Z — POL/USD — NO TRADE
+
+**Reasoning:** No qualifying signal: SMA stays fast_below_slow with no crossover this candle, RSI neutral (53.6), volume well below average (0.43x, no spike). Price mixed (+0.61% 1h/48h, -0.72% 4h/48h). News routine - migration ~99% complete, Gigagas roadmap ongoing, Fear & Greed at 61 (Greed), continued use as payments rail. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 53.57,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 0.43,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": -0.72,
+  "price_action_1h_48h_pct": 0.61,
+  "order_book_imbalance_top10": 0.619,
+  "news_context": "Routine: migration to POL ~99% complete, Gigagas roadmap ongoing, Fear & Greed Index at 61 (Greed), continued payments-rail use (Stripe/Mastercard/BlackRock). Nothing notable that would move price near-term."
+}
+```
+
+---
+### 2026-09-14T13:14:05.029Z — XRP/USD — NO TRADE
+
+**Reasoning:** No qualifying signal: SMA stays fast_below_slow with no crossover this candle, RSI neutral (59.5, below the 70 overbought flag), volume well below average (0.52x, no spike). Price action positive (+1.94% 1h/48h, +1.87% 4h/48h) but unconfirmed by volume or a crossover. News: CLARITY Act Senate cloture vote Sept 15 remains the dominant binary catalyst (commodity classification); XRPL processed a record 2,768 tx in 3.8s on Sept 13; technicals caught between $1.35 support and $1.41 resistance. Forward-looking event risk, not a current-signal trigger. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 59.48,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 0.52,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": 1.87,
+  "price_action_1h_48h_pct": 1.94,
+  "order_book_imbalance_top10": 0.176,
+  "news_context": "Senate CLARITY Act cloture vote Sept 15 remains the major binary catalyst; XRPL stress-test record (2,768 tx in 3.8s) on Sept 13; technicals caught between $1.35 support and $1.41 resistance. Not acted on - no quantitative signal confirms a move."
+}
+```
+
+---
