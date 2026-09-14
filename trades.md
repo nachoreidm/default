@@ -17896,3 +17896,98 @@ fields changed; this is a schema backfill, not a trade action.
 ```
 
 ---
+### 2026-09-14T16:13:01.916Z — BTC/USD — NO TRADE
+
+**Reasoning:** No qualifying signal: SMA stays fast_below_slow with no crossover this candle, RSI moved up but still neutral (61.7, below the 70 overbought flag), volume well below average (0.54x, no spike). Price action positive (+1.56% 1h/48h, +1.88% 4h/48h). News: BTC ~$78K, open interest down 13.5% (deleveraging), Fed rate-hike odds 86.5%, oil up 11% on Middle East tensions. No confirming crossover or volume spike. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 61.69,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 0.54,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": 1.88,
+  "price_action_1h_48h_pct": 1.56,
+  "order_book_imbalance_top10": 0.136,
+  "news_context": "BTC ~$78K; open interest down 13.5% (deleveraging); Fed rate-hike odds 86.5%; oil up 11% on Middle East tensions; CLARITY Act cloture vote and FOMC still ahead."
+}
+```
+
+---
+### 2026-09-14T16:13:05.199Z — ETH/USD — NO TRADE
+
+**Reasoning:** Already holding an open medium-confidence ETH/USD long from 2026-09-12 (unrealized ~-1.09%); no new entry. Current signals: SMA fast_above_slow (no new cross this candle), RSI neutral (51.5), volume below average (0.75x, no spike), price action negative (-0.93% 1h/48h). News: analyst target $3,000 if ETH closes week above $2,550, ETH ETFs pulled in $216.4M Sept 11, Consensys MetaMask split. No fresh quantitative trigger, no action.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 51.5,
+  "sma_crossover_4h": "fast_above_slow, no new cross this candle",
+  "volume_ratio": 0.75,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": -0.45,
+  "price_action_1h_48h_pct": -0.93,
+  "order_book_imbalance_top10": 0.87,
+  "news_context": "Analyst target $3,000 if ETH closes week above $2,550; ETH ETFs pulled in $216.4M Sept 11; Consensys MetaMask corporate split. Already have an open ETH long; no fresh signal to act on."
+}
+```
+
+---
+### 2026-09-14T16:13:08.266Z — SOL/USD — NO TRADE
+
+**Reasoning:** No qualifying signal: SMA stays fast_below_slow with no crossover this candle, RSI neutral (53.4), volume well below average (0.48x, no spike). Price action roughly flat/mixed (+0.68% 4h/48h, -0.09% 1h/48h). News remains bullish (SEC core ETF asset, strong ETF inflows) but no quantitative signal confirms a move. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 53.43,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 0.48,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": 0.68,
+  "price_action_1h_48h_pct": -0.09,
+  "order_book_imbalance_top10": 0.035,
+  "news_context": "Bullish backdrop persists: SEC named SOL a core ETF asset Sept 5, SOL ETFs attracted $153.9M this week. Not acted on - compute_signals shows no crossover, neutral RSI, no volume spike."
+}
+```
+
+---
+### 2026-09-14T16:13:15.415Z — POL/USD — NO TRADE
+
+**Reasoning:** Signals conflict: a bullish 20/50 SMA crossover did occur this candle (fast_above_slow), but it is unconfirmed and weak - the SMAs are barely separated (fast 0.096341 vs slow 0.096153, only ~0.19% apart, a marginal/noise-level cross), volume is actually well below its 7-day average (0.43x, no spike - the opposite of the volume confirmation that supported the ETH entry on 9/12), and RSI is merely neutral (59.4) rather than showing momentum extremes. Price had already moved +2.34% (4h/48h) before this candle, so the crossover is a lagging confirmation of a move already made on light volume, not a fresh breakout signal. News is fundamentally positive (8B cumulative transactions milestone Sept 1, Austin/Kyoto security hard forks Aug 31, "Open Money Stack" push, Visa/Meta/Revolut payment rails) but nothing dated to the last 24-48h that would explain today's price action, and news can't independently justify a trade regardless. Per the no-trade criteria ("signals conflict... volume spike but RSI neutral and no crossover" - here it's the inverse: crossover present but no volume confirmation and neutral RSI), this is a weak/unconfirmed signal, not manufactured into a trade. Flagging for extra attention next cycle in case volume confirms and the cross holds.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 59.42,
+  "sma_crossover_4h": "bullish cross this candle (fast_above_slow), but SMAs only ~0.19% apart - marginal/noise-level cross",
+  "volume_ratio": 0.43,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": 2.34,
+  "price_action_1h_48h_pct": 1.48,
+  "order_book_imbalance_top10": -0.002,
+  "news_context": "Fundamentally positive but not fresh: Polygon surpassed 8B cumulative transactions and record stablecoin volume (Sept 1), Austin & Kyoto security hard forks (Aug 31), continued push as payments rail for Visa/Meta/Revolut. Nothing from the last 24-48h explains today's move. Crossover unconfirmed by volume (0.43x, below average) - treated as a weak/noise signal, not a trade trigger."
+}
+```
+
+---
+### 2026-09-14T16:13:18.600Z — XRP/USD — NO TRADE
+
+**Reasoning:** No qualifying signal: SMA stays fast_below_slow with no crossover this candle, RSI neutral (60.8, below overbought), volume well below average (0.52x, no spike). Price action positive (+2.44% 1h/48h, +2.97% 4h/48h) but unconfirmed by volume or a crossover. News: CLARITY Act Senate cloture vote Sept 15 remains the dominant binary catalyst; XRPL processed a record 2,768 tx in 3.8s on Sept 13; macro backdrop softening with BTC dominance still favored. Forward-looking event risk, not a current-signal trigger. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 60.81,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 0.52,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": 2.97,
+  "price_action_1h_48h_pct": 2.44,
+  "order_book_imbalance_top10": 0.063,
+  "news_context": "Senate CLARITY Act cloture vote Sept 15 remains the major binary catalyst; XRPL stress-test record (2,768 tx in 3.8s) Sept 13; macro backdrop softening, BTC dominance still favored. Not acted on - no quantitative signal confirms a move."
+}
+```
+
+---
