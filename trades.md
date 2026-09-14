@@ -17991,3 +17991,98 @@ fields changed; this is a schema backfill, not a trade action.
 ```
 
 ---
+### 2026-09-14T17:12:13.317Z — BTC/USD — NO TRADE
+
+**Reasoning:** No qualifying signal: SMA stays fast_below_slow with no crossover this candle, RSI neutral (61.7, below overbought), volume well below average (0.54x, no spike). Price action strongly positive (+2.03% 1h/48h). News: BTC ~$78K-$78.8K, $80.5K-$83K resistance zone still blocking confirmed breakout; Senate Republicans unveiled a revised CLARITY Act with White House-backed concessions, boosting regulatory optimism - BTC/XRP/ETH reported "recovering" on the news. No confirming crossover or volume spike yet. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 61.69,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 0.54,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": 1.88,
+  "price_action_1h_48h_pct": 2.03,
+  "order_book_imbalance_top10": -0.103,
+  "news_context": "Senate Republicans unveiled a revised CLARITY Act with White House-backed concessions to secure bipartisan support, boosting regulatory optimism - BTC/XRP/ETH reported recovering on the news. $80.5K-$83K remains the resistance zone blocking a confirmed breakout. Not yet confirmed by our own signals."
+}
+```
+
+---
+### 2026-09-14T17:12:17.894Z — ETH/USD — NO TRADE
+
+**Reasoning:** Already holding an open medium-confidence ETH/USD long from 2026-09-12 (unrealized ~-0.27%, close to breakeven); no new entry. Current signals: SMA fast_above_slow (no new cross this candle), RSI neutral (51.5), volume below average (0.75x, no spike), price action roughly flat (+0.15% 1h/48h). News: revised CLARITY Act boosting optimism, spot ETH ETFs saw $197M inflows last week (vs BTC funds bleeding $463M), a large leveraged ($100M, 25x) long reported on ETH near $2,480. No fresh quantitative trigger for a new entry, no action - existing position benefits from the improved sentiment.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 51.5,
+  "sma_crossover_4h": "fast_above_slow, no new cross this candle",
+  "volume_ratio": 0.75,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": -0.45,
+  "price_action_1h_48h_pct": 0.15,
+  "order_book_imbalance_top10": 0.781,
+  "news_context": "Revised CLARITY Act boosting regulatory optimism; spot ETH ETFs pulled in $197M last week vs BTC funds bleeding $463M; a reported $100M 25x leveraged long on ETH near $2,480. Already have an open ETH long; no fresh signal to add to it."
+}
+```
+
+---
+### 2026-09-14T17:12:21.336Z — SOL/USD — NO TRADE
+
+**Reasoning:** No qualifying signal: SMA stays fast_below_slow with no crossover this candle, RSI neutral (53.4), volume well below average (0.48x, no spike). Price action mildly positive (+0.61% 1h/48h). News: SOL hit 30 months of 100% network uptime, bullish on-chain metrics continue (RWA inflows, ETF inflows, SEC ETF asset status). Still no quantitative signal confirms a move. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 53.43,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 0.48,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": 0.68,
+  "price_action_1h_48h_pct": 0.61,
+  "order_book_imbalance_top10": -0.007,
+  "news_context": "SOL hit 30 months of 100% uptime; continued bullish on-chain metrics (RWA inflows, ETF inflows, SEC core ETF asset status). Not acted on - compute_signals shows no crossover, neutral RSI, no volume spike."
+}
+```
+
+---
+### 2026-09-14T17:12:26.441Z — POL/USD — NO TRADE
+
+**Reasoning:** Same unconfirmed crossover as last cycle - the SMA values are unchanged from the prior reading (still the same 4h candle), so this is not a new signal: fast_above_slow, bullish cross flagged, but SMAs remain only ~0.19% apart (marginal/noise-level) and volume ratio is identical to last cycle (0.43x, still well below average, no confirmation). RSI neutral (59.4). News: coverage now flags "whale selling" pressure on POL alongside the ongoing 8B-transaction milestone and Austin/Kyoto security forks - a mixed/cautionary signal, not a fresh bullish catalyst. Continuing to treat this as too weak to act on. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 59.42,
+  "sma_crossover_4h": "bullish cross flagged (same candle as last cycle, unchanged) - SMAs only ~0.19% apart, still marginal",
+  "volume_ratio": 0.43,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": 2.34,
+  "price_action_1h_48h_pct": 0.71,
+  "order_book_imbalance_top10": 0.078,
+  "news_context": "Coverage now flags whale-selling pressure on POL alongside the 8B-transaction milestone (Sept 1) and Austin/Kyoto security hard forks (Aug 31) - a mixed picture, not a fresh bullish catalyst. Crossover remains unconfirmed by volume."
+}
+```
+
+---
+### 2026-09-14T17:12:30.922Z — XRP/USD — NO TRADE
+
+**Reasoning:** No qualifying signal: SMA stays fast_below_slow with no crossover this candle, RSI neutral (60.8, below overbought), volume well below average (0.52x, no spike). Price action strongly positive (+3.84% 1h/48h, +2.97% 4h/48h) and now corroborated by genuinely fresh positive news (revised CLARITY Act with White House-backed concessions, XRP reported recovering), but per the rules news can never independently justify a trade and still no crossover or volume spike confirms the move technically. Technical commentary also flags short-term charts running hotter than higher timeframes justify - a caution against chasing. No trade, but flagging for close attention next cycle given the news catalyst and price strength.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 60.81,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 0.52,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": 2.97,
+  "price_action_1h_48h_pct": 3.84,
+  "order_book_imbalance_top10": 0.105,
+  "news_context": "Revised CLARITY Act with White House-backed concessions boosting regulatory optimism - XRP reported recovering strongly on the news. Technical commentary flags short-term charts running hotter than higher-timeframe structure justifies. Not acted on - no crossover or volume spike confirms the move technically; news alone cannot trigger a trade."
+}
+```
+
+---
