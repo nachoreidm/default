@@ -16756,3 +16756,98 @@ fields changed; this is a schema backfill, not a trade action.
 ```
 
 ---
+### 2026-09-14T04:11:58.110Z — BTC/USD — NO TRADE
+
+**Reasoning:** No qualifying signal: SMA still fast_below_slow, no crossover; RSI 51.0 now neutral (recovered from prior weakness); volume ratio 0.54x (below 2x flag). Price up modestly (+0.45% 1h/48h), order book ask-heavy (-0.84). News: BTC holding $77,700 in a stable pattern ahead of tomorrow's CLARITY Act Senate vote and the Sep 16 Fed decision; one source notes a golden cross had formed. No independent trigger. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 51.02600360431909,
+  "sma_crossover_4h": "fast_below_slow, not crossed this candle",
+  "volume_ratio": 0.5376565115516222,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": 0.3966147943531505,
+  "price_action_1h_48h_pct": 0.4501855914708108,
+  "order_book_imbalance_top10": -0.8363064008394543,
+  "news_context": "BTC holding $77,700, stable ahead of Sep 15 CLARITY Act vote and Sep 16 Fed decision; golden cross formed per one source. No quant signal to corroborate."
+}
+```
+
+---
+### 2026-09-14T04:12:02.223Z — ETH/USD — NO TRADE
+
+**Reasoning:** Existing medium-confidence long held (entry 2526.10, stop 2470, TP 2638.31), now ~-0.95% unrealized, current price 2512.09 comfortably clear of the $2,470 stop. No fresh signal: SMA still fast_above_slow, not crossed; RSI 52.8 neutral. Price essentially flat this cycle (-0.01% 1h/48h). News repeats prior cycles (whale accumulation ~$94M, weekly MA at $3,061 as bullish-reversal level, Glamsterdam slipped to Q4). No basis to add or exit early; position held, stop not breached.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 52.83619500654808,
+  "sma_crossover_4h": "fast_above_slow, not crossed this candle",
+  "volume_ratio": 0.7496552577253115,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": -0.46797668437924517,
+  "price_action_1h_48h_pct": -0.01194210467651733,
+  "order_book_imbalance_top10": -0.07260617971394247,
+  "news_context": "Whale accumulation continues (~$94M this month); weekly MA at $3,061 remains bullish-reversal confirmation level; Glamsterdam upgrade slipped to Q4 2026. No fresh quant signal; existing position held, stop not breached."
+}
+```
+
+---
+### 2026-09-14T04:12:05.411Z — SOL/USD — NO TRADE
+
+**Reasoning:** No qualifying signal: SMA remains fast_below_slow, no crossover; RSI 48.5 neutral (recovered into range); volume ratio 0.48x (below 2x flag). Price roughly flat (-0.64% 1h/48h). News unchanged from prior cycles (SEC core ETF asset, Transaction V1, strong network adoption). No quant signal to act on. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 48.54204878204972,
+  "sma_crossover_4h": "fast_below_slow, not crossed this candle",
+  "volume_ratio": 0.4802014942791778,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": -0.688637481554356,
+  "price_action_1h_48h_pct": -0.6397637795275507,
+  "order_book_imbalance_top10": 0.1478142348980889,
+  "news_context": "SEC named SOL a core ETF asset (Sep 5); Transaction V1 live; strong network adoption metrics continue. No quant signal to corroborate."
+}
+```
+
+---
+### 2026-09-14T04:12:08.818Z — POL/USD — NO TRADE
+
+**Reasoning:** No qualifying signal: SMA still fast_below_slow (fast 0.09568 vs slow 0.09628), not crossed; RSI 50.8 neutral; volume ratio 0.43x (below 2x flag). Price roughly flat (+0.07% 1h/48h). News unchanged from prior cycles (bullish triangle setup toward $0.11, enterprise adoption via Stripe/Mastercard/BlackRock, Gigagas roadmap). No quant signal to act on. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 50.794476087216815,
+  "sma_crossover_4h": "fast_below_slow (fast 0.09568 vs slow 0.09628), not crossed this candle",
+  "volume_ratio": 0.42511600666885474,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": -0.25920165889061714,
+  "price_action_1h_48h_pct": 0.07281805887860254,
+  "order_book_imbalance_top10": 0.09342081507937168,
+  "news_context": "Bullish triangle setup targeting $0.11; enterprise adoption (Stripe/Mastercard/BlackRock); Gigagas roadmap remains technical focus. No quant signal to corroborate."
+}
+```
+
+---
+### 2026-09-14T04:12:11.982Z — XRP/USD — NO TRADE
+
+**Reasoning:** No qualifying signal: SMA remains fast_below_slow, no crossover; RSI 52.0 now neutral (recovered); volume ratio 0.52x (below 2x flag). Price up modestly (+0.66% 1h/48h). News: Senate CLARITY Act vote confirmed for tomorrow (Sep 15) remains the dominant catalyst; fixCleanup3_3_0 amendment and v1.1 lending upgrade due Sep 19 remain constructive. No quant signal to act on. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 52.04706656261527,
+  "sma_crossover_4h": "fast_below_slow, not crossed this candle",
+  "volume_ratio": 0.5222150208532466,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": 0.23524598547611744,
+  "price_action_1h_48h_pct": 0.6640008804431565,
+  "order_book_imbalance_top10": 0.4377410514782236,
+  "news_context": "Senate CLARITY Act vote confirmed for Sep 15 (tomorrow) remains the dominant near-term catalyst; fixCleanup3_3_0 amendment and v1.1 lending upgrade due Sep 19 remain constructive. No quant signal to corroborate."
+}
+```
+
+---
