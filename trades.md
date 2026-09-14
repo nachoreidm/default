@@ -16946,3 +16946,98 @@ fields changed; this is a schema backfill, not a trade action.
 ```
 
 ---
+### 2026-09-14T06:14:13.275Z — BTC/USD — NO TRADE
+
+**Reasoning:** No qualifying signal: SMA still fast_below_slow, no crossover; RSI 51.0 neutral; volume ratio 0.54x (below 2x flag). Price up modestly (+0.39% 1h/48h), order book ask-heavy (-0.67). News: BTC holding $77,700-77,800 ahead of tomorrow's CLARITY Act Senate vote and Sep 16 Fed decision; dominance steady at 57.9%. No independent trigger. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 51.02600360431909,
+  "sma_crossover_4h": "fast_below_slow, not crossed this candle",
+  "volume_ratio": 0.5376565115516222,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": 0.3966147943531505,
+  "price_action_1h_48h_pct": 0.38600346018520965,
+  "order_book_imbalance_top10": -0.6656514382402706,
+  "news_context": "BTC holding $77,700-77,800, dominance 57.9%, ahead of Sep 15 CLARITY Act vote and Sep 16 Fed decision. No quant signal to corroborate."
+}
+```
+
+---
+### 2026-09-14T06:14:17.620Z — ETH/USD — NO TRADE
+
+**Reasoning:** Existing medium-confidence long held (entry 2526.10, stop 2470, TP 2638.31), now ~-0.57% unrealized and continuing to recover, current price 2521.86 comfortably clear of the $2,470 stop. No fresh signal: SMA still fast_above_slow, not crossed; RSI 52.8 neutral. News: Consensys formally spun out MetaMask into its own firm with its own board (Sep 9); September target reaffirmed at $2,800 (range $2,405-2,950). No basis to add or exit early; position held, stop not breached.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 52.83619500654808,
+  "sma_crossover_4h": "fast_above_slow, not crossed this candle",
+  "volume_ratio": 0.7496552577253115,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": -0.46797668437924517,
+  "price_action_1h_48h_pct": -0.16473156693460717,
+  "order_book_imbalance_top10": -0.019772040009304395,
+  "news_context": "Consensys formally spun out MetaMask into its own firm with its own board (Sep 9); September 2026 target reaffirmed at $2,800 (range $2,405-2,950). No fresh quant signal; existing position held, stop not breached."
+}
+```
+
+---
+### 2026-09-14T06:14:21.743Z — SOL/USD — NO TRADE
+
+**Reasoning:** No qualifying signal: SMA remains fast_below_slow, no crossover; RSI 48.5 neutral; volume ratio 0.48x (below 2x flag). Price roughly flat (-0.60% 1h/48h). News constructive: Solana's tokenized-stock daily volume topped combined Nasdaq+NYSE volume for a day (Sep 14), tokenized equity supply hit a record $684M (+47% in 3 weeks), daily app revenue hit $7.9M on Sep 13 (2026 high) — genuinely strong ecosystem momentum, but still no confirmed crossover or volume spike in the price signals themselves. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 48.54204878204972,
+  "sma_crossover_4h": "fast_below_slow, not crossed this candle",
+  "volume_ratio": 0.4802014942791778,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": -0.688637481554356,
+  "price_action_1h_48h_pct": -0.5999803285138187,
+  "order_book_imbalance_top10": -0.20557246812238728,
+  "news_context": "Solana's tokenized-stock daily volume topped combined Nasdaq+NYSE for a day (Sep 14); tokenized equity supply hit record $684M (+47% in 3 weeks); daily app revenue hit $7.9M on Sep 13, a 2026 high. Strong ecosystem momentum, but no quant price signal to corroborate a trade yet."
+}
+```
+
+---
+### 2026-09-14T06:14:24.916Z — POL/USD — NO TRADE
+
+**Reasoning:** No qualifying signal: SMA still fast_below_slow (fast 0.09568 vs slow 0.09628), not crossed; RSI 50.8 neutral; volume ratio 0.43x (below 2x flag). Price modestly down (-0.42% 1h/48h). News unchanged from prior cycles. No quant signal to act on. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 50.794476087216815,
+  "sma_crossover_4h": "fast_below_slow (fast 0.09568 vs slow 0.09628), not crossed this candle",
+  "volume_ratio": 0.42511600666885474,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": -0.25920165889061714,
+  "price_action_1h_48h_pct": -0.41515308770110165,
+  "order_book_imbalance_top10": 0.301599168139007,
+  "news_context": "Enterprise adoption (Stripe/Mastercard/BlackRock) and Gigagas roadmap remain constructive; downtrend/waning-retail-interest narrative persists. No quant signal to corroborate."
+}
+```
+
+---
+### 2026-09-14T06:14:28.900Z — XRP/USD — NO TRADE
+
+**Reasoning:** No qualifying signal: SMA remains fast_below_slow (fast 1.3564 vs slow 1.3848 — narrowing but not crossed), RSI 52.0 neutral; volume ratio 0.52x (below 2x flag). Price up (+1.21% 1h/48h), outperforming the broader market again. News: CLARITY Act Senate vote tomorrow (Sep 15) remains the dominant binary catalyst; institutional-lending narrative (XLS-65/66) and the Sep 19 lending upgrade remain constructive. No quant signal to act on yet, though the SMA gap is worth watching next cycle. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 52.04706656261527,
+  "sma_crossover_4h": "fast_below_slow (fast 1.35642 vs slow 1.38476), gap narrowing, not crossed this candle",
+  "volume_ratio": 0.5222150208532466,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": 0.23524598547611744,
+  "price_action_1h_48h_pct": 1.208567843436529,
+  "order_book_imbalance_top10": 0.1428101165303145,
+  "news_context": "CLARITY Act Senate vote tomorrow (Sep 15) remains the dominant binary catalyst; institutional-lending narrative (XLS-65/66) and Sep 19 lending upgrade remain constructive; XRP up 0.67-1.2% outperforming the broader market. No quant signal to corroborate yet."
+}
+```
+
+---
