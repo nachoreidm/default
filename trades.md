@@ -17421,3 +17421,98 @@ fields changed; this is a schema backfill, not a trade action.
 ```
 
 ---
+### 2026-09-14T11:14:17.577Z — BTC/USD — NO TRADE
+
+**Reasoning:** No qualifying signal: SMA stays fast_below_slow with no crossover this candle, RSI neutral (54.5), volume well below average (0.54x, no spike). Price action mildly positive (+0.68% 1h/48h). News: BTC ~$78K, market sitting out an AI-sector selloff; $78K resistance is the key level analysts are watching for a breakout, with a bearish scenario to $61.5K by end-Oct if support fails; revised 630-page CLARITY Act (100+ changes) faces a pivotal Senate vote Sept 15. No confirming quantitative signal. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 54.54,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 0.54,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": 0.66,
+  "price_action_1h_48h_pct": 0.68,
+  "order_book_imbalance_top10": -0.268,
+  "news_context": "BTC ~$78K, market decoupled from an AI-sector selloff; $78K is the key resistance level watched for a breakout (bear case to $61.5K by end-Oct if failed). Revised 630-page CLARITY Act faces Senate vote Sept 15."
+}
+```
+
+---
+### 2026-09-14T11:14:21.682Z — ETH/USD — NO TRADE
+
+**Reasoning:** Already holding an open medium-confidence ETH/USD long from 2026-09-12 (unrealized ~-0.99%); no new entry. Current signals: SMA fast_above_slow (no new cross this candle), RSI neutral (54.8), volume below average (0.75x, no spike), price action negative (-0.93% 1h/48h). News: analyst points to $3,000 if ETH closes the week above $2,550 (triangle pattern comparison), ETH ETFs pulled in $216.4M on Sept 11 led by BlackRock, but offset by pre-FOMC de-risking pullback and the Consensys MetaMask split. No fresh quantitative trigger, no action.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 54.84,
+  "sma_crossover_4h": "fast_above_slow, no new cross this candle",
+  "volume_ratio": 0.75,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": -0.53,
+  "price_action_1h_48h_pct": -0.93,
+  "order_book_imbalance_top10": -0.685,
+  "news_context": "Analyst target of $3,000 if ETH closes week above $2,550 (triangle pattern); ETH ETFs pulled in $216.4M on Sept 11 (BlackRock-led); offset by pre-FOMC de-risking and Consensys MetaMask corporate split. Already have an open ETH long; no fresh signal to act on."
+}
+```
+
+---
+### 2026-09-14T11:14:24.990Z — SOL/USD — NO TRADE
+
+**Reasoning:** No qualifying signal: SMA stays fast_below_slow with no crossover this candle, RSI neutral (51.5), volume well below average (0.48x, no spike). Price action mildly negative (-0.54% 4h/48h). News remains bullish (Transaction V1 cut finality ~99% to ~150ms, SEC named SOL a core ETF asset, SOL ETFs pulled in $153.9M this week - strongest since Oct 2025) but no quantitative signal confirms a move. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 51.51,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 0.48,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": -0.54,
+  "price_action_1h_48h_pct": -0.35,
+  "order_book_imbalance_top10": 0.172,
+  "news_context": "Bullish: Transaction V1 cut finality from 12.8s to ~150ms (~99% reduction); SEC named SOL a core ETF asset Sept 5; SOL ETFs attracted $153.9M this week, strongest since Oct 2025. Not acted on - compute_signals shows no crossover, neutral RSI, no volume spike."
+}
+```
+
+---
+### 2026-09-14T11:14:27.900Z — POL/USD — NO TRADE
+
+**Reasoning:** No qualifying signal: SMA stays fast_below_slow with no crossover this candle, RSI neutral (49.8), volume well below average (0.43x, no spike). Price mildly positive (+0.61% 1h/48h). News: some outlets describe a bullish triangle breakout setup targeting $0.11, but our own signals show no confirmed crossover or volume spike - not acting on the narrative alone. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 49.82,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 0.43,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": -0.38,
+  "price_action_1h_48h_pct": 0.61,
+  "order_book_imbalance_top10": 0.343,
+  "news_context": "External commentary describes a bullish triangle breakout setup targeting $0.11; migration to POL ~99% complete. Not confirmed by compute_signals - no crossover, neutral RSI, no volume spike."
+}
+```
+
+---
+### 2026-09-14T11:14:31.278Z — XRP/USD — NO TRADE
+
+**Reasoning:** No qualifying signal: SMA stays fast_below_slow with no crossover this candle, RSI neutral (57.4), volume well below average (0.52x, no spike). Price action positive (+1.77% 1h/48h, +1.33% 4h/48h) but unconfirmed by volume or a crossover. News: CLARITY Act Senate cloture vote Sept 15 remains the dominant binary catalyst; XRPL processed a record 2,768 tx in 3.8s on Sept 13; Schwab money-market fund holds ~$4.8M in XRP ETF shares as repo collateral. Forward-looking event risk, not a current-signal trigger. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 57.38,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 0.52,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": 1.33,
+  "price_action_1h_48h_pct": 1.77,
+  "order_book_imbalance_top10": 0.076,
+  "news_context": "Senate CLARITY Act cloture vote Sept 15 remains the major binary catalyst; XRPL stress-test record (2,768 tx in 3.8s) on Sept 13; Schwab money-market fund holds ~$4.8M in XRP ETF shares as repo collateral. Not acted on - no quantitative signal confirms a move."
+}
+```
+
+---
