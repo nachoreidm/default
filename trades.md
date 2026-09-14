@@ -18287,3 +18287,109 @@ is factually correct, not just a placeholder. No other fields changed;
 this is a schema backfill, not a trade action.
 
 ---
+### 2026-09-14T19:27:21.072Z — XRP/USD — LONG — OPENED
+
+- Entry price: $1.46
+- Stop-loss: $1.40
+- Take-profit: $1.58 (2:1 risk/reward, fixed at entry)
+- Position size: 2% of portfolio ($199.81, qty 136.27256377)
+- Entry fee (paper): $0.80
+- Confidence: medium — momentum_trigger is the sole quant signal (1h/48h move +8.40% vs 6% threshold). No confirmation from the other signals: RSI 60.8 (neutral, not overbought), sma_crossover_4h state remains fast_below_slow (no fresh cross this candle), 24h volume ratio 0.52x (not flagged), order book imbalance ~0 (neutral). A genuine, identifiable news catalyst was found explaining the move: a CLARITY Act Senate procedural vote scheduled for Sept 15, expected to classify XRP as a commodity and settle its regulatory status - the same category of catalyst (CLARITY Act) that produced the 2026-09-13 XRP case this momentum_trigger signal was built to catch, so this satisfies the momentum-only news-catalyst requirement rather than being an unexplained move. Per the momentum_only rule this is code-capped at medium (not high) regardless. Sized at 2%, below the 3% medium ceiling, because the trade rests on one unconfirmed signal and the move is already extended (+8.4% over 48h, price sitting near the 48h high of 1.4804).
+- Momentum-only trigger: yes (no crossover/RSI-extreme/volume-spike corroborating this trade)
+- Invalidation (what proves this wrong): Price closes back below 1.40 (the launch point of this breakout per the last 12 1h candles — a close back below erases the whole move and re-enters the prior 1.38-1.40 consolidation range), or the CLARITY Act Senate procedural vote scheduled Sept 15 is delayed/fails without another clear catalyst emerging.
+- Signals supporting this trade:
+```json
+{
+  "momentum_trigger_flagged": true,
+  "momentum_trigger_pct_1h_48h": 8.397120232494988,
+  "momentum_trigger_threshold_pct": 6,
+  "rsi_14_4h": 60.811734282486086,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "sma_crossover_4h_crossed_this_candle": false,
+  "volume_ratio": 0.5222150208532466,
+  "volume_flag_above_2x": false,
+  "order_book_imbalance_top10": -0.0021424291743088932,
+  "price_action_1h_48h_pct": 8.397120232494988,
+  "price_action_4h_48h_pct": 2.96709990386097,
+  "news_context": "CLARITY Act Senate procedural vote scheduled Sept 15 2026, expected to classify XRP as a commodity under federal law and settle its legal status for good - a concrete, dated catalyst plausibly explaining the 8.4% run. Also: XRP ledger processed a record batch in 3.8s during an unplanned stress test on Sept 13 without disruption, and a Charles Schwab money market fund reported holding ~$4.8M in XRP ETF shares as repo collateral (Sept 9). Offsetting macro note: broader altcoin sentiment softening with capital rotating toward safety, Bitcoin dominance rising."
+}
+```
+- Position id: 28862fd4-97d2-4e0a-ab93-c93994c18fb4
+
+---
+### 2026-09-14T19:27:29.294Z — BTC/USD — NO TRADE
+
+**Reasoning:** No signal triggers. RSI 61.7 is elevated but not overbought (>70). No fresh SMA crossover (fast_below_slow, not crossed this candle). Volume ratio 0.54x, well below the 2x flag. Momentum trigger not flagged (2.74% 1h/48h vs 6% threshold). Order book mildly bid-heavy (+0.42) but that alone isn't a listed trigger. News: rate-hike odds rising into Fed week (headwind), price stuck below the $80.5-83K resistance zone, open interest falling ~13.5% over the past week - nothing here rises to an independent catalyst and there's no quant signal for it to corroborate anyway.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 61.6919880373157,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "volume_ratio": 0.5376565115516222,
+  "momentum_trigger_flagged": false,
+  "momentum_trigger_pct_1h_48h": 2.7410815956505834,
+  "order_book_imbalance_top10": 0.42205947345160666,
+  "news_context": "Fed rate-hike odds up to 86.5% into this week's meeting (headwind); price holding near $78K, unable to clear $80.5-83K resistance; BTC open interest down ~13.5% over the past week (position unwind, not fresh buying); Strategy/Strive continued modest accumulation. Nothing dated in the last 24-48h that would independently move price or corroborate a signal."
+}
+```
+
+---
+### 2026-09-14T19:27:34.405Z — ETH/USD — NO TRADE
+
+**Reasoning:** No new trigger this cycle - the open ETH/USD position (opened 2026-09-12 on a confirmed bullish SMA crossover + volume spike) is unaffected, stops checked clean. RSI 51.5 neutral, SMA state fast_above_slow but not a fresh cross this candle (already priced into the existing position), volume ratio 0.75x not flagged, momentum trigger not flagged (0.78% 1h/48h, well under 6%). No basis for a second entry on the same pair this cycle.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 51.50464684643271,
+  "sma_crossover_4h_state": "fast_above_slow",
+  "sma_crossover_4h_crossed_this_candle": false,
+  "volume_ratio": 0.7496552577253115,
+  "momentum_trigger_flagged": false,
+  "momentum_trigger_pct_1h_48h": 0.783237992401838,
+  "order_book_imbalance_top10": -0.680824725531181,
+  "news_context": "Revised Senate crypto bill with White House-backed concessions boosting regulatory optimism; spot ETH ETFs saw $197M inflows last week vs BTC funds bleeding $463M; ETH up ~58% in Q3, trading near $2,510 after bouncing off a September low. Broadly supportive backdrop but no fresh quant trigger this cycle to act on - already have an open position from the prior confirmed crossover."
+}
+```
+
+---
+### 2026-09-14T19:27:39.540Z — SOL/USD — NO TRADE
+
+**Reasoning:** No signal triggers. RSI 53.4 neutral. No fresh SMA crossover (fast_below_slow, not crossed this candle). Volume ratio 0.48x, well below the 2x flag. Momentum trigger not flagged (2.32% 1h/48h vs 6% threshold). Order book mildly bid-heavy (+0.12), not itself a listed trigger. News is constructive medium-term (SEC named SOL a core ETF asset Sept 5, Transaction V1 upgrade cut finality ~99% on Sept 9, strong ETF inflows) but nothing dated in the last 24-48h and no quant signal for it to corroborate.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 53.42953026761069,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "volume_ratio": 0.4802014942791778,
+  "momentum_trigger_flagged": false,
+  "momentum_trigger_pct_1h_48h": 2.320758443610502,
+  "order_book_imbalance_top10": 0.12183735500053991,
+  "news_context": "SEC named SOL a core ETF asset (Sept 5); Transaction V1 upgrade live (Sept 9) cutting finality from 12.8s to ~150ms; SOL ETFs pulled $153.87M last week, strongest since Oct 2025; exchange supply falling. Constructive but not fresh (last 24-48h) and no quant signal is flagged for it to corroborate."
+}
+```
+
+---
+### 2026-09-14T19:27:45.666Z — POL/USD — NO TRADE
+
+**Reasoning:** A fresh bullish 20/50 SMA crossover did trigger this candle, but it's unconfirmed rather than corroborated: 24h volume ratio is 0.43x - not just below the 2x flag but actually below POL's own 7-day average, the opposite of what you'd want backing a breakout. Order book is close to flat, slightly ask-heavy (-0.07). RSI 59.4 is neutral, no help either way. News is mixed/conflicting rather than a clear catalyst: one recent headline attributes a rise to a new stablecoin framework announcement, another describes POL as being in a broader downtrend, and the Sept 2026 price forecast is roughly flat (~$0.097-0.10). POL is already the thinnest-volume pair in scope, and a crossover on sub-average volume with no clear corroborating news reads as a weak/false-breakout risk rather than a confirmed signal - logging no-trade rather than forcing size onto a low-conviction setup.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 59.423824657362964,
+  "sma_crossover_4h_state": "fast_above_slow",
+  "sma_crossover_4h_crossed_this_candle": true,
+  "sma_crossover_4h_direction": "bullish",
+  "volume_ratio": 0.42511600666885474,
+  "volume_flag_above_2x": false,
+  "momentum_trigger_flagged": false,
+  "momentum_trigger_pct_1h_48h": 1.5932521087160156,
+  "order_book_imbalance_top10": -0.07229017779203763,
+  "news_context": "Mixed: one report attributes a prior 13% rise to a new stablecoin framework announcement, another (same day) describes POL as being in a broader 2026 downtrend; Polygon is expanding onchain forex (20 currencies) as a longer-term initiative; Sept 2026 price forecast roughly flat (~$0.097-0.10). No clear, dated catalyst corroborating today's crossover."
+}
+```
+
+---
