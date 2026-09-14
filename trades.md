@@ -18181,3 +18181,98 @@ fields changed; this is a schema backfill, not a trade action.
 ```
 
 ---
+### 2026-09-14T19:11:56.643Z — BTC/USD — NO TRADE
+
+**Reasoning:** No qualifying signal: SMA stays fast_below_slow with no crossover this candle, RSI neutral (61.7, below overbought), volume well below average (0.54x, no spike). Price action strongly positive (+2.74% 1h/48h). News: BTC ~$79K, OI down 13.5% (deleveraging), Coinbase/Moov stablecoin payments partnership with 1,000+ community banks. No confirming crossover or volume spike. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 61.69,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 0.54,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": 1.88,
+  "price_action_1h_48h_pct": 2.74,
+  "order_book_imbalance_top10": -0.472,
+  "news_context": "BTC ~$79K; open interest down 13.5% (deleveraging); Coinbase partnered with Moov to integrate stablecoin payments into 1,000+ community banks."
+}
+```
+
+---
+### 2026-09-14T19:12:00.657Z — ETH/USD — NO TRADE
+
+**Reasoning:** Already holding an open medium-confidence ETH/USD long from 2026-09-12 (unrealized ~-0.00%, essentially at breakeven); no new entry. Current signals: SMA fast_above_slow (no new cross this candle), RSI neutral (51.5), volume below average (0.75x, no spike), price action positive (+0.78% 1h/48h). News: ETH up ~58% in Q3, ending 3-quarter losing streak; revised CLARITY Act boosting sentiment; $100M 25x leveraged long reported near $2,480. No fresh quantitative trigger for a new entry.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 51.5,
+  "sma_crossover_4h": "fast_above_slow, no new cross this candle",
+  "volume_ratio": 0.75,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": -0.45,
+  "price_action_1h_48h_pct": 0.78,
+  "order_book_imbalance_top10": 0.744,
+  "news_context": "ETH up ~58% in Q3, ending its first-ever 3-quarter losing streak; revised CLARITY Act boosting sentiment; $100M 25x leveraged long reported near $2,480. Already have an open ETH long, now essentially at breakeven; no fresh signal to act on."
+}
+```
+
+---
+### 2026-09-14T19:12:03.312Z — SOL/USD — NO TRADE
+
+**Reasoning:** No qualifying signal: SMA stays fast_below_slow with no crossover this candle, RSI neutral (53.4), volume well below average (0.48x, no spike). Price action positive (+2.32% 1h/48h). News: SOL now #1 blockchain by 30-day RWA net inflows, analysts eyeing $150 on sustained network growth. Still no quantitative signal confirms a move. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 53.43,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 0.48,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": 0.68,
+  "price_action_1h_48h_pct": 2.32,
+  "order_book_imbalance_top10": 0.204,
+  "news_context": "SOL now #1 blockchain by 30-day RWA net inflows; analysts eyeing $150 target on sustained network growth. Not acted on - compute_signals shows no crossover, neutral RSI, no volume spike."
+}
+```
+
+---
+### 2026-09-14T19:12:06.630Z — POL/USD — NO TRADE
+
+**Reasoning:** Same unconfirmed marginal crossover persisting for a 4th consecutive cycle - SMA values essentially unchanged, volume ratio still 0.43x (well below average, no confirmation), RSI neutral (59.4). News remains a mix of the 8B-transaction milestone/security forks against reported whale-selling pressure and broader 2026 weakness. Still too weak/unconfirmed to act on. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 59.42,
+  "sma_crossover_4h": "bullish cross flagged (same candle, unchanged for 4th cycle) - still unconfirmed by volume",
+  "volume_ratio": 0.43,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": 2.34,
+  "price_action_1h_48h_pct": 1.59,
+  "order_book_imbalance_top10": 0.003,
+  "news_context": "Same mixed picture: 8B-transaction milestone and Austin/Kyoto security forks vs. reported whale-selling pressure and broader 2026 weakness (L2 competition, TVL outflows). Crossover remains unconfirmed by volume."
+}
+```
+
+---
+### 2026-09-14T19:12:11.584Z — XRP/USD — NO TRADE
+
+**Reasoning:** No qualifying signal despite an even larger move this cycle: SMA stays fast_below_slow with no crossover, RSI neutral (60.8, still below the 70 overbought flag), volume well below average (0.52x, no spike). Price action is now +8.40% (1h/48h) and +2.97% (4h/48h), clearly driven by CLARITY Act breakout optimism ahead of tomorrow's Sept 15 cloture vote (news explicitly describes XRP "breaking out on Clarity Act hopes," though the same coverage notes "the charts are still cautious"). Per the rules, news and price momentum - however strong - cannot independently trigger a trade without a confirming crossover or volume spike, and neither has fired. No trade, but this is now the most extended unconfirmed move seen in the conversation and merits continued close monitoring - a reversal or blow-off top is also a real risk if the Sept 15 vote disappoints.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 60.81,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 0.52,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": 2.97,
+  "price_action_1h_48h_pct": 8.4,
+  "order_book_imbalance_top10": 0.042,
+  "news_context": "XRP described as breaking out on CLARITY Act hopes ahead of the Sept 15 Senate cloture vote (60 votes needed); coverage explicitly notes technical charts remain cautious despite the price strength. Not acted on - no crossover or volume spike confirms the move technically despite an 8.4% 1h/48h move."
+}
+```
+
+---
