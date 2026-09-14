@@ -18580,3 +18580,97 @@ this is a schema backfill, not a trade action.
 ```
 
 ---
+### 2026-09-14T22:11:52.088Z — BTC/USD — NO TRADE
+
+**Reasoning:** No signal triggers. RSI 65.5 elevated but not overbought, unchanged from last two cycles. No fresh crossover (fast_below_slow). Volume ratio 0.54x not flagged. Momentum not flagged (1.98% vs 6%). Order book back to bid-heavy (+0.44). News unchanged: Fed rate-hike odds elevated into this week, oil-price shock continuing, price still capped below $80.5-83K resistance.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 65.46976253277376,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "volume_ratio": 0.5376565115516222,
+  "momentum_trigger_flagged": false,
+  "momentum_trigger_pct_1h_48h": 1.9825405890511467,
+  "order_book_imbalance_top10": 0.44336195508586534,
+  "news_context": "Unchanged: Fed rate-hike odds ~86.5% into this week; oil elevated on Middle East pipeline attack; price capped below $80.5-83K resistance; open interest down 13.5% over the past week."
+}
+```
+
+---
+### 2026-09-14T22:11:55.540Z — ETH/USD — NO TRADE
+
+**Reasoning:** No new trade - existing open position held, stops checked clean. RSI 58.0 neutral, no fresh crossover, volume 0.75x not flagged, momentum not flagged (0.97% vs 6%). Order book moderately bid-heavy (+0.20). No basis for a second entry on the same pair.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 58.00573345152666,
+  "sma_crossover_4h_state": "fast_above_slow",
+  "sma_crossover_4h_crossed_this_candle": false,
+  "volume_ratio": 0.7496552577253115,
+  "momentum_trigger_flagged": false,
+  "momentum_trigger_pct_1h_48h": 0.9688723974438281,
+  "order_book_imbalance_top10": 0.20414125592917215,
+  "news_context": "Unchanged: revised Senate CLARITY Act bill boosting regulatory optimism ahead of Sept 15 vote; ETH ETFs +$197M last week; Q3 gain ~58%; Sepolia/Glamsterdam fork set for Sept 28. Supportive but no fresh quant trigger this cycle; already holding a position."
+}
+```
+
+---
+### 2026-09-14T22:11:58.809Z — SOL/USD — NO TRADE
+
+**Reasoning:** No signal triggers. RSI 59.1 neutral, unchanged. No fresh crossover (fast_below_slow). Volume ratio 0.48x not flagged. Momentum not flagged (1.52% vs 6%). Order book close to flat (+0.05). News leans mildly negative near-term: reported slipping back below $100 (~$98.30, -2.2% on the day) on macro pressure and weaker ETF demand, though no quant signal confirms a move either way.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 59.09919199661677,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "volume_ratio": 0.4802014942791778,
+  "momentum_trigger_flagged": false,
+  "momentum_trigger_pct_1h_48h": 1.524690143615972,
+  "order_book_imbalance_top10": 0.045719906082786685,
+  "news_context": "Reported slipping back below $100 (~$98.30, -2.2% on the day) on macro pressure and weaker ETF demand; $97.70 flagged as the key breakout/breakdown level to watch. No quant signal confirms either direction."
+}
+```
+
+---
+### 2026-09-14T22:12:02.816Z — POL/USD — NO TRADE
+
+**Reasoning:** No trigger. RSI 54.2 neutral, unchanged. Stale crossover, still no volume confirmation (0.43x). Order book flipped back bid-heavy (+0.38) this cycle after being ask-heavy last cycle - noisy/inconsistent, not a clean signal. News: structural only (8B transaction milestone, Visa/Meta/Revolut stablecoin settlement layer), offset by continued reports of POL struggling against L2 competition and near multi-year lows.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 54.21529906707296,
+  "sma_crossover_4h_state": "fast_above_slow",
+  "sma_crossover_4h_crossed_this_candle": false,
+  "volume_ratio": 0.42511600666885474,
+  "momentum_trigger_flagged": false,
+  "momentum_trigger_pct_1h_48h": 0.5930087390761559,
+  "order_book_imbalance_top10": 0.3834683959155942,
+  "news_context": "Structural: 8B cumulative transactions, settlement layer for Visa/Meta/Revolut stablecoin. Offsetting: POL near multi-year lows, trading ~90% below ATH, struggling against L2 competition (Arbitrum, Base, Optimism). No fresh catalyst."
+}
+```
+
+---
+### 2026-09-14T22:12:08.827Z — XRP/USD — NO TRADE
+
+**Reasoning:** Holding the existing open momentum-only position, not a new entry. Position continues pulling back (now 1.44773, down from 1.4738 peak two cycles ago) but remains well clear of the 1.40 stop - stops checked clean. momentum_trigger still flagged overall (4h/48h move 7.17%, though the 1h/48h measure eased to 5.85%, just under threshold) and RSI remains overbought at 72.6. One news source flags an "unresolved ethics fight" still threatening the Sept 15 vote, alongside the earlier report that Trump agreed to most of the disputed ethics terms - some genuine uncertainty remains into the vote itself, consistent with the pullback. Thesis not invalidated (price hasn't closed back below 1.40), so holding rather than closing early.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 72.58092711363952,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "volume_ratio": 0.5222150208532466,
+  "momentum_trigger_flagged": true,
+  "momentum_trigger_pct_1h_48h": 5.846752008216255,
+  "momentum_trigger_pct_4h_48h": 7.165339345318267,
+  "order_book_imbalance_top10": -0.25278072601525553,
+  "existing_position": "LONG opened 2026-09-14T19:27:21Z at 1.4604, stop 1.40, take-profit 1.5812, momentum_only=true, medium confidence - held, not a new entry, price now 1.44773 (pulling back but above stop)",
+  "news_context": "Mixed on CLARITY Act certainty: one report says an unresolved ethics fight still threatens the Sept 15 vote, another says Trump agreed to most of the disputed ethics terms. Ripple separately reported holding 75+ regulatory licenses globally. Vote remains scheduled for Sept 15; thesis not yet invalidated."
+}
+```
+
+---
