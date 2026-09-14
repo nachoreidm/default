@@ -27,6 +27,7 @@
       "invalidation": "Price closes back below the 50-period 4h SMA (~2484) or the bullish crossover reverses (fast SMA crosses back below slow SMA) — either would invalidate the breakout thesis.",
       "confidence": "medium",
       "confidence_reason": "Two quantitative signals align: a fresh bullish 20/50 SMA crossover on the 4h chart this candle, confirmed by 24h volume at 2.52x the 7-day average (above the 2x flag). RSI at 57.5 is neutral with room to run before overbought. Price action confirms (+2.51% on 4h/48h, +2.14% on 1h/48h). News strongly corroborates: ETH ETFs pulled in ~$1.2B this month (highest since Aug 2025), sentiment flipped from Fear to Extreme Greed, and ~116,000 ETH (~$300M) left exchanges in 48h reducing available sell-side supply. Capped at medium rather than high because the top-10 order book is notably ask-heavy (imbalance -0.64, thin book) suggesting some near-term selling pressure, and \"Extreme Greed\" readings carry contrarian pullback risk.",
+      "momentum_only": false,
       "status": "open"
     }
   ],

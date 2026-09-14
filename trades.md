@@ -18276,3 +18276,14 @@ fields changed; this is a schema backfill, not a trade action.
 ```
 
 ---
+### CORRECTION — 2026-09-14T00:00:00.000Z — ETH/USD — momentum_only backfilled
+
+The momentum-trigger feature added `momentum_only` as a required field on
+positions after this trade (opened 2026-09-12T08:14:01.374Z) was already
+open. Backfilled `momentum_only: false` on the open position in
+`data/portfolio_state.json` - this trade had a genuine fresh SMA crossover
+confirmed by a 2.52x volume spike, not a momentum-only signal, so `false`
+is factually correct, not just a placeholder. No other fields changed;
+this is a schema backfill, not a trade action.
+
+---
