@@ -18487,3 +18487,96 @@ this is a schema backfill, not a trade action.
 ```
 
 ---
+### 2026-09-14T21:12:30.397Z — BTC/USD — NO TRADE
+
+**Reasoning:** No signal triggers. RSI 65.5 elevated but not overbought. No fresh SMA crossover (fast_below_slow). Volume ratio 0.54x, not flagged. Momentum not flagged (2.40% vs 6%). Order book turned notably ask-heavy (-0.78, from +0.29 last cycle) - a caution tilt but not itself a listed trigger. News unchanged: Fed rate-hike odds elevated into this week, oil-price shock from Middle East pipeline attack, price capped below $80.5-83K resistance. Coinbase/Moov stablecoin partnership is structural, not a price catalyst.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 65.46976253277376,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "volume_ratio": 0.5376565115516222,
+  "momentum_trigger_flagged": false,
+  "momentum_trigger_pct_1h_48h": 2.403219311727112,
+  "order_book_imbalance_top10": -0.77759513437988,
+  "news_context": "Unchanged: Fed rate-hike odds ~86.5% into this week; oil up >11% over 5 days on Middle East pipeline attack; price capped below $80.5-83K resistance; open interest down 13.5% over the past week. Coinbase-Moov stablecoin bank partnership is structural news, not a price catalyst."
+}
+```
+
+---
+### 2026-09-14T21:12:34.607Z — ETH/USD — NO TRADE
+
+**Reasoning:** No new trade this cycle - existing open position held (unrealized gain continuing), stops checked clean. RSI 58.0 neutral, no fresh crossover this candle, volume 0.75x not flagged, momentum not flagged (1.85% vs 6%). Order book swung strongly bid-heavy (+0.67), consistent with the broadly bullish ETH backdrop but not itself a listed entry trigger and no basis for a second position on the same pair.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 58.00573345152666,
+  "sma_crossover_4h_state": "fast_above_slow",
+  "sma_crossover_4h_crossed_this_candle": false,
+  "volume_ratio": 0.7496552577253115,
+  "momentum_trigger_flagged": false,
+  "momentum_trigger_pct_1h_48h": 1.8506116529092755,
+  "order_book_imbalance_top10": 0.6730038752254153,
+  "news_context": "Revised Senate CLARITY Act draft aiming for bipartisan support lifting BTC/XRP/ETH together; ETH up ~58% in Q3; large leveraged long ($100M, Machi Big Brother) signaling institutional conviction; ETF inflows continuing ($197M last week). Supportive but no fresh quant trigger this cycle; already holding a position from the prior confirmed crossover."
+}
+```
+
+---
+### 2026-09-14T21:12:38.460Z — SOL/USD — NO TRADE
+
+**Reasoning:** No signal triggers. RSI 59.1 neutral, unchanged from last cycle. No fresh crossover (fast_below_slow). Volume ratio 0.48x, not flagged. Momentum not flagged (2.46% vs 6%). Order book mildly bid-heavy (+0.14). News mixed/conflicting between sources on today's price direction (one citing SOL near $104, another citing ~$98 down 2.2%) - not a clean signal either way and nothing corroborated by a quant trigger.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 59.09919199661677,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "volume_ratio": 0.4802014942791778,
+  "momentum_trigger_flagged": false,
+  "momentum_trigger_pct_1h_48h": 2.4635396137169883,
+  "order_book_imbalance_top10": 0.13730313979470862,
+  "news_context": "SEC named SOL a core ETF asset (Sept 5); Transaction V1 upgrade live (Sept 9); tokenized-equity leadership continuing. Price reporting conflicting across sources today (~$104 vs ~$98/-2.2%) - treating as noise, no quant signal to corroborate either direction."
+}
+```
+
+---
+### 2026-09-14T21:12:42.791Z — POL/USD — NO TRADE
+
+**Reasoning:** No trigger. RSI 54.2 neutral, unchanged. Crossover from two cycles ago remains stale (not this candle). Volume ratio 0.43x still below its own 7-day average, still no confirmation. Order book still ask-heavy (-0.30). News: 8B transaction milestone and Gigagas roadmap are structural, not catalysts; one source explicitly flags POL as struggling against L2 competition (Arbitrum/Base/Optimism) with weak retail interest and TVL outflows - if anything a mild bearish tilt, reinforcing the no-trade call.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 54.21529906707296,
+  "sma_crossover_4h_state": "fast_above_slow",
+  "sma_crossover_4h_crossed_this_candle": false,
+  "volume_ratio": 0.42511600666885474,
+  "momentum_trigger_flagged": false,
+  "momentum_trigger_pct_1h_48h": 1.2357217030114191,
+  "order_book_imbalance_top10": -0.29766832734133464,
+  "news_context": "8B cumulative transactions (Sept 1), Gigagas (100k TPS) roadmap - structural. One report flags POL struggling against L2 competition (Arbitrum, Base, Optimism), weak retail interest, TVL outflows - mildly bearish backdrop, no fresh catalyst either way."
+}
+```
+
+---
+### 2026-09-14T21:12:47.917Z — XRP/USD — NO TRADE
+
+**Reasoning:** Holding the existing open momentum-only position, not a new entry. momentum_trigger still flagged (7.37% 1h/48h) and RSI still overbought (72.6). Price has pulled back slightly from the last cycle's high (now 1.4530 vs 1.4738) but remains well above the 1.40 stop and below the 1.5812 take-profit - stops checked clean, no breach. News confirms the CLARITY Act cloture vote is now precisely timed for Sept 15 3PM ET, needing 60 votes to advance debate (not final enactment) - thesis intact, nothing has changed that would justify closing early or adding to the position.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 72.58092711363952,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "volume_ratio": 0.5222150208532466,
+  "momentum_trigger_flagged": true,
+  "momentum_trigger_pct_1h_48h": 7.3713644069662365,
+  "order_book_imbalance_top10": 0.235484389903681,
+  "existing_position": "LONG opened 2026-09-14T19:27:21Z at 1.4604, stop 1.40, take-profit 1.5812, momentum_only=true, medium confidence - held, not a new entry",
+  "news_context": "CLARITY Act Senate cloture vote confirmed for Sept 15 3PM ET, needs 60 votes to advance debate (procedural, not final passage); XRP would gain commodity status in secondary markets under the current draft regardless of Ripple's holdings. Vote lands right before the Fed's Sept 16 rate decision, adding a second macro catalyst that week."
+}
+```
+
+---
