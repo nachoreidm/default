@@ -65,6 +65,15 @@ computed deterministically (not estimated by you):
 4. 20-period vs 50-period SMA crossover on 4h (`sma_crossover_4h`)
 5. Order book imbalance at the top 10 levels, optional
    (`order_book_imbalance_top10`)
+6. Momentum trigger — flagged when the 1h or 4h price-action window shows a
+   48h move at or above the threshold (`momentum_trigger.flagged`,
+   `momentum_trigger.threshold_pct`). Experimental as of 2026-09-14, added
+   because RSI/SMA on a 4h chart are lagging by design and can miss a
+   genuine fast, news-driven move entirely (this happened to XRP on
+   2026-09-13 — price ran from +2.97% to +5.22% on real CLARITY Act news
+   while RSI stayed neutral and volume stayed below average the whole
+   time). Unlike signals 2-4, this one is NOT confirmed by anything else -
+   see the `momentum_only` rule below before acting on it alone.
 
 Don't freelance with indicators not in this list. If `compute_signals`
 reports something in `data_gaps`, say so explicitly in your write-up rather
@@ -84,12 +93,20 @@ major partnership or ETF news. This is genuinely different from the five
 signals above — it's not computed deterministically, it's your judgment of
 a search result, so treat it accordingly:
 
-- **News can never independently justify a trade.** One of the five
+- **News can never independently justify a trade.** One of the six
   quantitative signals must already be pointing somewhere (a fresh
-  crossover, an RSI extreme, a volume spike) before news gets to weigh in.
-  Its role is to raise or lower your confidence in a trade the quantitative
-  signals already support, or to explain price action that looks otherwise
-  unconfirmed by volume — never to manufacture a signal on its own.
+  crossover, an RSI extreme, a volume spike, or a flagged momentum_trigger)
+  before news gets to weigh in. Its role is to raise or lower your
+  confidence in a trade the quantitative signals already support, or to
+  explain price action that looks otherwise unconfirmed by volume — never
+  to manufacture a signal on its own.
+- **Exception, in the other direction, for a momentum-only trade:** if
+  `momentum_trigger.flagged` is the ONLY thing supporting the trade (no
+  crossover, RSI extreme, or volume spike), you need a plausible news
+  catalyst actually explaining the move before opening it — not just
+  "price is up." A large move with no identifiable cause is closer to
+  noise or thin-book chop than a real breakout; log a no-trade instead if
+  you can't find one, even if the price move itself clears the threshold.
 - **Always note what you found (or that you found nothing notable)** in
   the reasoning and in `signals_considered` / `signals_at_entry`, even on a
   no-trade — e.g. `"news_context": "No major Solana news in the last 24h"`.
@@ -121,6 +138,18 @@ around by resizing and retrying past intent:
   entry-to-stop distance) and stores it on the position. You don't set it,
   suggest it, or ask for one - it isn't a tool input. Report the level the
   tool returns in your write-up, but there's no discretion here.
+- **A momentum-only trigger is capped at medium confidence, enforced in
+  code.** `portfolio_open_position` takes a required `momentum_only`
+  boolean. Set it `true` only when `momentum_trigger.flagged` is the sole
+  basis for the trade - no fresh crossover this candle, no RSI extreme, no
+  volume spike. When `momentum_only` is `true`, the tool call rejects
+  `confidence: "high"` outright, same enforcement style as the confidence
+  size caps above - momentum alone isn't confirmed by anything else, so it
+  can't earn the top confidence tier no matter how strong the news or the
+  price move looks. Set `momentum_only` to `false` whenever a real
+  crossover/RSI-extreme/volume-spike is present, even if momentum also
+  happens to be flagged that cycle - the flag only changes behavior when
+  it's the ONLY thing you're relying on.
 - Max 3 open positions at once
 - If a UTC day's realized paper losses reach 5% of portfolio value,
   `portfolio_open_position` refuses all new positions for the rest of that
@@ -176,6 +205,9 @@ appends a structured entry to `trades.md` on success) with:
 - `invalidation`: the condition under which you'd exit early — what would
   prove this wrong
 - `confidence`: low / medium / high, and `confidence_reason` for why
+- `momentum_only`: `true` only if `momentum_trigger.flagged` is the sole
+  basis for the trade (see Risk rules above for what that means and why it
+  caps confidence)
 
 If the tool call is rejected by a risk limit, report the rejection reason —
 don't retry with smaller numbers just to force a trade through.

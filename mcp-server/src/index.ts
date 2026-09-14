@@ -4,7 +4,14 @@ import { z } from "zod";
 import { fetchOHLC, fetchDepth, fetchTicker, closedCandles, INTERVAL_MINUTES } from "./kraken.js";
 import { computeSignals } from "./signals.js";
 import { getSnapshot, openPosition, closePosition, checkStops, logNoTrade } from "./portfolio.js";
-import { ALLOWED_PAIRS, RISK_LIMITS, CONFIDENCE_MAX_SIZE_PCT, TAKE_PROFIT_RR_MULTIPLE } from "./types.js";
+import {
+  ALLOWED_PAIRS,
+  RISK_LIMITS,
+  CONFIDENCE_MAX_SIZE_PCT,
+  TAKE_PROFIT_RR_MULTIPLE,
+  MOMENTUM_THRESHOLD_PCT,
+  MOMENTUM_ONLY_MAX_CONFIDENCE,
+} from "./types.js";
 
 const server = new McpServer({ name: "kraken-paper-trading", version: "0.1.0" });
 
@@ -53,7 +60,7 @@ server.tool(
 
 server.tool(
   "compute_signals",
-  "Compute the full authorized signal set for a pair in one call: 1h/4h price action over the last 48h, 24h volume vs 7-day average, RSI(14) on 4h, 20/50 SMA crossover on 4h, and top-10 order book imbalance. Any signal that can't be reliably computed is reported in data_gaps instead of being estimated.",
+  `Compute the full authorized signal set for a pair in one call: 1h/4h price action over the last 48h, 24h volume vs 7-day average, RSI(14) on 4h, 20/50 SMA crossover on 4h, top-10 order book imbalance, and momentum_trigger (flagged when the 1h or 4h price-action window shows a move at or above ${MOMENTUM_THRESHOLD_PCT}% over 48h - unlike the other signals this one isn't confirmed by anything else, see portfolio_open_position's momentum_only param). Any signal that can't be reliably computed is reported in data_gaps instead of being estimated.`,
   { pair: pairSchema },
   async ({ pair }) => wrap(() => computeSignals(pair))()
 );
@@ -67,7 +74,7 @@ server.tool(
 
 server.tool(
   "portfolio_open_position",
-  `Open a new paper LONG position (spot only, no margin/short). All risk limits are enforced here in code and will reject the call if violated: max ${RISK_LIMITS.MAX_POSITION_PCT}% of portfolio per trade, max ${RISK_LIMITS.MAX_TOTAL_EXPOSURE_PCT}% total exposure, max ${RISK_LIMITS.MAX_OPEN_POSITIONS} open positions, a same-UTC-day halt once realized paper losses hit ${RISK_LIMITS.MAX_DAILY_LOSS_PCT}% of portfolio value, and a confidence-based size cap: low confidence doesn't trade at all (call portfolio_log_no_trade instead), medium caps at ${CONFIDENCE_MAX_SIZE_PCT.medium}%, high can use the full ${CONFIDENCE_MAX_SIZE_PCT.high}%. Fill price is simulated from the live ask plus modeled fee/slippage. A take-profit target is set automatically at ${TAKE_PROFIT_RR_MULTIPLE}:1 risk/reward above entry (${TAKE_PROFIT_RR_MULTIPLE}x the entry-to-stop distance) - this is fixed, not something you choose or can override. Automatically appends a structured entry to trades.md on success.`,
+  `Open a new paper LONG position (spot only, no margin/short). All risk limits are enforced here in code and will reject the call if violated: max ${RISK_LIMITS.MAX_POSITION_PCT}% of portfolio per trade, max ${RISK_LIMITS.MAX_TOTAL_EXPOSURE_PCT}% total exposure, max ${RISK_LIMITS.MAX_OPEN_POSITIONS} open positions, a same-UTC-day halt once realized paper losses hit ${RISK_LIMITS.MAX_DAILY_LOSS_PCT}% of portfolio value, and a confidence-based size cap: low confidence doesn't trade at all (call portfolio_log_no_trade instead), medium caps at ${CONFIDENCE_MAX_SIZE_PCT.medium}%, high can use the full ${CONFIDENCE_MAX_SIZE_PCT.high}%. Fill price is simulated from the live ask plus modeled fee/slippage. A take-profit target is set automatically at ${TAKE_PROFIT_RR_MULTIPLE}:1 risk/reward above entry (${TAKE_PROFIT_RR_MULTIPLE}x the entry-to-stop distance) - this is fixed, not something you choose or can override. momentum_only: set to true only if compute_signals' momentum_trigger.flagged is the ONLY thing supporting this trade - no fresh SMA crossover this candle, no RSI extreme, no volume spike. Momentum alone can't be "high" confidence (rejected in code) since nothing else confirms it - cap at "${MOMENTUM_ONLY_MAX_CONFIDENCE}" or lower. Automatically appends a structured entry to trades.md on success.`,
   {
     pair: pairSchema,
     size_pct: z.number().positive().max(RISK_LIMITS.MAX_POSITION_PCT),
@@ -75,6 +82,7 @@ server.tool(
     invalidation: z.string().min(1),
     confidence: z.enum(["low", "medium", "high"]),
     confidence_reason: z.string().min(1),
+    momentum_only: z.boolean(),
     signals_at_entry: z.record(z.any()),
   },
   async (input) => wrap(() => openPosition(input))()

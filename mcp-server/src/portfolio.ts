@@ -10,6 +10,7 @@ import {
   TAKER_FEE_PCT,
   SLIPPAGE_PCT,
   TAKE_PROFIT_RR_MULTIPLE,
+  MOMENTUM_ONLY_MAX_CONFIDENCE,
   isAllowedPair,
   type AllowedPair,
   type ClosedPosition,
@@ -141,6 +142,7 @@ export interface OpenPositionInput {
   invalidation: string;
   confidence: Confidence;
   confidence_reason: string;
+  momentum_only: boolean;
   signals_at_entry: Record<string, unknown>;
 }
 
@@ -167,6 +169,12 @@ export async function openPosition(input: OpenPositionInput): Promise<OpenPositi
   }
   if (input.size_pct > confidenceCap) {
     return { ok: false, reason: `Position size ${input.size_pct}% exceeds the ${confidenceCap}% cap for "${input.confidence}" confidence.` };
+  }
+  if (input.momentum_only && input.confidence === "high") {
+    return {
+      ok: false,
+      reason: `A momentum-only trigger (no crossover, RSI extreme, or volume spike corroborating it) can't be "high" confidence - it isn't confirmed by anything else. Use "${MOMENTUM_ONLY_MAX_CONFIDENCE}" or lower.`,
+    };
   }
   if (!input.invalidation || input.invalidation.trim().length === 0) {
     return { ok: false, reason: "An invalidation condition (what proves this wrong) is required." };
@@ -225,6 +233,7 @@ export async function openPosition(input: OpenPositionInput): Promise<OpenPositi
     invalidation: input.invalidation,
     confidence: input.confidence,
     confidence_reason: input.confidence_reason,
+    momentum_only: input.momentum_only,
     status: "open",
   };
 
@@ -352,6 +361,7 @@ function formatOpenEntry(p: Position): string {
     `- Position size: ${p.size_pct}% of portfolio ($${p.size_usd.toFixed(2)}, qty ${p.quantity.toFixed(8)})`,
     `- Entry fee (paper): $${p.entry_fee.toFixed(2)}`,
     `- Confidence: ${p.confidence} — ${p.confidence_reason}`,
+    `- Momentum-only trigger: ${p.momentum_only ? "yes (no crossover/RSI-extreme/volume-spike corroborating this trade)" : "no"}`,
     `- Invalidation (what proves this wrong): ${p.invalidation}`,
     "- Signals supporting this trade:",
     "```json",

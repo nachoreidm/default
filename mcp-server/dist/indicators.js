@@ -93,6 +93,23 @@ export function priceAction(candles, windowHours) {
         period_low: Math.min(...candles.map((c) => c.low)),
     };
 }
+// Long-only, upside-only: flags when either price-action window shows a
+// move at or above thresholdPct over the last 48h. Unlike the other
+// triggers (crossover, RSI extreme, volume spike), raw price momentum
+// isn't confirmed by anything else - it's meant to catch a genuine
+// news-driven move that a lagging indicator (RSI/SMA on a 4h chart)
+// hasn't caught up to yet, not to fire on ordinary daily noise.
+export function momentumTrigger(pa1h, pa4h, thresholdPct) {
+    const pct1h = pa1h ? pa1h.pct_change : null;
+    const pct4h = pa4h ? pa4h.pct_change : null;
+    const flagged = (pct1h !== null && pct1h >= thresholdPct) || (pct4h !== null && pct4h >= thresholdPct);
+    return {
+        flagged,
+        threshold_pct: thresholdPct,
+        pct_change_1h_48h: pct1h,
+        pct_change_4h_48h: pct4h,
+    };
+}
 export function orderBookImbalance(book, levels = 10) {
     const bids = book.bids.slice(0, levels);
     const asks = book.asks.slice(0, levels);

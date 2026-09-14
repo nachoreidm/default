@@ -1,5 +1,6 @@
 import { fetchOHLC, fetchDepth, fetchTicker, closedCandles } from "./kraken.js";
-import { priceAction, volumeVs7dAvg, rsi, smaCrossover, orderBookImbalance } from "./indicators.js";
+import { priceAction, volumeVs7dAvg, rsi, smaCrossover, orderBookImbalance, momentumTrigger } from "./indicators.js";
+import { MOMENTUM_THRESHOLD_PCT } from "./types.js";
 export async function computeSignals(pair) {
     const dataGaps = [];
     const ticker = await fetchTicker(pair);
@@ -65,6 +66,7 @@ export async function computeSignals(pair) {
         rsi_14_4h: rsiValue,
         sma_crossover_4h: crossover,
         order_book_imbalance_top10: bookImbalance,
+        momentum_trigger: momentumTrigger(pa1h, pa4h, MOMENTUM_THRESHOLD_PCT),
         data_gaps: dataGaps,
     };
 }

@@ -1,6 +1,7 @@
 import { fetchOHLC, fetchDepth, fetchTicker, closedCandles } from "./kraken.js";
-import { priceAction, volumeVs7dAvg, rsi, smaCrossover, orderBookImbalance } from "./indicators.js";
+import { priceAction, volumeVs7dAvg, rsi, smaCrossover, orderBookImbalance, momentumTrigger } from "./indicators.js";
 import type { AllowedPair } from "./types.js";
+import { MOMENTUM_THRESHOLD_PCT } from "./types.js";
 
 export interface SignalReport {
   pair: AllowedPair;
@@ -12,6 +13,7 @@ export interface SignalReport {
   rsi_14_4h: number | null;
   sma_crossover_4h: ReturnType<typeof smaCrossover> | null;
   order_book_imbalance_top10: ReturnType<typeof orderBookImbalance> | null;
+  momentum_trigger: ReturnType<typeof momentumTrigger>;
   data_gaps: string[];
 }
 
@@ -76,6 +78,7 @@ export async function computeSignals(pair: string): Promise<SignalReport> {
     rsi_14_4h: rsiValue,
     sma_crossover_4h: crossover,
     order_book_imbalance_top10: bookImbalance,
+    momentum_trigger: momentumTrigger(pa1h, pa4h, MOMENTUM_THRESHOLD_PCT),
     data_gaps: dataGaps,
   };
 }

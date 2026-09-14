@@ -3,7 +3,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { randomUUID } from "node:crypto";
 import { fetchTicker } from "./kraken.js";
-import { ALLOWED_PAIRS, RISK_LIMITS, CONFIDENCE_MAX_SIZE_PCT, TAKER_FEE_PCT, SLIPPAGE_PCT, TAKE_PROFIT_RR_MULTIPLE, isAllowedPair, } from "./types.js";
+import { ALLOWED_PAIRS, RISK_LIMITS, CONFIDENCE_MAX_SIZE_PCT, TAKER_FEE_PCT, SLIPPAGE_PCT, TAKE_PROFIT_RR_MULTIPLE, MOMENTUM_ONLY_MAX_CONFIDENCE, isAllowedPair, } from "./types.js";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.resolve(__dirname, "..", "..");
 const STATE_PATH = path.join(REPO_ROOT, "data", "portfolio_state.json");
@@ -114,6 +114,12 @@ export async function openPosition(input) {
     if (input.size_pct > confidenceCap) {
         return { ok: false, reason: `Position size ${input.size_pct}% exceeds the ${confidenceCap}% cap for "${input.confidence}" confidence.` };
     }
+    if (input.momentum_only && input.confidence === "high") {
+        return {
+            ok: false,
+            reason: `A momentum-only trigger (no crossover, RSI extreme, or volume spike corroborating it) can't be "high" confidence - it isn't confirmed by anything else. Use "${MOMENTUM_ONLY_MAX_CONFIDENCE}" or lower.`,
+        };
+    }
     if (!input.invalidation || input.invalidation.trim().length === 0) {
         return { ok: false, reason: "An invalidation condition (what proves this wrong) is required." };
     }
@@ -163,6 +169,7 @@ export async function openPosition(input) {
         invalidation: input.invalidation,
         confidence: input.confidence,
         confidence_reason: input.confidence_reason,
+        momentum_only: input.momentum_only,
         status: "open",
     };
     state.cash -= newSizeUsd;
@@ -263,6 +270,7 @@ function formatOpenEntry(p) {
         `- Position size: ${p.size_pct}% of portfolio ($${p.size_usd.toFixed(2)}, qty ${p.quantity.toFixed(8)})`,
         `- Entry fee (paper): $${p.entry_fee.toFixed(2)}`,
         `- Confidence: ${p.confidence} — ${p.confidence_reason}`,
+        `- Momentum-only trigger: ${p.momentum_only ? "yes (no crossover/RSI-extreme/volume-spike corroborating this trade)" : "no"}`,
         `- Invalidation (what proves this wrong): ${p.invalidation}`,
         "- Signals supporting this trade:",
         "```json",

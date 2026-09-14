@@ -56,6 +56,7 @@ export interface Position {
   invalidation: string;
   confidence: Confidence;
   confidence_reason: string;
+  momentum_only: boolean;
   status: "open";
 }
 
@@ -112,6 +113,21 @@ export const CONFIDENCE_MAX_SIZE_PCT: Record<Confidence, number> = {
   medium: 3,
   high: RISK_LIMITS.MAX_POSITION_PCT,
 };
+
+// A 48h price move at or above this, on either the 1h or 4h window, flags
+// compute_signals' momentum_trigger. Calibrated against a real missed
+// move (2026-09-13, XRP ran 3.84% -> 5.22% on genuine CLARITY Act news
+// while RSI/SMA/volume all stayed unremarkable) - 6% catches a genuine
+// breakout while filtering ordinary day-to-day crypto noise.
+export const MOMENTUM_THRESHOLD_PCT = 6;
+
+// Momentum alone isn't confirmed by anything else the way a crossover,
+// RSI extreme, or volume spike is - so a trade whose ONLY trigger is
+// momentum_trigger.flagged (no other signal present) is capped at medium
+// confidence in code, same enforcement mechanism as CONFIDENCE_MAX_SIZE_PCT
+// above. Enforced in portfolio_open_position: momentum_only=true rejects
+// confidence="high" outright.
+export const MOMENTUM_ONLY_MAX_CONFIDENCE: Confidence = "medium";
 
 // Kraken's lowest-volume-tier fee schedule (approximate as of 2025; fees are
 // tier/volume dependent and change over time - update if you care about
