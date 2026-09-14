@@ -16376,3 +16376,98 @@ fields changed; this is a schema backfill, not a trade action.
 ```
 
 ---
+### 2026-09-14T00:12:35.060Z — BTC/USD — NO TRADE
+
+**Reasoning:** No qualifying signal: SMA still fast_below_slow, no crossover; RSI 39.7 weakening but not below the 30 oversold threshold; volume ratio 0.54x (below 2x flag). Price down (-0.63% 1h/48h, -0.60% 4h/48h) with the broader ~0.9% market pullback. News: BTC lost the $80K level, 20-day EMA is next technical test; Treasury chief urged Senate to move CLARITY Act; PayPal launched PYUSDx (business-mintable dollar coin) on Sep 9; August ETF inflows were strong ($3.52B) despite the current pullback. No independent trigger. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 39.66846886425103,
+  "sma_crossover_4h": "fast_below_slow, not crossed this candle",
+  "volume_ratio": 0.5376565115516222,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": -0.5977065051383641,
+  "price_action_1h_48h_pct": -0.6281886558574226,
+  "order_book_imbalance_top10": -0.1686948222381293,
+  "news_context": "BTC lost $80K, 20-day EMA next test; Treasury chief urged Senate to move CLARITY Act (Sep 9); PayPal launched PYUSDx Sep 9; August ETF inflows strong ($3.52B) despite current pullback. No quant signal to corroborate."
+}
+```
+
+---
+### 2026-09-14T00:12:40.533Z — ETH/USD — NO TRADE
+
+**Reasoning:** Existing medium-confidence long held (entry 2526.10, stop 2470, TP 2638.31), now ~-2.12% unrealized, current price 2482.46 still clear of the $2,470 stop (check_stops confirmed clean). No fresh signal: SMA still fast_above_slow, not crossed; RSI 44.8 neutral. News: whale accumulation continues (~$94M by one entity this month), ETH ETFs ran 12 straight days of inflows totaling $1.62B, and one source flags the $2,438 0.618 Fibonacci weekly support as key to keeping a bullish September outlook toward $2,920. No basis to add or exit early; position held, stop not breached.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 44.83730626810421,
+  "sma_crossover_4h": "fast_above_slow, not crossed this candle",
+  "volume_ratio": 0.7496552577253115,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": -1.4790438938208064,
+  "price_action_1h_48h_pct": -1.3774038844542138,
+  "order_book_imbalance_top10": 0.7929094444214619,
+  "news_context": "Whale accumulation continues (~$94M by one entity this month); ETH ETFs ran 12 straight days of inflows totaling $1.62B; $2,438 weekly Fibonacci support flagged as key to a bullish September outlook toward $2,920. No fresh quant signal; existing position held, stop not breached."
+}
+```
+
+---
+### 2026-09-14T00:12:44.711Z — SOL/USD — NO TRADE
+
+**Reasoning:** No qualifying signal: SMA remains fast_below_slow, no crossover; RSI 38.8 weakening but not oversold; volume ratio 0.48x (below 2x flag). Price down further with the broader market (-2.60% 1h/48h). News constructive long-term (SEC core ETF asset, Alpenglow upgrade next in October cutting lock time to under 1 second, OpenSea added Solana NFT support Aug 31) but no quant signal corroborates a trade. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 38.845935772768925,
+  "sma_crossover_4h": "fast_below_slow, not crossed this candle",
+  "volume_ratio": 0.4802014942791778,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": -2.3418282003345428,
+  "price_action_1h_48h_pct": -2.60058881256134,
+  "order_book_imbalance_top10": -0.04225246977745405,
+  "news_context": "SEC named SOL a core ETF asset (Sep 5); Alpenglow upgrade next in October (lock time to under 1 second); OpenSea added Solana NFT support Aug 31. No quant signal to corroborate."
+}
+```
+
+---
+### 2026-09-14T00:12:49.441Z — POL/USD — NO TRADE
+
+**Reasoning:** No qualifying signal: SMA still fast_below_slow (fast 0.09554 vs slow 0.09627), not crossed; RSI 49.6 neutral; volume ratio 0.43x (below 2x flag). Price down modestly (-0.60% 1h/48h), in line with the broader market this cycle rather than its recent outperformance. Book strongly bid-heavy (+0.46). News: analysts note POL lagging other Ethereum L2s this cycle with waning retail interest cited as the reason. No quant signal to act on. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 49.57170094123768,
+  "sma_crossover_4h": "fast_below_slow (fast 0.09554 vs slow 0.09627), not crossed this candle",
+  "volume_ratio": 0.42511600666885474,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": -0.5391953546246295,
+  "price_action_1h_48h_pct": -0.6010362694300488,
+  "order_book_imbalance_top10": 0.455725643941017,
+  "news_context": "Analysts note POL lagging other Ethereum L2s this cycle, citing waning retail interest; Gigagas TPS roadmap remains the technical focus; ~99% MATIC-to-POL migration complete. No quant signal to corroborate."
+}
+```
+
+---
+### 2026-09-14T00:12:54.273Z — XRP/USD — NO TRADE
+
+**Reasoning:** No qualifying signal: SMA remains fast_below_slow, no crossover; RSI 40.0 weakening but not oversold; volume ratio 0.52x (below 2x flag). Price down with the broader market (-1.21% 1h/48h). News: fixCleanup3_3_0 amendment activation (bullish for institutional use) and v1.1 lending protocol upgrade due Sep 19 remain constructive; August rally context ($1.00 to $1.55+) and $153.55M in August ETF inflows noted, but one source flags risk of a repeat pattern undoing August's gains. No quant signal to act on. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 40.004882823832624,
+  "sma_crossover_4h": "fast_below_slow, not crossed this candle",
+  "volume_ratio": 0.5222150208532466,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": -1.7039622254157203,
+  "price_action_1h_48h_pct": -1.2143362414524912,
+  "order_book_imbalance_top10": 0.03945586685900842,
+  "news_context": "fixCleanup3_3_0 amendment and v1.1 lending protocol upgrade (Sep 19) remain constructive; $153.55M August XRP ETF inflows; one source flags risk of a repeat pattern undoing August's 28% rally. No quant signal to corroborate."
+}
+```
+
+---
