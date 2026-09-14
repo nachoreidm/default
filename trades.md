@@ -16566,3 +16566,98 @@ fields changed; this is a schema backfill, not a trade action.
 ```
 
 ---
+### 2026-09-14T02:12:15.988Z — BTC/USD — NO TRADE
+
+**Reasoning:** No qualifying signal: SMA still fast_below_slow, no crossover; RSI 39.7 weakening but not oversold; volume ratio 0.54x (below 2x flag). Price stabilizing (-0.26% 1h/48h, improved from prior cycle). News: spot BTC ETF inflows of ~$1.03B over 7 days despite the pullback, support seen near $77,071 with resistance at $80K; watching 20-day EMA for a bounce toward $82K. No independent trigger. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 39.66846886425103,
+  "sma_crossover_4h": "fast_below_slow, not crossed this candle",
+  "volume_ratio": 0.5376565115516222,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": -0.5977065051383641,
+  "price_action_1h_48h_pct": -0.25623173701823904,
+  "order_book_imbalance_top10": 0.27839875227449956,
+  "news_context": "Spot BTC ETF inflows ~$1.03B over 7 days despite pullback; support near $77,071, resistance at $80K; 20-day EMA is the level to watch for a bounce toward $82K. No quant signal to corroborate."
+}
+```
+
+---
+### 2026-09-14T02:12:20.257Z — ETH/USD — NO TRADE
+
+**Reasoning:** Existing medium-confidence long held (entry 2526.10, stop 2470, TP 2638.31), now ~-1.47% unrealized and continuing to recover, current price 2498.92 comfortably clear of the $2,470 stop. No fresh signal: SMA still fast_above_slow, not crossed; RSI 44.8 neutral. News: whale accumulation continues (~$94M by one entity, described as 14% more buying at $2,665), September target reaffirmed at $2,800 (range $2,405-2,950); weekly MA at $3,061 flagged as the level to confirm a bullish reversal. No basis to add or exit early; position held, stop not breached.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 44.83730626810421,
+  "sma_crossover_4h": "fast_above_slow, not crossed this candle",
+  "volume_ratio": 0.7496552577253115,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": -1.4790438938208064,
+  "price_action_1h_48h_pct": -0.8579884010469354,
+  "order_book_imbalance_top10": 0.8362910510825539,
+  "news_context": "Whale accumulation continues (~$94M, 14% more buying at $2,665); September 2026 target reaffirmed at $2,800 (range $2,405-2,950); weekly MA at $3,061 flagged as bullish-reversal confirmation level. No fresh quant signal; existing position held, stop not breached."
+}
+```
+
+---
+### 2026-09-14T02:12:23.300Z — SOL/USD — NO TRADE
+
+**Reasoning:** No qualifying signal: SMA remains fast_below_slow, no crossover; RSI 38.8 weakening but not oversold; volume ratio 0.48x (below 2x flag). Price stabilizing somewhat (-1.66% 1h/48h, improved from prior cycle). News unchanged from prior cycles (SEC core ETF asset, phased rent reduction, Alpenglow upgrade next in October). No quant signal to act on. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 38.845935772768925,
+  "sma_crossover_4h": "fast_below_slow, not crossed this candle",
+  "volume_ratio": 0.4802014942791778,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": -2.3418282003345428,
+  "price_action_1h_48h_pct": -1.6589771277117873,
+  "order_book_imbalance_top10": 0.10880986866561905,
+  "news_context": "SEC named SOL a core ETF asset (Sep 5); phased rent reduction ongoing; Alpenglow upgrade next in October (lock time to under 1 second). No quant signal to corroborate."
+}
+```
+
+---
+### 2026-09-14T02:12:27.248Z — POL/USD — NO TRADE
+
+**Reasoning:** No qualifying signal: SMA still fast_below_slow (fast 0.09554 vs slow 0.09627), not crossed; RSI 49.6 neutral; volume ratio 0.43x (below 2x flag). Price roughly flat (-0.40% 1h/48h), order book now strongly bid-heavy (+0.72). News unchanged from prior cycles (Gigagas roadmap, bullish triangle setup targeting $0.11, enterprise adoption via Stripe/Mastercard/BlackRock, but also waning-retail-interest downtrend narrative). No quant signal to act on. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 49.57170094123768,
+  "sma_crossover_4h": "fast_below_slow (fast 0.09554 vs slow 0.09627), not crossed this candle",
+  "volume_ratio": 0.42511600666885474,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": -0.5391953546246295,
+  "price_action_1h_48h_pct": -0.40318412074847665,
+  "order_book_imbalance_top10": 0.7184159812252603,
+  "news_context": "Same mixed picture as prior cycles: bullish triangle setup targeting $0.11, enterprise adoption (Stripe/Mastercard/BlackRock) vs. waning-retail-interest downtrend narrative. No quant signal to corroborate."
+}
+```
+
+---
+### 2026-09-14T02:12:30.660Z — XRP/USD — NO TRADE
+
+**Reasoning:** No qualifying signal: SMA remains fast_below_slow, no crossover; RSI 40.0 weakening but not oversold; volume ratio 0.52x (below 2x flag). Price stabilizing (-0.91% 1h/48h, improved from prior cycle). News: Senate CLARITY Act vote confirmed for tomorrow (Sep 15) remains the dominant near-term catalyst; one source flags a wide intraday price range as volatile positioning ahead of the vote. No quant signal to act on. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 40.004882823832624,
+  "sma_crossover_4h": "fast_below_slow, not crossed this candle",
+  "volume_ratio": 0.5222150208532466,
+  "volume_flag_above_2x": false,
+  "price_action_4h_48h_pct": -1.7039622254157203,
+  "price_action_1h_48h_pct": -0.9137711025388987,
+  "order_book_imbalance_top10": 0.39341821375056024,
+  "news_context": "Senate CLARITY Act vote confirmed for Sep 15 (tomorrow) remains the dominant near-term catalyst; volatile positioning noted ahead of the vote. No quant signal to corroborate."
+}
+```
+
+---
