@@ -19840,3 +19840,98 @@ this is a schema backfill, not a trade action.
 ```
 
 ---
+### 2026-09-15T11:14:06.965Z — BTC/USD — NO TRADE
+
+**Reasoning:** Volume still flagged (2.01x) but RSI remains soft (42.5) and no crossover. Momentum not flagged (0.35% vs 6%). Order book sharply ask-heavy (-0.97). News unchanged: CLARITY Act uncertainty and Revolut ransom-hack headline weighing on sentiment.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 42.452498330182266,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "volume_ratio": 2.0128522490415457,
+  "volume_flag_above_2x": true,
+  "momentum_trigger_flagged": false,
+  "momentum_trigger_pct_1h_48h": 0.3515336927715434,
+  "order_book_imbalance_top10": -0.9698113207547169,
+  "news_context": "Unchanged: CLARITY Act uncertainty and 10,000 BTC ransom demand tied to Revolut breach. No BTC-specific quant trigger."
+}
+```
+
+---
+### 2026-09-15T11:14:10.371Z — ETH/USD — NO TRADE
+
+**Reasoning:** No position open (stopped out earlier). No trigger for a new entry. RSI 43.7 soft, no crossover, volume 1.60x not flagged, momentum not flagged (0.08% vs 6%). Consolidating $2,350-2,550 with selling pressure near the top of the range. No fresh quant signal.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 43.732904761869285,
+  "sma_crossover_4h_state": "fast_above_slow",
+  "sma_crossover_4h_crossed_this_candle": false,
+  "volume_ratio": 1.5995483022141166,
+  "momentum_trigger_flagged": false,
+  "momentum_trigger_pct_1h_48h": 0.08466308125236488,
+  "order_book_imbalance_top10": -0.6828010161537418,
+  "news_context": "Consolidating $2,350-2,550 with selling pressure near $2,550-2,650; ETF inflow streak (12 days) intact. CLARITY Act vote and FOMC decision remain the dominant events. No fresh trigger."
+}
+```
+
+---
+### 2026-09-15T11:14:12.986Z — SOL/USD — NO TRADE
+
+**Reasoning:** No signal triggers. RSI 44.9 soft. No fresh crossover (fast_below_slow). Volume ratio 1.36x not flagged. Momentum not flagged (1.12% vs 6%). Order book mildly bid-heavy (+0.13). News unchanged - consolidating near $100 in a triangle pattern. No fresh catalyst.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 44.94106462028376,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "volume_ratio": 1.3615432262690392,
+  "momentum_trigger_flagged": false,
+  "momentum_trigger_pct_1h_48h": 1.1222444889779606,
+  "order_book_imbalance_top10": 0.1349171217562111,
+  "news_context": "Unchanged: consolidating near $100 in a triangle pattern, structurally bullish daily trend vs short-term exhaustion. No fresh catalyst."
+}
+```
+
+---
+### 2026-09-15T11:14:15.491Z — POL/USD — NO TRADE
+
+**Reasoning:** No trigger. RSI 47.9 neutral. Crossover stale. Volume ratio 0.45x still well below average. Order book bid-heavy (+0.15). News unchanged, structural. No fresh dated catalyst.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 47.888712502304536,
+  "sma_crossover_4h_state": "fast_above_slow",
+  "sma_crossover_4h_crossed_this_candle": false,
+  "volume_ratio": 0.4516214340577544,
+  "momentum_trigger_flagged": false,
+  "momentum_trigger_pct_1h_48h": 0.9924780610112895,
+  "order_book_imbalance_top10": 0.1513209040564852,
+  "news_context": "Unchanged, structural: 8B cumulative transactions, Austin/Kyoto hard forks. No fresh dated catalyst."
+}
+```
+
+---
+### 2026-09-15T11:14:19.055Z — XRP/USD — NO TRADE
+
+**Reasoning:** No position open (stopped out earlier this morning). Price holding around 1.40041, right at the former stop level, but momentum_trigger still not flagged (48h moves 4.39%/3.73%, below 6%). RSI 51.9 neutral, no crossover, volume flagged (2.44x) alone insufficient. News unchanged from last cycle - Republicans' "final offer" text, Galaxy Digital's 25% 2026 passage odds, vote today 2:15pm ET. No fresh quant trigger to re-enter.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 51.89794682837062,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "volume_ratio": 2.4448819183378383,
+  "volume_flag_above_2x": true,
+  "momentum_trigger_flagged": false,
+  "momentum_trigger_pct_1h_48h": 4.390171258376778,
+  "momentum_trigger_pct_4h_48h": 3.72598659717052,
+  "order_book_imbalance_top10": 0.35127821447538526,
+  "news_context": "Unchanged: Republicans' final CLARITY Act text, Galaxy Digital's 25% 2026 passage odds, cloture vote today 2:15pm ET needing 7+ Democratic votes. Price holding near 1.40 but no fresh quant trigger."
+}
+```
+
+---
