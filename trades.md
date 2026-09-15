@@ -19935,3 +19935,98 @@ this is a schema backfill, not a trade action.
 ```
 
 ---
+### 2026-09-15T12:13:43.098Z — BTC/USD — NO TRADE
+
+**Reasoning:** Volume still flagged (2.01x) but RSI remains soft (42.7) and no crossover. Momentum not flagged (0.24% vs 6%). Order book near flat (+0.08). News unchanged: CLARITY Act uncertainty and Revolut ransom-hack headline weighing on sentiment; vote at 2:15pm ET today.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 42.72946557360324,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "volume_ratio": 2.0128522490415457,
+  "volume_flag_above_2x": true,
+  "momentum_trigger_flagged": false,
+  "momentum_trigger_pct_1h_48h": 0.24046576067335623,
+  "order_book_imbalance_top10": 0.08396069924716083,
+  "news_context": "Unchanged: CLARITY Act uncertainty, Revolut ransom-hack headline. Vote today 2:15pm ET. No BTC-specific quant trigger."
+}
+```
+
+---
+### 2026-09-15T12:13:46.194Z — ETH/USD — NO TRADE
+
+**Reasoning:** No position open (stopped out earlier). No trigger for a new entry. RSI 44.3 soft, no crossover, volume 1.60x not flagged, momentum not flagged (-0.05% vs 6%). Consolidating $2,350-2,550, selling pressure near the top. No fresh quant signal.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 44.320856328111056,
+  "sma_crossover_4h_state": "fast_above_slow",
+  "sma_crossover_4h_crossed_this_candle": false,
+  "volume_ratio": 1.5995483022141166,
+  "momentum_trigger_flagged": false,
+  "momentum_trigger_pct_1h_48h": -0.04522274219402538,
+  "order_book_imbalance_top10": -0.5520172887765965,
+  "news_context": "Consolidating $2,350-2,550; ETF inflow streak (12 days) intact. CLARITY Act vote today 2:15pm ET and FOMC decision remain dominant events. No fresh trigger."
+}
+```
+
+---
+### 2026-09-15T12:13:49.043Z — SOL/USD — NO TRADE
+
+**Reasoning:** No signal triggers. RSI 47.0 neutral. No fresh crossover (fast_below_slow). Volume ratio 1.36x not flagged. Momentum not flagged (1.13% vs 6%). Order book near flat (+0.02). News unchanged - sitting near the $99.94-100.00 support zone, structurally bullish daily trend. No fresh catalyst.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 47.00333515936881,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "volume_ratio": 1.3615432262690392,
+  "momentum_trigger_flagged": false,
+  "momentum_trigger_pct_1h_48h": 1.133627608346705,
+  "order_book_imbalance_top10": 0.015152270157349079,
+  "news_context": "Sitting near the $99.94-100.00 support zone (S1 pivot / 20-EMA); structurally bullish daily trend vs short-term exhaustion. No fresh catalyst."
+}
+```
+
+---
+### 2026-09-15T12:13:51.831Z — POL/USD — NO TRADE
+
+**Reasoning:** No trigger. RSI 52.6 neutral. Crossover stale. Volume ratio 0.45x still well below average. Order book ask-heavy (-0.19). News unchanged, structural. No fresh dated catalyst.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 52.58861389442679,
+  "sma_crossover_4h_state": "fast_above_slow",
+  "sma_crossover_4h_crossed_this_candle": false,
+  "volume_ratio": 0.4516214340577544,
+  "momentum_trigger_flagged": false,
+  "momentum_trigger_pct_1h_48h": 0.46685340802987035,
+  "order_book_imbalance_top10": -0.19362076632242725,
+  "news_context": "Unchanged, structural: 8B cumulative transactions, Austin/Kyoto hard forks, LeBron/Polymarket tease (stale). No fresh dated catalyst."
+}
+```
+
+---
+### 2026-09-15T12:13:56.297Z — XRP/USD — NO TRADE
+
+**Reasoning:** No position open (stopped out earlier this morning). Price recovering to 1.4054 but momentum_trigger still not flagged (48h moves 4.54%/4.30%, below 6%). RSI 53.6 neutral, no crossover, volume flagged (2.44x) alone insufficient. News confirms XRP climbed as much as 9.8% from $1.337 (Sept 13) to a $1.49 peak (Sept 14) ahead of today's vote - that prior spike is exactly what triggered the original momentum-only entry; today's price action is a partial retracement/consolidation of that move rather than a fresh breakout. No basis for re-entry without a new momentum_trigger flag.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 53.61098013694507,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "volume_ratio": 2.4448819183378383,
+  "volume_flag_above_2x": true,
+  "momentum_trigger_flagged": false,
+  "momentum_trigger_pct_1h_48h": 4.54107866476616,
+  "momentum_trigger_pct_4h_48h": 4.296680142651877,
+  "order_book_imbalance_top10": -0.010340414549318553,
+  "news_context": "XRP climbed as much as 9.8% from $1.337 (Sept 13) to a $1.49 peak (Sept 14) ahead of today's vote - the same move that triggered the original entry; current price action is consolidation/retracement, not a fresh breakout. Vote today 2:15pm ET. No fresh quant trigger."
+}
+```
+
+---
