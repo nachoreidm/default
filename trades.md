@@ -20030,3 +20030,98 @@ this is a schema backfill, not a trade action.
 ```
 
 ---
+### 2026-09-15T13:14:08.891Z — BTC/USD — NO TRADE
+
+**Reasoning:** Volume still flagged (2.01x) but RSI remains soft (42.7) and no crossover. Momentum not flagged (0.14% vs 6%). Order book ask-heavy (-0.51). News unchanged: CLARITY Act vote (2:15pm ET, still hours away) and Revolut ransom-hack headline weighing on sentiment.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 42.72946557360324,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "volume_ratio": 2.0128522490415457,
+  "volume_flag_above_2x": true,
+  "momentum_trigger_flagged": false,
+  "momentum_trigger_pct_1h_48h": 0.13954190682973946,
+  "order_book_imbalance_top10": -0.5112588462363284,
+  "news_context": "Unchanged: CLARITY Act cloture vote at 2:15pm ET today (still hours away), Revolut ransom-hack headline. No BTC-specific quant trigger."
+}
+```
+
+---
+### 2026-09-15T13:14:11.612Z — ETH/USD — NO TRADE
+
+**Reasoning:** No position open (stopped out earlier). No trigger for a new entry. RSI 44.3 soft, no crossover, volume 1.60x not flagged, momentum flat (0.00% vs 6%). Consolidating $2,350-2,550. No fresh quant signal.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 44.320856328111056,
+  "sma_crossover_4h_state": "fast_above_slow",
+  "sma_crossover_4h_crossed_this_candle": false,
+  "volume_ratio": 1.5995483022141166,
+  "momentum_trigger_flagged": false,
+  "momentum_trigger_pct_1h_48h": 0.0008069917767530609,
+  "order_book_imbalance_top10": -0.25222600448917115,
+  "news_context": "Consolidating $2,350-2,550; ETF inflow streak intact. CLARITY Act vote (2:15pm ET) and FOMC decision remain the dominant events. No fresh trigger."
+}
+```
+
+---
+### 2026-09-15T13:14:14.367Z — SOL/USD — NO TRADE
+
+**Reasoning:** No signal triggers. RSI 47.0 neutral. No fresh crossover (fast_below_slow). Volume ratio 1.36x not flagged. Momentum not flagged (0.88% vs 6%). Order book near flat (-0.03). News unchanged - sitting near key support with a bearish MACD crossover but still above key EMAs. No fresh catalyst.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 47.00333515936881,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "volume_ratio": 1.3615432262690392,
+  "momentum_trigger_flagged": false,
+  "momentum_trigger_pct_1h_48h": 0.8792965627497956,
+  "order_book_imbalance_top10": -0.027249467737229718,
+  "news_context": "Unchanged: sitting near $99.94-100.00 support, daily MACD bearish crossover but structurally bullish trend intact. No fresh catalyst."
+}
+```
+
+---
+### 2026-09-15T13:14:17.536Z — POL/USD — NO TRADE
+
+**Reasoning:** No trigger. RSI 52.6 neutral. Crossover stale. Volume ratio 0.45x still well below average despite a firmer 1h price move (+1.84%). Order book mildly bid-heavy (+0.07). News unchanged, structural. No fresh dated catalyst.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 52.58861389442679,
+  "sma_crossover_4h_state": "fast_above_slow",
+  "sma_crossover_4h_crossed_this_candle": false,
+  "volume_ratio": 0.4516214340577544,
+  "momentum_trigger_flagged": false,
+  "momentum_trigger_pct_1h_48h": 1.8449419568822596,
+  "order_book_imbalance_top10": 0.07308262857171587,
+  "news_context": "Unchanged, structural: 8B cumulative transactions, Visa/Meta/Revolut settlement, Open Money Stack push. No fresh dated catalyst."
+}
+```
+
+---
+### 2026-09-15T13:14:22.646Z — XRP/USD — NO TRADE
+
+**Reasoning:** No position open (stopped out earlier this morning). Price climbing again to 1.43026; 1h/48h momentum now 5.60%, approaching but still below the 6% threshold - not flagged yet. RSI 53.6 neutral, no crossover. Order book has swung sharply ask-heavy (-0.64) despite the price rise, suggesting thin resistance just above. News: prediction markets are notably more skeptical than the price action - Polymarket's cloture-passage contract slid to 18% from ~34% the prior day, and a separate contract on 60+ yes votes sits at only 31.5%. The actual cloture vote is scheduled for 2:15pm ET (~18:15 UTC), still about 5 hours away - no result yet. Watching closely next cycle in case momentum_trigger flags with the vote approaching, but a genuine news catalyst would need re-verification given the wide gap between price action and prediction-market odds.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 53.61098013694507,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "volume_ratio": 2.4448819183378383,
+  "volume_flag_above_2x": true,
+  "momentum_trigger_flagged": false,
+  "momentum_trigger_pct_1h_48h": 5.596047218744419,
+  "momentum_trigger_pct_4h_48h": 4.296680142651877,
+  "order_book_imbalance_top10": -0.6380881114164204,
+  "news_context": "Prediction markets skeptical: Polymarket's cloture-passage contract slid to 18% from ~34% the prior day; a 60+-yes-votes contract sits at 31.5%. Actual vote at 2:15pm ET (~18:15 UTC), still ~5 hours away, no result yet. Wide gap between price action (+5.6% run) and prediction-market odds."
+}
+```
+
+---
