@@ -20220,3 +20220,98 @@ this is a schema backfill, not a trade action.
 ```
 
 ---
+### 2026-09-15T15:12:11.824Z — BTC/USD — NO TRADE
+
+**Reasoning:** Volume still flagged (2.01x) but RSI remains soft (42.7) and no crossover. Momentum not flagged (-1.57% vs 6%). Order book sharply ask-heavy (-0.87). Price continuing to slide (76027). News unchanged: CLARITY Act uncertainty (Senate Democrats pushback) and Revolut ransom-hack headline weighing on sentiment; vote still hours away.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 42.72946557360324,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "volume_ratio": 2.0128522490415457,
+  "volume_flag_above_2x": true,
+  "momentum_trigger_flagged": false,
+  "momentum_trigger_pct_1h_48h": -1.5735440211033653,
+  "order_book_imbalance_top10": -0.8743063263041064,
+  "news_context": "Unchanged: CLARITY Act uncertainty (Senate Democrats pushback), Revolut ransom-hack headline. No BTC-specific quant trigger; vote still hours away."
+}
+```
+
+---
+### 2026-09-15T15:12:15.346Z — ETH/USD — NO TRADE
+
+**Reasoning:** No position open (stopped out earlier). No trigger for a new entry. RSI 44.3 soft, no crossover, volume 1.60x not flagged, momentum not flagged (-3.37% vs 6% - notably weak but still under threshold). Price dropped sharply to 2412.18. No fresh quant signal despite the sharp move, since crossover/RSI extreme conditions aren't met.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 44.320856328111056,
+  "sma_crossover_4h_state": "fast_above_slow",
+  "sma_crossover_4h_crossed_this_candle": false,
+  "volume_ratio": 1.5995483022141166,
+  "momentum_trigger_flagged": false,
+  "momentum_trigger_pct_1h_48h": -3.3658325034533783,
+  "order_book_imbalance_top10": 0.564914519688389,
+  "news_context": "Consolidating $2,350-2,550 range but now testing the lower bound; MACD momentum fading. CLARITY Act vote and FOMC decision still ahead. No fresh trigger."
+}
+```
+
+---
+### 2026-09-15T15:12:18.501Z — SOL/USD — NO TRADE
+
+**Reasoning:** No signal triggers. RSI 47.0 neutral. No fresh crossover (fast_below_slow). Volume ratio 1.36x not flagged. Momentum not flagged (-1.42% vs 6%). Price broke below the $99.74-100 support zone flagged in recent news to 99.04, a level worth watching but not itself a listed trigger.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 47.00333515936881,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "volume_ratio": 1.3615432262690392,
+  "momentum_trigger_flagged": false,
+  "momentum_trigger_pct_1h_48h": -1.417024249076926,
+  "order_book_imbalance_top10": 0.10722687505707015,
+  "news_context": "Price broke below the flagged $99.74-100 support zone; RSI bearish divergence noted by one source, risk of slide toward $92.30 50-day EMA. No quant trigger fired."
+}
+```
+
+---
+### 2026-09-15T15:12:21.095Z — POL/USD — NO TRADE
+
+**Reasoning:** No trigger. RSI 52.6 neutral. Crossover stale. Volume ratio 0.45x still well below average. Order book near flat (-0.04). News unchanged, structural. No fresh dated catalyst.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 52.58861389442679,
+  "sma_crossover_4h_state": "fast_above_slow",
+  "sma_crossover_4h_crossed_this_candle": false,
+  "volume_ratio": 0.4516214340577544,
+  "momentum_trigger_flagged": false,
+  "momentum_trigger_pct_1h_48h": -1.0805804260574345,
+  "order_book_imbalance_top10": -0.04411083275989411,
+  "news_context": "Unchanged, structural. No fresh dated catalyst."
+}
+```
+
+---
+### 2026-09-15T15:12:25.940Z — XRP/USD — NO TRADE
+
+**Reasoning:** No position open (stopped out earlier this morning). Price retreated further to 1.38726, momentum eased to 3.03%/4.30% - below the 6% threshold. RSI 53.6 neutral, no crossover, volume flagged (2.44x) alone insufficient. News confirms the broader market-wide selloff context (XRP down ~40% YTD per one source, caught in general risk-off rather than any Ripple-specific issue); Galaxy Digital's Aug 14 estimate of 10% passage odds is being cited again, though this reads as an older, more pessimistic figure than several other odds seen this week (18-25%) - odds estimates remain highly inconsistent across sources. Cloture vote result still not available; no fresh quant trigger to enter.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 53.61098013694507,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "volume_ratio": 2.4448819183378383,
+  "volume_flag_above_2x": true,
+  "momentum_trigger_flagged": false,
+  "momentum_trigger_pct_1h_48h": 3.029490816227775,
+  "momentum_trigger_pct_4h_48h": 4.296680142651877,
+  "order_book_imbalance_top10": 0.2100408318370154,
+  "news_context": "Broad market-wide selloff (XRP down ~40% YTD per one source), not Ripple-specific. Passage-odds estimates remain highly inconsistent across sources (10-25% range this week). Cloture vote result still not available. No fresh quant trigger."
+}
+```
+
+---
