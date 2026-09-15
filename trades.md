@@ -19248,3 +19248,99 @@ this is a schema backfill, not a trade action.
 ```
 
 ---
+### 2026-09-15T05:12:24.723Z — BTC/USD — NO TRADE
+
+**Reasoning:** Volume still flagged (2.01x) but RSI neutral (49.3) and no crossover - same conflicting picture. Momentum not flagged (0.33% vs 6%). Order book now flat (-0.01). News: still consolidating, FOMC decision (57-60.5% hike odds per varying reports) and CLARITY Act vote both loom.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 49.25057400660352,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "volume_ratio": 2.0128522490415457,
+  "volume_flag_above_2x": true,
+  "momentum_trigger_flagged": false,
+  "momentum_trigger_pct_1h_48h": 0.32703836232435646,
+  "order_book_imbalance_top10": -0.008803342285884702,
+  "news_context": "Consolidating; FOMC decision (57-60.5% hike odds across sources) and CLARITY Act cloture vote both loom later today. No fresh BTC-specific catalyst."
+}
+```
+
+---
+### 2026-09-15T05:12:29.233Z — ETH/USD — NO TRADE
+
+**Reasoning:** No new trade - existing open position held, stops checked clean. RSI 48.6 neutral, no fresh crossover, volume 1.60x not flagged, momentum not flagged (-1.26% vs 6%). Price continues softening (2485.56), now below the ~2484-2494 SMA zone referenced at entry but the fast SMA (2513) is still above slow SMA (2495) so crossover state is unchanged - getting closer to the invalidation reference but stop (2470) and crossover-state trigger not yet hit.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 48.55807886694187,
+  "sma_crossover_4h_state": "fast_above_slow",
+  "sma_crossover_4h_crossed_this_candle": false,
+  "volume_ratio": 1.5995483022141166,
+  "momentum_trigger_flagged": false,
+  "momentum_trigger_pct_1h_48h": -1.257602309040315,
+  "order_book_imbalance_top10": 0.10709889208042682,
+  "news_context": "ETF inflow streak continues (12 days, $1.62B); large leveraged long still open near $2,480 entry. CLARITY Act and Fed decision both loom. No fresh trigger; already holding, price drifting toward but not yet at stop/invalidation."
+}
+```
+
+---
+### 2026-09-15T05:12:32.700Z — SOL/USD — NO TRADE
+
+**Reasoning:** No signal triggers. RSI 49.8 neutral. No fresh crossover (fast_below_slow). Volume ratio 1.36x not flagged. Momentum not flagged (-0.50% vs 6%). Order book mildly bid-heavy (+0.13). News unchanged - bullish while holding $99.74/$103, structural regulatory positives. No fresh catalyst.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 49.84945800306477,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "volume_ratio": 1.3615432262690392,
+  "momentum_trigger_flagged": false,
+  "momentum_trigger_pct_1h_48h": -0.500982318271111,
+  "order_book_imbalance_top10": 0.12747920173240637,
+  "news_context": "Unchanged: bullish while holding $99.74, risk of slide to $92.30 EMA if lost. SEC/Nasdaq rule change structural. No fresh catalyst."
+}
+```
+
+---
+### 2026-09-15T05:12:35.025Z — POL/USD — NO TRADE
+
+**Reasoning:** No trigger. RSI 48.6 neutral. Crossover stale. Volume ratio 0.45x still well below average. Order book bid-heavy (+0.18). News unchanged and structural. No fresh dated catalyst.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 48.61189642448068,
+  "sma_crossover_4h_state": "fast_above_slow",
+  "sma_crossover_4h_crossed_this_candle": false,
+  "volume_ratio": 0.4516214340577544,
+  "momentum_trigger_flagged": false,
+  "momentum_trigger_pct_1h_48h": -0.4561003420752523,
+  "order_book_imbalance_top10": 0.18263831121779261,
+  "news_context": "Unchanged, structural: 8B transactions, Austin/Kyoto hard forks, Visa/Meta/Revolut stablecoin settlement. No fresh dated catalyst."
+}
+```
+
+---
+### 2026-09-15T05:12:41.532Z — XRP/USD — NO TRADE
+
+**Reasoning:** Holding the existing open momentum-only position, not a new entry. IMPORTANT: price has dropped to 1.40649, now only ~0.46% above the 1.40 stop - the closest it has come. portfolio_check_stops ran clean this cycle (no breach), so no action is taken or available outside that automatic mechanism; continuing to hold per the rules since price hasn't actually closed below 1.40. momentum_trigger not flagged (48h moves 3.33%/4.28%, below 6%), volume still flagged (2.44x) without RSI extreme or crossover. News: some search results returned stale/conflicting older articles referencing an earlier CLARITY Act delay (an August recess shelving) that don't match today's confirmed 2:15pm ET cloture vote reported consistently across every other search this session and prior cycles - treating those as noise/outdated rather than a real signal, but noting the news picture has gotten noisier as the vote approaches.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 57.552713028359655,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "volume_ratio": 2.4448819183378383,
+  "volume_flag_above_2x": true,
+  "momentum_trigger_flagged": false,
+  "momentum_trigger_pct_1h_48h": 3.325827252920793,
+  "momentum_trigger_pct_4h_48h": 4.27828367665693,
+  "order_book_imbalance_top10": 0.10938394871692124,
+  "existing_position": "LONG opened 2026-09-14T19:27:21Z at 1.4604, stop 1.40, take-profit 1.5812, momentum_only=true, medium confidence - held, not a new entry, price now 1.40649, only ~0.46% above stop - closest approach yet",
+  "news_context": "Cloture vote confirmed today 2:15pm ET across the majority of sources this cycle and prior cycles; one set of search results returned stale articles describing an earlier (already-superseded) August delay - treating as outdated noise, not a new development."
+}
+```
+
+---
