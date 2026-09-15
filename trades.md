@@ -20410,3 +20410,98 @@ this is a schema backfill, not a trade action.
 ```
 
 ---
+### 2026-09-15T17:11:54.753Z — BTC/USD — NO TRADE
+
+**Reasoning:** Volume still flagged (2.01x) but RSI remains soft (39.2) and no crossover. Momentum not flagged (-1.25% vs 6%). News unchanged: CLARITY Act cloture vote at 2:15pm ET (~1 hour away), TD Cowen puts 60% odds on the vote falling short. No result yet.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 39.15863303230925,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "volume_ratio": 2.0128522490415457,
+  "volume_flag_above_2x": true,
+  "momentum_trigger_flagged": false,
+  "momentum_trigger_pct_1h_48h": -1.2450371221323904,
+  "order_book_imbalance_top10": 0.5838458860392249,
+  "news_context": "CLARITY Act cloture vote at 2:15pm ET (~1 hour away); TD Cowen's base case puts 60% probability on the vote falling short. No result yet. No BTC-specific quant trigger."
+}
+```
+
+---
+### 2026-09-15T17:11:58.085Z — ETH/USD — NO TRADE
+
+**Reasoning:** No position open (stopped out earlier). No trigger for a new entry. RSI 35.8 soft (not oversold), no crossover, volume 1.60x not flagged, momentum not flagged (-3.32% vs 6%). Order book now extremely ask-heavy (-0.97). Price holding around 2412, near the range low. No fresh quant signal.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 35.789575265883755,
+  "sma_crossover_4h_state": "fast_above_slow",
+  "sma_crossover_4h_crossed_this_candle": false,
+  "volume_ratio": 1.5995483022141166,
+  "momentum_trigger_flagged": false,
+  "momentum_trigger_pct_1h_48h": -3.3240554754669303,
+  "order_book_imbalance_top10": -0.9728827046099402,
+  "news_context": "CLARITY Act vote (~1 hour away) is the dominant event risk. Daily EMA stack still bullish, MACD fading. No fresh trigger."
+}
+```
+
+---
+### 2026-09-15T17:12:00.767Z — SOL/USD — NO TRADE
+
+**Reasoning:** No signal triggers. RSI 40.9 softening but not oversold. No fresh crossover (fast_below_slow). Volume ratio 1.36x not flagged. Momentum not flagged (-1.93% vs 6%). Price still below the $99.74-100 support zone. No fresh catalyst.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 40.863406114500556,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "volume_ratio": 1.3615432262690392,
+  "momentum_trigger_flagged": false,
+  "momentum_trigger_pct_1h_48h": -1.931075460487228,
+  "order_book_imbalance_top10": -0.02937592235320253,
+  "news_context": "Below the $99.74-100 support zone; bearish MACD crossover but still above 50/200-day EMAs. No quant trigger fired."
+}
+```
+
+---
+### 2026-09-15T17:12:03.551Z — POL/USD — NO TRADE
+
+**Reasoning:** No trigger. RSI 54.8 neutral. Crossover stale. Volume ratio 0.45x still well below average. Order book bid-heavy (+0.28). News unchanged, structural. No fresh dated catalyst.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 54.80559070476711,
+  "sma_crossover_4h_state": "fast_above_slow",
+  "sma_crossover_4h_crossed_this_candle": false,
+  "volume_ratio": 0.4516214340577544,
+  "momentum_trigger_flagged": false,
+  "momentum_trigger_pct_1h_48h": 0.45197740112993934,
+  "order_book_imbalance_top10": 0.2759379101778298,
+  "news_context": "Unchanged, structural. No fresh dated catalyst."
+}
+```
+
+---
+### 2026-09-15T17:12:06.557Z — XRP/USD — NO TRADE
+
+**Reasoning:** No position open (stopped out earlier this morning). Price continuing to hold near 1.38202, momentum well under threshold (2.33%/2.53%). RSI 50.7 neutral, no crossover, volume flagged (2.44x) alone insufficient. News confirms the cloture vote is imminent (2:15pm ET, ~1 hour away) with no result yet; TD Cowen's base case gives it a 60% chance of falling short. No fresh quant trigger; watching closely for the vote result and any resulting momentum_trigger flag next cycle.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 50.6545896595235,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "volume_ratio": 2.4448819183378383,
+  "volume_flag_above_2x": true,
+  "momentum_trigger_flagged": false,
+  "momentum_trigger_pct_1h_48h": 2.332514259993074,
+  "momentum_trigger_pct_4h_48h": 2.5334957369062217,
+  "order_book_imbalance_top10": 0.312495198545347,
+  "news_context": "Cloture vote imminent (2:15pm ET, ~1 hour away), no result yet. TD Cowen base case: 60% probability the vote falls short. No fresh quant trigger."
+}
+```
+
+---
