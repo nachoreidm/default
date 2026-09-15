@@ -19650,3 +19650,98 @@ this is a schema backfill, not a trade action.
 ```
 
 ---
+### 2026-09-15T09:12:34.626Z — BTC/USD — NO TRADE
+
+**Reasoning:** Volume still flagged (2.01x) but RSI remains soft (42.5) and no crossover. Momentum not flagged (0.25% vs 6%). Order book flattened (~0). News: CLARITY Act uncertainty (Senate Democrats pushing back) weighing on sentiment; also a hacker ransom demand (10,000 BTC) tied to a Revolut data breach - security-sector news, not a BTC-specific quant trigger.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 42.452498330182266,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "volume_ratio": 2.0128522490415457,
+  "volume_flag_above_2x": true,
+  "momentum_trigger_flagged": false,
+  "momentum_trigger_pct_1h_48h": 0.24514241575997026,
+  "order_book_imbalance_top10": 0.005560498220640452,
+  "news_context": "CLARITY Act uncertainty (Senate Democrats pushing back) weighing on sentiment; hackers demanded 10,000 BTC ransom over a Revolut data breach - security-sector news, not a direct BTC price catalyst. No quant trigger."
+}
+```
+
+---
+### 2026-09-15T09:12:38.313Z — ETH/USD — NO TRADE
+
+**Reasoning:** No position open (stopped out last cycle). No trigger for a new entry. RSI 43.7 soft, no crossover, volume 1.60x not flagged, momentum not flagged (-0.32% vs 6%). Daily MACD momentum fading per news but price still holding above key daily moving averages. No fresh quant signal.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 43.732904761869285,
+  "sma_crossover_4h_state": "fast_above_slow",
+  "sma_crossover_4h_crossed_this_candle": false,
+  "volume_ratio": 1.5995483022141166,
+  "momentum_trigger_flagged": false,
+  "momentum_trigger_pct_1h_48h": -0.3172009032980082,
+  "order_book_imbalance_top10": -0.04503710881582131,
+  "news_context": "Daily MACD momentum fading (histogram -17.58) though EMA stack still bullish; consolidating $2,350-2,550 with selling pressure near $2,550-2,650. CLARITY Act vote remains the dominant event today. No quant trigger."
+}
+```
+
+---
+### 2026-09-15T09:12:41.674Z — SOL/USD — NO TRADE
+
+**Reasoning:** No signal triggers. RSI 44.9 soft. No fresh crossover (fast_below_slow). Volume ratio 1.36x not flagged. Momentum not flagged (0.79% vs 6%). Order book mildly bid-heavy (+0.12). News: consolidating in a triangle pattern near $100, daily MACD bearish crossover but price still above key EMAs; ETF inflows continuing modestly. No fresh trigger.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 44.94106462028376,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "volume_ratio": 1.3615432262690392,
+  "momentum_trigger_flagged": false,
+  "momentum_trigger_pct_1h_48h": 0.7914245642155944,
+  "order_book_imbalance_top10": 0.12082215923522077,
+  "news_context": "Consolidating in a converging-trendline triangle near $100; daily MACD bearish crossover but price above 20/50/200 EMAs. SOL ETFs +$11M Monday. No fresh dated catalyst."
+}
+```
+
+---
+### 2026-09-15T09:12:44.174Z — POL/USD — NO TRADE
+
+**Reasoning:** No trigger. RSI 47.9 neutral. Crossover stale. Volume ratio 0.45x still well below average. Order book bid-heavy (+0.32). News unchanged, structural. No fresh dated catalyst.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 47.888712502304536,
+  "sma_crossover_4h_state": "fast_above_slow",
+  "sma_crossover_4h_crossed_this_candle": false,
+  "volume_ratio": 0.4516214340577544,
+  "momentum_trigger_flagged": false,
+  "momentum_trigger_pct_1h_48h": 0.6808421493662907,
+  "order_book_imbalance_top10": 0.31731970378762353,
+  "news_context": "Unchanged, structural: 8B cumulative transactions, Visa/Meta/Revolut stablecoin settlement. No fresh dated catalyst."
+}
+```
+
+---
+### 2026-09-15T09:12:48.946Z — XRP/USD — NO TRADE
+
+**Reasoning:** No position open (stopped out earlier this morning). No trigger for a new entry. momentum_trigger not flagged (48h moves 3.96%/3.73%, below 6%), RSI 51.9 neutral, no crossover, volume still flagged (2.44x) alone insufficient. News: Senator Lummis released updated CLARITY Act text (Sept 10) as Republicans' "last, best and final offer"; Galaxy Digital raised 2026 passage odds from 10% to 25% - somewhat more optimistic than the 16-19.5% range cited by other sources this morning, underscoring how unsettled the odds estimates are. Vote still requires 7+ Democratic crossovers; passage far from guaranteed. No fresh quant trigger to enter.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 51.89794682837062,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "volume_ratio": 2.4448819183378383,
+  "volume_flag_above_2x": true,
+  "momentum_trigger_flagged": false,
+  "momentum_trigger_pct_1h_48h": 3.95613878474082,
+  "momentum_trigger_pct_4h_48h": 3.72598659717052,
+  "order_book_imbalance_top10": 0.3121106981069412,
+  "news_context": "Sen. Lummis released updated CLARITY Act text (Sept 10) as Republicans' final offer; Galaxy Digital raised 2026 odds from 10% to 25%, more optimistic than other sources' 16-19.5% estimates this morning - odds picture remains unsettled. Vote requires 7+ Democratic votes; passage not guaranteed. No fresh quant trigger."
+}
+```
+
+---
