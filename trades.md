@@ -20505,3 +20505,98 @@ this is a schema backfill, not a trade action.
 ```
 
 ---
+### 2026-09-15T18:12:00.208Z — BTC/USD — NO TRADE
+
+**Reasoning:** Volume still flagged (2.01x) but RSI remains soft (39.2) and no crossover. Momentum not flagged (-0.51% vs 6%). Order book near flat (-0.06). News unchanged: CLARITY Act cloture vote happening right now (2:15pm ET), no result yet.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 39.15863303230925,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "volume_ratio": 2.0128522490415457,
+  "volume_flag_above_2x": true,
+  "momentum_trigger_flagged": false,
+  "momentum_trigger_pct_1h_48h": -0.5133438356058191,
+  "order_book_imbalance_top10": -0.056401613194486146,
+  "news_context": "CLARITY Act cloture vote happening right now (2:15pm ET); no result available yet. No BTC-specific quant trigger."
+}
+```
+
+---
+### 2026-09-15T18:12:03.237Z — ETH/USD — NO TRADE
+
+**Reasoning:** No position open (stopped out earlier). No trigger for a new entry. RSI 35.8 soft (not oversold), no crossover, volume 1.60x not flagged, momentum not flagged (-2.78% vs 6%). Price recovered slightly to 2434.78. No fresh quant signal.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 35.789575265883755,
+  "sma_crossover_4h_state": "fast_above_slow",
+  "sma_crossover_4h_crossed_this_candle": false,
+  "volume_ratio": 1.5995483022141166,
+  "momentum_trigger_flagged": false,
+  "momentum_trigger_pct_1h_48h": -2.7759175994132415,
+  "order_book_imbalance_top10": -0.3128893753157097,
+  "news_context": "CLARITY Act vote happening now; FOMC decision remains ahead. No fresh trigger."
+}
+```
+
+---
+### 2026-09-15T18:12:05.986Z — SOL/USD — NO TRADE
+
+**Reasoning:** No signal triggers. RSI 40.9 softening but not oversold. No fresh crossover (fast_below_slow). Volume ratio 1.36x not flagged. Momentum not flagged (-1.01% vs 6%). Price recovered slightly to 99.83, still below the $99.94-100 pivot. No fresh catalyst.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 40.863406114500556,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "volume_ratio": 1.3615432262690392,
+  "momentum_trigger_flagged": false,
+  "momentum_trigger_pct_1h_48h": -1.008204013047342,
+  "order_book_imbalance_top10": -0.0907783266255752,
+  "news_context": "Still below the $99.94-100 pivot; bearish MACD crossover. No quant trigger fired."
+}
+```
+
+---
+### 2026-09-15T18:12:08.585Z — POL/USD — NO TRADE
+
+**Reasoning:** No trigger. RSI 54.8 neutral. Crossover stale. Volume ratio 0.45x still well below average. Order book strongly bid-heavy (+0.48). News unchanged, structural. No fresh dated catalyst.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 54.80559070476711,
+  "sma_crossover_4h_state": "fast_above_slow",
+  "sma_crossover_4h_crossed_this_candle": false,
+  "volume_ratio": 0.4516214340577544,
+  "momentum_trigger_flagged": false,
+  "momentum_trigger_pct_1h_48h": 0.4613491900758581,
+  "order_book_imbalance_top10": 0.4815366033588614,
+  "news_context": "Unchanged, structural. No fresh dated catalyst."
+}
+```
+
+---
+### 2026-09-15T18:12:11.472Z — XRP/USD — NO TRADE
+
+**Reasoning:** No position open (stopped out earlier this morning). Price recovered to 1.3955, momentum still under threshold (3.43%/2.53%). RSI 50.7 neutral, no crossover, volume flagged (2.44x) alone insufficient. News confirms the cloture vote is happening at this exact moment (2:15pm ET) but no result is available in any source checked. No fresh quant trigger; will check for the outcome and any resulting momentum_trigger flag next cycle.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 50.6545896595235,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "volume_ratio": 2.4448819183378383,
+  "volume_flag_above_2x": true,
+  "momentum_trigger_flagged": false,
+  "momentum_trigger_pct_1h_48h": 3.431921286749542,
+  "momentum_trigger_pct_4h_48h": 2.5334957369062217,
+  "order_book_imbalance_top10": 0.03156269475537914,
+  "news_context": "Cloture vote happening right now (2:15pm ET); no result available in any source checked. No fresh quant trigger."
+}
+```
+
+---
