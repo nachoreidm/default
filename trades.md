@@ -20315,3 +20315,98 @@ this is a schema backfill, not a trade action.
 ```
 
 ---
+### 2026-09-15T16:12:10.219Z — BTC/USD — NO TRADE
+
+**Reasoning:** Volume still flagged (2.01x) but RSI softened further (39.2, approaching but not yet oversold) and no crossover. Momentum not flagged (-1.02% vs 6%). Order book strongly bid-heavy (+0.91) despite falling price - notable divergence. News unchanged: CLARITY Act vote scheduled 2:15pm ET (~2 hours away), Revolut ransom-hack headline.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 39.15863303230925,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "volume_ratio": 2.0128522490415457,
+  "volume_flag_above_2x": true,
+  "momentum_trigger_flagged": false,
+  "momentum_trigger_pct_1h_48h": -1.0212534624246032,
+  "order_book_imbalance_top10": 0.9113355157299007,
+  "news_context": "Unchanged: CLARITY Act cloture vote at 2:15pm ET (~2 hours away), Revolut ransom-hack headline. No result yet. No BTC-specific quant trigger."
+}
+```
+
+---
+### 2026-09-15T16:12:14.205Z — ETH/USD — NO TRADE
+
+**Reasoning:** No position open (stopped out earlier). No trigger for a new entry. RSI dropped to 35.8 (getting closer to oversold <30 but not there yet), no crossover, volume 1.60x not flagged, momentum not flagged (-3.22% vs 6%, a sharp move but still under threshold). Price now testing the $2,350-2,388 lower end of its recent range. No fresh quant signal despite the weakness.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 35.789575265883755,
+  "sma_crossover_4h_state": "fast_above_slow",
+  "sma_crossover_4h_crossed_this_candle": false,
+  "volume_ratio": 1.5995483022141166,
+  "momentum_trigger_flagged": false,
+  "momentum_trigger_pct_1h_48h": -3.218463332521284,
+  "order_book_imbalance_top10": 0.2652365973586492,
+  "news_context": "ETH continuing to hold above $2,300-2,350 despite repeated attempts lower; CLARITY Act vote (2:15pm ET) and FOMC decision remain the key catalysts still ahead. No fresh trigger."
+}
+```
+
+---
+### 2026-09-15T16:12:17.712Z — SOL/USD — NO TRADE
+
+**Reasoning:** No signal triggers. RSI 40.9 softening but not oversold. No fresh crossover (fast_below_slow). Volume ratio 1.36x not flagged. Momentum not flagged (-1.45% vs 6%). Price sitting below the $99.74-100 support zone flagged in recent news, with a bearish RSI divergence noted by one source, but no quant trigger fired.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 40.863406114500556,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "volume_ratio": 1.3615432262690392,
+  "momentum_trigger_flagged": false,
+  "momentum_trigger_pct_1h_48h": -1.4487001389164595,
+  "order_book_imbalance_top10": 0.1990825751456624,
+  "news_context": "Below the $99.74-100 support zone; RSI bearish divergence flagged, risk of slide toward $92.30 EMA. No quant trigger fired."
+}
+```
+
+---
+### 2026-09-15T16:12:20.112Z — POL/USD — NO TRADE
+
+**Reasoning:** No trigger. RSI 54.8 neutral, drifted up modestly with a firmer 1h move (+0.87%). Crossover stale. Volume ratio 0.45x still well below average. Order book turned sharply ask-heavy (-0.49). News unchanged, structural. No fresh dated catalyst.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 54.80559070476711,
+  "sma_crossover_4h_state": "fast_above_slow",
+  "sma_crossover_4h_crossed_this_candle": false,
+  "volume_ratio": 0.4516214340577544,
+  "momentum_trigger_flagged": false,
+  "momentum_trigger_pct_1h_48h": 0.8704663212435166,
+  "order_book_imbalance_top10": -0.4873583505841967,
+  "news_context": "Unchanged, structural: 8B transactions, Open Money Stack push. No fresh dated catalyst."
+}
+```
+
+---
+### 2026-09-15T16:12:23.753Z — XRP/USD — NO TRADE
+
+**Reasoning:** No position open (stopped out earlier this morning). Price retreated further to 1.38374, momentum eased to 2.82%/2.53% - well below the 6% threshold. RSI 50.7 neutral, no crossover, volume flagged (2.44x) alone insufficient. News confirms the cloture vote happened/is happening at 2:15pm ET (~2 hours from this cycle) but no result is available yet in any source checked. No fresh quant trigger to enter; will check for the vote outcome next cycle.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 50.6545896595235,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "volume_ratio": 2.4448819183378383,
+  "volume_flag_above_2x": true,
+  "momentum_trigger_flagged": false,
+  "momentum_trigger_pct_1h_48h": 2.818121252498338,
+  "momentum_trigger_pct_4h_48h": 2.5334957369062217,
+  "order_book_imbalance_top10": -0.04629311414261555,
+  "news_context": "Cloture vote scheduled 2:15pm ET, no result available yet in any source checked this cycle (~2 hours out from this cycle's timestamp). No fresh quant trigger."
+}
+```
+
+---
