@@ -19545,3 +19545,108 @@ this is a schema backfill, not a trade action.
 ```
 
 ---
+### 2026-09-15T08:11:41.327Z — ETH/USD — LONG — CLOSED
+
+- Exit price: $2463.96
+- Exit fee (paper): $1.16
+- Reason: Stop-loss auto-triggered (price 2465.19 <= stop 2470).
+- Realized P&L: $-9.71 (-0.10% of portfolio)
+- Position id: 84ff8cff-7e51-4be0-a108-ee1e84ff087f
+
+---
+### 2026-09-15T08:12:10.495Z — BTC/USD — NO TRADE
+
+**Reasoning:** Volume still flagged (2.01x) but RSI has dropped to 42.5 (softening, not yet oversold <30) and no crossover. Momentum not flagged (0.13% vs 6%). Order book turned sharply ask-heavy (-0.72). News confirms a broad selloff this morning as the CLARITY Act cloture vote nears and oil prices climb - macro risk-off, not a BTC-specific quant trigger.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 42.452498330182266,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "volume_ratio": 2.0128522490415457,
+  "volume_flag_above_2x": true,
+  "momentum_trigger_flagged": false,
+  "momentum_trigger_pct_1h_48h": 0.13466680385141092,
+  "order_book_imbalance_top10": -0.724007561436673,
+  "news_context": "Broad crypto selloff this morning (BTC/XRP/SOL) as CLARITY Act cloture vote nears and oil prices climb, adding inflation pressure ahead of the FOMC decision. No BTC-specific quant trigger."
+}
+```
+
+---
+### 2026-09-15T08:12:15.109Z — ETH/USD — NO TRADE
+
+**Reasoning:** The open ETH/USD position was auto-closed this cycle by portfolio_check_stops: price fell through the 2470 stop, exit at 2463.96, realized loss -$9.71 (-0.10% of portfolio). Evaluating fresh: no basis for a new entry. RSI 43.7 (softening), no crossover (still fast_above_slow but no fresh cross), volume 1.60x not flagged, momentum not flagged (-0.82% vs 6%). Broad macro risk-off per news; no fresh trigger to re-enter.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 43.732904761869285,
+  "sma_crossover_4h_state": "fast_above_slow",
+  "sma_crossover_4h_crossed_this_candle": false,
+  "volume_ratio": 1.5995483022141166,
+  "momentum_trigger_flagged": false,
+  "momentum_trigger_pct_1h_48h": -0.8161546482714329,
+  "order_book_imbalance_top10": -0.21768394982823364,
+  "closed_position": "Stop-loss auto-triggered this cycle: opened 2026-09-12T08:14:01Z at 2526.10, closed 2026-09-15T08:11:41Z at 2463.96 (exit fee 1.16), pnl_usd -9.71",
+  "news_context": "Broad macro risk-off this morning ahead of CLARITY Act vote and FOMC; ETH consolidating $2,350-2,550 with repeated upper wicks showing selling pressure. ETF inflow streak (12 days) still intact but no fresh quant trigger to re-enter."
+}
+```
+
+---
+### 2026-09-15T08:12:18.319Z — SOL/USD — NO TRADE
+
+**Reasoning:** No signal triggers. RSI 44.9 softening but not oversold. No fresh crossover (fast_below_slow). Volume ratio 1.36x not flagged. Momentum not flagged (0.43% vs 6%). Order book mildly bid-heavy (+0.15). News: daily MACD showing a bearish crossover (fading upside momentum) though price still above its 20/50/200 EMAs - mixed technical picture, no quant trigger fired.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 44.94106462028376,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "volume_ratio": 1.3615432262690392,
+  "momentum_trigger_flagged": false,
+  "momentum_trigger_pct_1h_48h": 0.4300860172034333,
+  "order_book_imbalance_top10": 0.15472958019409863,
+  "news_context": "Daily MACD bearish crossover (fading momentum) but price still above 20/50/200 EMAs; broad market pullback this morning. No quant trigger fired."
+}
+```
+
+---
+### 2026-09-15T08:12:21.911Z — POL/USD — NO TRADE
+
+**Reasoning:** No trigger. RSI 47.9 neutral. Crossover stale. Volume ratio 0.45x still well below average. Order book close to flat (-0.05). News: still structural/unchanged (8B transactions, Visa/Meta/Revolut settlement); one source frames POL's price-to-usage gap as the "biggest disconnect in crypto" but that's a longer-term thesis, not a dated catalyst.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 47.888712502304536,
+  "sma_crossover_4h_state": "fast_above_slow",
+  "sma_crossover_4h_crossed_this_candle": false,
+  "volume_ratio": 0.4516214340577544,
+  "momentum_trigger_flagged": false,
+  "momentum_trigger_pct_1h_48h": 0.7568590350047286,
+  "order_book_imbalance_top10": -0.04624293071974311,
+  "news_context": "Unchanged, structural: 8B cumulative transactions, Visa/Meta/Revolut settlement. One source frames the usage-vs-price gap as the biggest disconnect in crypto - a longer-term thesis, not a fresh catalyst."
+}
+```
+
+---
+### 2026-09-15T08:12:26.713Z — XRP/USD — NO TRADE
+
+**Reasoning:** No position currently open (stopped out last cycle). Price has continued lower to 1.3875, well below the prior stop level. momentum_trigger not flagged (48h moves 3.37%/3.73%, below 6%), RSI 51.9 neutral, no crossover, volume still flagged (2.44x) alone insufficient. News confirms a broad selloff across BTC/XRP/SOL this morning tied to CLARITY Act uncertainty and rising oil prices/inflation concern ahead of the FOMC decision - one source now cites Polymarket odds of CLARITY Act passage in 2026 at just 16% (down from 82% in February), a further deterioration versus the ~19.5-33% range seen in recent cycles. No fresh quant trigger to enter; the deteriorating odds also argue against chasing a momentum re-entry even if one fired.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 51.89794682837062,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "volume_ratio": 2.4448819183378383,
+  "volume_flag_above_2x": true,
+  "momentum_trigger_flagged": false,
+  "momentum_trigger_pct_1h_48h": 3.3749888687702185,
+  "momentum_trigger_pct_4h_48h": 3.72598659717052,
+  "order_book_imbalance_top10": -0.23723923953811257,
+  "news_context": "Broad selloff across BTC/XRP/SOL this morning tied to CLARITY Act uncertainty and rising oil prices ahead of the FOMC decision. Polymarket odds of CLARITY Act passage in 2026 now cited at just 16% (down from 82% in February) - further deterioration. No fresh quant trigger to enter."
+}
+```
+
+---
