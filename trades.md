@@ -18768,3 +18768,99 @@ this is a schema backfill, not a trade action.
 ```
 
 ---
+### 2026-09-15T00:12:14.283Z — BTC/USD — NO TRADE
+
+**Reasoning:** Signals conflict - volume ratio just flagged above 2x (2.01x) but RSI is neutral (54.9, down from 65.5) and there's no fresh SMA crossover (still fast_below_slow) or momentum trigger (1.21% vs 6%). This is exactly the "volume spike but RSI neutral and no MA crossover" conflicting-signal case the instructions call out for a no-trade rather than a manufactured rationale. Order book turned sharply ask-heavy (-0.63). News: Sept 15 CLARITY Act cloture vote is the dominant event risk for all majors today; BTC needs to defend $78K after pulling back from $81.2K.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 54.92581698773755,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "volume_ratio": 2.0128522490415457,
+  "volume_flag_above_2x": true,
+  "momentum_trigger_flagged": false,
+  "momentum_trigger_pct_1h_48h": 1.2116701399226035,
+  "order_book_imbalance_top10": -0.6345836416415276,
+  "news_context": "Sept 15 CLARITY Act cloture vote (2:15pm ET) is the dominant event today - a procedural 60-vote threshold, not final passage; failure would effectively kill the bill for 2026. BTC pulled back from $81.2K, needs to defend $78K to keep the recovery alive."
+}
+```
+
+---
+### 2026-09-15T00:12:18.166Z — ETH/USD — NO TRADE
+
+**Reasoning:** No new trade - existing open position held, stops checked clean. RSI 52.4 neutral, no fresh crossover, volume 1.60x not flagged (below 2x), momentum not flagged (-0.35% vs 6%, price action turned slightly negative). Order book notably ask-heavy (-0.44). No basis for a second entry; existing position's invalidation level (~2484 4h SMA) not yet breached.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 52.397441434075354,
+  "sma_crossover_4h_state": "fast_above_slow",
+  "sma_crossover_4h_crossed_this_candle": false,
+  "volume_ratio": 1.5995483022141166,
+  "momentum_trigger_flagged": false,
+  "momentum_trigger_pct_1h_48h": -0.35054225123382593,
+  "order_book_imbalance_top10": -0.44313023373840477,
+  "news_context": "Sept 15 CLARITY Act cloture vote is the dominant event today; ETH September target $2,800 per one source, but ETH has historically averaged a negative September return (-10.2%) - worth noting as a seasonal caution. No fresh quant trigger; already holding a position."
+}
+```
+
+---
+### 2026-09-15T00:12:22.075Z — SOL/USD — NO TRADE
+
+**Reasoning:** No signal triggers. RSI 55.3 neutral. No fresh crossover (fast_below_slow). Volume ratio 1.36x not flagged. Momentum not flagged (0.83% vs 6%). Order book close to flat (+0.03). News: technical levels to watch ($99.74 support, $105/$109 targets above; $92.30 50-day EMA below); record app revenue continuing. Nothing corroborated by a quant trigger.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 55.30384594352495,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "volume_ratio": 1.3615432262690392,
+  "momentum_trigger_flagged": false,
+  "momentum_trigger_pct_1h_48h": 0.825796303578454,
+  "order_book_imbalance_top10": 0.02883240412545709,
+  "news_context": "SEC/Nasdaq rule changes formalizing SOL's commodity-trust eligibility (structural); technical levels: hold above $99.74 for $105/$109 targets, lose it and risk a slide to the $92.30 50-day EMA. No fresh dated catalyst."
+}
+```
+
+---
+### 2026-09-15T00:12:25.781Z — POL/USD — NO TRADE
+
+**Reasoning:** No trigger. RSI 50.9 neutral, drifted down toward the middle of its range. Crossover stale (not this candle). Volume ratio 0.45x still not flagged, well below average. Order book bid-heavy (+0.35). News is entirely structural (8B transactions, Austin/Kyoto hard forks, MATIC-to-POL migration ~99% complete, Ithaca hardfork payments focus) - nothing dated as a fresh price catalyst.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 50.933106484344,
+  "sma_crossover_4h_state": "fast_above_slow",
+  "sma_crossover_4h_crossed_this_candle": false,
+  "volume_ratio": 0.4516214340577544,
+  "momentum_trigger_flagged": false,
+  "momentum_trigger_pct_1h_48h": -0.15515101365328648,
+  "order_book_imbalance_top10": 0.350253354736616,
+  "news_context": "All structural: 8B cumulative transactions, Austin/Kyoto security hard forks (Aug 31), MATIC-to-POL migration ~99% complete, Ithaca hardfork focused on payments reliability. No fresh price catalyst."
+}
+```
+
+---
+### 2026-09-15T00:12:32.450Z — XRP/USD — NO TRADE
+
+**Reasoning:** Holding the existing open momentum-only position, not a new entry. Note: momentum_trigger is no longer flagged this cycle (48h moves eased to 4.09%/4.39%, both below the 6% threshold) as the price has retraced from its peak, and a fresh volume spike appeared instead (2.44x, now flagged) without RSI extreme or crossover confirmation - a different, non-actionable signal shape, not a new momentum-only setup. Price is 1.42163, still above the 1.40 stop (buffer ~1.5%), stops checked clean. Important update: one source now pegs CLARITY Act cloture odds at just 19.5% ahead of today's 2:15pm ET vote - a material deterioration in the thesis's odds versus earlier optimism (Trump's 80% ethics concession). Continuing to hold per the automatic stop-loss rule since price hasn't closed below 1.40, but this is a real risk worth flagging - a cloture failure would likely invalidate the position's catalyst entirely.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 59.64808180958915,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "volume_ratio": 2.4448819183378383,
+  "volume_flag_above_2x": true,
+  "momentum_trigger_flagged": false,
+  "momentum_trigger_pct_1h_48h": 4.094589553603424,
+  "momentum_trigger_pct_4h_48h": 4.391614341881335,
+  "order_book_imbalance_top10": 0.1144048431859762,
+  "existing_position": "LONG opened 2026-09-14T19:27:21Z at 1.4604, stop 1.40, take-profit 1.5812, momentum_only=true, medium confidence - held, not a new entry, price now 1.42163, ~1.5% above stop",
+  "news_context": "One source now pegs CLARITY Act cloture odds at just 19.5% ahead of today's 2:15pm ET vote - a material deterioration vs. earlier optimism (Trump's 80% ethics concession reported yesterday). Cloture is a procedural 60-vote threshold, not final passage; failure would effectively kill the bill for 2026. This is the position's central catalyst and its odds have worsened."
+}
+```
+
+---
