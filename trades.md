@@ -20600,3 +20600,98 @@ this is a schema backfill, not a trade action.
 ```
 
 ---
+### 2026-09-15T19:12:27.989Z — BTC/USD — NO TRADE
+
+**Reasoning:** Volume still flagged (2.01x) but RSI remains soft (39.2) and no crossover. Momentum not flagged (-1.71% vs 6%). News confirms: CLARITY Act cloture vote FAILED (over 40 senators voted against), sending BTC back toward $76K. This is broad market-wide risk-off, not a BTC-specific signal, and the price move doesn't clear the momentum threshold.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 39.15863303230925,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "volume_ratio": 2.0128522490415457,
+  "volume_flag_above_2x": true,
+  "momentum_trigger_flagged": false,
+  "momentum_trigger_pct_1h_48h": -1.7063238313196207,
+  "order_book_imbalance_top10": 0.2390189312692344,
+  "news_context": "CONFIRMED: CLARITY Act cloture vote failed in the Senate (40+ senators against), ending 2026 market-structure legislative efforts. Broad crypto selloff resulted. No BTC-specific quant trigger despite the news."
+}
+```
+
+---
+### 2026-09-15T19:12:32.056Z — ETH/USD — NO TRADE
+
+**Reasoning:** No position open (stopped out earlier). No trigger for a new entry. RSI 35.8 soft (not oversold), no crossover, volume 1.60x not flagged, momentum not flagged (-4.15% vs 6%, a sharp move but still under threshold). Order book now extremely bid-heavy (+0.99) despite the falling price - notable divergence. News: CLARITY Act failure is the dominant driver; FOMC decision tomorrow (92.5% hike odds per one source) adds further macro pressure.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 35.789575265883755,
+  "sma_crossover_4h_state": "fast_above_slow",
+  "sma_crossover_4h_crossed_this_candle": false,
+  "volume_ratio": 1.5995483022141166,
+  "momentum_trigger_flagged": false,
+  "momentum_trigger_pct_1h_48h": -4.149917568490007,
+  "order_book_imbalance_top10": 0.9920164960353007,
+  "news_context": "CLARITY Act cloture vote failed. FOMC decision tomorrow with 92.5% hike odds per one source. No fresh quant trigger despite the sharp move."
+}
+```
+
+---
+### 2026-09-15T19:12:35.019Z — SOL/USD — NO TRADE
+
+**Reasoning:** No signal triggers. RSI 40.9 softening but not oversold. No fresh crossover (fast_below_slow). Volume ratio 1.36x not flagged. Momentum not flagged (-2.78% vs 6%). Broke further below the $99.74-100 support zone to 98.23. No fresh trigger despite the CLARITY Act failure weighing on the broader market.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 40.863406114500556,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "volume_ratio": 1.3615432262690392,
+  "momentum_trigger_flagged": false,
+  "momentum_trigger_pct_1h_48h": -2.783831979393702,
+  "order_book_imbalance_top10": -0.023484562507430917,
+  "news_context": "CLARITY Act cloture vote failed, broad market selloff. SOL now well below the $99.74-100 support zone. No quant trigger fired."
+}
+```
+
+---
+### 2026-09-15T19:12:38.169Z — POL/USD — NO TRADE
+
+**Reasoning:** No trigger. RSI 54.8 neutral (lagging the broader selloff). Crossover stale. Volume ratio 0.45x still well below average. Price dropped to 0.09526 (-2.27% 1h/48h) but momentum not flagged. Order book bid-heavy (+0.30). CLARITY Act failure is broad-market context, not a POL-specific catalyst.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 54.80559070476711,
+  "sma_crossover_4h_state": "fast_above_slow",
+  "sma_crossover_4h_crossed_this_candle": false,
+  "volume_ratio": 0.4516214340577544,
+  "momentum_trigger_flagged": false,
+  "momentum_trigger_pct_1h_48h": -2.269459848018063,
+  "order_book_imbalance_top10": 0.2975205333062983,
+  "news_context": "CLARITY Act cloture vote failed - broad market context, not POL-specific. No fresh dated catalyst for POL itself."
+}
+```
+
+---
+### 2026-09-15T19:12:44.602Z — XRP/USD — NO TRADE
+
+**Reasoning:** No position open (stopped out earlier this morning, before the vote result). IMPORTANT CONFIRMED NEWS: the CLARITY Act cloture vote FAILED in the Senate (over 40 senators voted against), ending 2026 market-structure legislative efforts - this is precisely the catalyst that underpinned the earlier momentum-only XRP entry, and it resolved negatively. Price dropped sharply to 1.31294 (down from 1.3955 last cycle). Despite the size of the move, momentum_trigger is not flagged this cycle (1h/48h -2.35%, 4h/48h +2.53% - the 48h lookback window hasn't fully captured the drop yet). RSI 50.7 neutral, no crossover. No basis for a new entry - the news is unambiguously bearish for the thesis that drove the prior trade, not a case for chasing a reversal. One source notes support levels at $1.33, then $1.30, then $1.23 if selling continues, largely macro/Fed-driven at this point (Fed decision tomorrow) on top of the CLARITY Act failure.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 50.6545896595235,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "volume_ratio": 2.4448819183378383,
+  "volume_flag_above_2x": true,
+  "momentum_trigger_flagged": false,
+  "momentum_trigger_pct_1h_48h": -2.34968442032996,
+  "momentum_trigger_pct_4h_48h": 2.5334957369062217,
+  "order_book_imbalance_top10": -0.06143320916289219,
+  "news_context": "CONFIRMED: CLARITY Act cloture vote FAILED (40+ senators against) - the Senate did not advance the bill, ending market-structure legislation for 2026. This was the exact catalyst behind the earlier momentum-only XRP position (already closed by stop earlier this morning, unrelated to this outcome). XRP dropped sharply to $1.31 on the news plus Fed rate-hike positioning ahead of tomorrow's decision. Support levels at $1.33/$1.30/$1.23 if selling continues. No basis for a new entry - the news firmly invalidates rather than supports the original thesis."
+}
+```
+
+---
