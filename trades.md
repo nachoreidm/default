@@ -19152,3 +19152,99 @@ this is a schema backfill, not a trade action.
 ```
 
 ---
+### 2026-09-15T04:12:34.271Z — BTC/USD — NO TRADE
+
+**Reasoning:** Volume still flagged (2.01x) but RSI has drifted to neutral-low (49.3) and there's no crossover - same conflicting-signal pattern, no trade. Momentum not flagged (0.60% vs 6%). News: broader market reported posting gains this morning ahead of the CLARITY Act vote; nothing BTC-specific to act on.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 49.25057400660352,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "volume_ratio": 2.0128522490415457,
+  "volume_flag_above_2x": true,
+  "momentum_trigger_flagged": false,
+  "momentum_trigger_pct_1h_48h": 0.6035669915313995,
+  "order_book_imbalance_top10": 0.5399909624943517,
+  "news_context": "Broader crypto market reported posting gains this morning ahead of the CLARITY Act vote. No BTC-specific fresh catalyst."
+}
+```
+
+---
+### 2026-09-15T04:12:38.138Z — ETH/USD — NO TRADE
+
+**Reasoning:** No new trade - existing open position held, stops checked clean. RSI 48.6 neutral, no fresh crossover, volume 1.60x not flagged, momentum not flagged (-0.85% vs 6%). Price softened further to 2498.17 but still comfortably above the 2470 stop and the ~2484 4h SMA invalidation reference is close - worth watching but not yet breached. ETF inflow streak continues (4th consecutive week).
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 48.55807886694187,
+  "sma_crossover_4h_state": "fast_above_slow",
+  "sma_crossover_4h_crossed_this_candle": false,
+  "volume_ratio": 1.5995483022141166,
+  "momentum_trigger_flagged": false,
+  "momentum_trigger_pct_1h_48h": -0.8541377257392333,
+  "order_book_imbalance_top10": 0.3521576511982023,
+  "news_context": "Spot ETH ETFs saw $196.9M net inflows in the week ending Sept 11 - 4th consecutive week of inflows. CLARITY Act vote and Fed decision remain the dominant event risk this week. No fresh trigger; already holding."
+}
+```
+
+---
+### 2026-09-15T04:12:41.731Z — SOL/USD — NO TRADE
+
+**Reasoning:** No signal triggers. RSI 49.8 neutral. No fresh crossover (fast_below_slow). Volume ratio 1.36x not flagged. Momentum not flagged (-0.21% vs 6%). Order book mildly bid-heavy (+0.15). News: bullish while holding $103, key level is $103/$94.40 support below - price currently right at that pivot, worth watching but no signal fired.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 49.84945800306477,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "volume_ratio": 1.3615432262690392,
+  "momentum_trigger_flagged": false,
+  "momentum_trigger_pct_1h_48h": -0.20646937370956026,
+  "order_book_imbalance_top10": 0.1518018084197444,
+  "news_context": "Bullish while holding $103; a loss of that level exposes $94.40/$85.79 support. SEC/Nasdaq rule change and OpenSea NFT support are structural positives, not fresh catalysts. No signal fired."
+}
+```
+
+---
+### 2026-09-15T04:12:44.544Z — POL/USD — NO TRADE
+
+**Reasoning:** No trigger. RSI 48.6 neutral, drifted slightly below midpoint. Crossover stale. Volume ratio 0.45x still well below average. Order book bid-heavy (+0.29). News unchanged and structural (8B transactions, Austin/Kyoto hard forks, Gigagas roadmap). No fresh dated catalyst.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 48.61189642448068,
+  "sma_crossover_4h_state": "fast_above_slow",
+  "sma_crossover_4h_crossed_this_candle": false,
+  "volume_ratio": 0.4516214340577544,
+  "momentum_trigger_flagged": false,
+  "momentum_trigger_pct_1h_48h": -0.1456058242329706,
+  "order_book_imbalance_top10": 0.29021410370138734,
+  "news_context": "Unchanged, structural: 8B transactions, Austin/Kyoto hard forks, Gigagas (100k TPS) roadmap. No fresh dated catalyst."
+}
+```
+
+---
+### 2026-09-15T04:12:51.196Z — XRP/USD — NO TRADE
+
+**Reasoning:** Holding the existing open momentum-only position, not a new entry. Price essentially stable at 1.41279 (buffer to the 1.40 stop ~0.9%), stops checked clean, no breach. momentum_trigger not flagged (48h moves 3.80%/4.28%, below 6%), volume still flagged (2.44x) without RSI extreme or crossover - RSI actually eased to 57.6. Order book flipped strongly bid-heavy (+0.60, from -0.08 last cycle). News: cloture vote confirmed today 2:15pm ET, now reported needing 6+ Democratic votes per this source (vs ~9 in an earlier report - estimates vary by source); one analyst raised 2026 passage odds from 10% to 25%. XRP itself reported up ~1.7-5.3% over 24h across different sources/timestamps, broadly consistent with our own signals showing the price holding up. Continuing to hold per the stop rule; vote is a few hours away.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 57.552713028359655,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "volume_ratio": 2.4448819183378383,
+  "volume_flag_above_2x": true,
+  "momentum_trigger_flagged": false,
+  "momentum_trigger_pct_1h_48h": 3.798034614256381,
+  "momentum_trigger_pct_4h_48h": 4.27828367665693,
+  "order_book_imbalance_top10": 0.5995772813772817,
+  "existing_position": "LONG opened 2026-09-14T19:27:21Z at 1.4604, stop 1.40, take-profit 1.5812, momentum_only=true, medium confidence - held, not a new entry, price now 1.41279, ~0.9% above stop",
+  "news_context": "Cloture vote confirmed today 2:15pm ET; vote-threshold estimates vary by source (6-9 Democratic votes needed). Galaxy Digital raised 2026 passage odds from 10% to 25%. XRP reported up across sources this morning, consistent with price holding steady."
+}
+```
+
+---
