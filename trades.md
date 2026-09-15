@@ -19440,3 +19440,108 @@ this is a schema backfill, not a trade action.
 ```
 
 ---
+### 2026-09-15T07:12:32.580Z — XRP/USD — LONG — CLOSED
+
+- Exit price: $1.40
+- Exit fee (paper): $0.76
+- Reason: Stop-loss auto-triggered (price 1.39809 <= stop 1.4).
+- Realized P&L: $-10.15 (-0.10% of portfolio)
+- Position id: 28862fd4-97d2-4e0a-ab93-c93994c18fb4
+
+---
+### 2026-09-15T07:13:06.347Z — BTC/USD — NO TRADE
+
+**Reasoning:** Volume still flagged (2.01x) but RSI neutral (49.3) and no crossover - unchanged conflicting picture. Momentum not flagged (0.19% vs 6%). News: CoinDesk reports BTC, XRP, SOL all dropping this morning as the CLARITY Act vote nears and oil prices climb (inflation concern ahead of the FOMC decision) - broad risk-off, not a BTC-specific quant trigger.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 49.25057400660352,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "volume_ratio": 2.0128522490415457,
+  "volume_flag_above_2x": true,
+  "momentum_trigger_flagged": false,
+  "momentum_trigger_pct_1h_48h": 0.18883732753679583,
+  "order_book_imbalance_top10": 0.21382315560128298,
+  "news_context": "BTC/XRP/SOL all reported dropping this morning as the CLARITY Act vote nears; oil rebounded to ~$103/barrel adding inflation concern ahead of the expected FOMC rate hike. Broad macro risk-off, no BTC-specific quant trigger."
+}
+```
+
+---
+### 2026-09-15T07:13:10.321Z — ETH/USD — NO TRADE
+
+**Reasoning:** No new trade - existing open position held, stops checked clean this cycle (unlike XRP, did not breach). RSI 48.6 neutral, no fresh crossover, volume 1.60x not flagged, momentum not flagged (-1.28% vs 6%). Price down to 2480.72, order book turned sharply ask-heavy (-0.55) - getting closer to the 2470 stop but not there yet. Broad macro risk-off morning per news.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 48.55807886694187,
+  "sma_crossover_4h_state": "fast_above_slow",
+  "sma_crossover_4h_crossed_this_candle": false,
+  "volume_ratio": 1.5995483022141166,
+  "momentum_trigger_flagged": false,
+  "momentum_trigger_pct_1h_48h": -1.2823364901798846,
+  "order_book_imbalance_top10": -0.5475382734333294,
+  "news_context": "Broad macro risk-off ahead of CLARITY Act vote and FOMC decision; oil rebound adding inflation pressure. ETH ETF inflow streak still intact (12 days). No fresh trigger; already holding, price drifting toward but not at the 2470 stop."
+}
+```
+
+---
+### 2026-09-15T07:13:13.820Z — SOL/USD — NO TRADE
+
+**Reasoning:** No signal triggers. RSI 49.8 neutral. No fresh crossover (fast_below_slow). Volume ratio 1.36x not flagged. Momentum not flagged (0.19% vs 6%). Order book bid-heavy (+0.37). News: consolidating near $100 in a converging-trendline triangle pattern; SOL-focused ETFs still seeing modest inflows ($11M Monday). Reported among the pairs pulling back this morning on broad macro pressure, but no quant signal fired.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 49.84945800306477,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "volume_ratio": 1.3615432262690392,
+  "momentum_trigger_flagged": false,
+  "momentum_trigger_pct_1h_48h": 0.18871672626142005,
+  "order_book_imbalance_top10": 0.37144553394774943,
+  "news_context": "Consolidating near $100 in a triangle pattern; SOL ETFs still seeing modest inflows. Reported among BTC/XRP/SOL pulling back this morning on broad macro pressure. No quant trigger fired."
+}
+```
+
+---
+### 2026-09-15T07:13:16.681Z — POL/USD — NO TRADE
+
+**Reasoning:** No trigger. RSI 48.6 neutral. Crossover stale. Volume ratio 0.45x still well below average. Order book close to flat (-0.08). News unchanged and structural (8B transactions, Visa/Meta/Revolut settlement). No fresh dated catalyst.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 48.61189642448068,
+  "sma_crossover_4h_state": "fast_above_slow",
+  "sma_crossover_4h_crossed_this_candle": false,
+  "volume_ratio": 0.4516214340577544,
+  "momentum_trigger_flagged": false,
+  "momentum_trigger_pct_1h_48h": -0.3954214360041679,
+  "order_book_imbalance_top10": -0.08342465160252463,
+  "news_context": "Unchanged, structural: 8B cumulative transactions, Visa/Meta/Revolut settlement layer. No fresh dated catalyst."
+}
+```
+
+---
+### 2026-09-15T07:13:23.423Z — XRP/USD — NO TRADE
+
+**Reasoning:** The open momentum-only position was auto-closed this cycle by portfolio_check_stops: price fell through the 1.40 stop, exit at 1.39736, realized loss -$10.15 (-0.10% of portfolio). Evaluating fresh: no basis for a new entry right now. momentum_trigger is no longer flagged (48h moves eased to 3.08%/4.29%, both below the 6% threshold - the very trigger that justified the original entry is gone). RSI 57.6 neutral, no crossover, volume still flagged (2.44x) but alone that doesn't clear the bar without RSI extreme/crossover/momentum confirmation. News confirms the broader picture: BTC/XRP/SOL all reported dropping this morning as the CLARITY Act vote nears alongside a broader risk-off move (oil rebound, FOMC rate-hike expectations) - consistent with the stop being hit on macro/event-risk pressure rather than a reversal of the CLARITY Act thesis itself, but there's no fresh quantitative signal to justify re-entering now.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 57.552713028359655,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "volume_ratio": 2.4448819183378383,
+  "volume_flag_above_2x": true,
+  "momentum_trigger_flagged": false,
+  "momentum_trigger_pct_1h_48h": 3.0788612854743165,
+  "momentum_trigger_pct_4h_48h": 4.27828367665693,
+  "order_book_imbalance_top10": 0.13353394031462296,
+  "closed_position": "Stop-loss auto-triggered this cycle: opened 2026-09-14T19:27:21Z at 1.4604, closed 2026-09-15T07:12:32Z at 1.39736 (exit fee 0.76), pnl_usd -10.15, momentum_only=true",
+  "news_context": "BTC/XRP/SOL all reported dropping this morning ahead of the CLARITY Act cloture vote, compounded by an oil-price rebound (~$103/barrel) raising inflation concern before the expected FOMC hike. Broad macro/event-risk pullback, not a specific reversal in the CLARITY Act thesis. No fresh quant trigger to justify a new entry right now."
+}
+```
+
+---
