@@ -20695,3 +20695,98 @@ this is a schema backfill, not a trade action.
 ```
 
 ---
+### 2026-09-15T20:12:20.897Z — BTC/USD — NO TRADE
+
+**Reasoning:** Volume still flagged (2.01x) but RSI dropped further to 36.5 (approaching oversold, not there) and no crossover. Momentum not flagged (-1.56% vs 6%). News confirms BTC now down 4.2% to ~$75,850 following the confirmed CLARITY Act cloture failure. Broad risk-off, no BTC-specific quant trigger.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 36.456446777795236,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "volume_ratio": 2.0128522490415457,
+  "volume_flag_above_2x": true,
+  "momentum_trigger_flagged": false,
+  "momentum_trigger_pct_1h_48h": -1.5601818616893957,
+  "order_book_imbalance_top10": 0.3354184042257437,
+  "news_context": "BTC down 4.2% to ~$75,850 following the confirmed CLARITY Act cloture failure. Some commentators note BTC already has regulatory clarity via CFTC/IRS/SEC/FASB treatment independent of the bill. No BTC-specific quant trigger."
+}
+```
+
+---
+### 2026-09-15T20:12:24.600Z — ETH/USD — NO TRADE
+
+**Reasoning:** No position open (stopped out earlier). No trigger for a new entry. RSI 34.6 soft (approaching oversold, not there), no crossover, volume 1.60x not flagged, momentum not flagged (-3.87% vs 6%). Price down to 2407.07. FOMC decision tomorrow (92.5% hike odds) adds further pressure. No fresh quant signal.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 34.59768930670707,
+  "sma_crossover_4h_state": "fast_above_slow",
+  "sma_crossover_4h_crossed_this_candle": false,
+  "volume_ratio": 1.5995483022141166,
+  "momentum_trigger_flagged": false,
+  "momentum_trigger_pct_1h_48h": -3.870284558671327,
+  "order_book_imbalance_top10": -0.1823049833566501,
+  "news_context": "CLARITY Act failure plus FOMC decision tomorrow (92.5% hike odds) compounding downward pressure. No fresh quant trigger."
+}
+```
+
+---
+### 2026-09-15T20:12:27.040Z — SOL/USD — NO TRADE
+
+**Reasoning:** No signal triggers. RSI 35.7 softening but not oversold. No fresh crossover (fast_below_slow). Volume ratio 1.36x not flagged. Momentum not flagged (-3.59% vs 6%). Broke further below the $99.74-100 support to 97.30. Broader crypto market down ~2.27% in 24h per one source. No fresh trigger.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 35.73512332314175,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "volume_ratio": 1.3615432262690392,
+  "momentum_trigger_flagged": false,
+  "momentum_trigger_pct_1h_48h": -3.58832807570978,
+  "order_book_imbalance_top10": -0.04368429856544825,
+  "news_context": "Broader crypto market down ~2.27% in 24h; Fear & Greed Index at 69 (Greed) despite the pullback. On-chain DEX activity (Raydium fees) still robust. No quant trigger fired."
+}
+```
+
+---
+### 2026-09-15T20:12:30.487Z — POL/USD — NO TRADE
+
+**Reasoning:** No trigger. RSI 42.6 softened, drifting toward neutral-low. Crossover stale. Volume ratio 0.45x still well below average. Order book near flat (-0.004). Price down to 0.09393 on broad market weakness, near historical lows per news, but no POL-specific catalyst and no quant trigger fired.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 42.58275896512613,
+  "sma_crossover_4h_state": "fast_above_slow",
+  "sma_crossover_4h_crossed_this_candle": false,
+  "volume_ratio": 0.4516214340577544,
+  "momentum_trigger_flagged": false,
+  "momentum_trigger_pct_1h_48h": -3.037455105182135,
+  "order_book_imbalance_top10": -0.004241570073952407,
+  "news_context": "Trading near historical lows relative to ATH ($1.29); broad market weakness, no POL-specific catalyst. No quant trigger fired."
+}
+```
+
+---
+### 2026-09-15T20:12:35.692Z — XRP/USD — NO TRADE
+
+**Reasoning:** No position open (stopped out earlier this morning). Price continuing to fall to 1.28666, now tracking the "aggressive selloff" scenario ($1.20-1.25 initial reaction, worse if markets read the failure as delaying legislation past the midterms) that analysts flagged pre-vote for a CLARITY Act failure. Momentum still not flagged this cycle (1h/48h -4.84%, close to but still under the -6% threshold) - RSI 34.4 approaching oversold but not there, no crossover. Volume flagged (2.44x) alone insufficient without RSI extreme/crossover confirmation, and a volume-driven momentum entry on a confirmed negative catalyst would need to be a short thesis, which this account cannot take (long-only). No basis for a new long entry into confirmed bad news for the pair.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 34.422719787985244,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "volume_ratio": 2.4448819183378383,
+  "volume_flag_above_2x": true,
+  "momentum_trigger_flagged": false,
+  "momentum_trigger_pct_1h_48h": -4.838484436441133,
+  "momentum_trigger_pct_4h_48h": -3.4252297410192116,
+  "order_book_imbalance_top10": -0.05271662421965547,
+  "news_context": "XRP tracking the pre-vote 'aggressive selloff' scenario analysts flagged for a CLARITY Act failure ($1.20-1.25 initial reaction zone); some analysts warn of prolonged weakness toward $0.29 if regulatory uncertainty persists. No basis for a new long entry into confirmed negative news; account is long-only so a downside move cannot be traded regardless."
+}
+```
+
+---
