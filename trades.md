@@ -19745,3 +19745,98 @@ this is a schema backfill, not a trade action.
 ```
 
 ---
+### 2026-09-15T10:12:26.478Z — BTC/USD — NO TRADE
+
+**Reasoning:** Volume still flagged (2.01x) but RSI remains soft (42.5) and no crossover. Momentum not flagged (0.40% vs 6%). Order book turned ask-heavy (-0.60). News unchanged: CLARITY Act uncertainty and Revolut ransom-hack headline weighing on sentiment ahead of today's vote.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 42.452498330182266,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "volume_ratio": 2.0128522490415457,
+  "volume_flag_above_2x": true,
+  "momentum_trigger_flagged": false,
+  "momentum_trigger_pct_1h_48h": 0.3953084841289515,
+  "order_book_imbalance_top10": -0.5953351252926385,
+  "news_context": "Unchanged: CLARITY Act uncertainty and a 10,000 BTC ransom demand tied to a Revolut data breach weighing on sentiment. No BTC-specific quant trigger."
+}
+```
+
+---
+### 2026-09-15T10:12:29.888Z — ETH/USD — NO TRADE
+
+**Reasoning:** No position open (stopped out earlier). No trigger for a new entry. RSI 43.7 soft, no crossover, volume 1.60x not flagged, momentum not flagged (0.09% vs 6%). Daily chart still shows bullish EMA alignment despite negative MACD histogram - mixed picture, no fresh quant signal.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 43.732904761869285,
+  "sma_crossover_4h_state": "fast_above_slow",
+  "sma_crossover_4h_crossed_this_candle": false,
+  "volume_ratio": 1.5995483022141166,
+  "momentum_trigger_flagged": false,
+  "momentum_trigger_pct_1h_48h": 0.08740515933231581,
+  "order_book_imbalance_top10": -0.2996872382970725,
+  "news_context": "Daily EMA stack bullish (20>50>200) but MACD histogram negative (-17.58); consolidating $2,350-2,550. CLARITY Act vote and FOMC decision remain the dominant events. No quant trigger."
+}
+```
+
+---
+### 2026-09-15T10:12:32.868Z — SOL/USD — NO TRADE
+
+**Reasoning:** No signal triggers. RSI 44.9 soft. No fresh crossover (fast_below_slow). Volume ratio 1.36x not flagged. Momentum not flagged (1.29% vs 6%). Order book close to flat (+0.01). News: structurally bullish daily trend against short-term exhaustion on lower timeframes; key level $99.74 to hold. No fresh dated catalyst.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 44.94106462028376,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "volume_ratio": 1.3615432262690392,
+  "momentum_trigger_flagged": false,
+  "momentum_trigger_pct_1h_48h": 1.2861736334405156,
+  "order_book_imbalance_top10": 0.013172031890748545,
+  "news_context": "Structurally bullish daily trend vs. short-term exhaustion; hold $99.74 for upside toward $105/$109. SOL ETFs continuing modest inflows. No fresh catalyst."
+}
+```
+
+---
+### 2026-09-15T10:12:35.880Z — POL/USD — NO TRADE
+
+**Reasoning:** No trigger. RSI 47.9 neutral. Crossover stale. Volume ratio 0.45x still well below average. Order book bid-heavy (+0.18). News: LeBron James/Polymarket partnership tease (Sept 5, stale) and CEO social-media commentary - not price catalysts. No fresh dated catalyst.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 47.888712502304536,
+  "sma_crossover_4h_state": "fast_above_slow",
+  "sma_crossover_4h_crossed_this_candle": false,
+  "volume_ratio": 0.4516214340577544,
+  "momentum_trigger_flagged": false,
+  "momentum_trigger_pct_1h_48h": 1.6298633017875874,
+  "order_book_imbalance_top10": 0.17855640483447532,
+  "news_context": "LeBron James/Polymarket partnership tease (Sept 5, stale); CEO social commentary. No fresh dated catalyst."
+}
+```
+
+---
+### 2026-09-15T10:12:40.610Z — XRP/USD — NO TRADE
+
+**Reasoning:** No position open (stopped out earlier this morning). Price recovering (now 1.4023, back above the prior 1.40 stop level) but momentum_trigger still not flagged (48h moves 4.62%/3.73%, below 6%). RSI 51.9 neutral, no crossover, volume flagged (2.44x) alone insufficient. News: Senate Republicans released a final 635-page draft (Sept 13) incorporating 126 Democrat-requested changes strengthening ethics provisions and state AG enforcement roles; Galaxy Digital raised 2026 odds to 25%. Vote remains today 2:15pm ET, still needs 7+ Democratic votes. No fresh quant trigger to re-enter yet, though the setup bears watching given the price recovery.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 51.89794682837062,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "volume_ratio": 2.4448819183378383,
+  "volume_flag_above_2x": true,
+  "momentum_trigger_flagged": false,
+  "momentum_trigger_pct_1h_48h": 4.6233758479920555,
+  "momentum_trigger_pct_4h_48h": 3.72598659717052,
+  "order_book_imbalance_top10": 0.029430800154687995,
+  "news_context": "Senate Republicans released final 635-page CLARITY Act draft (Sept 13) with 126 Democrat-requested changes, strengthened ethics provisions and state AG enforcement; Galaxy Digital raised 2026 odds to 25%. Vote today 2:15pm ET, needs 7+ Democratic votes. Price recovering but no fresh quant trigger yet."
+}
+```
+
+---
