@@ -20895,3 +20895,108 @@ this is a schema backfill, not a trade action.
 ```
 
 ---
+### 2026-09-15T22:11:53.960Z — BTC/USD — NO TRADE
+
+**Reasoning:** Volume flagged again at 2.01x but RSI stays neutral (36.5) and SMA remains fast_below_slow with no crossover - same conflicting-signals no-trade pattern as prior cycles. No momentum_trigger. Price continuing the post-CLARITY-Act-failure pullback, now ~$75,387. News search again returned stale pre-vote/pre-FOMC framing (references to BTC near $79K, "vote scheduled for today") inconsistent with the live price and the vote's already-confirmed failure - treated as unreliable, live compute_signals data trusted instead. FOMC decision due tomorrow remains the key upcoming catalyst.
+
+**Signals considered:**
+```json
+{
+  "price_action_1h_48h_pct": -1.65,
+  "price_action_4h_48h_pct": -0.9,
+  "rsi_14_4h": 36.46,
+  "volume_ratio": 2.01,
+  "volume_flag_above_2x": true,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "crossed_this_candle": false,
+  "momentum_trigger_flagged": false,
+  "order_book_imbalance_top10": -0.27,
+  "news_context": "Search results stale/pre-vote (BTC ~$79K framing, CLARITY Act vote described as still upcoming) - inconsistent with live price $75,387 and the vote's already-confirmed failure. No reliable fresh catalyst; FOMC decision due Sept 16 is the next real event."
+}
+```
+
+---
+### 2026-09-15T22:11:57.520Z — ETH/USD — NO TRADE
+
+**Reasoning:** No signals flagged: volume ratio 1.60x, RSI 34.6, SMA fast_above_slow with no crossover, no momentum_trigger. Price continuing decline (-3.4% 1h/48h, -2.5% 4h/48h) to ~$2,388. News search again returned stale pre-vote figures (opening price ~$2,515, framing the CLARITY vote as upcoming) inconsistent with live price - treated as unreliable. No fresh quant trigger, no trade.
+
+**Signals considered:**
+```json
+{
+  "price_action_1h_48h_pct": -3.44,
+  "price_action_4h_48h_pct": -2.47,
+  "rsi_14_4h": 34.6,
+  "volume_ratio": 1.6,
+  "volume_flag_above_2x": false,
+  "sma_crossover_4h_state": "fast_above_slow",
+  "crossed_this_candle": false,
+  "momentum_trigger_flagged": false,
+  "order_book_imbalance_top10": 0.063,
+  "news_context": "Search results stale (pre-vote framing, ETF inflow/BitMine items already covered in prior cycles) - no fresh Ethereum-specific catalyst identified, live price $2,387.99 well below the search snippet's $2,515 open."
+}
+```
+
+---
+### 2026-09-15T22:12:00.856Z — SOL/USD — NO TRADE
+
+**Reasoning:** No signals flagged: volume ratio 1.36x, RSI 35.7, SMA fast_below_slow with no crossover, no momentum_trigger. Price down modestly (-3.2% 1h/48h, -1.5% 4h/48h) to ~$96.77. News search surfaced only dated network-upgrade/ETF-flow items and a stale price figure ($100.77) inconsistent with the live price. No fresh quant trigger, no trade.
+
+**Signals considered:**
+```json
+{
+  "price_action_1h_48h_pct": -3.2,
+  "price_action_4h_48h_pct": -1.46,
+  "rsi_14_4h": 35.74,
+  "volume_ratio": 1.36,
+  "volume_flag_above_2x": false,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "crossed_this_candle": false,
+  "momentum_trigger_flagged": false,
+  "order_book_imbalance_top10": -0.072,
+  "news_context": "No fresh Solana-specific catalyst - same dated items as last cycle (Transaction V1, SEC rule change, record app revenue) and a stale price ($100.77) that doesn't match live $96.77."
+}
+```
+
+---
+### 2026-09-15T22:12:04.346Z — POL/USD — NO TRADE
+
+**Reasoning:** No signals flagged: volume well below average (0.45x), RSI 42.6 (neutral), SMA fast_above_slow with no crossover, no momentum_trigger. Price down modestly (-3.4% 1h/48h, -1.5% 4h/48h) to ~$0.0925. News search surfaced only dated items (8B transactions milestone, token migration near-completion) and a stale bullish forecast that predates the CLARITY Act failure. No fresh quant trigger, no trade.
+
+**Signals considered:**
+```json
+{
+  "price_action_1h_48h_pct": -3.43,
+  "price_action_4h_48h_pct": -1.49,
+  "rsi_14_4h": 42.58,
+  "volume_ratio": 0.45,
+  "volume_flag_above_2x": false,
+  "sma_crossover_4h_state": "fast_above_slow",
+  "crossed_this_candle": false,
+  "momentum_trigger_flagged": false,
+  "order_book_imbalance_top10": 0.327,
+  "news_context": "No fresh Polygon-specific catalyst - same dated items as prior cycle (8B transaction milestone, Aug 27 hard fork) plus a stale bullish price forecast that doesn't reflect current post-vote-failure weakness."
+}
+```
+
+---
+### 2026-09-15T22:12:08.085Z — XRP/USD — NO TRADE
+
+**Reasoning:** Volume flagged again at 2.44x but RSI stays neutral-weak (34.4) and SMA remains fast_below_slow with no crossover, no momentum_trigger (moves -4.4%/-3.4%, in the wrong direction for a long anyway) - same unconfirmed-volume conflict pattern as BTC and as last cycle. Price continuing decline toward the pre-vote-predicted downside zone, now ~$1.281. News search again returned stale pre-vote framing (CEO urging a "yes" vote, price ~$1.40) inconsistent with the vote's already-confirmed failure and live price. Long-only account has no way to act on this downside move regardless. No fresh quant trigger, no trade.
+
+**Signals considered:**
+```json
+{
+  "price_action_1h_48h_pct": -4.42,
+  "price_action_4h_48h_pct": -3.43,
+  "rsi_14_4h": 34.42,
+  "volume_ratio": 2.44,
+  "volume_flag_above_2x": true,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "crossed_this_candle": false,
+  "momentum_trigger_flagged": false,
+  "order_book_imbalance_top10": -0.063,
+  "news_context": "Search results stale/pre-vote again (CEO urging yes vote, price ~$1.40) - doesn't reflect the CLARITY Act's already-confirmed failure or live price $1.281. Long-only account can't act on the downside move regardless."
+}
+```
+
+---
