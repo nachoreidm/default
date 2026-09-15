@@ -198,6 +198,34 @@ lost between sessions:
   rest ride) and pure signal-reversal exits (closing when the entry
   crossover flips, independent of price) were also discussed as
   standard-practice alternatives but not chosen as the default plan.
+- **Entry-timing review: consider requiring pullback/confirmation before
+  entry, and consider ATR-based stops.** Loss-pattern review 2026-09-15,
+  after the first 3 closed trades (POL, ETH, XRP) all hit stop-loss for a
+  combined -$30.44 (-0.3% of portfolio) - risk management itself worked
+  fine (each capped at medium confidence, sized 2-3%, no blowups, nowhere
+  near the 5% daily halt), but n=3 is too small to conclude anything
+  statistically; this is a flagged pattern to keep watching, not a
+  diagnosed bug. What the three had in common: each entered right at an
+  already-extended/euphoric moment rather than on a pullback - ETH's own
+  confidence_reason explicitly named "Extreme Greed... contrarian pullback
+  risk" as the reason it was capped at medium, and still got traded; XRP's
+  momentum-only entry came after price had already run +8.4% in 48h, right
+  near the 48h high (chasing a move already made, the exact risk flagged
+  when the momentum trigger was designed - its first live test was also
+  its first loss, n=1 so far); POL's crossover fired on below-average
+  volume (0.27x, unconfirmed) plus a mixed news item. None of the three
+  got anywhere near +1R before reversing, so this reads as an entry-timing
+  issue, not the (separately planned, above) exit-logic gap. Two candidate
+  changes for the live version, neither implemented: (1) require a minor
+  pullback/confirmation candle before a momentum-only entry specifically,
+  rather than buying the extension immediately; (2) size stops off ATR /
+  realized volatility rather than purely "just below the nearest SMA or
+  support level" - 2.2-2.4% stops on ETH/POL are tight relative to normal
+  crypto 4h noise and may be getting shaken out before the thesis plays
+  out. Don't act on either until there's a real sample (20-30+ trades) -
+  track win rate/expectancy split by signal type (crossover vs.
+  momentum-only vs. RSI) as trades accumulate, per the instructions doc's
+  existing Review loop section, and revisit this note then.
 
 ## Network access
 
