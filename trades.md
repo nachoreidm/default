@@ -18960,3 +18960,99 @@ this is a schema backfill, not a trade action.
 ```
 
 ---
+### 2026-09-15T02:11:52.041Z — BTC/USD — NO TRADE
+
+**Reasoning:** Same conflicting-signal picture persists - volume still flagged (2.01x) but RSI neutral (54.9) and no crossover. No fresh trigger, momentum not flagged (0.82% vs 6%). News: still range-bound near $78K, needs to hold $78K/clear $78.3K for upside; FOMC decision (57% hike odds) and CLARITY Act cloture vote both land today.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 54.92581698773755,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "volume_ratio": 2.0128522490415457,
+  "volume_flag_above_2x": true,
+  "momentum_trigger_flagged": false,
+  "momentum_trigger_pct_1h_48h": 0.8173075056396161,
+  "order_book_imbalance_top10": 0.33215776171163225,
+  "news_context": "Range-bound near $78K; FOMC decision (~57% hike odds) and CLARITY Act cloture vote both land later today - two major macro/regulatory events on the same day."
+}
+```
+
+---
+### 2026-09-15T02:11:56.051Z — ETH/USD — NO TRADE
+
+**Reasoning:** No new trade - existing open position held, stops checked clean. RSI 52.4 neutral, no fresh crossover, volume 1.60x not flagged, momentum not flagged (-0.26% vs 6%). News: must hold $2,438 weekly Fib support for the bullish thesis; large leveraged long position and continued ETF inflows still constructive; FOMC and CLARITY Act vote both today add event risk. No fresh trigger; already holding.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 52.397441434075354,
+  "sma_crossover_4h_state": "fast_above_slow",
+  "sma_crossover_4h_crossed_this_candle": false,
+  "volume_ratio": 1.5995483022141166,
+  "momentum_trigger_flagged": false,
+  "momentum_trigger_pct_1h_48h": -0.2550089629899835,
+  "order_book_imbalance_top10": 0.17590408259554283,
+  "news_context": "Must hold $2,438 weekly Fib support; ETH ETFs ran 12 straight days of inflows ($1.62B); large leveraged long by a notable trader. FOMC and CLARITY Act vote both land today - event risk. No new trigger."
+}
+```
+
+---
+### 2026-09-15T02:11:59.478Z — SOL/USD — NO TRADE
+
+**Reasoning:** No signal triggers. RSI 55.3 neutral, unchanged. No fresh crossover (fast_below_slow). Volume ratio 1.36x not flagged. Momentum not flagged (0.35% vs 6%). Order book close to flat (-0.03). News unchanged from last cycle - hold $99.74 for upside, risk of slide to $92.30 EMA if lost; mixed technical calls (buy signal vs breakdown risk).
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 55.30384594352495,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "volume_ratio": 1.3615432262690392,
+  "momentum_trigger_flagged": false,
+  "momentum_trigger_pct_1h_48h": 0.3533568904593634,
+  "order_book_imbalance_top10": -0.032779635896094526,
+  "news_context": "Unchanged: hold $99.74 for upside toward $105/$109, risk of slide to $92.30 50-day EMA if lost. Mixed technical signals (bullish RSI buy call vs breakdown-risk warning). No fresh catalyst."
+}
+```
+
+---
+### 2026-09-15T02:12:02.854Z — POL/USD — NO TRADE
+
+**Reasoning:** No trigger. RSI 50.9 neutral, unchanged. Crossover stale. Volume ratio 0.45x still well below average. Order book bid-heavy (+0.17). News: LeBron James teased a Polymarket partnership (Sept 5, not fresh); price holding above the 30-day MA ($0.0873) with a path to $0.10 noted - structural/technical, not a dated catalyst.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 50.933106484344,
+  "sma_crossover_4h_state": "fast_above_slow",
+  "sma_crossover_4h_crossed_this_candle": false,
+  "volume_ratio": 0.4516214340577544,
+  "momentum_trigger_flagged": false,
+  "momentum_trigger_pct_1h_48h": 0.3832211289487408,
+  "order_book_imbalance_top10": 0.16876912299103844,
+  "news_context": "LeBron James teased a Polymarket partnership (Sept 5, stale by now). Price holding above 30-day MA ($0.0873), path noted to $0.10. Structural/technical, no fresh dated catalyst."
+}
+```
+
+---
+### 2026-09-15T02:12:08.847Z — XRP/USD — NO TRADE
+
+**Reasoning:** Holding the existing open momentum-only position, not a new entry. Price recovered slightly to 1.42863 (buffer to the 1.40 stop back up to ~2%), stops checked clean. momentum_trigger not flagged (48h moves 3.95%/4.39%, below 6%), volume still flagged (2.44x) without RSI extreme or crossover - not a fresh actionable setup either way. News confirms the cloture vote is today at 2:15pm ET/18:15 UTC - a procedural 60-vote threshold requiring at least 7 Democratic crossovers (Republicans hold 53 seats); even if cloture passes, the bill still needs full floor passage, House reconciliation, and the president's signature before becoming law, so today's vote alone won't fully resolve the position's thesis either way. Continuing to hold per the stop rule; no breach.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 59.64808180958915,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "volume_ratio": 2.4448819183378383,
+  "volume_flag_above_2x": true,
+  "momentum_trigger_flagged": false,
+  "momentum_trigger_pct_1h_48h": 3.9534186690839372,
+  "momentum_trigger_pct_4h_48h": 4.391614341881335,
+  "order_book_imbalance_top10": -0.33438117808727974,
+  "existing_position": "LONG opened 2026-09-14T19:27:21Z at 1.4604, stop 1.40, take-profit 1.5812, momentum_only=true, medium confidence - held, not a new entry, price recovered slightly to 1.42863, ~2% above stop",
+  "news_context": "Cloture vote confirmed today 2:15pm ET/18:15 UTC, needs 60 votes (Republicans hold 53 seats, so 7+ Democrats needed). Cloture passing would not itself pass the bill - full floor vote, House reconciliation, and presidential signature still required. Vote outcome will not fully resolve the thesis either way."
+}
+```
+
+---
