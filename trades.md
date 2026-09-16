@@ -21210,3 +21210,108 @@ this is a schema backfill, not a trade action.
 ```
 
 ---
+### 2026-09-16T01:11:48.907Z — BTC/USD — NO TRADE
+
+**Reasoning:** RSI 32.95 (approaching but not yet oversold), volume ratio 1.74x (below 2x threshold), SMA remains fast_below_slow with no crossover, no momentum_trigger. Essentially unchanged from last cycle. FOMC rate decision (~85% hike odds per search) is later today but hasn't happened yet - anticipatory only, no confirmed signal to act on.
+
+**Signals considered:**
+```json
+{
+  "price_action_1h_48h_pct": -1.76,
+  "price_action_4h_48h_pct": -2.55,
+  "rsi_14_4h": 32.95,
+  "volume_ratio": 1.74,
+  "volume_flag_above_2x": false,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "crossed_this_candle": false,
+  "momentum_trigger_flagged": false,
+  "order_book_imbalance_top10": 0.96,
+  "news_context": "FOMC decision due later today (~14:30-19:00 ET/UTC window per sources) with ~85% hike odds - real upcoming catalyst but unresolved, not yet actionable."
+}
+```
+
+---
+### 2026-09-16T01:11:52.066Z — ETH/USD — NO TRADE
+
+**Reasoning:** Volume flagged at 2.31x but RSI weak-not-oversold (32.16), SMA fast_above_slow with no crossover, no momentum_trigger. Essentially unchanged from last cycle. Ethereum Foundation Protocol AMA today is a developer-community event, not a price catalyst. No fresh quant trigger, no trade.
+
+**Signals considered:**
+```json
+{
+  "price_action_1h_48h_pct": -3.8,
+  "price_action_4h_48h_pct": -4.59,
+  "rsi_14_4h": 32.16,
+  "volume_ratio": 2.31,
+  "volume_flag_above_2x": true,
+  "sma_crossover_4h_state": "fast_above_slow",
+  "crossed_this_candle": false,
+  "momentum_trigger_flagged": false,
+  "order_book_imbalance_top10": 0.31,
+  "news_context": "Ethereum Foundation Protocol Reddit AMA today (Glamsterdam/zkEVM) - developer event, not a trading catalyst. ETF inflows continued. FOMC decision later today is the dominant driver but unresolved."
+}
+```
+
+---
+### 2026-09-16T01:11:54.826Z — SOL/USD — NO TRADE
+
+**Reasoning:** No signals flagged: volume ratio 1.47x, RSI 32.87, SMA fast_below_slow with no crossover, no momentum_trigger. Essentially unchanged from last cycle. No fresh Solana-specific catalyst in search results (same dated items). No trade.
+
+**Signals considered:**
+```json
+{
+  "price_action_1h_48h_pct": -3.17,
+  "price_action_4h_48h_pct": -4.09,
+  "rsi_14_4h": 32.87,
+  "volume_ratio": 1.47,
+  "volume_flag_above_2x": false,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "crossed_this_candle": false,
+  "momentum_trigger_flagged": false,
+  "order_book_imbalance_top10": -0.026,
+  "news_context": "No fresh Solana-specific catalyst - same dated items as prior cycles (Transaction V1, SEC Core ETF Asset designation, Alpenglow upgrade timeline for October)."
+}
+```
+
+---
+### 2026-09-16T01:11:57.364Z — POL/USD — NO TRADE
+
+**Reasoning:** No signals flagged: volume roughly average (1.06x), RSI 38.0, SMA fast_above_slow with no crossover, no momentum_trigger. Essentially unchanged from last cycle. No fresh Polygon-specific catalyst in search results. No trade.
+
+**Signals considered:**
+```json
+{
+  "price_action_1h_48h_pct": -3.62,
+  "price_action_4h_48h_pct": -3.26,
+  "rsi_14_4h": 38,
+  "volume_ratio": 1.06,
+  "volume_flag_above_2x": false,
+  "sma_crossover_4h_state": "fast_above_slow",
+  "crossed_this_candle": false,
+  "momentum_trigger_flagged": false,
+  "order_book_imbalance_top10": 0.139,
+  "news_context": "No fresh Polygon-specific catalyst - same dated items as prior cycles (8B transaction milestone, security hard fork, POL migration ~99% complete)."
+}
+```
+
+---
+### 2026-09-16T01:12:01.223Z — XRP/USD — NO TRADE
+
+**Reasoning:** Volume flagged sharply at 2.83x, RSI 32.96 (approaching oversold), -6.5% 4h/48h move, but SMA stays fast_below_slow with no crossover this candle and momentum_trigger did NOT flag (tool's flag is authoritative, not overridden). News search again returned the same recycled stale pre-vote framing ("cloture vote today at 2:15 PM ET") contradicting the vote's already-confirmed Sept 15 failure from an earlier cycle's live results - treated as unreliable. No fresh quant trigger, no trade.
+
+**Signals considered:**
+```json
+{
+  "price_action_1h_48h_pct": -4.8,
+  "price_action_4h_48h_pct": -6.52,
+  "rsi_14_4h": 32.96,
+  "volume_ratio": 2.83,
+  "volume_flag_above_2x": true,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "crossed_this_candle": false,
+  "momentum_trigger_flagged": false,
+  "order_book_imbalance_top10": -0.036,
+  "news_context": "Search again returned stale/recycled pre-vote framing (cloture vote 'today at 2:15 PM ET', CEO urging yes vote) - contradicts the vote's already-confirmed Sept 15 failure. Treated as unreliable. Long-only account can't act on this downside move regardless."
+}
+```
+
+---
