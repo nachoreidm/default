@@ -22687,3 +22687,109 @@ this is a schema backfill, not a trade action.
 ```
 
 ---
+### 2026-09-16T15:12:09.823Z — BTC/USD — NO TRADE
+
+**Reasoning:** RSI 41.01, volume ratio 1.74x (below threshold), SMA fast_below_slow with no crossover, no momentum_trigger. FOMC statement 2pm ET / press conference 2:30pm ET remains the dominant unresolved catalyst (92.5% hike odds). No confirmed signal, no trade.
+
+**Signals considered:**
+```json
+{
+  "price_action_1h_48h_pct": -3.73,
+  "price_action_4h_48h_pct": -3.02,
+  "rsi_14_4h": 41.01,
+  "volume_ratio": 1.74,
+  "volume_flag_above_2x": false,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "crossed_this_candle": false,
+  "momentum_trigger_flagged": false,
+  "order_book_imbalance_top10": -0.942,
+  "news_context": "FOMC statement 2pm ET, press conference 2:30pm ET - ~3 hours out. 92.5% hike odds. No confirmed trading signal yet."
+}
+```
+
+---
+### 2026-09-16T15:12:13.605Z — ETH/USD — NO TRADE
+
+**Reasoning:** SMA stays fast_below_slow, volume flagged at 2.31x, RSI 39.56. Bearish/weak signal, no long entry. News flags ETH testing its 50-week EMA with an analyst warning of an 8-10% correction risk on a weekly close below it - a real technical risk factor, not a signal in the authorized set, and doesn't change the no-trade call. No trade.
+
+**Signals considered:**
+```json
+{
+  "price_action_1h_48h_pct": -4.77,
+  "price_action_4h_48h_pct": -3.48,
+  "rsi_14_4h": 39.56,
+  "volume_ratio": 2.31,
+  "volume_flag_above_2x": true,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "crossed_this_candle": false,
+  "momentum_trigger_flagged": false,
+  "order_book_imbalance_top10": 0.99,
+  "news_context": "ETH testing 50-week EMA - analyst flags 8-10% correction risk on weekly close below it, resistance zone $2465-2545. Not an authorized signal; FOMC remains the dominant near-term driver."
+}
+```
+
+---
+### 2026-09-16T15:12:16.410Z — SOL/USD — NO TRADE
+
+**Reasoning:** No signals flagged: volume ratio 1.47x, RSI 40.09, SMA fast_below_slow with no crossover, no momentum_trigger. Alpenglow mainnet rollout still targeted for Sept 18 - forward-looking, not yet live. No trade.
+
+**Signals considered:**
+```json
+{
+  "price_action_1h_48h_pct": -4.9,
+  "price_action_4h_48h_pct": -3.93,
+  "rsi_14_4h": 40.09,
+  "volume_ratio": 1.47,
+  "volume_flag_above_2x": false,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "crossed_this_candle": false,
+  "momentum_trigger_flagged": false,
+  "order_book_imbalance_top10": 0.137,
+  "news_context": "Alpenglow upgrade still targeting mainnet rollout by Sept 18 - forward-looking, not yet live. FOMC decision remains the dominant near-term driver."
+}
+```
+
+---
+### 2026-09-16T15:12:19.509Z — POL/USD — NO TRADE
+
+**Reasoning:** SMA remains fast_below_slow (bearish crossover persists), RSI 47.95, volume roughly average (1.06x), no momentum_trigger despite a -7.4% 1h/48h move (exceeds threshold in magnitude but trigger stayed unflagged, consistent with the upside-only hypothesis). Bearish signal, no long entry. No fresh Polygon-specific catalyst. No trade.
+
+**Signals considered:**
+```json
+{
+  "price_action_1h_48h_pct": -7.36,
+  "price_action_4h_48h_pct": -3.56,
+  "rsi_14_4h": 47.95,
+  "volume_ratio": 1.06,
+  "volume_flag_above_2x": false,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "crossed_this_candle": true,
+  "crossover_direction": "bearish",
+  "momentum_trigger_flagged": false,
+  "order_book_imbalance_top10": -0.407,
+  "news_context": "No fresh Polygon-specific catalyst - same dated items as prior cycles. Bearish crossover persists."
+}
+```
+
+---
+### 2026-09-16T15:12:22.795Z — XRP/USD — NO TRADE
+
+**Reasoning:** Volume flagged sharply at 2.83x, RSI 37.30, decline deepened further to -9.8%/-7.7% (1h/4h, 48h windows), momentum_trigger.flagged remains false - trusted as authoritative. SMA stays fast_below_slow with no crossover. News search again returned the same recycled stale pre-vote framing, contradicting the already-confirmed vote failure. No fresh quant trigger, no trade.
+
+**Signals considered:**
+```json
+{
+  "price_action_1h_48h_pct": -9.81,
+  "price_action_4h_48h_pct": -7.7,
+  "rsi_14_4h": 37.3,
+  "volume_ratio": 2.83,
+  "volume_flag_above_2x": true,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "crossed_this_candle": false,
+  "momentum_trigger_flagged": false,
+  "order_book_imbalance_top10": 0.285,
+  "news_context": "Search again returned stale/recycled pre-vote framing (cloture vote scheduled today, bullish forecast to $1.52) - contradicts the vote's already-confirmed Sept 15 failure. Treated as unreliable. Long-only account can't act on this downside move regardless."
+}
+```
+
+---
