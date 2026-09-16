@@ -22369,3 +22369,109 @@ this is a schema backfill, not a trade action.
 ```
 
 ---
+### 2026-09-16T12:13:51.199Z — BTC/USD — NO TRADE
+
+**Reasoning:** RSI ticked up to 41.0 (still below neutral 50), volume ratio 1.74x (below threshold), SMA fast_below_slow with no crossover, no momentum_trigger. FOMC decision at 2pm ET today remains the dominant unresolved catalyst - a hike with dovish forward guidance could actually support BTC, but this hasn't resolved yet. No confirmed signal, no trade.
+
+**Signals considered:**
+```json
+{
+  "price_action_1h_48h_pct": -1.91,
+  "price_action_4h_48h_pct": -3.02,
+  "rsi_14_4h": 41.01,
+  "volume_ratio": 1.74,
+  "volume_flag_above_2x": false,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "crossed_this_candle": false,
+  "momentum_trigger_flagged": false,
+  "order_book_imbalance_top10": 0.322,
+  "news_context": "FOMC decision at 2pm ET still unresolved. A hike with dovish guidance could support BTC toward $80K, but the decision hasn't landed. No confirmed trading signal."
+}
+```
+
+---
+### 2026-09-16T12:13:54.759Z — ETH/USD — NO TRADE
+
+**Reasoning:** SMA stays fast_below_slow, volume flagged at 2.31x, RSI 39.56 (improving but still below neutral). Bearish/weak signal, no long entry. News confirms the CLARITY Act failure drove $592M combined BTC/ETH ETF outflows on Sept 15 - a bearish catalyst already reflected in price. No trade.
+
+**Signals considered:**
+```json
+{
+  "price_action_1h_48h_pct": -3.35,
+  "price_action_4h_48h_pct": -3.48,
+  "rsi_14_4h": 39.56,
+  "volume_ratio": 2.31,
+  "volume_flag_above_2x": true,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "crossed_this_candle": false,
+  "momentum_trigger_flagged": false,
+  "order_book_imbalance_top10": -0.21,
+  "news_context": "CLARITY Act failure confirmed driving $592M combined ETF outflows Sept 15. Glamsterdam mainnet slipped to Q4 2026, Sepolia testnet fork Sept 28 - not near-term catalysts. Bearish, no long entry."
+}
+```
+
+---
+### 2026-09-16T12:13:58.538Z — SOL/USD — NO TRADE
+
+**Reasoning:** No signals flagged: volume ratio 1.47x, RSI 40.09, SMA fast_below_slow with no crossover, no momentum_trigger. Transaction V1 launch and a post-quantum security milestone are real but already-priced-in network upgrades, not fresh price catalysts - news itself notes SOL falling despite these updates, with FOMC as the bigger driver. No trade.
+
+**Signals considered:**
+```json
+{
+  "price_action_1h_48h_pct": -3.36,
+  "price_action_4h_48h_pct": -3.93,
+  "rsi_14_4h": 40.09,
+  "volume_ratio": 1.47,
+  "volume_flag_above_2x": false,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "crossed_this_candle": false,
+  "momentum_trigger_flagged": false,
+  "order_book_imbalance_top10": -0.131,
+  "news_context": "Transaction V1 + post-quantum security milestone live, but news itself notes SOL falling 3.9% despite these updates - FOMC decision is the dominant driver, not the SOL-specific news."
+}
+```
+
+---
+### 2026-09-16T12:14:01.715Z — POL/USD — NO TRADE
+
+**Reasoning:** Fresh confirmed bearish SMA crossover this candle (fast crossed below slow) - a real signal, but bearish, so it reinforces staying flat rather than justifying a long entry (account is long-only). RSI improved to 47.95 (near neutral) but that doesn't override the bearish crossover. News confirms broader 2026 struggles for POL (Layer-2 competition, weak demand, TVL outflows) - consistent with the fresh bearish signal. No trade.
+
+**Signals considered:**
+```json
+{
+  "price_action_1h_48h_pct": -2.77,
+  "price_action_4h_48h_pct": -3.56,
+  "rsi_14_4h": 47.95,
+  "volume_ratio": 1.06,
+  "volume_flag_above_2x": false,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "crossed_this_candle": true,
+  "crossover_direction": "bearish",
+  "momentum_trigger_flagged": false,
+  "order_book_imbalance_top10": 0.584,
+  "news_context": "News confirms POL's broader 2026 struggles - Layer-2 competition, weak demand, TVL outflows, slowing ecosystem growth - consistent with the fresh bearish crossover. Bearish signal, no long entry."
+}
+```
+
+---
+### 2026-09-16T12:14:04.877Z — XRP/USD — NO TRADE
+
+**Reasoning:** Volume flagged sharply at 2.83x, RSI 37.30 (improving), decline still -7.1%/-7.7% (1h/4h, 48h windows), momentum_trigger.flagged remains false - trusted as authoritative. SMA stays fast_below_slow with no crossover. News search again returned mostly recycled pre-vote framing. No fresh quant trigger, no trade.
+
+**Signals considered:**
+```json
+{
+  "price_action_1h_48h_pct": -7.12,
+  "price_action_4h_48h_pct": -7.7,
+  "rsi_14_4h": 37.3,
+  "volume_ratio": 2.83,
+  "volume_flag_above_2x": true,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "crossed_this_candle": false,
+  "momentum_trigger_flagged": false,
+  "order_book_imbalance_top10": 0.038,
+  "news_context": "Search again returned stale/recycled pre-vote framing - CLARITY Act failure already confirmed via ETH search this cycle and prior cycles. Long-only account can't act on this downside move regardless."
+}
+```
+
+---
