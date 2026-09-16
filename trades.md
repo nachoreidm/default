@@ -21949,3 +21949,108 @@ this is a schema backfill, not a trade action.
 ```
 
 ---
+### 2026-09-16T08:12:46.429Z — BTC/USD — NO TRADE
+
+**Reasoning:** RSI 34.84, volume ratio 1.74x (below threshold), SMA fast_below_slow with no crossover, no momentum_trigger. FOMC decision at 2pm ET today (93% hike odds per latest CME FedWatch) remains the dominant unresolved catalyst; traders reducing BTC exposure pre-decision. No confirmed signal, no trade.
+
+**Signals considered:**
+```json
+{
+  "price_action_1h_48h_pct": -2.57,
+  "price_action_4h_48h_pct": -2.62,
+  "rsi_14_4h": 34.84,
+  "volume_ratio": 1.74,
+  "volume_flag_above_2x": false,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "crossed_this_candle": false,
+  "momentum_trigger_flagged": false,
+  "order_book_imbalance_top10": 0.873,
+  "news_context": "FOMC decision at 2pm ET today, hike odds now cited at 93%. Traders reducing BTC exposure pre-decision, consistent with observed weakness. No confirmed trading signal yet."
+}
+```
+
+---
+### 2026-09-16T08:12:49.419Z — ETH/USD — NO TRADE
+
+**Reasoning:** SMA stays fast_below_slow (bearish state persists, though not a fresh cross this candle), volume flagged at 2.31x, RSI 32.47 (weakest reading yet, still not oversold <30). Bearish/weak signal, no long entry. Same recurring news items. No trade.
+
+**Signals considered:**
+```json
+{
+  "price_action_1h_48h_pct": -4.87,
+  "price_action_4h_48h_pct": -4.5,
+  "rsi_14_4h": 32.47,
+  "volume_ratio": 2.31,
+  "volume_flag_above_2x": true,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "crossed_this_candle": false,
+  "momentum_trigger_flagged": false,
+  "order_book_imbalance_top10": 0.726,
+  "news_context": "Same items as prior cycles - ETF inflows continuing, FOMC decision still the key unresolved catalyst. Bearish SMA state persists, no long entry."
+}
+```
+
+---
+### 2026-09-16T08:12:51.664Z — SOL/USD — NO TRADE
+
+**Reasoning:** No signals flagged: volume ratio 1.47x, RSI 34.03, SMA fast_below_slow with no crossover, no momentum_trigger. Essentially unchanged. No fresh Solana-specific catalyst. No trade.
+
+**Signals considered:**
+```json
+{
+  "price_action_1h_48h_pct": -4.47,
+  "price_action_4h_48h_pct": -4.38,
+  "rsi_14_4h": 34.03,
+  "volume_ratio": 1.47,
+  "volume_flag_above_2x": false,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "crossed_this_candle": false,
+  "momentum_trigger_flagged": false,
+  "order_book_imbalance_top10": -0.097,
+  "news_context": "No fresh Solana-specific catalyst - same dated items as prior cycles."
+}
+```
+
+---
+### 2026-09-16T08:12:54.083Z — POL/USD — NO TRADE
+
+**Reasoning:** No signals flagged: volume roughly average (1.06x), RSI 33.15, SMA fast_above_slow with no crossover, no momentum_trigger despite a -5.7% 4h/48h move (still under the 6% threshold). No fresh Polygon-specific catalyst. No trade.
+
+**Signals considered:**
+```json
+{
+  "price_action_1h_48h_pct": -4.93,
+  "price_action_4h_48h_pct": -5.68,
+  "rsi_14_4h": 33.15,
+  "volume_ratio": 1.06,
+  "volume_flag_above_2x": false,
+  "sma_crossover_4h_state": "fast_above_slow",
+  "crossed_this_candle": false,
+  "momentum_trigger_flagged": false,
+  "order_book_imbalance_top10": -0.027,
+  "news_context": "No fresh Polygon-specific catalyst - same dated items as prior cycles."
+}
+```
+
+---
+### 2026-09-16T08:12:59.655Z — XRP/USD — NO TRADE
+
+**Reasoning:** Volume flagged sharply at 2.83x, RSI 34.57, and the decline has deepened further to -7.3%/-8.1% (1h/4h, 48h windows), still exceeding the momentum threshold in magnitude but momentum_trigger.flagged remains false - trusting the tool's flag as authoritative. SMA stays fast_below_slow with no crossover. This search finally returned a coherent, current explanation: XRP is acting as the high-beta expression of pre-FOMC rate-hike repricing (hike odds up to 93%), with the selling expected to ease once the 2pm ET decision lands - consistent with the observed price action, but a macro-driven decline that doesn't support a long entry. No fresh quant trigger, no trade.
+
+**Signals considered:**
+```json
+{
+  "price_action_1h_48h_pct": -7.26,
+  "price_action_4h_48h_pct": -8.14,
+  "rsi_14_4h": 34.57,
+  "volume_ratio": 2.83,
+  "volume_flag_above_2x": true,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "crossed_this_candle": false,
+  "momentum_trigger_flagged": false,
+  "order_book_imbalance_top10": 0.622,
+  "news_context": "XRP acting as high-beta expression of pre-FOMC rate-hike repricing (93% hike odds) - macro-driven selling expected to ease once the 2pm ET decision lands. Consistent with observed decline but not a long-entry catalyst. Long-only account can't act on this downside move regardless."
+}
+```
+
+---
