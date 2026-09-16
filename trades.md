@@ -21631,3 +21631,109 @@ this is a schema backfill, not a trade action.
 ```
 
 ---
+### 2026-09-16T05:12:31.008Z — BTC/USD — NO TRADE
+
+**Reasoning:** RSI 35.29, volume ratio 1.74x (below threshold), SMA fast_below_slow with no crossover, no momentum_trigger. Essentially unchanged. FOMC decision (87.3% hike odds per CME FedWatch) still unresolved as of this search. No confirmed signal, no trade.
+
+**Signals considered:**
+```json
+{
+  "price_action_1h_48h_pct": -2.29,
+  "price_action_4h_48h_pct": -2.68,
+  "rsi_14_4h": 35.29,
+  "volume_ratio": 1.74,
+  "volume_flag_above_2x": false,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "crossed_this_candle": false,
+  "momentum_trigger_flagged": false,
+  "order_book_imbalance_top10": 0.054,
+  "news_context": "FOMC decision (87.3% hike odds) still unresolved per search results. Major banks (Goldman, JPMorgan, BofA, Morgan Stanley) expect a hike. No confirmed trading signal yet."
+}
+```
+
+---
+### 2026-09-16T05:12:34.620Z — ETH/USD — NO TRADE
+
+**Reasoning:** Bearish SMA crossover from last cycle persists (fast_below_slow), volume flagged at 2.31x, RSI 33.2. Bearish signal, no long entry - account is long-only. No new catalyst in search beyond the same recurring items. No trade.
+
+**Signals considered:**
+```json
+{
+  "price_action_1h_48h_pct": -4.5,
+  "price_action_4h_48h_pct": -4.83,
+  "rsi_14_4h": 33.2,
+  "volume_ratio": 2.31,
+  "volume_flag_above_2x": true,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "crossed_this_candle": true,
+  "crossover_direction": "bearish",
+  "momentum_trigger_flagged": false,
+  "order_book_imbalance_top10": -0.246,
+  "news_context": "Same items as prior cycles - Protocol AMA today, ETF inflows continuing, FOMC decision still the key unresolved catalyst. Bearish crossover confirms weakness, no long entry."
+}
+```
+
+---
+### 2026-09-16T05:12:37.043Z — SOL/USD — NO TRADE
+
+**Reasoning:** No signals flagged: volume ratio 1.47x, RSI 34.93, SMA fast_below_slow with no crossover, no momentum_trigger. Essentially unchanged. No fresh Solana-specific catalyst. No trade.
+
+**Signals considered:**
+```json
+{
+  "price_action_1h_48h_pct": -3.82,
+  "price_action_4h_48h_pct": -4.31,
+  "rsi_14_4h": 34.93,
+  "volume_ratio": 1.47,
+  "volume_flag_above_2x": false,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "crossed_this_candle": false,
+  "momentum_trigger_flagged": false,
+  "order_book_imbalance_top10": -0.121,
+  "news_context": "No fresh Solana-specific catalyst - same dated items as prior cycles (Transaction V1, SEC Core ETF Asset designation, Robinhood Chain competitive note)."
+}
+```
+
+---
+### 2026-09-16T05:12:39.447Z — POL/USD — NO TRADE
+
+**Reasoning:** No signals flagged: volume roughly average (1.06x), RSI 35.1, SMA fast_above_slow with no crossover, no momentum_trigger. No fresh Polygon-specific catalyst. No trade.
+
+**Signals considered:**
+```json
+{
+  "price_action_1h_48h_pct": -4.25,
+  "price_action_4h_48h_pct": -4.12,
+  "rsi_14_4h": 35.1,
+  "volume_ratio": 1.06,
+  "volume_flag_above_2x": false,
+  "sma_crossover_4h_state": "fast_above_slow",
+  "crossed_this_candle": false,
+  "momentum_trigger_flagged": false,
+  "order_book_imbalance_top10": 0.299,
+  "news_context": "No fresh Polygon-specific catalyst - same dated items as prior cycles (8B transaction milestone, security hard forks, Gigagas roadmap)."
+}
+```
+
+---
+### 2026-09-16T05:12:42.455Z — XRP/USD — NO TRADE
+
+**Reasoning:** Volume flagged sharply at 2.83x, RSI 36.1, -6.8% 4h/48h move still exceeding the momentum threshold in magnitude, but momentum_trigger.flagged remains false - trusting the tool's flag as authoritative. SMA stays fast_below_slow with no crossover. News search again returned the same recycled stale pre-vote framing, contradicting the already-confirmed vote failure. No fresh quant trigger, no trade.
+
+**Signals considered:**
+```json
+{
+  "price_action_1h_48h_pct": -5.68,
+  "price_action_4h_48h_pct": -6.8,
+  "rsi_14_4h": 36.1,
+  "volume_ratio": 2.83,
+  "volume_flag_above_2x": true,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "crossed_this_candle": false,
+  "momentum_trigger_flagged": false,
+  "order_book_imbalance_top10": 0.319,
+  "news_context": "Search again returned stale/recycled pre-vote framing (cloture vote scheduled) - contradicts the vote's already-confirmed Sept 15 failure. Treated as unreliable. Long-only account can't act on this downside move regardless."
+}
+```
+
+---
