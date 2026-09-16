@@ -22264,3 +22264,108 @@ this is a schema backfill, not a trade action.
 ```
 
 ---
+### 2026-09-16T11:12:51.735Z — BTC/USD — NO TRADE
+
+**Reasoning:** RSI 34.84, volume ratio 1.74x (below threshold), SMA fast_below_slow with no crossover, no momentum_trigger. FOMC decision at 2pm ET remains the dominant unresolved catalyst (93% hike odds). No confirmed signal, no trade.
+
+**Signals considered:**
+```json
+{
+  "price_action_1h_48h_pct": -2.37,
+  "price_action_4h_48h_pct": -2.62,
+  "rsi_14_4h": 34.84,
+  "volume_ratio": 1.74,
+  "volume_flag_above_2x": false,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "crossed_this_candle": false,
+  "momentum_trigger_flagged": false,
+  "order_book_imbalance_top10": -0.808,
+  "news_context": "FOMC decision at 2pm ET still unresolved (93% hike odds). No confirmed trading signal."
+}
+```
+
+---
+### 2026-09-16T11:12:55.836Z — ETH/USD — NO TRADE
+
+**Reasoning:** SMA stays fast_below_slow, volume flagged at 2.31x, RSI 32.47. Bearish/weak signal, no long entry. News now directly confirms the CLARITY Act failure via headline ("Bitcoin, Ethereum ETFs Bleed $592M as Clarity Act Fails in Senate"), with ETH's own ETF outflow ($141.47M) its deepest in 155 sessions - a bearish catalyst, not a long-entry basis, and consistent with the observed weakness. No trade.
+
+**Signals considered:**
+```json
+{
+  "price_action_1h_48h_pct": -4.15,
+  "price_action_4h_48h_pct": -4.5,
+  "rsi_14_4h": 32.47,
+  "volume_ratio": 2.31,
+  "volume_flag_above_2x": true,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "crossed_this_candle": false,
+  "momentum_trigger_flagged": false,
+  "order_book_imbalance_top10": -0.31,
+  "news_context": "Headline directly confirms CLARITY Act failure - $592M combined BTC/ETH ETF outflows on Sept 15, ETH's deepest single-day outflow ($141.47M) in 155 sessions. Bearish catalyst, no long entry."
+}
+```
+
+---
+### 2026-09-16T11:12:58.676Z — SOL/USD — NO TRADE
+
+**Reasoning:** No signals flagged: volume ratio 1.47x, RSI 34.03, SMA fast_below_slow with no crossover, no momentum_trigger. Transaction V1 activated today at epoch 1035 - a real but already-priced-in network upgrade, not a fresh price catalyst. No trade.
+
+**Signals considered:**
+```json
+{
+  "price_action_1h_48h_pct": -4.08,
+  "price_action_4h_48h_pct": -4.38,
+  "rsi_14_4h": 34.03,
+  "volume_ratio": 1.47,
+  "volume_flag_above_2x": false,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "crossed_this_candle": false,
+  "momentum_trigger_flagged": false,
+  "order_book_imbalance_top10": 0.05,
+  "news_context": "Transaction V1 activated today at epoch 1035 - incremental network upgrade, not a fresh price-moving catalyst. FOMC decision remains the dominant macro driver."
+}
+```
+
+---
+### 2026-09-16T11:13:01.518Z — POL/USD — NO TRADE
+
+**Reasoning:** No signals flagged: volume roughly average (1.06x), RSI 33.15, SMA fast_above_slow with no crossover, no momentum_trigger. Price ticked up slightly (1h/48h now only -0.6%) but no confirming signal. No fresh Polygon-specific catalyst. No trade.
+
+**Signals considered:**
+```json
+{
+  "price_action_1h_48h_pct": -0.58,
+  "price_action_4h_48h_pct": -5.68,
+  "rsi_14_4h": 33.15,
+  "volume_ratio": 1.06,
+  "volume_flag_above_2x": false,
+  "sma_crossover_4h_state": "fast_above_slow",
+  "crossed_this_candle": false,
+  "momentum_trigger_flagged": false,
+  "order_book_imbalance_top10": 0.247,
+  "news_context": "No fresh Polygon-specific catalyst - same dated items as prior cycles."
+}
+```
+
+---
+### 2026-09-16T11:13:05.361Z — XRP/USD — NO TRADE
+
+**Reasoning:** Volume flagged sharply at 2.83x, RSI 34.57, decline still -7.9%/-8.1% (1h/4h, 48h windows), momentum_trigger.flagged remains false - trusted as authoritative. SMA stays fast_below_slow with no crossover. News search returned mostly recycled pre-vote framing again, though the ETH search this cycle did independently confirm the CLARITY Act's failure via a direct headline - consistent context, still bearish, no long-entry basis. No fresh quant trigger, no trade.
+
+**Signals considered:**
+```json
+{
+  "price_action_1h_48h_pct": -7.87,
+  "price_action_4h_48h_pct": -8.14,
+  "rsi_14_4h": 34.57,
+  "volume_ratio": 2.83,
+  "volume_flag_above_2x": true,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "crossed_this_candle": false,
+  "momentum_trigger_flagged": false,
+  "order_book_imbalance_top10": 0.68,
+  "news_context": "XRP-specific search still stale/pre-vote, but this cycle's ETH search independently confirmed the CLARITY Act failure via direct headline - consistent with XRP's ongoing decline. Long-only account can't act on this downside move regardless."
+}
+```
+
+---
