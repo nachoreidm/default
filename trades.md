@@ -23108,3 +23108,108 @@ this is a schema backfill, not a trade action.
 ```
 
 ---
+### 2026-09-16T19:12:19.622Z — BTC/USD — NO TRADE
+
+**Reasoning:** RSI 37.42, volume ratio 1.74x (below threshold), SMA fast_below_slow with no crossover, no momentum_trigger. FOMC decision now confirmed: 25bps hike to 3.75-4.00% (first hike since 2023), largely already priced in (92% odds pre-decision). BTC found some footing around $75,900 after the initial CLARITY-Act-driven drop. No confirmed trading signal, no trade.
+
+**Signals considered:**
+```json
+{
+  "price_action_1h_48h_pct": -4.36,
+  "price_action_4h_48h_pct": -4.14,
+  "rsi_14_4h": 37.42,
+  "volume_ratio": 1.74,
+  "volume_flag_above_2x": false,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "crossed_this_candle": false,
+  "momentum_trigger_flagged": false,
+  "order_book_imbalance_top10": 0.095,
+  "news_context": "FOMC confirmed: 25bps hike to 3.75-4.00%, first since 2023, largely priced in. BTC found footing near $75,900 post-CLARITY-Act drop. No confirmed trading signal."
+}
+```
+
+---
+### 2026-09-16T19:12:22.841Z — ETH/USD — NO TRADE
+
+**Reasoning:** SMA stays fast_below_slow, volume flagged at 2.31x, RSI 34.98. Bearish/weak signal, no long entry. FOMC hike now confirmed and largely priced in; ETH's reaction depends more on forward guidance than the hike itself, which markets are still digesting. No trade.
+
+**Signals considered:**
+```json
+{
+  "price_action_1h_48h_pct": -5.66,
+  "price_action_4h_48h_pct": -5.84,
+  "rsi_14_4h": 34.98,
+  "volume_ratio": 2.31,
+  "volume_flag_above_2x": true,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "crossed_this_candle": false,
+  "momentum_trigger_flagged": false,
+  "order_book_imbalance_top10": -0.691,
+  "news_context": "FOMC hike confirmed (25bps, first since 2023) - largely priced in. ETH's reaction hinges on forward guidance, still being digested. No long entry."
+}
+```
+
+---
+### 2026-09-16T19:12:26.088Z — SOL/USD — NO TRADE
+
+**Reasoning:** No signals flagged: volume ratio 1.47x, RSI 36.96, SMA fast_below_slow with no crossover, no momentum_trigger despite the decline exceeding 6% on the 4h/48h window. News notes a hike makes holding cash relatively more attractive than SOL - a headwind, not a catalyst for entry. No trade.
+
+**Signals considered:**
+```json
+{
+  "price_action_1h_48h_pct": -5.34,
+  "price_action_4h_48h_pct": -6,
+  "rsi_14_4h": 36.96,
+  "volume_ratio": 1.47,
+  "volume_flag_above_2x": false,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "crossed_this_candle": false,
+  "momentum_trigger_flagged": false,
+  "order_book_imbalance_top10": 0.19,
+  "news_context": "FOMC hike confirmed - a headwind for SOL (cash more attractive vs holding SOL). No fresh Solana-specific catalyst beyond already-known network upgrades."
+}
+```
+
+---
+### 2026-09-16T19:12:29.171Z — POL/USD — NO TRADE
+
+**Reasoning:** No signals flagged: SMA remains fast_below_slow with no crossover, RSI 39.09, volume roughly average (1.06x), no momentum_trigger despite -5.9% 4h/48h move. No fresh Polygon-specific catalyst - caught in the broader macro selloff, now resolving with the confirmed Fed hike. No trade.
+
+**Signals considered:**
+```json
+{
+  "price_action_1h_48h_pct": -5.22,
+  "price_action_4h_48h_pct": -5.92,
+  "rsi_14_4h": 39.09,
+  "volume_ratio": 1.06,
+  "volume_flag_above_2x": false,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "crossed_this_candle": false,
+  "momentum_trigger_flagged": false,
+  "order_book_imbalance_top10": -0.118,
+  "news_context": "No fresh Polygon-specific catalyst - caught in the broader CLARITY-Act/FOMC selloff, now resolving with the confirmed hike."
+}
+```
+
+---
+### 2026-09-16T19:12:32.777Z — XRP/USD — NO TRADE
+
+**Reasoning:** Decline holding near the recent extreme (-12.8%/-13.6% 1h/4h, 48h windows), RSI 33.22, volume flagged sharply at 2.83x, momentum_trigger.flagged remains false - trusted as authoritative. SMA stays fast_below_slow with no crossover. Both major catalysts now confirmed and resolved: CLARITY Act failed (49-50 Senate vote, Ripple CEO publicly reacted) and the Fed hiked 25bps (first since 2023, largely priced in) - still bearish, no long-entry basis, and the account is long-only regardless. No trade.
+
+**Signals considered:**
+```json
+{
+  "price_action_1h_48h_pct": -12.76,
+  "price_action_4h_48h_pct": -13.57,
+  "rsi_14_4h": 33.22,
+  "volume_ratio": 2.83,
+  "volume_flag_above_2x": true,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "crossed_this_candle": false,
+  "momentum_trigger_flagged": false,
+  "order_book_imbalance_top10": 0.089,
+  "news_context": "Both major catalysts now confirmed/resolved: CLARITY Act failed (49-50 Senate vote) and Fed hiked 25bps (first since 2023, largely priced in). Bearish, long-only account can't act on this move."
+}
+```
+
+---
