@@ -23213,3 +23213,108 @@ this is a schema backfill, not a trade action.
 ```
 
 ---
+### 2026-09-16T20:12:03.192Z — BTC/USD — NO TRADE
+
+**Reasoning:** RSI recovering to 40.90, volume ratio 1.74x (below threshold), SMA fast_below_slow with no crossover, no momentum_trigger. FOMC hike confirmed (25bps), market digesting the largely-priced-in decision - Warsh's forward guidance (shift toward pricing 3 hikes by June 2027) is the incremental new info. No confirmed trading signal, no trade.
+
+**Signals considered:**
+```json
+{
+  "price_action_1h_48h_pct": -3.89,
+  "price_action_4h_48h_pct": -2.79,
+  "rsi_14_4h": 40.9,
+  "volume_ratio": 1.74,
+  "volume_flag_above_2x": false,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "crossed_this_candle": false,
+  "momentum_trigger_flagged": false,
+  "order_book_imbalance_top10": -0.729,
+  "news_context": "FOMC hike confirmed (25bps). Markets now pricing 3 hikes by June 2027 (up from 2) per Warsh's guidance. No confirmed trading signal."
+}
+```
+
+---
+### 2026-09-16T20:12:06.289Z — ETH/USD — NO TRADE
+
+**Reasoning:** SMA stays fast_below_slow, volume flagged at 2.31x, RSI 38.98 recovering. Bearish/weak signal, no long entry. Same recurring news items - FOMC hike confirmed, market digesting. No trade.
+
+**Signals considered:**
+```json
+{
+  "price_action_1h_48h_pct": -6.37,
+  "price_action_4h_48h_pct": -4.34,
+  "rsi_14_4h": 38.98,
+  "volume_ratio": 2.31,
+  "volume_flag_above_2x": true,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "crossed_this_candle": false,
+  "momentum_trigger_flagged": false,
+  "order_book_imbalance_top10": 0.479,
+  "news_context": "Same items as prior cycles - FOMC hike now confirmed and being digested. Bearish SMA state persists, no long entry."
+}
+```
+
+---
+### 2026-09-16T20:12:09.050Z — SOL/USD — NO TRADE
+
+**Reasoning:** No signals flagged: volume ratio 1.47x, RSI 42.16 recovering, SMA fast_below_slow with no crossover, no momentum_trigger. 250ms slot upgrade still pending ~Sept 18. No trade.
+
+**Signals considered:**
+```json
+{
+  "price_action_1h_48h_pct": -5.75,
+  "price_action_4h_48h_pct": -4.45,
+  "rsi_14_4h": 42.16,
+  "volume_ratio": 1.47,
+  "volume_flag_above_2x": false,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "crossed_this_candle": false,
+  "momentum_trigger_flagged": false,
+  "order_book_imbalance_top10": 0.065,
+  "news_context": "No fresh Solana-specific catalyst - same dated items. FOMC decision now confirmed and being digested."
+}
+```
+
+---
+### 2026-09-16T20:12:11.479Z — POL/USD — NO TRADE
+
+**Reasoning:** No signals flagged: SMA remains fast_below_slow with no crossover, RSI 41.73 recovering, volume roughly average (1.06x), no momentum_trigger. No fresh Polygon-specific catalyst. No trade.
+
+**Signals considered:**
+```json
+{
+  "price_action_1h_48h_pct": -5.4,
+  "price_action_4h_48h_pct": -4.45,
+  "rsi_14_4h": 41.73,
+  "volume_ratio": 1.06,
+  "volume_flag_above_2x": false,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "crossed_this_candle": false,
+  "momentum_trigger_flagged": false,
+  "order_book_imbalance_top10": 0.106,
+  "news_context": "No fresh Polygon-specific catalyst - same dated items as prior cycles."
+}
+```
+
+---
+### 2026-09-16T20:12:16.277Z — XRP/USD — NO TRADE
+
+**Reasoning:** Decline moderating - price recovered to $1.309 from the $1.27 low, RSI back up to 41.29 (no longer near-oversold), volume flagged at 2.83x, momentum_trigger.flagged remains false, SMA stays fast_below_slow with no crossover. News notes some whale accumulation off exchanges (bullish on-chain signal, not an authorized signal) and consolidation above $1.32-ish support in some sources, though live price is $1.309. No crossover confirms a reversal yet. No trade.
+
+**Signals considered:**
+```json
+{
+  "price_action_1h_48h_pct": -11.14,
+  "price_action_4h_48h_pct": -8.65,
+  "rsi_14_4h": 41.29,
+  "volume_ratio": 2.83,
+  "volume_flag_above_2x": true,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "crossed_this_candle": false,
+  "momentum_trigger_flagged": false,
+  "order_book_imbalance_top10": -0.275,
+  "news_context": "Whale transactions pulling XRP off exchanges (bullish on-chain signal, not an authorized signal). Price recovering from the $1.27 low toward $1.309. FOMC hike confirmed. No crossover yet to confirm a reversal - no trade."
+}
+```
+
+---
