@@ -21315,3 +21315,108 @@ this is a schema backfill, not a trade action.
 ```
 
 ---
+### 2026-09-16T02:12:28.628Z — BTC/USD — NO TRADE
+
+**Reasoning:** RSI 32.95, volume ratio 1.74x (below threshold), SMA fast_below_slow with no crossover, no momentum_trigger. Essentially unchanged from last cycle. FOMC decision still ahead today (hike odds surged to ~85% per latest search) - unresolved, no confirmed signal.
+
+**Signals considered:**
+```json
+{
+  "price_action_1h_48h_pct": -2.75,
+  "price_action_4h_48h_pct": -2.55,
+  "rsi_14_4h": 32.95,
+  "volume_ratio": 1.74,
+  "volume_flag_above_2x": false,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "crossed_this_candle": false,
+  "momentum_trigger_flagged": false,
+  "order_book_imbalance_top10": 0.115,
+  "news_context": "FOMC decision today, hike odds now cited as high as 85%. Real catalyst but unresolved until the decision lands - no confirmed signal to act on yet."
+}
+```
+
+---
+### 2026-09-16T02:12:31.592Z — ETH/USD — NO TRADE
+
+**Reasoning:** Volume flagged at 2.31x but RSI weak-not-oversold (32.16), SMA fast_above_slow with no crossover, no momentum_trigger despite -4.8%/-4.6% moves. Essentially unchanged from last cycle. Ethereum Foundation AMA today is a developer event, not a price catalyst. No trade.
+
+**Signals considered:**
+```json
+{
+  "price_action_1h_48h_pct": -4.81,
+  "price_action_4h_48h_pct": -4.59,
+  "rsi_14_4h": 32.16,
+  "volume_ratio": 2.31,
+  "volume_flag_above_2x": true,
+  "sma_crossover_4h_state": "fast_above_slow",
+  "crossed_this_candle": false,
+  "momentum_trigger_flagged": false,
+  "order_book_imbalance_top10": 0.204,
+  "news_context": "Same items as prior cycles - Protocol AMA today (developer event), ETF inflows, no fresh price catalyst. FOMC unresolved."
+}
+```
+
+---
+### 2026-09-16T02:12:34.483Z — SOL/USD — NO TRADE
+
+**Reasoning:** No signals flagged: volume ratio 1.47x, RSI 32.87, SMA fast_below_slow with no crossover, no momentum_trigger despite a -4.5% 1h/48h move. News search returned one new item (Robinhood Chain flipping Solana in daily revenue) - a competitive-dynamics note, not a Solana-specific price catalyst. No trade.
+
+**Signals considered:**
+```json
+{
+  "price_action_1h_48h_pct": -4.48,
+  "price_action_4h_48h_pct": -4.09,
+  "rsi_14_4h": 32.87,
+  "volume_ratio": 1.47,
+  "volume_flag_above_2x": false,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "crossed_this_candle": false,
+  "momentum_trigger_flagged": false,
+  "order_book_imbalance_top10": -0.0001,
+  "news_context": "New item: Robinhood Chain flipped Solana in daily revenue (competitive note, not a direct Solana catalyst). Otherwise same dated items as prior cycles."
+}
+```
+
+---
+### 2026-09-16T02:12:37.275Z — POL/USD — NO TRADE
+
+**Reasoning:** No signals flagged: volume roughly average (1.06x), RSI 38.0, SMA fast_above_slow with no crossover, no momentum_trigger despite a -5.4% 1h/48h move (still under the 6% threshold). No fresh Polygon-specific catalyst in search results. No trade.
+
+**Signals considered:**
+```json
+{
+  "price_action_1h_48h_pct": -5.39,
+  "price_action_4h_48h_pct": -3.26,
+  "rsi_14_4h": 38,
+  "volume_ratio": 1.06,
+  "volume_flag_above_2x": false,
+  "sma_crossover_4h_state": "fast_above_slow",
+  "crossed_this_candle": false,
+  "momentum_trigger_flagged": false,
+  "order_book_imbalance_top10": 0.441,
+  "news_context": "No fresh Polygon-specific catalyst - same dated items as prior cycles (8B transaction milestone, security hard fork, POL migration near-complete, AggLayer maturity)."
+}
+```
+
+---
+### 2026-09-16T02:12:41.650Z — XRP/USD — NO TRADE
+
+**Reasoning:** Volume flagged sharply at 2.83x, RSI 32.96, and the 1h/48h move (-6.92%) now exceeds the 6% momentum threshold in magnitude for the second cycle running, but momentum_trigger.flagged remains false both times - the tool's flag is authoritative and treated as intentional (momentum_trigger appears designed to catch upside breakouts only, not downside declines, consistent with a long-only account). SMA stays fast_below_slow with no crossover. News surfaced a couple of new items (XRPL 3.3.0 confidential-transaction upgrade, Ripple's planned RLUSD stablecoin launch) but both are forward-looking protocol/business announcements, not acute price catalysts, and don't corroborate a long entry into an ongoing decline. No fresh quant trigger, no trade.
+
+**Signals considered:**
+```json
+{
+  "price_action_1h_48h_pct": -6.92,
+  "price_action_4h_48h_pct": -6.52,
+  "rsi_14_4h": 32.96,
+  "volume_ratio": 2.83,
+  "volume_flag_above_2x": true,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "crossed_this_candle": false,
+  "momentum_trigger_flagged": false,
+  "order_book_imbalance_top10": 0.552,
+  "news_context": "New items: XRPL 3.3.0 confidential-transaction upgrade in progress, Ripple planned RLUSD stablecoin launch late 2026 - both forward-looking, not acute catalysts for today's decline. Long-only account can't act on the downside move regardless."
+}
+```
+
+---
