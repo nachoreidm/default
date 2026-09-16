@@ -21105,3 +21105,108 @@ this is a schema backfill, not a trade action.
 ```
 
 ---
+### 2026-09-16T00:12:36.959Z — BTC/USD — NO TRADE
+
+**Reasoning:** RSI has drifted down to 32.95 (approaching but not yet oversold <30), volume ratio 1.74x (below 2x threshold this cycle), SMA remains fast_below_slow with no crossover, no momentum_trigger despite a -2.5% 4h/48h move. FOMC rate decision (83% hike odds per search) lands later today (~19:00 UTC) but hasn't happened yet - pure anticipatory news, not a confirmed signal to act on. No fresh quant trigger, no trade.
+
+**Signals considered:**
+```json
+{
+  "price_action_1h_48h_pct": -1.55,
+  "price_action_4h_48h_pct": -2.55,
+  "rsi_14_4h": 32.95,
+  "volume_ratio": 1.74,
+  "volume_flag_above_2x": false,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "crossed_this_candle": false,
+  "momentum_trigger_flagged": false,
+  "order_book_imbalance_top10": 0.58,
+  "news_context": "FOMC rate decision due ~19:00 UTC today with 83% hike odds per Polymarket/futures - a real, dated, upcoming catalyst but not yet resolved, so it's anticipatory context only, not corroboration for a trade today. No signal currently supports an entry."
+}
+```
+
+---
+### 2026-09-16T00:12:41.490Z — ETH/USD — NO TRADE
+
+**Reasoning:** Volume flagged at 2.31x but RSI is weak-not-oversold (32.16) and SMA stays fast_above_slow with no crossover this candle - conflicting-signals pattern, no momentum_trigger despite a -4.6% 4h/48h move. News found an Ethereum Foundation Protocol AMA scheduled today (Glamsterdam/zkEVM focus) - a real but non-price-moving developer event, not a trading catalyst. FOMC decision later today is the dominant near-term macro driver but hasn't resolved yet. No fresh quant trigger, no trade.
+
+**Signals considered:**
+```json
+{
+  "price_action_1h_48h_pct": -3.5,
+  "price_action_4h_48h_pct": -4.59,
+  "rsi_14_4h": 32.16,
+  "volume_ratio": 2.31,
+  "volume_flag_above_2x": true,
+  "sma_crossover_4h_state": "fast_above_slow",
+  "crossed_this_candle": false,
+  "momentum_trigger_flagged": false,
+  "order_book_imbalance_top10": 0.26,
+  "news_context": "Ethereum Foundation Protocol Reddit AMA scheduled today (Glamsterdam hard fork, zkEVM) - a developer-community event, not a price catalyst. ETF inflows continued ($196.9M last week). FOMC decision later today is the dominant driver but unresolved."
+}
+```
+
+---
+### 2026-09-16T00:12:45.338Z — SOL/USD — NO TRADE
+
+**Reasoning:** No signals flagged: volume ratio 1.47x, RSI 32.87 (weak but not oversold), SMA fast_below_slow with no crossover, no momentum_trigger despite a -4.1% 4h/48h move. News surfaced only dated network-upgrade items (Transaction V1, SEC ETF-asset recognition from Sept 5) with no fresh price-moving catalyst. No fresh quant trigger, no trade.
+
+**Signals considered:**
+```json
+{
+  "price_action_1h_48h_pct": -2.82,
+  "price_action_4h_48h_pct": -4.09,
+  "rsi_14_4h": 32.87,
+  "volume_ratio": 1.47,
+  "volume_flag_above_2x": false,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "crossed_this_candle": false,
+  "momentum_trigger_flagged": false,
+  "order_book_imbalance_top10": -0.082,
+  "news_context": "No fresh Solana-specific catalyst - dated items only (Transaction V1 Sept 9, SEC ETF-asset recognition Sept 5, Alpenglow upgrade timeline for October). Live price $96.97 below the search snippet's $103.29 figure."
+}
+```
+
+---
+### 2026-09-16T00:12:48.337Z — POL/USD — NO TRADE
+
+**Reasoning:** No signals flagged: volume roughly average (1.06x), RSI 38.0 (neutral), SMA fast_above_slow with no crossover, no momentum_trigger. Price down modestly (-3.1%/-3.3%). News surfaced only the same dated items as prior cycles (8B transaction milestone, POL migration near-completion) with nothing fresh. No fresh quant trigger, no trade.
+
+**Signals considered:**
+```json
+{
+  "price_action_1h_48h_pct": -3.06,
+  "price_action_4h_48h_pct": -3.26,
+  "rsi_14_4h": 38,
+  "volume_ratio": 1.06,
+  "volume_flag_above_2x": false,
+  "sma_crossover_4h_state": "fast_above_slow",
+  "crossed_this_candle": false,
+  "momentum_trigger_flagged": false,
+  "order_book_imbalance_top10": -0.048,
+  "news_context": "No fresh Polygon-specific catalyst - same dated items as prior cycles (8B transaction milestone, security hard fork, POL migration ~99% complete)."
+}
+```
+
+---
+### 2026-09-16T00:12:53.717Z — XRP/USD — NO TRADE
+
+**Reasoning:** Volume flagged sharply at 2.83x and RSI weak (32.96, approaching oversold) with a large -6.52% 4h/48h decline, but SMA stays fast_below_slow with no crossover this candle and momentum_trigger did NOT flag despite the move exceeding the 6% threshold in magnitude (the tool's flag is authoritative and wasn't set - not overriding it). News search again returned a recycled/stale item describing the CLARITY Act cloture vote as scheduled "today" (Sept 16) - this contradicts the vote's already-confirmed failure on Sept 15 from an earlier cycle's live search results, so treated as unreliable stale content, not a fresh catalyst. No fresh quant trigger, no trade.
+
+**Signals considered:**
+```json
+{
+  "price_action_1h_48h_pct": -4.75,
+  "price_action_4h_48h_pct": -6.52,
+  "rsi_14_4h": 32.96,
+  "volume_ratio": 2.83,
+  "volume_flag_above_2x": true,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "crossed_this_candle": false,
+  "momentum_trigger_flagged": false,
+  "order_book_imbalance_top10": -0.279,
+  "news_context": "Search again returned stale/recycled pre-vote framing (cloture vote 'scheduled today Sept 16') contradicting the vote's already-confirmed Sept 15 failure - treated as unreliable. Long-only account can't act on this downside move regardless."
+}
+```
+
+---
