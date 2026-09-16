@@ -22793,3 +22793,108 @@ this is a schema backfill, not a trade action.
 ```
 
 ---
+### 2026-09-16T16:12:21.048Z — BTC/USD — NO TRADE
+
+**Reasoning:** RSI dropped to 37.42 (approaching but not oversold), volume ratio 1.74x (below threshold), SMA fast_below_slow with no crossover, no momentum_trigger despite the decline deepening to -3.8%/-4.1%. News confirms a broad selloff driven by the CLARITY Act failure plus pre-FOMC positioning (95% hike odds, decision due 2pm ET / press conference 2:30pm ET). No confirmed signal, no trade.
+
+**Signals considered:**
+```json
+{
+  "price_action_1h_48h_pct": -3.84,
+  "price_action_4h_48h_pct": -4.14,
+  "rsi_14_4h": 37.42,
+  "volume_ratio": 1.74,
+  "volume_flag_above_2x": false,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "crossed_this_candle": false,
+  "momentum_trigger_flagged": false,
+  "order_book_imbalance_top10": 0.994,
+  "news_context": "News confirms broad selloff (CLARITY Act failure, 95% FOMC hike odds, decision 2pm ET/press conf 2:30pm ET) - consistent with observed weakness. No confirmed trading signal, bearish backdrop, no long entry."
+}
+```
+
+---
+### 2026-09-16T16:12:24.204Z — ETH/USD — NO TRADE
+
+**Reasoning:** Decline deepened to -5.5%/-5.8%, RSI dropped to 34.98, volume flagged at 2.31x, SMA fast_below_slow with no crossover, no momentum_trigger despite the sharper move. News directly confirms crypto tanking after CLARITY Act failure and ahead of the Fed decision - consistent with observed price action. Bearish, no long entry. No trade.
+
+**Signals considered:**
+```json
+{
+  "price_action_1h_48h_pct": -5.46,
+  "price_action_4h_48h_pct": -5.84,
+  "rsi_14_4h": 34.98,
+  "volume_ratio": 2.31,
+  "volume_flag_above_2x": true,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "crossed_this_candle": false,
+  "momentum_trigger_flagged": false,
+  "order_book_imbalance_top10": 0.846,
+  "news_context": "News directly confirms crypto tanking after CLARITY Act failure, ahead of Fed decision. Consistent with observed weakness. No long entry."
+}
+```
+
+---
+### 2026-09-16T16:12:27.472Z — SOL/USD — NO TRADE
+
+**Reasoning:** Decline deepened, now exceeding the momentum threshold in magnitude on the 4h/48h window (-6.0%) but momentum_trigger.flagged remains false - trusted as authoritative. RSI 36.96, volume ratio 1.47x (below threshold), SMA fast_below_slow with no crossover. Speed upgrade (250ms slots) pending activation Sept 18 - forward-looking, not a current catalyst. No trade.
+
+**Signals considered:**
+```json
+{
+  "price_action_1h_48h_pct": -5.39,
+  "price_action_4h_48h_pct": -6,
+  "rsi_14_4h": 36.96,
+  "volume_ratio": 1.47,
+  "volume_flag_above_2x": false,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "crossed_this_candle": false,
+  "momentum_trigger_flagged": false,
+  "order_book_imbalance_top10": -0.061,
+  "news_context": "Speed upgrade (250ms slots) activating ~Sept 18 - forward-looking, not yet live. Fed decision remains the dominant driver of the broader selloff SOL is caught in."
+}
+```
+
+---
+### 2026-09-16T16:12:30.747Z — POL/USD — NO TRADE
+
+**Reasoning:** Decline deepened, now exceeding the momentum threshold in magnitude on both windows (-6.1%/-5.9%) but momentum_trigger.flagged remains false - trusted as authoritative. RSI 39.09, volume roughly average (1.06x), SMA fast_below_slow with no crossover. No fresh Polygon-specific catalyst - caught in the broader macro selloff. No trade.
+
+**Signals considered:**
+```json
+{
+  "price_action_1h_48h_pct": -6.13,
+  "price_action_4h_48h_pct": -5.92,
+  "rsi_14_4h": 39.09,
+  "volume_ratio": 1.06,
+  "volume_flag_above_2x": false,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "crossed_this_candle": false,
+  "momentum_trigger_flagged": false,
+  "order_book_imbalance_top10": 0.022,
+  "news_context": "No fresh Polygon-specific catalyst - caught in the broader CLARITY-Act/pre-FOMC selloff along with the other majors."
+}
+```
+
+---
+### 2026-09-16T16:12:35.570Z — XRP/USD — NO TRADE
+
+**Reasoning:** Sharpest decline of all five pairs this cycle - now -10.8%/-13.6% (1h/4h, 48h windows), RSI 33.22 (approaching oversold but not there), volume flagged sharply at 2.83x, momentum_trigger.flagged remains false despite the magnitude - trusted as authoritative (consistent with the trigger appearing to be upside-only by design). SMA stays fast_below_slow with no crossover. News now directly confirms: XRP fell below $1.30, down ~8-10% today, its largest intraday drop in 7 months, explicitly described as the "high-beta expression" of the pre-FOMC rate-hike trade following the CLARITY Act's confirmed 50-49 Senate failure. Search price closely matches live data. This is a real, well-corroborated macro-driven decline - but bearish, no long-entry basis, and the account is long-only regardless. No trade.
+
+**Signals considered:**
+```json
+{
+  "price_action_1h_48h_pct": -10.82,
+  "price_action_4h_48h_pct": -13.57,
+  "rsi_14_4h": 33.22,
+  "volume_ratio": 2.83,
+  "volume_flag_above_2x": true,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "crossed_this_candle": false,
+  "momentum_trigger_flagged": false,
+  "order_book_imbalance_top10": 0.283,
+  "news_context": "News directly confirms XRP fell below $1.30, largest intraday drop in 7 months, high-beta expression of pre-FOMC rate-hike trade after CLARITY Act's confirmed 50-49 Senate failure. Search price closely matches live data. Bearish, long-only account can't act on this move."
+}
+```
+
+---
