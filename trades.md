@@ -22159,3 +22159,108 @@ this is a schema backfill, not a trade action.
 ```
 
 ---
+### 2026-09-16T10:11:42.063Z — BTC/USD — NO TRADE
+
+**Reasoning:** RSI 34.84, volume ratio 1.74x (below threshold), SMA fast_below_slow with no crossover, no momentum_trigger. Essentially unchanged. FOMC decision at 2pm ET remains the dominant unresolved catalyst. No confirmed signal, no trade.
+
+**Signals considered:**
+```json
+{
+  "price_action_1h_48h_pct": -2.5,
+  "price_action_4h_48h_pct": -2.62,
+  "rsi_14_4h": 34.84,
+  "volume_ratio": 1.74,
+  "volume_flag_above_2x": false,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "crossed_this_candle": false,
+  "momentum_trigger_flagged": false,
+  "order_book_imbalance_top10": 0.407,
+  "news_context": "FOMC decision at 2pm ET still unresolved (87% hike odds). No confirmed trading signal."
+}
+```
+
+---
+### 2026-09-16T10:11:45.002Z — ETH/USD — NO TRADE
+
+**Reasoning:** SMA stays fast_below_slow, volume flagged at 2.31x, RSI 32.47. Bearish/weak signal, no long entry. Same recurring news items - Glamsterdam mainnet slipped to Q4 2026 per this search, not an immediate catalyst. No trade.
+
+**Signals considered:**
+```json
+{
+  "price_action_1h_48h_pct": -4.3,
+  "price_action_4h_48h_pct": -4.5,
+  "rsi_14_4h": 32.47,
+  "volume_ratio": 2.31,
+  "volume_flag_above_2x": true,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "crossed_this_candle": false,
+  "momentum_trigger_flagged": false,
+  "order_book_imbalance_top10": -0.418,
+  "news_context": "Same items as prior cycles - ETF inflows, FOMC decision still unresolved, Glamsterdam mainnet slipped to Q4 2026 (not near-term). Bearish SMA state persists, no long entry."
+}
+```
+
+---
+### 2026-09-16T10:11:47.355Z — SOL/USD — NO TRADE
+
+**Reasoning:** No signals flagged: volume ratio 1.47x, RSI 34.03, SMA fast_below_slow with no crossover, no momentum_trigger. Essentially unchanged. No fresh Solana-specific catalyst. No trade.
+
+**Signals considered:**
+```json
+{
+  "price_action_1h_48h_pct": -4.46,
+  "price_action_4h_48h_pct": -4.38,
+  "rsi_14_4h": 34.03,
+  "volume_ratio": 1.47,
+  "volume_flag_above_2x": false,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "crossed_this_candle": false,
+  "momentum_trigger_flagged": false,
+  "order_book_imbalance_top10": -0.034,
+  "news_context": "No fresh Solana-specific catalyst - same dated items as prior cycles."
+}
+```
+
+---
+### 2026-09-16T10:11:50.125Z — POL/USD — NO TRADE
+
+**Reasoning:** No signals flagged: volume roughly average (1.06x), RSI 33.15, SMA fast_above_slow with no crossover, no momentum_trigger. Price ticked up slightly this cycle (1h/48h now only -1.9%) but still no confirming signal. No fresh Polygon-specific catalyst. No trade.
+
+**Signals considered:**
+```json
+{
+  "price_action_1h_48h_pct": -1.94,
+  "price_action_4h_48h_pct": -5.68,
+  "rsi_14_4h": 33.15,
+  "volume_ratio": 1.06,
+  "volume_flag_above_2x": false,
+  "sma_crossover_4h_state": "fast_above_slow",
+  "crossed_this_candle": false,
+  "momentum_trigger_flagged": false,
+  "order_book_imbalance_top10": 0.122,
+  "news_context": "No fresh Polygon-specific catalyst - same dated items as prior cycles."
+}
+```
+
+---
+### 2026-09-16T10:11:53.355Z — XRP/USD — NO TRADE
+
+**Reasoning:** Volume flagged sharply at 2.83x, RSI 34.57, decline still -7.6%/-8.1% (1h/4h, 48h windows), momentum_trigger.flagged remains false - trusted as authoritative. SMA stays fast_below_slow with no crossover. News search again returned the same recycled stale pre-vote framing, contradicting the already-confirmed vote failure. No fresh quant trigger, no trade.
+
+**Signals considered:**
+```json
+{
+  "price_action_1h_48h_pct": -7.57,
+  "price_action_4h_48h_pct": -8.14,
+  "rsi_14_4h": 34.57,
+  "volume_ratio": 2.83,
+  "volume_flag_above_2x": true,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "crossed_this_candle": false,
+  "momentum_trigger_flagged": false,
+  "order_book_imbalance_top10": -0.269,
+  "news_context": "Search again returned stale/recycled pre-vote framing (cloture vote scheduled, CEO urging yes vote) - contradicts the vote's already-confirmed Sept 15 failure. Treated as unreliable. Long-only account can't act on this downside move regardless."
+}
+```
+
+---
