@@ -21420,3 +21420,108 @@ this is a schema backfill, not a trade action.
 ```
 
 ---
+### 2026-09-16T03:12:10.006Z — BTC/USD — NO TRADE
+
+**Reasoning:** RSI 32.95, volume ratio 1.74x (below threshold), SMA fast_below_slow with no crossover, no momentum_trigger. Essentially unchanged. FOMC hike odds now cited at 87% but decision remains unresolved - Fed's forward guidance may matter more than the hike itself since it's largely priced in. No confirmed signal, no trade.
+
+**Signals considered:**
+```json
+{
+  "price_action_1h_48h_pct": -2.24,
+  "price_action_4h_48h_pct": -2.55,
+  "rsi_14_4h": 32.95,
+  "volume_ratio": 1.74,
+  "volume_flag_above_2x": false,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "crossed_this_candle": false,
+  "momentum_trigger_flagged": false,
+  "order_book_imbalance_top10": 0.76,
+  "news_context": "FOMC hike odds now 87% per CPI-driven repricing - largely priced in already, so Fed's forward guidance may matter more than the decision itself. Still unresolved, no confirmed signal."
+}
+```
+
+---
+### 2026-09-16T03:12:12.700Z — ETH/USD — NO TRADE
+
+**Reasoning:** Volume flagged at 2.31x but RSI weak-not-oversold (32.16), SMA fast_above_slow with no crossover, no momentum_trigger. Essentially unchanged. Ethereum Foundation AMA later today is a developer event, not a price catalyst. No trade.
+
+**Signals considered:**
+```json
+{
+  "price_action_1h_48h_pct": -4.39,
+  "price_action_4h_48h_pct": -4.59,
+  "rsi_14_4h": 32.16,
+  "volume_ratio": 2.31,
+  "volume_flag_above_2x": true,
+  "sma_crossover_4h_state": "fast_above_slow",
+  "crossed_this_candle": false,
+  "momentum_trigger_flagged": false,
+  "order_book_imbalance_top10": 0.297,
+  "news_context": "Same items as prior cycles - Protocol AMA today, ETF inflows continuing, Glamsterdam testnet fork due late September. No fresh price catalyst."
+}
+```
+
+---
+### 2026-09-16T03:12:15.370Z — SOL/USD — NO TRADE
+
+**Reasoning:** No signals flagged: volume ratio 1.47x, RSI 32.87, SMA fast_below_slow with no crossover, no momentum_trigger. Essentially unchanged from last several cycles. No fresh Solana-specific catalyst. No trade.
+
+**Signals considered:**
+```json
+{
+  "price_action_1h_48h_pct": -3.75,
+  "price_action_4h_48h_pct": -4.09,
+  "rsi_14_4h": 32.87,
+  "volume_ratio": 1.47,
+  "volume_flag_above_2x": false,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "crossed_this_candle": false,
+  "momentum_trigger_flagged": false,
+  "order_book_imbalance_top10": 0.012,
+  "news_context": "No fresh Solana-specific catalyst - same dated items as prior cycles (Transaction V1, SEC Core ETF Asset designation, Alpenglow upgrade timeline)."
+}
+```
+
+---
+### 2026-09-16T03:12:17.743Z — POL/USD — NO TRADE
+
+**Reasoning:** No signals flagged: volume roughly average (1.06x), RSI 38.0, SMA fast_above_slow with no crossover, no momentum_trigger despite a -4.9% 1h/48h move. No fresh Polygon-specific catalyst. No trade.
+
+**Signals considered:**
+```json
+{
+  "price_action_1h_48h_pct": -4.86,
+  "price_action_4h_48h_pct": -3.26,
+  "rsi_14_4h": 38,
+  "volume_ratio": 1.06,
+  "volume_flag_above_2x": false,
+  "sma_crossover_4h_state": "fast_above_slow",
+  "crossed_this_candle": false,
+  "momentum_trigger_flagged": false,
+  "order_book_imbalance_top10": 0.52,
+  "news_context": "No fresh Polygon-specific catalyst - same dated items as prior cycles (8B transaction milestone, security hard fork, POL migration complete)."
+}
+```
+
+---
+### 2026-09-16T03:12:21.977Z — XRP/USD — NO TRADE
+
+**Reasoning:** Volume flagged sharply at 2.83x, RSI 32.96, -6.1%/-6.5% moves exceeding the momentum threshold in magnitude for the third cycle running, but momentum_trigger.flagged remains false - trusting the tool's flag as authoritative and not overriding it, consistent with the working hypothesis that the trigger is designed for upside breakouts only. SMA stays fast_below_slow with no crossover. News search again returned the same recycled stale pre-vote framing ("cloture vote today at 2:15 PM ET") contradicting the vote's already-confirmed Sept 15 failure - treated as unreliable. No fresh quant trigger, no trade.
+
+**Signals considered:**
+```json
+{
+  "price_action_1h_48h_pct": -6.09,
+  "price_action_4h_48h_pct": -6.52,
+  "rsi_14_4h": 32.96,
+  "volume_ratio": 2.83,
+  "volume_flag_above_2x": true,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "crossed_this_candle": false,
+  "momentum_trigger_flagged": false,
+  "order_book_imbalance_top10": -0.442,
+  "news_context": "Search again returned stale/recycled pre-vote framing (cloture vote 'today at 2:15 PM ET') and a bullish price forecast ($1.52 by Sept 17) inconsistent with the live price $1.292 and the vote's already-confirmed failure. Treated as unreliable."
+}
+```
+
+---
