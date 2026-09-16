@@ -22898,3 +22898,108 @@ this is a schema backfill, not a trade action.
 ```
 
 ---
+### 2026-09-16T17:12:48.502Z — BTC/USD — NO TRADE
+
+**Reasoning:** RSI 37.42, volume ratio 1.74x (below threshold), SMA fast_below_slow with no crossover, no momentum_trigger. FOMC statement due 2pm ET (~48 min out from this cycle) - still unresolved in search results. No confirmed signal, no trade.
+
+**Signals considered:**
+```json
+{
+  "price_action_1h_48h_pct": -4.09,
+  "price_action_4h_48h_pct": -4.14,
+  "rsi_14_4h": 37.42,
+  "volume_ratio": 1.74,
+  "volume_flag_above_2x": false,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "crossed_this_candle": false,
+  "momentum_trigger_flagged": false,
+  "order_book_imbalance_top10": 0.284,
+  "news_context": "FOMC statement due 2pm ET (~48 min out), decision not yet reported in search results. No confirmed trading signal."
+}
+```
+
+---
+### 2026-09-16T17:12:51.201Z — ETH/USD — NO TRADE
+
+**Reasoning:** SMA stays fast_below_slow, volume flagged at 2.31x, RSI 34.98. Bearish/weak signal, no long entry. Same recurring items - FOMC still the dominant unresolved catalyst. No trade.
+
+**Signals considered:**
+```json
+{
+  "price_action_1h_48h_pct": -5.64,
+  "price_action_4h_48h_pct": -5.84,
+  "rsi_14_4h": 34.98,
+  "volume_ratio": 2.31,
+  "volume_flag_above_2x": true,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "crossed_this_candle": false,
+  "momentum_trigger_flagged": false,
+  "order_book_imbalance_top10": 0.98,
+  "news_context": "Same items as prior cycles - ETF inflows, FOMC decision still unresolved. Bearish SMA state persists, no long entry."
+}
+```
+
+---
+### 2026-09-16T17:12:54.242Z — SOL/USD — NO TRADE
+
+**Reasoning:** No signals flagged: volume ratio 1.47x, RSI 36.96, SMA fast_below_slow with no crossover, no momentum_trigger despite the -5.7%/-6.0% decline. 250ms slot upgrade still pending, targeted ~Sept 18 - forward-looking, not a current catalyst. No trade.
+
+**Signals considered:**
+```json
+{
+  "price_action_1h_48h_pct": -5.71,
+  "price_action_4h_48h_pct": -6,
+  "rsi_14_4h": 36.96,
+  "volume_ratio": 1.47,
+  "volume_flag_above_2x": false,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "crossed_this_candle": false,
+  "momentum_trigger_flagged": false,
+  "order_book_imbalance_top10": 0.165,
+  "news_context": "250ms slot upgrade still pending (~Sept 18) - forward-looking. FOMC decision remains the dominant near-term driver."
+}
+```
+
+---
+### 2026-09-16T17:12:57.331Z — POL/USD — NO TRADE
+
+**Reasoning:** No signals flagged: SMA remains fast_below_slow (no fresh cross), RSI 39.09, volume roughly average (1.06x), no momentum_trigger despite -5.9% 4h/48h move. No fresh Polygon-specific catalyst - caught in the broader macro selloff. No trade.
+
+**Signals considered:**
+```json
+{
+  "price_action_1h_48h_pct": -4.4,
+  "price_action_4h_48h_pct": -5.92,
+  "rsi_14_4h": 39.09,
+  "volume_ratio": 1.06,
+  "volume_flag_above_2x": false,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "crossed_this_candle": false,
+  "momentum_trigger_flagged": false,
+  "order_book_imbalance_top10": 0.096,
+  "news_context": "No fresh Polygon-specific catalyst - caught in the broader CLARITY-Act/pre-FOMC selloff."
+}
+```
+
+---
+### 2026-09-16T17:13:00.952Z — XRP/USD — NO TRADE
+
+**Reasoning:** Decline holding at extreme levels (-11.6%/-13.6% 1h/4h, 48h windows), RSI 33.22, volume flagged sharply at 2.83x, momentum_trigger.flagged remains false - trusted as authoritative. SMA stays fast_below_slow with no crossover. News now includes a direct Ripple CEO quote confirming and reacting to the CLARITY Act's failure ("stings") - further corroborates the already-confirmed catalyst, still bearish, no long-entry basis. No trade.
+
+**Signals considered:**
+```json
+{
+  "price_action_1h_48h_pct": -11.64,
+  "price_action_4h_48h_pct": -13.57,
+  "rsi_14_4h": 33.22,
+  "volume_ratio": 2.83,
+  "volume_flag_above_2x": true,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "crossed_this_candle": false,
+  "momentum_trigger_flagged": false,
+  "order_book_imbalance_top10": -0.145,
+  "news_context": "Ripple CEO Garlinghouse directly confirmed and reacted to the CLARITY Act's 49-50 Senate failure ('the result stings'). Corroborates the already-known catalyst. Long-only account can't act on this downside move."
+}
+```
+
+---
