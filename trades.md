@@ -22581,3 +22581,109 @@ this is a schema backfill, not a trade action.
 ```
 
 ---
+### 2026-09-16T14:12:42.896Z — BTC/USD — NO TRADE
+
+**Reasoning:** RSI 41.01, volume ratio 1.74x (below threshold), SMA fast_below_slow with no crossover, no momentum_trigger. News now directly confirms current context: prices trading narrowly awaiting the FOMC statement (2pm ET/2:30pm ET press conference), CLARITY Act stalled, and Fear & Greed dropped to 51 (Neutral) from 69 (Greed) the prior day - consistent with the sideways/weak price action observed. Still no confirmed signal, no trade.
+
+**Signals considered:**
+```json
+{
+  "price_action_1h_48h_pct": -3.71,
+  "price_action_4h_48h_pct": -3.02,
+  "rsi_14_4h": 41.01,
+  "volume_ratio": 1.74,
+  "volume_flag_above_2x": false,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "crossed_this_candle": false,
+  "momentum_trigger_flagged": false,
+  "order_book_imbalance_top10": -0.755,
+  "news_context": "News confirms BTC/ETH/XRP trading narrowly awaiting FOMC statement, CLARITY Act stalled, Fear & Greed dropped to 51 (Neutral) from 69 (Greed). Consistent with observed price action, still no confirmed trading signal."
+}
+```
+
+---
+### 2026-09-16T14:12:45.969Z — ETH/USD — NO TRADE
+
+**Reasoning:** SMA stays fast_below_slow, volume flagged at 2.31x, RSI 39.56. Bearish/weak signal, no long entry. Same recurring news items - FOMC decision remains the dominant unresolved catalyst. No trade.
+
+**Signals considered:**
+```json
+{
+  "price_action_1h_48h_pct": -4.35,
+  "price_action_4h_48h_pct": -3.48,
+  "rsi_14_4h": 39.56,
+  "volume_ratio": 2.31,
+  "volume_flag_above_2x": true,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "crossed_this_candle": false,
+  "momentum_trigger_flagged": false,
+  "order_book_imbalance_top10": 0.419,
+  "news_context": "Same items as prior cycles - ETF inflows, FOMC decision still the key unresolved catalyst. Bearish SMA state persists, no long entry."
+}
+```
+
+---
+### 2026-09-16T14:12:49.545Z — SOL/USD — NO TRADE
+
+**Reasoning:** No signals flagged: volume ratio 1.47x, RSI 40.09, SMA fast_below_slow with no crossover, no momentum_trigger. Alpenglow upgrade mainnet rollout targeted for Sept 18 (2 days out) - a real but forward-looking, not-yet-live catalyst, not a basis for entry today. No trade.
+
+**Signals considered:**
+```json
+{
+  "price_action_1h_48h_pct": -4.44,
+  "price_action_4h_48h_pct": -3.93,
+  "rsi_14_4h": 40.09,
+  "volume_ratio": 1.47,
+  "volume_flag_above_2x": false,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "crossed_this_candle": false,
+  "momentum_trigger_flagged": false,
+  "order_book_imbalance_top10": 0.267,
+  "news_context": "Alpenglow upgrade targeting mainnet rollout by Sept 18 - forward-looking, not yet live. FOMC decision remains the dominant near-term driver."
+}
+```
+
+---
+### 2026-09-16T14:12:51.867Z — POL/USD — NO TRADE
+
+**Reasoning:** SMA remains fast_below_slow (bearish crossover persists), RSI 47.95, volume roughly average (1.06x), no momentum_trigger. Bearish signal, no long entry. News confirms POL's broader 2026 struggles (Layer-2 competition, weak demand, TVL outflows). No trade.
+
+**Signals considered:**
+```json
+{
+  "price_action_1h_48h_pct": -5.69,
+  "price_action_4h_48h_pct": -3.56,
+  "rsi_14_4h": 47.95,
+  "volume_ratio": 1.06,
+  "volume_flag_above_2x": false,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "crossed_this_candle": true,
+  "crossover_direction": "bearish",
+  "momentum_trigger_flagged": false,
+  "order_book_imbalance_top10": 0.346,
+  "news_context": "Same items as prior cycles - POL's 2026 struggles (Layer-2 competition, weak demand, TVL outflows) consistent with the persisting bearish crossover."
+}
+```
+
+---
+### 2026-09-16T14:12:55.560Z — XRP/USD — NO TRADE
+
+**Reasoning:** Volume flagged sharply at 2.83x, RSI 37.30, decline deepened to -9.0%/-7.7% (1h/4h, 48h windows), momentum_trigger.flagged remains false - trusted as authoritative. SMA stays fast_below_slow with no crossover. BTC search this cycle directly confirmed XRP is trading narrowly with BTC/ETH awaiting the FOMC statement, corroborating the macro-driven nature of this decline - not a long-entry basis, and the account is long-only regardless. No fresh quant trigger, no trade.
+
+**Signals considered:**
+```json
+{
+  "price_action_1h_48h_pct": -8.98,
+  "price_action_4h_48h_pct": -7.7,
+  "rsi_14_4h": 37.3,
+  "volume_ratio": 2.83,
+  "volume_flag_above_2x": true,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "crossed_this_candle": false,
+  "momentum_trigger_flagged": false,
+  "order_book_imbalance_top10": 0.732,
+  "news_context": "BTC search this cycle confirmed XRP trading narrowly with BTC/ETH awaiting FOMC statement - macro-driven, not a long-entry catalyst. Long-only account can't act on this downside move regardless."
+}
+```
+
+---
