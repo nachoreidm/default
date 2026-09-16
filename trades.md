@@ -23318,3 +23318,108 @@ this is a schema backfill, not a trade action.
 ```
 
 ---
+### 2026-09-16T21:12:03.364Z — BTC/USD — NO TRADE
+
+**Reasoning:** RSI 40.90, volume ratio 1.74x (below threshold), SMA fast_below_slow with no crossover, no momentum_trigger. Fed hike confirmed (25bps, first since July 2023, target 3.75-4.00%); market digesting, price holding just above $76K. No confirmed signal, no trade.
+
+**Signals considered:**
+```json
+{
+  "price_action_1h_48h_pct": -3.36,
+  "price_action_4h_48h_pct": -2.79,
+  "rsi_14_4h": 40.9,
+  "volume_ratio": 1.74,
+  "volume_flag_above_2x": false,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "crossed_this_candle": false,
+  "momentum_trigger_flagged": false,
+  "order_book_imbalance_top10": -0.287,
+  "news_context": "Fed hike confirmed (25bps, first since July 2023). Market digesting, no confirmed trading signal."
+}
+```
+
+---
+### 2026-09-16T21:12:05.875Z — ETH/USD — NO TRADE
+
+**Reasoning:** SMA stays fast_below_slow, volume flagged at 2.31x, RSI 38.98. Bearish/weak signal, no long entry. Same recurring news items. No trade.
+
+**Signals considered:**
+```json
+{
+  "price_action_1h_48h_pct": -5.42,
+  "price_action_4h_48h_pct": -4.34,
+  "rsi_14_4h": 38.98,
+  "volume_ratio": 2.31,
+  "volume_flag_above_2x": true,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "crossed_this_candle": false,
+  "momentum_trigger_flagged": false,
+  "order_book_imbalance_top10": -0.087,
+  "news_context": "Same items as prior cycles - ETF inflows, Fed hike confirmed. Bearish SMA state persists, no long entry."
+}
+```
+
+---
+### 2026-09-16T21:12:08.375Z — SOL/USD — NO TRADE
+
+**Reasoning:** No signals flagged: volume ratio 1.47x, RSI 42.16, SMA fast_below_slow with no crossover, no momentum_trigger. 250ms slot upgrade still pending ~Sept 18. No trade.
+
+**Signals considered:**
+```json
+{
+  "price_action_1h_48h_pct": -4.44,
+  "price_action_4h_48h_pct": -4.45,
+  "rsi_14_4h": 42.16,
+  "volume_ratio": 1.47,
+  "volume_flag_above_2x": false,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "crossed_this_candle": false,
+  "momentum_trigger_flagged": false,
+  "order_book_imbalance_top10": 0.018,
+  "news_context": "No fresh Solana-specific catalyst - same dated items as prior cycles."
+}
+```
+
+---
+### 2026-09-16T21:12:10.962Z — POL/USD — NO TRADE
+
+**Reasoning:** No signals flagged: SMA remains fast_below_slow with no crossover, RSI 41.73, volume roughly average (1.06x), no momentum_trigger. No fresh Polygon-specific catalyst. No trade.
+
+**Signals considered:**
+```json
+{
+  "price_action_1h_48h_pct": -3.48,
+  "price_action_4h_48h_pct": -4.45,
+  "rsi_14_4h": 41.73,
+  "volume_ratio": 1.06,
+  "volume_flag_above_2x": false,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "crossed_this_candle": false,
+  "momentum_trigger_flagged": false,
+  "order_book_imbalance_top10": 0.136,
+  "news_context": "No fresh Polygon-specific catalyst - same dated items as prior cycles."
+}
+```
+
+---
+### 2026-09-16T21:12:13.806Z — XRP/USD — NO TRADE
+
+**Reasoning:** Decline moderating further - price stable around $1.297-1.30, RSI 41.29, volume flagged at 2.83x, momentum_trigger.flagged remains false, SMA stays fast_below_slow with no crossover. Both catalysts (CLARITY Act failure, Fed hike) now fully confirmed and being digested by the market - no fresh trigger, no crossover to confirm a reversal. No trade.
+
+**Signals considered:**
+```json
+{
+  "price_action_1h_48h_pct": -9.79,
+  "price_action_4h_48h_pct": -8.65,
+  "rsi_14_4h": 41.29,
+  "volume_ratio": 2.83,
+  "volume_flag_above_2x": true,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "crossed_this_candle": false,
+  "momentum_trigger_flagged": false,
+  "order_book_imbalance_top10": -0.195,
+  "news_context": "Both catalysts (CLARITY Act failure, Fed hike) fully confirmed, market digesting. Price stabilizing around $1.30. No crossover yet to confirm a reversal."
+}
+```
+
+---
