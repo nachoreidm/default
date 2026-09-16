@@ -22054,3 +22054,108 @@ this is a schema backfill, not a trade action.
 ```
 
 ---
+### 2026-09-16T09:12:30.121Z — BTC/USD — NO TRADE
+
+**Reasoning:** RSI 34.84, volume ratio 1.74x (below threshold), SMA fast_below_slow with no crossover, no momentum_trigger. FOMC decision remains the dominant unresolved catalyst. No confirmed signal, no trade.
+
+**Signals considered:**
+```json
+{
+  "price_action_1h_48h_pct": -3.13,
+  "price_action_4h_48h_pct": -2.62,
+  "rsi_14_4h": 34.84,
+  "volume_ratio": 1.74,
+  "volume_flag_above_2x": false,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "crossed_this_candle": false,
+  "momentum_trigger_flagged": false,
+  "order_book_imbalance_top10": -0.078,
+  "news_context": "FOMC decision (87% hike odds per most recent search) still unresolved. Traders reducing risk pre-decision. No confirmed trading signal."
+}
+```
+
+---
+### 2026-09-16T09:12:32.667Z — ETH/USD — NO TRADE
+
+**Reasoning:** SMA stays fast_below_slow, volume flagged at 2.31x, RSI 32.47. Bearish/weak signal, no long entry. Same recurring news items. No trade.
+
+**Signals considered:**
+```json
+{
+  "price_action_1h_48h_pct": -4.81,
+  "price_action_4h_48h_pct": -4.5,
+  "rsi_14_4h": 32.47,
+  "volume_ratio": 2.31,
+  "volume_flag_above_2x": true,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "crossed_this_candle": false,
+  "momentum_trigger_flagged": false,
+  "order_book_imbalance_top10": 0.02,
+  "news_context": "Same items as prior cycles - ETF inflows, FOMC decision still unresolved. Bearish SMA state persists, no long entry."
+}
+```
+
+---
+### 2026-09-16T09:12:34.969Z — SOL/USD — NO TRADE
+
+**Reasoning:** No signals flagged: volume ratio 1.47x, RSI 34.03, SMA fast_below_slow with no crossover, no momentum_trigger. Essentially unchanged. No fresh Solana-specific catalyst. No trade.
+
+**Signals considered:**
+```json
+{
+  "price_action_1h_48h_pct": -4.83,
+  "price_action_4h_48h_pct": -4.38,
+  "rsi_14_4h": 34.03,
+  "volume_ratio": 1.47,
+  "volume_flag_above_2x": false,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "crossed_this_candle": false,
+  "momentum_trigger_flagged": false,
+  "order_book_imbalance_top10": 0.091,
+  "news_context": "No fresh Solana-specific catalyst - same dated items as prior cycles."
+}
+```
+
+---
+### 2026-09-16T09:12:37.275Z — POL/USD — NO TRADE
+
+**Reasoning:** No signals flagged: volume roughly average (1.06x), RSI 33.15, SMA fast_above_slow with no crossover, no momentum_trigger. No fresh Polygon-specific catalyst. No trade.
+
+**Signals considered:**
+```json
+{
+  "price_action_1h_48h_pct": -4.5,
+  "price_action_4h_48h_pct": -5.68,
+  "rsi_14_4h": 33.15,
+  "volume_ratio": 1.06,
+  "volume_flag_above_2x": false,
+  "sma_crossover_4h_state": "fast_above_slow",
+  "crossed_this_candle": false,
+  "momentum_trigger_flagged": false,
+  "order_book_imbalance_top10": 0.374,
+  "news_context": "No fresh Polygon-specific catalyst - same dated items as prior cycles."
+}
+```
+
+---
+### 2026-09-16T09:12:41.184Z — XRP/USD — NO TRADE
+
+**Reasoning:** Volume flagged sharply at 2.83x, RSI 34.57, decline deepening further to -8.4%/-8.1% (1h/4h, 48h windows) - well beyond the momentum threshold in magnitude but momentum_trigger.flagged remains false, trusted as authoritative. SMA stays fast_below_slow with no crossover. This search's price figure ($1.2890) closely matches the live price ($1.2857), confirming the decline is real pre-FOMC macro selling, not a data artifact - but still a bearish/macro move that doesn't support a long entry, and the account is long-only regardless. No fresh quant trigger, no trade.
+
+**Signals considered:**
+```json
+{
+  "price_action_1h_48h_pct": -8.4,
+  "price_action_4h_48h_pct": -8.14,
+  "rsi_14_4h": 34.57,
+  "volume_ratio": 2.83,
+  "volume_flag_above_2x": true,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "crossed_this_candle": false,
+  "momentum_trigger_flagged": false,
+  "order_book_imbalance_top10": -0.486,
+  "news_context": "Search price ($1.2890) closely matches live price ($1.2857), confirming the pre-FOMC decline is real. No long-entry catalyst; long-only account can't act on this downside move regardless."
+}
+```
+
+---
