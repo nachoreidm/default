@@ -23528,3 +23528,108 @@ this is a schema backfill, not a trade action.
 ```
 
 ---
+### 2026-09-16T23:12:42.722Z — BTC/USD — NO TRADE
+
+**Reasoning:** RSI 40.90, volume ratio 1.74x (below threshold), SMA fast_below_slow with no crossover, no momentum_trigger. News confirms BTC lost the $76-77K support zone that had repeatedly held, now trading in a $75-76K range with $75K-75.5K as next support. Fed hike (90%+ odds, confirmed) and CLARITY Act failure remain the compounding drivers. No confirmed trading signal, no trade.
+
+**Signals considered:**
+```json
+{
+  "price_action_1h_48h_pct": -3.3,
+  "price_action_4h_48h_pct": -2.79,
+  "rsi_14_4h": 40.9,
+  "volume_ratio": 1.74,
+  "volume_flag_above_2x": false,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "crossed_this_candle": false,
+  "momentum_trigger_flagged": false,
+  "order_book_imbalance_top10": 0.48,
+  "news_context": "BTC lost the $76-77K support zone, trading $75-76K with $75K-75.5K next support. Fed hike + CLARITY Act failure remain compounding drivers. No confirmed trading signal."
+}
+```
+
+---
+### 2026-09-16T23:12:44.950Z — ETH/USD — NO TRADE
+
+**Reasoning:** SMA stays fast_below_slow, volume flagged at 2.31x, RSI 38.98. Bearish/weak signal, no long entry. Same recurring news items. No trade.
+
+**Signals considered:**
+```json
+{
+  "price_action_1h_48h_pct": -4.99,
+  "price_action_4h_48h_pct": -4.34,
+  "rsi_14_4h": 38.98,
+  "volume_ratio": 2.31,
+  "volume_flag_above_2x": true,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "crossed_this_candle": false,
+  "momentum_trigger_flagged": false,
+  "order_book_imbalance_top10": -0.68,
+  "news_context": "Same items as prior cycles - ETF inflows, Fed hike and CLARITY Act failure. Bearish SMA state persists, no long entry."
+}
+```
+
+---
+### 2026-09-16T23:12:47.407Z — SOL/USD — NO TRADE
+
+**Reasoning:** No signals flagged: volume ratio 1.47x, RSI 42.16, SMA fast_below_slow with no crossover, no momentum_trigger. Network maintains 100% uptime since Feb 2024; no fresh price-moving catalyst. No trade.
+
+**Signals considered:**
+```json
+{
+  "price_action_1h_48h_pct": -5.03,
+  "price_action_4h_48h_pct": -4.45,
+  "rsi_14_4h": 42.16,
+  "volume_ratio": 1.47,
+  "volume_flag_above_2x": false,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "crossed_this_candle": false,
+  "momentum_trigger_flagged": false,
+  "order_book_imbalance_top10": -0.02,
+  "news_context": "No fresh Solana-specific catalyst - same dated items as prior cycles."
+}
+```
+
+---
+### 2026-09-16T23:12:49.759Z — POL/USD — NO TRADE
+
+**Reasoning:** No signals flagged: SMA remains fast_below_slow with no crossover, RSI 41.73, volume roughly average (1.06x), no momentum_trigger. No fresh Polygon-specific catalyst. No trade.
+
+**Signals considered:**
+```json
+{
+  "price_action_1h_48h_pct": -2.54,
+  "price_action_4h_48h_pct": -4.45,
+  "rsi_14_4h": 41.73,
+  "volume_ratio": 1.06,
+  "volume_flag_above_2x": false,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "crossed_this_candle": false,
+  "momentum_trigger_flagged": false,
+  "order_book_imbalance_top10": 0.178,
+  "news_context": "No fresh Polygon-specific catalyst - same dated items as prior cycles."
+}
+```
+
+---
+### 2026-09-16T23:12:52.481Z — XRP/USD — NO TRADE
+
+**Reasoning:** Decline holding at similar levels (-9.7%/-8.6% 1h/4h, 48h windows), RSI 41.29, volume flagged at 2.83x, momentum_trigger.flagged remains false, SMA stays fast_below_slow with no crossover. Same recurring stale pre-vote items in search (CLARITY Act already confirmed failed in prior cycles). No trade.
+
+**Signals considered:**
+```json
+{
+  "price_action_1h_48h_pct": -9.67,
+  "price_action_4h_48h_pct": -8.65,
+  "rsi_14_4h": 41.29,
+  "volume_ratio": 2.83,
+  "volume_flag_above_2x": true,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "crossed_this_candle": false,
+  "momentum_trigger_flagged": false,
+  "order_book_imbalance_top10": -0.022,
+  "news_context": "Same recurring stale pre-vote items - CLARITY Act already confirmed failed in prior cycles. No fresh catalyst, no crossover yet."
+}
+```
+
+---
