@@ -22475,3 +22475,109 @@ this is a schema backfill, not a trade action.
 ```
 
 ---
+### 2026-09-16T13:13:25.323Z — BTC/USD — NO TRADE
+
+**Reasoning:** RSI 41.01, volume ratio 1.74x (below threshold), SMA fast_below_slow with no crossover, no momentum_trigger. FOMC statement/dot plot due 2pm ET, press conference 2:30pm ET today (92% hike odds) - still unresolved. No confirmed signal, no trade.
+
+**Signals considered:**
+```json
+{
+  "price_action_1h_48h_pct": -2.86,
+  "price_action_4h_48h_pct": -3.02,
+  "rsi_14_4h": 41.01,
+  "volume_ratio": 1.74,
+  "volume_flag_above_2x": false,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "crossed_this_candle": false,
+  "momentum_trigger_flagged": false,
+  "order_book_imbalance_top10": 0.326,
+  "news_context": "FOMC statement/dot plot 2pm ET, press conference 2:30pm ET - still ~6 hours out from this cycle. 92% hike odds per latest source. No confirmed trading signal."
+}
+```
+
+---
+### 2026-09-16T13:13:29.167Z — ETH/USD — NO TRADE
+
+**Reasoning:** SMA stays fast_below_slow, volume flagged at 2.31x, RSI 39.56. Bearish/weak signal, no long entry. Same recurring news items - ETF flows note is mixed/inconsistent across sources this cycle (one citing $1.62B in 12-day inflows vs prior cycle's outflow headline), treated with caution either way since no quant signal supports a trade. No trade.
+
+**Signals considered:**
+```json
+{
+  "price_action_1h_48h_pct": -3.82,
+  "price_action_4h_48h_pct": -3.48,
+  "rsi_14_4h": 39.56,
+  "volume_ratio": 2.31,
+  "volume_flag_above_2x": true,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "crossed_this_candle": false,
+  "momentum_trigger_flagged": false,
+  "order_book_imbalance_top10": 0.115,
+  "news_context": "Mixed/inconsistent ETF-flow reporting this cycle vs last - not treated as a fresh catalyst either way given no quant signal supports a trade. FOMC still the dominant unresolved driver."
+}
+```
+
+---
+### 2026-09-16T13:13:32.417Z — SOL/USD — NO TRADE
+
+**Reasoning:** No signals flagged: volume ratio 1.47x, RSI 40.09, SMA fast_below_slow with no crossover, no momentum_trigger. Essentially unchanged - news itself notes SOL falling despite the Transaction V1/post-quantum updates, with FOMC as the dominant driver. No trade.
+
+**Signals considered:**
+```json
+{
+  "price_action_1h_48h_pct": -3.84,
+  "price_action_4h_48h_pct": -3.93,
+  "rsi_14_4h": 40.09,
+  "volume_ratio": 1.47,
+  "volume_flag_above_2x": false,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "crossed_this_candle": false,
+  "momentum_trigger_flagged": false,
+  "order_book_imbalance_top10": 0.156,
+  "news_context": "Same items as prior cycle - Transaction V1/post-quantum milestone already priced in, SOL falling despite them, FOMC decision is the dominant driver."
+}
+```
+
+---
+### 2026-09-16T13:13:35.090Z — POL/USD — NO TRADE
+
+**Reasoning:** SMA remains fast_below_slow (bearish crossover from last cycle persists), RSI 47.95 (near neutral), volume roughly average (1.06x), no momentum_trigger. Bearish signal, no long entry. News confirms POL's broader 2026 struggles (Layer-2 competition, weak demand, TVL outflows). No trade.
+
+**Signals considered:**
+```json
+{
+  "price_action_1h_48h_pct": -3.93,
+  "price_action_4h_48h_pct": -3.56,
+  "rsi_14_4h": 47.95,
+  "volume_ratio": 1.06,
+  "volume_flag_above_2x": false,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "crossed_this_candle": true,
+  "crossover_direction": "bearish",
+  "momentum_trigger_flagged": false,
+  "order_book_imbalance_top10": 0.363,
+  "news_context": "Same items as prior cycle - POL's 2026 struggles (Layer-2 competition, weak demand, TVL outflows) consistent with the persisting bearish crossover."
+}
+```
+
+---
+### 2026-09-16T13:13:38.361Z — XRP/USD — NO TRADE
+
+**Reasoning:** Volume flagged sharply at 2.83x, RSI 37.30, decline still -8.0%/-7.7% (1h/4h, 48h windows), momentum_trigger.flagged remains false - trusted as authoritative. SMA stays fast_below_slow with no crossover. News search again returned the same recycled stale pre-vote framing, contradicting the already-confirmed vote failure. No fresh quant trigger, no trade.
+
+**Signals considered:**
+```json
+{
+  "price_action_1h_48h_pct": -8.03,
+  "price_action_4h_48h_pct": -7.7,
+  "rsi_14_4h": 37.3,
+  "volume_ratio": 2.83,
+  "volume_flag_above_2x": true,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "crossed_this_candle": false,
+  "momentum_trigger_flagged": false,
+  "order_book_imbalance_top10": -0.479,
+  "news_context": "Search again returned stale/recycled pre-vote framing (cloture vote scheduled today, CEO urging yes vote) - contradicts the vote's already-confirmed Sept 15 failure. Treated as unreliable. Long-only account can't act on this downside move regardless."
+}
+```
+
+---
