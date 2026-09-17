@@ -24368,3 +24368,108 @@ this is a schema backfill, not a trade action.
 ```
 
 ---
+### 2026-09-17T07:12:13.689Z — BTC/USD — NO TRADE
+
+**Reasoning:** Price -0.6%/-0.7% (1h/4h, 48h window), RSI 45.3 (neutral), fast SMA below slow SMA with no fresh crossover, volume ratio 1.12x (unremarkable), no momentum trigger. Order book heavily ask-skewed (-0.99, thin bid side) but advisory-only. WebSearch this cycle returned only generic Wikipedia background (no current news), no actionable catalyst available. No signal-confirmed entry basis.
+
+**Signals considered:**
+```json
+{
+  "current_price": 76574.2,
+  "pct_change_1h_48h": -0.63,
+  "pct_change_4h_48h": -0.67,
+  "rsi_14_4h": 45.28,
+  "sma_state": "fast_below_slow",
+  "crossed_this_candle": false,
+  "volume_ratio": 1.12,
+  "momentum_trigger": false,
+  "order_book_imbalance": -0.99,
+  "news_search_note": "search returned only generic Wikipedia results, no current news this cycle"
+}
+```
+
+---
+### 2026-09-17T07:12:16.348Z — ETH/USD — NO TRADE
+
+**Reasoning:** Price -1.4%/-1.6% (1h/4h, 48h window), RSI 45.6 (neutral), fast SMA below slow SMA, no fresh crossover, volume ratio 1.28x (unremarkable), no momentum trigger. Order book mildly bid-heavy (+0.17). WebSearch returned only generic Wikipedia background, no current news. No signal-confirmed entry basis.
+
+**Signals considered:**
+```json
+{
+  "current_price": 2450.26,
+  "pct_change_1h_48h": -1.37,
+  "pct_change_4h_48h": -1.59,
+  "rsi_14_4h": 45.62,
+  "sma_state": "fast_below_slow",
+  "crossed_this_candle": false,
+  "volume_ratio": 1.28,
+  "momentum_trigger": false,
+  "order_book_imbalance": 0.17,
+  "news_search_note": "search returned only generic Wikipedia results, no current news this cycle"
+}
+```
+
+---
+### 2026-09-17T07:12:19.016Z — SOL/USD — NO TRADE
+
+**Reasoning:** Price -0.8%/-0.5% (1h/4h, 48h window), RSI 51.1 (neutral), fast SMA below slow SMA, no fresh crossover, volume ratio 1.10x (unremarkable), no momentum trigger. Order book mildly ask-heavy (-0.08). WebSearch returned only generic Wikipedia background, no current news. No signal-confirmed entry basis.
+
+**Signals considered:**
+```json
+{
+  "current_price": 100.14,
+  "pct_change_1h_48h": -0.76,
+  "pct_change_4h_48h": -0.54,
+  "rsi_14_4h": 51.08,
+  "sma_state": "fast_below_slow",
+  "crossed_this_candle": false,
+  "volume_ratio": 1.1,
+  "momentum_trigger": false,
+  "order_book_imbalance": -0.08,
+  "news_search_note": "search returned only generic Wikipedia results, no current news this cycle"
+}
+```
+
+---
+### 2026-09-17T07:12:21.136Z — POL/USD — NO TRADE
+
+**Reasoning:** Price roughly flat: +0.03% (1h/48h), +0.95% (4h/48h), RSI 54.5 (neutral), fast SMA still below slow SMA with no fresh crossover, volume ratio 1.46x (elevated but below 2x flag), no momentum trigger. Order book bid-heavy (+0.54). WebSearch returned only generic Wikipedia background, no current news. No signal-confirmed entry basis.
+
+**Signals considered:**
+```json
+{
+  "current_price": 0.09588,
+  "pct_change_1h_48h": 0.03,
+  "pct_change_4h_48h": 0.95,
+  "rsi_14_4h": 54.55,
+  "sma_state": "fast_below_slow",
+  "crossed_this_candle": false,
+  "volume_ratio": 1.46,
+  "momentum_trigger": false,
+  "order_book_imbalance": 0.54,
+  "news_search_note": "search returned only generic Wikipedia results, no current news this cycle"
+}
+```
+
+---
+### 2026-09-17T07:12:24.340Z — XRP/USD — NO TRADE
+
+**Reasoning:** Price still down -6.7%/-6.5% (1h/4h, 48h window) post-CLARITY Act cloture failure, RSI 41.9 (neutral, not oversold), fast SMA below slow SMA with no fresh crossover, volume ratio 1.16x (unremarkable), no momentum trigger despite the move exceeding the 6% magnitude threshold on the downside (consistent with prior cycles). Order book roughly balanced (-0.03). WebSearch tool errored out this cycle ("unavailable") - no news data obtainable, but live signals alone give no entry basis regardless. No signal-confirmed entry basis.
+
+**Signals considered:**
+```json
+{
+  "current_price": 1.30428,
+  "pct_change_1h_48h": -6.67,
+  "pct_change_4h_48h": -6.54,
+  "rsi_14_4h": 41.88,
+  "sma_state": "fast_below_slow",
+  "crossed_this_candle": false,
+  "volume_ratio": 1.16,
+  "momentum_trigger": false,
+  "order_book_imbalance": -0.03,
+  "news_search_note": "WebSearch tool errored/unavailable this cycle, no news data obtained"
+}
+```
+
+---
