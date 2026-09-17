@@ -23843,3 +23843,108 @@ this is a schema backfill, not a trade action.
 ```
 
 ---
+### 2026-09-17T02:12:06.529Z — BTC/USD — NO TRADE
+
+**Reasoning:** Price -2.0%/-1.9% (1h/4h, 48h window), RSI 42.5 (neutral), fast SMA below slow SMA with no fresh crossover this candle, volume ratio 1.12x (unremarkable), no momentum trigger. Order-book skewed heavily toward asks (-0.82 imbalance) but that's advisory-only per instructions, not a trigger. Search results stale (BTC quoted ~$78.1K vs live $76.1K, dated Sept 14 data) and offered nothing actionable beyond already-known CLARITY Act fallout. No signal-confirmed entry basis.
+
+**Signals considered:**
+```json
+{
+  "current_price": 76101.2,
+  "pct_change_1h_48h": -2.01,
+  "pct_change_4h_48h": -1.95,
+  "rsi_14_4h": 42.55,
+  "sma_state": "fast_below_slow",
+  "crossed_this_candle": false,
+  "volume_ratio": 1.12,
+  "momentum_trigger": false,
+  "order_book_imbalance": -0.82,
+  "news_search_note": "stale/dated price ($78.1K vs live $76.1K), no new actionable catalyst"
+}
+```
+
+---
+### 2026-09-17T02:12:09.367Z — ETH/USD — NO TRADE
+
+**Reasoning:** Price -3.4%/-3.3% (1h/4h, 48h window), RSI 41.5 (neutral), fast SMA below slow SMA, no fresh crossover, volume ratio 1.28x (unremarkable), no momentum trigger. Order book skewed bid-heavy (+0.46) but advisory-only, doesn't offset the lack of a confirmed trend/momentum signal. Search results referenced a "revised Senate bill with White House-backed concessions boosting regulatory optimism" which is inconsistent with the already-confirmed CLARITY Act cloture failure on Sept 15 - treated as unreliable/stale framing. No signal-confirmed entry basis.
+
+**Signals considered:**
+```json
+{
+  "current_price": 2418.66,
+  "pct_change_1h_48h": -3.44,
+  "pct_change_4h_48h": -3.26,
+  "rsi_14_4h": 41.52,
+  "sma_state": "fast_below_slow",
+  "crossed_this_candle": false,
+  "volume_ratio": 1.28,
+  "momentum_trigger": false,
+  "order_book_imbalance": 0.46,
+  "news_search_note": "conflicting/stale regulatory framing vs confirmed CLARITY Act failure, no actionable catalyst"
+}
+```
+
+---
+### 2026-09-17T02:12:12.591Z — SOL/USD — NO TRADE
+
+**Reasoning:** Price -2.8%/-2.9% (1h/4h, 48h window), RSI 44.9 (neutral), fast SMA below slow SMA, no fresh crossover, volume ratio 1.10x (unremarkable), no momentum trigger. Order book roughly balanced (+0.05). Search results described positive ecosystem/adoption news (SEC ETF designation, tokenized stock volume) but these are days-old items already priced in, not a fresh same-cycle catalyst, and don't overcome the lack of any technical confirmation. No signal-confirmed entry basis.
+
+**Signals considered:**
+```json
+{
+  "current_price": 98.95,
+  "pct_change_1h_48h": -2.76,
+  "pct_change_4h_48h": -2.92,
+  "rsi_14_4h": 44.91,
+  "sma_state": "fast_below_slow",
+  "crossed_this_candle": false,
+  "volume_ratio": 1.1,
+  "momentum_trigger": false,
+  "order_book_imbalance": 0.05,
+  "news_search_note": "positive but stale/already-priced-in ecosystem news, no fresh technical confirmation"
+}
+```
+
+---
+### 2026-09-17T02:12:15.992Z — POL/USD — NO TRADE
+
+**Reasoning:** Price roughly flat: -0.6% (1h/48h) but +0.65% (4h/48h), RSI 54.2 (neutral), fast SMA still below slow SMA with no fresh crossover this candle, volume ratio 1.46x (elevated but below 2x flag threshold), no momentum trigger. Order book mildly ask-skewed (-0.06). Search results only offered a days-old RWA-sector mention and a stale price forecast, nothing actionable. No signal-confirmed entry basis.
+
+**Signals considered:**
+```json
+{
+  "current_price": 0.09588,
+  "pct_change_1h_48h": -0.62,
+  "pct_change_4h_48h": 0.65,
+  "rsi_14_4h": 54.24,
+  "sma_state": "fast_below_slow",
+  "crossed_this_candle": false,
+  "volume_ratio": 1.46,
+  "momentum_trigger": false,
+  "order_book_imbalance": -0.06,
+  "news_search_note": "no fresh actionable catalyst, dated RWA/price-forecast mentions only"
+}
+```
+
+---
+### 2026-09-17T02:12:20.718Z — XRP/USD — NO TRADE
+
+**Reasoning:** Price still down -8.7%/-8.3% (1h/4h, 48h window) off the CLARITY Act cloture failure, RSI 41.0 (neutral, not oversold), fast SMA below slow SMA with no fresh crossover, volume ratio 1.16x (unremarkable), no momentum trigger despite the large magnitude move (consistent with this tool's momentum_trigger consistently not flagging downside moves in prior cycles). Order book bid-heavy (+0.31) but advisory-only. Search results this time were roughly consistent with live price (~$1.30) and confirmed the already-known CLARITY Act failure as the driver - no new catalyst, and the drop lacks technical confirmation (no oversold RSI, no bullish reversal signal) for a contrarian entry. No signal-confirmed entry basis.
+
+**Signals considered:**
+```json
+{
+  "current_price": 1.29528,
+  "pct_change_1h_48h": -8.68,
+  "pct_change_4h_48h": -8.27,
+  "rsi_14_4h": 41.02,
+  "sma_state": "fast_below_slow",
+  "crossed_this_candle": false,
+  "volume_ratio": 1.16,
+  "momentum_trigger": false,
+  "order_book_imbalance": 0.31,
+  "news_search_note": "price roughly consistent with live this cycle, confirms known CLARITY Act failure as driver, no new catalyst"
+}
+```
+
+---
