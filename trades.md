@@ -25714,3 +25714,136 @@ this is a schema backfill, not a trade action.
 ```
 
 ---
+### 2026-09-17T18:13:16.006Z — BTC/USD — NO TRADE
+
+**Reasoning:** No quantitative trigger: SMA 4h fast_below_slow, no cross this candle, RSI(14,4h) neutral at 49.6, volume 1.12x average (no spike), momentum_trigger not flagged (48h move +0.88%/+0.78%). Order book now strongly bid-heavy (+0.92) but not itself an entry trigger. No-trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 49.62,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 1.12,
+  "volume_flag_above_2x": false,
+  "momentum_trigger_flagged": false,
+  "price_action_4h_48h_pct": 0.78,
+  "order_book_imbalance_top10": 0.92,
+  "news_context": "Market still working through the CLARITY Act failure and Fed's 2022-echo rate-hike narrative; BTC holding near $76.6K. No fresh trigger."
+}
+```
+
+---
+### 2026-09-17T18:13:18.287Z — ETH/USD — NO TRADE
+
+**Reasoning:** No quantitative trigger: SMA 4h fast_below_slow, no cross this candle, RSI(14,4h) neutral at 53.6, volume 1.28x average (no spike), momentum_trigger not flagged (48h move +2.48%/+2.21%). Order book bid-heavy (+0.60). No-trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 53.57,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 1.28,
+  "volume_flag_above_2x": false,
+  "momentum_trigger_flagged": false,
+  "price_action_4h_48h_pct": 2.21,
+  "order_book_imbalance_top10": 0.6,
+  "news_context": "Consensys rebranding as MetaMask under Joe Lubin; ETH outperforming the broader market, modest positive drift. No quantitative trigger."
+}
+```
+
+---
+### 2026-09-17T18:13:21.510Z — SOL/USD — NO TRADE
+
+**Reasoning:** No quantitative trigger: SMA 4h fast_below_slow, no cross this candle, RSI(14,4h) neutral at 56.9, volume 1.10x average (no spike), momentum_trigger not flagged (48h move +3.35%/+3.45%, still below the 6% threshold). Order book ask-heavy (-0.14). No-trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 56.9,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 1.1,
+  "volume_flag_above_2x": false,
+  "momentum_trigger_flagged": false,
+  "price_action_4h_48h_pct": 3.45,
+  "order_book_imbalance_top10": -0.14,
+  "news_context": "Slot-time reduction (400ms->200ms) planned; $4.7T in stablecoins moved across Solana in past year. Constructive but no trigger."
+}
+```
+
+---
+### 2026-09-17T18:13:24.196Z — XRP/USD — NO TRADE
+
+**Reasoning:** No quantitative trigger: SMA 4h fast_below_slow, no cross this candle, RSI(14,4h) neutral at 43.4, volume 1.16x average (no spike), momentum_trigger not flagged (48h move -1.76%/+0.89%, both under threshold). Order book roughly balanced (+0.06). CLARITY Act fallout remains the dominant story but is bearish, not a long trigger. No-trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 43.39,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 1.16,
+  "volume_flag_above_2x": false,
+  "momentum_trigger_flagged": false,
+  "price_action_4h_48h_pct": 0.89,
+  "order_book_imbalance_top10": 0.06,
+  "news_context": "Still digesting the CLARITY Act cloture failure (Sept 15), XRP down ~9% since; price stabilizing near $1.30. No trigger for a long."
+}
+```
+
+---
+### 2026-09-17T18:13:27.760Z — ADA/USD — NO TRADE
+
+**Reasoning:** No quantitative trigger: SMA 4h fast_below_slow, no cross this candle, RSI(14,4h) neutral at 52.0, volume 1.59x average (elevated but sub-2x), momentum_trigger not flagged (48h move +2.06%/+2.17%). Order book mildly ask-heavy (-0.09). No-trade despite constructive news.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 51.98,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 1.59,
+  "volume_flag_above_2x": false,
+  "momentum_trigger_flagged": false,
+  "price_action_4h_48h_pct": 2.17,
+  "order_book_imbalance_top10": -0.09,
+  "news_context": "Cardano stablecoin market cap growing; Leios testnet hit ~1000 TPS with mainnet targeted November; RealFi launch expected Oct 1; broader crypto market turned green post-FOMC. Constructive, no trigger yet."
+}
+```
+
+---
+### 2026-09-17T18:13:30.205Z — LINK/USD — NO TRADE
+
+**Reasoning:** No quantitative trigger: SMA 4h fast_below_slow, no cross this candle, RSI(14,4h) neutral at 54.4, volume below average (0.73x, no spike), momentum_trigger not flagged (48h move +2.42%/+2.55%). Order book mildly bid-heavy (+0.10). No-trade despite bullish institutional narrative (Standard Chartered $200 target, Arc Mainnet).
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 54.39,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 0.73,
+  "volume_flag_above_2x": false,
+  "momentum_trigger_flagged": false,
+  "price_action_4h_48h_pct": 2.55,
+  "order_book_imbalance_top10": 0.1,
+  "news_context": "Standard Chartered set a $200 long-term LINK target; continued momentum from Arc Mainnet/Bottomline partnerships. Bullish sentiment, no quantitative trigger."
+}
+```
+
+---
+### 2026-09-17T18:13:32.733Z — DOGE/USD — NO TRADE
+
+**Reasoning:** No quantitative trigger: SMA 4h fast_below_slow, no cross this candle, RSI(14,4h) neutral at 48.9, volume below average (0.80x, no spike), momentum_trigger not flagged (48h move +1.09%/+1.33%). Order book bid-heavy (+0.52). No-trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 48.95,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 0.8,
+  "volume_flag_above_2x": false,
+  "momentum_trigger_flagged": false,
+  "price_action_4h_48h_pct": 1.33,
+  "order_book_imbalance_top10": 0.52,
+  "news_context": "DOGE gained modestly alongside BTC/ETH/XRP after the BTC Reserve Bill advanced; community sentiment bullish. No quantitative trigger."
+}
+```
+
+---
