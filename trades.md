@@ -23633,3 +23633,108 @@ this is a schema backfill, not a trade action.
 ```
 
 ---
+### 2026-09-17T00:12:37.725Z — BTC/USD — NO TRADE
+
+**Reasoning:** RSI improved to 42.55, volume ratio back to 1.12x as the high-volume selloff candle rolls out of the 24h window, SMA fast_below_slow with no crossover, no momentum_trigger. Price recovering modestly to $76,369. News search returned stale/mismatched content (BTC quoted at $78K from Sept 14) inconsistent with live price - treated as unreliable. No confirmed trading signal, no trade.
+
+**Signals considered:**
+```json
+{
+  "price_action_1h_48h_pct": -2.31,
+  "price_action_4h_48h_pct": -1.95,
+  "rsi_14_4h": 42.55,
+  "volume_ratio": 1.12,
+  "volume_flag_above_2x": false,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "crossed_this_candle": false,
+  "momentum_trigger_flagged": false,
+  "order_book_imbalance_top10": 0.838,
+  "news_context": "Search returned stale/mismatched price data ($78K from Sept 14) inconsistent with live price $76,369. No confirmed trading signal; price recovering modestly."
+}
+```
+
+---
+### 2026-09-17T00:12:39.997Z — ETH/USD — NO TRADE
+
+**Reasoning:** SMA stays fast_below_slow, volume ratio back to 1.28x (below threshold), RSI 41.52 improving. No crossover, no momentum_trigger. News confirms combined BTC/ETH ETF outflows of $592M on Sept 15 (already known), plus ETH fund inflows of $121M on Sept 14 (predates the selloff, stale). No fresh catalyst, no trade.
+
+**Signals considered:**
+```json
+{
+  "price_action_1h_48h_pct": -3.93,
+  "price_action_4h_48h_pct": -3.26,
+  "rsi_14_4h": 41.52,
+  "volume_ratio": 1.28,
+  "volume_flag_above_2x": false,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "crossed_this_candle": false,
+  "momentum_trigger_flagged": false,
+  "order_book_imbalance_top10": 0.228,
+  "news_context": "Same $592M ETF outflow figure as prior cycles (already known); $121M ETH inflow item predates the CLARITY Act selloff. No fresh catalyst."
+}
+```
+
+---
+### 2026-09-17T00:12:42.657Z — SOL/USD — NO TRADE
+
+**Reasoning:** No signals flagged: volume ratio 1.10x (normalizing), RSI 44.91, SMA fast_below_slow with no crossover, no momentum_trigger. News notes new xStocks tokenized-equity listings (GameStop, 1-800-Flowers) from Sept 12 - dated, not a fresh catalyst. No trade.
+
+**Signals considered:**
+```json
+{
+  "price_action_1h_48h_pct": -3.83,
+  "price_action_4h_48h_pct": -2.92,
+  "rsi_14_4h": 44.91,
+  "volume_ratio": 1.1,
+  "volume_flag_above_2x": false,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "crossed_this_candle": false,
+  "momentum_trigger_flagged": false,
+  "order_book_imbalance_top10": 0.062,
+  "news_context": "xStocks tokenized-equity listings (GameStop, 1-800-Flowers) from Sept 12 - dated, not a fresh price catalyst."
+}
+```
+
+---
+### 2026-09-17T00:12:46.683Z — POL/USD — NO TRADE
+
+**Reasoning:** No signals flagged: SMA remains fast_below_slow with no crossover, RSI 54.24 (neutral, first time above 50 in several cycles), volume ratio 1.46x (below threshold), no momentum_trigger. Price actually turned slightly positive on the 4h/48h window (+0.65%) - a sign of stabilization, but no crossover confirms a reversal yet. News mentions Polygon's role in RWA per a Sept 17 Dune/RWA.xyz report - notable but not a quantified price catalyst. No trade.
+
+**Signals considered:**
+```json
+{
+  "price_action_1h_48h_pct": -0.28,
+  "price_action_4h_48h_pct": 0.65,
+  "rsi_14_4h": 54.24,
+  "volume_ratio": 1.46,
+  "volume_flag_above_2x": false,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "crossed_this_candle": false,
+  "momentum_trigger_flagged": false,
+  "order_book_imbalance_top10": 0.53,
+  "news_context": "New Sept 17 Dune/RWA.xyz report highlights Polygon's role in RWA sector - notable context but not a quantified price catalyst. Price stabilizing (4h/48h now +0.65%), but no crossover yet."
+}
+```
+
+---
+### 2026-09-17T00:12:50.553Z — XRP/USD — NO TRADE
+
+**Reasoning:** Decline moderating - now -8.5%/-8.3% (1h/4h, 48h windows) vs deeper levels in prior cycles, RSI 41.02, volume ratio normalizing to 1.16x (below threshold now), momentum_trigger.flagged remains false, SMA stays fast_below_slow with no crossover. News search returned stale/mismatched content (XRP quoted at $1.42, up 6%, referencing 2025 SEC appeal outcome) starkly inconsistent with live price $1.301 - treated as unreliable, live signal data trusted. No trade.
+
+**Signals considered:**
+```json
+{
+  "price_action_1h_48h_pct": -8.52,
+  "price_action_4h_48h_pct": -8.27,
+  "rsi_14_4h": 41.02,
+  "volume_ratio": 1.16,
+  "volume_flag_above_2x": false,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "crossed_this_candle": false,
+  "momentum_trigger_flagged": false,
+  "order_book_imbalance_top10": 0.032,
+  "news_context": "Search returned stale/mismatched content (XRP at $1.42, +6%, referencing 2025 SEC appeal news) inconsistent with live price $1.301. Treated as unreliable. Decline moderating, volume normalizing, but no crossover yet."
+}
+```
+
+---
