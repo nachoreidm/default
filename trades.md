@@ -25580,3 +25580,137 @@ this is a schema backfill, not a trade action.
 ```
 
 ---
+### 2026-09-17T17:12:39.405Z — BTC/USD — NO TRADE
+
+**Reasoning:** No quantitative trigger: SMA 4h fast_below_slow, no cross this candle, RSI(14,4h) neutral at 49.6, volume 1.12x average (no spike), momentum_trigger not flagged (1h/48h -0.31%, 4h/48h +0.78%, both under 6%). Order book roughly balanced (+0.04). No-trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 49.62,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 1.12,
+  "volume_flag_above_2x": false,
+  "momentum_trigger_flagged": false,
+  "price_action_4h_48h_pct": 0.78,
+  "order_book_imbalance_top10": 0.04,
+  "news_context": "CLARITY Act failure and Fed rate hike continue to weigh on sentiment (mkt sentiment neutral ~39/100); BTC holding near $76.7K. No fresh trigger."
+}
+```
+
+---
+### 2026-09-17T17:12:43.089Z — ETH/USD — NO TRADE
+
+**Reasoning:** No quantitative trigger: SMA 4h fast_below_slow, no cross this candle, RSI(14,4h) neutral at 53.6, volume 1.28x average (no spike), momentum_trigger not flagged (48h move +1.20%/+2.21%). Order book now heavily ask-skewed (-0.94) but that's not an entry trigger on its own. No-trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 53.57,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 1.28,
+  "volume_flag_above_2x": false,
+  "momentum_trigger_flagged": false,
+  "price_action_4h_48h_pct": 2.21,
+  "order_book_imbalance_top10": -0.94,
+  "news_context": "Record Q2 L1 throughput (203.9M txns, 25.9 TPS ATH); some reports of an 8% ETH rally overcoming a $255M liquidation wipeout, though our own 24h price action shows a more modest move. No quantitative trigger."
+}
+```
+
+---
+### 2026-09-17T17:12:45.345Z — SOL/USD — NO TRADE
+
+**Reasoning:** No quantitative trigger: SMA 4h fast_below_slow, no cross this candle, RSI(14,4h) neutral at 56.9, volume 1.10x average (no spike), momentum_trigger not flagged (48h move +1.16%/+3.45%). Order book mildly ask-heavy (-0.09). No-trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 56.9,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 1.1,
+  "volume_flag_above_2x": false,
+  "momentum_trigger_flagged": false,
+  "price_action_4h_48h_pct": 3.45,
+  "order_book_imbalance_top10": -0.09,
+  "news_context": "SOL outperforming the broader market (-1.1% 7d vs -3.0% market); Transaction V1 rollout and strong August ecosystem summary (RWAs, stablecoins, tokenized stocks). Constructive, no trigger."
+}
+```
+
+---
+### 2026-09-17T17:12:49.765Z — XRP/USD — NO TRADE
+
+**Reasoning:** No quantitative trigger for a long: SMA 4h fast_below_slow, no cross this candle, RSI(14,4h) neutral at 43.4, volume 1.16x average (no spike). momentum_trigger not flagged despite 1h/48h move of -7.17% (exceeds the 6% threshold in magnitude but the trigger only fires on upside moves in this long-only strategy, so a decline can't trigger a long entry regardless). Order book bid-heavy (+0.24) but not itself a trigger. News continues to explain the decline (CLARITY Act failure, now compounded to -9.5% 24h) - bearish context, no-trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 43.39,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 1.16,
+  "volume_flag_above_2x": false,
+  "momentum_trigger_flagged": false,
+  "price_action_1h_48h_pct": -7.17,
+  "price_action_4h_48h_pct": 0.89,
+  "order_book_imbalance_top10": 0.24,
+  "news_context": "XRP down ~9.5% over 24h per external sources following the failed CLARITY Act cloture vote (Sept 15) and broader Fed-driven risk-off tone. Bearish, no trigger for a long."
+}
+```
+
+---
+### 2026-09-17T17:12:52.407Z — ADA/USD — NO TRADE
+
+**Reasoning:** No quantitative trigger: SMA 4h fast_below_slow, no cross this candle, RSI(14,4h) neutral at 52.0, volume 1.59x average (elevated but sub-2x), momentum_trigger not flagged (48h move -0.55%/+2.17%). Order book ask-heavy (-0.35). No-trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 51.98,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 1.59,
+  "volume_flag_above_2x": false,
+  "momentum_trigger_flagged": false,
+  "price_action_4h_48h_pct": 2.17,
+  "order_book_imbalance_top10": -0.35,
+  "news_context": "ADA down ~9% over 7 days amid broader market pressure and a $1.89M liquidation event near $0.20 support (Sept 11); x402 payment protocol went live Sept 11. Mixed, no trigger."
+}
+```
+
+---
+### 2026-09-17T17:12:55.791Z — LINK/USD — NO TRADE
+
+**Reasoning:** No quantitative trigger: SMA 4h fast_below_slow, no cross this candle, RSI(14,4h) neutral at 54.4, volume below average (0.73x, no spike), momentum_trigger not flagged (48h move +0.54%/+2.55%). Order book bid-heavy (+0.23). No-trade despite bullish community sentiment.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 54.39,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 0.73,
+  "volume_flag_above_2x": false,
+  "momentum_trigger_flagged": false,
+  "price_action_4h_48h_pct": 2.55,
+  "order_book_imbalance_top10": 0.23,
+  "news_context": "Continued momentum from Arc Mainnet integration and Bottomline banking partnership; large whale transfers (~$79.7M) noted; community sentiment bullish. Still no quantitative trigger."
+}
+```
+
+---
+### 2026-09-17T17:12:58.771Z — DOGE/USD — NO TRADE
+
+**Reasoning:** No quantitative trigger: SMA 4h fast_below_slow, no cross this candle, RSI(14,4h) neutral at 48.9, volume below average (0.80x, no spike), momentum_trigger not flagged (48h move -0.08%/+1.33%). Order book ask-heavy (-0.27). No-trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 48.95,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 0.8,
+  "volume_flag_above_2x": false,
+  "momentum_trigger_flagged": false,
+  "price_action_4h_48h_pct": 1.33,
+  "order_book_imbalance_top10": -0.27,
+  "news_context": "Mixed: BTC Reserve Bill advance gave a brief lift, offset by Fed rate hike pressure; DOGE still range-bound near $0.081-0.082. No quantitative trigger."
+}
+```
+
+---
