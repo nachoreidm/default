@@ -24473,3 +24473,108 @@ this is a schema backfill, not a trade action.
 ```
 
 ---
+### 2026-09-17T08:11:55.857Z — BTC/USD — NO TRADE
+
+**Reasoning:** Price -0.7%/-0.7% (1h/4h, 48h window), RSI 45.5 (neutral), fast SMA below slow SMA with no fresh crossover, volume ratio 1.12x (unremarkable), no momentum trigger. Order book bid-heavy (+0.52). Search confirms known post-Fed-hike consolidation near $75-76K with resistance at $77-80K, and reiterates the already-known CLARITY Act failure - no new actionable catalyst. No signal-confirmed entry basis.
+
+**Signals considered:**
+```json
+{
+  "current_price": 76397.3,
+  "pct_change_1h_48h": -0.75,
+  "pct_change_4h_48h": -0.68,
+  "rsi_14_4h": 45.49,
+  "sma_state": "fast_below_slow",
+  "crossed_this_candle": false,
+  "volume_ratio": 1.12,
+  "momentum_trigger": false,
+  "order_book_imbalance": 0.52,
+  "news_search_note": "consistent with live conditions, no new catalyst"
+}
+```
+
+---
+### 2026-09-17T08:11:58.559Z — ETH/USD — NO TRADE
+
+**Reasoning:** Price -1.4%/-1.3% (1h/4h, 48h window), RSI 47.6 (neutral), fast SMA below slow SMA, no fresh crossover, volume ratio 1.28x (unremarkable), no momentum trigger. Order book heavily ask-skewed (-0.73). Search confirms known post-FOMC consolidation and macro-driven (not ETH-specific) sell-off pressure - no new actionable catalyst. No signal-confirmed entry basis.
+
+**Signals considered:**
+```json
+{
+  "current_price": 2440.4,
+  "pct_change_1h_48h": -1.38,
+  "pct_change_4h_48h": -1.34,
+  "rsi_14_4h": 47.62,
+  "sma_state": "fast_below_slow",
+  "crossed_this_candle": false,
+  "volume_ratio": 1.28,
+  "momentum_trigger": false,
+  "order_book_imbalance": -0.73,
+  "news_search_note": "consistent with live conditions, macro-driven pressure already known, no new catalyst"
+}
+```
+
+---
+### 2026-09-17T08:12:01.270Z — SOL/USD — NO TRADE
+
+**Reasoning:** Price -0.7%/-0.9% (1h/4h, 48h window), RSI 51.4 (neutral), fast SMA below slow SMA, no fresh crossover, volume ratio 1.10x (unremarkable), no momentum trigger. Order book roughly balanced (-0.04). Search again quoted stale price ($103.29 vs live $99.97) and recycled ecosystem news already priced in. No signal-confirmed entry basis.
+
+**Signals considered:**
+```json
+{
+  "current_price": 99.97,
+  "pct_change_1h_48h": -0.67,
+  "pct_change_4h_48h": -0.86,
+  "rsi_14_4h": 51.39,
+  "sma_state": "fast_below_slow",
+  "crossed_this_candle": false,
+  "volume_ratio": 1.1,
+  "momentum_trigger": false,
+  "order_book_imbalance": -0.04,
+  "news_search_note": "stale price ($103.29 vs live $99.97), no fresh catalyst"
+}
+```
+
+---
+### 2026-09-17T08:12:03.912Z — POL/USD — NO TRADE
+
+**Reasoning:** Price mixed: +0.24% (1h/48h), -0.51% (4h/48h), RSI 53.3 (neutral), fast SMA still below slow SMA with no fresh crossover, volume ratio 1.46x (elevated but below 2x flag), no momentum trigger. Order book bid-heavy (+0.61). Search offered only dated RWA-sector mention and stale price forecast, nothing actionable. No signal-confirmed entry basis.
+
+**Signals considered:**
+```json
+{
+  "current_price": 0.09637,
+  "pct_change_1h_48h": 0.24,
+  "pct_change_4h_48h": -0.51,
+  "rsi_14_4h": 53.32,
+  "sma_state": "fast_below_slow",
+  "crossed_this_candle": false,
+  "volume_ratio": 1.46,
+  "momentum_trigger": false,
+  "order_book_imbalance": 0.61,
+  "news_search_note": "no fresh actionable catalyst, dated RWA/price-forecast mentions only"
+}
+```
+
+---
+### 2026-09-17T08:12:07.089Z — XRP/USD — NO TRADE
+
+**Reasoning:** Price still down -6.9%/-7.1% (1h/4h, 48h window) post-CLARITY Act cloture failure, RSI 41.7 (neutral, not oversold), fast SMA below slow SMA with no fresh crossover, volume ratio 1.16x (unremarkable), no momentum trigger despite the move exceeding the 6% magnitude threshold on the downside (consistent with prior cycles). Order book ask-heavy (-0.20). Search noted 7 XRP spot ETFs now trading with $1B AUM and RLUSD milestone on XRPL, but these are steady-state/gradual developments, not a fresh single-cycle catalyst. No signal-confirmed entry basis.
+
+**Signals considered:**
+```json
+{
+  "current_price": 1.30041,
+  "pct_change_1h_48h": -6.9,
+  "pct_change_4h_48h": -7.13,
+  "rsi_14_4h": 41.71,
+  "sma_state": "fast_below_slow",
+  "crossed_this_candle": false,
+  "volume_ratio": 1.16,
+  "momentum_trigger": false,
+  "order_book_imbalance": -0.2,
+  "news_search_note": "ETF AUM/RLUSD milestone noted but not a fresh single-cycle catalyst"
+}
+```
+
+---
