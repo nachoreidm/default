@@ -24053,3 +24053,108 @@ this is a schema backfill, not a trade action.
 ```
 
 ---
+### 2026-09-17T04:12:12.834Z — BTC/USD — NO TRADE
+
+**Reasoning:** Price -1.5%/-0.7% (1h/4h, 48h window), RSI 45.3 (neutral), fast SMA below slow SMA with no fresh crossover, volume ratio 1.12x (unremarkable), no momentum trigger. Order book essentially flat (-0.004 imbalance). Search results stale (BTC quoted $78.7K vs live $76.3K, recycled Sept 7 sentiment data). No signal-confirmed entry basis.
+
+**Signals considered:**
+```json
+{
+  "current_price": 76258.1,
+  "pct_change_1h_48h": -1.53,
+  "pct_change_4h_48h": -0.67,
+  "rsi_14_4h": 45.28,
+  "sma_state": "fast_below_slow",
+  "crossed_this_candle": false,
+  "volume_ratio": 1.12,
+  "momentum_trigger": false,
+  "order_book_imbalance": -0.004,
+  "news_search_note": "stale price ($78.7K vs live $76.3K), no fresh catalyst"
+}
+```
+
+---
+### 2026-09-17T04:12:15.850Z — ETH/USD — NO TRADE
+
+**Reasoning:** Price -2.3%/-1.6% (1h/4h, 48h window), RSI 45.6 (neutral), fast SMA below slow SMA, no fresh crossover, volume ratio 1.28x (unremarkable), no momentum trigger. Order book ask-heavy (-0.63). Search noted a $102.3M whale 10x long liquidation-risk position and recycled stale "regulatory optimism" framing already superseded by the confirmed CLARITY Act failure - no fresh actionable catalyst, and no technical confirmation either way. No signal-confirmed entry basis.
+
+**Signals considered:**
+```json
+{
+  "current_price": 2429.75,
+  "pct_change_1h_48h": -2.29,
+  "pct_change_4h_48h": -1.59,
+  "rsi_14_4h": 45.62,
+  "sma_state": "fast_below_slow",
+  "crossed_this_candle": false,
+  "volume_ratio": 1.28,
+  "momentum_trigger": false,
+  "order_book_imbalance": -0.63,
+  "news_search_note": "stale regulatory-optimism framing vs confirmed CLARITY Act failure, no fresh catalyst"
+}
+```
+
+---
+### 2026-09-17T04:12:18.579Z — SOL/USD — NO TRADE
+
+**Reasoning:** Price -1.4%/-0.5% (1h/4h, 48h window), RSI 51.1 (neutral), fast SMA below slow SMA, no fresh crossover, volume ratio 1.10x (unremarkable), no momentum trigger. Order book mildly ask-heavy (-0.12). Search again quoted stale price ($103.29 vs live $99.63) and days-old ecosystem news already priced in. No signal-confirmed entry basis.
+
+**Signals considered:**
+```json
+{
+  "current_price": 99.63,
+  "pct_change_1h_48h": -1.4,
+  "pct_change_4h_48h": -0.54,
+  "rsi_14_4h": 51.08,
+  "sma_state": "fast_below_slow",
+  "crossed_this_candle": false,
+  "volume_ratio": 1.1,
+  "momentum_trigger": false,
+  "order_book_imbalance": -0.12,
+  "news_search_note": "stale price ($103.29 vs live $99.63), no fresh catalyst"
+}
+```
+
+---
+### 2026-09-17T04:12:21.864Z — POL/USD — NO TRADE
+
+**Reasoning:** Price up modestly: +0.76% (1h/48h), +0.95% (4h/48h), RSI 54.5 (neutral), fast SMA still below slow SMA with no fresh crossover, volume ratio 1.46x (elevated but below 2x flag), no momentum trigger despite being the largest positive mover this cycle - move is well under the 6% threshold anyway. Order book ask-heavy (-0.30). Search offered only dated RWA-sector mention and stale price forecast, nothing actionable. No signal-confirmed entry basis.
+
+**Signals considered:**
+```json
+{
+  "current_price": 0.09656,
+  "pct_change_1h_48h": 0.76,
+  "pct_change_4h_48h": 0.95,
+  "rsi_14_4h": 54.55,
+  "sma_state": "fast_below_slow",
+  "crossed_this_candle": false,
+  "volume_ratio": 1.46,
+  "momentum_trigger": false,
+  "order_book_imbalance": -0.3,
+  "news_search_note": "no fresh actionable catalyst, dated RWA/price-forecast mentions only"
+}
+```
+
+---
+### 2026-09-17T04:12:25.209Z — XRP/USD — NO TRADE
+
+**Reasoning:** Price still down -7.9%/-6.5% (1h/4h, 48h window) post-CLARITY Act cloture failure, RSI 41.9 (neutral, not oversold), fast SMA below slow SMA with no fresh crossover, volume ratio 1.16x (unremarkable), no momentum trigger despite the move exceeding the 6% magnitude threshold on the downside (consistent with prior cycles - tool doesn't flag downside momentum). Order book heavily ask-skewed (-0.66). Search this time was roughly consistent with live price/driver (confirmed ~10% drop toward $1.30 off the CLARITY Act failure), but it's already-known information, not a fresh catalyst. No signal-confirmed entry basis.
+
+**Signals considered:**
+```json
+{
+  "current_price": 1.29823,
+  "pct_change_1h_48h": -7.88,
+  "pct_change_4h_48h": -6.54,
+  "rsi_14_4h": 41.88,
+  "sma_state": "fast_below_slow",
+  "crossed_this_candle": false,
+  "volume_ratio": 1.16,
+  "momentum_trigger": false,
+  "order_book_imbalance": -0.66,
+  "news_search_note": "consistent with live price this cycle, confirms already-known CLARITY Act driver, no new catalyst"
+}
+```
+
+---
