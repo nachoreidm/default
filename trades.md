@@ -24893,3 +24893,108 @@ this is a schema backfill, not a trade action.
 ```
 
 ---
+### 2026-09-17T12:13:18.933Z — BTC/USD — NO TRADE
+
+**Reasoning:** Price -0.7%/-0.1% (1h/4h, 48h window), RSI 45.8 (neutral), fast SMA below slow SMA with no fresh crossover, volume ratio 1.12x (unremarkable), no momentum trigger. Order book bid-heavy (+0.77). Search reiterated the Strategic Bitcoin Reserve bill advancing (already noted last cycle) - advisory only, still no technical confirmation. No signal-confirmed entry basis.
+
+**Signals considered:**
+```json
+{
+  "current_price": 76567.2,
+  "pct_change_1h_48h": -0.68,
+  "pct_change_4h_48h": -0.08,
+  "rsi_14_4h": 45.78,
+  "sma_state": "fast_below_slow",
+  "crossed_this_candle": false,
+  "volume_ratio": 1.12,
+  "momentum_trigger": false,
+  "order_book_imbalance": 0.77,
+  "news_search_note": "Strategic Bitcoin Reserve bill already noted, advisory only, no technical confirmation"
+}
+```
+
+---
+### 2026-09-17T12:13:21.765Z — ETH/USD — NO TRADE
+
+**Reasoning:** Price -1.5%/+0.7% (1h/4h, 48h window), RSI 47.3 (neutral), fast SMA below slow SMA, no fresh crossover, volume ratio 1.28x (unremarkable), no momentum trigger. Order book heavily bid-skewed (+0.89, thin ask side). Search again noted the same-day SEC roundtable - advisory only, no technical confirmation. No signal-confirmed entry basis.
+
+**Signals considered:**
+```json
+{
+  "current_price": 2448.46,
+  "pct_change_1h_48h": -1.53,
+  "pct_change_4h_48h": 0.71,
+  "rsi_14_4h": 47.26,
+  "sma_state": "fast_below_slow",
+  "crossed_this_candle": false,
+  "volume_ratio": 1.28,
+  "momentum_trigger": false,
+  "order_book_imbalance": 0.89,
+  "news_search_note": "SEC roundtable already noted, advisory only, no technical confirmation"
+}
+```
+
+---
+### 2026-09-17T12:13:24.037Z — SOL/USD — NO TRADE
+
+**Reasoning:** Price -0.9%/+0.7% (1h/4h, 48h window), RSI 51.9 (neutral), fast SMA below slow SMA, no fresh crossover, volume ratio 1.10x (unremarkable), no momentum trigger. Order book roughly balanced (+0.03). WebSearch tool errored out this cycle - no news data obtainable, but live signals alone give no entry basis regardless. No signal-confirmed entry basis.
+
+**Signals considered:**
+```json
+{
+  "current_price": 100.53,
+  "pct_change_1h_48h": -0.91,
+  "pct_change_4h_48h": 0.72,
+  "rsi_14_4h": 51.86,
+  "sma_state": "fast_below_slow",
+  "crossed_this_candle": false,
+  "volume_ratio": 1.1,
+  "momentum_trigger": false,
+  "order_book_imbalance": 0.03,
+  "news_search_note": "WebSearch tool errored/unavailable this cycle, no news data obtained"
+}
+```
+
+---
+### 2026-09-17T12:13:26.602Z — POL/USD — NO TRADE
+
+**Reasoning:** Price -1.9%/-1.0% (1h/4h, 48h window), RSI 53.5 (neutral), fast SMA still below slow SMA with no fresh crossover, volume ratio 1.46x (elevated but below 2x flag), no momentum trigger. Order book bid-heavy (+0.18). Search offered only dated RWA-sector mention, nothing actionable. No signal-confirmed entry basis.
+
+**Signals considered:**
+```json
+{
+  "current_price": 0.09661,
+  "pct_change_1h_48h": -1.88,
+  "pct_change_4h_48h": -0.96,
+  "rsi_14_4h": 53.49,
+  "sma_state": "fast_below_slow",
+  "crossed_this_candle": false,
+  "volume_ratio": 1.46,
+  "momentum_trigger": false,
+  "order_book_imbalance": 0.18,
+  "news_search_note": "no fresh actionable catalyst, dated RWA mention only"
+}
+```
+
+---
+### 2026-09-17T12:13:29.422Z — XRP/USD — NO TRADE
+
+**Reasoning:** Price still down -8.4%/-6.5% (1h/4h, 48h window) post-CLARITY Act cloture failure, RSI 41.2 (neutral, not oversold), fast SMA below slow SMA with no fresh crossover, volume ratio 1.16x (unremarkable), no momentum trigger despite the move exceeding the 6% magnitude threshold on the downside (consistent with prior cycles). Order book mildly bid-heavy (+0.13). Search reiterated already-known CLARITY Act failure and ETF/RLUSD milestones, no new catalyst. No signal-confirmed entry basis.
+
+**Signals considered:**
+```json
+{
+  "current_price": 1.30355,
+  "pct_change_1h_48h": -8.38,
+  "pct_change_4h_48h": -6.54,
+  "rsi_14_4h": 41.17,
+  "sma_state": "fast_below_slow",
+  "crossed_this_candle": false,
+  "volume_ratio": 1.16,
+  "momentum_trigger": false,
+  "order_book_imbalance": 0.13,
+  "news_search_note": "confirms already-known CLARITY Act driver, no new catalyst"
+}
+```
+
+---
