@@ -101,103 +101,72 @@ re-click approve each time. Fix the always-allow setting first (Settings →
 Connectors → Notion, per-tool), *then* do one more cutover to a fresh
 session so the fix actually takes.
 
+## Shipped to paper trading (2026-09-17)
+
+Three items that started life in "Planned but not yet built" below were
+pulled forward into paper trading now, on the reasoning that paper trading
+is the cheap place to shake out bugs/behavior before any of this matters
+with real money - user explicitly asked to build these three now and hold
+the remaining two ("No opportunity-cost / position-swap logic" and
+"Entry-timing review", both still below) for the live version:
+
+- **`MAX_OPEN_POSITIONS` raised from 3 to 7**, matching the new 7-pair
+  scope (one per pair). `MAX_TOTAL_EXPOSURE_PCT` (25%) was deliberately
+  left unchanged - it's the real aggregate-risk constraint, not position
+  count; see the git history on this file for the full original reasoning
+  if needed. Bundled in: **`portfolio_open_position` now rejects a second
+  open position on a pair that already has one open**, even if the
+  position-count cap isn't reached - explicit code enforcement, no longer
+  just implicitly true because each pair was evaluated once per cycle.
+- **POL/USD dropped, ADA/USD + LINK/USD + DOGE/USD added** - re-verified
+  live 24h volume immediately before building (2026-09-17): ADA ~$11.7M,
+  LINK ~$4.4M, DOGE ~$6.1M, vs. POL ~$684K (still the thinnest pair by a
+  wide margin despite recovering off its 2026-09-13 low of $267K). Kraken's
+  internal pair code for Dogecoin is `XDGUSD`, not `DOGEUSD` - confirmed
+  live against `/0/public/AssetPairs` before hardcoding it in
+  `kraken.ts`'s `PAIR_CODE` map. No open positions existed at build time,
+  so no correction/backfill entry was needed in `trades.md` or
+  `data/portfolio_state.json`.
+- **Breakeven + trailing-stop exit logic**, layered on top of the fixed
+  2:1 take-profit (which remains the mechanical baseline for any trade
+  that never earns better). `Position` gained two fields: `initial_stop_loss`
+  (the stop as originally set at entry, immutable - used to always
+  recompute the trade's own risk/R correctly even after `stop_loss`
+  itself starts moving) and `trailing_active` (flips true, permanently,
+  the first time price reaches entry + 1R). `portfolio_check_stops` now
+  does two passes each cycle: first bring every position's trailing state
+  up to date and persist it (so a stop advance survives even if nothing
+  closes that cycle), then decide closes against that saved state. Once
+  `trailing_active` is true, the fixed take-profit is **superseded** - no
+  longer checked - and the position is governed purely by `stop_loss`,
+  which floors at breakeven (`entry_price`) and trails below the rising
+  20-period 4h SMA (`BREAKEVEN_TRAIL_SMA_PERIOD` in `types.ts`), never
+  moving back down. The pure math (`hasReachedOneR`, `effectiveTrailingStop`
+  in `portfolio.ts`) is exported and unit-tested in `selftest.ts` rather
+  than only exercised live, since it can't be validated against production
+  `data/portfolio_state.json` without polluting real trade history with
+  test entries.
+
+This required a full session cutover per "The hourly routine" section
+above (both `mcp-server/src/` and `instructions/kraken-agent-instructions.md`
+changed, plus the trigger's own prompt text hardcodes the pair list) -
+check `mcp__Claude_Code_Remote__list_triggers` for the currently-bound
+session if picking this up later and the cutover isn't done yet.
+
 ## Planned but not yet built
 
-These are agreed changes for a future version - **don't implement without
-the user explicitly asking**, they're recorded here so the decision isn't
-lost between sessions:
+These are agreed changes for a future (live) version - **don't implement
+without the user explicitly asking**, they're recorded here so the
+decision isn't lost between sessions:
 
-- **Raise `MAX_OPEN_POSITIONS` to match the pair count (one per pair).**
-  Analysis as of 2026-09-13, written when scope was still 5 pairs (so "5"
-  appears below) - **recompute against whatever the final pair list is at
-  build time**, don't just hardcode 5. If POL is dropped and ADA/LINK/DOGE
-  are added per the note below, that's 4 remaining + 3 new = 7 pairs, so
-  the cap should be 7, not 5. The reasoning holds regardless of the exact
-  number: this doesn't loosen the actual risk ceiling, since
-  `MAX_TOTAL_EXPOSURE_PCT` (25%) and the per-trade/confidence size caps are
-  the real binding constraints either way - N positions at the medium cap
-  (3%) each is 3N% exposure (21% at N=7, still under 25%), and even N
-  positions at the max high-confidence size (5%) only becomes a problem
-  once N > 5 (5%×7=35%, over the cap) - but that scenario requires 7
-  simultaneous high-confidence signals, and the exposure cap would correctly
-  block the excess anyway, so it's not a real loosening of risk, just a
-  possible source of rejected trades in an already-rare scenario. What the
-  position-count raise fixes: right now a genuinely good extra signal gets
-  rejected outright just because earlier slots were already filled, even
-  when total risk would still be well within bounds - the position-count
-  limit shouldn't be what blocks a good trade when the dollar-risk limits
-  already do that job. **`MAX_TOTAL_EXPOSURE_PCT` should NOT scale up with
-  the pair count** (confirmed with user 2026-09-13) - it answers a
-  different question than position count does (aggregate capital at risk
-  if everything moves against you at once, vs. how many distinct
-  opportunities you can hold), and crypto pairs are highly correlated in
-  market-wide risk-on/risk-off moves - 7 positions isn't 7 independent
-  bets, it's closer to one leveraged crypto-market bet split 7 ways.
-  Keeping exposure fixed while raising position count is the *safer*
-  combination: same total dollar risk, spread across more/smaller
-  positions instead of concentrated in 3 bigger ones. Bundle in an
-  explicit "max one open position per
-  pair" check at the same time (not currently enforced anywhere - only
-  implicitly true because each pair is evaluated once per cycle), so
-  raising the count doesn't accidentally allow stacking two positions on
-  the same pair. Revisit when building the live version or the next
-  paper-trading iteration - no rush while the account has only ever held
-  one open position at a time.
-- **No opportunity-cost / position-swap logic.** Separately: even with 5
-  slots, once all slots are full the agent still just rejects a new
-  opportunity rather than ever closing an existing (weaker) position to
-  make room. That's a deliberate absence, not a bug - swapping requires
-  comparing trades against each other, which is a meaningfully bigger
-  design decision than a fixed threshold. Left as-is for now.
-- **Add ADA/USD, LINK/USD, DOGE/USD as three more crypto pairs.** Checked
-  live Kraken 24h volume on 2026-09-13 before recommending (current scope
-  for comparison: BTC $67.6M, ETH $46.5M, XRP $22.8M, SOL $16.4M, POL only
-  $267K - POL is already the thinnest pair in scope). All three candidates
-  clear $2.8M+ in daily volume, comfortably above POL and in SOL's range:
-  ADA ~$2.86M, LINK ~$2.29M, DOGE ~$3.07M. Picked for real diversification,
-  not just more correlated L1s - LINK is oracle/infra (a genuinely
-  different sector), DOGE has its own social-sentiment-driven volatility
-  character distinct from the others, ADA is a high-volume major currently
-  unrepresented. Other candidates checked and rejected for now: NEAR
-  (~$3.84M) and UNI (~$3.17M) also cleared the bar and are reasonable
-  future adds if more diversification is wanted later; AVAX, BCH, TRX,
-  DOT, TON, ATOM, SHIB were all at or below POL's volume and not worth
-  adding - SHIB in particular has a misleadingly huge unit-volume number
-  (tiny price, meme-coin tokenomics) but is genuinely low-quality for
-  clean technical signals. Re-verify volume live again before actually
-  adding, rather than trusting these numbers unchanged - crypto volume
-  shifts fast and this was a point-in-time check, not a standing fact.
-- **Drop POL/USD for the live version.** User's call (2026-09-13), same
-  volume reasoning as above - POL's ~$267K 24h volume is the thinnest in
-  scope by a wide margin, well below every pair being added and every
-  pair already there. Net effect if this and the pair-add above both
-  land: BTC, ETH, SOL, XRP (4 existing, POL removed) + ADA, LINK, DOGE (3
-  new) = **7 pairs total** - remember to size `MAX_OPEN_POSITIONS` to
-  match (see above), not leave it at 5. Also re-verify POL's volume hasn't
-  recovered before actually dropping it, same caveat as the adds.
-- **Upgrade exit logic beyond a pure fixed 2:1 take-profit.** Discussed
-  2026-09-13. The fixed target isn't wrong - it's a genuinely common,
-  fully mechanical baseline - but its real weakness is capping upside on
-  trades that would have run further (a trade that hits +2R and keeps
-  going gets closed the same as one that barely ticks up to +2R and
-  reverses). Keep the fixed 2:1 as the hard backstop/floor - never remove
-  the mechanical safety net - but layer in:
-  1. **Move stop to breakeven at +1R.** Once a position is up by its own
-     risk amount (entry-to-stop distance), shift `stop_loss` to
-     `entry_price`. Cheap, nearly free (that cushion is already earned),
-     and standard practice almost everywhere - after this point the trade
-     can no longer lose money.
-  2. **Trail the stop past +1R**, e.g. below the rising 20-period 4h SMA
-     (already computed by `compute_signals`, no new indicator needed) or a
-     fixed ATR-style distance, instead of exiting flat at 2:1 - lets
-     strong trends run further while still cutting on a real reversal.
-  Both need `checkStops` to re-derive the effective stop each cycle
-  instead of just comparing against the value stored at entry, so this is
-  a real code change, not just a constant tweak like the original
-  take-profit rule was. Partial exits (closing half at +1R, letting the
-  rest ride) and pure signal-reversal exits (closing when the entry
-  crossover flips, independent of price) were also discussed as
-  standard-practice alternatives but not chosen as the default plan.
+- **No opportunity-cost / position-swap logic.** Even with 7 slots, once
+  all slots are full the agent still just rejects a new opportunity rather
+  than ever closing an existing (weaker) position to make room. That's a
+  deliberate absence, not a bug - swapping requires comparing trades
+  against each other, which is a meaningfully bigger design decision than
+  a fixed threshold. Left as-is for now; revisit once slots are actually
+  filling up regularly (the account has held at most 2 positions open at
+  once so far).
 - **Entry-timing review: consider requiring pullback/confirmation before
   entry, and consider ATR-based stops.** Loss-pattern review 2026-09-15,
   after the first 3 closed trades (POL, ETH, XRP) all hit stop-loss for a
@@ -215,7 +184,10 @@ lost between sessions:
   its first loss, n=1 so far); POL's crossover fired on below-average
   volume (0.27x, unconfirmed) plus a mixed news item. None of the three
   got anywhere near +1R before reversing, so this reads as an entry-timing
-  issue, not the (separately planned, above) exit-logic gap. Two candidate
+  issue, not the (separately shipped, see above) exit-logic gap - the
+  breakeven/trailing upgrade wouldn't have changed any of these three
+  outcomes either, since none of them got far enough into profit to
+  trigger it. Two candidate
   changes for the live version, neither implemented: (1) require a minor
   pullback/confirmation candle before a momentum-only entry specifically,
   rather than buying the extension immediately; (2) size stops off ATR /

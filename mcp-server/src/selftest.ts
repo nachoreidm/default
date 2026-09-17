@@ -1,6 +1,8 @@
 import { fetchOHLC, fetchTicker, fetchDepth, closedCandles } from "./kraken.js";
 import { rsi, sma, smaCrossover, volumeVs7dAvg, orderBookImbalance, priceAction } from "./indicators.js";
 import { computeSignals } from "./signals.js";
+import { hasReachedOneR, effectiveTrailingStop } from "./portfolio.js";
+import { ALLOWED_PAIRS } from "./types.js";
 
 function assert(cond: boolean, msg: string) {
   if (!cond) throw new Error(`ASSERTION FAILED: ${msg}`);
@@ -44,10 +46,29 @@ async function main() {
   );
   assert(Math.abs(imb.imbalance - (5 / 15)) < 0.001, `order book imbalance skews toward bids (got ${imb.imbalance})`);
 
+  // --- Breakeven/trailing-stop exit-logic math (pure, no network) ---
+  assert(hasReachedOneR(100, 90, 109.9) === false, "hasReachedOneR false just below entry+1R (100/90/109.9)");
+  assert(hasReachedOneR(100, 90, 110) === true, "hasReachedOneR true exactly at entry+1R (100/90/110)");
+  assert(hasReachedOneR(100, 90, 150) === true, "hasReachedOneR true well past entry+1R (100/90/150)");
+  assert(hasReachedOneR(100, 100, 200) === false, "hasReachedOneR false for zero risk (entry == initial stop)");
+
+  assert(effectiveTrailingStop(100, 90, null) === 100, "effectiveTrailingStop floors at breakeven with no SMA data (got not 100)");
+  assert(effectiveTrailingStop(100, 90, 95) === 100, "effectiveTrailingStop floors at breakeven when SMA is still below entry (95 < 100)");
+  assert(effectiveTrailingStop(100, 90, 105) === 105, "effectiveTrailingStop trails up to a rising SMA above entry (105 > 100)");
+  assert(effectiveTrailingStop(100, 108, 105) === 108, "effectiveTrailingStop never moves the stop down (108 already above candidate 105)");
+
   // --- Live Kraken API smoke test (public endpoints, no auth) ---
   const ticker = await fetchTicker("BTC/USD");
   assert(ticker.last > 0, `live BTC/USD ticker last price > 0 (got ${ticker.last})`);
   assert(ticker.ask >= ticker.bid, "ask >= bid");
+
+  // Every allowed pair (including the newly added ADA/LINK/DOGE and the
+  // Kraken-internal XDG code for DOGE) must resolve to a real, tradeable
+  // Kraken ticker - catches a wrong PAIR_CODE mapping immediately.
+  for (const pair of ALLOWED_PAIRS) {
+    const t = await fetchTicker(pair);
+    assert(t.last > 0, `live ${pair} ticker last price > 0 (got ${t.last})`);
+  }
 
   const candles1h = closedCandles(await fetchOHLC("BTC/USD", "1h"));
   assert(candles1h.length > 48, `enough 1h candles for 48h window (got ${candles1h.length})`);

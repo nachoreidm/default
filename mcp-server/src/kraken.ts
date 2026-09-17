@@ -7,8 +7,13 @@ const PAIR_CODE: Record<AllowedPair, string> = {
   "BTC/USD": "XBTUSD",
   "ETH/USD": "ETHUSD",
   "SOL/USD": "SOLUSD",
-  "POL/USD": "POLUSD",
   "XRP/USD": "XRPUSD",
+  "ADA/USD": "ADAUSD",
+  "LINK/USD": "LINKUSD",
+  // Kraken's internal ticker for Dogecoin is XDG, not DOGE - confirmed live
+  // against /0/public/AssetPairs (2026-09-17); "DOGEUSD" itself is not a
+  // valid Kraken pair code.
+  "DOGE/USD": "XDGUSD",
 };
 
 export const INTERVAL_MINUTES = {

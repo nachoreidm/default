@@ -11,6 +11,7 @@ import {
   TAKE_PROFIT_RR_MULTIPLE,
   MOMENTUM_THRESHOLD_PCT,
   MOMENTUM_ONLY_MAX_CONFIDENCE,
+  BREAKEVEN_TRAIL_SMA_PERIOD,
 } from "./types.js";
 
 const server = new McpServer({ name: "kraken-paper-trading", version: "0.1.0" });
@@ -74,7 +75,7 @@ server.tool(
 
 server.tool(
   "portfolio_open_position",
-  `Open a new paper LONG position (spot only, no margin/short). All risk limits are enforced here in code and will reject the call if violated: max ${RISK_LIMITS.MAX_POSITION_PCT}% of portfolio per trade, max ${RISK_LIMITS.MAX_TOTAL_EXPOSURE_PCT}% total exposure, max ${RISK_LIMITS.MAX_OPEN_POSITIONS} open positions, a same-UTC-day halt once realized paper losses hit ${RISK_LIMITS.MAX_DAILY_LOSS_PCT}% of portfolio value, and a confidence-based size cap: low confidence doesn't trade at all (call portfolio_log_no_trade instead), medium caps at ${CONFIDENCE_MAX_SIZE_PCT.medium}%, high can use the full ${CONFIDENCE_MAX_SIZE_PCT.high}%. Fill price is simulated from the live ask plus modeled fee/slippage. A take-profit target is set automatically at ${TAKE_PROFIT_RR_MULTIPLE}:1 risk/reward above entry (${TAKE_PROFIT_RR_MULTIPLE}x the entry-to-stop distance) - this is fixed, not something you choose or can override. momentum_only: set to true only if compute_signals' momentum_trigger.flagged is the ONLY thing supporting this trade - no fresh SMA crossover this candle, no RSI extreme, no volume spike. Momentum alone can't be "high" confidence (rejected in code) since nothing else confirms it - cap at "${MOMENTUM_ONLY_MAX_CONFIDENCE}" or lower. Automatically appends a structured entry to trades.md on success.`,
+  `Open a new paper LONG position (spot only, no margin/short). All risk limits are enforced here in code and will reject the call if violated: max ${RISK_LIMITS.MAX_POSITION_PCT}% of portfolio per trade, max ${RISK_LIMITS.MAX_TOTAL_EXPOSURE_PCT}% total exposure, max ${RISK_LIMITS.MAX_OPEN_POSITIONS} open positions (one per pair - a second position on a pair that already has one open is rejected), a same-UTC-day halt once realized paper losses hit ${RISK_LIMITS.MAX_DAILY_LOSS_PCT}% of portfolio value, and a confidence-based size cap: low confidence doesn't trade at all (call portfolio_log_no_trade instead), medium caps at ${CONFIDENCE_MAX_SIZE_PCT.medium}%, high can use the full ${CONFIDENCE_MAX_SIZE_PCT.high}%. Fill price is simulated from the live ask plus modeled fee/slippage. A take-profit target is set automatically at ${TAKE_PROFIT_RR_MULTIPLE}:1 risk/reward above entry (${TAKE_PROFIT_RR_MULTIPLE}x the entry-to-stop distance) - this is fixed at entry, not something you choose or can override, though portfolio_check_stops may later supersede it with a trailing stop once the trade earns +1R (see that tool's description). momentum_only: set to true only if compute_signals' momentum_trigger.flagged is the ONLY thing supporting this trade - no fresh SMA crossover this candle, no RSI extreme, no volume spike. Momentum alone can't be "high" confidence (rejected in code) since nothing else confirms it - cap at "${MOMENTUM_ONLY_MAX_CONFIDENCE}" or lower. Automatically appends a structured entry to trades.md on success.`,
   {
     pair: pairSchema,
     size_pct: z.number().positive().max(RISK_LIMITS.MAX_POSITION_PCT),
@@ -97,7 +98,7 @@ server.tool(
 
 server.tool(
   "portfolio_check_stops",
-  `Check every open paper position against its stop-loss and take-profit using live prices, and auto-close any that have breached either. Take-profit is fixed at ${TAKE_PROFIT_RR_MULTIPLE}:1 risk/reward above entry, set automatically when the position was opened. Intended to be called both on demand and from a scheduled monitoring run, so stops and profit-taking are respected even when nobody is actively chatting with the agent.`,
+  `Check every open paper position against its stop-loss and take-profit using live prices, and auto-close any that have breached either. Take-profit starts fixed at ${TAKE_PROFIT_RR_MULTIPLE}:1 risk/reward above entry, set automatically when the position was opened - but once a position reaches +1R (up by its own entry-to-stop risk amount) this tool moves its stop to breakeven and then trails it below the rising ${BREAKEVEN_TRAIL_SMA_PERIOD}-period 4h SMA, superseding the fixed take-profit so a strong trend isn't capped at the original target; the stop only ever moves up, never back down. Intended to be called both on demand and from a scheduled monitoring run, so stops, breakeven, trailing, and profit-taking are all respected even when nobody is actively chatting with the agent.`,
   {},
   async () => wrap(() => checkStops())()
 );

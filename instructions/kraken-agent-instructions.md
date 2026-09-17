@@ -34,11 +34,14 @@ factual commit message (e.g. "Paper trade: opened LONG BTC/USD",
 
 ## Scope
 
-- Pairs in scope: **BTC/USD, ETH/USD, SOL/USD, POL/USD, XRP/USD** only. The
-  MCP server enforces this in code — `kraken_get_ticker`, `kraken_get_ohlc`,
-  `compute_signals`, and `portfolio_open_position` will all reject any
-  other pair. If asked to look at something else, say so and ask before
-  doing anything manual to route around that.
+- Pairs in scope: **BTC/USD, ETH/USD, SOL/USD, XRP/USD, ADA/USD, LINK/USD,
+  DOGE/USD** only (seven total, as of 2026-09-17 — POL/USD was dropped for
+  thin volume and ADA/LINK/DOGE added for diversification; see CLAUDE.md
+  for the volume data behind that call). The MCP server enforces this in
+  code — `kraken_get_ticker`, `kraken_get_ohlc`, `compute_signals`, and
+  `portfolio_open_position` will all reject any other pair. If asked to
+  look at something else, say so and ask before doing anything manual to
+  route around that.
 - Crypto only, on purpose: Kraken xStocks (tokenized equities) were tried
   and dropped — confirmed with Kraken support that order-book/API trading
   of xStocks is blocked entirely for EEA accounts (a standing regulatory
@@ -84,8 +87,9 @@ than estimating or guessing a value for it.
 In addition to the five quantitative signals above, run one `WebSearch` per
 pair per cycle for recent news on the underlying project, using its name
 rather than the ticker: BTC/USD → "Bitcoin", ETH/USD → "Ethereum", SOL/USD
-→ "Solana", POL/USD → "Polygon", XRP/USD → "XRP" (major legal/business news
-is often reported under "Ripple" instead — check that name too). Look for
+→ "Solana", XRP/USD → "XRP" (major legal/business news is often reported
+under "Ripple" instead — check that name too), ADA/USD → "Cardano",
+LINK/USD → "Chainlink", DOGE/USD → "Dogecoin". Look for
 anything from roughly the last 24–48h that could plausibly move price:
 exchange listings/delistings,
 protocol upgrades or outages, security incidents/hacks, regulatory action,
@@ -133,11 +137,17 @@ around by resizing and retrying past intent:
   per-trade judgment, so sizing is consistent and auditable across cycles.
 - Max total exposure at any time: 25% of paper portfolio value
 - No trade without a stated stop-loss level (must be below entry for a long)
-- **Take-profit is fixed, not your call:** `portfolio_open_position` computes
-  a take-profit target automatically at 2:1 risk/reward above entry (2x the
-  entry-to-stop distance) and stores it on the position. You don't set it,
-  suggest it, or ask for one - it isn't a tool input. Report the level the
-  tool returns in your write-up, but there's no discretion here.
+- **Take-profit is fixed at entry, not your call — but can be superseded by
+  a trailing stop later, also not your call.** `portfolio_open_position`
+  computes a take-profit target automatically at 2:1 risk/reward above
+  entry (2x the entry-to-stop distance) and stores it on the position. You
+  don't set it, suggest it, or ask for one - it isn't a tool input. Once a
+  position reaches +1R (up by its own entry-to-stop risk amount),
+  `portfolio_check_stops` moves its stop to breakeven and then trails it
+  below the rising 20-period 4h SMA instead of exiting flat at the 2:1
+  target - see "Stop-loss and take-profit monitoring" below. This is fully
+  mechanical; report the levels the tools return, but there's no
+  discretion here either.
 - **A momentum-only trigger is capped at medium confidence, enforced in
   code.** `portfolio_open_position` takes a required `momentum_only`
   boolean. Set it `true` only when `momentum_trigger.flagged` is the sole
@@ -150,7 +160,9 @@ around by resizing and retrying past intent:
   crossover/RSI-extreme/volume-spike is present, even if momentum also
   happens to be flagged that cycle - the flag only changes behavior when
   it's the ONLY thing you're relying on.
-- Max 3 open positions at once
+- Max 7 open positions at once (one per pair — `portfolio_open_position`
+  rejects a second position on a pair that already has one open, even if
+  the position count is otherwise under the cap)
 - If a UTC day's realized paper losses reach 5% of portfolio value,
   `portfolio_open_position` refuses all new positions for the rest of that
   UTC day and the tool result says so — tell the user immediately when you
@@ -170,14 +182,26 @@ actually look like, not a best-case number.
 Call `portfolio_check_stops` at the start of any session that touches
 trading, and whenever asked to check on positions — it fetches live prices
 for every open position and auto-closes anything that has breached its
-stop-loss **or reached its take-profit target**, logging the close to
-`trades.md` automatically either way. Both are fixed at entry; there's no
-manual profit-taking judgment call to make mid-trade — a winning position
-closes itself at the 2:1 target rather than sitting open indefinitely on
-your discretion. If this repo has a scheduled/recurring trigger configured
-to run monitoring cycles unattended, that trigger should call this same
-tool; positions are not "safe until someone happens to open a chat" in
-either direction.
+stop-loss or take-profit, logging the close to `trades.md` automatically
+either way. There's no manual profit-taking judgment call to make
+mid-trade in either phase below — it's all mechanical, driven by price:
+
+- **Before the position reaches +1R** (up by its own entry-to-stop risk
+  amount): unchanged fixed-target behavior — closes at the fixed stop-loss
+  or the fixed 2:1 take-profit, whichever is hit first.
+- **Once the position reaches +1R:** the stop moves to breakeven
+  (entry price) and then trails below the rising 20-period 4h SMA — this
+  *supersedes* the fixed 2:1 take-profit (it stops being checked), so a
+  strong trend isn't capped at the original target. The stop only ever
+  moves up from here, never back down, so once this phase is reached the
+  trade can no longer lose money — it either keeps running or eventually
+  gets closed by the trailing stop on a real reversal.
+
+If this repo has a scheduled/recurring trigger configured to run
+monitoring cycles unattended, that trigger should call this same tool;
+positions are not "safe until someone happens to open a chat" in either
+direction — a trailing stop that never gets recomputed because nobody
+checked can drift the position back into stale fixed-target behavior.
 
 ## When to recommend NO trade
 

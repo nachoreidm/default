@@ -2,8 +2,9 @@ import { promises as fs } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { randomUUID } from "node:crypto";
-import { fetchTicker } from "./kraken.js";
-import { ALLOWED_PAIRS, RISK_LIMITS, CONFIDENCE_MAX_SIZE_PCT, TAKER_FEE_PCT, SLIPPAGE_PCT, TAKE_PROFIT_RR_MULTIPLE, MOMENTUM_ONLY_MAX_CONFIDENCE, isAllowedPair, } from "./types.js";
+import { fetchTicker, fetchOHLC, closedCandles } from "./kraken.js";
+import { sma } from "./indicators.js";
+import { ALLOWED_PAIRS, RISK_LIMITS, CONFIDENCE_MAX_SIZE_PCT, TAKER_FEE_PCT, SLIPPAGE_PCT, TAKE_PROFIT_RR_MULTIPLE, MOMENTUM_ONLY_MAX_CONFIDENCE, BREAKEVEN_TRAIL_SMA_PERIOD, isAllowedPair, } from "./types.js";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.resolve(__dirname, "..", "..");
 const STATE_PATH = path.join(REPO_ROOT, "data", "portfolio_state.json");
@@ -132,6 +133,9 @@ export async function openPosition(input) {
     if (state.open_positions.length >= RISK_LIMITS.MAX_OPEN_POSITIONS) {
         return { ok: false, reason: `Max open positions (${RISK_LIMITS.MAX_OPEN_POSITIONS}) already reached.` };
     }
+    if (state.open_positions.some((p) => p.pair === input.pair)) {
+        return { ok: false, reason: `A position on ${input.pair} is already open - only one open position per pair is allowed. Close it first, or wait for it to hit its stop/target.` };
+    }
     const { value: portfolioVal, positionValues } = await portfolioValue(state);
     const totalExposureUsd = state.open_positions.reduce((a, p) => a + positionValues[p.id], 0);
     const newSizeUsd = portfolioVal * (input.size_pct / 100);
@@ -159,7 +163,9 @@ export async function openPosition(input) {
         direction: "long",
         entry_price: fillPrice,
         stop_loss: input.stop_loss,
+        initial_stop_loss: input.stop_loss,
         take_profit: takeProfit,
+        trailing_active: false,
         size_pct: input.size_pct,
         size_usd: newSizeUsd,
         quantity,
@@ -216,25 +222,91 @@ export async function closePosition(input) {
     await appendTradeLog(formatCloseEntry(closed, dailyRec.halted));
     return { ok: true, position: closed };
 }
+// Pure math, exported for unit testing: has price reached the position's
+// own +1R level (up by its entry-to-stop risk amount)? False for a
+// zero/negative risk (shouldn't happen - openPosition requires stop_loss
+// below entry - but guards against a divide-by-nothing style edge case).
+export function hasReachedOneR(entryPrice, initialStopLoss, currentPrice) {
+    const risk = entryPrice - initialStopLoss;
+    return risk > 0 && currentPrice >= entryPrice + risk;
+}
+// Pure math, exported for unit testing: the effective stop once trailing is
+// active. Floor is breakeven (entryPrice); trails higher if sma20 has risen
+// above that. Never returns a value below currentStopLoss - the trail only
+// ever moves up.
+export function effectiveTrailingStop(entryPrice, currentStopLoss, sma20) {
+    const candidate = sma20 !== null && sma20 > entryPrice ? sma20 : entryPrice;
+    return Math.max(candidate, currentStopLoss);
+}
+// Fetches the current BREAKEVEN_TRAIL_SMA_PERIOD 4h SMA for a position's
+// pair and combines it with effectiveTrailingStop above. Falls back to the
+// breakeven floor alone if 4h candles can't be fetched this cycle.
+async function trailingStopCandidate(pos) {
+    let sma20 = null;
+    try {
+        const candles4h = closedCandles(await fetchOHLC(pos.pair, "4h"));
+        const closes = candles4h.map((c) => c.close);
+        const smaSeries = sma(closes, BREAKEVEN_TRAIL_SMA_PERIOD);
+        if (smaSeries.length > 0)
+            sma20 = smaSeries[smaSeries.length - 1];
+    }
+    catch {
+        // 4h candles unavailable this cycle - trail on the breakeven floor only.
+    }
+    return effectiveTrailingStop(pos.entry_price, pos.stop_loss, sma20);
+}
 // Meant to be called on a schedule (or on demand) to auto-close any open
 // position whose stop-loss or take-profit has been breached, independent
-// of whether anyone is actively chatting with the agent. Take-profit is
-// checked first so a candle that gaps through both levels in one tick
-// (rare, but possible with slippage) is recorded as the win it is rather
-// than the loss the stop would otherwise claim.
+// of whether anyone is actively chatting with the agent.
+//
+// Two-pass: first bring every position's trailing state up to date and
+// persist it (so a stop-loss advance survives even if nothing closes this
+// cycle), then decide closes against that freshly-saved state. Exit rule
+// per position:
+//   - Before the trade has ever reached +1R: unchanged fixed-target
+//     behavior - take-profit (2:1) checked first, then the original
+//     stop-loss. Take-profit checked first so a candle that gaps through
+//     both levels in one tick is recorded as the win it is.
+//   - Once price has reached entry + 1R (trailing_active flips true,
+//     permanently, the first time this happens): the fixed take-profit is
+//     superseded - it stops being checked - and the trade is governed
+//     purely by the trailing stop_loss (breakeven floor, then below the
+//     rising 4h SMA), so a strong trend isn't capped at the original 2:1
+//     target. The stop can only move up from here, never back down.
 export async function checkStops() {
     const state = await loadState();
+    let stateChanged = false;
+    for (const pos of state.open_positions) {
+        const ticker = await fetchTicker(pos.pair);
+        if (!pos.trailing_active && hasReachedOneR(pos.entry_price, pos.initial_stop_loss, ticker.last)) {
+            pos.trailing_active = true;
+            stateChanged = true;
+        }
+        if (pos.trailing_active) {
+            const candidate = await trailingStopCandidate(pos);
+            if (candidate > pos.stop_loss) {
+                pos.stop_loss = candidate;
+                stateChanged = true;
+            }
+        }
+    }
+    if (stateChanged) {
+        await saveState(state);
+    }
     const actions = [];
     for (const pos of [...state.open_positions]) {
         const ticker = await fetchTicker(pos.pair);
-        if (ticker.last >= pos.take_profit) {
+        if (!pos.trailing_active && ticker.last >= pos.take_profit) {
             const result = await closePosition({ position_id: pos.id, reason: `Take-profit auto-triggered (price ${ticker.last} >= target ${pos.take_profit}, ${TAKE_PROFIT_RR_MULTIPLE}:1 risk/reward).` });
             if (result.ok) {
                 actions.push({ position_id: pos.id, pair: pos.pair, triggered: "take_profit", closed: result.position });
             }
         }
         else if (ticker.last <= pos.stop_loss) {
-            const result = await closePosition({ position_id: pos.id, reason: `Stop-loss auto-triggered (price ${ticker.last} <= stop ${pos.stop_loss}).` });
+            const reason = pos.trailing_active
+                ? `Trailing stop-loss auto-triggered (price ${ticker.last} <= stop ${pos.stop_loss}) - position had reached +1R, so the fixed ${TAKE_PROFIT_RR_MULTIPLE}:1 take-profit was superseded by the breakeven/trailing rule (stop never below entry $${pos.entry_price.toFixed(2)}) before this reversal closed it.`
+                : `Stop-loss auto-triggered (price ${ticker.last} <= stop ${pos.stop_loss}).`;
+            const result = await closePosition({ position_id: pos.id, reason });
             if (result.ok) {
                 actions.push({ position_id: pos.id, pair: pos.pair, triggered: "stop_loss", closed: result.position });
             }

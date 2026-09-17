@@ -1,11 +1,23 @@
-export const ALLOWED_PAIRS = ["BTC/USD", "ETH/USD", "SOL/USD", "POL/USD", "XRP/USD"];
+export const ALLOWED_PAIRS = [
+    "BTC/USD",
+    "ETH/USD",
+    "SOL/USD",
+    "XRP/USD",
+    "ADA/USD",
+    "LINK/USD",
+    "DOGE/USD",
+];
 export function isAllowedPair(pair) {
     return ALLOWED_PAIRS.includes(pair);
 }
 export const RISK_LIMITS = {
     MAX_POSITION_PCT: 5,
     MAX_TOTAL_EXPOSURE_PCT: 25,
-    MAX_OPEN_POSITIONS: 3,
+    // Matches ALLOWED_PAIRS.length (one open position per pair, see
+    // ONE_POSITION_PER_PAIR below) - not a loosening of actual risk, since
+    // MAX_TOTAL_EXPOSURE_PCT stays the binding aggregate-risk constraint
+    // either way. Recompute this if the pair list changes.
+    MAX_OPEN_POSITIONS: 7,
     MAX_DAILY_LOSS_PCT: 5,
 };
 // Fixed profit-taking rule: take-profit is set automatically at entry, at
@@ -40,6 +52,15 @@ export const MOMENTUM_THRESHOLD_PCT = 6;
 // above. Enforced in portfolio_open_position: momentum_only=true rejects
 // confidence="high" outright.
 export const MOMENTUM_ONLY_MAX_CONFIDENCE = "medium";
+// Exit-logic upgrade layered on top of the fixed 2:1 take-profit (see
+// TAKE_PROFIT_RR_MULTIPLE): once a position reaches +1R (its own
+// entry-to-stop risk, in profit), portfolio_check_stops moves stop_loss to
+// breakeven (entry_price) and from then on trails it below this period's
+// SMA on the 4h chart instead of exiting flat at the fixed target - lets a
+// strong trend run further while a real reversal still cuts the trade,
+// never below breakeven once earned. Same 20-period already used by
+// smaCrossover's fast SMA, reused here rather than adding a new indicator.
+export const BREAKEVEN_TRAIL_SMA_PERIOD = 20;
 // Kraken's lowest-volume-tier fee schedule (approximate as of 2025; fees are
 // tier/volume dependent and change over time - update if you care about
 // precise paper-vs-live parity). We model market-style (taker) fills since
