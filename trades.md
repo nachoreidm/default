@@ -25446,3 +25446,137 @@ this is a schema backfill, not a trade action.
 ```
 
 ---
+### 2026-09-17T16:12:32.548Z — BTC/USD — NO TRADE
+
+**Reasoning:** No quantitative trigger: SMA 4h still fast_below_slow, no cross this candle, RSI(14,4h) neutral at 49.6, volume 1.12x average (no spike), momentum_trigger not flagged (48h move +0.47%/+0.78%, well below 6%). Order book now bid-heavy (+0.58) but that alone isn't an entry trigger. No-trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 49.62,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 1.12,
+  "volume_flag_above_2x": false,
+  "momentum_trigger_flagged": false,
+  "price_action_4h_48h_pct": 0.78,
+  "order_book_imbalance_top10": 0.58,
+  "news_context": "FOMC raised rates 25bp to 3.75-4.00% (first hike since 2023, Sep 17) - BTC held support above $75K through the announcement. Spot BTC ETFs saw 2 straight days of net redemptions (~$296M/$450M). House committee advanced a Strategic Bitcoin Reserve bill. No fresh signal to corroborate."
+}
+```
+
+---
+### 2026-09-17T16:12:35.736Z — ETH/USD — NO TRADE
+
+**Reasoning:** No quantitative trigger: SMA 4h fast_below_slow, no cross this candle, RSI(14,4h) neutral at 53.6, volume 1.28x average (no spike), momentum_trigger not flagged (48h move +1.95%/+2.21%). Order book bid-heavy (+0.65). No-trade despite generally constructive SEC roundtable news.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 53.57,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 1.28,
+  "volume_flag_above_2x": false,
+  "momentum_trigger_flagged": false,
+  "price_action_4h_48h_pct": 2.21,
+  "order_book_imbalance_top10": 0.65,
+  "news_context": "SEC roundtable today (Sept 17) with BlackRock/Nasdaq on moving stock trading on-chain, ETH named a leading contender; ETH holding near $2,450 post-FOMC with mixed ETF flows. Constructive but no quantitative trigger."
+}
+```
+
+---
+### 2026-09-17T16:12:39.193Z — SOL/USD — NO TRADE
+
+**Reasoning:** No quantitative trigger: SMA 4h fast_below_slow, no cross this candle, RSI(14,4h) neutral at 56.9, volume 1.10x average (no spike), momentum_trigger not flagged (48h move +2.16%/+3.45%, still below 6%). Order book roughly balanced (-0.03). No-trade despite positive price drift and ecosystem news.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 56.9,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 1.1,
+  "volume_flag_above_2x": false,
+  "momentum_trigger_flagged": false,
+  "price_action_4h_48h_pct": 3.45,
+  "order_book_imbalance_top10": -0.03,
+  "news_context": "Column bank built USDC/USDT stablecoin conversion into its banking core using Solana's settlement layer; GameStop (GMEx) listed on Solana Sept 12; SOL spot volume crossed $1B/24h. Bullish backdrop, no trigger yet."
+}
+```
+
+---
+### 2026-09-17T16:12:43.763Z — XRP/USD — NO TRADE
+
+**Reasoning:** No quantitative trigger: SMA 4h fast_below_slow, no cross this candle, RSI(14,4h) neutral at 43.4 (not oversold), volume 1.16x average (no spike), momentum_trigger not flagged (1h/48h -5.8%, still under the 6% threshold and momentum only fires on upside moves for this long-only strategy anyway; 4h/48h actually now positive at +0.89%). Order book roughly balanced (-0.01). News continues to explain weakness (CLARITY Act cloture failure Sept 15) compounded by today's FOMC hike, but nothing here supports a long entry - no-trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 43.39,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 1.16,
+  "volume_flag_above_2x": false,
+  "momentum_trigger_flagged": false,
+  "price_action_1h_48h_pct": -5.81,
+  "price_action_4h_48h_pct": 0.89,
+  "order_book_imbalance_top10": -0.01,
+  "news_context": "CLARITY Act cloture vote failed 49-50 on Sept 15, and today's FOMC rate hike added further macro pressure; XRP testing the $1.28-1.30 area. RLUSD now majority-issued on XRPL over Ethereum for the first time. Bearish/neutral catalysts, no trigger for a long."
+}
+```
+
+---
+### 2026-09-17T16:12:46.850Z — ADA/USD — NO TRADE
+
+**Reasoning:** No quantitative trigger: SMA 4h fast_below_slow, no cross this candle, RSI(14,4h) neutral at 52.0, volume 1.59x average (elevated but below 2x flag), momentum_trigger not flagged (48h move +0.17%/+2.17%). Order book ask-heavy (-0.22). Mastercard Crypto Partner Program news is constructive but doesn't rise to a trigger - no-trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 51.98,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 1.59,
+  "volume_flag_above_2x": false,
+  "momentum_trigger_flagged": false,
+  "price_action_4h_48h_pct": 2.17,
+  "order_book_imbalance_top10": -0.22,
+  "news_context": "Cardano Foundation joined Mastercard's Crypto Partner Program (cross-border payments/stablecoin interoperability); Dijkstra node testnets underway ahead of a Q4 hard fork. Constructive, no quantitative trigger this cycle."
+}
+```
+
+---
+### 2026-09-17T16:12:50.286Z — LINK/USD — NO TRADE
+
+**Reasoning:** No quantitative trigger: SMA 4h fast_below_slow, no cross this candle, RSI(14,4h) neutral at 54.4, volume still below average (0.73x, no spike), momentum_trigger not flagged (48h move +0.88%/+2.55%). Order book roughly balanced (+0.004). Arc Mainnet integration news (Sept 16) is a continuation of the prior cycle's catalyst, already partially priced in - no fresh trigger, no-trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 54.39,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 0.73,
+  "volume_flag_above_2x": false,
+  "momentum_trigger_flagged": false,
+  "price_action_4h_48h_pct": 2.55,
+  "order_book_imbalance_top10": 0.004,
+  "news_context": "Arc Mainnet launched with Chainlink oracle integration (Sept 16); Microsoft AI forecast floated $35 LINK by 2027 (speculative). Moderately bullish sentiment but no quantitative trigger."
+}
+```
+
+---
+### 2026-09-17T16:12:53.292Z — DOGE/USD — NO TRADE
+
+**Reasoning:** No quantitative trigger: SMA 4h fast_below_slow, no cross this candle, RSI(14,4h) neutral at 48.9, volume below average (0.80x, no spike), momentum_trigger not flagged (48h move +0.34%/+1.33%). Order book ask-heavy (-0.19). Price described as compressed/range-bound near $0.08 awaiting a catalyst - no-trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 48.95,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 0.8,
+  "volume_flag_above_2x": false,
+  "momentum_trigger_flagged": false,
+  "price_action_4h_48h_pct": 1.33,
+  "order_book_imbalance_top10": -0.19,
+  "news_context": "MyDoge wallet suspending Doginals/DRC-20 support (Sept 17, infra-provider driven, doesn't affect standard DOGE); price compressed near $0.08 after the CLARITY Act-driven selloff, whales still accumulating. No quantitative trigger."
+}
+```
+
+---
