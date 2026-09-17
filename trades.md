@@ -24578,3 +24578,108 @@ this is a schema backfill, not a trade action.
 ```
 
 ---
+### 2026-09-17T09:12:14.962Z — BTC/USD — NO TRADE
+
+**Reasoning:** Price -0.6%/-0.7% (1h/4h, 48h window), RSI 45.5 (neutral), fast SMA below slow SMA with no fresh crossover, volume ratio 1.12x (unremarkable), no momentum trigger. Order book heavily bid-skewed (+0.99, thin ask side) but advisory-only. Search consistent with known post-Fed-hike consolidation, no new catalyst. No signal-confirmed entry basis.
+
+**Signals considered:**
+```json
+{
+  "current_price": 76631.4,
+  "pct_change_1h_48h": -0.6,
+  "pct_change_4h_48h": -0.68,
+  "rsi_14_4h": 45.49,
+  "sma_state": "fast_below_slow",
+  "crossed_this_candle": false,
+  "volume_ratio": 1.12,
+  "momentum_trigger": false,
+  "order_book_imbalance": 0.99,
+  "news_search_note": "consistent with known context, no new catalyst"
+}
+```
+
+---
+### 2026-09-17T09:12:17.728Z — ETH/USD — NO TRADE
+
+**Reasoning:** Price -1.2%/-1.3% (1h/4h, 48h window), RSI 47.6 (neutral), fast SMA below slow SMA, no fresh crossover, volume ratio 1.28x (unremarkable), no momentum trigger. Order book bid-heavy (+0.71). Search flagged a same-day SEC roundtable on tokenized stock trading (ETH as a candidate) - a real event but advisory-only per instructions (news never a standalone trigger), no technical confirmation. No signal-confirmed entry basis.
+
+**Signals considered:**
+```json
+{
+  "current_price": 2446,
+  "pct_change_1h_48h": -1.23,
+  "pct_change_4h_48h": -1.34,
+  "rsi_14_4h": 47.62,
+  "sma_state": "fast_below_slow",
+  "crossed_this_candle": false,
+  "volume_ratio": 1.28,
+  "momentum_trigger": false,
+  "order_book_imbalance": 0.71,
+  "news_search_note": "SEC roundtable today (advisory only), no technical confirmation"
+}
+```
+
+---
+### 2026-09-17T09:12:20.952Z — SOL/USD — NO TRADE
+
+**Reasoning:** Price -0.6%/-0.9% (1h/4h, 48h window), RSI 51.4 (neutral), fast SMA below slow SMA, no fresh crossover, volume ratio 1.10x (unremarkable), no momentum trigger. Order book bid-heavy (+0.19). Search again quoted stale price ($103.29 vs live $100.55) and recycled ecosystem news; also noted same SEC roundtable (SOL as a candidate too) but advisory-only, no technical confirmation. No signal-confirmed entry basis.
+
+**Signals considered:**
+```json
+{
+  "current_price": 100.55,
+  "pct_change_1h_48h": -0.56,
+  "pct_change_4h_48h": -0.86,
+  "rsi_14_4h": 51.39,
+  "sma_state": "fast_below_slow",
+  "crossed_this_candle": false,
+  "volume_ratio": 1.1,
+  "momentum_trigger": false,
+  "order_book_imbalance": 0.19,
+  "news_search_note": "stale price ($103.29 vs live $100.55); SEC roundtable advisory only, no technical confirmation"
+}
+```
+
+---
+### 2026-09-17T09:12:23.823Z — POL/USD — NO TRADE
+
+**Reasoning:** Price roughly flat: +0.01% (1h/48h), -0.51% (4h/48h), RSI 53.3 (neutral), fast SMA still below slow SMA with no fresh crossover, volume ratio 1.46x (elevated but below 2x flag), no momentum trigger. Order book mildly bid-heavy (+0.11). Search offered only dated RWA-sector and infra-upgrade mentions, nothing actionable. No signal-confirmed entry basis.
+
+**Signals considered:**
+```json
+{
+  "current_price": 0.09656,
+  "pct_change_1h_48h": 0.01,
+  "pct_change_4h_48h": -0.51,
+  "rsi_14_4h": 53.32,
+  "sma_state": "fast_below_slow",
+  "crossed_this_candle": false,
+  "volume_ratio": 1.46,
+  "momentum_trigger": false,
+  "order_book_imbalance": 0.11,
+  "news_search_note": "no fresh actionable catalyst, dated infra/RWA mentions only"
+}
+```
+
+---
+### 2026-09-17T09:12:27.654Z — XRP/USD — NO TRADE
+
+**Reasoning:** Price still down -7.1%/-7.1% (1h/4h, 48h window) post-CLARITY Act cloture failure, RSI 41.7 (neutral, not oversold), fast SMA below slow SMA with no fresh crossover, volume ratio 1.16x (unremarkable), no momentum trigger despite the move exceeding the 6% magnitude threshold on the downside (consistent with prior cycles). Order book heavily ask-skewed (-0.52). Search confirmed the already-known CLARITY Act failure (XRP fell ~8% vs 3-3.5% for ETH/SOL, notably underperforming) and ETF/RLUSD milestones - steady-state developments, not a fresh single-cycle catalyst. No signal-confirmed entry basis.
+
+**Signals considered:**
+```json
+{
+  "current_price": 1.30581,
+  "pct_change_1h_48h": -7.06,
+  "pct_change_4h_48h": -7.13,
+  "rsi_14_4h": 41.71,
+  "sma_state": "fast_below_slow",
+  "crossed_this_candle": false,
+  "volume_ratio": 1.16,
+  "momentum_trigger": false,
+  "order_book_imbalance": -0.52,
+  "news_search_note": "confirms already-known CLARITY Act driver, no new catalyst"
+}
+```
+
+---
