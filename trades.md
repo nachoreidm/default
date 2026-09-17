@@ -25208,3 +25208,108 @@ this is a schema backfill, not a trade action.
 ```
 
 ---
+### 2026-09-17T15:13:03.836Z — BTC/USD — NO TRADE
+
+**Reasoning:** Price essentially flat: -0.05%/-0.08% (1h/4h, 48h window), RSI 45.8 (neutral), fast SMA below slow SMA with no fresh crossover, volume ratio 1.12x (unremarkable), no momentum trigger. Order book bid-heavy (+0.49). Search reiterated already-known Strategic Bitcoin Reserve bill progress and continued ETF net redemptions - no new actionable catalyst. No signal-confirmed entry basis.
+
+**Signals considered:**
+```json
+{
+  "current_price": 76271.8,
+  "pct_change_1h_48h": -0.05,
+  "pct_change_4h_48h": -0.08,
+  "rsi_14_4h": 45.78,
+  "sma_state": "fast_below_slow",
+  "crossed_this_candle": false,
+  "volume_ratio": 1.12,
+  "momentum_trigger": false,
+  "order_book_imbalance": 0.49,
+  "news_search_note": "already-known context, no new catalyst"
+}
+```
+
+---
+### 2026-09-17T15:13:06.763Z — ETH/USD — NO TRADE
+
+**Reasoning:** Price +1.5%/+0.7% (1h/4h, 48h window, continued mild recovery), RSI 47.3 (neutral), fast SMA below slow SMA, no fresh crossover, volume ratio 1.28x (unremarkable), no momentum trigger. Order book ask-heavy (-0.72). Search again noted the same-day SEC roundtable - advisory only, no technical confirmation. No signal-confirmed entry basis.
+
+**Signals considered:**
+```json
+{
+  "current_price": 2449.32,
+  "pct_change_1h_48h": 1.49,
+  "pct_change_4h_48h": 0.71,
+  "rsi_14_4h": 47.26,
+  "sma_state": "fast_below_slow",
+  "crossed_this_candle": false,
+  "volume_ratio": 1.28,
+  "momentum_trigger": false,
+  "order_book_imbalance": -0.72,
+  "news_search_note": "SEC roundtable already noted, advisory only, no technical confirmation"
+}
+```
+
+---
+### 2026-09-17T15:13:09.558Z — SOL/USD — NO TRADE
+
+**Reasoning:** Price +1.7%/+0.7% (1h/4h, 48h window), RSI 51.9 (neutral), fast SMA below slow SMA, no fresh crossover, volume ratio 1.10x (unremarkable), no momentum trigger. Order book roughly balanced (-0.06). Search reiterated already-known stablecoin integration and ecosystem news, no fresh catalyst. No signal-confirmed entry basis.
+
+**Signals considered:**
+```json
+{
+  "current_price": 100.44,
+  "pct_change_1h_48h": 1.68,
+  "pct_change_4h_48h": 0.72,
+  "rsi_14_4h": 51.86,
+  "sma_state": "fast_below_slow",
+  "crossed_this_candle": false,
+  "volume_ratio": 1.1,
+  "momentum_trigger": false,
+  "order_book_imbalance": -0.06,
+  "news_search_note": "already-known ecosystem news, no fresh catalyst"
+}
+```
+
+---
+### 2026-09-17T15:13:12.786Z — POL/USD — NO TRADE
+
+**Reasoning:** Price +0.2% (1h/48h) but -1.0% (4h/48h), RSI 53.5 (neutral), fast SMA still below slow SMA with no fresh crossover, volume ratio 1.46x (elevated but below 2x flag), no momentum trigger. Order book bid-heavy (+0.37). Search flagged a JPYC stablecoin depeg/glitch on Polygon (and Ethereum) - a notable ecosystem event but concerns a different token (JPYC), not POL itself, and isn't a POL price catalyst. No signal-confirmed entry basis.
+
+**Signals considered:**
+```json
+{
+  "current_price": 0.09736,
+  "pct_change_1h_48h": 0.17,
+  "pct_change_4h_48h": -0.96,
+  "rsi_14_4h": 53.49,
+  "sma_state": "fast_below_slow",
+  "crossed_this_candle": false,
+  "volume_ratio": 1.46,
+  "momentum_trigger": false,
+  "order_book_imbalance": 0.37,
+  "news_search_note": "JPYC stablecoin glitch on Polygon noted, unrelated to POL price directly"
+}
+```
+
+---
+### 2026-09-17T15:13:15.568Z — XRP/USD — NO TRADE
+
+**Reasoning:** Price still down -6.4%/-6.5% (1h/4h, 48h window) post-CLARITY Act cloture failure, RSI 41.2 (neutral, not oversold), fast SMA below slow SMA with no fresh crossover, volume ratio 1.16x (unremarkable), no momentum trigger despite the move at/near the 6% magnitude threshold on the downside (consistent with prior cycles). Order book ask-heavy (-0.46). Search noted BatchV1_1 nearing mainnet activation (68% validator support, needs 80%) - a real but gradual protocol development, not an immediate price catalyst. No signal-confirmed entry basis.
+
+**Signals considered:**
+```json
+{
+  "current_price": 1.2958,
+  "pct_change_1h_48h": -6.44,
+  "pct_change_4h_48h": -6.54,
+  "rsi_14_4h": 41.17,
+  "sma_state": "fast_below_slow",
+  "crossed_this_candle": false,
+  "volume_ratio": 1.16,
+  "momentum_trigger": false,
+  "order_book_imbalance": -0.46,
+  "news_search_note": "BatchV1_1 progress noted, gradual protocol development not an immediate catalyst"
+}
+```
+
+---
