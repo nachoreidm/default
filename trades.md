@@ -23948,3 +23948,108 @@ this is a schema backfill, not a trade action.
 ```
 
 ---
+### 2026-09-17T03:11:54.007Z — BTC/USD — NO TRADE
+
+**Reasoning:** Price -1.7%/-1.9% (1h/4h, 48h window), RSI 42.5 (neutral), fast SMA below slow SMA with no fresh crossover, volume ratio 1.12x (unremarkable), no momentum trigger. Order book mildly bid-heavy (+0.38) but advisory-only. Search results stale (quoted $78.1K vs live $76.35K, recycled Jackson Hole/Warsh framing predating the already-confirmed rate hike). No signal-confirmed entry basis.
+
+**Signals considered:**
+```json
+{
+  "current_price": 76350.4,
+  "pct_change_1h_48h": -1.74,
+  "pct_change_4h_48h": -1.95,
+  "rsi_14_4h": 42.55,
+  "sma_state": "fast_below_slow",
+  "crossed_this_candle": false,
+  "volume_ratio": 1.12,
+  "momentum_trigger": false,
+  "order_book_imbalance": 0.38,
+  "news_search_note": "stale price ($78.1K vs live $76.35K), recycled pre-hike framing"
+}
+```
+
+---
+### 2026-09-17T03:11:57.962Z — ETH/USD — NO TRADE
+
+**Reasoning:** Price -2.9%/-3.3% (1h/4h, 48h window), RSI 41.5 (neutral), fast SMA below slow SMA, no fresh crossover, volume ratio 1.28x (unremarkable), no momentum trigger. Order book ask-heavy (-0.48). Search quoted $2,452 (close to live $2,431 this time) with bullish technical framing toward $2,800-2,920, but that conflicts with the currently bearish SMA/price-action state and cites a stale pre-Senate-vote "regulatory optimism" narrative already superseded by the confirmed CLARITY Act failure. No signal-confirmed entry basis.
+
+**Signals considered:**
+```json
+{
+  "current_price": 2430.88,
+  "pct_change_1h_48h": -2.85,
+  "pct_change_4h_48h": -3.26,
+  "rsi_14_4h": 41.52,
+  "sma_state": "fast_below_slow",
+  "crossed_this_candle": false,
+  "volume_ratio": 1.28,
+  "momentum_trigger": false,
+  "order_book_imbalance": -0.48,
+  "news_search_note": "bullish framing conflicts with bearish technicals; regulatory optimism note stale vs confirmed CLARITY Act failure"
+}
+```
+
+---
+### 2026-09-17T03:12:00.674Z — SOL/USD — NO TRADE
+
+**Reasoning:** Price -2.2%/-2.9% (1h/4h, 48h window), RSI 44.9 (neutral), fast SMA below slow SMA, no fresh crossover, volume ratio 1.10x (unremarkable), no momentum trigger. Order book mildly bid-heavy (+0.19). Search quoted stale price ($103.29 vs live $99.47) and days-old ecosystem/tokenized-stock news already priced in, no fresh catalyst. No signal-confirmed entry basis.
+
+**Signals considered:**
+```json
+{
+  "current_price": 99.47,
+  "pct_change_1h_48h": -2.17,
+  "pct_change_4h_48h": -2.92,
+  "rsi_14_4h": 44.91,
+  "sma_state": "fast_below_slow",
+  "crossed_this_candle": false,
+  "volume_ratio": 1.1,
+  "momentum_trigger": false,
+  "order_book_imbalance": 0.19,
+  "news_search_note": "stale price ($103.29 vs live $99.47), no fresh catalyst"
+}
+```
+
+---
+### 2026-09-17T03:12:03.604Z — POL/USD — NO TRADE
+
+**Reasoning:** Price roughly flat: -0.2% (1h/48h), +0.65% (4h/48h), RSI 54.2 (neutral), fast SMA still below slow SMA with no fresh crossover, volume ratio 1.46x (elevated but below 2x flag), no momentum trigger. Order book bid-heavy (+0.23). Search offered only dated RWA-sector mention and stale price forecast, nothing actionable. No signal-confirmed entry basis.
+
+**Signals considered:**
+```json
+{
+  "current_price": 0.09655,
+  "pct_change_1h_48h": -0.21,
+  "pct_change_4h_48h": 0.65,
+  "rsi_14_4h": 54.24,
+  "sma_state": "fast_below_slow",
+  "crossed_this_candle": false,
+  "volume_ratio": 1.46,
+  "momentum_trigger": false,
+  "order_book_imbalance": 0.23,
+  "news_search_note": "no fresh actionable catalyst, dated RWA/price-forecast mentions only"
+}
+```
+
+---
+### 2026-09-17T03:12:07.094Z — XRP/USD — NO TRADE
+
+**Reasoning:** Price still down -8.2%/-8.3% (1h/4h, 48h window) post-CLARITY Act cloture failure, RSI 41.0 (neutral, not oversold), fast SMA below slow SMA with no fresh crossover, volume ratio 1.16x (unremarkable), no momentum trigger despite the large magnitude move (consistent with prior cycles - tool doesn't flag downside momentum). Order book ask-heavy (-0.19). Search results were stale/inconsistent - one item claimed XRP "jumped 3.9%" on CLARITY Act news, which contradicts the confirmed vote failure and live price still down ~8% from pre-vote levels; treated as unreliable. No signal-confirmed entry basis.
+
+**Signals considered:**
+```json
+{
+  "current_price": 1.30094,
+  "pct_change_1h_48h": -8.24,
+  "pct_change_4h_48h": -8.27,
+  "rsi_14_4h": 41.02,
+  "sma_state": "fast_below_slow",
+  "crossed_this_candle": false,
+  "volume_ratio": 1.16,
+  "momentum_trigger": false,
+  "order_book_imbalance": -0.19,
+  "news_search_note": "stale/contradictory claim of a 3.9% jump on CLARITY Act news, inconsistent with confirmed vote failure and live price still down ~8%"
+}
+```
+
+---
