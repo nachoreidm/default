@@ -25103,3 +25103,108 @@ this is a schema backfill, not a trade action.
 ```
 
 ---
+### 2026-09-17T14:12:06.119Z — BTC/USD — NO TRADE
+
+**Reasoning:** Price +0.9% (1h/48h) but flat -0.1% (4h/48h), RSI 45.8 (neutral), fast SMA below slow SMA with no fresh crossover, volume ratio 1.12x (unremarkable), no momentum trigger. Order book bid-heavy (+0.36). Search reiterated already-known Strategic Bitcoin Reserve bill progress and ETF outflow context - no new actionable catalyst. No signal-confirmed entry basis.
+
+**Signals considered:**
+```json
+{
+  "current_price": 76647.6,
+  "pct_change_1h_48h": 0.95,
+  "pct_change_4h_48h": -0.08,
+  "rsi_14_4h": 45.78,
+  "sma_state": "fast_below_slow",
+  "crossed_this_candle": false,
+  "volume_ratio": 1.12,
+  "momentum_trigger": false,
+  "order_book_imbalance": 0.36,
+  "news_search_note": "already-known context, no new catalyst"
+}
+```
+
+---
+### 2026-09-17T14:12:08.970Z — ETH/USD — NO TRADE
+
+**Reasoning:** Price +2.2%/+0.7% (1h/4h, 48h window, recovering), RSI 47.3 (neutral), fast SMA below slow SMA, no fresh crossover, volume ratio 1.28x (unremarkable), no momentum trigger (1h move well below 6% threshold). Order book heavily ask-skewed (-0.88, thin bid side). Search again noted the same-day SEC roundtable - advisory only, no technical confirmation. No signal-confirmed entry basis.
+
+**Signals considered:**
+```json
+{
+  "current_price": 2465.17,
+  "pct_change_1h_48h": 2.23,
+  "pct_change_4h_48h": 0.71,
+  "rsi_14_4h": 47.26,
+  "sma_state": "fast_below_slow",
+  "crossed_this_candle": false,
+  "volume_ratio": 1.28,
+  "momentum_trigger": false,
+  "order_book_imbalance": -0.88,
+  "news_search_note": "SEC roundtable already noted, advisory only, no technical confirmation"
+}
+```
+
+---
+### 2026-09-17T14:12:11.941Z — SOL/USD — NO TRADE
+
+**Reasoning:** Price +1.9%/+0.7% (1h/4h, 48h window, recovering), RSI 51.9 (neutral), fast SMA below slow SMA, no fresh crossover, volume ratio 1.10x (unremarkable), no momentum trigger. Order book ask-heavy (-0.24). Search noted a "possible breakout setup" narrative reclaiming $100, but this is subjective/unconfirmed commentary, not a tool-confirmed crossover or volume spike. No signal-confirmed entry basis.
+
+**Signals considered:**
+```json
+{
+  "current_price": 100.83,
+  "pct_change_1h_48h": 1.86,
+  "pct_change_4h_48h": 0.72,
+  "rsi_14_4h": 51.86,
+  "sma_state": "fast_below_slow",
+  "crossed_this_candle": false,
+  "volume_ratio": 1.1,
+  "momentum_trigger": false,
+  "order_book_imbalance": -0.24,
+  "news_search_note": "breakout narrative in search unconfirmed by technicals, no crossover"
+}
+```
+
+---
+### 2026-09-17T14:12:15.059Z — POL/USD — NO TRADE
+
+**Reasoning:** Price +1.1% (1h/48h) but -1.0% (4h/48h), RSI 53.5 (neutral), fast SMA still below slow SMA with no fresh crossover, volume ratio 1.46x (elevated but below 2x flag), no momentum trigger. Order book bid-heavy (+0.30). Search noted a new Polygon OMS stablecoin integration (Stable.com, 180+ countries) - a real development but adoption/infra news, not a price-moving catalyst with technical confirmation. No signal-confirmed entry basis.
+
+**Signals considered:**
+```json
+{
+  "current_price": 0.09783,
+  "pct_change_1h_48h": 1.13,
+  "pct_change_4h_48h": -0.96,
+  "rsi_14_4h": 53.49,
+  "sma_state": "fast_below_slow",
+  "crossed_this_candle": false,
+  "volume_ratio": 1.46,
+  "momentum_trigger": false,
+  "order_book_imbalance": 0.3,
+  "news_search_note": "new OMS stablecoin integration noted, adoption news not a technical trigger"
+}
+```
+
+---
+### 2026-09-17T14:12:18.618Z — XRP/USD — NO TRADE
+
+**Reasoning:** Price still down -5.9%/-6.5% (1h/4h, 48h window) post-CLARITY Act cloture failure, RSI 41.2 (neutral, not oversold), fast SMA below slow SMA with no fresh crossover, volume ratio 1.16x (unremarkable), no momentum trigger (1h move now just under the 6% threshold, 4h just over but still unflagged, consistent with the tool's downside-momentum pattern). Order book roughly balanced (-0.02). Search confirmed price testing the $1.25-1.28 support cluster after the CLARITY Act defeat - already-known driver, no new catalyst. No signal-confirmed entry basis.
+
+**Signals considered:**
+```json
+{
+  "current_price": 1.30557,
+  "pct_change_1h_48h": -5.91,
+  "pct_change_4h_48h": -6.54,
+  "rsi_14_4h": 41.17,
+  "sma_state": "fast_below_slow",
+  "crossed_this_candle": false,
+  "volume_ratio": 1.16,
+  "momentum_trigger": false,
+  "order_book_imbalance": -0.02,
+  "news_search_note": "confirms already-known CLARITY Act driver, testing support cluster, no new catalyst"
+}
+```
+
+---
