@@ -23738,3 +23738,108 @@ this is a schema backfill, not a trade action.
 ```
 
 ---
+### 2026-09-17T01:12:32.238Z — BTC/USD — NO TRADE
+
+**Reasoning:** RSI 42.55, volume ratio 1.12x (below threshold), SMA fast_below_slow with no crossover, no momentum_trigger. Search again returned stale mismatched price data ($78K from Sept 14) vs live price $76,178 - treated as unreliable. No confirmed trading signal, no trade.
+
+**Signals considered:**
+```json
+{
+  "price_action_1h_48h_pct": -2.08,
+  "price_action_4h_48h_pct": -1.95,
+  "rsi_14_4h": 42.55,
+  "volume_ratio": 1.12,
+  "volume_flag_above_2x": false,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "crossed_this_candle": false,
+  "momentum_trigger_flagged": false,
+  "order_book_imbalance_top10": 0.022,
+  "news_context": "Search again returned stale mismatched price data ($78K from Sept 14) vs live $76,178. Treated as unreliable. No confirmed trading signal."
+}
+```
+
+---
+### 2026-09-17T01:12:34.358Z — ETH/USD — NO TRADE
+
+**Reasoning:** SMA stays fast_below_slow, volume ratio 1.28x (below threshold), RSI 41.52. No crossover, no momentum_trigger. Same recurring news items (already-known ETF outflows, network usage stats). No fresh catalyst, no trade.
+
+**Signals considered:**
+```json
+{
+  "price_action_1h_48h_pct": -3.89,
+  "price_action_4h_48h_pct": -3.26,
+  "rsi_14_4h": 41.52,
+  "volume_ratio": 1.28,
+  "volume_flag_above_2x": false,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "crossed_this_candle": false,
+  "momentum_trigger_flagged": false,
+  "order_book_imbalance_top10": -0.036,
+  "news_context": "Same recurring items - already-known $592M ETF outflows, network usage stats. No fresh catalyst."
+}
+```
+
+---
+### 2026-09-17T01:12:37.116Z — SOL/USD — NO TRADE
+
+**Reasoning:** No signals flagged: volume ratio 1.10x, RSI 44.91, SMA fast_below_slow with no crossover, no momentum_trigger. Search again returned a stale price ($103.29) inconsistent with live price $98.52. No trade.
+
+**Signals considered:**
+```json
+{
+  "price_action_1h_48h_pct": -3.53,
+  "price_action_4h_48h_pct": -2.92,
+  "rsi_14_4h": 44.91,
+  "volume_ratio": 1.1,
+  "volume_flag_above_2x": false,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "crossed_this_candle": false,
+  "momentum_trigger_flagged": false,
+  "order_book_imbalance_top10": 0.194,
+  "news_context": "Stale price ($103.29) inconsistent with live $98.52. Same dated network-upgrade items as prior cycles."
+}
+```
+
+---
+### 2026-09-17T01:12:39.718Z — POL/USD — NO TRADE
+
+**Reasoning:** No signals flagged: SMA remains fast_below_slow with no crossover, RSI 54.24, volume ratio 1.46x (below threshold), no momentum_trigger. Price holding roughly flat with a slight positive tilt on 4h/48h (+0.65%). No fresh catalyst beyond the already-noted Sept 17 RWA report. No trade.
+
+**Signals considered:**
+```json
+{
+  "price_action_1h_48h_pct": -0.69,
+  "price_action_4h_48h_pct": 0.65,
+  "rsi_14_4h": 54.24,
+  "volume_ratio": 1.46,
+  "volume_flag_above_2x": false,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "crossed_this_candle": false,
+  "momentum_trigger_flagged": false,
+  "order_book_imbalance_top10": 0.274,
+  "news_context": "Same Sept 17 Dune/RWA.xyz report as prior cycle. Price stable/slightly positive, but no crossover."
+}
+```
+
+---
+### 2026-09-17T01:12:42.515Z — XRP/USD — NO TRADE
+
+**Reasoning:** Decline holding at -9.0%/-8.3% (1h/4h, 48h windows), RSI 41.02, volume ratio 1.16x (below threshold), momentum_trigger.flagged remains false, SMA stays fast_below_slow with no crossover. Search again returned stale mismatched price data ($1.42, +6%) vs live price $1.291 - treated as unreliable. No trade.
+
+**Signals considered:**
+```json
+{
+  "price_action_1h_48h_pct": -9.01,
+  "price_action_4h_48h_pct": -8.27,
+  "rsi_14_4h": 41.02,
+  "volume_ratio": 1.16,
+  "volume_flag_above_2x": false,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "crossed_this_candle": false,
+  "momentum_trigger_flagged": false,
+  "order_book_imbalance_top10": -0.425,
+  "news_context": "Search again returned stale/mismatched price ($1.42, +6%) inconsistent with live price $1.291. Treated as unreliable."
+}
+```
+
+---
