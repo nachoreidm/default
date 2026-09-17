@@ -25313,3 +25313,136 @@ this is a schema backfill, not a trade action.
 ```
 
 ---
+### 2026-09-17T15:20:46.254Z — BTC/USD — NO TRADE
+
+**Reasoning:** No quantitative trigger present: 20/50 SMA on 4h remains fast_below_slow with no cross this candle, RSI(14,4h) neutral at 45.8, 24h volume only 1.12x the 7d average (no spike), momentum_trigger not flagged (48h move -0.05%/-0.08%, well inside the 6% threshold). Order book skews slightly ask-heavy (-0.32 imbalance) but that's not one of the entry triggers on its own. No signal is pointing anywhere, so nothing for news to corroborate — logging no-trade per the "signals must lead" rule.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 45.78,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 1.12,
+  "volume_flag_above_2x": false,
+  "momentum_trigger_flagged": false,
+  "price_action_4h_48h_pct": -0.08,
+  "order_book_imbalance_top10": -0.32,
+  "news_context": "Bitcoin consolidating $76.8K-$82K range on cooling momentum; ~$1B in 7-day spot ETF inflows and strong institutional demand, but no fresh catalyst in the last 24-48h. Nothing that would move price sharply near-term."
+}
+```
+
+---
+### 2026-09-17T15:20:49.794Z — ETH/USD — NO TRADE
+
+**Reasoning:** No quantitative trigger: SMA 4h still fast_below_slow with no cross this candle, RSI(14,4h) neutral at 47.3, volume 1.28x average (no spike), momentum_trigger not flagged (48h move +1.49%/+0.71%, well below the 6% threshold). Order book is ask-heavy (-0.60 imbalance). Nothing here rises to a signal, so no-trade regardless of the generally constructive news backdrop.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 47.26,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 1.28,
+  "volume_flag_above_2x": false,
+  "momentum_trigger_flagged": false,
+  "price_action_4h_48h_pct": 0.71,
+  "order_book_imbalance_top10": -0.6,
+  "news_context": "SEC roundtable Sept 17 discussing on-chain stock trading with ETH as a leading contender; ETH ETFs on a 12-day inflow streak ($1.62B); Glamsterdam upgrade slipped to Q4. Constructive backdrop but no signal to corroborate right now."
+}
+```
+
+---
+### 2026-09-17T15:20:53.352Z — SOL/USD — NO TRADE
+
+**Reasoning:** No quantitative trigger: SMA 4h fast_below_slow with no cross this candle, RSI(14,4h) neutral at 51.9, volume 1.10x average (no spike), momentum_trigger not flagged (48h move +1.68%/+0.72%). Order book roughly balanced (+0.02). Positive news (SEC ETF recognition, Transaction V1 launch) but per the rules news can't manufacture a signal on its own - logging no-trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 51.86,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 1.1,
+  "volume_flag_above_2x": false,
+  "momentum_trigger_flagged": false,
+  "price_action_4h_48h_pct": 0.72,
+  "order_book_imbalance_top10": 0.02,
+  "news_context": "SEC formally recognized SOL as a core ETF asset (Sept 5); Transaction V1 launched Sept 9; strong SOL ETF inflows. Bullish backdrop but no quantitative trigger this cycle."
+}
+```
+
+---
+### 2026-09-17T15:20:58.110Z — XRP/USD — NO TRADE
+
+**Reasoning:** No quantitative trigger for a long: SMA 4h fast_below_slow with no cross this candle, RSI(14,4h) neutral at 41.2 (not oversold), volume only 1.16x average (no spike), momentum_trigger not flagged despite a large -6.4%/-6.5% 48h decline - the trigger only fires on upside moves per its design intent (long-only strategy), and a downside move wouldn't support a long entry regardless. Order book is bid-heavy (+0.63) but that alone isn't an entry trigger. News explains the decline (CLARITY Act bill blocked in the Senate on ~Sept 15, broad crypto selloff) but this is bearish context, not something that would support opening a long - no-trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 41.17,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 1.16,
+  "volume_flag_above_2x": false,
+  "momentum_trigger_flagged": false,
+  "price_action_4h_48h_pct": -6.54,
+  "order_book_imbalance_top10": 0.63,
+  "news_context": "Senate blocked debate on the Digital Asset Market Clarity Act (~Sept 15), triggering a broad crypto selloff (BTC -3%, ETH -5%) that explains XRP's 48h decline; separately Ripple released 1B XRP from escrow Sept 1. Bearish/neutral catalysts, no trigger for a long."
+}
+```
+
+---
+### 2026-09-17T15:21:01.563Z — ADA/USD — NO TRADE
+
+**Reasoning:** No quantitative trigger: SMA 4h fast_below_slow with no cross this candle, RSI(14,4h) neutral at 44.4, volume 1.59x average (elevated but below the 2x flag threshold), momentum_trigger not flagged (48h move -0.12%/-1.81%). Order book bid-heavy (+0.47). News notes a leveraged-long liquidation event around $0.20 support on Sept 11 and Leios testnet progress, but nothing rises to a fresh signal this cycle - no-trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 44.44,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 1.59,
+  "volume_flag_above_2x": false,
+  "momentum_trigger_flagged": false,
+  "price_action_4h_48h_pct": -1.81,
+  "order_book_imbalance_top10": 0.47,
+  "news_context": "Leios upgrade posted 6x testnet throughput gain (Sept 8); a $1.89M leveraged-long liquidation event hit as ADA tested $0.20 support (Sept 11). Mixed/neutral, no trigger."
+}
+```
+
+---
+### 2026-09-17T15:21:05.813Z — LINK/USD — NO TRADE
+
+**Reasoning:** No quantitative trigger: SMA 4h fast_below_slow with no cross this candle, RSI(14,4h) neutral at 48.3, volume actually below average (0.73x, no spike), momentum_trigger not flagged (48h move +0.02%/-0.92%). Order book strongly bid-heavy (+0.71) but not itself an entry trigger. Notable news (Coinbase oracle selection, Schwab listing, Bottomline/CCIP partnership, Arc Mainnet integration) drove a spike to ~$13.64 on Sept 7 that has already faded back to $11.26 - the move isn't showing up in current signals, so no-trade this cycle.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 48.25,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 0.73,
+  "volume_flag_above_2x": false,
+  "momentum_trigger_flagged": false,
+  "price_action_4h_48h_pct": -0.92,
+  "order_book_imbalance_top10": 0.71,
+  "news_context": "Arc Mainnet integrated Chainlink oracles (Sept 16); Coinbase selected Chainlink for tokenized US stocks on Base (Aug 24); Charles Schwab set to list LINK. Price already spiked and faded on this news (~$13.64 -> $11.26); no current quantitative trigger."
+}
+```
+
+---
+### 2026-09-17T15:21:09.222Z — DOGE/USD — NO TRADE
+
+**Reasoning:** No quantitative trigger: SMA 4h fast_below_slow with no cross this candle, RSI(14,4h) neutral at 41.6, volume below average (0.80x, no spike), momentum_trigger not flagged (48h move -0.03%/-0.98%). Order book ask-heavy (-0.18). News names the same CLARITY Act-driven selloff (Sept 15) pressuring price, with whale accumulation as a mild offsetting signal, but nothing here rises to a quantitative trigger - no-trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 41.6,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 0.8,
+  "volume_flag_above_2x": false,
+  "momentum_trigger_flagged": false,
+  "price_action_4h_48h_pct": -0.98,
+  "order_book_imbalance_top10": -0.18,
+  "news_context": "CLARITY Act failure (~Sept 15) triggered a broad selloff pressuring DOGE; whales accumulated 240M DOGE in the past week; SpaceX's DOGE 1 satellite launched Sept 14. Mixed catalysts, no quantitative trigger this cycle."
+}
+```
+
+---
