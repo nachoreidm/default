@@ -27340,3 +27340,140 @@ this is a schema backfill, not a trade action.
 - Position id: 9cf2aea4-bf5c-4975-a2e2-58cb441b245a
 
 ---
+### 2026-09-18T06:13:37.064Z — BTC/USD — NO TRADE
+
+**Reasoning:** No quantitative trigger: SMA 4h fast_below_slow, no cross this candle, RSI(14,4h) firm at 56.8, volume below average (0.71x, no spike), momentum_trigger not flagged (48h move +1.95%/+2.11%). Order book mildly bid-heavy (+0.12). No-trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 56.85,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 0.71,
+  "volume_flag_above_2x": false,
+  "momentum_trigger_flagged": false,
+  "price_action_4h_48h_pct": 2.11,
+  "order_book_imbalance_top10": 0.12,
+  "news_context": "BTC topped $77K partly on BoJ rate hike headline; same CLARITY Act overhang. No quantitative trigger."
+}
+```
+
+---
+### 2026-09-18T06:13:39.638Z — ETH/USD — NO TRADE
+
+**Reasoning:** No quantitative trigger: SMA 4h fast_below_slow, no cross this candle, RSI(14,4h) firm at 55.2, volume below average (0.73x, no spike), momentum_trigger not flagged (48h move +3.07%/+3.41%). Order book ask-heavy (-0.14). No-trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 55.23,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 0.73,
+  "volume_flag_above_2x": false,
+  "momentum_trigger_flagged": false,
+  "price_action_4h_48h_pct": 3.41,
+  "order_book_imbalance_top10": -0.14,
+  "news_context": "Same MetaMask rebrand/quantum-resistance storylines. No quantitative trigger."
+}
+```
+
+---
+### 2026-09-18T06:13:41.957Z — SOL/USD — NO TRADE
+
+**Reasoning:** Already have an open SOL/USD position (opened 2026-09-18T05:14 UTC, momentum-only, medium confidence, 3%). Per the one-position-per-pair rule, no new entry - logging no-trade. Momentum steady (1h/48h +8.17%, 4h/48h +7.85%), position monitored via portfolio_check_stops.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 68.12,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 1.68,
+  "volume_flag_above_2x": false,
+  "momentum_trigger_flagged": true,
+  "price_action_1h_48h_pct": 8.17,
+  "price_action_4h_48h_pct": 7.85,
+  "order_book_imbalance_top10": -0.01,
+  "news_context": "Existing open position covers this pair - no new trade."
+}
+```
+
+---
+### 2026-09-18T06:13:44.519Z — XRP/USD — NO TRADE
+
+**Reasoning:** No quantitative trigger: SMA 4h fast_below_slow, no cross this candle, RSI(14,4h) neutral at 49.5, volume below average (0.83x, no spike), momentum_trigger not flagged (48h move +1.57%/+3.21%). Order book ask-heavy (-0.26). No-trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 49.53,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 0.83,
+  "volume_flag_above_2x": false,
+  "momentum_trigger_flagged": false,
+  "price_action_4h_48h_pct": 3.21,
+  "order_book_imbalance_top10": -0.26,
+  "news_context": "Same CLARITY Act overhang, Ripple/Strategy legal-safety comments. No quantitative trigger."
+}
+```
+
+---
+### 2026-09-18T06:13:47.163Z — ADA/USD — NO TRADE
+
+**Reasoning:** Already have an open ADA/USD position (opened 2026-09-18T03:14 UTC). Per the one-position-per-pair rule, no new entry - logging no-trade. Momentum still extended (1h/48h +8.37%, 4h/48h +11.54%, RSI 69.2), position monitored via portfolio_check_stops.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 69.24,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 1.15,
+  "volume_flag_above_2x": false,
+  "momentum_trigger_flagged": true,
+  "price_action_1h_48h_pct": 8.37,
+  "price_action_4h_48h_pct": 11.54,
+  "order_book_imbalance_top10": 0.5,
+  "news_context": "Existing open position covers this pair - no new trade."
+}
+```
+
+---
+### 2026-09-18T06:13:50.622Z — LINK/USD — NO TRADE
+
+**Reasoning:** momentum_trigger still flagged (1h/48h +8.63%, 4h/48h +9.35%). Only signal present: RSI(14,4h) 64.3 elevated but not extreme, SMA 4h still fast_below_slow with no cross, volume 1.24x (no spike). Re-searched for a fresh LINK catalyst: all items found remain stale (Bottomline Sept 4, Arc Mainnet Sept 16, generic Standard Chartered/Microsoft AI price-target forecasts with no new date). No catalyst dated to today - momentum_only trade rejected again.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 64.33,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 1.24,
+  "volume_flag_above_2x": false,
+  "momentum_trigger_flagged": true,
+  "price_action_1h_48h_pct": 8.63,
+  "price_action_4h_48h_pct": 9.35,
+  "order_book_imbalance_top10": 0.2,
+  "news_context": "Same stale items (Bottomline Sept 4, Arc Mainnet Sept 16, generic analyst price targets). No fresh catalyst. Rejected per momentum-only rule."
+}
+```
+
+---
+### 2026-09-18T06:13:54.055Z — DOGE/USD — NO TRADE
+
+**Reasoning:** momentum_trigger still flagged (4h/48h +6.08%, 1h/48h +4.88%, still under). RSI(14,4h) 62.9 elevated but not extreme, SMA 4h still fast_below_slow with no cross, volume below average (0.78x, no spike) - momentum still the only signal. Re-searched for a fresh DOGE catalyst: found only stale items (MyDoge wallet Doginals shutdown Sept 17, CLARITY Act fallout Sept 15) plus generic whale-accumulation commentary with no specific date. No catalyst dated to today - momentum_only trade rejected again.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 62.87,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 0.78,
+  "volume_flag_above_2x": false,
+  "momentum_trigger_flagged": true,
+  "price_action_1h_48h_pct": 4.88,
+  "price_action_4h_48h_pct": 6.08,
+  "order_book_imbalance_top10": 0.53,
+  "news_context": "Same stale items (MyDoge wallet Sept 17, CLARITY Act Sept 15) plus generic whale-accumulation commentary. No fresh catalyst. Rejected per momentum-only rule."
+}
+```
+
+---
