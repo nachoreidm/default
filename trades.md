@@ -26645,3 +26645,138 @@ this is a schema backfill, not a trade action.
 ```
 
 ---
+### 2026-09-18T01:13:02.299Z — BTC/USD — NO TRADE
+
+**Reasoning:** No quantitative trigger: SMA 4h fast_below_slow, no cross this candle, RSI(14,4h) neutral at 45.4, volume below average (0.71x, no spike), momentum_trigger not flagged (48h move +1.45%/+0.78%). Order book bid-heavy (+0.46). No-trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 45.37,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 0.71,
+  "volume_flag_above_2x": false,
+  "momentum_trigger_flagged": false,
+  "price_action_4h_48h_pct": 0.78,
+  "order_book_imbalance_top10": 0.46,
+  "news_context": "Same CLARITY Act overhang; no fresh trigger."
+}
+```
+
+---
+### 2026-09-18T01:13:04.540Z — ETH/USD — NO TRADE
+
+**Reasoning:** No quantitative trigger: SMA 4h fast_below_slow, no cross this candle, RSI(14,4h) neutral at 48.4, volume below average (0.73x, no spike), momentum_trigger not flagged (48h move +2.38%/+1.88%). Order book bid-heavy (+0.60). No-trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 48.38,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 0.73,
+  "volume_flag_above_2x": false,
+  "momentum_trigger_flagged": false,
+  "price_action_4h_48h_pct": 1.88,
+  "order_book_imbalance_top10": 0.6,
+  "news_context": "Same MetaMask rebrand / network-throughput storylines. No quantitative trigger."
+}
+```
+
+---
+### 2026-09-18T01:13:07.271Z — SOL/USD — NO TRADE
+
+**Reasoning:** No quantitative trigger: SMA 4h fast_below_slow, no cross this candle, RSI(14,4h) neutral at 58.1, volume 1.68x average (elevated, below 2x flag), momentum_trigger not flagged (48h move +5.07%/+4.47%, closest it's been to threshold but still under). Order book ask-heavy (-0.23). No-trade - watching closely.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 58.1,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 1.68,
+  "volume_flag_above_2x": false,
+  "momentum_trigger_flagged": false,
+  "price_action_4h_48h_pct": 4.47,
+  "order_book_imbalance_top10": -0.23,
+  "news_context": "Continued ecosystem growth narrative (stablecoin flows, slot-time reduction). No quantitative trigger yet."
+}
+```
+
+---
+### 2026-09-18T01:13:09.563Z — XRP/USD — NO TRADE
+
+**Reasoning:** No quantitative trigger: SMA 4h fast_below_slow, no cross this candle, RSI(14,4h) neutral at 41.4, volume below average (0.83x, no spike), momentum_trigger not flagged (48h move +1.95%/+0.03%). Order book ask-heavy (-0.21). No-trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 41.41,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 0.83,
+  "volume_flag_above_2x": false,
+  "momentum_trigger_flagged": false,
+  "price_action_4h_48h_pct": 0.03,
+  "order_book_imbalance_top10": -0.21,
+  "news_context": "Same CLARITY Act/Stripe integration storylines. No quantitative trigger."
+}
+```
+
+---
+### 2026-09-18T01:13:15.990Z — ADA/USD — NO TRADE
+
+**Reasoning:** momentum_trigger IS flagged (1h/48h move +6.37%, clearing the 6% threshold) - but it is the ONLY signal present: SMA 4h still fast_below_slow with no cross this candle, RSI(14,4h) neutral at 52.4 (not extreme), volume only 1.15x average (no spike). Per the momentum-only rule, a momentum-only setup requires a real, fresh news catalyst before it can be traded. The only ADA-specific news found is the IBC connection with Injective, which reportedly went live several days ago (Monday) and is explicitly framed as "buy the news, sell the event" - i.e. already priced in / bearish-leaning, not a fresh catalyst for further upside. Additionally, ADA futures open interest is down ~6% over 24h with funding turning negative, consistent with short covering / a mechanical squeeze rather than a fundamental catalyst. No plausible news explains this specific move, so per instructions this reads as noise/thin-book chop rather than a real breakout - logging no-trade instead of a momentum-only long.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 52.44,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 1.15,
+  "volume_flag_above_2x": false,
+  "momentum_trigger_flagged": true,
+  "price_action_1h_48h_pct": 6.37,
+  "price_action_4h_48h_pct": 3.98,
+  "order_book_imbalance_top10": 0.11,
+  "news_context": "Only identifiable ADA-specific item is the Injective IBC connection going live several days ago (Monday), explicitly framed by coverage as 'buy the news, sell the event' - stale and not a fresh bullish catalyst. ADA futures OI down ~6% over 24h with funding rate turning negative, consistent with a short-covering bounce rather than new fundamental news. No plausible catalyst identified for this specific move - momentum_only trade rejected per the news-catalyst requirement."
+}
+```
+
+---
+### 2026-09-18T01:13:19.004Z — LINK/USD — NO TRADE
+
+**Reasoning:** No quantitative trigger: SMA 4h fast_below_slow, no cross this candle, RSI(14,4h) neutral at 54.8, volume 1.24x average (no spike), momentum_trigger not flagged (1h/48h move +5.92% - the closest any pair has come to the 6% threshold, but still just under it). Order book bid-heavy (+0.29). No-trade - very close to triggering next cycle if the drift continues.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 54.85,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 1.24,
+  "volume_flag_above_2x": false,
+  "momentum_trigger_flagged": false,
+  "price_action_1h_48h_pct": 5.92,
+  "price_action_4h_48h_pct": 5.21,
+  "order_book_imbalance_top10": 0.29,
+  "news_context": "Same Arc Mainnet/whale-transfer/Microsoft-forecast storylines, nothing new identified. No quantitative trigger yet, but LINK is now the pair closest to the momentum threshold."
+}
+```
+
+---
+### 2026-09-18T01:13:21.113Z — DOGE/USD — NO TRADE
+
+**Reasoning:** No quantitative trigger: SMA 4h fast_below_slow, no cross this candle, RSI(14,4h) neutral at 47.8, volume below average (0.78x, no spike), momentum_trigger not flagged (48h move +2.90%/+2.10%). Order book bid-heavy (+0.42). No-trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 47.76,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 0.78,
+  "volume_flag_above_2x": false,
+  "momentum_trigger_flagged": false,
+  "price_action_4h_48h_pct": 2.1,
+  "order_book_imbalance_top10": 0.42,
+  "news_context": "DOGE spot ETF liquidation still noted as a minor drag; bullish community sentiment persists. No quantitative trigger."
+}
+```
+
+---
