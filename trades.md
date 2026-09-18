@@ -26780,3 +26780,139 @@ this is a schema backfill, not a trade action.
 ```
 
 ---
+### 2026-09-18T02:13:02.907Z — BTC/USD — NO TRADE
+
+**Reasoning:** No quantitative trigger: SMA 4h fast_below_slow, no cross this candle, RSI(14,4h) neutral at 45.4, volume below average (0.71x, no spike), momentum_trigger not flagged (48h move +1.12%/+0.78%). Order book ask-heavy (-0.56). No-trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 45.37,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 0.71,
+  "volume_flag_above_2x": false,
+  "momentum_trigger_flagged": false,
+  "price_action_4h_48h_pct": 0.78,
+  "order_book_imbalance_top10": -0.56,
+  "news_context": "Nasdaq +1.7% post-Fed-hike lifting risk assets broadly; SEC innovation exemption news. No quantitative trigger for BTC specifically."
+}
+```
+
+---
+### 2026-09-18T02:13:05.213Z — ETH/USD — NO TRADE
+
+**Reasoning:** No quantitative trigger: SMA 4h fast_below_slow, no cross this candle, RSI(14,4h) neutral at 48.4, volume below average (0.73x, no spike), momentum_trigger not flagged (48h move +2.25%/+1.88%). Order book roughly balanced (+0.07). No-trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 48.38,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 0.73,
+  "volume_flag_above_2x": false,
+  "momentum_trigger_flagged": false,
+  "price_action_4h_48h_pct": 1.88,
+  "order_book_imbalance_top10": 0.07,
+  "news_context": "Same MetaMask rebrand/throughput-record storylines, broader market tailwind. No quantitative trigger."
+}
+```
+
+---
+### 2026-09-18T02:13:09.693Z — SOL/USD — NO TRADE
+
+**Reasoning:** No quantitative trigger: SMA 4h fast_below_slow, no cross this candle, RSI(14,4h) neutral at 58.1, volume 1.68x average (elevated, below 2x flag), momentum_trigger not flagged (1h/48h move +5.38%, still under 6%). Order book ask-heavy (-0.14). No-trade - very close to threshold, watching.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 58.1,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 1.68,
+  "volume_flag_above_2x": false,
+  "momentum_trigger_flagged": false,
+  "price_action_1h_48h_pct": 5.38,
+  "price_action_4h_48h_pct": 4.47,
+  "order_book_imbalance_top10": -0.14,
+  "news_context": "Continued ecosystem-growth narrative, broader market tailwind. No quantitative trigger yet."
+}
+```
+
+---
+### 2026-09-18T02:13:11.917Z — XRP/USD — NO TRADE
+
+**Reasoning:** No quantitative trigger: SMA 4h fast_below_slow, no cross this candle, RSI(14,4h) neutral at 41.4, volume below average (0.83x, no spike), momentum_trigger not flagged (48h move +1.22%/+0.03%). Order book bid-heavy (+0.56). No-trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 41.41,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 0.83,
+  "volume_flag_above_2x": false,
+  "momentum_trigger_flagged": false,
+  "price_action_4h_48h_pct": 0.03,
+  "order_book_imbalance_top10": 0.56,
+  "news_context": "Same CLARITY Act overhang/Stripe integration. No quantitative trigger."
+}
+```
+
+---
+### 2026-09-18T02:13:16.185Z — ADA/USD — NO TRADE
+
+**Reasoning:** momentum_trigger flagged again, more strongly than last cycle (1h/48h move now +7.94%, up from +6.37%). Still the ONLY signal: SMA 4h fast_below_slow with no cross, RSI(14,4h) neutral at 52.4 (not extreme), volume only 1.15x average (no spike). Searched specifically for a fresh ADA catalyst: found only stale items (Leios testnet 6x speed report from Sept 8, x402 protocol from Sept 11, the Sept 15 CLARITY Act vote which was actually bearish/negative for the whole market) plus a vague, undated "S(.)BLOX Japan listing" mention with no specific date attached. Nothing identifiable as a fresh (within 24-48h) ADA-specific announcement. The move is also happening in lockstep with BTC/ETH/SOL/LINK/DOGE all rising together, consistent with a broad market tailwind (Nasdaq +1.7% post-Fed-hike, SEC innovation exemption) rather than an ADA-specific catalyst. Per the momentum-only rule, this doesn't clear the bar for a trade - logging no-trade instead of a momentum-only long, same call as last cycle.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 52.44,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 1.15,
+  "volume_flag_above_2x": false,
+  "momentum_trigger_flagged": true,
+  "price_action_1h_48h_pct": 7.94,
+  "price_action_4h_48h_pct": 3.98,
+  "order_book_imbalance_top10": 0.53,
+  "news_context": "No fresh ADA-specific catalyst found in the last 24-48h - only stale items (Leios testnet report Sept 8, x402 protocol Sept 11) and an undated S(.)BLOX Japan listing mention. Move tracks the broader market rally (Nasdaq +1.7%, SEC innovation exemption) rather than ADA-specific news. Momentum_only trade rejected per the news-catalyst requirement, consistent with the prior cycle's call."
+}
+```
+
+---
+### 2026-09-18T02:13:22.302Z — LINK/USD — NO TRADE
+
+**Reasoning:** momentum_trigger now flagged (1h/48h move +6.25%, crossing the 6% threshold for the first time). ONLY signal present: SMA 4h fast_below_slow with no cross this candle, RSI(14,4h) neutral at 54.8 (not extreme), volume 1.24x average (no spike). Searched specifically for a fresh LINK catalyst: found only stale items from Sept 1-8 (Bottomline partnership Sept 3, Schwab listing announcement, Coinbase/Base tokenized-stocks oracle selection, US Commerce Dept macro-data integration Sept 1) plus an upcoming (not yet happened) Fed meeting appearance on Sept 24. LINK already spiked to ~$13.64 on that earlier Bottomline news around Sept 7-8 and has since pulled back to $11.52 - today's move is a fresh, separate bounce with no new catalyst identified, tracking the same broad market rally lifting BTC/ETH/SOL/ADA/DOGE together. Per the momentum-only rule, rejecting this as a trade for lack of a fresh news catalyst.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 54.85,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 1.24,
+  "volume_flag_above_2x": false,
+  "momentum_trigger_flagged": true,
+  "price_action_1h_48h_pct": 6.25,
+  "price_action_4h_48h_pct": 5.21,
+  "order_book_imbalance_top10": 0.51,
+  "news_context": "Momentum_trigger just crossed threshold. No fresh LINK-specific catalyst in the last 24-48h - only stale items from Sept 1-8 already priced into an earlier spike to $13.64 that has since faded to $11.52. Move tracks the broader market rally. Momentum_only trade rejected per the news-catalyst requirement."
+}
+```
+
+---
+### 2026-09-18T02:13:24.562Z — DOGE/USD — NO TRADE
+
+**Reasoning:** No quantitative trigger: SMA 4h fast_below_slow, no cross this candle, RSI(14,4h) neutral at 47.8, volume below average (0.78x, no spike), momentum_trigger not flagged (48h move +2.88%/+2.10%). Order book roughly balanced (+0.09). No-trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 47.76,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 0.78,
+  "volume_flag_above_2x": false,
+  "momentum_trigger_flagged": false,
+  "price_action_4h_48h_pct": 2.1,
+  "order_book_imbalance_top10": 0.09,
+  "news_context": "DOGE spot ETF liquidation still noted; bullish community sentiment continues; broader market tailwind. No quantitative trigger."
+}
+```
+
+---
