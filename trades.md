@@ -29080,3 +29080,141 @@ this is a schema backfill, not a trade action.
 ```
 
 ---
+### 2026-09-18T19:12:47.722Z — XRP/USD — LONG — OPENED
+
+- Entry price: $1.40
+- Stop-loss: $1.31
+- Take-profit: $1.56 (2:1 risk/reward, fixed at entry)
+- Position size: 3% of portfolio ($300.22, qty 214.11365800)
+- Entry fee (paper): $1.20
+- Confidence: medium — Momentum-only setup capped at medium per the rules - no confirming crossover, RSI extreme (61.94, neutral), or volume spike (0.83x, below average). Confidence rests on the momentum_trigger (1h/48h +6.60%, just past the 6% threshold) plus a fresh, dated (today, Sept 18) XRP-specific catalyst: Ripple added XRPL support for Stripe-Tempo's AI payment protocol enabling agent payments in XRP/RLUSD/tokens, with the article's own cited +6% move matching our live reading closely. Unlike the stale/contradictory liquidation-cascade article that repeated across the last four cycles, this is a fresh, consistent, specific result.
+- Momentum-only trigger: yes (no crossover/RSI-extreme/volume-spike corroborating this trade)
+- Invalidation (what proves this wrong): A break back below the rising 20-period 4h SMA (~$1.313, set as the stop) invalidates the thesis - would mean the breakout has failed and the Stripe-Tempo integration news isn't translating into sustained buying.
+- Signals supporting this trade:
+```json
+{
+  "rsi_14_4h": 61.94,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle - not a crossover signal",
+  "volume_ratio": 0.83,
+  "volume_flag_above_2x": false,
+  "momentum_trigger_flagged": true,
+  "price_action_1h_48h_pct": 6.6,
+  "price_action_4h_48h_pct": 6.45,
+  "order_book_imbalance_top10": 0.14,
+  "news_context": "Ripple added XRPL support for Stripe-Tempo's AI payment protocol (enabling agent payments in XRP, RLUSD and tokens) - Benzinga reports this drove a 6% gain, matching our own +6.6% (1h/48h) reading closely. Fresh, dated, XRP-specific, and internally consistent with live price - unlike the stale liquidation-cascade article returned in the four prior cycles."
+}
+```
+- Position id: e81f2ee9-b84e-4b53-af98-2d6e4b84d121
+
+---
+### 2026-09-18T19:12:52.512Z — BTC/USD — NO TRADE
+
+**Reasoning:** Momentum still flagged (6.44%/6.16%), RSI still overbought (77.49, same 4h candle) - no crossover, no volume spike (0.71x). News still purely macro (Fed decision, ETF inflows, improving regulatory outlook post-CLARITY rejection) - nothing new or BTC-specific. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 77.49,
+  "sma_crossover_4h": "fast_below_slow, not crossed",
+  "volume_ratio": 0.71,
+  "momentum_trigger_flagged": true,
+  "pct_change_1h_48h": 6.44,
+  "pct_change_4h_48h": 6.16,
+  "news_context": "Same macro narrative (Fed decision, ETF inflows) - no new BTC-specific catalyst."
+}
+```
+
+---
+### 2026-09-18T19:12:54.550Z — ETH/USD — NO TRADE
+
+**Reasoning:** Momentum still flagged (8.54%/7.32%), RSI still overbought (71.05, same 4h candle) - no crossover, no volume spike (0.73x). News still the same macro CLARITY Act/Fed narrative, nothing new or ETH-specific. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 71.05,
+  "sma_crossover_4h": "fast_below_slow, not crossed",
+  "volume_ratio": 0.73,
+  "momentum_trigger_flagged": true,
+  "pct_change_1h_48h": 8.54,
+  "pct_change_4h_48h": 7.32,
+  "news_context": "Same macro narrative (Fed decision, CLARITY Act) - no new ETH-specific catalyst."
+}
+```
+
+---
+### 2026-09-18T19:12:56.804Z — SOL/USD — NO TRADE
+
+**Reasoning:** Pair already has an open position (trailing stop active since two cycles ago, still holding) - code enforces one open position per pair, so no new entry regardless of signal strength. Momentum_trigger still flagged (14.44%/13.43%), RSI 80.6 (deeply overbought), informational only.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 80.6,
+  "sma_crossover_4h": "fast_below_slow, not crossed",
+  "volume_ratio": 1.68,
+  "momentum_trigger_flagged": true,
+  "pct_change_1h_48h": 14.44,
+  "pct_change_4h_48h": 13.43,
+  "news_context": "Broad market-wide rally continues to lift SOL, deeply overbought. Pair already has an open position (trailing active), so no-trade.",
+  "reason_blocked": "existing_open_position"
+}
+```
+
+---
+### 2026-09-18T19:12:59.203Z — ADA/USD — NO TRADE
+
+**Reasoning:** Pair already has an open position (opened via momentum-only exception, still holding, deep in profit) - code enforces one open position per pair, so no new entry regardless of signal strength. Momentum_trigger still flagged (13.60%/13.08%), RSI 70.26 (overbought), informational only.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 70.26,
+  "sma_crossover_4h": "fast_below_slow, not crossed",
+  "volume_ratio": 1.15,
+  "momentum_trigger_flagged": true,
+  "pct_change_1h_48h": 13.6,
+  "pct_change_4h_48h": 13.08,
+  "news_context": "Broad market-wide rally continues to lift ADA, overbought. Pair already has an open position, so no-trade.",
+  "reason_blocked": "existing_open_position"
+}
+```
+
+---
+### 2026-09-18T19:13:01.439Z — LINK/USD — NO TRADE
+
+**Reasoning:** Pair already has an open position (opened via momentum-only exception, still holding, deep in profit) - code enforces one open position per pair, so no new entry regardless of signal strength. Momentum_trigger still flagged (11.80%/11.14%), RSI 71.68 (overbought), informational only.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 71.68,
+  "sma_crossover_4h": "fast_below_slow, not crossed",
+  "volume_ratio": 1.24,
+  "momentum_trigger_flagged": true,
+  "pct_change_1h_48h": 11.8,
+  "pct_change_4h_48h": 11.14,
+  "news_context": "Broad market-wide rally continues to lift LINK, overbought. Pair already has an open position, so no-trade.",
+  "reason_blocked": "existing_open_position"
+}
+```
+
+---
+### 2026-09-18T19:13:03.716Z — DOGE/USD — NO TRADE
+
+**Reasoning:** Momentum still flagged (8.68%/8.75%), RSI still overbought (72.95, same 4h candle) - no crossover, no volume spike (0.78x). News found is the same recurring items from prior cycles (MyDoge wallet, CLARITY Act, whale dip-buying, stale March classification) - nothing new or genuinely asset-specific and bullish. No trade, same pattern as every prior cycle DOGE has flagged this session.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 72.95,
+  "sma_crossover_4h": "fast_below_slow, not crossed",
+  "volume_ratio": 0.78,
+  "momentum_trigger_flagged": true,
+  "pct_change_1h_48h": 8.68,
+  "pct_change_4h_48h": 8.75,
+  "news_context": "Same recurring items from prior cycles - no new genuine bullish catalyst."
+}
+```
+
+---
