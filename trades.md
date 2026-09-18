@@ -28693,3 +28693,132 @@ this is a schema backfill, not a trade action.
 ```
 
 ---
+### 2026-09-18T16:15:47.491Z — BTC/USD — NO TRADE
+
+**Reasoning:** Momentum flagged again (6.59%/6.16%) and RSI now overbought (77.49, >70) - but RSI is derived from the same price move as momentum (not independently confirming), and no crossover (SMA still fast_below_slow, unusually not catching up despite the rally) or volume spike (0.71x, below average) is present. Treating this as effectively still a momentum-only setup requiring a genuine asset-specific catalyst. News found is purely macro (Fed rate decision absorbed, BoJ hike, ETF inflow recovery, "investors move past CLARITY's failure") - the same driver lifting all pairs, not BTC-specific. An extended rally on below-average volume with RSI now overbought reads as increased chase risk, not confirmation. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 77.49,
+  "sma_crossover_4h": "fast_below_slow, not crossed",
+  "volume_ratio": 0.71,
+  "momentum_trigger_flagged": true,
+  "pct_change_1h_48h": 6.59,
+  "pct_change_4h_48h": 6.16,
+  "news_context": "Macro-driven rally (Fed decision, BoJ hike absorbed, ETF inflows recovering $159.5M) - same driver across all pairs, not BTC-specific. RSI overbought on below-average volume reads as chase risk in an already-extended move, not a green light."
+}
+```
+
+---
+### 2026-09-18T16:15:50.087Z — ETH/USD — NO TRADE
+
+**Reasoning:** Momentum flagged again (8.05%/7.32%) and RSI now overbought (71.05, >70) - same reasoning as BTC: RSI extreme here is correlated with, not independent of, the momentum move, and no crossover or volume spike (0.73x) confirms. News found is the same macro rally (Fed decision, Saudi pipeline restoration easing inflation fears, Layer-2/DeFi-led broad advance) - nothing ETH-specific. No genuine asset-specific catalyst. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 71.05,
+  "sma_crossover_4h": "fast_below_slow, not crossed",
+  "volume_ratio": 0.73,
+  "momentum_trigger_flagged": true,
+  "pct_change_1h_48h": 8.05,
+  "pct_change_4h_48h": 7.32,
+  "news_context": "Same macro rally (Fed decision, Saudi pipeline restoration) driving broad crypto advance - no ETH-specific catalyst found."
+}
+```
+
+---
+### 2026-09-18T16:15:52.869Z — SOL/USD — NO TRADE
+
+**Reasoning:** Pair already has an open position (opened via momentum-only exception, still holding, now well into profit) - code enforces one open position per pair, so no new entry regardless of signal strength. Momentum_trigger still flagged (14.41%/13.43%), RSI now 80.6 (deeply overbought), informational only since a second position can't be opened.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 80.6,
+  "sma_crossover_4h": "fast_below_slow, not crossed",
+  "volume_ratio": 1.68,
+  "momentum_trigger_flagged": true,
+  "pct_change_1h_48h": 14.41,
+  "pct_change_4h_48h": 13.43,
+  "news_context": "Broad market-wide rally continues to lift SOL, now deeply overbought. Pair already has an open position, so no-trade.",
+  "reason_blocked": "existing_open_position"
+}
+```
+
+---
+### 2026-09-18T16:15:56.869Z — XRP/USD — NO TRADE
+
+**Reasoning:** Momentum flagged again (9.19%/6.45%) with no confirming signal - SMA fast_below_slow (no crossover), RSI 61.94 (not extreme), volume 0.83x avg (no spike) - momentum-only candidate. News search again returned the same stale/mismatched liquidation-cascade narrative (CLARITY Act failure supposedly causing an 8-12% intraday decline toward $1.27) directly contradicting the live price of $1.381 (+9.2% 48h) - same unreliable result as the prior cycle, discarded again. No genuine catalyst identified. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 61.94,
+  "sma_crossover_4h": "fast_below_slow, not crossed",
+  "volume_ratio": 0.83,
+  "momentum_trigger_flagged": true,
+  "pct_change_1h_48h": 9.19,
+  "pct_change_4h_48h": 6.45,
+  "news_context": "Search again returned the same stale liquidation-cascade narrative describing an 8-12% decline toward $1.27 - contradicts live price of $1.381 (+9.2% 48h). Discarded as unreliable/inconsistent with live data, same as prior cycle."
+}
+```
+
+---
+### 2026-09-18T16:15:59.035Z — ADA/USD — NO TRADE
+
+**Reasoning:** Pair already has an open position (opened via momentum-only exception, still holding, now well into profit) - code enforces one open position per pair, so no new entry regardless of signal strength. Momentum_trigger still flagged (14.22%/13.08%), RSI now 70.26 (overbought), informational only since a second position can't be opened.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 70.26,
+  "sma_crossover_4h": "fast_below_slow, not crossed",
+  "volume_ratio": 1.15,
+  "momentum_trigger_flagged": true,
+  "pct_change_1h_48h": 14.22,
+  "pct_change_4h_48h": 13.08,
+  "news_context": "Broad market-wide rally continues to lift ADA, now overbought. Pair already has an open position, so no-trade.",
+  "reason_blocked": "existing_open_position"
+}
+```
+
+---
+### 2026-09-18T16:16:01.478Z — LINK/USD — NO TRADE
+
+**Reasoning:** Pair already has an open position (opened via momentum-only exception, still holding, now well into profit) - code enforces one open position per pair, so no new entry regardless of signal strength. Momentum_trigger still flagged (13.09%/11.14%), RSI now 71.68 (overbought), informational only since a second position can't be opened.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 71.68,
+  "sma_crossover_4h": "fast_below_slow, not crossed",
+  "volume_ratio": 1.24,
+  "momentum_trigger_flagged": true,
+  "pct_change_1h_48h": 13.09,
+  "pct_change_4h_48h": 11.14,
+  "news_context": "Broad market-wide rally continues to lift LINK, now overbought. Pair already has an open position, so no-trade.",
+  "reason_blocked": "existing_open_position"
+}
+```
+
+---
+### 2026-09-18T16:16:05.044Z — DOGE/USD — NO TRADE
+
+**Reasoning:** Momentum flagged again (10.29%/8.75%) and RSI now overbought (72.95, >70) - but as with BTC/ETH, RSI extreme here is correlated with the momentum move itself, not an independent confirming signal, and no crossover or volume spike (0.78x) is present. News search returned stale/inconsistent content (an article describing DOGE "printing at $0.08 flat" with converged moving averages, contradicting live price of $0.0874 and the observed rally) plus the same recurring, undated DOGE-1 lunar mission narrative. No genuine fresh catalyst - same pattern as every prior cycle DOGE has flagged this session. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 72.95,
+  "sma_crossover_4h": "fast_below_slow, not crossed",
+  "volume_ratio": 0.78,
+  "momentum_trigger_flagged": true,
+  "pct_change_1h_48h": 10.29,
+  "pct_change_4h_48h": 8.75,
+  "news_context": "Search returned stale content describing DOGE at $0.08 flat with converged moving averages - inconsistent with live $0.0874 and the observed rally; DOGE-1 lunar mission is the same recurring undated narrative from prior cycles. No genuine fresh catalyst identified."
+}
+```
+
+---
