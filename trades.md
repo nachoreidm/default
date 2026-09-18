@@ -28564,3 +28564,132 @@ this is a schema backfill, not a trade action.
 ```
 
 ---
+### 2026-09-18T15:13:23.431Z — BTC/USD — NO TRADE
+
+**Reasoning:** momentum_trigger now flagged for the first time this session (6.82%/2.98%, 1h window crossed threshold) with no confirming signal - SMA fast_below_slow (no crossover), RSI 63.1 (not extreme), volume 0.71x avg (no spike) - momentum-only candidate requiring a genuine, dated, asset-specific catalyst. News found is purely macro/market-wide: Fed + BoJ rate hikes absorbed without breaking support, broad rally at U.S. market open, O'Leary buying commentary, ETF inflow resumption - the same catalyst lifting all seven pairs simultaneously (all 7 now flag momentum this cycle), not anything BTC-specific. Fails the asset-specific bar applied consistently this session. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 63.1,
+  "sma_crossover_4h": "fast_below_slow, not crossed",
+  "volume_ratio": 0.71,
+  "momentum_trigger_flagged": true,
+  "pct_change_1h_48h": 6.82,
+  "pct_change_4h_48h": 2.98,
+  "news_context": "Purely macro/market-wide catalyst (Fed + BoJ rate hikes absorbed, broad crypto rally, ETF inflows resuming) - the same driver flagging momentum on all 7 pairs simultaneously this cycle, not BTC-specific. Fails the momentum-only asset-specific catalyst bar."
+}
+```
+
+---
+### 2026-09-18T15:13:27.220Z — ETH/USD — NO TRADE
+
+**Reasoning:** momentum_trigger flagged again (7.93%/4.80%) with no confirming signal - SMA fast_below_slow (no crossover), RSI 60.7 (not extreme), volume 0.73x avg (no spike) - momentum-only candidate. News found: the one ETH-specific item (Glamsterdam upgrade) is actually a negative-leaning delay, now pushed to Q4 2026 - not a bullish catalyst. Everything else is the same macro rally (Fed rate steadying, regulatory setback bearish) also lifting the other 6 pairs. No genuine bullish asset-specific catalyst. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 60.71,
+  "sma_crossover_4h": "fast_below_slow, not crossed",
+  "volume_ratio": 0.73,
+  "momentum_trigger_flagged": true,
+  "pct_change_1h_48h": 7.93,
+  "pct_change_4h_48h": 4.8,
+  "news_context": "Glamsterdam upgrade delayed to Q4 2026 (negative, not a bullish catalyst); rest is macro rally shared across all pairs. No genuine ETH-specific bullish catalyst found."
+}
+```
+
+---
+### 2026-09-18T15:13:30.046Z — SOL/USD — NO TRADE
+
+**Reasoning:** Pair already has an open position (opened via momentum-only exception, still holding, now +2.8% and climbing) - code enforces one open position per pair, so no new entry regardless of signal strength. Momentum_trigger still flagged (14.06%/8.86%), RSI 70.87 (overbought), informational only since a second position can't be opened.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 70.87,
+  "sma_crossover_4h": "fast_below_slow, not crossed",
+  "volume_ratio": 1.68,
+  "momentum_trigger_flagged": true,
+  "pct_change_1h_48h": 14.06,
+  "pct_change_4h_48h": 8.86,
+  "news_context": "Broad market-wide rally continues to lift SOL. Pair already has an open position, so no-trade.",
+  "reason_blocked": "existing_open_position"
+}
+```
+
+---
+### 2026-09-18T15:13:34.007Z — XRP/USD — NO TRADE
+
+**Reasoning:** momentum_trigger flagged again (10.62%/4.53%) with no confirming signal - SMA fast_below_slow (no crossover), RSI 48.76 (neutral), volume 0.83x avg (no spike) - momentum-only candidate. News search returned clearly stale/mismatched content: one article described the CLARITY Act failure causing $30-40M in forced XRP liquidations, an 8-12% intraday decline, and price breaking down toward $1.27 - directly contradicting our own live reading of $1.387 (+10.6% over 48h). Unreliable, internally inconsistent with live data - rejected per the standing standard for search-result staleness. No genuine catalyst identified. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 48.76,
+  "sma_crossover_4h": "fast_below_slow, not crossed",
+  "volume_ratio": 0.83,
+  "momentum_trigger_flagged": true,
+  "pct_change_1h_48h": 10.62,
+  "pct_change_4h_48h": 4.53,
+  "news_context": "Search returned a stale/mismatched article describing a CLARITY-Act-driven selloff pushing XRP down to $1.27 - directly contradicts live price of $1.387 (+10.6% 48h). No reliable catalyst found; result discarded as inconsistent with live data."
+}
+```
+
+---
+### 2026-09-18T15:13:36.154Z — ADA/USD — NO TRADE
+
+**Reasoning:** Pair already has an open position (opened via momentum-only exception, still holding, now +1.0%) - code enforces one open position per pair, so no new entry regardless of signal strength. Momentum_trigger still flagged (15.30%/11.78%), RSI 65.1, informational only since a second position can't be opened.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 65.11,
+  "sma_crossover_4h": "fast_below_slow, not crossed",
+  "volume_ratio": 1.15,
+  "momentum_trigger_flagged": true,
+  "pct_change_1h_48h": 15.3,
+  "pct_change_4h_48h": 11.78,
+  "news_context": "Broad market-wide rally continues to lift ADA. Pair already has an open position, so no-trade.",
+  "reason_blocked": "existing_open_position"
+}
+```
+
+---
+### 2026-09-18T15:13:38.694Z — LINK/USD — NO TRADE
+
+**Reasoning:** Pair already has an open position (opened via momentum-only exception, still holding, now +0.7%) - code enforces one open position per pair, so no new entry regardless of signal strength. Momentum_trigger still flagged (14.00%/10.63%), RSI 65.5, informational only since a second position can't be opened.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 65.5,
+  "sma_crossover_4h": "fast_below_slow, not crossed",
+  "volume_ratio": 1.24,
+  "momentum_trigger_flagged": true,
+  "pct_change_1h_48h": 14,
+  "pct_change_4h_48h": 10.63,
+  "news_context": "Broad market-wide rally continues to lift LINK. Pair already has an open position, so no-trade.",
+  "reason_blocked": "existing_open_position"
+}
+```
+
+---
+### 2026-09-18T15:13:42.503Z — DOGE/USD — NO TRADE
+
+**Reasoning:** momentum_trigger flagged again (11.39%/7.93%) with no confirming signal - SMA fast_below_slow (no crossover), RSI 66.1 (not overbought), volume 0.78x avg (no spike) - momentum-only candidate. News found: DOGE-1 lunar mission "targets September 2026 launch" - an ongoing, non-dated narrative that has appeared in prior cycles without a specific trigger event today, plus whale accumulation (vague) and "Bitcoin reclaimed $78,000, contributing to broader positive momentum" (explicitly attributes DOGE's move to the market-wide rally, not a DOGE-specific event). No genuine fresh asset-specific catalyst - same pattern as every prior cycle DOGE has flagged this session. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 66.05,
+  "sma_crossover_4h": "fast_below_slow, not crossed",
+  "volume_ratio": 0.78,
+  "momentum_trigger_flagged": true,
+  "pct_change_1h_48h": 11.39,
+  "pct_change_4h_48h": 7.93,
+  "news_context": "Article explicitly attributes DOGE's rise to Bitcoin reclaiming $78,000 (market-wide, not DOGE-specific); DOGE-1 lunar mission is an ongoing undated narrative, not a fresh trigger; whale accumulation vague. No genuine catalyst identified."
+}
+```
+
+---
