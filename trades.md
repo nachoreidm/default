@@ -27888,3 +27888,147 @@ this is a schema backfill, not a trade action.
 ```
 
 ---
+### 2026-09-18T10:12:27.049Z — BTC/USD — NO TRADE
+
+**Reasoning:** No quantitative trigger: SMA 4h fast_below_slow, no cross this candle, RSI(14,4h) firm at 60.8, volume below average (0.71x, no spike), momentum_trigger not flagged (48h move +2.96%/+2.03%). Order book ask-heavy (-0.38). No-trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 60.82,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 0.71,
+  "volume_flag_above_2x": false,
+  "momentum_trigger_flagged": false,
+  "price_action_4h_48h_pct": 2.03,
+  "order_book_imbalance_top10": -0.38,
+  "news_context": "Same standing storylines. No quantitative trigger."
+}
+```
+
+---
+### 2026-09-18T10:12:29.688Z — ETH/USD — NO TRADE
+
+**Reasoning:** No quantitative trigger: SMA 4h fast_below_slow, no cross this candle, RSI(14,4h) firm at 57.4, volume below average (0.73x, no spike), momentum_trigger not flagged (48h move +4.23%/+2.79%, closer to threshold but still under). Order book bid-heavy (+0.19). No-trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 57.41,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 0.73,
+  "volume_flag_above_2x": false,
+  "momentum_trigger_flagged": false,
+  "price_action_4h_48h_pct": 2.79,
+  "order_book_imbalance_top10": 0.19,
+  "news_context": "Japan's Quantum Solutions trimmed its ETH treasury by 1,000 ETH; same standing storylines otherwise. No quantitative trigger."
+}
+```
+
+---
+### 2026-09-18T10:12:32.300Z — SOL/USD — NO TRADE
+
+**Reasoning:** Already have an open SOL/USD position (opened 2026-09-18T05:14 UTC). Per the one-position-per-pair rule, no new entry - logging no-trade. Momentum still extended (1h/48h +9.39%), RSI still overbought (71.0), position monitored via portfolio_check_stops.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 71.05,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 1.68,
+  "volume_flag_above_2x": false,
+  "momentum_trigger_flagged": true,
+  "price_action_1h_48h_pct": 9.39,
+  "price_action_4h_48h_pct": 7.89,
+  "order_book_imbalance_top10": -0.23,
+  "news_context": "Existing open position covers this pair - no new trade."
+}
+```
+
+---
+### 2026-09-18T10:12:34.476Z — XRP/USD — NO TRADE
+
+**Reasoning:** No quantitative trigger: SMA 4h fast_below_slow, no cross this candle, RSI(14,4h) neutral at 50.1, volume below average (0.83x, no spike), momentum_trigger not flagged (48h move +3.60%/+2.53%). Order book ask-heavy (-0.30). No-trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 50.13,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 0.83,
+  "volume_flag_above_2x": false,
+  "momentum_trigger_flagged": false,
+  "price_action_4h_48h_pct": 2.53,
+  "order_book_imbalance_top10": -0.3,
+  "news_context": "Same CLARITY Act overhang. No quantitative trigger."
+}
+```
+
+---
+### 2026-09-18T10:12:36.888Z — ADA/USD — NO TRADE
+
+**Reasoning:** Already have an open ADA/USD position (opened 2026-09-18T03:14 UTC). Per the one-position-per-pair rule, no new entry - logging no-trade. Momentum still extended (1h/48h +11.34%, 4h/48h +10.00%, RSI 65.4), position monitored via portfolio_check_stops.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 65.42,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 1.15,
+  "volume_flag_above_2x": false,
+  "momentum_trigger_flagged": true,
+  "price_action_1h_48h_pct": 11.34,
+  "price_action_4h_48h_pct": 10,
+  "order_book_imbalance_top10": 0.03,
+  "news_context": "Existing open position covers this pair - no new trade."
+}
+```
+
+---
+### 2026-09-18T10:12:40.255Z — DOGE/USD — NO TRADE
+
+**Reasoning:** momentum_trigger still flagged (1h/48h +7.24%, 4h/48h +5.31%). RSI(14,4h) 62.6 elevated but not extreme, SMA 4h still fast_below_slow with no cross, volume below average (0.78x, no spike). Search returned only technical/price-level commentary (resistance $0.090-0.094, lower highs, "increasingly likely the August breakout was unsuccessful") - no news catalyst, and the tone leans skeptical of further upside, not bullish. Rejected again per the momentum-only rule.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 62.56,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 0.78,
+  "volume_flag_above_2x": false,
+  "momentum_trigger_flagged": true,
+  "price_action_1h_48h_pct": 7.24,
+  "price_action_4h_48h_pct": 5.31,
+  "order_book_imbalance_top10": 0.25,
+  "news_context": "Only technical/resistance-level commentary found, no news catalyst, tone skeptical of continued upside. Rejected per momentum-only rule."
+}
+```
+
+---
+### 2026-09-18T10:12:50.219Z — LINK/USD — LONG — OPENED
+
+- Entry price: $11.88
+- Stop-loss: $11.15
+- Take-profit: $13.33 (2:1 risk/reward, fixed at entry)
+- Position size: 3% of portfolio ($299.11, qty 25.08398469)
+- Entry fee (paper): $1.20
+- Confidence: medium — Momentum-only setup capped at medium per the rules - no confirming crossover, RSI extreme (65.5, elevated but not overbought), or volume spike (1.24x, below the 2x flag). Confidence rests on the momentum_trigger (1h/48h +9.95%, well past the 6% threshold, flagged for six consecutive cycles now) plus a fresh, dated catalyst finally identified: Bottomline officially confirmed the launch of Global Pay Connect on September 17, 2026 (within the 24-48h window) - giving its 600+ bank customers across ~92 countries a route to onchain payment rails via Chainlink's CCIP and CRE, without needing to replatform. This is a concrete, specific, dated catalyst, unlike the undated Wyoming/Nethermind items found in prior cycles' searches.
+- Momentum-only trigger: yes (no crossover/RSI-extreme/volume-spike corroborating this trade)
+- Invalidation (what proves this wrong): A break back below the rising 20-period 4h SMA (~$11.18, set as the stop) invalidates the thesis - would mean the breakout has failed and the Global Pay Connect news isn't translating into sustained buying.
+- Signals supporting this trade:
+```json
+{
+  "rsi_14_4h": 65.5,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle - not a crossover signal",
+  "volume_ratio": 1.24,
+  "volume_flag_above_2x": false,
+  "momentum_trigger_flagged": true,
+  "price_action_1h_48h_pct": 9.95,
+  "price_action_4h_48h_pct": 8.66,
+  "order_book_imbalance_top10": 0.62,
+  "news_context": "Bottomline confirmed the official launch of Global Pay Connect on September 17, 2026, giving 600+ bank customers across ~92 countries a route to onchain payment rails via Chainlink's CCIP and CRE - a dated (within 24-48h), specific, substantive catalyst distinct from the generic/undated items found in prior cycles."
+}
+```
+- Position id: 71670382-4f11-48b8-9855-d3d0bc1c14d3
+
+---
