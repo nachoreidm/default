@@ -27614,3 +27614,140 @@ this is a schema backfill, not a trade action.
 ```
 
 ---
+### 2026-09-18T08:12:26.447Z — BTC/USD — NO TRADE
+
+**Reasoning:** No quantitative trigger: SMA 4h fast_below_slow, no cross this candle, RSI(14,4h) firm at 60.8, volume below average (0.71x, no spike), momentum_trigger not flagged (48h move +2.72%/+2.03%). Order book ask-heavy (-0.24). No-trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 60.82,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 0.71,
+  "volume_flag_above_2x": false,
+  "momentum_trigger_flagged": false,
+  "price_action_4h_48h_pct": 2.03,
+  "order_book_imbalance_top10": -0.24,
+  "news_context": "Same standing storylines. No quantitative trigger."
+}
+```
+
+---
+### 2026-09-18T08:12:28.769Z — ETH/USD — NO TRADE
+
+**Reasoning:** No quantitative trigger: SMA 4h fast_below_slow, no cross this candle, RSI(14,4h) firm at 57.4, volume below average (0.73x, no spike), momentum_trigger not flagged (48h move +3.61%/+2.79%). Order book ask-heavy (-0.54). No-trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 57.41,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 0.73,
+  "volume_flag_above_2x": false,
+  "momentum_trigger_flagged": false,
+  "price_action_4h_48h_pct": 2.79,
+  "order_book_imbalance_top10": -0.54,
+  "news_context": "Same standing storylines. No quantitative trigger."
+}
+```
+
+---
+### 2026-09-18T08:12:31.748Z — SOL/USD — NO TRADE
+
+**Reasoning:** Already have an open SOL/USD position (opened 2026-09-18T05:14 UTC). Per the one-position-per-pair rule, no new entry - logging no-trade. RSI has now crossed into overbought (71.0) alongside the ongoing momentum flag (1h/48h +8.98%) - noting this for the position's own risk picture, but not actionable as a new trade since the pair already has an open position.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 71.05,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 1.68,
+  "volume_flag_above_2x": false,
+  "momentum_trigger_flagged": true,
+  "price_action_1h_48h_pct": 8.98,
+  "price_action_4h_48h_pct": 7.89,
+  "order_book_imbalance_top10": -0.02,
+  "news_context": "Existing open position covers this pair - no new trade. RSI now overbought."
+}
+```
+
+---
+### 2026-09-18T08:12:34.618Z — XRP/USD — NO TRADE
+
+**Reasoning:** No quantitative trigger: SMA 4h fast_below_slow, no cross this candle, RSI(14,4h) neutral at 50.1, volume below average (0.83x, no spike), momentum_trigger not flagged (48h move +3.42%/+2.53%). Order book ask-heavy (-0.09). No-trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 50.13,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 0.83,
+  "volume_flag_above_2x": false,
+  "momentum_trigger_flagged": false,
+  "price_action_4h_48h_pct": 2.53,
+  "order_book_imbalance_top10": -0.09,
+  "news_context": "Same CLARITY Act overhang/Stripe integration. No quantitative trigger."
+}
+```
+
+---
+### 2026-09-18T08:12:37.341Z — ADA/USD — NO TRADE
+
+**Reasoning:** Already have an open ADA/USD position (opened 2026-09-18T03:14 UTC). Per the one-position-per-pair rule, no new entry - logging no-trade. Momentum still extended (1h/48h +10.94%, 4h/48h +10.00%, RSI 65.4), position monitored via portfolio_check_stops.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 65.42,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 1.15,
+  "volume_flag_above_2x": false,
+  "momentum_trigger_flagged": true,
+  "price_action_1h_48h_pct": 10.94,
+  "price_action_4h_48h_pct": 10,
+  "order_book_imbalance_top10": -0.05,
+  "news_context": "Existing open position covers this pair - no new trade."
+}
+```
+
+---
+### 2026-09-18T08:12:41.394Z — LINK/USD — NO TRADE
+
+**Reasoning:** momentum_trigger still flagged (1h/48h +9.91%, 4h/48h +8.66%). RSI(14,4h) 65.5 elevated but not extreme, SMA 4h still fast_below_slow with no cross, volume 1.24x (no spike) - momentum still the only signal. Found newer-sounding items this search (Wyoming Stable Token Commission migrating to Chainlink CCIP, Nethermind joining as node operator, a bullish-engulfing trendline breakout) but none carry an explicit date tying them to today - the trendline breakout is explicitly described as "last week." Not clearly fresh enough to satisfy the news-catalyst requirement with confidence - rejected again.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 65.5,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 1.24,
+  "volume_flag_above_2x": false,
+  "momentum_trigger_flagged": true,
+  "price_action_1h_48h_pct": 9.91,
+  "price_action_4h_48h_pct": 8.66,
+  "order_book_imbalance_top10": 0.54,
+  "news_context": "Wyoming Stable Token Commission/Chainlink CCIP migration and Nethermind partnership found, but no explicit date confirming they're fresh; trendline breakout explicitly dated 'last week.' Insufficiently verified as today's catalyst - rejected per momentum-only rule."
+}
+```
+
+---
+### 2026-09-18T08:12:45.001Z — DOGE/USD — NO TRADE
+
+**Reasoning:** momentum_trigger flagged (1h/48h +6.23%, 4h/48h +5.31%). RSI(14,4h) 62.6 elevated but not extreme, SMA 4h still fast_below_slow with no cross, volume below average (0.78x, no spike) - momentum still the only signal. Searched again for a DOGE catalyst: results returned were clearly mismatched/stale historical content (DOGE quoted near $0.27 with BTC near "$95,000" - both wildly inconsistent with current live prices of ~$0.084 and ~$77,644 respectively), confirming unreliable/wrong-period search data rather than a genuine same-day catalyst. Rejected again per the momentum-only rule.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 62.56,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 0.78,
+  "volume_flag_above_2x": false,
+  "momentum_trigger_flagged": true,
+  "price_action_1h_48h_pct": 6.23,
+  "price_action_4h_48h_pct": 5.31,
+  "order_book_imbalance_top10": -0.27,
+  "news_context": "Search results were clearly mismatched/stale (DOGE at $0.27, BTC at $95K - inconsistent with live data). No verifiable catalyst. Rejected per momentum-only rule."
+}
+```
+
+---
