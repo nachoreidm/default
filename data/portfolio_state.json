@@ -1,7 +1,39 @@
 {
   "starting_balance": 10000,
-  "cash": 9969.573698867529,
-  "open_positions": [],
+  "cash": 9670.486487901504,
+  "open_positions": [
+    {
+      "id": "2c7048a0-82ee-4747-8ab6-33d9874f8c3e",
+      "pair": "ADA/USD",
+      "direction": "long",
+      "entry_price": 0.21454822049999997,
+      "stop_loss": 0.1995,
+      "initial_stop_loss": 0.1995,
+      "take_profit": 0.2446446614999999,
+      "trailing_active": false,
+      "size_pct": 3,
+      "size_usd": 299.08721096602585,
+      "quantity": 1388.4564571448486,
+      "entry_fee": 1.1963488438641035,
+      "opened_at": "2026-09-18T03:14:05.348Z",
+      "signals_at_entry": {
+        "rsi_14_4h": 52.44,
+        "sma_crossover_4h": "fast_below_slow, no cross this candle - not a crossover signal",
+        "volume_ratio": 1.15,
+        "volume_flag_above_2x": false,
+        "momentum_trigger_flagged": true,
+        "price_action_1h_48h_pct": 9.8,
+        "price_action_4h_48h_pct": 3.98,
+        "order_book_imbalance_top10": -0.47,
+        "news_context": "Dedicated, freshly-dated coverage today directly explaining an ~8-10% ADA surge: 'What triggered Cardano's latest price surge' (surge of 8.18%) and 'ADA Price Jumps 10% While Cardano Turns Toward Its Next Big Upgrade Era' (Dijkstra hard-fork/upgrade-era anticipation) - magnitude matches our own +9.8% reading closely. This is the first cycle where a genuine ADA-specific news catalyst (not stale, not generic technical commentary) was found for this momentum flag."
+      },
+      "invalidation": "A break back below the rising 20-period 4h SMA (~$0.1997, set as the stop) invalidates the thesis - would mean the breakout has failed and the move is fading back into the prior range rather than continuing.",
+      "confidence": "medium",
+      "confidence_reason": "Momentum-only setup capped at medium per the rules - no confirming crossover, RSI extreme, or volume spike (RSI 52.4 neutral, volume 1.15x). Confidence rests entirely on the momentum_trigger (1h/48h +9.8%, well past the 6% threshold) plus a fresh, dated news catalyst matching the move's magnitude almost exactly (dedicated coverage today of an ~8-10% ADA surge tied to anticipation of Cardano's upcoming Dijkstra hard-fork/upgrade era) - unlike the last two cycles where no ADA-specific catalyst could be found, this cycle produced specific, freshly-published articles directly explaining today's move.",
+      "momentum_only": true,
+      "status": "open"
+    }
+  ],
   "closed_positions": [
     {
       "id": "0d46d29c-18fc-4353-a4d2-527d052da80b",
@@ -139,8 +171,13 @@
       "date": "2026-09-15",
       "realized_pnl_usd": -19.857752447499365,
       "halted": false
+    },
+    {
+      "date": "2026-09-18",
+      "realized_pnl_usd": 0,
+      "halted": false
     }
   ],
   "created_at": "2026-09-06T14:02:11.057Z",
-  "updated_at": "2026-09-15T08:11:41.339Z"
+  "updated_at": "2026-09-18T03:14:05.348Z"
 }

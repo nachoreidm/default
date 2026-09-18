@@ -26916,3 +26916,146 @@ this is a schema backfill, not a trade action.
 ```
 
 ---
+### 2026-09-18T03:13:30.192Z — BTC/USD — NO TRADE
+
+**Reasoning:** No quantitative trigger: SMA 4h fast_below_slow, no cross this candle, RSI(14,4h) neutral at 45.4, volume below average (0.71x, no spike), momentum_trigger not flagged (48h move +1.51%/+0.78%). Order book balanced (-0.02). No-trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 45.37,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 0.71,
+  "volume_flag_above_2x": false,
+  "momentum_trigger_flagged": false,
+  "price_action_4h_48h_pct": 0.78,
+  "order_book_imbalance_top10": -0.02,
+  "news_context": "Same CLARITY Act/Nasdaq-tailwind storylines. No quantitative trigger."
+}
+```
+
+---
+### 2026-09-18T03:13:32.263Z — ETH/USD — NO TRADE
+
+**Reasoning:** No quantitative trigger: SMA 4h fast_below_slow, no cross this candle, RSI(14,4h) neutral at 48.4, volume below average (0.73x, no spike), momentum_trigger not flagged (48h move +2.52%/+1.88%). Order book bid-heavy (+0.49). No-trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 48.38,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 0.73,
+  "volume_flag_above_2x": false,
+  "momentum_trigger_flagged": false,
+  "price_action_4h_48h_pct": 1.88,
+  "order_book_imbalance_top10": 0.49,
+  "news_context": "Same MetaMask rebrand/quantum-resistance storylines. No quantitative trigger."
+}
+```
+
+---
+### 2026-09-18T03:13:35.213Z — SOL/USD — NO TRADE
+
+**Reasoning:** No quantitative trigger: SMA 4h fast_below_slow, no cross this candle, RSI(14,4h) neutral at 58.1, volume 1.68x average (elevated, below 2x flag), momentum_trigger not flagged (1h/48h move +5.65%, closest yet to 6% but still under). Order book ask-heavy (-0.19). No-trade - watching very closely, one more push could flag it next cycle.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 58.1,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 1.68,
+  "volume_flag_above_2x": false,
+  "momentum_trigger_flagged": false,
+  "price_action_1h_48h_pct": 5.65,
+  "price_action_4h_48h_pct": 4.47,
+  "order_book_imbalance_top10": -0.19,
+  "news_context": "Continued ecosystem-growth narrative amid broad market rally. No quantitative trigger yet."
+}
+```
+
+---
+### 2026-09-18T03:13:37.836Z — XRP/USD — NO TRADE
+
+**Reasoning:** No quantitative trigger: SMA 4h fast_below_slow, no cross this candle, RSI(14,4h) neutral at 41.4, volume below average (0.83x, no spike), momentum_trigger not flagged (48h move +0.74%/+0.03%). Order book ask-heavy (-0.14). No-trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 41.41,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 0.83,
+  "volume_flag_above_2x": false,
+  "momentum_trigger_flagged": false,
+  "price_action_4h_48h_pct": 0.03,
+  "order_book_imbalance_top10": -0.14,
+  "news_context": "Same CLARITY Act overhang/Stripe integration. No quantitative trigger."
+}
+```
+
+---
+### 2026-09-18T03:13:42.944Z — LINK/USD — NO TRADE
+
+**Reasoning:** momentum_trigger flagged again, stronger than last cycle (1h/48h +7.20%, up from +6.25%). Still the ONLY signal: SMA 4h fast_below_slow with no cross, RSI(14,4h) neutral at 54.8, volume 1.24x average (no spike). Searched specifically for a fresh LINK catalyst dated to today: found only generic technical/analyst commentary ("bullish pennant breakout, rising volume/OI, $15 target") and a small spot-ETF inflow figure ($5.36M this week) - neither is a news event, just chart-pattern speculation and a minor flow stat. The substantive fundamental items (Bottomline partnership, Schwab listing, Coinbase/Base oracle selection) are the same stale Sept 1-8 items already covered and priced into the prior $13.64 spike. No plausible news catalyst identified - momentum_only trade rejected again.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 54.85,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 1.24,
+  "volume_flag_above_2x": false,
+  "momentum_trigger_flagged": true,
+  "price_action_1h_48h_pct": 7.2,
+  "price_action_4h_48h_pct": 5.21,
+  "order_book_imbalance_top10": 0.5,
+  "news_context": "Only technical/analyst commentary found (bullish pennant breakout, $15 target, rising OI) - not a news catalyst. Underlying fundamental news is the same stale Sept 1-8 items. Momentum_only trade rejected per the news-catalyst requirement."
+}
+```
+
+---
+### 2026-09-18T03:13:45.201Z — DOGE/USD — NO TRADE
+
+**Reasoning:** No quantitative trigger: SMA 4h fast_below_slow, no cross this candle, RSI(14,4h) neutral at 47.8, volume below average (0.78x, no spike), momentum_trigger not flagged (48h move +3.44%/+2.10%). Order book roughly balanced (-0.05). No-trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 47.76,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 0.78,
+  "volume_flag_above_2x": false,
+  "momentum_trigger_flagged": false,
+  "price_action_4h_48h_pct": 2.1,
+  "order_book_imbalance_top10": -0.05,
+  "news_context": "Spot ETF liquidation vs bullish sentiment, broad market tailwind. No quantitative trigger."
+}
+```
+
+---
+### 2026-09-18T03:14:05.348Z — ADA/USD — LONG — OPENED
+
+- Entry price: $0.21
+- Stop-loss: $0.20
+- Take-profit: $0.24 (2:1 risk/reward, fixed at entry)
+- Position size: 3% of portfolio ($299.09, qty 1388.45645714)
+- Entry fee (paper): $1.20
+- Confidence: medium — Momentum-only setup capped at medium per the rules - no confirming crossover, RSI extreme, or volume spike (RSI 52.4 neutral, volume 1.15x). Confidence rests entirely on the momentum_trigger (1h/48h +9.8%, well past the 6% threshold) plus a fresh, dated news catalyst matching the move's magnitude almost exactly (dedicated coverage today of an ~8-10% ADA surge tied to anticipation of Cardano's upcoming Dijkstra hard-fork/upgrade era) - unlike the last two cycles where no ADA-specific catalyst could be found, this cycle produced specific, freshly-published articles directly explaining today's move.
+- Momentum-only trigger: yes (no crossover/RSI-extreme/volume-spike corroborating this trade)
+- Invalidation (what proves this wrong): A break back below the rising 20-period 4h SMA (~$0.1997, set as the stop) invalidates the thesis - would mean the breakout has failed and the move is fading back into the prior range rather than continuing.
+- Signals supporting this trade:
+```json
+{
+  "rsi_14_4h": 52.44,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle - not a crossover signal",
+  "volume_ratio": 1.15,
+  "volume_flag_above_2x": false,
+  "momentum_trigger_flagged": true,
+  "price_action_1h_48h_pct": 9.8,
+  "price_action_4h_48h_pct": 3.98,
+  "order_book_imbalance_top10": -0.47,
+  "news_context": "Dedicated, freshly-dated coverage today directly explaining an ~8-10% ADA surge: 'What triggered Cardano's latest price surge' (surge of 8.18%) and 'ADA Price Jumps 10% While Cardano Turns Toward Its Next Big Upgrade Era' (Dijkstra hard-fork/upgrade-era anticipation) - magnitude matches our own +9.8% reading closely. This is the first cycle where a genuine ADA-specific news catalyst (not stale, not generic technical commentary) was found for this momentum flag."
+}
+```
+- Position id: 2c7048a0-82ee-4747-8ab6-33d9874f8c3e
+
+---
