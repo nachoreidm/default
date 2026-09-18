@@ -27059,3 +27059,140 @@ this is a schema backfill, not a trade action.
 - Position id: 2c7048a0-82ee-4747-8ab6-33d9874f8c3e
 
 ---
+### 2026-09-18T04:13:26.076Z — BTC/USD — NO TRADE
+
+**Reasoning:** No quantitative trigger: SMA 4h fast_below_slow, no cross this candle, RSI(14,4h) neutral-to-firm at 56.8, volume below average (0.71x, no spike), momentum_trigger not flagged (48h move +1.98%/+2.11%). Order book strongly bid-heavy (+0.95). No-trade - part of a broad market rally, not BTC-specific news.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 56.85,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 0.71,
+  "volume_flag_above_2x": false,
+  "momentum_trigger_flagged": false,
+  "price_action_4h_48h_pct": 2.11,
+  "order_book_imbalance_top10": 0.95,
+  "news_context": "Broad crypto rally underway (BTC, ETH, XRP, SOL, LINK, ADA, DOGE all up strongly); no BTC-specific catalyst identified beyond the standing CLARITY Act/Fed narrative. No quantitative trigger."
+}
+```
+
+---
+### 2026-09-18T04:13:28.228Z — ETH/USD — NO TRADE
+
+**Reasoning:** No quantitative trigger: SMA 4h fast_below_slow, no cross this candle, RSI(14,4h) neutral-to-firm at 55.2, volume below average (0.73x, no spike), momentum_trigger not flagged (48h move +3.11%/+3.41%, still under 6%). Order book strongly bid-heavy (+0.94). No-trade - same broad rally, no ETH-specific catalyst.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 55.23,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 0.73,
+  "volume_flag_above_2x": false,
+  "momentum_trigger_flagged": false,
+  "price_action_4h_48h_pct": 3.41,
+  "order_book_imbalance_top10": 0.94,
+  "news_context": "Broad market rally; same MetaMask rebrand storyline. No quantitative trigger."
+}
+```
+
+---
+### 2026-09-18T04:13:34.097Z — SOL/USD — NO TRADE
+
+**Reasoning:** momentum_trigger now flagged (1h/48h +7.51%, 4h/48h +7.85%). Only signal present: RSI(14,4h) at 68.1 is elevated but not over the 70 overbought threshold, SMA 4h still fast_below_slow with no cross, volume 1.68x (elevated but below the 2x flag). Searched for a SOL-specific catalyst: the only article found cites SOL "breaking $80 resistance" and being "below its 50/200-day EMA" - both directly contradict our live data (SOL trading at $104.62, well above $80, in an established uptrend) - this is stale/mismatched content, not verified same-day news. The move looks like part of the broad multi-asset rally (BTC/ETH also up 2-3% without tripping threshold) rather than SOL-specific news. Momentum_only trade rejected for lack of a verifiable catalyst.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 68.12,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 1.68,
+  "volume_flag_above_2x": false,
+  "momentum_trigger_flagged": true,
+  "price_action_1h_48h_pct": 7.51,
+  "price_action_4h_48h_pct": 7.85,
+  "order_book_imbalance_top10": -0.14,
+  "news_context": "Only SOL-specific article found cited price levels ($80 resistance, below 50/200-day EMA) inconsistent with live data ($104.62, established uptrend) - unverifiable/stale. Move consistent with broad market rally rather than SOL-specific catalyst. Rejected per momentum-only rule."
+}
+```
+
+---
+### 2026-09-18T04:13:36.167Z — XRP/USD — NO TRADE
+
+**Reasoning:** No quantitative trigger: SMA 4h fast_below_slow, no cross this candle, RSI(14,4h) neutral at 49.5, volume below average (0.83x, no spike), momentum_trigger not flagged (48h move +1.88%/+3.21%, still under 6%). Order book bid-heavy (+0.25). No-trade - same broad rally, standing CLARITY Act overhang otherwise unchanged.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 49.53,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 0.83,
+  "volume_flag_above_2x": false,
+  "momentum_trigger_flagged": false,
+  "price_action_4h_48h_pct": 3.21,
+  "order_book_imbalance_top10": 0.25,
+  "news_context": "Broad market rally; same CLARITY Act storyline. No quantitative trigger."
+}
+```
+
+---
+### 2026-09-18T04:13:41.675Z — ADA/USD — NO TRADE
+
+**Reasoning:** Already have an open ADA/USD position (opened 2026-09-18T03:14 UTC, momentum-only, medium confidence, 3%). Per the one-position-per-pair rule, a new entry is rejected regardless of signals - logging no-trade instead of retrying. Momentum continues to build strongly (1h/48h now +10.53%, 4h/48h +11.54%, RSI climbing to 69.2, close to overbought) - existing position being monitored via portfolio_check_stops, not re-entered.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 69.24,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 1.15,
+  "volume_flag_above_2x": false,
+  "momentum_trigger_flagged": true,
+  "price_action_1h_48h_pct": 10.53,
+  "price_action_4h_48h_pct": 11.54,
+  "order_book_imbalance_top10": -0.25,
+  "news_context": "Continued Dijkstra-era upgrade narrative; a separate search this cycle returned a mismatched/stale article claiming ADA down 5.13% to $0.192, contradicting live data - illustrates search unreliability, not acted on. No new trade - existing open position already covers this pair."
+}
+```
+
+---
+### 2026-09-18T04:13:44.669Z — LINK/USD — NO TRADE
+
+**Reasoning:** momentum_trigger flagged again, stronger (1h/48h +8.43%, 4h/48h +9.35%). RSI(14,4h) at 64.3 elevated but not extreme, SMA 4h still fast_below_slow with no cross, volume 1.24x (no spike) - momentum still the only signal. Searched for a LINK-specific catalyst: found an article citing a "Canton Network integration" driving a rally from "$8.20 to $9.35" - directly contradicts live data (LINK at $11.74, well above those levels) - stale/mismatched, not verified same-day news. Same broad-market-rally pattern as SOL/DOGE this cycle. Momentum_only trade rejected again for lack of a verifiable catalyst.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 64.33,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 1.24,
+  "volume_flag_above_2x": false,
+  "momentum_trigger_flagged": true,
+  "price_action_1h_48h_pct": 8.43,
+  "price_action_4h_48h_pct": 9.35,
+  "order_book_imbalance_top10": -0.31,
+  "news_context": "Canton Network integration article cited price levels ($8.20-$9.35) inconsistent with live data ($11.74) - unverifiable/stale. Move consistent with broad market rally. Rejected per momentum-only rule."
+}
+```
+
+---
+### 2026-09-18T04:13:48.583Z — DOGE/USD — NO TRADE
+
+**Reasoning:** momentum_trigger flagged (4h/48h +6.08%, just crossing the threshold; 1h/48h +5.18%, still under). RSI(14,4h) at 62.9 elevated but not extreme, SMA 4h still fast_below_slow with no cross, volume below average (0.78x, no spike) - momentum still the only signal. Searched for a DOGE-specific catalyst: found articles citing a "Treasury bond buyback" macro announcement and a "White House crypto summit," both explicitly macro/market-wide rather than DOGE-specific, plus one search result stating outright "no major DOGE-specific news... in this window." Consistent with the broad rally seen across all seven pairs this cycle, not an idiosyncratic DOGE catalyst. Momentum_only trade rejected for lack of an asset-specific catalyst.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 62.87,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 0.78,
+  "volume_flag_above_2x": false,
+  "momentum_trigger_flagged": true,
+  "price_action_1h_48h_pct": 5.18,
+  "price_action_4h_48h_pct": 6.08,
+  "order_book_imbalance_top10": 0.44,
+  "news_context": "Catalysts found were explicitly macro/market-wide (Treasury bond buyback, White House crypto summit), not DOGE-specific; one source explicitly noted no DOGE-specific news this window. Rejected per momentum-only rule."
+}
+```
+
+---
