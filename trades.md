@@ -27196,3 +27196,147 @@ this is a schema backfill, not a trade action.
 ```
 
 ---
+### 2026-09-18T05:13:23.012Z — BTC/USD — NO TRADE
+
+**Reasoning:** No quantitative trigger: SMA 4h fast_below_slow, no cross this candle, RSI(14,4h) firm at 56.8 (not extreme), volume below average (0.71x, no spike), momentum_trigger not flagged (48h move +2.09%/+2.11%). Order book roughly balanced (-0.03). No-trade - part of the broad market rally (Iran crypto payments, XRP/HBAR ETF inflows, whale buying cited as market-wide drivers), not BTC-specific news.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 56.85,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 0.71,
+  "volume_flag_above_2x": false,
+  "momentum_trigger_flagged": false,
+  "price_action_4h_48h_pct": 2.11,
+  "order_book_imbalance_top10": -0.03,
+  "news_context": "Broad crypto rally (whale buying, ETF inflows, Iran payment volume) lifting the whole market; no BTC-specific trigger."
+}
+```
+
+---
+### 2026-09-18T05:13:26.132Z — ETH/USD — NO TRADE
+
+**Reasoning:** No quantitative trigger: SMA 4h fast_below_slow, no cross this candle, RSI(14,4h) firm at 55.2, volume below average (0.73x, no spike), momentum_trigger not flagged (48h move +3.09%/+3.41%, still under 6%). Order book strongly bid-heavy (+0.86). No-trade - same broad rally, no ETH-specific catalyst.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 55.23,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 0.73,
+  "volume_flag_above_2x": false,
+  "momentum_trigger_flagged": false,
+  "price_action_4h_48h_pct": 3.41,
+  "order_book_imbalance_top10": 0.86,
+  "news_context": "Same broad rally; no fresh ETH-specific news beyond standing MetaMask rebrand story."
+}
+```
+
+---
+### 2026-09-18T05:13:29.496Z — XRP/USD — NO TRADE
+
+**Reasoning:** No quantitative trigger: SMA 4h fast_below_slow, no cross this candle, RSI(14,4h) neutral at 49.5, volume below average (0.83x, no spike), momentum_trigger not flagged (48h move +2.24%/+3.21%). Order book bid-heavy (+0.61). No-trade - broad rally explicitly cites fresh XRP ETF inflows as one driver, but that's market color, not a quantitative trigger for XRP itself this cycle.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 49.53,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 0.83,
+  "volume_flag_above_2x": false,
+  "momentum_trigger_flagged": false,
+  "price_action_4h_48h_pct": 3.21,
+  "order_book_imbalance_top10": 0.61,
+  "news_context": "Broad rally story cites 'fresh ETF inflows into XRP and HBAR' as a market driver; still no quantitative trigger for XRP specifically."
+}
+```
+
+---
+### 2026-09-18T05:13:33.130Z — ADA/USD — NO TRADE
+
+**Reasoning:** Already have an open ADA/USD position (opened 2026-09-18T03:14 UTC). Per the one-position-per-pair rule, no new entry - logging no-trade instead of retrying. Momentum remains very extended (1h/48h +9.74%, 4h/48h +11.54%, RSI 69.2, just under overbought) - existing position monitored via portfolio_check_stops.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 69.24,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 1.15,
+  "volume_flag_above_2x": false,
+  "momentum_trigger_flagged": true,
+  "price_action_1h_48h_pct": 9.74,
+  "price_action_4h_48h_pct": 11.54,
+  "order_book_imbalance_top10": -0.22,
+  "news_context": "Existing open position covers this pair - no new trade."
+}
+```
+
+---
+### 2026-09-18T05:13:36.162Z — LINK/USD — NO TRADE
+
+**Reasoning:** momentum_trigger still flagged (1h/48h +8.37%, 4h/48h +9.35%). Only signal present: RSI(14,4h) 64.3 elevated but not extreme, SMA 4h still fast_below_slow with no cross, volume 1.24x (no spike). Searched again for a fresh LINK catalyst dated to today: the only substantive item found is Circle's Arc mainnet launch with Chainlink CCIP/data-feed integration, dated September 16 - two days stale, already covered and priced into an earlier spike. No catalyst dated to today found. Momentum_only trade rejected again for lack of a fresh, verifiable catalyst.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 64.33,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 1.24,
+  "volume_flag_above_2x": false,
+  "momentum_trigger_flagged": true,
+  "price_action_1h_48h_pct": 8.37,
+  "price_action_4h_48h_pct": 9.35,
+  "order_book_imbalance_top10": 0.19,
+  "news_context": "Only item found (Circle Arc mainnet/Chainlink CCIP integration) is dated Sept 16, two days stale. No catalyst dated today. Rejected per momentum-only rule."
+}
+```
+
+---
+### 2026-09-18T05:13:39.779Z — DOGE/USD — NO TRADE
+
+**Reasoning:** momentum_trigger flagged (4h/48h +6.08%, 1h/48h +5.42%, still just under). RSI(14,4h) 62.9 elevated but not extreme, SMA 4h still fast_below_slow with no cross, volume below average (0.78x, no spike) - momentum still the only signal. Searched for a DOGE-specific catalyst dated today: found only generic technical/price-level commentary (resistance at $0.090-0.092, support $0.079-0.080) with no identified news driver - one source explicitly described RSI as "falling" and buyers lacking steam, directly contradicting our own reading of a strong rally, indicating stale/mismatched content. No verifiable catalyst - rejected again per the momentum-only rule.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 62.87,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 0.78,
+  "volume_flag_above_2x": false,
+  "momentum_trigger_flagged": true,
+  "price_action_1h_48h_pct": 5.42,
+  "price_action_4h_48h_pct": 6.08,
+  "order_book_imbalance_top10": 0.25,
+  "news_context": "Only DOGE-specific content found was generic technical commentary contradicting our own RSI/price reading - unverifiable/stale. Rejected per momentum-only rule."
+}
+```
+
+---
+### 2026-09-18T05:14:09.529Z — SOL/USD — LONG — OPENED
+
+- Entry price: $105.53
+- Stop-loss: $99.50
+- Take-profit: $117.60 (2:1 risk/reward, fixed at entry)
+- Position size: 3% of portfolio ($299.04, qty 2.82231743)
+- Entry fee (paper): $1.20
+- Confidence: medium — Momentum-only setup capped at medium per the rules - no confirming crossover, RSI extreme (68.1, elevated but under 70), or volume spike (1.68x, below the 2x flag). Confidence rests on the momentum_trigger (1h/48h +8.81%, well past the 6% threshold) plus a fresh, dated (today, Sept 18) SOL-specific catalyst: mainnet activation of the 250ms slot-time speed upgrade, a concrete technical milestone distinct from the broader multi-asset rally also lifting BTC/ETH/XRP without tripping their thresholds.
+- Momentum-only trigger: yes (no crossover/RSI-extreme/volume-spike corroborating this trade)
+- Invalidation (what proves this wrong): A break back below the rising 20-period 4h SMA (~$99.64, set as the stop) invalidates the thesis - would mean the breakout has failed and the speed-upgrade narrative isn't translating into sustained buying.
+- Signals supporting this trade:
+```json
+{
+  "rsi_14_4h": 68.12,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle - not a crossover signal",
+  "volume_ratio": 1.68,
+  "volume_flag_above_2x": false,
+  "momentum_trigger_flagged": true,
+  "price_action_1h_48h_pct": 8.81,
+  "price_action_4h_48h_pct": 7.85,
+  "order_book_imbalance_top10": 0.07,
+  "news_context": "Solana's 250ms slot-time speed upgrade went live on mainnet today (Sept 18, 2026) per dated coverage ('Solana Speed Upgrade Enters Final Stretch, Key September Date Ahead') - a concrete, dated technical catalyst distinct from the broader market-wide rally (Iran crypto payments, XRP/HBAR ETF inflows, whale buying) also lifting BTC/ETH/XRP without tripping their momentum thresholds."
+}
+```
+- Position id: 9cf2aea4-bf5c-4975-a2e2-58cb441b245a
+
+---
