@@ -28306,3 +28306,132 @@ this is a schema backfill, not a trade action.
 ```
 
 ---
+### 2026-09-18T13:17:06.171Z — BTC/USD — NO TRADE
+
+**Reasoning:** No signal triggered: SMA still fast_below_slow (no crossover this candle), RSI 63.1 (not overbought), volume 0.71x avg (no spike), momentum_trigger not flagged (3.17%/2.98% vs 6% threshold). News: modest gains, on track for first quarterly gain in a year, nothing asset-specific in the last 24-48h. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 63.1,
+  "sma_crossover_4h": "fast_below_slow, not crossed",
+  "volume_ratio": 0.71,
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": 3.17,
+  "pct_change_4h_48h": 2.98,
+  "news_context": "Modest gains, BTC down only 1.5% in Sept (historically weak month), on track for first quarterly gain in a year. No specific catalyst."
+}
+```
+
+---
+### 2026-09-18T13:17:09.635Z — ETH/USD — NO TRADE
+
+**Reasoning:** No signal triggered: SMA fast_below_slow (no crossover), RSI 60.7 (neutral), volume 0.73x avg (no spike), momentum_trigger not flagged (4.52%/4.80% vs 6% threshold). News is actually bearish (Senate blocked CLARITY Act debate, ETH dropped ~5% on the news) which is consistent with the lagging SMA structure but doesn't change a no-trigger situation. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 60.71,
+  "sma_crossover_4h": "fast_below_slow, not crossed",
+  "volume_ratio": 0.73,
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": 4.52,
+  "pct_change_4h_48h": 4.8,
+  "news_context": "Bearish: Senate voted 49-50 to block debate on Digital Asset Market Clarity Act, ETH dropped ~5% on the news, prolonging regulatory ambiguity."
+}
+```
+
+---
+### 2026-09-18T13:17:12.936Z — SOL/USD — NO TRADE
+
+**Reasoning:** Pair already has an open position (opened via momentum-only exception, still holding) - code enforces one open position per pair, so no new entry regardless of signal strength. Momentum_trigger still flagged (8.85%/8.86%) and RSI now 70.87 (overbought), but this is informational only since a second position can't be opened.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 70.87,
+  "sma_crossover_4h": "fast_below_slow, not crossed",
+  "volume_ratio": 1.68,
+  "momentum_trigger_flagged": true,
+  "pct_change_1h_48h": 8.85,
+  "pct_change_4h_48h": 8.86,
+  "news_context": "SEC Innovation Exemption for tokenized securities venues (Sept 17); Solana speed upgrade (400ms->200ms slot times) progressing. Bullish backdrop but pair already has an open position, so no-trade.",
+  "reason_blocked": "existing_open_position"
+}
+```
+
+---
+### 2026-09-18T13:17:15.897Z — XRP/USD — NO TRADE
+
+**Reasoning:** No signal triggered: SMA fast_below_slow (no crossover), RSI 48.76 (neutral), volume 0.83x avg (no spike), momentum_trigger not flagged (3.81%/4.53% vs 6% threshold). News: technical upgrades (BatchV1_1 nearing mainnet) and ETF inflows discussed but nothing dated/specific enough to act on with no quantitative trigger present. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 48.76,
+  "sma_crossover_4h": "fast_below_slow, not crossed",
+  "volume_ratio": 0.83,
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": 3.81,
+  "pct_change_4h_48h": 4.53,
+  "news_context": "XRP ended a five-day losing streak; BatchV1_1 nearing mainnet with 68% validator support. No fresh dated catalyst tied to a specific move."
+}
+```
+
+---
+### 2026-09-18T13:17:18.725Z — ADA/USD — NO TRADE
+
+**Reasoning:** Pair already has an open position (opened via momentum-only exception, still holding) - code enforces one open position per pair, so no new entry regardless of signal strength. Momentum_trigger still flagged (11.71%/11.78%), RSI 65.1, informational only since a second position can't be opened.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 65.11,
+  "sma_crossover_4h": "fast_below_slow, not crossed",
+  "volume_ratio": 1.15,
+  "momentum_trigger_flagged": true,
+  "pct_change_1h_48h": 11.71,
+  "pct_change_4h_48h": 11.78,
+  "news_context": "ADA up ~9.4% reversing CLARITY Act panic; whale accumulation, Mithril node 11.1 upgrade ongoing. Pair already has an open position, so no-trade.",
+  "reason_blocked": "existing_open_position"
+}
+```
+
+---
+### 2026-09-18T13:17:21.036Z — LINK/USD — NO TRADE
+
+**Reasoning:** Pair already has an open position (opened via momentum-only exception, still holding) - code enforces one open position per pair, so no new entry regardless of signal strength. Momentum_trigger still flagged (10.46%/10.63%), RSI 65.5, informational only since a second position can't be opened.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 65.5,
+  "sma_crossover_4h": "fast_below_slow, not crossed",
+  "volume_ratio": 1.24,
+  "momentum_trigger_flagged": true,
+  "pct_change_1h_48h": 10.46,
+  "pct_change_4h_48h": 10.63,
+  "news_context": "Bottomline connected 600+ banks via CCIP for cross-chain payments; Arc Mainnet launched Sept 16 using Chainlink oracles. Pair already has an open position, so no-trade.",
+  "reason_blocked": "existing_open_position"
+}
+```
+
+---
+### 2026-09-18T13:17:26.243Z — DOGE/USD — NO TRADE
+
+**Reasoning:** momentum_trigger flagged again (7.82%/7.93%, above 6% threshold) with no confirming signal - SMA still fast_below_slow (no crossover), RSI 66.1 (not overbought), volume 0.78x avg (below average, no spike) - so this is a momentum-only candidate requiring a genuine, dated, asset-specific bullish catalyst per the momentum-only exception rule. News search found only bearish/neutral items: the CLARITY Act's Senate procedural failure "triggered a broad market sell-off, pressuring DOGE's price" (directly contradicts the observed rally rather than explaining it), and MyDoge wallet suspending Doginals/DRC-20 support (negative, unrelated to a price rally). Whale dip-buying on Sept 15 is vague and doesn't rise to a specific catalyst for a 7.8%+ move. No genuine bullish catalyst found - fails the momentum-only bar. No trade, consistent with every prior cycle DOGE has flagged this session.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 66.05,
+  "sma_crossover_4h": "fast_below_slow, not crossed",
+  "volume_ratio": 0.78,
+  "momentum_trigger_flagged": true,
+  "pct_change_1h_48h": 7.82,
+  "pct_change_4h_48h": 7.93,
+  "news_context": "CLARITY Act Senate failure triggered a broad sell-off pressuring DOGE (bearish, contradicts observed rally); MyDoge wallet suspended Doginals/DRC-20 support Sept 17 (negative/neutral); whale dip-buying Sept 15 (vague, not a specific catalyst). No genuine bullish catalyst identified for the flagged move."
+}
+```
+
+---
