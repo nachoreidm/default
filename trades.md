@@ -28435,3 +28435,132 @@ this is a schema backfill, not a trade action.
 ```
 
 ---
+### 2026-09-18T14:13:34.087Z — BTC/USD — NO TRADE
+
+**Reasoning:** No signal triggered: SMA still fast_below_slow (no crossover), RSI 63.1 (not overbought), volume 0.71x avg (no spike), momentum_trigger not flagged (5.79%/2.98% vs 6% threshold - 1h window close but still under). Broad market-wide rally underway (BoJ rate hike, SEC tokenized-stock relief, Coinbase-Stablecore partnership) lifting the whole market together, not BTC-specific. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 63.1,
+  "sma_crossover_4h": "fast_below_slow, not crossed",
+  "volume_ratio": 0.71,
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": 5.79,
+  "pct_change_4h_48h": 2.98,
+  "news_context": "Broad market-wide rally (BoJ 25bp hike, SEC tokenized-stock 5yr relief, Coinbase-Stablecore partnership) lifting all majors together - no BTC-specific catalyst, and momentum still just under threshold."
+}
+```
+
+---
+### 2026-09-18T14:13:38.535Z — ETH/USD — NO TRADE
+
+**Reasoning:** momentum_trigger now flagged (6.89%/4.80%, 1h window crossed threshold) with no confirming signal - SMA fast_below_slow (no crossover), RSI 60.7 (not extreme), volume 0.73x avg (no spike) - so this is a momentum-only candidate requiring a genuine, dated, asset-specific catalyst. News found is a broad market-wide rally (BoJ hike, SEC tokenized-stock relief, macro-driven) with no ETH-specific news, and prior reporting on this same CLARITY Act vote is contradictory (cited as both a ~5% ETH drop and part of the current rally context) - not a clean, asset-specific, internally consistent catalyst. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 60.71,
+  "sma_crossover_4h": "fast_below_slow, not crossed",
+  "volume_ratio": 0.73,
+  "momentum_trigger_flagged": true,
+  "pct_change_1h_48h": 6.89,
+  "pct_change_4h_48h": 4.8,
+  "news_context": "Market-wide rally (BoJ rate hike, SEC tokenized-stock relief) lifting BTC/ETH/XRP together - no ETH-specific catalyst; CLARITY Act vote reporting is contradictory/stale relative to the current rally. Fails the momentum-only asset-specific catalyst bar."
+}
+```
+
+---
+### 2026-09-18T14:13:40.841Z — SOL/USD — NO TRADE
+
+**Reasoning:** Pair already has an open position (opened via momentum-only exception, still holding) - code enforces one open position per pair, so no new entry regardless of signal strength. Momentum_trigger still flagged (11.87%/8.86%), RSI 70.87 (overbought), informational only since a second position can't be opened.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 70.87,
+  "sma_crossover_4h": "fast_below_slow, not crossed",
+  "volume_ratio": 1.68,
+  "momentum_trigger_flagged": true,
+  "pct_change_1h_48h": 11.87,
+  "pct_change_4h_48h": 8.86,
+  "news_context": "Broad market-wide rally continues to lift SOL. Pair already has an open position, so no-trade.",
+  "reason_blocked": "existing_open_position"
+}
+```
+
+---
+### 2026-09-18T14:13:44.965Z — XRP/USD — NO TRADE
+
+**Reasoning:** momentum_trigger now flagged (7.48%/4.53%, 1h window crossed threshold) with no confirming signal - SMA fast_below_slow (no crossover), RSI 48.76 (neutral), volume 0.83x avg (no spike) - so this is a momentum-only candidate requiring a genuine, dated, asset-specific catalyst. News found is a fake-airdrop scam warning (not price-positive) and a general performance-upgrade mention, alongside the same broad market-wide rally context (BoJ hike, SEC relief) affecting all majors - no XRP-specific bullish catalyst dated to this move. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 48.76,
+  "sma_crossover_4h": "fast_below_slow, not crossed",
+  "volume_ratio": 0.83,
+  "momentum_trigger_flagged": true,
+  "pct_change_1h_48h": 7.48,
+  "pct_change_4h_48h": 4.53,
+  "news_context": "Market-wide rally lifting XRP with BTC/ETH; only XRP-specific items found were a fake-airdrop scam warning (not price-positive) and a vague 'performance boost' upgrade mention - no dated, specific, bullish catalyst matching the move's magnitude. Fails the momentum-only bar."
+}
+```
+
+---
+### 2026-09-18T14:13:46.965Z — ADA/USD — NO TRADE
+
+**Reasoning:** Pair already has an open position (opened via momentum-only exception, still holding) - code enforces one open position per pair, so no new entry regardless of signal strength. Momentum_trigger still flagged (13.43%/11.78%), RSI 65.1, informational only since a second position can't be opened.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 65.11,
+  "sma_crossover_4h": "fast_below_slow, not crossed",
+  "volume_ratio": 1.15,
+  "momentum_trigger_flagged": true,
+  "pct_change_1h_48h": 13.43,
+  "pct_change_4h_48h": 11.78,
+  "news_context": "Broad market-wide rally continues to lift ADA. Pair already has an open position, so no-trade.",
+  "reason_blocked": "existing_open_position"
+}
+```
+
+---
+### 2026-09-18T14:13:49.614Z — LINK/USD — NO TRADE
+
+**Reasoning:** Pair already has an open position (opened via momentum-only exception, still holding) - code enforces one open position per pair, so no new entry regardless of signal strength. Momentum_trigger still flagged (12.48%/10.63%), RSI 65.5, informational only since a second position can't be opened.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 65.5,
+  "sma_crossover_4h": "fast_below_slow, not crossed",
+  "volume_ratio": 1.24,
+  "momentum_trigger_flagged": true,
+  "pct_change_1h_48h": 12.48,
+  "pct_change_4h_48h": 10.63,
+  "news_context": "Broad market-wide rally continues to lift LINK. Pair already has an open position, so no-trade.",
+  "reason_blocked": "existing_open_position"
+}
+```
+
+---
+### 2026-09-18T14:13:53.780Z — DOGE/USD — NO TRADE
+
+**Reasoning:** momentum_trigger still flagged (10.54%/7.93%) with no confirming signal - SMA fast_below_slow (no crossover), RSI 66.1 (not overbought), volume 0.78x avg (below average, no spike) - momentum-only candidate requiring a genuine, dated, asset-specific catalyst. News found: CLARITY Act failure (Sept 15) described as triggering a sell-off (bearish, contradicts the current rally), whale accumulation of 240M DOGE during that dip (vague, not a specific move-driver), a March 2026 SEC/CFTC digital-commodity classification (stale, 6 months old), and a Wormhole cross-chain bridge to Solana (undated relative to this move). No genuine, freshly-dated, asset-specific bullish catalyst found - same pattern as every prior cycle DOGE has flagged this session. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 66.05,
+  "sma_crossover_4h": "fast_below_slow, not crossed",
+  "volume_ratio": 0.78,
+  "momentum_trigger_flagged": true,
+  "pct_change_1h_48h": 10.54,
+  "pct_change_4h_48h": 7.93,
+  "news_context": "CLARITY Act failure (Sept 15) described as bearish/sell-off trigger, contradicting the rally; whale dip-buying (vague); SEC/CFTC digital-commodity classification (stale, March 2026); Wormhole cross-chain bridge to Solana (undated). No genuine bullish catalyst identified for the flagged move."
+}
+```
+
+---
