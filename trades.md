@@ -27751,3 +27751,140 @@ this is a schema backfill, not a trade action.
 ```
 
 ---
+### 2026-09-18T09:12:28.199Z — BTC/USD — NO TRADE
+
+**Reasoning:** No quantitative trigger: SMA 4h fast_below_slow, no cross this candle, RSI(14,4h) firm at 60.8, volume below average (0.71x, no spike), momentum_trigger not flagged (48h move +3.00%/+2.03%). Order book ask-heavy (-0.25). No-trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 60.82,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 0.71,
+  "volume_flag_above_2x": false,
+  "momentum_trigger_flagged": false,
+  "price_action_4h_48h_pct": 2.03,
+  "order_book_imbalance_top10": -0.25,
+  "news_context": "Same standing storylines. No quantitative trigger."
+}
+```
+
+---
+### 2026-09-18T09:12:30.349Z — ETH/USD — NO TRADE
+
+**Reasoning:** No quantitative trigger: SMA 4h fast_below_slow, no cross this candle, RSI(14,4h) firm at 57.4, volume below average (0.73x, no spike), momentum_trigger not flagged (48h move +4.13%/+2.79%, closer to threshold but still under). Order book ask-heavy (-0.50). No-trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 57.41,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 0.73,
+  "volume_flag_above_2x": false,
+  "momentum_trigger_flagged": false,
+  "price_action_4h_48h_pct": 2.79,
+  "order_book_imbalance_top10": -0.5,
+  "news_context": "Same standing storylines. No quantitative trigger."
+}
+```
+
+---
+### 2026-09-18T09:12:32.982Z — SOL/USD — NO TRADE
+
+**Reasoning:** Already have an open SOL/USD position (opened 2026-09-18T05:14 UTC). Per the one-position-per-pair rule, no new entry - logging no-trade. Momentum extended further (1h/48h +9.24%), RSI remains overbought (71.0), position monitored via portfolio_check_stops.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 71.05,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 1.68,
+  "volume_flag_above_2x": false,
+  "momentum_trigger_flagged": true,
+  "price_action_1h_48h_pct": 9.24,
+  "price_action_4h_48h_pct": 7.89,
+  "order_book_imbalance_top10": 0.3,
+  "news_context": "Existing open position covers this pair - no new trade."
+}
+```
+
+---
+### 2026-09-18T09:12:35.287Z — XRP/USD — NO TRADE
+
+**Reasoning:** No quantitative trigger: SMA 4h fast_below_slow, no cross this candle, RSI(14,4h) neutral at 50.1, volume below average (0.83x, no spike), momentum_trigger not flagged (48h move +3.52%/+2.53%). Order book balanced (-0.004). No-trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 50.13,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 0.83,
+  "volume_flag_above_2x": false,
+  "momentum_trigger_flagged": false,
+  "price_action_4h_48h_pct": 2.53,
+  "order_book_imbalance_top10": -0.004,
+  "news_context": "Same CLARITY Act overhang. No quantitative trigger."
+}
+```
+
+---
+### 2026-09-18T09:12:37.795Z — ADA/USD — NO TRADE
+
+**Reasoning:** Already have an open ADA/USD position (opened 2026-09-18T03:14 UTC). Per the one-position-per-pair rule, no new entry - logging no-trade. Momentum still extended (1h/48h +10.59%, 4h/48h +10.00%, RSI 65.4), position monitored via portfolio_check_stops.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 65.42,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 1.15,
+  "volume_flag_above_2x": false,
+  "momentum_trigger_flagged": true,
+  "price_action_1h_48h_pct": 10.59,
+  "price_action_4h_48h_pct": 10,
+  "order_book_imbalance_top10": 0.75,
+  "news_context": "Existing open position covers this pair - no new trade."
+}
+```
+
+---
+### 2026-09-18T09:12:41.863Z — LINK/USD — NO TRADE
+
+**Reasoning:** momentum_trigger still flagged (1h/48h +8.98%, 4h/48h +8.66%). RSI(14,4h) 65.5 elevated but not extreme, SMA 4h still fast_below_slow with no cross, volume 1.24x (no spike). This cycle's search clarified the Wyoming item (real-time reserve verification for its FRNT stable token via Chainlink) but still gave no explicit date - "recently adopted" is not confirmed as today. Standard Chartered forecast and Schwab listing are repeats of prior cycles' stale items. No clearly-dated catalyst - rejected again.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 65.5,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 1.24,
+  "volume_flag_above_2x": false,
+  "momentum_trigger_flagged": true,
+  "price_action_1h_48h_pct": 8.98,
+  "price_action_4h_48h_pct": 8.66,
+  "order_book_imbalance_top10": -0.07,
+  "news_context": "Wyoming FRNT reserve-verification item clarified but still undated ('recently'); Schwab/Standard Chartered items are repeats. No clearly-dated catalyst - rejected per momentum-only rule."
+}
+```
+
+---
+### 2026-09-18T09:12:44.911Z — DOGE/USD — NO TRADE
+
+**Reasoning:** momentum_trigger still flagged (1h/48h +6.20%, 4h/48h +5.31%). RSI(14,4h) 62.6 elevated but not extreme, SMA 4h still fast_below_slow with no cross, volume below average (0.78x, no spike). Search again returned clearly mismatched/stale content (referencing "bitcoin's approach to $60,000," wildly inconsistent with our live BTC price of ~$78,258). No verifiable catalyst - rejected again per the momentum-only rule.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 62.56,
+  "sma_crossover_4h": "fast_below_slow, no cross this candle",
+  "volume_ratio": 0.78,
+  "volume_flag_above_2x": false,
+  "momentum_trigger_flagged": true,
+  "price_action_1h_48h_pct": 6.2,
+  "price_action_4h_48h_pct": 5.31,
+  "order_book_imbalance_top10": -0.6,
+  "news_context": "Search returned stale/mismatched content (BTC 'approaching $60,000' vs actual ~$78,258). No verifiable catalyst - rejected per momentum-only rule."
+}
+```
+
+---
