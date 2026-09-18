@@ -29218,3 +29218,133 @@ this is a schema backfill, not a trade action.
 ```
 
 ---
+### 2026-09-18T20:13:01.820Z — BTC/USD — NO TRADE
+
+**Reasoning:** New 4h candle - momentum still flagged (6.68%/6.62%), RSI now 79.1 (further overbought) - no crossover, no volume spike (0.71x). News still purely macro (Fed rate hike, CLARITY Act setback, Saudi pipeline restoration) - nothing BTC-specific. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 79.1,
+  "sma_crossover_4h": "fast_below_slow, not crossed",
+  "volume_ratio": 0.71,
+  "momentum_trigger_flagged": true,
+  "pct_change_1h_48h": 6.68,
+  "pct_change_4h_48h": 6.62,
+  "news_context": "Same macro narrative (Fed hike, CLARITY Act setback) - no new BTC-specific catalyst."
+}
+```
+
+---
+### 2026-09-18T20:13:04.428Z — ETH/USD — NO TRADE
+
+**Reasoning:** New 4h candle - momentum still flagged (9.46%/9.11%), RSI now 75.86 (further overbought) - no crossover, no volume spike (0.73x). News still macro (Fed hike, CLARITY Act, Layer-2/DeFi-led advance); Glamsterdam upgrade still delayed to Q4 - not a fresh bullish catalyst. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 75.86,
+  "sma_crossover_4h": "fast_below_slow, not crossed",
+  "volume_ratio": 0.73,
+  "momentum_trigger_flagged": true,
+  "pct_change_1h_48h": 9.46,
+  "pct_change_4h_48h": 9.11,
+  "news_context": "Same macro narrative; Glamsterdam upgrade still delayed to Q4 - no genuine fresh ETH-specific catalyst."
+}
+```
+
+---
+### 2026-09-18T20:13:07.943Z — SOL/USD — NO TRADE
+
+**Reasoning:** Pair already has an open position (trailing active, still holding) - code enforces one open position per pair, so no new entry. SMA just had a bullish crossover this candle (fast_above_slow) plus momentum still flagged (15.81%/15.91%) and RSI 83.82 (deeply overbought) - informational only since a second position can't be opened.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 83.82,
+  "sma_crossover_4h": "fast_above_slow, bullish cross this candle",
+  "volume_ratio": 1.68,
+  "momentum_trigger_flagged": true,
+  "pct_change_1h_48h": 15.81,
+  "pct_change_4h_48h": 15.91,
+  "news_context": "Bullish SMA crossover just confirmed on top of the ongoing rally. Pair already has an open position (trailing active), so no-trade.",
+  "reason_blocked": "existing_open_position"
+}
+```
+
+---
+### 2026-09-18T20:13:10.440Z — XRP/USD — NO TRADE
+
+**Reasoning:** Pair already has an open position (opened last cycle via momentum-only exception, holding) - code enforces one open position per pair, so no new entry. Momentum_trigger still flagged (8.49%/8.76%), RSI 66.24, informational only.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 66.24,
+  "sma_crossover_4h": "fast_below_slow, not crossed",
+  "volume_ratio": 0.83,
+  "momentum_trigger_flagged": true,
+  "pct_change_1h_48h": 8.49,
+  "pct_change_4h_48h": 8.76,
+  "news_context": "Broad market-wide rally continues to lift XRP. Pair already has an open position, so no-trade.",
+  "reason_blocked": "existing_open_position"
+}
+```
+
+---
+### 2026-09-18T20:13:12.677Z — ADA/USD — NO TRADE
+
+**Reasoning:** Pair already has an open position (opened via momentum-only exception, still holding, deep in profit) - code enforces one open position per pair, so no new entry. Momentum_trigger still flagged (13.80%/13.31%), RSI 72.31 (overbought), informational only.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 72.31,
+  "sma_crossover_4h": "fast_below_slow, not crossed",
+  "volume_ratio": 1.15,
+  "momentum_trigger_flagged": true,
+  "pct_change_1h_48h": 13.8,
+  "pct_change_4h_48h": 13.31,
+  "news_context": "Broad market-wide rally continues to lift ADA, overbought. Pair already has an open position, so no-trade.",
+  "reason_blocked": "existing_open_position"
+}
+```
+
+---
+### 2026-09-18T20:13:15.812Z — LINK/USD — NO TRADE
+
+**Reasoning:** Pair already has an open position (opened via momentum-only exception, still holding, deep in profit) - code enforces one open position per pair, so no new entry. Momentum_trigger still flagged (12.66%/12.05%), RSI 75.27 (overbought), informational only.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 75.27,
+  "sma_crossover_4h": "fast_below_slow, not crossed",
+  "volume_ratio": 1.24,
+  "momentum_trigger_flagged": true,
+  "pct_change_1h_48h": 12.66,
+  "pct_change_4h_48h": 12.05,
+  "news_context": "Broad market-wide rally continues to lift LINK, overbought. Pair already has an open position, so no-trade.",
+  "reason_blocked": "existing_open_position"
+}
+```
+
+---
+### 2026-09-18T20:13:17.932Z — DOGE/USD — NO TRADE
+
+**Reasoning:** New 4h candle - momentum still flagged (9.22%/8.78%), RSI now 74.37 (further overbought) - no crossover, no volume spike (0.78x). News found a self-contradictory article: cites the DOGE-1 space mission finally launching from Kennedy Space Center, but in the same breath says "despite this milestone, the coin itself is sinking, not soaring" - directly contradicting our live +9.2% reading. Discarded as unreliable, same pattern as every prior cycle DOGE has flagged this session. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 74.37,
+  "sma_crossover_4h": "fast_below_slow, not crossed",
+  "volume_ratio": 0.78,
+  "momentum_trigger_flagged": true,
+  "pct_change_1h_48h": 9.22,
+  "pct_change_4h_48h": 8.78,
+  "news_context": "Self-contradictory article: DOGE-1 launch cited as a milestone but says the coin 'is sinking, not soaring' - directly contradicts live +9.2% reading. Discarded as unreliable."
+}
+```
+
+---
