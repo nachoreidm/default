@@ -32453,3 +32453,118 @@ next cycle without any manual edit needed here.
 ```
 
 ---
+### 2026-09-19T19:12:39.733Z — BTC/USD — NO TRADE
+
+**Reasoning:** Already have an open long position on BTC/USD (one per pair enforced by code). Momentum_trigger flagged (+6.39%/+6.64%), RSI 78.0 (deeply overbought), fast SMA above slow, volume ratio 1.80x. News: BTC cleared $80,941, Coinbase stock +12%, new CFTC/SEC rulemaking reignited regulatory tailwind - bullish, no change to position.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 78.03,
+  "momentum_trigger_flagged": true,
+  "sma_crossover_4h": "fast_above_slow, not crossed this candle",
+  "volume_ratio": 1.8,
+  "news_context": "BTC cleared $80,941; Coinbase stock +12%; new CFTC/SEC rulemaking reignited regulatory tailwind - bullish"
+}
+```
+
+---
+### 2026-09-19T19:12:42.525Z — ETH/USD — NO TRADE
+
+**Reasoning:** Already have an open long position on ETH/USD (one per pair enforced by code). Bullish SMA crossover persists this candle, RSI 72.8 (overbought), momentum_trigger flagged (+7.81%/+7.88%) - strong confirmation, but one-position-per-pair cap still applies. News: ETH funds posted the only outflow among 14 crypto ETF products this week (-$140M), while must hold $2,438 Fibonacci weekly support to keep bullish September outlook toward $2,920 - mixed signal, no change to existing position.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 72.8,
+  "momentum_trigger_flagged": true,
+  "sma_crossover_4h": "fast_above_slow, bullish cross this candle",
+  "volume_ratio": 1.52,
+  "news_context": "ETH funds posted the only outflow among 14 crypto ETF products this week (-$140M); must hold $2,438 weekly support for bullish September outlook toward $2,920 - mixed"
+}
+```
+
+---
+### 2026-09-19T19:12:45.969Z — SOL/USD — NO TRADE
+
+**Reasoning:** Already have an open long position on SOL/USD (one per pair enforced by code). Momentum_trigger flagged (+10.15%/+10.61%), RSI 69.9 (not quite overbought), fast SMA above slow, volume ratio 2.05x (flagged). News: SOL at a seven-month high near $112, BSOL trading volume hit $85M, speed upgrade and SEC Innovation Exemption continue to drive sentiment - strongly bullish, consistent with existing trailing-active position.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 69.86,
+  "momentum_trigger_flagged": true,
+  "sma_crossover_4h": "fast_above_slow, not crossed this candle",
+  "volume_ratio": 2.05,
+  "volume_flag_above_2x": true,
+  "news_context": "SOL at a seven-month high near $112; BSOL trading volume hit $85M; speed upgrade and SEC Innovation Exemption continue driving sentiment - strongly bullish"
+}
+```
+
+---
+### 2026-09-19T19:12:48.883Z — XRP/USD — NO TRADE
+
+**Reasoning:** Already have an open long position on XRP/USD (one per pair enforced by code). Momentum_trigger flagged (+10.44%/+10.47%), RSI 65.7 (not overbought), fast SMA below slow, volume ratio 1.60x. News: Ripple CEO Garlinghouse criticized the CLARITY Act failure but noted crypto regulation could shift toward SEC/CFTC rulemaking, whale inflows to Binance continue at elevated levels - mixed but net constructive, consistent with existing position.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 65.67,
+  "momentum_trigger_flagged": true,
+  "sma_crossover_4h": "fast_below_slow, not crossed this candle",
+  "volume_ratio": 1.6,
+  "news_context": "Ripple CEO Garlinghouse criticized CLARITY Act failure but noted regulation could shift toward SEC/CFTC rulemaking; whale inflows to Binance continue - mixed, net constructive"
+}
+```
+
+---
+### 2026-09-19T19:12:51.436Z — ADA/USD — NO TRADE
+
+**Reasoning:** Already have an open long position on ADA/USD (one per pair enforced by code). Momentum_trigger flagged (+14.06%/+12.66%), RSI 66.7 (not overbought), fast SMA above slow, volume ratio 1.76x. News: ADA up ~5% in 24h, Leios hit 1,000 TPS milestone, an agritech project targeting 10M+ agricultural settlements for the Telangana state government in India - genuinely bullish, new catalyst, consistent with existing trailing-active position.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 66.75,
+  "momentum_trigger_flagged": true,
+  "sma_crossover_4h": "fast_above_slow, not crossed this candle",
+  "volume_ratio": 1.76,
+  "news_context": "ADA up ~5% in 24h; Leios hit 1,000 TPS milestone; agritech project targeting 10M+ agricultural settlements for Telangana state government in India - bullish, new catalyst"
+}
+```
+
+---
+### 2026-09-19T19:12:55.016Z — LINK/USD — NO TRADE
+
+**Reasoning:** Already have an open long position on LINK/USD (one per pair enforced by code, trailing_active since crossing +1R). Momentum_trigger flagged (+10.89%/+11.09%), RSI 72.1 (overbought), fast SMA above slow, volume ratio 2.09x (flagged). News: technical outlook notes a daily close above $12.50 would confirm a breakout toward $13, Wyoming Stable Token Commission's CCIP migration and Schwab listing continue to be cited - bullish, no material change.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 72.1,
+  "momentum_trigger_flagged": true,
+  "sma_crossover_4h": "fast_above_slow, not crossed this candle",
+  "volume_ratio": 2.09,
+  "volume_flag_above_2x": true,
+  "news_context": "Technical outlook: daily close above $12.50 confirms breakout toward $13; Wyoming CCIP migration and Schwab listing continue to be cited - bullish"
+}
+```
+
+---
+### 2026-09-19T19:12:56.998Z — DOGE/USD — NO TRADE
+
+**Reasoning:** Already have an open long position on DOGE/USD (one per pair enforced by code). Bullish SMA crossover persists this candle, momentum_trigger flagged (+9.87%/+8.90%), RSI 70.2 (just overbought) - strong confirmation, but one-position-per-pair cap still applies. News: DOGE up 4.1% in 24h, broke above all three major Ichimoku components on the 4h chart (Tenkan-sen, Kijun-sen, Kumo cloud) signaling positive short-term momentum - bullish, reinforces existing position.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 70.18,
+  "momentum_trigger_flagged": true,
+  "sma_crossover_4h": "fast_above_slow, bullish cross this candle",
+  "volume_ratio": 3.21,
+  "volume_flag_above_2x": true,
+  "news_context": "DOGE up 4.1% in 24h; broke above all three major Ichimoku components on the 4h chart, signaling positive short-term momentum - bullish"
+}
+```
+
+---
