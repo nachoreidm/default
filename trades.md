@@ -32798,3 +32798,118 @@ next cycle without any manual edit needed here.
 ```
 
 ---
+### 2026-09-19T22:12:25.533Z — BTC/USD — NO TRADE
+
+**Reasoning:** Already have an open long position on BTC/USD (one per pair enforced by code). Momentum_trigger flagged (+6.18%/+6.53%), RSI 74.3 (overbought), fast SMA above slow, volume ratio 1.80x. News: BTC at $81,354, reclaimed $81K after decoupling from the CLARITY Act pressure, ETF inflows continue with FBTC lifetime net inflows now $10.36B - bullish, no change to position.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 74.32,
+  "momentum_trigger_flagged": true,
+  "sma_crossover_4h": "fast_above_slow, not crossed this candle",
+  "volume_ratio": 1.8,
+  "news_context": "BTC at $81,354, reclaimed $81K; ETF inflows continue, FBTC lifetime net inflows now $10.36B - bullish"
+}
+```
+
+---
+### 2026-09-19T22:12:28.374Z — ETH/USD — NO TRADE
+
+**Reasoning:** Already have an open long position on ETH/USD (one per pair enforced by code). RSI 71.1 (overbought), momentum_trigger flagged (+7.50%/+7.71%), fast SMA above slow. News: ETH broke above $2,630, highest since January, supported by record non-empty wallets; spot ETH ETFs attracted $144M inflow (second-highest daily this month); Glamsterdam ePBS testing scheduled Oct 6 - bullish, consistent with existing position.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 71.06,
+  "momentum_trigger_flagged": true,
+  "sma_crossover_4h": "fast_above_slow, not crossed this candle",
+  "volume_ratio": 1.52,
+  "news_context": "ETH broke above $2,630, highest since January, record non-empty wallets; spot ETH ETFs attracted $144M inflow (2nd-highest daily this month); Glamsterdam ePBS testing scheduled Oct 6 - bullish"
+}
+```
+
+---
+### 2026-09-19T22:12:31.438Z — SOL/USD — NO TRADE
+
+**Reasoning:** Already have an open long position on SOL/USD (one per pair enforced by code). Momentum_trigger flagged (+9.04%/+9.49%), RSI 67.9 (elevated but not overbought), fast SMA above slow, volume ratio 2.05x (flagged). News: SOL up 12.18% at $112.50, spot SOL fund AUM over $1.4B, SEC Innovation Exemption and speed upgrades continue driving sentiment - strongly bullish, consistent with existing trailing-active position.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 67.93,
+  "momentum_trigger_flagged": true,
+  "sma_crossover_4h": "fast_above_slow, not crossed this candle",
+  "volume_ratio": 2.05,
+  "volume_flag_above_2x": true,
+  "news_context": "SOL up 12.18% at $112.50; spot SOL fund AUM over $1.4B; SEC Innovation Exemption and speed upgrades continue driving sentiment - strongly bullish"
+}
+```
+
+---
+### 2026-09-19T22:12:34.624Z — XRP/USD — NO TRADE
+
+**Reasoning:** Already have an open long position on XRP/USD (one per pair enforced by code). Momentum_trigger flagged (+8.81%/+10.12%), RSI 64.8 (not overbought), fast SMA below slow, volume ratio 1.60x. News: XRP testing $1.41 Fibonacci support with a $1.45-1.51 resistance zone ahead, asset managers preparing for the next XRP Ledger payments upgrade (possible late-Sept activation) - mixed but net constructive, consistent with existing position.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 64.75,
+  "momentum_trigger_flagged": true,
+  "sma_crossover_4h": "fast_below_slow, not crossed this candle",
+  "volume_ratio": 1.6,
+  "news_context": "XRP testing $1.41 Fibonacci support with $1.45-1.51 resistance zone ahead; asset managers preparing for the next XRP Ledger payments upgrade (possible late-Sept activation) - mixed, net constructive"
+}
+```
+
+---
+### 2026-09-19T22:12:37.092Z — ADA/USD — NO TRADE
+
+**Reasoning:** Already have an open long position on ADA/USD (one per pair enforced by code). Momentum_trigger flagged (+12.96%/+13.67%), RSI 69.0 (not overbought), fast SMA above slow, volume ratio 1.76x. News: ADA climbed 11% to $0.22 on continued Mastercard partnership coverage, Leios 1,000 TPS milestone, Congressional bill advancing to add ADA to a potential US Digital Asset Stockpile - bullish, consistent with existing trailing-active position.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 68.99,
+  "momentum_trigger_flagged": true,
+  "sma_crossover_4h": "fast_above_slow, not crossed this candle",
+  "volume_ratio": 1.76,
+  "news_context": "ADA climbed 11% to $0.22 on continued Mastercard partnership coverage; Leios 1,000 TPS milestone; Congressional bill advancing to add ADA to a potential US Digital Asset Stockpile - bullish"
+}
+```
+
+---
+### 2026-09-19T22:12:39.724Z — LINK/USD — NO TRADE
+
+**Reasoning:** Already have an open long position on LINK/USD (one per pair enforced by code, trailing_active since crossing +1R). Momentum_trigger flagged (+8.75%/+9.79%), RSI 69.5 (elevated but not overbought), fast SMA above slow, volume ratio 2.09x (flagged). News: Wyoming Stable Token Commission adopted Chainlink's proof-of-reserve tech (Sept 2), Schwab listing confirmed, Bottomline CCIP partnership continues - bullish, no material change.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 69.52,
+  "momentum_trigger_flagged": true,
+  "sma_crossover_4h": "fast_above_slow, not crossed this candle",
+  "volume_ratio": 2.09,
+  "volume_flag_above_2x": true,
+  "news_context": "Wyoming Stable Token Commission adopted Chainlink's proof-of-reserve tech; Schwab listing confirmed; Bottomline CCIP partnership continues - bullish"
+}
+```
+
+---
+### 2026-09-19T22:12:42.624Z — DOGE/USD — NO TRADE
+
+**Reasoning:** Already have an open long position on DOGE/USD (one per pair enforced by code). Momentum_trigger flagged (+7.22%/+9.22%), RSI 71.1 (overbought), fast SMA above slow, volume ratio 3.21x (flagged). News: DOGE up 23% over 7 days at $0.088, whale accumulation of 240M DOGE continues, a close above $0.087 opens a path to $0.10 while a break below $0.080 risks a drop to $0.068 - bullish, consistent with existing position.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 71.06,
+  "momentum_trigger_flagged": true,
+  "sma_crossover_4h": "fast_above_slow, not crossed this candle",
+  "volume_ratio": 3.21,
+  "volume_flag_above_2x": true,
+  "news_context": "DOGE up 23% over 7 days at $0.088; whale accumulation of 240M DOGE continues; a close above $0.087 opens a path to $0.10, a break below $0.080 risks a drop to $0.068 - bullish"
+}
+```
+
+---
