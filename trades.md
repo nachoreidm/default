@@ -32223,3 +32223,118 @@ next cycle without any manual edit needed here.
 ```
 
 ---
+### 2026-09-19T17:12:23.414Z — BTC/USD — NO TRADE
+
+**Reasoning:** Already have an open long position on BTC/USD (one per pair enforced by code). Momentum_trigger flagged (+6.80%/+6.64%), RSI 78.0 (deeply overbought), fast SMA above slow, volume ratio 1.80x. News: BTC cleared $80,941, Coinbase stock +12%, Strategy stock +16%, new CFTC/SEC rulemaking reignited regulatory tailwind, crypto VC funding +31% to $5.7B in Q2 - strongly bullish, no change to position.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 78.03,
+  "momentum_trigger_flagged": true,
+  "sma_crossover_4h": "fast_above_slow, not crossed this candle",
+  "volume_ratio": 1.8,
+  "news_context": "BTC cleared $80,941; Coinbase +12%, Strategy +16%; new CFTC/SEC rulemaking reignited regulatory tailwind; crypto VC funding +31% to $5.7B in Q2 - strongly bullish"
+}
+```
+
+---
+### 2026-09-19T17:12:26.630Z — ETH/USD — NO TRADE
+
+**Reasoning:** Already have an open long position on ETH/USD (one per pair enforced by code). Bullish SMA crossover persists this candle, RSI 72.8 (overbought), momentum_trigger flagged (+7.68%/+7.88%) - strong confirmation but one-position-per-pair cap still applies. News: ETH near $2,625-2,653 (+5.4% in 24h), average transfer costs fell to $0.094 (improved network efficiency), a dormant whale moved $86.9M ETH to Bitfinex - mixed but net positive, reinforces existing position.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 72.8,
+  "momentum_trigger_flagged": true,
+  "sma_crossover_4h": "fast_above_slow, bullish cross this candle",
+  "volume_ratio": 1.52,
+  "news_context": "ETH near $2,625-2,653, +5.4% in 24h; average transfer costs fell to $0.094; a dormant whale moved $86.9M ETH to Bitfinex after 2 years - mixed, net positive"
+}
+```
+
+---
+### 2026-09-19T17:12:29.722Z — SOL/USD — NO TRADE
+
+**Reasoning:** Already have an open long position on SOL/USD (one per pair enforced by code). Momentum_trigger flagged (+10.40%/+10.61%), RSI 69.9 (not quite overbought), fast SMA above slow, volume ratio 2.05x (flagged). News: SOL near $112, seven-month high, 250ms speed upgrade and SEC Innovation Exemption continue to drive sentiment - strongly bullish, consistent with existing trailing-active position.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 69.86,
+  "momentum_trigger_flagged": true,
+  "sma_crossover_4h": "fast_above_slow, not crossed this candle",
+  "volume_ratio": 2.05,
+  "volume_flag_above_2x": true,
+  "news_context": "SOL near $112, seven-month high; 250ms speed upgrade and SEC Innovation Exemption continue driving sentiment - strongly bullish"
+}
+```
+
+---
+### 2026-09-19T17:12:32.552Z — XRP/USD — NO TRADE
+
+**Reasoning:** Already have an open long position on XRP/USD (one per pair enforced by code). Momentum_trigger flagged (+10.34%/+10.47%), RSI 65.7 (not overbought), fast SMA below slow, volume ratio 1.60x. News: ~1.6B XRP moved to Binance (6-month whale-inflow high), spot ETFs +6.3M XRP net inflow this week, possible XRPL upgrade activation late September - mixed but net constructive, consistent with existing position.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 65.67,
+  "momentum_trigger_flagged": true,
+  "sma_crossover_4h": "fast_below_slow, not crossed this candle",
+  "volume_ratio": 1.6,
+  "news_context": "~1.6B XRP moved to Binance (6-month whale-inflow high); spot ETFs +6.3M XRP net inflow this week; possible XRPL upgrade activation late September - mixed, net constructive"
+}
+```
+
+---
+### 2026-09-19T17:12:35.552Z — ADA/USD — NO TRADE
+
+**Reasoning:** Already have an open long position on ADA/USD (one per pair enforced by code). Momentum_trigger flagged (+13.34%/+12.66%), RSI 66.7 (not overbought), fast SMA above slow, volume ratio 1.76x. News: ADA touched a weekly high $0.2344, up over 6% on the week, continued Mastercard partnership and 65% active-address growth momentum - bullish, consistent with existing trailing-active position.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 66.75,
+  "momentum_trigger_flagged": true,
+  "sma_crossover_4h": "fast_above_slow, not crossed this candle",
+  "volume_ratio": 1.76,
+  "news_context": "ADA touched a weekly high of $0.2344, up over 6% on the week; continued Mastercard partnership and 65% active-address growth momentum - bullish"
+}
+```
+
+---
+### 2026-09-19T17:12:37.893Z — LINK/USD — NO TRADE
+
+**Reasoning:** Already have an open long position on LINK/USD (one per pair enforced by code, now trailing_active after crossing +1R last cycle). Momentum_trigger flagged (+10.91%/+11.09%), RSI 72.1 (overbought), fast SMA above slow, volume ratio 2.09x (flagged). News: LINK at $12.54 (+4% in 24h), Coinbase/Arc Mainnet oracle integrations continue, CCIP v1.5 upcoming - bullish, no material change.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 72.1,
+  "momentum_trigger_flagged": true,
+  "sma_crossover_4h": "fast_above_slow, not crossed this candle",
+  "volume_ratio": 2.09,
+  "volume_flag_above_2x": true,
+  "news_context": "LINK at $12.54, +4% in 24h; Coinbase/Arc Mainnet oracle integrations continue; CCIP v1.5 upcoming - bullish"
+}
+```
+
+---
+### 2026-09-19T17:12:40.222Z — DOGE/USD — NO TRADE
+
+**Reasoning:** Already have an open long position on DOGE/USD (one per pair enforced by code). Fresh bullish SMA crossover persists this candle, momentum_trigger flagged (+9.74%/+8.90%), RSI 70.2 (just overbought) - strong confirmation, but one-position-per-pair cap still applies. News: DOGE up 3.70% today near $0.087-0.091, supported by above-average volume and general post-Fed market rebound - bullish, reinforces existing position.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 70.18,
+  "momentum_trigger_flagged": true,
+  "sma_crossover_4h": "fast_above_slow, bullish cross this candle",
+  "volume_ratio": 3.21,
+  "volume_flag_above_2x": true,
+  "news_context": "DOGE up 3.70% today near $0.087-0.091, supported by above-average volume and general post-Fed market rebound - bullish"
+}
+```
+
+---
