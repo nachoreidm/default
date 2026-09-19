@@ -32338,3 +32338,118 @@ next cycle without any manual edit needed here.
 ```
 
 ---
+### 2026-09-19T18:12:38.507Z — BTC/USD — NO TRADE
+
+**Reasoning:** Already have an open long position on BTC/USD (one per pair enforced by code). Momentum_trigger flagged (+6.45%/+6.64%), RSI 78.0 (deeply overbought), fast SMA above slow, volume ratio 1.80x. News: BTC reclaimed $81,000 after decoupling from a brief CLARITY-Act-driven dip toward $74K support; ETF net inflows $433M Friday - bullish, no change to position.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 78.03,
+  "momentum_trigger_flagged": true,
+  "sma_crossover_4h": "fast_above_slow, not crossed this candle",
+  "volume_ratio": 1.8,
+  "news_context": "BTC reclaimed $81,000 after a brief CLARITY Act-driven dip toward $74K support; ETF net inflows $433M Friday, Fidelity FBTC $310.7M - bullish"
+}
+```
+
+---
+### 2026-09-19T18:12:41.617Z — ETH/USD — NO TRADE
+
+**Reasoning:** Already have an open long position on ETH/USD (one per pair enforced by code). Bullish SMA crossover persists this candle, RSI 72.8 (overbought), momentum_trigger flagged (+7.96%/+7.88%) - strong confirmation, but one-position-per-pair cap still applies. News: SEC roundtable Sept 17 named ETH and SOL as leading contenders for on-chain stock trading, ETH holds stronger institutional ties though SOL leads current tokenized-equity volume - mixed to mildly positive, consistent with existing position.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 72.8,
+  "momentum_trigger_flagged": true,
+  "sma_crossover_4h": "fast_above_slow, bullish cross this candle",
+  "volume_ratio": 1.52,
+  "news_context": "SEC roundtable Sept 17 named ETH and SOL as leading contenders for on-chain stock trading; ETH has stronger institutional ties though SOL leads current tokenized-equity volume - mixed to mildly positive"
+}
+```
+
+---
+### 2026-09-19T18:12:44.368Z — SOL/USD — NO TRADE
+
+**Reasoning:** Already have an open long position on SOL/USD (one per pair enforced by code). Momentum_trigger flagged (+10.54%/+10.61%), RSI 69.9 (not quite overbought), fast SMA above slow, volume ratio 2.05x (flagged). News: 250ms speed upgrade fully rolled out (Transaction V1, rent reduction, Firedancer updates), SEC Innovation Exemption, SOL at a seven-month high - strongly bullish, consistent with existing trailing-active position.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 69.86,
+  "momentum_trigger_flagged": true,
+  "sma_crossover_4h": "fast_above_slow, not crossed this candle",
+  "volume_ratio": 2.05,
+  "volume_flag_above_2x": true,
+  "news_context": "250ms speed upgrade fully rolled out with Transaction V1, rent reduction, Firedancer updates; SEC Innovation Exemption; SOL at a seven-month high - strongly bullish"
+}
+```
+
+---
+### 2026-09-19T18:12:47.557Z — XRP/USD — NO TRADE
+
+**Reasoning:** Already have an open long position on XRP/USD (one per pair enforced by code). Momentum_trigger flagged (+10.24%/+10.47%), RSI 65.7 (not overbought), fast SMA below slow, volume ratio 1.60x. News: whale inflows to Binance at a 6-month high, daily payments over 1.1B XRP, possible XRP Ledger payments upgrade activating late September - mixed but net constructive, consistent with existing position.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 65.67,
+  "momentum_trigger_flagged": true,
+  "sma_crossover_4h": "fast_below_slow, not crossed this candle",
+  "volume_ratio": 1.6,
+  "news_context": "Whale inflows to Binance at a 6-month high; daily payments over 1.1B XRP; possible XRP Ledger payments upgrade activating late September - mixed, net constructive"
+}
+```
+
+---
+### 2026-09-19T18:12:50.682Z — ADA/USD — NO TRADE
+
+**Reasoning:** Already have an open long position on ADA/USD (one per pair enforced by code). Momentum_trigger flagged (+14.09%/+12.66%), RSI 66.7 (not overbought), fast SMA above slow, volume ratio 1.76x. News: Leios scaling upgrade hit 1,000 TPS milestone (lab conditions), a Congressional committee voted Sept 16 to advance a bill including ADA in a potential US Digital Asset Stockpile - genuinely bullish, new catalyst, consistent with existing trailing-active position.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 66.75,
+  "momentum_trigger_flagged": true,
+  "sma_crossover_4h": "fast_above_slow, not crossed this candle",
+  "volume_ratio": 1.76,
+  "news_context": "Leios scaling upgrade hit 1,000 TPS milestone in lab conditions; a Congressional committee voted Sept 16 to advance a bill including ADA in a potential US Digital Asset Stockpile - bullish, new catalyst"
+}
+```
+
+---
+### 2026-09-19T18:12:53.819Z — LINK/USD — NO TRADE
+
+**Reasoning:** Already have an open long position on LINK/USD (one per pair enforced by code, trailing_active since crossing +1R). Momentum_trigger flagged (+10.83%/+11.09%), RSI 72.1 (overbought), fast SMA above slow, volume ratio 2.09x (flagged). News: Circle's Arc Mainnet launched Sept 16 with Chainlink CCIP/data feeds integrated from day one, Wyoming Stable Token Commission migrated to Chainlink CCIP, Charles Schwab announced it will list LINK alongside SOL/AVAX - genuinely bullish, multiple new catalysts.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 72.1,
+  "momentum_trigger_flagged": true,
+  "sma_crossover_4h": "fast_above_slow, not crossed this candle",
+  "volume_ratio": 2.09,
+  "volume_flag_above_2x": true,
+  "news_context": "Circle's Arc Mainnet launched Sept 16 with Chainlink CCIP/data feeds/proof-of-reserve integrated from day one; Wyoming Stable Token Commission migrated to Chainlink CCIP; Charles Schwab will list LINK alongside SOL/AVAX - bullish, multiple new catalysts"
+}
+```
+
+---
+### 2026-09-19T18:12:56.536Z — DOGE/USD — NO TRADE
+
+**Reasoning:** Already have an open long position on DOGE/USD (one per pair enforced by code). Bullish SMA crossover persists this candle, momentum_trigger flagged (+10.36%/+8.90%), RSI 70.2 (just overbought) - strong confirmation, but one-position-per-pair cap still applies. News: continued recovery from the Sept 15 CLARITY Act selloff, whale accumulation of 240M DOGE - reinforces existing position, no fresh catalyst beyond what's already reflected.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 70.18,
+  "momentum_trigger_flagged": true,
+  "sma_crossover_4h": "fast_above_slow, bullish cross this candle",
+  "volume_ratio": 3.21,
+  "volume_flag_above_2x": true,
+  "news_context": "Continued recovery from the Sept 15 CLARITY Act selloff; whale accumulation of 240M DOGE - reinforces existing position, no fresh catalyst"
+}
+```
+
+---
