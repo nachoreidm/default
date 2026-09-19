@@ -31878,3 +31878,118 @@ next cycle without any manual edit needed here.
 ```
 
 ---
+### 2026-09-19T14:12:12.646Z — BTC/USD — NO TRADE
+
+**Reasoning:** Already have an open long position on BTC/USD (one per pair enforced by code). Momentum_trigger flagged (+6.40%/+5.98%), RSI 76.7 (overbought), fast SMA above slow, volume ratio 1.80x. News: daily candle closed above MA25 and above MA365 (bull-market signal), ETF net inflows +$159.5M halted two days of liquidations, BTC on track for first quarterly gain in a year despite September seasonality - bullish, no change to the position.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 76.72,
+  "momentum_trigger_flagged": true,
+  "sma_crossover_4h": "fast_above_slow, not crossed this candle",
+  "volume_ratio": 1.8,
+  "news_context": "Daily candle closed above both MA25 and MA365 (bull-market signal); ETF inflows +$159.5M halted two days of liquidations; on track for first quarterly gain in a year - bullish"
+}
+```
+
+---
+### 2026-09-19T14:12:15.404Z — ETH/USD — NO TRADE
+
+**Reasoning:** Already have an open long position on ETH/USD (one per pair enforced by code). RSI 72.7 (overbought/extreme), momentum_trigger flagged (+7.26%/+6.91%), no fresh crossover (fast still below slow), volume ratio 1.52x. News: ETH challenging $2,500-2,550 resistance after a 6.78% jump to a multi-month high near $2,611, Fed's 25bps hike priced in - consistent with the existing position.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 72.67,
+  "momentum_trigger_flagged": true,
+  "sma_crossover_4h": "fast_below_slow, not crossed this candle",
+  "volume_ratio": 1.52,
+  "news_context": "ETH jumped 6.78% to $2,611, a multi-month high, now testing the $2,500-2,550 resistance zone; Fed's 25bps hike to 4.00% was already priced in - mildly positive"
+}
+```
+
+---
+### 2026-09-19T14:12:18.335Z — SOL/USD — NO TRADE
+
+**Reasoning:** Already have an open long position on SOL/USD (one per pair enforced by code). Momentum_trigger flagged (+10.53%/+10.56%), RSI 71.0 (overbought), fast SMA above slow, volume ratio 2.05x (flagged). News: SOL up 12.18% today near $112 on the 250ms scaling milestone, SEC Innovation Exemption, and CFTC submitting updated digital-asset guidance to the White House - strongly bullish, consistent with the existing trailing-active position.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 71.04,
+  "momentum_trigger_flagged": true,
+  "sma_crossover_4h": "fast_above_slow, not crossed this candle",
+  "volume_ratio": 2.05,
+  "volume_flag_above_2x": true,
+  "news_context": "SOL up 12.18% today near $112; 250ms scaling milestone success, SEC Innovation Exemption, CFTC submitted updated digital-asset guidance to White House - strongly bullish"
+}
+```
+
+---
+### 2026-09-19T14:12:21.528Z — XRP/USD — NO TRADE
+
+**Reasoning:** Already have an open long position on XRP/USD (one per pair enforced by code). Momentum_trigger flagged (+10.59%/+9.76%), RSI 66.7 (not overbought), fast SMA below slow, volume ratio 1.60x. News: ~1.6B XRP moved to Binance (whale activity), daily payments over 1.1B XRP (2x monthly average), spot ETFs +6.3M XRP net inflow this week - mixed but net constructive, consistent with the existing position.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 66.7,
+  "momentum_trigger_flagged": true,
+  "sma_crossover_4h": "fast_below_slow, not crossed this candle",
+  "volume_ratio": 1.6,
+  "news_context": "~1.6B XRP moved to Binance (whale activity); daily payments over 1.1B XRP, 2x monthly average; spot ETFs saw +6.3M XRP net inflow this week - mixed, net constructive"
+}
+```
+
+---
+### 2026-09-19T14:12:24.003Z — ADA/USD — NO TRADE
+
+**Reasoning:** Already have an open long position on ADA/USD (one per pair enforced by code). Momentum_trigger flagged (+12.64%/+12.30%), RSI 66.9 (not overbought), fast SMA above slow, volume ratio 1.76x. News: ADA up ~10% yesterday outperforming the broader market's +4.9%, continued Mastercard partnership momentum, Intersect board-seat voting underway - bullish, consistent with the existing trailing-active position.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 66.87,
+  "momentum_trigger_flagged": true,
+  "sma_crossover_4h": "fast_above_slow, not crossed this candle",
+  "volume_ratio": 1.76,
+  "news_context": "ADA up ~10% on Sept 18, outperforming the broader market's +4.9%; continued Mastercard Crypto Partner Program momentum; Intersect board-seat voting underway - bullish"
+}
+```
+
+---
+### 2026-09-19T14:12:27.149Z — LINK/USD — NO TRADE
+
+**Reasoning:** Already have an open long position on LINK/USD (one per pair enforced by code). Momentum_trigger flagged (+10.67%/+10.26%), RSI 71.6 (overbought), fast SMA above slow, volume ratio 2.09x (flagged). News: LINK pulled back to ~$11-12 range after last week's rally to $12.50, profit-taking following the Bottomline/Coinbase catalysts - price consolidating, no new catalyst.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 71.57,
+  "momentum_trigger_flagged": true,
+  "sma_crossover_4h": "fast_above_slow, not crossed this candle",
+  "volume_ratio": 2.09,
+  "volume_flag_above_2x": true,
+  "news_context": "LINK consolidating in the $11-12 range after last week's rally to $12.50 on profit-taking; no fresh catalyst since the Bottomline/Coinbase news"
+}
+```
+
+---
+### 2026-09-19T14:12:29.654Z — DOGE/USD — NO TRADE
+
+**Reasoning:** Already have an open long position on DOGE/USD (one per pair enforced by code). Momentum_trigger flagged (+8.84%/+7.94%), RSI 68.7 (not overbought), fast SMA below slow, volume ratio 3.21x (flagged). News: DOGE trading near $0.089, tracking the broader crypto rally, no new pair-specific catalyst since the Sept 15 CLARITY Act selloff and subsequent whale dip-buying.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 68.74,
+  "momentum_trigger_flagged": true,
+  "sma_crossover_4h": "fast_below_slow, not crossed this candle",
+  "volume_ratio": 3.21,
+  "volume_flag_above_2x": true,
+  "news_context": "DOGE near $0.089, tracking the broader crypto rally; no new pair-specific catalyst since the Sept 15 CLARITY Act selloff and subsequent whale dip-buying"
+}
+```
+
+---
