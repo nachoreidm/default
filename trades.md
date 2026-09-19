@@ -32108,3 +32108,118 @@ next cycle without any manual edit needed here.
 ```
 
 ---
+### 2026-09-19T16:12:39.822Z — BTC/USD — NO TRADE
+
+**Reasoning:** Already have an open long position on BTC/USD (one per pair enforced by code). Momentum_trigger flagged (+6.42%/+6.64%), RSI 78.0 (deeply overbought), fast SMA above slow, volume ratio 1.80x. News: BTC at $81,035 (+4.57% in 24h), $238M in shorts wiped out, weekly close watched for 50-week MA hold ($78.7-79K) - bullish momentum, no change to position.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 78.03,
+  "momentum_trigger_flagged": true,
+  "sma_crossover_4h": "fast_above_slow, not crossed this candle",
+  "volume_ratio": 1.8,
+  "news_context": "BTC at $81,035, +4.57% in 24h; $238M in shorts liquidated; weekly close watched to confirm hold above 50-week MA ($78.7-79K) - bullish"
+}
+```
+
+---
+### 2026-09-19T16:12:43.061Z — ETH/USD — NO TRADE
+
+**Reasoning:** Already have an open long position on ETH/USD (one per pair enforced by code). Fresh bullish 20/50 SMA crossover this candle plus RSI 72.8 (overbought) and momentum_trigger flagged (+6.96%/+7.88%) - strong confirmation, but one-position-per-pair cap still applies since a position is already open. News: ETH at $2,627 (+6.04% in 24h), Glamsterdam fork Sepolia testnet set for Oct 6 targeting a doubled 200M gas limit - bullish, reinforces the existing position's thesis.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 72.8,
+  "momentum_trigger_flagged": true,
+  "sma_crossover_4h": "fast_above_slow, bullish cross this candle",
+  "volume_ratio": 1.52,
+  "news_context": "ETH at $2,627, +6.04% in 24h; Glamsterdam fork Sepolia testnet set for Oct 6, targeting a doubled 200M gas limit - bullish, reinforces existing position"
+}
+```
+
+---
+### 2026-09-19T16:12:45.723Z — SOL/USD — NO TRADE
+
+**Reasoning:** Already have an open long position on SOL/USD (one per pair enforced by code). Momentum_trigger flagged (+10.14%/+10.61%), RSI 69.9 (not quite overbought), fast SMA above slow, volume ratio 2.05x (flagged). News: SOL up 10.82% to $112.64, nearing the $120 technical target, driven by the 250ms speed upgrade and SEC Innovation Exemption - strongly bullish, consistent with existing trailing-active position.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 69.86,
+  "momentum_trigger_flagged": true,
+  "sma_crossover_4h": "fast_above_slow, not crossed this candle",
+  "volume_ratio": 2.05,
+  "volume_flag_above_2x": true,
+  "news_context": "SOL up 10.82% to $112.64, nearing the $120 technical target; 250ms speed upgrade and SEC Innovation Exemption cited as drivers - strongly bullish"
+}
+```
+
+---
+### 2026-09-19T16:12:49.051Z — XRP/USD — NO TRADE
+
+**Reasoning:** Already have an open long position on XRP/USD (one per pair enforced by code). Momentum_trigger flagged (+9.69%/+10.47%), RSI 65.7 (not overbought), fast SMA below slow, volume ratio 1.60x. News: XRP ETF net inflow +6.3M XRP this week, whale inflows to Binance at a 6-month high (neutral-to-bullish per CryptoQuant), Ripple added XRP to Stripe/Tempo AI payment kit, next escrow unlock Oct 1 (up to 1B XRP) - mixed but net constructive.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 65.67,
+  "momentum_trigger_flagged": true,
+  "sma_crossover_4h": "fast_below_slow, not crossed this candle",
+  "volume_ratio": 1.6,
+  "news_context": "XRP ETF net inflow +6.3M this week; whale inflows to Binance at 6-month high (neutral-to-bullish); Ripple added XRP to Stripe/Tempo AI payment kit; next escrow unlock Oct 1 - mixed, net constructive"
+}
+```
+
+---
+### 2026-09-19T16:12:52.122Z — ADA/USD — NO TRADE
+
+**Reasoning:** Already have an open long position on ADA/USD (one per pair enforced by code). Momentum_trigger flagged (+12.30%/+12.66%), RSI 66.7 (not overbought), fast SMA above slow, volume ratio 1.76x. News: ADA up 6.23% in 24h touching a weekly high $0.2344, Mastercard partnership and monthly active addresses up 65% continue to drive interest, though futures volume ($716M) dwarfs spot ($155M) suggesting leveraged positioning - bullish but somewhat leverage-driven.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 66.75,
+  "momentum_trigger_flagged": true,
+  "sma_crossover_4h": "fast_above_slow, not crossed this candle",
+  "volume_ratio": 1.76,
+  "news_context": "ADA up 6.23% in 24h, weekly high $0.2344; Mastercard partnership and 65% active-address growth continue driving interest; futures volume ($716M) far exceeds spot ($155M) - bullish but leverage-heavy"
+}
+```
+
+---
+### 2026-09-19T16:12:54.903Z — LINK/USD — NO TRADE
+
+**Reasoning:** Already have an open long position on LINK/USD (one per pair enforced by code). Momentum_trigger flagged (+10.51%/+11.09%), RSI 72.1 (overbought), fast SMA above slow, volume ratio 2.09x (flagged). News: LINK at $12.54 (+4% in 24h), CCIP v1.5 mainnet release upcoming enabling zkRollup support, Nazarov to appear at Fed discussion Sept 24 - bullish, no material change.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 72.1,
+  "momentum_trigger_flagged": true,
+  "sma_crossover_4h": "fast_above_slow, not crossed this candle",
+  "volume_ratio": 2.09,
+  "volume_flag_above_2x": true,
+  "news_context": "LINK at $12.54, +4% in 24h; CCIP v1.5 mainnet release upcoming (zkRollup support); Nazarov to appear at Fed Reserve Bank discussion Sept 24 - bullish"
+}
+```
+
+---
+### 2026-09-19T16:12:57.984Z — DOGE/USD — NO TRADE
+
+**Reasoning:** Already have an open long position on DOGE/USD (one per pair enforced by code). Fresh bullish 20/50 SMA crossover this candle plus momentum_trigger flagged (+8.40%/+8.90%) and RSI 70.2 (just overbought) - strong confirmation, but one-position-per-pair cap still applies since a position is already open. News: House of Doge partnered with Paxos for brokerage/custody integration reaching PayPal/Venmo/Mercado Libre enterprise clients - a genuine new catalyst reinforcing the existing position's thesis.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 70.18,
+  "momentum_trigger_flagged": true,
+  "sma_crossover_4h": "fast_above_slow, bullish cross this candle",
+  "volume_ratio": 3.21,
+  "volume_flag_above_2x": true,
+  "news_context": "House of Doge partnered with Paxos for brokerage/custody integration, reaching Paxos's enterprise clients including PayPal, Venmo, and Mercado Libre - genuine new catalyst"
+}
+```
+
+---

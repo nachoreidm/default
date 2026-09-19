@@ -71,11 +71,11 @@
       "pair": "LINK/USD",
       "direction": "long",
       "entry_price": 11.876535299999999,
-      "stop_loss": 11.15,
+      "stop_loss": 12.10220871,
       "initial_stop_loss": 11.15,
       "take_profit": 13.329605899999995,
-      "trailing_active": false,
-      "peak_price": 12.60824,
+      "trailing_active": true,
+      "peak_price": 12.62878,
       "size_pct": 3,
       "size_usd": 299.1072586878967,
       "quantity": 25.083984691490386,
@@ -139,7 +139,7 @@
       "initial_stop_loss": 0.0822,
       "take_profit": 0.09854430644999998,
       "trailing_active": false,
-      "peak_price": 0.0890022,
+      "peak_price": 0.0891765,
       "size_pct": 3,
       "size_usd": 300.42869266724387,
       "quantity": 3413.9584378504987,
@@ -171,7 +171,7 @@
       "initial_stop_loss": 77300,
       "take_profit": 89084.28125,
       "trailing_active": false,
-      "peak_price": 81647.9,
+      "peak_price": 81718.4,
       "size_pct": 3,
       "size_usd": 300.93964922456695,
       "quantity": 0.0036900520102094445,
@@ -203,7 +203,7 @@
       "initial_stop_loss": 2478,
       "take_profit": 2971.1415899999997,
       "trailing_active": false,
-      "peak_price": 2642.38053,
+      "peak_price": 2646.07,
       "size_pct": 3,
       "size_usd": 300.7080771422701,
       "quantity": 0.11334674980885551,
@@ -379,5 +379,5 @@
     }
   ],
   "created_at": "2026-09-06T14:02:11.057Z",
-  "updated_at": "2026-09-19T15:11:28.274Z"
+  "updated_at": "2026-09-19T16:12:08.436Z"
 }
