@@ -31602,3 +31602,34 @@ this is a schema backfill, not a trade action.
 ```
 
 ---
+### CORRECTION — 2026-09-19T00:00:00.000Z — peak_price backfilled on 6 open positions
+
+The peak-scaling profit-lock upgrade added `peak_price` (highest price
+observed since entry) as a required `Position` field, used to scale the
+guaranteed-profit floor with how far a trade has actually run rather than
+a flat 0.3x-of-original-1R lock. Six positions were already open when this
+shipped (ADA/USD, SOL/USD, LINK/USD, XRP/USD, DOGE/USD, BTC/USD).
+
+Backfilled `peak_price` on all six using the true historical 1h-candle
+high since each position's `opened_at` (fetched live from Kraken
+`/0/public/OHLC`, not approximated from the current price alone, since an
+intracycle spike could have occurred above the current price):
+
+- ADA/USD: entry $0.214548 -> peak_price $0.234965
+- SOL/USD: entry $105.53274 -> peak_price $114.30
+- LINK/USD: entry $11.876535 -> peak_price $12.60824
+- XRP/USD: entry $1.396528 -> peak_price $1.43825
+- DOGE/USD: entry $0.087648 -> peak_price $0.0888436
+- BTC/USD: entry $81228.09375 -> peak_price $81498.20
+
+No other fields changed. ADA and SOL (already `trailing_active: true`,
+with `stop_loss` set under the prior flat-0.3R formula) were left as-is
+rather than hand-recomputed - the new peak-based floor is mathematically
+guaranteed to be >= the old flat floor once trailing is active (since
+peak_price is always >= the price level that triggered trailing in the
+first place), so `portfolio_check_stops`'s existing "only move the stop up"
+logic will correctly ratchet both up to the new, higher floor on its very
+next cycle without any manual edit needed here.
+
+---
+

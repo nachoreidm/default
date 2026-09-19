@@ -12,7 +12,7 @@ import {
   MOMENTUM_THRESHOLD_PCT,
   MOMENTUM_ONLY_MAX_CONFIDENCE,
   TRAIL_SMA_PERIOD,
-  TRAILING_LOCK_R_MULTIPLE,
+  PEAK_PROFIT_LOCK_FRACTION,
 } from "./types.js";
 
 const server = new McpServer({ name: "kraken-paper-trading", version: "0.1.0" });
@@ -99,7 +99,7 @@ server.tool(
 
 server.tool(
   "portfolio_check_stops",
-  `Check every open paper position against its stop-loss and take-profit using live prices, and auto-close any that have breached either. Take-profit starts fixed at ${TAKE_PROFIT_RR_MULTIPLE}:1 risk/reward above entry, set automatically when the position was opened - but once a position reaches +1R (up by its own entry-to-stop risk amount) this tool moves its stop up to a guaranteed profit floor (locking in ${TRAILING_LOCK_R_MULTIPLE}R, or enough to clear round-trip fees/slippage, whichever is larger) and then trails it below the rising ${TRAIL_SMA_PERIOD}-period 4h SMA once that climbs higher, superseding the fixed take-profit so a strong trend isn't capped at the original target; the stop only ever moves up, never back down. Intended to be called both on demand and from a scheduled monitoring run, so stops, the profit lock, trailing, and profit-taking are all respected even when nobody is actively chatting with the agent.`,
+  `Check every open paper position against its stop-loss and take-profit using live prices, and auto-close any that have breached either. Take-profit starts fixed at ${TAKE_PROFIT_RR_MULTIPLE}:1 risk/reward above entry, set automatically when the position was opened - but once a position reaches +1R (up by its own entry-to-stop risk amount) this tool moves its stop up to a guaranteed profit floor (locking in ${PEAK_PROFIT_LOCK_FRACTION * 100}% of the peak gain reached so far, or enough to clear round-trip fees/slippage, whichever is larger - this floor keeps ratcheting up as the rally extends, not just once) and then trails it below the rising ${TRAIL_SMA_PERIOD}-period 4h SMA once that climbs higher, superseding the fixed take-profit so a strong trend isn't capped at the original target; the stop only ever moves up, never back down. Intended to be called both on demand and from a scheduled monitoring run, so stops, the profit lock, trailing, and profit-taking are all respected even when nobody is actively chatting with the agent.`,
   {},
   async () => wrap(() => checkStops())()
 );

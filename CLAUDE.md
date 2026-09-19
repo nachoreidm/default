@@ -166,6 +166,38 @@ the remaining two ("No opportunity-cost / position-swap logic" and
     with a subsequent reversal at the time of this change, so this was a
     correctness fix applied proactively, not a response to an observed bad
     outcome.
+  - **Revised again 2026-09-19: floor scales with the trade's PEAK gain,
+    not just the gain at the moment +1R first triggered.** User's
+    follow-up question exposed a second gap in the same day's first fix:
+    `TRAILING_LOCK_R_MULTIPLE`'s 0.3R was a flat amount computed once from
+    the *original* 1R and never revisited - a trade that ran all the way
+    to +3R and then round-tripped back down would still only be guaranteed
+    the same 0.3R as one that barely ticked over +1R before reversing. The
+    SMA-based trail was the only thing that could improve on that, and the
+    SMA lags a fast rally (20 periods of 4h candles = up to ~80h of
+    history), so a quick spike-then-reverse could give back most of a big
+    run with nothing but the flat floor to show for it. Fixed by adding
+    `Position.peak_price` (highest price observed since entry, updated
+    every `checkStops` cycle regardless of `trailing_active`) and
+    replacing the fixed-R lock with `PEAK_PROFIT_LOCK_FRACTION = 0.3`
+    (same 0.3 value, reinterpreted): the floor is now
+    `entry + max(0.3 * (peak_price - entry), entry * ROUND_TRIP_COST_PCT)`.
+    Since `peak_price` only ever increases, the floor now ratchets up as a
+    rally extends - a bigger run locks in more guaranteed profit than a
+    small one, matching the intuition that a trade that ran further earned
+    a better worst case. At the exact moment of the +1R trigger this
+    produces the identical result as the first fix (peak gain == the
+    original 1R at that instant), so nothing changed about small,
+    single-tick-over-+1R trades - only about what happens if the rally
+    keeps going afterward. Two currently-open positions (ADA/USD, SOL/USD)
+    were already `trailing_active` under the old flat formula - see the
+    2026-09-19 `peak_price` backfill CORRECTION entry in `trades.md` for
+    how their historical peak was reconstructed from live Kraken 1h-candle
+    data (not approximated from the current price alone) rather than
+    guessed; their `stop_loss` itself was left as-is in the backfill since
+    the new peak-based floor is provably >= the old flat one once trailing
+    is active, so `checkStops`'s existing "only move up" logic corrects it
+    automatically on the next cycle with no manual edit needed.
 
 This required a full session cutover per "The hourly routine" section
 above (both `mcp-server/src/` and `instructions/kraken-agent-instructions.md`

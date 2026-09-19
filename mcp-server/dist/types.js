@@ -55,24 +55,35 @@ export const MOMENTUM_ONLY_MAX_CONFIDENCE = "medium";
 // Exit-logic upgrade layered on top of the fixed 2:1 take-profit (see
 // TAKE_PROFIT_RR_MULTIPLE): once a position reaches +1R (its own
 // entry-to-stop risk, in profit), portfolio_check_stops moves stop_loss up
-// to a guaranteed-profit floor (see TRAILING_LOCK_R_MULTIPLE below) and
+// to a guaranteed-profit floor (see PEAK_PROFIT_LOCK_FRACTION below) and
 // from then on trails it below this period's SMA on the 4h chart instead
 // of exiting flat at the fixed target - lets a strong trend run further
 // while a real reversal still cuts the trade, never below the locked-in
 // floor once earned. Same 20-period already used by smaCrossover's fast
 // SMA, reused here rather than adding a new indicator.
 export const TRAIL_SMA_PERIOD = 20;
-// How much of the trade's own risk (R) to lock in as profit the moment it
-// reaches +1R, instead of flooring at bare breakeven. Decided 2026-09-19:
+// What fraction of the position's PEAK gain (peak_price - entry_price, the
+// highest price actually reached so far - not just the gain at the moment
+// +1R first triggered) to lock in as guaranteed profit, instead of
+// flooring at bare breakeven. Decided 2026-09-19, revised the same day:
 // breakeven alone means a trade that spikes to +1R and immediately
-// reverses closes at a scratch - or, after real round-trip fees/slippage,
-// a small guaranteed LOSS (see ROUND_TRIP_COST_PCT below), which defeats
-// the point of having reached +1R at all. Locking +0.3R instead guarantees
-// a real profit on any reversal from this point on, while still leaving
-// 0.7R of room (the gap between the +1R trigger and the +0.3R floor) for
-// an ordinary post-breakout pullback before the trade actually closes -
-// not so tight that normal noise stops it out the moment it triggers.
-export const TRAILING_LOCK_R_MULTIPLE = 0.3;
+// reverses closes at a scratch - or, after real round-trip fees/slippage
+// (see ROUND_TRIP_COST_PCT below), a small guaranteed LOSS - which defeats
+// the point of having reached +1R at all. The first fix locked a flat 0.3R
+// (0.3x the ORIGINAL 1R) the moment trailing activated - correct at that
+// exact moment, but it meant the floor never rose any further no matter
+// how much higher the rally went afterward; a trade that ran to +3R and
+// then round-tripped all the way back down would still only be guaranteed
+// the same 0.3R as one that barely ticked over +1R. Locking a fraction of
+// the PEAK gain instead means the floor keeps ratcheting up as the rally
+// extends (peak_price only ever increases - see Position.peak_price) - a
+// bigger rally that reverses now guarantees more locked-in profit than a
+// small one that barely qualified, matching the intuition that a trade
+// that ran further earned the right to a better worst case. At the exact
+// moment of the +1R trigger, peak gain == the original 1R, so this
+// produces the identical 0.3R floor as before - the change only matters
+// for what happens as the rally continues past that point.
+export const PEAK_PROFIT_LOCK_FRACTION = 0.3;
 // Kraken's lowest-volume-tier fee schedule (approximate as of 2025; fees are
 // tier/volume dependent and change over time - update if you care about
 // precise paper-vs-live parity). We model market-style (taker) fills since
@@ -83,9 +94,10 @@ export const TAKER_FEE_PCT = 0.4;
 export const SLIPPAGE_PCT = 0.05;
 // Approximate round-trip cost (entry + exit fee, plus entry + exit
 // slippage) as a percentage of entry price - used only as a safety floor
-// under TRAILING_LOCK_R_MULTIPLE so the +1R profit lock is guaranteed to
+// under PEAK_PROFIT_LOCK_FRACTION so the profit lock is guaranteed to
 // clear real transaction costs even for a hypothetical future trade with
-// an unusually tight R. In every trade seen so far, 0.3R alone (roughly
-// 1.5-2.1% given observed stop distances) has cleared this comfortably on
-// its own - this is defensive, not the normally-binding term.
+// an unusually tight R. In every trade seen so far, 0.3x the peak gain has
+// cleared this comfortably on its own at the moment of the +1R trigger
+// (roughly 1.5-2.1% given observed stop distances) - this is defensive,
+// not the normally-binding term.
 export const ROUND_TRIP_COST_PCT = 2 * (TAKER_FEE_PCT + SLIPPAGE_PCT);

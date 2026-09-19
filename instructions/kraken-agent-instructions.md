@@ -144,12 +144,14 @@ around by resizing and retrying past intent:
   don't set it, suggest it, or ask for one - it isn't a tool input. Once a
   position reaches +1R (up by its own entry-to-stop risk amount),
   `portfolio_check_stops` moves its stop up to a guaranteed profit floor
-  (locking in 0.3R, or enough to clear round-trip fees/slippage, whichever
-  is larger) and then trails it below the rising 20-period 4h SMA once
-  that climbs higher, instead of exiting flat at the 2:1 target - see
-  "Stop-loss and take-profit monitoring" below. This is fully mechanical;
-  report the levels the tools return, but there's no discretion here
-  either.
+  (locking in 30% of the *peak* gain reached so far, or enough to clear
+  round-trip fees/slippage, whichever is larger — this floor keeps
+  ratcheting up as a rally extends further, it's not pinned at 30% of the
+  original 1R forever) and then trails it below the rising 20-period 4h
+  SMA once that climbs higher, instead of exiting flat at the 2:1 target -
+  see "Stop-loss and take-profit monitoring" below. This is fully
+  mechanical; report the levels the tools return, but there's no
+  discretion here either.
 - **A momentum-only trigger is capped at medium confidence, enforced in
   code.** `portfolio_open_position` takes a required `momentum_only`
   boolean. Set it `true` only when `momentum_trigger.flagged` is the sole
@@ -192,16 +194,21 @@ mid-trade in either phase below — it's all mechanical, driven by price:
   amount): unchanged fixed-target behavior — closes at the fixed stop-loss
   or the fixed 2:1 take-profit, whichever is hit first.
 - **Once the position reaches +1R:** the stop moves up to a guaranteed
-  profit floor — locking in 0.3R (30% of the trade's own risk) as real,
-  banked profit, or enough to cover round-trip fees/slippage if 0.3R would
-  be smaller than that — and then trails below the rising 20-period 4h SMA
-  once that climbs higher than the floor. This *supersedes* the fixed 2:1
-  take-profit (it stops being checked), so a strong trend isn't capped at
-  the original target. The stop only ever moves up from here, never back
-  down, so once this phase is reached the trade is guaranteed to close at
-  a real profit, not just breakeven — it either keeps running or
-  eventually gets closed by the trailing stop on a real reversal, at or
-  above whatever profit level it had already locked in.
+  profit floor — locking in 30% of the *peak* gain reached so far (not
+  just the gain at the moment +1R first triggered) as real, banked profit,
+  or enough to cover round-trip fees/slippage if that would be smaller —
+  and then trails below the rising 20-period 4h SMA once that climbs
+  higher than the floor. Because the floor is based on the peak price
+  reached, not a fixed amount, it keeps ratcheting up as a rally extends
+  further — a trade that runs to +3R and then reverses locks in more
+  guaranteed profit than one that barely cleared +1R before turning down.
+  This *supersedes* the fixed 2:1 take-profit (it stops being checked), so
+  a strong trend isn't capped at the original target. The stop only ever
+  moves up from here, never back down, so once this phase is reached the
+  trade is guaranteed to close at a real profit, not just breakeven — it
+  either keeps running or eventually gets closed by the trailing stop on a
+  real reversal, at or above whatever profit level it had already locked
+  in.
 
 If this repo has a scheduled/recurring trigger configured to run
 monitoring cycles unattended, that trigger should call this same tool;
