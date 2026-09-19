@@ -30272,3 +30272,143 @@ this is a schema backfill, not a trade action.
 ```
 
 ---
+### 2026-09-19T04:12:40.525Z — BTC/USD — LONG — OPENED
+
+- Entry price: $81228.09
+- Stop-loss: $77300.00
+- Take-profit: $89084.28 (2:1 risk/reward, fixed at entry)
+- Position size: 3% of portfolio ($300.94, qty 0.00369005)
+- Entry fee (paper): $1.20
+- Confidence: medium — Not momentum-only - a genuine bullish 20/50 SMA crossover just confirmed this candle (fast_above_slow, crossed_this_candle=true), independently corroborated by news of a technical channel breakout testing $82K resistance (similar to a prior setup that preceded a 24% gain). Capped at medium rather than high because RSI is significantly overbought (76.3, elevated chase risk after a large run) and there's no volume spike (1.80x, below the 2x flag) - the crossover itself may be a lagging confirmation of an already-extended move rather than a fresh signal, so staying conservative on confidence despite the genuine crossover.
+- Momentum-only trigger: no
+- Invalidation (what proves this wrong): A break back below the rising 20-period 4h SMA (~$77,338, set as the stop) invalidates the thesis - would mean the crossover/channel breakout has failed and price is falling back into the prior range.
+- Signals supporting this trade:
+```json
+{
+  "rsi_14_4h": 76.3,
+  "sma_crossover_4h": "fast_above_slow, bullish cross this candle",
+  "volume_ratio": 1.8,
+  "volume_flag_above_2x": false,
+  "momentum_trigger_flagged": true,
+  "price_action_1h_48h_pct": 6.07,
+  "price_action_4h_48h_pct": 6.18,
+  "order_book_imbalance_top10": 0.05,
+  "news_context": "Dated coverage (today) explicitly describes a technical channel breakout - BTC broke out of a descending-channel formation similar to an earlier setup that preceded a 24% gain, now testing $82K resistance - corroborating our own fresh bullish SMA crossover this candle."
+}
+```
+- Position id: a040a78d-7a2f-499c-9ee5-5800a67d8851
+
+---
+### 2026-09-19T04:12:48.132Z — ETH/USD — NO TRADE
+
+**Reasoning:** Momentum still flagged (7.34%/7.24%), RSI 70.72 (barely overbought) - no crossover (fast_below_slow), no volume spike (1.52x). News still the same recycled macro/regulatory narrative - nothing new ETH-specific. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 70.72,
+  "sma_crossover_4h": "fast_below_slow, not crossed",
+  "volume_ratio": 1.52,
+  "momentum_trigger_flagged": true,
+  "pct_change_1h_48h": 7.34,
+  "pct_change_4h_48h": 7.24,
+  "news_context": "Same recycled macro/regulatory narrative - no new ETH-specific catalyst."
+}
+```
+
+---
+### 2026-09-19T04:12:51.055Z — SOL/USD — NO TRADE
+
+**Reasoning:** Pair already has an open position (trailing active, still holding, deep in profit) - code enforces one open position per pair, so no new entry. Signals remain strong (volume spike, bullish crossover holding, momentum flagged) - informational only.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 77.62,
+  "sma_crossover_4h": "fast_above_slow, bullish",
+  "volume_ratio": 2.05,
+  "momentum_trigger_flagged": true,
+  "pct_change_1h_48h": 13.39,
+  "pct_change_4h_48h": 13.29,
+  "news_context": "Pair already has an open position (trailing active), so no-trade.",
+  "reason_blocked": "existing_open_position"
+}
+```
+
+---
+### 2026-09-19T04:12:53.122Z — XRP/USD — NO TRADE
+
+**Reasoning:** Pair already has an open position (opened via momentum-only exception, holding, green) - code enforces one open position per pair, so no new entry. Momentum_trigger still flagged (9.10%/8.96%), RSI 65.23, informational only.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 65.23,
+  "sma_crossover_4h": "fast_below_slow, not crossed",
+  "volume_ratio": 1.6,
+  "momentum_trigger_flagged": true,
+  "pct_change_1h_48h": 9.1,
+  "pct_change_4h_48h": 8.96,
+  "news_context": "Pair already has an open position, so no-trade.",
+  "reason_blocked": "existing_open_position"
+}
+```
+
+---
+### 2026-09-19T04:12:55.535Z — ADA/USD — NO TRADE
+
+**Reasoning:** Pair already has an open position (trailing active, still holding, deep in profit) - code enforces one open position per pair, so no new entry. Momentum_trigger still flagged (17.55%/16.27%), RSI 77.86 (deeply overbought), informational only.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 77.86,
+  "sma_crossover_4h": "fast_below_slow, not crossed",
+  "volume_ratio": 1.76,
+  "momentum_trigger_flagged": true,
+  "pct_change_1h_48h": 17.55,
+  "pct_change_4h_48h": 16.27,
+  "news_context": "Pair already has an open position (trailing active), so no-trade.",
+  "reason_blocked": "existing_open_position"
+}
+```
+
+---
+### 2026-09-19T04:12:57.784Z — LINK/USD — NO TRADE
+
+**Reasoning:** Pair already has an open position (opened via momentum-only exception, still holding, deep in profit) - code enforces one open position per pair, so no new entry. Volume spike still active (2.09x), momentum still flagged - informational only.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 71.82,
+  "sma_crossover_4h": "fast_below_slow, not crossed",
+  "volume_ratio": 2.09,
+  "momentum_trigger_flagged": true,
+  "pct_change_1h_48h": 11.28,
+  "pct_change_4h_48h": 10.96,
+  "news_context": "Pair already has an open position, so no-trade.",
+  "reason_blocked": "existing_open_position"
+}
+```
+
+---
+### 2026-09-19T04:12:59.937Z — DOGE/USD — NO TRADE
+
+**Reasoning:** Pair already has an open position (opened via volume-confirmed exception, holding, green) - code enforces one open position per pair, so no new entry. Volume spike still active (3.21x), momentum still flagged - informational only.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 72.25,
+  "sma_crossover_4h": "fast_below_slow, not crossed",
+  "volume_ratio": 3.21,
+  "momentum_trigger_flagged": true,
+  "pct_change_1h_48h": 8.64,
+  "pct_change_4h_48h": 8.51,
+  "news_context": "Pair already has an open position, so no-trade.",
+  "reason_blocked": "existing_open_position"
+}
+```
+
+---

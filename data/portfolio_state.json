@@ -1,6 +1,6 @@
 {
   "starting_balance": 10000,
-  "cash": 8471.690906017218,
+  "cash": 8170.7512567926515,
   "open_positions": [
     {
       "id": "2c7048a0-82ee-4747-8ab6-33d9874f8c3e",
@@ -156,6 +156,37 @@
       "confidence_reason": "Genuine volume spike confirms this trade (3.21x prior-7d average, cleared the 2x flag threshold) alongside the momentum_trigger (1h/48h +8.45%, past the 6% threshold) - not momentum-only, since the volume spike is an independent quantitative confirming signal per the rules. Capped at medium rather than high because RSI is only barely overbought (70.56) and there's still no SMA crossover in our own 20/50 4h data (fast_below_slow) despite news citing a \"golden cross\" - some mixed signal quality, plus DOGE has a poor track record this session on weaker setups, so staying conservative on confidence despite the stronger-than-usual confirmation this cycle.",
       "momentum_only": false,
       "status": "open"
+    },
+    {
+      "id": "a040a78d-7a2f-499c-9ee5-5800a67d8851",
+      "pair": "BTC/USD",
+      "direction": "long",
+      "entry_price": 81228.09375,
+      "stop_loss": 77300,
+      "initial_stop_loss": 77300,
+      "take_profit": 89084.28125,
+      "trailing_active": false,
+      "size_pct": 3,
+      "size_usd": 300.93964922456695,
+      "quantity": 0.0036900520102094445,
+      "entry_fee": 1.2037585968982678,
+      "opened_at": "2026-09-19T04:12:40.525Z",
+      "signals_at_entry": {
+        "rsi_14_4h": 76.3,
+        "sma_crossover_4h": "fast_above_slow, bullish cross this candle",
+        "volume_ratio": 1.8,
+        "volume_flag_above_2x": false,
+        "momentum_trigger_flagged": true,
+        "price_action_1h_48h_pct": 6.07,
+        "price_action_4h_48h_pct": 6.18,
+        "order_book_imbalance_top10": 0.05,
+        "news_context": "Dated coverage (today) explicitly describes a technical channel breakout - BTC broke out of a descending-channel formation similar to an earlier setup that preceded a 24% gain, now testing $82K resistance - corroborating our own fresh bullish SMA crossover this candle."
+      },
+      "invalidation": "A break back below the rising 20-period 4h SMA (~$77,338, set as the stop) invalidates the thesis - would mean the crossover/channel breakout has failed and price is falling back into the prior range.",
+      "confidence": "medium",
+      "confidence_reason": "Not momentum-only - a genuine bullish 20/50 SMA crossover just confirmed this candle (fast_above_slow, crossed_this_candle=true), independently corroborated by news of a technical channel breakout testing $82K resistance (similar to a prior setup that preceded a 24% gain). Capped at medium rather than high because RSI is significantly overbought (76.3, elevated chase risk after a large run) and there's no volume spike (1.80x, below the 2x flag) - the crossover itself may be a lagging confirmation of an already-extended move rather than a fresh signal, so staying conservative on confidence despite the genuine crossover.",
+      "momentum_only": false,
+      "status": "open"
     }
   ],
   "closed_positions": [
@@ -308,5 +339,5 @@
     }
   ],
   "created_at": "2026-09-06T14:02:11.057Z",
-  "updated_at": "2026-09-19T02:11:34.985Z"
+  "updated_at": "2026-09-19T04:12:40.526Z"
 }
