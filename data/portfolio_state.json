@@ -1,6 +1,6 @@
 {
   "starting_balance": 10000,
-  "cash": 8772.119598684461,
+  "cash": 8471.690906017218,
   "open_positions": [
     {
       "id": "2c7048a0-82ee-4747-8ab6-33d9874f8c3e",
@@ -124,6 +124,37 @@
       "confidence": "medium",
       "confidence_reason": "Momentum-only setup capped at medium per the rules - no confirming crossover, RSI extreme (61.94, neutral), or volume spike (0.83x, below average). Confidence rests on the momentum_trigger (1h/48h +6.60%, just past the 6% threshold) plus a fresh, dated (today, Sept 18) XRP-specific catalyst: Ripple added XRPL support for Stripe-Tempo's AI payment protocol enabling agent payments in XRP/RLUSD/tokens, with the article's own cited +6% move matching our live reading closely. Unlike the stale/contradictory liquidation-cascade article that repeated across the last four cycles, this is a fresh, consistent, specific result.",
       "momentum_only": true,
+      "status": "open"
+    },
+    {
+      "id": "6cf25cad-fffa-4ec8-b628-c0c21ef1c4dd",
+      "pair": "DOGE/USD",
+      "direction": "long",
+      "entry_price": 0.08764810214999999,
+      "stop_loss": 0.0822,
+      "initial_stop_loss": 0.0822,
+      "take_profit": 0.09854430644999998,
+      "trailing_active": false,
+      "size_pct": 3,
+      "size_usd": 300.42869266724387,
+      "quantity": 3413.9584378504987,
+      "entry_fee": 1.2017147706689755,
+      "opened_at": "2026-09-19T00:13:03.836Z",
+      "signals_at_entry": {
+        "rsi_14_4h": 70.56,
+        "sma_crossover_4h": "fast_below_slow, no cross this candle - not a crossover signal",
+        "volume_ratio": 3.21,
+        "volume_flag_above_2x": true,
+        "momentum_trigger_flagged": true,
+        "price_action_1h_48h_pct": 8.45,
+        "price_action_4h_48h_pct": 7.78,
+        "order_book_imbalance_top10": 0.11,
+        "news_context": "Dated coverage (today) explicitly attributes the move to technical factors - a golden cross, support-zone hold, and a $1.4B spot volume surge (described as 'nearly double the 30-day average') producing a derivatives short squeeze - magnitude (+8.2% cited) closely matches our own +8.45% reading. Article explicitly notes no single news event explains the move; it's a volume-confirmed technical breakout, which is exactly what our own signals independently show (genuine 3.21x volume spike, not just momentum)."
+      },
+      "invalidation": "A break back below the rising 20-period 4h SMA (~$0.0823, set as the stop) invalidates the thesis - would mean the breakout has failed and the volume surge wasn't sustained buying.",
+      "confidence": "medium",
+      "confidence_reason": "Genuine volume spike confirms this trade (3.21x prior-7d average, cleared the 2x flag threshold) alongside the momentum_trigger (1h/48h +8.45%, past the 6% threshold) - not momentum-only, since the volume spike is an independent quantitative confirming signal per the rules. Capped at medium rather than high because RSI is only barely overbought (70.56) and there's still no SMA crossover in our own 20/50 4h data (fast_below_slow) despite news citing a \"golden cross\" - some mixed signal quality, plus DOGE has a poor track record this session on weaker setups, so staying conservative on confidence despite the stronger-than-usual confirmation this cycle.",
+      "momentum_only": false,
       "status": "open"
     }
   ],
@@ -269,8 +300,13 @@
       "date": "2026-09-18",
       "realized_pnl_usd": 0,
       "halted": false
+    },
+    {
+      "date": "2026-09-19",
+      "realized_pnl_usd": 0,
+      "halted": false
     }
   ],
   "created_at": "2026-09-06T14:02:11.057Z",
-  "updated_at": "2026-09-18T19:12:47.722Z"
+  "updated_at": "2026-09-19T00:13:03.836Z"
 }
