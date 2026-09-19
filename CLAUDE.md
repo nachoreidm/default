@@ -250,6 +250,31 @@ decision isn't lost between sessions:
   track win rate/expectancy split by signal type (crossover vs.
   momentum-only vs. RSI) as trades accumulate, per the instructions doc's
   existing Review loop section, and revisit this note then.
+- **Consider a risk-based exposure cap alongside (or instead of) the
+  current notional one.** Raised 2026-09-19, after the user questioned why
+  `total_exposure_pct` climbs on a rally even though no new money is being
+  committed and every position has a stop. Verified live at the time: 7
+  open positions, $2,100 notional (21% of the $10,027 portfolio), but the
+  actual $ outcome if all 7 hit their *current* stop simultaneously was
+  only -$71.91 (-0.72% of portfolio) - two of them (ADA, SOL, already past
+  +1R) would have closed at a **guaranteed profit**, not a loss. The
+  25%-of-notional cap (`MAX_TOTAL_EXPOSURE_PCT` in `types.ts`) is real and
+  intentional as a tail-risk hedge (bounds how much of the account could
+  be caught in one correlated crash with real slippage, independent of
+  individual stop distances - see the reasoning already on file for why
+  it doesn't scale with pair count), but it's a cruder measure than actual
+  risk: a $300 position with a tight 2% stop and a $300 position with a
+  loose 7% stop count identically toward the 25% notional cap despite
+  being very different bets. A risk-based variant would instead cap the
+  sum of $-at-risk-given-current-stops (which also improves automatically
+  once a position crosses +1R and can no longer lose, unlike notional
+  exposure which doesn't know or care about that). Not acted on yet -
+  the notional cap has never actually bound trading decisions in a way
+  that looked wrong, this is a theoretical refinement flagged for the live
+  version. Revisit once there's more data on how often notional and
+  risk-based exposure meaningfully diverge in practice (right now: a lot -
+  21% notional vs. 0.72% real downside - but that's one snapshot, not a
+  trend).
 
 ## Network access
 
