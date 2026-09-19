@@ -32683,3 +32683,118 @@ next cycle without any manual edit needed here.
 ```
 
 ---
+### 2026-09-19T21:12:33.969Z — BTC/USD — NO TRADE
+
+**Reasoning:** Already have an open long position on BTC/USD (one per pair enforced by code). Momentum_trigger flagged (+6.27%/+6.53%), RSI 74.3 (overbought), fast SMA above slow, volume ratio 1.80x. News: BTC parked near $81,248 on the daily pivot, bullish structure intact but short-term momentum flashing caution, ETF inflows continue - bullish but showing consolidation.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 74.32,
+  "momentum_trigger_flagged": true,
+  "sma_crossover_4h": "fast_above_slow, not crossed this candle",
+  "volume_ratio": 1.8,
+  "news_context": "BTC parked near $81,248 on the daily pivot; bullish structure intact but short-term momentum flashing caution; ETF inflows continue - bullish, consolidating"
+}
+```
+
+---
+### 2026-09-19T21:12:36.656Z — ETH/USD — NO TRADE
+
+**Reasoning:** Already have an open long position on ETH/USD (one per pair enforced by code). RSI 71.1 (overbought), momentum_trigger flagged (+7.74%/+7.71%), fast SMA above slow. News: ETH reached $2,616 Friday evening on a short squeeze that liquidated $85M in ETH shorts (part of $470M total crypto shorts), SEC roundtable weighed ETH vs SOL for on-chain stock trading - bullish, consistent with existing position.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 71.06,
+  "momentum_trigger_flagged": true,
+  "sma_crossover_4h": "fast_above_slow, not crossed this candle",
+  "volume_ratio": 1.52,
+  "news_context": "ETH reached $2,616 on a short squeeze that liquidated $85M in ETH shorts (part of $470M total crypto shorts); SEC roundtable weighed ETH vs SOL for on-chain stock trading - bullish"
+}
+```
+
+---
+### 2026-09-19T21:12:39.814Z — SOL/USD — NO TRADE
+
+**Reasoning:** Already have an open long position on SOL/USD (one per pair enforced by code). Momentum_trigger flagged (+9.88%/+9.49%), RSI 67.9 (elevated but not overbought), fast SMA above slow, volume ratio 2.05x (flagged). News: SOL up 12.18% at $112.50, SIMD-0525 mainnet activation (250ms slot time) successful, spot SOL fund AUM over $1.4B - strongly bullish, consistent with existing trailing-active position.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 67.93,
+  "momentum_trigger_flagged": true,
+  "sma_crossover_4h": "fast_above_slow, not crossed this candle",
+  "volume_ratio": 2.05,
+  "volume_flag_above_2x": true,
+  "news_context": "SOL up 12.18% at $112.50; SIMD-0525 mainnet activation (250ms slot time) successful; spot SOL fund AUM over $1.4B - strongly bullish"
+}
+```
+
+---
+### 2026-09-19T21:12:42.666Z — XRP/USD — NO TRADE
+
+**Reasoning:** Already have an open long position on XRP/USD (one per pair enforced by code). Momentum_trigger flagged (+10.63%/+10.12%), RSI 64.8 (not overbought), fast SMA below slow, volume ratio 1.60x. News: imminent XRP Ledger upgrade and Ethereum's potential adoption of Ripple's RLUSD stablecoin for gas fees viewed as bullish fundamentals, whale inflows to Binance continue - net constructive, consistent with existing position.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 64.75,
+  "momentum_trigger_flagged": true,
+  "sma_crossover_4h": "fast_below_slow, not crossed this candle",
+  "volume_ratio": 1.6,
+  "news_context": "Imminent XRP Ledger upgrade and Ethereum's potential adoption of Ripple's RLUSD stablecoin for gas fees viewed as bullish fundamentals; whale inflows to Binance continue - net constructive"
+}
+```
+
+---
+### 2026-09-19T21:12:45.276Z — ADA/USD — NO TRADE
+
+**Reasoning:** Already have an open long position on ADA/USD (one per pair enforced by code). Momentum_trigger flagged (+14.15%/+13.67%), RSI 69.0 (not overbought), fast SMA above slow, volume ratio 1.76x. News: Midnight (Cardano sidechain) smart contracts nearing mainnet deployment per developer Sebastien Guillemot, NIGHT token up 5.18% - adjacent ecosystem news, mildly bullish for ADA sentiment, consistent with existing trailing-active position.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 68.99,
+  "momentum_trigger_flagged": true,
+  "sma_crossover_4h": "fast_above_slow, not crossed this candle",
+  "volume_ratio": 1.76,
+  "news_context": "Midnight (Cardano sidechain) smart contracts nearing mainnet deployment; NIGHT token up 5.18% - adjacent ecosystem news, mildly bullish for ADA sentiment"
+}
+```
+
+---
+### 2026-09-19T21:12:48.372Z — LINK/USD — NO TRADE
+
+**Reasoning:** Already have an open long position on LINK/USD (one per pair enforced by code, trailing_active since crossing +1R). Momentum_trigger flagged (+10.28%/+9.79%), RSI 69.5 (elevated but not overbought), fast SMA above slow, volume ratio 2.09x (flagged). News: Charles Schwab confirmed it will add LINK (alongside SOL/AVAX) to its crypto platform, Wyoming Stable Token Commission adopted Chainlink's proof-of-reserve tech - bullish, no material change.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 69.52,
+  "momentum_trigger_flagged": true,
+  "sma_crossover_4h": "fast_above_slow, not crossed this candle",
+  "volume_ratio": 2.09,
+  "volume_flag_above_2x": true,
+  "news_context": "Charles Schwab confirmed it will add LINK (alongside SOL/AVAX) to its crypto platform; Wyoming Stable Token Commission adopted Chainlink's proof-of-reserve tech - bullish"
+}
+```
+
+---
+### 2026-09-19T21:12:50.404Z — DOGE/USD — NO TRADE
+
+**Reasoning:** Already have an open long position on DOGE/USD (one per pair enforced by code). Momentum_trigger flagged (+9.34%/+9.22%), RSI 71.1 (overbought), fast SMA above slow, volume ratio 3.21x (flagged). News: continued recovery from the Sept 15 CLARITY Act selloff with whale accumulation of 240M DOGE, no new pair-specific catalyst beyond what's already reflected in the position.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 71.06,
+  "momentum_trigger_flagged": true,
+  "sma_crossover_4h": "fast_above_slow, not crossed this candle",
+  "volume_ratio": 3.21,
+  "volume_flag_above_2x": true,
+  "news_context": "Continued recovery from the Sept 15 CLARITY Act selloff with whale accumulation of 240M DOGE - no new pair-specific catalyst"
+}
+```
+
+---
