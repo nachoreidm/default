@@ -139,13 +139,33 @@ the remaining two ("No opportunity-cost / position-swap logic" and
   closes that cycle), then decide closes against that saved state. Once
   `trailing_active` is true, the fixed take-profit is **superseded** - no
   longer checked - and the position is governed purely by `stop_loss`,
-  which floors at breakeven (`entry_price`) and trails below the rising
-  20-period 4h SMA (`BREAKEVEN_TRAIL_SMA_PERIOD` in `types.ts`), never
-  moving back down. The pure math (`hasReachedOneR`, `effectiveTrailingStop`
-  in `portfolio.ts`) is exported and unit-tested in `selftest.ts` rather
-  than only exercised live, since it can't be validated against production
+  which trails below the rising 20-period 4h SMA (`TRAIL_SMA_PERIOD` in
+  `types.ts`) once that climbs high enough, never moving back down. The
+  pure math (`hasReachedOneR`, `effectiveTrailingStop` in `portfolio.ts`)
+  is exported and unit-tested in `selftest.ts` rather than only exercised
+  live, since it can't be validated against production
   `data/portfolio_state.json` without polluting real trade history with
   test entries.
+  - **Revised 2026-09-19: floor is a guaranteed +0.3R profit lock, not bare
+    breakeven.** User caught a real gap in the original design: a position
+    that spiked to +1R and immediately reversed would close at bare
+    breakeven price, which - after real round-trip fees/slippage
+    (`ROUND_TRIP_COST_PCT`, ~0.9%) - is actually a small guaranteed LOSS,
+    not a scratch, defeating the point of having reached +1R at all.
+    Fixed by adding `TRAILING_LOCK_R_MULTIPLE = 0.3`: the floor is now
+    `entry + max(0.3 * R, entry * ROUND_TRIP_COST_PCT)`, guaranteeing a
+    real net profit on any reversal from the moment +1R triggers, while
+    still leaving 0.7R of room (the gap between the +1R trigger and the
+    +0.3R floor) for an ordinary post-breakout pullback before the trade
+    actually closes. The fee-cost term is defensive only - 0.3R alone has
+    comfortably cleared it on every trade seen so far (observed stop
+    distances of 4.8-7% put 0.3R at roughly 1.5-2.1% of entry, vs. the
+    ~0.9% fee floor) - but keeps the guarantee real even for a
+    hypothetical future trade with an unusually tight R. The SMA-based
+    trailing above that floor is unchanged. Zero trades had reached +1R
+    with a subsequent reversal at the time of this change, so this was a
+    correctness fix applied proactively, not a response to an observed bad
+    outcome.
 
 This required a full session cutover per "The hourly routine" section
 above (both `mcp-server/src/` and `instructions/kraken-agent-instructions.md`

@@ -52,10 +52,16 @@ async function main() {
   assert(hasReachedOneR(100, 90, 150) === true, "hasReachedOneR true well past entry+1R (100/90/150)");
   assert(hasReachedOneR(100, 100, 200) === false, "hasReachedOneR false for zero risk (entry == initial stop)");
 
-  assert(effectiveTrailingStop(100, 90, null) === 100, "effectiveTrailingStop floors at breakeven with no SMA data (got not 100)");
-  assert(effectiveTrailingStop(100, 90, 95) === 100, "effectiveTrailingStop floors at breakeven when SMA is still below entry (95 < 100)");
-  assert(effectiveTrailingStop(100, 90, 105) === 105, "effectiveTrailingStop trails up to a rising SMA above entry (105 > 100)");
-  assert(effectiveTrailingStop(100, 108, 105) === 108, "effectiveTrailingStop never moves the stop down (108 already above candidate 105)");
+  // effectiveTrailingStop(entryPrice, risk, currentStopLoss, sma20).
+  // entry=100, risk=10 (initial stop 90) -> 0.3R lock = 103, fee-floor
+  // (ROUND_TRIP_COST_PCT=0.9%) = 100.9 -> R-lock (103) wins, is the floor.
+  assert(effectiveTrailingStop(100, 10, 90, null) === 103, "effectiveTrailingStop floors at the +0.3R profit lock with no SMA data (got not 103)");
+  assert(effectiveTrailingStop(100, 10, 90, 101) === 103, "effectiveTrailingStop floors at the +0.3R lock when SMA is still below it (101 < 103)");
+  assert(effectiveTrailingStop(100, 10, 90, 110) === 110, "effectiveTrailingStop trails up to a rising SMA above the lock floor (110 > 103)");
+  assert(effectiveTrailingStop(100, 10, 108, 105) === 108, "effectiveTrailingStop never moves the stop down (108 already above candidate 103/105)");
+  // entry=100, risk=1 (a very tight stop) -> 0.3R lock = 100.3, fee-floor
+  // = 100.9 -> fee-floor wins here, proving the max() defensive term works.
+  assert(effectiveTrailingStop(100, 1, 95, null) === 100.9, "effectiveTrailingStop falls back to the fee/slippage floor when 0.3R is too small (got not 100.9)");
 
   // --- Live Kraken API smoke test (public endpoints, no auth) ---
   const ticker = await fetchTicker("BTC/USD");

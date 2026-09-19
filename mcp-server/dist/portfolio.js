@@ -4,7 +4,7 @@ import { fileURLToPath } from "node:url";
 import { randomUUID } from "node:crypto";
 import { fetchTicker, fetchOHLC, closedCandles } from "./kraken.js";
 import { sma } from "./indicators.js";
-import { ALLOWED_PAIRS, RISK_LIMITS, CONFIDENCE_MAX_SIZE_PCT, TAKER_FEE_PCT, SLIPPAGE_PCT, TAKE_PROFIT_RR_MULTIPLE, MOMENTUM_ONLY_MAX_CONFIDENCE, BREAKEVEN_TRAIL_SMA_PERIOD, isAllowedPair, } from "./types.js";
+import { ALLOWED_PAIRS, RISK_LIMITS, CONFIDENCE_MAX_SIZE_PCT, TAKER_FEE_PCT, SLIPPAGE_PCT, TAKE_PROFIT_RR_MULTIPLE, MOMENTUM_ONLY_MAX_CONFIDENCE, TRAIL_SMA_PERIOD, TRAILING_LOCK_R_MULTIPLE, ROUND_TRIP_COST_PCT, isAllowedPair, } from "./types.js";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.resolve(__dirname, "..", "..");
 const STATE_PATH = path.join(REPO_ROOT, "data", "portfolio_state.json");
@@ -231,29 +231,34 @@ export function hasReachedOneR(entryPrice, initialStopLoss, currentPrice) {
     return risk > 0 && currentPrice >= entryPrice + risk;
 }
 // Pure math, exported for unit testing: the effective stop once trailing is
-// active. Floor is breakeven (entryPrice); trails higher if sma20 has risen
-// above that. Never returns a value below currentStopLoss - the trail only
-// ever moves up.
-export function effectiveTrailingStop(entryPrice, currentStopLoss, sma20) {
-    const candidate = sma20 !== null && sma20 > entryPrice ? sma20 : entryPrice;
+// active. Floor guarantees TRAILING_LOCK_R_MULTIPLE of the trade's own risk
+// (R) as locked-in profit - or enough to clear real round-trip transaction
+// costs (ROUND_TRIP_COST_PCT), whichever is larger - rather than bare
+// breakeven; trails higher still if sma20 has risen above that floor.
+// Never returns a value below currentStopLoss - the trail only ever moves
+// up, regardless of which term (R-lock, fee-floor, or SMA) is driving it.
+export function effectiveTrailingStop(entryPrice, risk, currentStopLoss, sma20) {
+    const profitFloor = entryPrice + Math.max(TRAILING_LOCK_R_MULTIPLE * risk, entryPrice * (ROUND_TRIP_COST_PCT / 100));
+    const candidate = sma20 !== null && sma20 > profitFloor ? sma20 : profitFloor;
     return Math.max(candidate, currentStopLoss);
 }
-// Fetches the current BREAKEVEN_TRAIL_SMA_PERIOD 4h SMA for a position's
-// pair and combines it with effectiveTrailingStop above. Falls back to the
-// breakeven floor alone if 4h candles can't be fetched this cycle.
+// Fetches the current TRAIL_SMA_PERIOD 4h SMA for a position's pair and
+// combines it with effectiveTrailingStop above. Falls back to the
+// guaranteed-profit floor alone if 4h candles can't be fetched this cycle.
 async function trailingStopCandidate(pos) {
     let sma20 = null;
     try {
         const candles4h = closedCandles(await fetchOHLC(pos.pair, "4h"));
         const closes = candles4h.map((c) => c.close);
-        const smaSeries = sma(closes, BREAKEVEN_TRAIL_SMA_PERIOD);
+        const smaSeries = sma(closes, TRAIL_SMA_PERIOD);
         if (smaSeries.length > 0)
             sma20 = smaSeries[smaSeries.length - 1];
     }
     catch {
-        // 4h candles unavailable this cycle - trail on the breakeven floor only.
+        // 4h candles unavailable this cycle - trail on the guaranteed-profit floor alone.
     }
-    return effectiveTrailingStop(pos.entry_price, pos.stop_loss, sma20);
+    const risk = pos.entry_price - pos.initial_stop_loss;
+    return effectiveTrailingStop(pos.entry_price, risk, pos.stop_loss, sma20);
 }
 // Meant to be called on a schedule (or on demand) to auto-close any open
 // position whose stop-loss or take-profit has been breached, independent
@@ -270,9 +275,12 @@ async function trailingStopCandidate(pos) {
 //   - Once price has reached entry + 1R (trailing_active flips true,
 //     permanently, the first time this happens): the fixed take-profit is
 //     superseded - it stops being checked - and the trade is governed
-//     purely by the trailing stop_loss (breakeven floor, then below the
-//     rising 4h SMA), so a strong trend isn't capped at the original 2:1
-//     target. The stop can only move up from here, never back down.
+//     purely by the trailing stop_loss (floored at a guaranteed
+//     TRAILING_LOCK_R_MULTIPLE profit lock, then below the rising 4h SMA
+//     once that climbs higher), so a strong trend isn't capped at the
+//     original 2:1 target and a post-trigger reversal still closes in
+//     profit rather than at a scratch. The stop can only move up from
+//     here, never back down.
 export async function checkStops() {
     const state = await loadState();
     let stateChanged = false;
@@ -304,7 +312,7 @@ export async function checkStops() {
         }
         else if (ticker.last <= pos.stop_loss) {
             const reason = pos.trailing_active
-                ? `Trailing stop-loss auto-triggered (price ${ticker.last} <= stop ${pos.stop_loss}) - position had reached +1R, so the fixed ${TAKE_PROFIT_RR_MULTIPLE}:1 take-profit was superseded by the breakeven/trailing rule (stop never below entry $${pos.entry_price.toFixed(2)}) before this reversal closed it.`
+                ? `Trailing stop-loss auto-triggered (price ${ticker.last} <= stop ${pos.stop_loss}) - position had reached +1R, so the fixed ${TAKE_PROFIT_RR_MULTIPLE}:1 take-profit was superseded by the guaranteed-profit trailing rule (stop never below a locked-in ${TRAILING_LOCK_R_MULTIPLE}R profit above entry $${pos.entry_price.toFixed(2)}) before this reversal closed it.`
                 : `Stop-loss auto-triggered (price ${ticker.last} <= stop ${pos.stop_loss}).`;
             const result = await closePosition({ position_id: pos.id, reason });
             if (result.ok) {

@@ -54,13 +54,25 @@ export const MOMENTUM_THRESHOLD_PCT = 6;
 export const MOMENTUM_ONLY_MAX_CONFIDENCE = "medium";
 // Exit-logic upgrade layered on top of the fixed 2:1 take-profit (see
 // TAKE_PROFIT_RR_MULTIPLE): once a position reaches +1R (its own
-// entry-to-stop risk, in profit), portfolio_check_stops moves stop_loss to
-// breakeven (entry_price) and from then on trails it below this period's
-// SMA on the 4h chart instead of exiting flat at the fixed target - lets a
-// strong trend run further while a real reversal still cuts the trade,
-// never below breakeven once earned. Same 20-period already used by
-// smaCrossover's fast SMA, reused here rather than adding a new indicator.
-export const BREAKEVEN_TRAIL_SMA_PERIOD = 20;
+// entry-to-stop risk, in profit), portfolio_check_stops moves stop_loss up
+// to a guaranteed-profit floor (see TRAILING_LOCK_R_MULTIPLE below) and
+// from then on trails it below this period's SMA on the 4h chart instead
+// of exiting flat at the fixed target - lets a strong trend run further
+// while a real reversal still cuts the trade, never below the locked-in
+// floor once earned. Same 20-period already used by smaCrossover's fast
+// SMA, reused here rather than adding a new indicator.
+export const TRAIL_SMA_PERIOD = 20;
+// How much of the trade's own risk (R) to lock in as profit the moment it
+// reaches +1R, instead of flooring at bare breakeven. Decided 2026-09-19:
+// breakeven alone means a trade that spikes to +1R and immediately
+// reverses closes at a scratch - or, after real round-trip fees/slippage,
+// a small guaranteed LOSS (see ROUND_TRIP_COST_PCT below), which defeats
+// the point of having reached +1R at all. Locking +0.3R instead guarantees
+// a real profit on any reversal from this point on, while still leaving
+// 0.7R of room (the gap between the +1R trigger and the +0.3R floor) for
+// an ordinary post-breakout pullback before the trade actually closes -
+// not so tight that normal noise stops it out the moment it triggers.
+export const TRAILING_LOCK_R_MULTIPLE = 0.3;
 // Kraken's lowest-volume-tier fee schedule (approximate as of 2025; fees are
 // tier/volume dependent and change over time - update if you care about
 // precise paper-vs-live parity). We model market-style (taker) fills since
@@ -69,3 +81,11 @@ export const TAKER_FEE_PCT = 0.4;
 // Small modeled slippage on top of the quoted ask/bid to approximate market
 // impact and quote staleness. Not derived from real depth data.
 export const SLIPPAGE_PCT = 0.05;
+// Approximate round-trip cost (entry + exit fee, plus entry + exit
+// slippage) as a percentage of entry price - used only as a safety floor
+// under TRAILING_LOCK_R_MULTIPLE so the +1R profit lock is guaranteed to
+// clear real transaction costs even for a hypothetical future trade with
+// an unusually tight R. In every trade seen so far, 0.3R alone (roughly
+// 1.5-2.1% given observed stop distances) has cleared this comfortably on
+// its own - this is defensive, not the normally-binding term.
+export const ROUND_TRIP_COST_PCT = 2 * (TAKER_FEE_PCT + SLIPPAGE_PCT);
