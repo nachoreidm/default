@@ -1,13 +1,13 @@
 {
   "starting_balance": 10000,
-  "cash": 8170.7512567926515,
+  "cash": 7870.043179650382,
   "open_positions": [
     {
       "id": "2c7048a0-82ee-4747-8ab6-33d9874f8c3e",
       "pair": "ADA/USD",
       "direction": "long",
       "entry_price": 0.21454822049999997,
-      "stop_loss": 0.21906268664999995,
+      "stop_loss": 0.22067325435,
       "initial_stop_loss": 0.1995,
       "take_profit": 0.2446446614999999,
       "trailing_active": true,
@@ -39,7 +39,7 @@
       "pair": "SOL/USD",
       "direction": "long",
       "entry_price": 105.53274,
-      "stop_loss": 107.342562,
+      "stop_loss": 108.162918,
       "initial_stop_loss": 99.5,
       "take_profit": 117.59822000000001,
       "trailing_active": true,
@@ -191,6 +191,40 @@
       "invalidation": "A break back below the rising 20-period 4h SMA (~$77,338, set as the stop) invalidates the thesis - would mean the crossover/channel breakout has failed and price is falling back into the prior range.",
       "confidence": "medium",
       "confidence_reason": "Not momentum-only - a genuine bullish 20/50 SMA crossover just confirmed this candle (fast_above_slow, crossed_this_candle=true), independently corroborated by news of a technical channel breakout testing $82K resistance (similar to a prior setup that preceded a 24% gain). Capped at medium rather than high because RSI is significantly overbought (76.3, elevated chase risk after a large run) and there's no volume spike (1.80x, below the 2x flag) - the crossover itself may be a lagging confirmation of an already-extended move rather than a fresh signal, so staying conservative on confidence despite the genuine crossover.",
+      "momentum_only": false,
+      "status": "open"
+    },
+    {
+      "id": "0deba717-eb9c-4bbe-ab40-50e0cd89a9e9",
+      "pair": "ETH/USD",
+      "direction": "long",
+      "entry_price": 2642.38053,
+      "stop_loss": 2478,
+      "initial_stop_loss": 2478,
+      "take_profit": 2971.1415899999997,
+      "trailing_active": false,
+      "peak_price": 2642.38053,
+      "size_pct": 3,
+      "size_usd": 300.7080771422701,
+      "quantity": 0.11334674980885551,
+      "entry_fee": 1.2028323085690804,
+      "opened_at": "2026-09-19T12:55:30.725Z",
+      "signals_at_entry": {
+        "rsi_14_4h": 72.67,
+        "momentum_trigger": {
+          "flagged": true,
+          "pct_change_1h_48h": 7.35,
+          "pct_change_4h_48h": 6.91
+        },
+        "sma_crossover_4h": "fast_below_slow (fast 2494.6, slow 2495.1), not crossed this candle",
+        "volume_ratio": 1.52,
+        "volume_flag_above_2x": false,
+        "order_book_imbalance_top10": 0.639,
+        "news_context": "CLARITY Act cloture vote failed in Senate Sept 15, ETH dropped ~5% on the news; since then ETF inflows hit record weekly highs for a second straight week; SEC roundtable Sept 17 discussed on-chain stock trading with ETH as a leading contender; Glamsterdam hard fork testnet launching Sept 28 - net mixed to mildly positive"
+      },
+      "invalidation": "Price closes back below the 20/50-period 4h SMA cluster (~$2494-2495), or 4h RSI drops back under 60 — would indicate the overbought push has failed and reversion is underway rather than continuation.",
+      "confidence": "medium",
+      "confidence_reason": "Two real confirming signals (RSI 72.67 overbought/extreme, momentum_trigger flagged at +7.35%/+6.91% over 48h) support the long, so this is not momentum-only. But no fresh SMA crossover (still fast_below_slow) and volume ratio only 1.52x (no spike), and price is already extended/overbought at entry - the same entry-timing pattern flagged in the 2026-09-15 loss review (POL/ETH/XRP all entered near an already-extended move and stopped out). News is mixed (CLARITY Act cloture failure -5% on Sept 15, offset by record ETF inflows and bullish SEC on-chain-stocks roundtable), not enough to raise conviction. Capping at medium given the extension risk, consistent with how the prior ETH trade was discretionarily capped for the same reason.",
       "momentum_only": false,
       "status": "open"
     }
@@ -345,5 +379,5 @@
     }
   ],
   "created_at": "2026-09-06T14:02:11.057Z",
-  "updated_at": "2026-09-19T12:29:05.313Z"
+  "updated_at": "2026-09-19T12:55:30.725Z"
 }

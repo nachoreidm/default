@@ -31633,3 +31633,132 @@ next cycle without any manual edit needed here.
 
 ---
 
+### 2026-09-19T12:54:56.787Z — BTC/USD — NO TRADE
+
+**Reasoning:** Already have an open long position on BTC/USD (one per pair enforced by code). No new entry evaluated this cycle beyond the stop check. For the record: momentum_trigger flagged (+6.03%/+5.98% over 48h), RSI 76.7 (overbought), fast SMA above slow (no fresh cross), volume ratio 1.80x (not >2x). News: August ETF-driven rally (+25%), mixed September seasonality, Fed hawkish rate-hike risk (Sept 16 meeting) is a headwind.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 76.72,
+  "momentum_trigger_flagged": true,
+  "sma_crossover_4h": "fast_above_slow, not crossed this candle",
+  "volume_ratio": 1.8,
+  "news_context": "August ETF inflows drove a 25% monthly rally; Fed rate-hike risk (Sept 16 meeting, hawkish Jackson Hole commentary) is a headwind for September; mixed seasonality"
+}
+```
+
+---
+### 2026-09-19T12:55:01.005Z — SOL/USD — NO TRADE
+
+**Reasoning:** Already have an open long position on SOL/USD (one per pair enforced by code). No new entry evaluated this cycle beyond the stop check. For the record: momentum_trigger flagged (+11.1%/+10.6% over 48h), RSI 71.0 (overbought), fast SMA above slow, volume ratio 2.05x (flagged >2x). News: SEC granted Solana a 5-year Innovation Exemption for tokenized securities (Sept 17-18), block time cut to 250ms, strong ETF inflows - broadly bullish backdrop.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 71.04,
+  "momentum_trigger_flagged": true,
+  "sma_crossover_4h": "fast_above_slow, not crossed this candle",
+  "volume_ratio": 2.05,
+  "volume_flag_above_2x": true,
+  "news_context": "SEC Innovation Exemption for tokenized securities (Sept 17-18), 250ms block-time upgrade, record ETF weekly inflows - bullish"
+}
+```
+
+---
+### 2026-09-19T12:55:03.177Z — XRP/USD — NO TRADE
+
+**Reasoning:** Already have an open long position on XRP/USD (one per pair enforced by code). No new entry evaluated this cycle beyond the stop check. For the record: momentum_trigger flagged (+9.96%/+9.76% over 48h), RSI 66.7 (not overbought), fast SMA below slow (no bullish cross), volume ratio 1.60x (not >2x), order book skewed toward asks (imbalance -0.41). News: CLARITY Act cloture vote failed in Senate (Sept 15), large XRP whale transfer to Binance (Sept 18) - mixed/cautious backdrop.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 66.7,
+  "momentum_trigger_flagged": true,
+  "sma_crossover_4h": "fast_below_slow, not crossed this candle",
+  "volume_ratio": 1.6,
+  "order_book_imbalance": -0.41,
+  "news_context": "CLARITY Act cloture vote failed in Senate (Sept 15); ~1.6B XRP moved to Binance (Sept 18) signaling whale activity; mixed/cautious"
+}
+```
+
+---
+### 2026-09-19T12:55:06.187Z — ADA/USD — NO TRADE
+
+**Reasoning:** Already have an open long position on ADA/USD (one per pair enforced by code). No new entry evaluated this cycle beyond the stop check. For the record: momentum_trigger flagged (+13.2%/+12.3% over 48h), RSI 66.9 (not overbought), fast SMA above slow, volume ratio 1.76x (not >2x). News: Cardano Foundation joined Mastercard's Crypto Partner Program (Sept 15), Leios throughput upgrade progressing toward mainnet, a DeFi exploit was patched (Sept 13, ~2.4M ADA still missing) - net mildly positive with one negative item.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 66.87,
+  "momentum_trigger_flagged": true,
+  "sma_crossover_4h": "fast_above_slow, not crossed this candle",
+  "volume_ratio": 1.76,
+  "news_context": "Mastercard Crypto Partner Program (Sept 15), Leios upgrade progress; a DeFi exploit was patched Sept 13 with ~2.4M ADA still missing - mixed, mildly positive"
+}
+```
+
+---
+### 2026-09-19T12:55:10.115Z — LINK/USD — NO TRADE
+
+**Reasoning:** Already have an open long position on LINK/USD (one per pair enforced by code). No new entry evaluated this cycle beyond the stop check. For the record: momentum_trigger flagged (+11.1%/+10.3% over 48h), RSI 71.6 (overbought), fast SMA above slow, volume ratio 2.09x (flagged >2x). News: Bottomline/Chainlink CCIP bank partnership (Sept 4), Arc Mainnet launch with Chainlink oracles (Sept 16) - bullish backdrop.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 71.57,
+  "momentum_trigger_flagged": true,
+  "sma_crossover_4h": "fast_above_slow, not crossed this candle",
+  "volume_ratio": 2.09,
+  "volume_flag_above_2x": true,
+  "news_context": "Bottomline/CCIP bank partnership (Sept 4), Arc Mainnet launch with Chainlink oracles (Sept 16) - bullish"
+}
+```
+
+---
+### 2026-09-19T12:55:12.292Z — DOGE/USD — NO TRADE
+
+**Reasoning:** Already have an open long position on DOGE/USD (one per pair enforced by code). No new entry evaluated this cycle beyond the stop check. For the record: momentum_trigger flagged (+8.88%/+7.94% over 48h), RSI 68.7 (not overbought), fast SMA below slow, volume ratio 3.21x (flagged >2x). News: CLARITY Act failure triggered a broad sell-off (Sept 15) but whale accumulation followed same day; DOGE 1 satellite launch (Sept 14) - mixed.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 68.74,
+  "momentum_trigger_flagged": true,
+  "sma_crossover_4h": "fast_below_slow, not crossed this candle",
+  "volume_ratio": 3.21,
+  "volume_flag_above_2x": true,
+  "news_context": "CLARITY Act failure caused a broad sell-off (Sept 15) followed by whale accumulation same day; DOGE 1 satellite launch (Sept 14) - mixed"
+}
+```
+
+---
+### 2026-09-19T12:55:30.725Z — ETH/USD — LONG — OPENED
+
+- Entry price: $2642.38
+- Stop-loss: $2478.00
+- Take-profit: $2971.14 (2:1 risk/reward, fixed at entry)
+- Position size: 3% of portfolio ($300.71, qty 0.11334675)
+- Entry fee (paper): $1.20
+- Confidence: medium — Two real confirming signals (RSI 72.67 overbought/extreme, momentum_trigger flagged at +7.35%/+6.91% over 48h) support the long, so this is not momentum-only. But no fresh SMA crossover (still fast_below_slow) and volume ratio only 1.52x (no spike), and price is already extended/overbought at entry - the same entry-timing pattern flagged in the 2026-09-15 loss review (POL/ETH/XRP all entered near an already-extended move and stopped out). News is mixed (CLARITY Act cloture failure -5% on Sept 15, offset by record ETF inflows and bullish SEC on-chain-stocks roundtable), not enough to raise conviction. Capping at medium given the extension risk, consistent with how the prior ETH trade was discretionarily capped for the same reason.
+- Momentum-only trigger: no
+- Invalidation (what proves this wrong): Price closes back below the 20/50-period 4h SMA cluster (~$2494-2495), or 4h RSI drops back under 60 — would indicate the overbought push has failed and reversion is underway rather than continuation.
+- Signals supporting this trade:
+```json
+{
+  "rsi_14_4h": 72.67,
+  "momentum_trigger": {
+    "flagged": true,
+    "pct_change_1h_48h": 7.35,
+    "pct_change_4h_48h": 6.91
+  },
+  "sma_crossover_4h": "fast_below_slow (fast 2494.6, slow 2495.1), not crossed this candle",
+  "volume_ratio": 1.52,
+  "volume_flag_above_2x": false,
+  "order_book_imbalance_top10": 0.639,
+  "news_context": "CLARITY Act cloture vote failed in Senate Sept 15, ETH dropped ~5% on the news; since then ETF inflows hit record weekly highs for a second straight week; SEC roundtable Sept 17 discussed on-chain stock trading with ETH as a leading contender; Glamsterdam hard fork testnet launching Sept 28 - net mixed to mildly positive"
+}
+```
+- Position id: 0deba717-eb9c-4bbe-ab40-50e0cd89a9e9
+
+---
