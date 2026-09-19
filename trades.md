@@ -29879,3 +29879,134 @@ this is a schema backfill, not a trade action.
 ```
 
 ---
+### 2026-09-19T01:12:27.501Z — BTC/USD — NO TRADE
+
+**Reasoning:** Same 4h candle - momentum still flagged (7.00%/5.90%), RSI still 75.44 (overbought) - no crossover, no volume spike (1.80x). News found is Saturday's scheduled mining difficulty adjustment (a routine, non-price-driving technical event) plus the same recycled macro narrative - nothing new BTC-specific. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 75.44,
+  "sma_crossover_4h": "fast_below_slow, not crossed",
+  "volume_ratio": 1.8,
+  "momentum_trigger_flagged": true,
+  "pct_change_1h_48h": 7,
+  "pct_change_4h_48h": 5.9,
+  "news_context": "Scheduled mining difficulty adjustment (routine, not price-driving) plus same recycled macro narrative - no genuine new catalyst."
+}
+```
+
+---
+### 2026-09-19T01:12:29.952Z — ETH/USD — NO TRADE
+
+**Reasoning:** Same 4h candle - momentum still flagged (8.26%/7.30%), RSI still 69.97 (just under overbought) - no crossover, no volume spike (1.52x). News found ETHTokyo 2026 (Sept 19-27, a conference/hackathon, not typically a price catalyst) plus the same recycled macro narrative - nothing new genuinely bullish or ETH-specific enough to justify a trade. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 69.97,
+  "sma_crossover_4h": "fast_below_slow, not crossed",
+  "volume_ratio": 1.52,
+  "momentum_trigger_flagged": true,
+  "pct_change_1h_48h": 8.26,
+  "pct_change_4h_48h": 7.3,
+  "news_context": "ETHTokyo 2026 conference (Sept 19-27, not typically price-moving) plus same recycled macro narrative - no genuine new catalyst."
+}
+```
+
+---
+### 2026-09-19T01:12:32.012Z — SOL/USD — NO TRADE
+
+**Reasoning:** Pair already has an open position (trailing active, still holding, deep in profit) - code enforces one open position per pair, so no new entry. Volume spike still active (2.05x), bullish crossover still holding, momentum still flagged - informational only.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 76.94,
+  "sma_crossover_4h": "fast_above_slow, bullish",
+  "volume_ratio": 2.05,
+  "momentum_trigger_flagged": true,
+  "pct_change_1h_48h": 14.56,
+  "pct_change_4h_48h": 12.84,
+  "news_context": "Pair already has an open position (trailing active), so no-trade.",
+  "reason_blocked": "existing_open_position"
+}
+```
+
+---
+### 2026-09-19T01:12:34.180Z — XRP/USD — NO TRADE
+
+**Reasoning:** Pair already has an open position (opened via momentum-only exception, holding, green) - code enforces one open position per pair, so no new entry. Momentum_trigger still flagged (8.35%/7.23%), RSI 61.97, informational only.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 61.97,
+  "sma_crossover_4h": "fast_below_slow, not crossed",
+  "volume_ratio": 1.6,
+  "momentum_trigger_flagged": true,
+  "pct_change_1h_48h": 8.35,
+  "pct_change_4h_48h": 7.23,
+  "news_context": "Pair already has an open position, so no-trade.",
+  "reason_blocked": "existing_open_position"
+}
+```
+
+---
+### 2026-09-19T01:12:36.500Z — ADA/USD — NO TRADE
+
+**Reasoning:** Pair already has an open position (opened via momentum-only exception, still holding, deep in profit) - code enforces one open position per pair, so no new entry. Momentum_trigger still flagged (15.86%/14.49%), RSI 73.73 (overbought), informational only.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 73.73,
+  "sma_crossover_4h": "fast_below_slow, not crossed",
+  "volume_ratio": 1.76,
+  "momentum_trigger_flagged": true,
+  "pct_change_1h_48h": 15.86,
+  "pct_change_4h_48h": 14.49,
+  "news_context": "Pair already has an open position, so no-trade.",
+  "reason_blocked": "existing_open_position"
+}
+```
+
+---
+### 2026-09-19T01:12:38.693Z — LINK/USD — NO TRADE
+
+**Reasoning:** Pair already has an open position (opened via momentum-only exception, still holding, deep in profit) - code enforces one open position per pair, so no new entry. Volume spike still active (2.09x), momentum still flagged - informational only.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 69.06,
+  "sma_crossover_4h": "fast_below_slow, not crossed",
+  "volume_ratio": 2.09,
+  "momentum_trigger_flagged": true,
+  "pct_change_1h_48h": 11.4,
+  "pct_change_4h_48h": 9.85,
+  "news_context": "Pair already has an open position, so no-trade.",
+  "reason_blocked": "existing_open_position"
+}
+```
+
+---
+### 2026-09-19T01:12:40.730Z — DOGE/USD — NO TRADE
+
+**Reasoning:** Pair already has an open position (opened via volume-confirmed exception last cycle, holding, roughly flat) - code enforces one open position per pair, so no new entry. Volume spike still active (3.21x), momentum still flagged - informational only.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 70.56,
+  "sma_crossover_4h": "fast_below_slow, not crossed",
+  "volume_ratio": 3.21,
+  "momentum_trigger_flagged": true,
+  "pct_change_1h_48h": 8.57,
+  "pct_change_4h_48h": 7.78,
+  "news_context": "Pair already has an open position, so no-trade.",
+  "reason_blocked": "existing_open_position"
+}
+```
+
+---
