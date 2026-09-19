@@ -30676,3 +30676,135 @@ this is a schema backfill, not a trade action.
 ```
 
 ---
+### 2026-09-19T07:12:20.508Z — ETH/USD — NO TRADE
+
+**Reasoning:** Momentum still flagged (7.54%/7.24%), RSI still 70.72 (barely overbought) - no crossover, no volume spike (1.52x). News still the same recycled macro/regulatory narrative - nothing new ETH-specific. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 70.72,
+  "sma_crossover_4h": "fast_below_slow, not crossed",
+  "volume_ratio": 1.52,
+  "momentum_trigger_flagged": true,
+  "pct_change_1h_48h": 7.54,
+  "pct_change_4h_48h": 7.24,
+  "news_context": "Same recycled macro/regulatory narrative - no new ETH-specific catalyst."
+}
+```
+
+---
+### 2026-09-19T07:12:23.540Z — BTC/USD — NO TRADE
+
+**Reasoning:** Pair already has an open position (opened via genuine bullish crossover, holding, roughly flat) - code enforces one open position per pair, so no new entry. Crossover still holding, momentum still flagged - informational only.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 76.3,
+  "sma_crossover_4h": "fast_above_slow, bullish",
+  "volume_ratio": 1.8,
+  "momentum_trigger_flagged": true,
+  "pct_change_1h_48h": 6.07,
+  "pct_change_4h_48h": 6.18,
+  "news_context": "Pair already has an open position, so no-trade.",
+  "reason_blocked": "existing_open_position"
+}
+```
+
+---
+### 2026-09-19T07:12:25.720Z — SOL/USD — NO TRADE
+
+**Reasoning:** Pair already has an open position (trailing active, still holding, deep in profit) - code enforces one open position per pair, so no new entry. Signals remain strong - informational only.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 77.62,
+  "sma_crossover_4h": "fast_above_slow, bullish",
+  "volume_ratio": 2.05,
+  "momentum_trigger_flagged": true,
+  "pct_change_1h_48h": 11.87,
+  "pct_change_4h_48h": 13.29,
+  "news_context": "Pair already has an open position (trailing active), so no-trade.",
+  "reason_blocked": "existing_open_position"
+}
+```
+
+---
+### 2026-09-19T07:12:27.838Z — XRP/USD — NO TRADE
+
+**Reasoning:** Pair already has an open position (opened via momentum-only exception, holding, green) - code enforces one open position per pair, so no new entry. Momentum_trigger still flagged (9.22%/8.96%), RSI 65.23, informational only.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 65.23,
+  "sma_crossover_4h": "fast_below_slow, not crossed",
+  "volume_ratio": 1.6,
+  "momentum_trigger_flagged": true,
+  "pct_change_1h_48h": 9.22,
+  "pct_change_4h_48h": 8.96,
+  "news_context": "Pair already has an open position, so no-trade.",
+  "reason_blocked": "existing_open_position"
+}
+```
+
+---
+### 2026-09-19T07:12:30.214Z — ADA/USD — NO TRADE
+
+**Reasoning:** Pair already has an open position (trailing active, still holding, deep in profit) - code enforces one open position per pair, so no new entry. Momentum_trigger still flagged (12.27%/16.27%), RSI 77.86 (deeply overbought), informational only.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 77.86,
+  "sma_crossover_4h": "fast_below_slow, not crossed",
+  "volume_ratio": 1.76,
+  "momentum_trigger_flagged": true,
+  "pct_change_1h_48h": 12.27,
+  "pct_change_4h_48h": 16.27,
+  "news_context": "Pair already has an open position (trailing active), so no-trade.",
+  "reason_blocked": "existing_open_position"
+}
+```
+
+---
+### 2026-09-19T07:12:32.647Z — LINK/USD — NO TRADE
+
+**Reasoning:** Pair already has an open position (opened via momentum-only exception, still holding, deep in profit) - code enforces one open position per pair, so no new entry. Volume spike still active (2.09x), momentum still flagged - informational only.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 71.82,
+  "sma_crossover_4h": "fast_below_slow, not crossed",
+  "volume_ratio": 2.09,
+  "momentum_trigger_flagged": true,
+  "pct_change_1h_48h": 10.4,
+  "pct_change_4h_48h": 10.96,
+  "news_context": "Pair already has an open position, so no-trade.",
+  "reason_blocked": "existing_open_position"
+}
+```
+
+---
+### 2026-09-19T07:12:34.821Z — DOGE/USD — NO TRADE
+
+**Reasoning:** Pair already has an open position (opened via volume-confirmed exception, holding, roughly flat) - code enforces one open position per pair, so no new entry. Volume spike still active (3.21x), momentum still flagged - informational only.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 72.25,
+  "sma_crossover_4h": "fast_below_slow, not crossed",
+  "volume_ratio": 3.21,
+  "momentum_trigger_flagged": true,
+  "pct_change_1h_48h": 7.37,
+  "pct_change_4h_48h": 8.51,
+  "news_context": "Pair already has an open position, so no-trade.",
+  "reason_blocked": "existing_open_position"
+}
+```
+
+---
