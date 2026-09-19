@@ -275,6 +275,28 @@ decision isn't lost between sessions:
   risk-based exposure meaningfully diverge in practice (right now: a lot -
   21% notional vs. 0.72% real downside - but that's one snapshot, not a
   trend).
+- **Surface the guaranteed-profit-lock status on the Notion sync.**
+  Requested 2026-09-19, right after the risk-based-exposure-cap note above
+  - user wants to track locked-in profit somewhere they actually look
+  day-to-day, not just in `data/portfolio_state.json`. Right now
+  `trailing_active`, `stop_loss`, and `peak_price` (see the peak-scaling
+  profit-lock upgrade under "Shipped to paper trading" above) are fully
+  present in the paper-trading state and in `trades.md`'s close-reason
+  text when a trailing stop triggers, but the Notion summary page and
+  Trade Log don't surface any of it while a position is still open - a
+  trade that's already past +1R and guaranteed profitable looks identical
+  in Notion to one still sitting on its original fixed stop. Add either a
+  per-position note/line on the summary page, or a column in the Trade Log
+  showing each open position's currently locked-in profit ($ and/or % of
+  entry) whenever `trailing_active` is true (blank/n/a otherwise - most
+  positions most of the time won't have reached +1R). The data needed
+  (`trailing_active`, `stop_loss`, `entry_price`, `quantity`) is already
+  returned by `portfolio_get_state` per open position; this only needs the
+  hourly routine's Notion sync step (step 5 in the trigger prompt) updated
+  to compute the derived $/% and write it somewhere in Notion. Not
+  implemented - batch this with the risk-based-exposure-cap note above and
+  any other Notion-schema changes when picking this up, so a schema tweak
+  doesn't force its own one-off session cutover.
 
 ## Network access
 
