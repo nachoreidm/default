@@ -297,6 +297,76 @@ decision isn't lost between sessions:
   implemented - batch this with the risk-based-exposure-cap note above and
   any other Notion-schema changes when picking this up, so a schema tweak
   doesn't force its own one-off session cutover.
+- **Use EUR as the live account's base currency, not USD.** Discussed
+  2026-09-20 - user's income is in EUR, so this was weighed as EUR vs.
+  USD-then-convert, not as a neutral choice. Checked live before
+  deciding, not assumed:
+  - **Liquidity**: EUR versions of all 7 current pairs are real and
+    tradeable but consistently thinner than USD - roughly 11-41% of USD's
+    24h volume per pair (DOGE/EUR thinnest at 11%, ADA/EUR least-thin at
+    41%). Judged not to bind in practice at this system's ~$300/trade
+    size (even DOGE/EUR's ~$1.4M/day is ~350x a single trade) - would
+    need re-checking only if position sizes are later scaled up
+    substantially.
+  - **Funding cost**: EUR SEPA deposits are free for verified Kraken
+    users; funding a USD account from a EUR bank requires an
+    international wire (~$40/transfer) - a real, avoidable, recurring
+    cost if funding or withdrawing more than once.
+  - **FX exposure**: holding the account in USD means EUR-denominated net
+    worth moves with the EUR/USD rate on top of actual trading
+    performance, for as long as the account holds USD - noise uncorrelated
+    with strategy skill. Staying in EUR the whole way through (EUR
+    deposit, EUR-quoted pairs, EUR withdrawal) avoids this entirely, and
+    keeps P&L measured in the currency that actually matters for the
+    user's finances.
+  - **No hidden EUR markup**: confirmed Kraken's standard maker/taker fee
+    schedule is identical regardless of quote currency, as long as
+    trading goes through the real order book (Kraken Pro / API - what
+    this system already does) rather than the separate "Instant Buy"
+    convenience feature, which does carry an undisclosed 0.5-2% spread
+    baked into the execution price. A bot placing real orders via the API
+    never touches that path in either currency.
+  - **API support confirmed live**: all 7 pairs' EUR versions show
+    `status: "online"` on Kraken's own `/0/public/AssetPairs` endpoint
+    (the same field that gates order placement), and Kraken's official
+    AddOrder docs use `ETH/EUR` as their own worked example - EUR-quoted
+    trading is fully supported via the same API/pair namespace already
+    used for market data, no separate or restricted access tier.
+  - **Recommendation: EUR**, on balance - the funding-fee and FX-exposure
+    arguments are real and ongoing, while the liquidity gap doesn't
+    actually bind at planned trade sizes. Not implemented (paper trading
+    stays USD-denominated, matching Kraken's public API default used for
+    testing) - this is specifically a live-build decision.
+- **Re-screen the live pair list for EUR liquidity specifically before
+  finalizing it - don't just carry over the USD-based selection.**
+  Follow-up to the EUR-base-currency decision above, 2026-09-20. The
+  current 7-pair lineup (BTC/ETH/SOL/XRP/ADA/LINK/DOGE) was screened
+  entirely on USD volume (see "Shipped to paper trading" above); a fresh
+  live EUR-volume screen of the 7 plus a broader candidate set turned up
+  a real discrepancy:
+  ```
+  BTC $18.5M > XRP $15.5M > ETH $14.9M > SOL $8.3M > AVAX $5.1M >
+  ADA $3.6M > SUI $2.8M > NEAR $2.7M > UNI $2.2M > LINK $2.1M >
+  AAVE $1.5M > DOGE $1.4M (weakest in lineup)
+  ```
+  AVAX (not in the current lineup) has more than 3.6x DOGE's EUR volume
+  and more than double LINK's - it missed the original USD-based bar but
+  would rank 5th in EUR terms, ahead of ADA. SUI, NEAR, and UNI (also not
+  in the lineup) all edge out LINK too. Complication: the original
+  ADA/LINK/DOGE picks weren't pure volume-ranking - they explicitly
+  weighted sector diversity (LINK = oracle/infra, a different category
+  from the L1s already in scope; DOGE = distinct social-sentiment
+  volatility character) over raw volume. AVAX and SUI are both L1
+  smart-contract platforms, the same bucket SOL/ADA already cover, so
+  swapping toward them would trade some of that deliberate diversity for
+  liquidity. Leaning: DOGE is the more clear-cut candidate to reconsider
+  (weakest EUR liquidity in the lineup, and a 3.6x gap against AVAX isn't
+  offset by "distinct volatility character" alone); LINK's case is
+  murkier since its category diversity was a deliberate choice, not just
+  a ranking. Not decided or implemented - this was a live snapshot
+  (2026-09-20), re-verify with fresh EUR volume data before actually
+  finalizing the live pair list, same re-verify-before-acting caveat as
+  every other volume-based pair decision on file.
 
 ## Network access
 
