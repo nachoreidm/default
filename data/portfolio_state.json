@@ -43,7 +43,7 @@
       "initial_stop_loss": 1.313,
       "take_profit": 1.5635837449999996,
       "trailing_active": false,
-      "peak_price": 1.44213,
+      "peak_price": 1.45484,
       "size_pct": 3,
       "size_usd": 300.21656664443157,
       "quantity": 214.11365799863287,
@@ -75,7 +75,7 @@
       "initial_stop_loss": 0.0822,
       "take_profit": 0.09854430644999998,
       "trailing_active": false,
-      "peak_price": 0.0908916,
+      "peak_price": 0.091205,
       "size_pct": 3,
       "size_usd": 300.42869266724387,
       "quantity": 3413.9584378504987,
@@ -107,7 +107,7 @@
       "initial_stop_loss": 77300,
       "take_profit": 89084.28125,
       "trailing_active": false,
-      "peak_price": 81774.5,
+      "peak_price": 81915,
       "size_pct": 3,
       "size_usd": 300.93964922456695,
       "quantity": 0.0036900520102094445,
@@ -139,7 +139,7 @@
       "initial_stop_loss": 2478,
       "take_profit": 2971.1415899999997,
       "trailing_active": false,
-      "peak_price": 2652.76,
+      "peak_price": 2665,
       "size_pct": 3,
       "size_usd": 300.7080771422701,
       "quantity": 0.11334674980885551,
@@ -396,5 +396,5 @@
     }
   ],
   "created_at": "2026-09-06T14:02:11.057Z",
-  "updated_at": "2026-09-20T07:12:13.623Z"
+  "updated_at": "2026-09-20T08:17:32.453Z"
 }

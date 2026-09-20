@@ -34000,3 +34000,136 @@ next cycle without any manual edit needed here.
 ```
 
 ---
+### 2026-09-20T08:18:11.717Z — BTC/USD — NO TRADE
+
+**Reasoning:** Existing open long position (entered 2026-09-19, no crossover confirmation at entry). One position per pair enforced - no new action. Signals remain unremarkable: no fresh SMA crossover (fast_above_slow, not crossed this candle), RSI 60.9 neutral-elevated but under the 70 overbought flag, volume ratio 0.63x (below average), momentum_trigger not flagged (+2.67%/+2.94%, well under the 6% threshold). News: Deutsche Bank plans BTC/digital-asset custody for EU institutions by end of 2026; SEC unveiled a 5-year "Innovation Exemption" for tokenized-equity trading (Sept 17); Fear & Greed at 71 (Greed). No fresh catalyst changing the thesis; current price $80,358 vs. stop-loss on file.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 60.95,
+  "sma_crossover_4h": "fast_above_slow, no cross this candle",
+  "volume_ratio": 0.63,
+  "volume_flag_above_2x": false,
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": 2.67,
+  "pct_change_4h_48h": 2.94,
+  "news_context": "Deutsche Bank BTC custody expansion for EU institutions by end of 2026; SEC 5-year Innovation Exemption for tokenized equities (Sept 17); Fear & Greed Index 71 (Greed). No fresh BTC-specific catalyst."
+}
+```
+
+---
+### 2026-09-20T08:18:15.769Z — ETH/USD — NO TRADE
+
+**Reasoning:** Existing open long position. One position per pair enforced - no new action. Signals unremarkable: no fresh SMA crossover (fast_above_slow, not crossed), RSI 56.1 neutral, volume ratio 0.63x below average, momentum_trigger not flagged (+2.91%/+2.80%, under threshold). News: ETH trading near $2,600-2,630, watching the $2,672 weekly-close pivot that would open the door to $2,950-3,000; ETF inflows returned and open interest at a 4-month high; latest Geth client release implements Amsterdam EIPs. Constructive backdrop but no fresh quantitative trigger this cycle.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 56.14,
+  "sma_crossover_4h": "fast_above_slow, no cross this candle",
+  "volume_ratio": 0.63,
+  "volume_flag_above_2x": false,
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": 2.91,
+  "pct_change_4h_48h": 2.8,
+  "news_context": "ETH near $2,600-2,630, watching $2,672 weekly-close pivot toward $2,950-3,000; ETF inflows returned, open interest 4-month high; Geth client Amsterdam EIPs shipped. No fresh trigger-level catalyst."
+}
+```
+
+---
+### 2026-09-20T08:18:19.960Z — SOL/USD — NO TRADE
+
+**Reasoning:** Existing open long position, already trailing_active (past +1R, guaranteed-profit floor in effect). One position per pair enforced - no new action. Signals unremarkable this cycle: no fresh SMA crossover (fast_above_slow, not crossed), RSI 56.3 neutral, volume ratio 0.89x, momentum_trigger not flagged (+2.10%/+2.63%, under threshold). News: 250ms slot-time speed upgrade (SIMD-0525 stage 3) went live Sept 18, network speed up ~17%; SEC granted Solana a 5-year Innovation Exemption Sept 18; SOL ETFs attracted $153.87M, strongest week since Oct 2025 - largely the same catalyst already priced in and reflected in the position's trailing-stop status.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 56.31,
+  "sma_crossover_4h": "fast_above_slow, no cross this candle",
+  "volume_ratio": 0.89,
+  "volume_flag_above_2x": false,
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": 2.1,
+  "pct_change_4h_48h": 2.63,
+  "news_context": "SIMD-0525 stage 3 (250ms slot time) live Sept 18; SEC 5-year Innovation Exemption granted to Solana Sept 18; SOL ETFs $153.87M weekly inflow, strongest since Oct 2025. Consistent with existing position's thesis, no new signal."
+}
+```
+
+---
+### 2026-09-20T08:18:23.832Z — XRP/USD — NO TRADE
+
+**Reasoning:** Existing open long position (momentum-only, medium confidence, entered 09-18). One position per pair enforced - no new action, despite continued fast_above_slow SMA state. News: CLARITY Act cloture vote failed in the Senate 49-50 on Sept 15 (11 votes short), effectively stalling the bill for 2026; XRPL 3.4.0 upgrade (Lending Protocol v1.1) in beta; RLUSD stablecoin still slated for later 2026 launch. Current price ~$1.382, up modestly since entry, stop-loss unaffected.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 51.88,
+  "sma_crossover_4h": "fast_above_slow, no cross this candle",
+  "volume_ratio": 0.79,
+  "volume_flag_above_2x": false,
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": 3.23,
+  "pct_change_4h_48h": 4.27,
+  "news_context": "CLARITY Act cloture vote failed 49-50 in Senate Sept 15, bill effectively stalled for 2026; XRPL 3.4.0 (Lending Protocol v1.1) in beta; RLUSD stablecoin still planned for later 2026. No new catalyst since entry."
+}
+```
+
+---
+### 2026-09-20T08:18:28.387Z — ADA/USD — NO TRADE
+
+**Reasoning:** No open position. Re-evaluated for a fresh entry: news is genuinely positive (Cardano Foundation x Mastercard partnership Sept 15 drove an 11% 24h pop past $0.22; Leios testnet hit 1,000 TPS Sept 18; governance roundtable scheduled Sept 21), but the own live quantitative signals don't confirm a fresh entry this cycle - momentum_trigger not flagged (+1.91%/+2.40%, well under the 6% threshold), RSI 54.0 neutral, no fresh SMA crossover this candle (fast_above_slow, not crossed), volume ratio 1.30x below the 2x flag. Per the rules, news alone (without an independently-flagged quantitative signal) can't justify a trade. No entry.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 54.01,
+  "sma_crossover_4h": "fast_above_slow, no cross this candle",
+  "volume_ratio": 1.3,
+  "volume_flag_above_2x": false,
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": 1.91,
+  "pct_change_4h_48h": 2.4,
+  "news_context": "Cardano Foundation x Mastercard partnership (Sept 15) drove reported 11% pop; Leios testnet hit 1,000 TPS Sept 18; governance roundtable Sept 21. Positive but not corroborated by our own 48h-window signals this cycle."
+}
+```
+
+---
+### 2026-09-20T08:18:31.919Z — LINK/USD — NO TRADE
+
+**Reasoning:** No open position. Re-evaluated for a fresh entry: still no quantitative signal. momentum_trigger not flagged (+1.35%/+1.32%, well under the 6% threshold), RSI 52.3 neutral, SMA still fast_above_slow with no fresh cross, volume ratio 1.49x below the 2x flag. News: Chainlink Reserves added another $1.1M in LINK (total ~$70.5M, none ever sold - a slow structural positive, not a trigger); Nazarov speaking at Philadelphia Fed fintech panel Sept 24-25; Charles Schwab announced adding LINK/SOL/AVAX to its retail crypto platform. Constructive but no fresh catalyst, no new entry.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 52.31,
+  "sma_crossover_4h": "fast_above_slow, no cross this candle",
+  "volume_ratio": 1.49,
+  "volume_flag_above_2x": false,
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": 1.35,
+  "pct_change_4h_48h": 1.32,
+  "news_context": "Chainlink Reserves +$1.1M (total ~$70.5M, none sold); Nazarov at Philly Fed fintech panel Sept 24-25; Charles Schwab adding LINK/SOL/AVAX to retail platform. No fresh trigger-level catalyst."
+}
+```
+
+---
+### 2026-09-20T08:18:35.961Z — DOGE/USD — NO TRADE
+
+**Reasoning:** Existing open long position (entered 09-19 on volume-confirmed breakout). One position per pair enforced - no new action. Signals unremarkable: no fresh SMA crossover (fast_above_slow, not crossed), RSI 48.5 neutral, volume ratio 1.58x below the 2x flag, momentum_trigger not flagged (+0.07%/-0.46%, essentially flat). News: MyDoge Wallet suspended Doginals/DRC-20 support Sept 17 (infra-provider shutdown, unrelated to core DOGE holdings/price); whale accumulation of 240M+ DOGE continues to be cited; Fear & Greed neutral at 51; CLARITY Act failure Sept 15 is a market-wide headwind, not DOGE-specific. Current price ~$0.0851, roughly flat vs entry.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 48.45,
+  "sma_crossover_4h": "fast_above_slow, no cross this candle",
+  "volume_ratio": 1.58,
+  "volume_flag_above_2x": false,
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": 0.07,
+  "pct_change_4h_48h": -0.46,
+  "news_context": "MyDoge Wallet suspended Doginals/DRC-20 support Sept 17 (infra provider shutdown, not price-relevant); whale accumulation 240M+ DOGE cited; Fear & Greed neutral 51; CLARITY Act failure a market-wide headwind. No new DOGE-specific catalyst."
+}
+```
+
+---
