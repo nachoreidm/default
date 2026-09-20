@@ -1,6 +1,6 @@
 {
   "starting_balance": 10000,
-  "cash": 7870.043179650382,
+  "cash": 8170.750346189796,
   "open_positions": [
     {
       "id": "2c7048a0-82ee-4747-8ab6-33d9874f8c3e",
@@ -63,38 +63,6 @@
       "invalidation": "A break back below the rising 20-period 4h SMA (~$99.64, set as the stop) invalidates the thesis - would mean the breakout has failed and the speed-upgrade narrative isn't translating into sustained buying.",
       "confidence": "medium",
       "confidence_reason": "Momentum-only setup capped at medium per the rules - no confirming crossover, RSI extreme (68.1, elevated but under 70), or volume spike (1.68x, below the 2x flag). Confidence rests on the momentum_trigger (1h/48h +8.81%, well past the 6% threshold) plus a fresh, dated (today, Sept 18) SOL-specific catalyst: mainnet activation of the 250ms slot-time speed upgrade, a concrete technical milestone distinct from the broader multi-asset rally also lifting BTC/ETH/XRP without tripping their thresholds.",
-      "momentum_only": true,
-      "status": "open"
-    },
-    {
-      "id": "71670382-4f11-48b8-9855-d3d0bc1c14d3",
-      "pair": "LINK/USD",
-      "direction": "long",
-      "entry_price": 11.876535299999999,
-      "stop_loss": 12.10447671,
-      "initial_stop_loss": 11.15,
-      "take_profit": 13.329605899999995,
-      "trailing_active": true,
-      "peak_price": 12.63634,
-      "size_pct": 3,
-      "size_usd": 299.1072586878967,
-      "quantity": 25.083984691490386,
-      "entry_fee": 1.196429034751587,
-      "opened_at": "2026-09-18T10:12:50.219Z",
-      "signals_at_entry": {
-        "rsi_14_4h": 65.5,
-        "sma_crossover_4h": "fast_below_slow, no cross this candle - not a crossover signal",
-        "volume_ratio": 1.24,
-        "volume_flag_above_2x": false,
-        "momentum_trigger_flagged": true,
-        "price_action_1h_48h_pct": 9.95,
-        "price_action_4h_48h_pct": 8.66,
-        "order_book_imbalance_top10": 0.62,
-        "news_context": "Bottomline confirmed the official launch of Global Pay Connect on September 17, 2026, giving 600+ bank customers across ~92 countries a route to onchain payment rails via Chainlink's CCIP and CRE - a dated (within 24-48h), specific, substantive catalyst distinct from the generic/undated items found in prior cycles."
-      },
-      "invalidation": "A break back below the rising 20-period 4h SMA (~$11.18, set as the stop) invalidates the thesis - would mean the breakout has failed and the Global Pay Connect news isn't translating into sustained buying.",
-      "confidence": "medium",
-      "confidence_reason": "Momentum-only setup capped at medium per the rules - no confirming crossover, RSI extreme (65.5, elevated but not overbought), or volume spike (1.24x, below the 2x flag). Confidence rests on the momentum_trigger (1h/48h +9.95%, well past the 6% threshold, flagged for six consecutive cycles now) plus a fresh, dated catalyst finally identified: Bottomline officially confirmed the launch of Global Pay Connect on September 17, 2026 (within the 24-48h window) - giving its 600+ bank customers across ~92 countries a route to onchain payment rails via Chainlink's CCIP and CRE, without needing to replatform. This is a concrete, specific, dated catalyst, unlike the undated Wyoming/Nethermind items found in prior cycles' searches.",
       "momentum_only": true,
       "status": "open"
     },
@@ -339,6 +307,44 @@
       "close_reason": "Stop-loss auto-triggered (price 2465.19 <= stop 2470).",
       "pnl_usd": -9.706350144135115,
       "pnl_pct_of_portfolio": -0.09734693769143007
+    },
+    {
+      "id": "71670382-4f11-48b8-9855-d3d0bc1c14d3",
+      "pair": "LINK/USD",
+      "direction": "long",
+      "entry_price": 11.876535299999999,
+      "stop_loss": 12.10447671,
+      "initial_stop_loss": 11.15,
+      "take_profit": 13.329605899999995,
+      "trailing_active": true,
+      "peak_price": 12.63634,
+      "size_pct": 3,
+      "size_usd": 299.1072586878967,
+      "quantity": 25.083984691490386,
+      "entry_fee": 1.196429034751587,
+      "opened_at": "2026-09-18T10:12:50.219Z",
+      "signals_at_entry": {
+        "rsi_14_4h": 65.5,
+        "sma_crossover_4h": "fast_below_slow, no cross this candle - not a crossover signal",
+        "volume_ratio": 1.24,
+        "volume_flag_above_2x": false,
+        "momentum_trigger_flagged": true,
+        "price_action_1h_48h_pct": 9.95,
+        "price_action_4h_48h_pct": 8.66,
+        "order_book_imbalance_top10": 0.62,
+        "news_context": "Bottomline confirmed the official launch of Global Pay Connect on September 17, 2026, giving 600+ bank customers across ~92 countries a route to onchain payment rails via Chainlink's CCIP and CRE - a dated (within 24-48h), specific, substantive catalyst distinct from the generic/undated items found in prior cycles."
+      },
+      "invalidation": "A break back below the rising 20-period 4h SMA (~$11.18, set as the stop) invalidates the thesis - would mean the breakout has failed and the Global Pay Connect news isn't translating into sustained buying.",
+      "confidence": "medium",
+      "confidence_reason": "Momentum-only setup capped at medium per the rules - no confirming crossover, RSI extreme (65.5, elevated but not overbought), or volume spike (1.24x, below the 2x flag). Confidence rests on the momentum_trigger (1h/48h +9.95%, well past the 6% threshold, flagged for six consecutive cycles now) plus a fresh, dated catalyst finally identified: Bottomline officially confirmed the launch of Global Pay Connect on September 17, 2026 (within the 24-48h window) - giving its 600+ bank customers across ~92 countries a route to onchain payment rails via Chainlink's CCIP and CRE, without needing to replatform. This is a concrete, specific, dated catalyst, unlike the undated Wyoming/Nethermind items found in prior cycles' searches.",
+      "momentum_only": true,
+      "status": "closed",
+      "exit_price": 12.036158910000001,
+      "exit_fee": 1.2076593033711427,
+      "closed_at": "2026-09-20T03:11:50.213Z",
+      "close_reason": "Trailing stop-loss auto-triggered (price 12.04206 <= stop 12.10447671) - position had reached +1R, so the fixed 2:1 take-profit was superseded by the guaranteed-profit trailing rule (stop locked in at least 30% of the peak gain reached - peak price $12.64 above entry $11.88) before this reversal closed it.",
+      "pnl_usd": 1.5999078515177985,
+      "pnl_pct_of_portfolio": 0.016060966662792827
     }
   ],
   "daily_loss": [
@@ -376,8 +382,13 @@
       "date": "2026-09-19",
       "realized_pnl_usd": 0,
       "halted": false
+    },
+    {
+      "date": "2026-09-20",
+      "realized_pnl_usd": 1.5999078515177985,
+      "halted": false
     }
   ],
   "created_at": "2026-09-06T14:02:11.057Z",
-  "updated_at": "2026-09-19T17:11:46.538Z"
+  "updated_at": "2026-09-20T03:11:50.620Z"
 }

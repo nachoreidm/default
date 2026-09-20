@@ -33364,3 +33364,124 @@ next cycle without any manual edit needed here.
 ```
 
 ---
+### 2026-09-20T03:11:50.213Z — LINK/USD — LONG — CLOSED
+
+- Exit price: $12.04
+- Exit fee (paper): $1.21
+- Reason: Trailing stop-loss auto-triggered (price 12.04206 <= stop 12.10447671) - position had reached +1R, so the fixed 2:1 take-profit was superseded by the guaranteed-profit trailing rule (stop locked in at least 30% of the peak gain reached - peak price $12.64 above entry $11.88) before this reversal closed it.
+- Realized P&L: $1.60 (0.02% of portfolio)
+- Position id: 71670382-4f11-48b8-9855-d3d0bc1c14d3
+
+---
+### 2026-09-20T03:12:39.107Z — BTC/USD — NO TRADE
+
+**Reasoning:** Already have an open long position on BTC/USD (one per pair enforced by code). Momentum_trigger remains below threshold (+3.88%/+5.08%), RSI 72.7 (overbought), fast SMA above slow, volume ratio 0.63x. News: BTC near $81K with SOPR turning positive and ETF inflows returning, approaching $83-86K resistance zone - bullish, consistent with existing position.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 72.72,
+  "momentum_trigger_flagged": false,
+  "sma_crossover_4h": "fast_above_slow, not crossed this candle",
+  "volume_ratio": 0.63,
+  "news_context": "BTC near $81K, SOPR turning positive, ETF inflows returning, approaching $83-86K resistance zone - bullish"
+}
+```
+
+---
+### 2026-09-20T03:12:42.090Z — ETH/USD — NO TRADE
+
+**Reasoning:** Already have an open long position on ETH/USD (one per pair enforced by code). RSI 70.3 (overbought), momentum_trigger flagged (+3.90%/+6.25%), fast SMA above slow. News: ETH cleared $2,600 with ETF inflows returning and open interest at a 4-month high, watching for a weekly close above $2,672 to open the door to $2,950-3,000 - bullish, consistent with existing position.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 70.35,
+  "momentum_trigger_flagged": true,
+  "sma_crossover_4h": "fast_above_slow, not crossed this candle",
+  "volume_ratio": 0.63,
+  "news_context": "ETH cleared $2,600 with ETF inflows returning and open interest at a 4-month high; weekly close above $2,672 would open door to $2,950-3,000 - bullish"
+}
+```
+
+---
+### 2026-09-20T03:12:44.815Z — SOL/USD — NO TRADE
+
+**Reasoning:** Already have an open long position on SOL/USD (one per pair enforced by code). Momentum_trigger flagged (+3.02%/+6.24%), RSI 67.3 (elevated but not overbought), fast SMA above slow, volume ratio 0.89x. News: SOL at $109.56 after its strongest weekly move since August, network adoption indicators remain bullish (9.5M new addresses/day, $153.87M ETF inflows) - bullish, consistent with existing trailing-active position.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 67.32,
+  "momentum_trigger_flagged": true,
+  "sma_crossover_4h": "fast_above_slow, not crossed this candle",
+  "volume_ratio": 0.89,
+  "news_context": "SOL at $109.56 after strongest weekly move since August; network adoption indicators remain bullish (9.5M new addresses/day, $153.87M ETF inflows) - bullish"
+}
+```
+
+---
+### 2026-09-20T03:12:47.220Z — XRP/USD — NO TRADE
+
+**Reasoning:** Already have an open long position on XRP/USD (one per pair enforced by code). Momentum_trigger flagged (+3.35%/+6.39%), RSI 59.8 (neutral), fast SMA below slow, volume ratio 0.79x. News: XRPL 3.4.0 upgrade with Lending Protocol v1.1 reached beta in late August, CoinCodex projects a neutral $1.37 high for September - mixed, consistent with existing position.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 59.8,
+  "momentum_trigger_flagged": true,
+  "sma_crossover_4h": "fast_below_slow, not crossed this candle",
+  "volume_ratio": 0.79,
+  "news_context": "XRPL 3.4.0 upgrade with Lending Protocol v1.1 reached beta in late August; CoinCodex projects a neutral $1.37 high for September - mixed"
+}
+```
+
+---
+### 2026-09-20T03:12:49.973Z — ADA/USD — NO TRADE
+
+**Reasoning:** Already have an open long position on ADA/USD (one per pair enforced by code). Momentum_trigger dropped below threshold this cycle (+1.49%/+5.41%), RSI 65.7 (not overbought), fast SMA above slow, volume ratio 1.30x. News: ADA trading near $0.221, inside the $0.20-0.25 range, no new catalyst beyond continued Mastercard/Leios coverage - momentum cooling, consistent with existing trailing-active position.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 65.65,
+  "momentum_trigger_flagged": false,
+  "sma_crossover_4h": "fast_above_slow, not crossed this candle",
+  "volume_ratio": 1.3,
+  "news_context": "ADA trading near $0.221 inside the $0.20-0.25 range; no new catalyst beyond continued Mastercard/Leios coverage - momentum cooling"
+}
+```
+
+---
+### 2026-09-20T03:12:54.734Z — LINK/USD — NO TRADE
+
+**Reasoning:** No open position (prior LINK long closed this cycle via trailing stop at a small guaranteed profit). No quantitative signal supports a new entry: momentum_trigger flagged false (+1.87%/+5.71%, below the 6% threshold on both windows), RSI 67.0 is elevated but not an extreme (no flag), no fresh SMA crossover (fast_above_slow but not crossed this candle), volume ratio 1.49x does not clear the 2x spike flag. News: Nazarov's upcoming Fed panel (Sept 24) and the Schwab listing are known catalysts already priced in, no new dated news since the prior trade closed. With no confirming signal, opening a new position now would be trading just to have something to say - logging no-trade per instructions.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 66.99,
+  "momentum_trigger_flagged": false,
+  "sma_crossover_4h": "fast_above_slow, not crossed this candle",
+  "volume_ratio": 1.49,
+  "news_context": "Nazarov's Fed panel (Sept 24) and Schwab listing remain known, already-priced-in catalysts; no new dated news since the prior LINK trade closed this same cycle"
+}
+```
+
+---
+### 2026-09-20T03:12:57.185Z — DOGE/USD — NO TRADE
+
+**Reasoning:** Already have an open long position on DOGE/USD (one per pair enforced by code). Momentum_trigger dropped below threshold this cycle (+1.13%/+3.86%), RSI 61.7 (not overbought), fast SMA above slow, volume ratio 1.58x. News: weekly chart shows a bullish engulfing pattern suggesting momentum favoring buyers after two weeks of correction, whale accumulation of 240M+ DOGE continues - mildly bullish, momentum cooling, consistent with existing position.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 61.71,
+  "momentum_trigger_flagged": false,
+  "sma_crossover_4h": "fast_above_slow, not crossed this candle",
+  "volume_ratio": 1.58,
+  "news_context": "Weekly chart shows a bullish engulfing pattern suggesting momentum favoring buyers after two weeks of correction; whale accumulation of 240M+ DOGE continues - mildly bullish, momentum cooling"
+}
+```
+
+---
