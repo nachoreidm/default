@@ -367,6 +367,32 @@ decision isn't lost between sessions:
   (2026-09-20), re-verify with fresh EUR volume data before actually
   finalizing the live pair list, same re-verify-before-acting caveat as
   every other volume-based pair decision on file.
+- **For the live version, replace hourly-polled stop/trailing execution
+  with real resting stop orders on Kraken.** Raised 2026-09-20, after the
+  user asked what happens if a trailing position (already past +1R, stop
+  floored at a guaranteed profit) gaps down through its stop and keeps
+  falling within the hour between checks, landing back below entry by the
+  time the next hourly `portfolio_check_stops` run catches it. Traced the
+  exact mechanics: `checkStops` compares the *live* price at check time
+  against the stored `stop_loss`, but `closePosition` fills at whatever
+  `ticker.bid` is *at that moment* - not at the recorded `stop_loss`
+  level. So the "guaranteed profit" floor only holds if the position is
+  actually closed near that level; a severe enough single-hour move can
+  gap straight through it and keep falling before the next check, closing
+  at an real loss despite having been guaranteed-profitable an hour
+  earlier. This is invisible in paper trading (a worse-than-expected fill
+  there is just a number) but would be real money slipping past a level
+  meant to be a floor once live. Root cause: the current stops aren't real
+  orders resting on the exchange - they're soft checks this agent runs
+  once an hour, so they can't react to anything that happens between
+  checks. Fix for the live version: place genuine resting orders on
+  Kraken itself (`stop-loss`, `stop-loss-limit`, or Kraken's native
+  `trailing-stop` order type) so the exchange's own matching engine owns
+  the trigger and reacts continuously as the market moves, rather than
+  this agent's hourly poll loop. Not implemented - paper trading has no
+  real order book to rest an order on, so this is specifically a live-build
+  item; the peak-scaling profit-lock math itself (what level the floor
+  *should* be at) doesn't change, only how it gets enforced.
 
 ## Network access
 
