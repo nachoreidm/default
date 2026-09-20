@@ -33485,3 +33485,131 @@ next cycle without any manual edit needed here.
 ```
 
 ---
+### 2026-09-20T04:12:41.001Z — BTC/USD — NO TRADE
+
+**Reasoning:** Existing open long position (medium confidence, entered 09-19). One position per pair enforced - no new action. News: BTC ~$78.7-80.4K, September historically a rough month, Fed rate-hike risk priced in; no fresh BTC-specific catalyst beyond broad market tone. Current price $80,381, position roughly flat/slightly down unrealized (recovered from a wider drawdown last cycle), stop clean at $77,300.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": 3.84,
+  "pct_change_4h_48h": 3.52,
+  "rsi_14_4h": 62.99,
+  "sma_crossover_4h": "fast_above_slow, no cross this candle",
+  "volume_ratio": 0.63,
+  "volume_flag_above_2x": false
+}
+```
+
+---
+### 2026-09-20T04:12:43.723Z — ETH/USD — NO TRADE
+
+**Reasoning:** Existing open long position (medium confidence, entered 09-19). One position per pair enforced - no new action. News: ETH cleared $2.6K on returning ETF inflows (~$143.7M net on Sept 18) and rising open interest, buyers targeting $2.75-2.8K - constructive but position already open. Current price $2,582.85, roughly at entry, unrealized loss narrowed from prior cycle, stop clean at $2,478.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": 4.32,
+  "pct_change_4h_48h": 3.98,
+  "rsi_14_4h": 58.62,
+  "sma_crossover_4h": "fast_above_slow, no cross this candle",
+  "volume_ratio": 0.63,
+  "volume_flag_above_2x": false
+}
+```
+
+---
+### 2026-09-20T04:12:46.541Z — SOL/USD — NO TRADE
+
+**Reasoning:** Existing open long position, trailing_active=true (past +1R, guaranteed profit locked). One position per pair enforced - no new action. News: SEC granted a 5-year "Innovation Exemption" for tokenized securities and the 250ms slot-time speed upgrade (SIMD-0525 stage 3) is live - both bullish catalysts, consistent with the original momentum thesis; position already benefiting via trailing stop. Current price $108.70, up +3.0% unrealized, peak $114.30, trailing floor locked.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": 3.04,
+  "pct_change_4h_48h": 3.07,
+  "rsi_14_4h": 58.22,
+  "sma_crossover_4h": "fast_above_slow, no cross this candle",
+  "volume_ratio": 0.89,
+  "volume_flag_above_2x": false
+}
+```
+
+---
+### 2026-09-20T04:12:50.816Z — XRP/USD — NO TRADE
+
+**Reasoning:** Existing open long position (medium confidence, entered 09-18 momentum-only). One position per pair enforced - no new action, despite a fresh bullish SMA crossover this candle (fast_above_slow, crossed_this_candle=true) which would otherwise be notable. Order book skewed toward asks (-0.29 imbalance). News: CLARITY Act cloture vote failed in Senate (Sept 15), XRPL 3.4.0 lending protocol upgrade planned, sentiment neutral (Fear & Greed 50, technicals only 26% bullish). Current price $1.381, down slightly unrealized (improved from prior cycle's -2.2%), stop clean at $1.313.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": 4.36,
+  "pct_change_4h_48h": 4.1,
+  "rsi_14_4h": 52.65,
+  "sma_crossover_4h": "fast_above_slow, bullish cross this candle",
+  "volume_ratio": 0.79,
+  "volume_flag_above_2x": false,
+  "order_book_imbalance": -0.29
+}
+```
+
+---
+### 2026-09-20T04:12:52.399Z — ADA/USD — NO TRADE
+
+**Reasoning:** Existing open long position, trailing_active=true (past +1R, guaranteed profit locked). One position per pair enforced - no new action. News: ADA ~$0.221-0.229, Mastercard partnership (Sept 15) for cross-border/B2B settlement, Leios testing hit 1,000 TPS milestone (Sept 18), a congressional committee advanced a bill proposing ADA in a US Digital Asset Stockpile - broadly positive but position already open. Current price $0.221317, up +3.2% unrealized, peak $0.234965, trailing floor locked.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": 3.46,
+  "pct_change_4h_48h": 3.75,
+  "rsi_14_4h": 57.73,
+  "sma_crossover_4h": "fast_above_slow, no cross this candle",
+  "volume_ratio": 1.3,
+  "volume_flag_above_2x": false
+}
+```
+
+---
+### 2026-09-20T04:12:56.389Z — LINK/USD — NO TRADE
+
+**Reasoning:** No open position (prior LINK long closed last cycle via trailing stop at a small guaranteed profit). Re-evaluated for a fresh entry: no quantitative signal supports one. momentum_trigger flagged false (well below the 6% threshold, cooling further from last cycle), RSI 55.25 neutral (not extreme), SMA still fast_above_slow but no fresh cross this candle, volume ratio 1.49x does not clear the 2x spike flag. Order book skewed toward asks (-0.23 imbalance). News: Charles Schwab added LINK (with SOL/AVAX) to its retail brokerage platform, driving a rally from $8.30 to ~$12.50 - a genuine positive catalyst, but it's the same catalyst underlying LINK's already-closed prior trade, not a fresh signal, and no quantitative confirmation (crossover/RSI-extreme/volume-spike) accompanies it this cycle. No new entry.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": 2.53,
+  "pct_change_4h_48h": 2.21,
+  "rsi_14_4h": 55.25,
+  "sma_crossover_4h": "fast_above_slow, no cross this candle",
+  "volume_ratio": 1.49,
+  "volume_flag_above_2x": false,
+  "order_book_imbalance": -0.23
+}
+```
+
+---
+### 2026-09-20T04:12:58.982Z — DOGE/USD — NO TRADE
+
+**Reasoning:** Existing open long position (medium confidence, entered 09-19 on volume-confirmed breakout). One position per pair enforced - no new action. News: DOGE ~$0.086-0.088, whale accumulation of ~240M DOGE (~$20M) during the recent dip signals possible confidence in a rebound, but a Bitwise DOGE ETF (BWOW) liquidation is scheduled Oct 14 - mixed. Current price $0.0855937, down slightly unrealized (improved from prior cycle's -3.2%), stop clean at $0.0822.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": 1.59,
+  "pct_change_4h_48h": 1.64,
+  "rsi_14_4h": 52.26,
+  "sma_crossover_4h": "fast_above_slow, no cross this candle",
+  "volume_ratio": 1.58,
+  "volume_flag_above_2x": false
+}
+```
+
+---
