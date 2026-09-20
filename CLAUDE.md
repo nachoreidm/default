@@ -323,6 +323,36 @@ These are agreed changes for a future (live) version - **don't implement
 without the user explicitly asking**, they're recorded here so the
 decision isn't lost between sessions:
 
+- **Raise position-sizing caps for the live version: high confidence
+  5%→8%, medium confidence 3%→5%, `MAX_TOTAL_EXPOSURE_PCT` 25%→40%.**
+  Discussed 2026-09-20. User's reasoning: since every position always has
+  a stop-loss, the real per-trade risk is `size_pct × stop_distance_pct`,
+  not `size_pct` alone - a stop makes a larger position meaningfully safer
+  than the raw size number suggests, so the current caps looked more
+  conservative than necessary. Counterpoint discussed: the 25% exposure
+  cap already binds well before the old 5% per-trade cap does in practice
+  (the account has held at most 2 positions open at once, far under the 7
+  slots) - so on its own, raising just the per-trade cap wouldn't add much
+  new *aggregate* risk, it would mostly concentrate more of the same 25%
+  into fewer, higher-confidence bets. It does still increase the
+  consequence of the live-only gap-risk item below (stops aren't real
+  resting orders yet, so a severe single-hour move can blow through a stop
+  before the next check catches it) - a bigger position makes that
+  specific known gap more expensive when it fires. Final numbers chosen to
+  keep the exposure cap's *relative* headroom the same as today rather
+  than being arbitrary: the 8/5 = 1.6x scaling was applied consistently to
+  all three limits (high 5→8, and 25×1.6=40 for exposure), so "5 full-size
+  high-confidence positions before the aggregate cap binds" stays true in
+  relative terms at the new sizes, even though 25→40 sounds like a big
+  jump in isolation. Medium's final value (3%→5%) was set by the user
+  directly rather than the same 1.6x ratio (which would have given 4.8%) -
+  a clean round number, and it also happens to land medium at today's old
+  high-confidence cap. Not implemented - this only applies to
+  `RISK_LIMITS.MAX_POSITION_PCT`, `CONFIDENCE_MAX_SIZE_PCT`, and
+  `RISK_LIMITS.MAX_TOTAL_EXPOSURE_PCT` in `mcp-server/src/types.ts` for the
+  live build; paper trading keeps running on today's 5%/3%/25% values
+  until the live version actually exists, consistent with every other
+  live-only decision in this section.
 - **No opportunity-cost / position-swap logic.** Even with 7 slots, once
   all slots are full the agent still just rejects a new opportunity rather
   than ever closing an existing (weaker) position to make room. That's a
