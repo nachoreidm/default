@@ -33252,3 +33252,115 @@ next cycle without any manual edit needed here.
 ```
 
 ---
+### 2026-09-20T02:13:01.417Z — BTC/USD — NO TRADE
+
+**Reasoning:** Already have an open long position on BTC/USD (one per pair enforced by code). Momentum_trigger remains below threshold this cycle (+5.41%/+5.08%), RSI 72.7 (still overbought), fast SMA above slow, volume ratio 0.63x (quiet). News: G20/SEC regulatory tailwinds continue, mining companies pivoting to AI infrastructure for better margins (not a direct BTC price driver) - bullish backdrop, momentum cooling.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 72.72,
+  "momentum_trigger_flagged": false,
+  "sma_crossover_4h": "fast_above_slow, not crossed this candle",
+  "volume_ratio": 0.63,
+  "news_context": "G20/SEC regulatory tailwinds continue; mining companies pivoting to AI infrastructure for better margins - bullish backdrop, momentum cooling"
+}
+```
+
+---
+### 2026-09-20T02:13:03.872Z — ETH/USD — NO TRADE
+
+**Reasoning:** Already have an open long position on ETH/USD (one per pair enforced by code). RSI 70.3 (overbought), momentum_trigger flagged (+6.42%/+6.25%), fast SMA above slow. News: ETH fund buyers added $121M on Sept 14, Moscow Exchange launching 5 crypto futures (including ETH) on Sept 22 - bullish, consistent with existing position.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 70.35,
+  "momentum_trigger_flagged": true,
+  "sma_crossover_4h": "fast_above_slow, not crossed this candle",
+  "volume_ratio": 0.63,
+  "news_context": "ETH fund buyers added $121M Sept 14; Moscow Exchange launching 5 crypto futures including ETH on Sept 22 - bullish"
+}
+```
+
+---
+### 2026-09-20T02:13:06.528Z — SOL/USD — NO TRADE
+
+**Reasoning:** Already have an open long position on SOL/USD (one per pair enforced by code). Momentum_trigger flagged (+7.27%/+6.24%), RSI 67.3 (elevated but not overbought), fast SMA above slow, volume ratio 0.89x. News: CFTC sent two crypto market rule proposals to the White House Sept 17, ~$470M in shorts forcibly closed amplifying SOL's move - strongly bullish, consistent with existing trailing-active position.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 67.32,
+  "momentum_trigger_flagged": true,
+  "sma_crossover_4h": "fast_above_slow, not crossed this candle",
+  "volume_ratio": 0.89,
+  "news_context": "CFTC sent two crypto market rule proposals to the White House Sept 17; ~$470M in shorts forcibly closed amplifying SOL's move - strongly bullish"
+}
+```
+
+---
+### 2026-09-20T02:13:09.225Z — XRP/USD — NO TRADE
+
+**Reasoning:** Already have an open long position on XRP/USD (one per pair enforced by code). Momentum_trigger flagged (+7.26%/+6.39%), RSI 59.8 (neutral), fast SMA below slow, volume ratio 0.79x. News: Ripple published Swell 2026 conference agenda highlighting XRP use cases, formal verification of the consensus algorithm completed Sept 9 - mildly bullish, consistent with existing position.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 59.8,
+  "momentum_trigger_flagged": true,
+  "sma_crossover_4h": "fast_below_slow, not crossed this candle",
+  "volume_ratio": 0.79,
+  "news_context": "Ripple published Swell 2026 conference agenda highlighting XRP use cases; formal verification of the consensus algorithm completed Sept 9 - mildly bullish"
+}
+```
+
+---
+### 2026-09-20T02:13:11.668Z — ADA/USD — NO TRADE
+
+**Reasoning:** Already have an open long position on ADA/USD (one per pair enforced by code). Momentum_trigger flagged (+6.16%/+5.41%), RSI 65.7 (not overbought), fast SMA above slow, volume ratio 1.30x. News: Intersect board-seat voting continues through Sept 25, ADA trading near $0.229 between $0.20 support/$0.25 resistance - bullish, consistent with existing trailing-active position.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 65.65,
+  "momentum_trigger_flagged": true,
+  "sma_crossover_4h": "fast_above_slow, not crossed this candle",
+  "volume_ratio": 1.3,
+  "news_context": "Intersect board-seat voting continues through Sept 25; ADA trading near $0.229 between $0.20 support/$0.25 resistance - bullish"
+}
+```
+
+---
+### 2026-09-20T02:13:15.127Z — LINK/USD — NO TRADE
+
+**Reasoning:** Already have an open long position on LINK/USD (one per pair enforced by code, trailing_active since crossing +1R). Momentum_trigger flagged (+6.07%/+5.71%), RSI 67.0 (elevated but not overbought), fast SMA above slow, volume ratio 1.49x. News: LINK forecast at $13.18, could rise toward $13 if it holds $10.79 and reclaims $12.50, Nazarov's Fed panel appearance approaching Sept 24 - bullish, no material change.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 66.99,
+  "momentum_trigger_flagged": true,
+  "sma_crossover_4h": "fast_above_slow, not crossed this candle",
+  "volume_ratio": 1.49,
+  "news_context": "LINK forecast at $13.18; could rise toward $13 if it holds $10.79 and reclaims $12.50; Nazarov's Fed panel appearance approaching Sept 24 - bullish"
+}
+```
+
+---
+### 2026-09-20T02:13:17.223Z — DOGE/USD — NO TRADE
+
+**Reasoning:** Already have an open long position on DOGE/USD (one per pair enforced by code). Momentum_trigger dropped below threshold this cycle (+5.35%/+3.86%), RSI 61.7 (not overbought), fast SMA above slow, volume ratio 1.58x. News: DOGE consolidating between $0.08165-$0.08700 above its 100-day EMA, whale accumulation of 240M+ DOGE continues - mildly bullish, momentum cooling, consistent with existing position.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 61.71,
+  "momentum_trigger_flagged": false,
+  "sma_crossover_4h": "fast_above_slow, not crossed this candle",
+  "volume_ratio": 1.58,
+  "news_context": "DOGE consolidating between $0.08165-$0.08700 above its 100-day EMA; whale accumulation of 240M+ DOGE continues - mildly bullish, momentum cooling"
+}
+```
+
+---
