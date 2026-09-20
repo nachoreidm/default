@@ -34719,3 +34719,147 @@ next cycle without any manual edit needed here.
 ```
 
 ---
+### 2026-09-20T13:12:43.925Z — BTC/USD — NO TRADE
+
+**Reasoning:** Already have an open long position on BTC/USD (opened 2026-09-19, id a040a78d), one open position per pair enforced. RSI 62.28 (neutral), no fresh SMA crossover, volume 0.63x average, momentum_trigger not flagged. News: BTC holding above $80K after weekly recovery, up ~4.4% over 7 days and 30 days, Deutsche Bank custody plans, SEC Innovation Exemption - stable/positive but not relevant since already positioned.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 62.28,
+  "sma_crossover_4h": "fast_above_slow, not crossed this candle",
+  "volume_ratio": 0.63,
+  "volume_flag_above_2x": false,
+  "momentum_trigger_flagged": false,
+  "price_action_1h_48h_pct": 0.58,
+  "price_action_4h_48h_pct": -0.28,
+  "order_book_imbalance_top10": -0.9,
+  "news_context": "BTC holding above $80K after weekly recovery, up ~4.4% over 7/30 days; Deutsche Bank custody plans; SEC Innovation Exemption - stable/positive but pair already has an open position",
+  "reason_for_no_trade": "one open position per pair already exists"
+}
+```
+
+---
+### 2026-09-20T13:12:47.177Z — ETH/USD — NO TRADE
+
+**Reasoning:** Already have an open long position on ETH/USD (opened 2026-09-19, id 0deba717), one open position per pair enforced. RSI 56.54 (neutral), no fresh SMA crossover, volume 0.63x average, momentum_trigger not flagged. News: ETH still pinned just below the pivotal $2,672 level ahead of this week's candle close - watching but not relevant since already positioned.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 56.54,
+  "sma_crossover_4h": "fast_above_slow, not crossed this candle",
+  "volume_ratio": 0.63,
+  "volume_flag_above_2x": false,
+  "momentum_trigger_flagged": false,
+  "price_action_1h_48h_pct": 1.06,
+  "price_action_4h_48h_pct": -0.17,
+  "order_book_imbalance_top10": -0.46,
+  "news_context": "ETH still pinned just below $2,672 ahead of weekly close; Amsterdam EIPs in latest Geth release; ePBS targeted Q4 2026 mainnet - watching but pair already has an open position",
+  "reason_for_no_trade": "one open position per pair already exists"
+}
+```
+
+---
+### 2026-09-20T13:12:51.945Z — SOL/USD — NO TRADE
+
+**Reasoning:** No open position on SOL/USD. No quantitative signal supports a fresh entry: RSI 56.47 is neutral, sma_crossover_4h shows fast_above_slow with crossed_this_candle false (established, not new), volume_ratio 0.89x is below average, and momentum_trigger is not flagged (1h 48h -0.07%, 4h 48h -2.42% - a pullback). News: SOL down ~3.5% over 24h, ZetaChain proposing to migrate its ZETA token to Solana as a native SPL token (a minor ecosystem inflow story, not SOL-specific price catalyst) - nothing to pair with a quantitative signal that isn't present. Logging no-trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 56.47,
+  "sma_crossover_4h": "fast_above_slow, not crossed this candle - established trend, no fresh signal",
+  "volume_ratio": 0.89,
+  "volume_flag_above_2x": false,
+  "momentum_trigger_flagged": false,
+  "price_action_1h_48h_pct": -0.07,
+  "price_action_4h_48h_pct": -2.42,
+  "order_book_imbalance_top10": -0.01,
+  "news_context": "SOL down ~3.5% over 24h; ZetaChain proposing to migrate ZETA token to Solana as native SPL token (minor ecosystem story); SIMD-0525/SEC exemption catalysts already known - no quantitative signal currently flagged"
+}
+```
+
+---
+### 2026-09-20T13:12:55.187Z — XRP/USD — NO TRADE
+
+**Reasoning:** Already have an open long position on XRP/USD (opened 2026-09-18, id e81f2ee9), one open position per pair enforced. RSI 52.06 (neutral), no fresh SMA crossover, volume 0.79x average, momentum_trigger not flagged. News: XRP up to $1.44, Evernorth Holdings (Ripple-backed XRP treasury company) lined up $30M financing ahead of a SPAC merger - constructive but not relevant since already positioned.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 52.06,
+  "sma_crossover_4h": "fast_above_slow, not crossed this candle",
+  "volume_ratio": 0.79,
+  "volume_flag_above_2x": false,
+  "momentum_trigger_flagged": false,
+  "price_action_1h_48h_pct": 1.45,
+  "price_action_4h_48h_pct": -0.29,
+  "order_book_imbalance_top10": 0.51,
+  "news_context": "XRP up to $1.44; Evernorth Holdings (Ripple-backed XRP treasury company) lined up $30M financing ahead of Armada Acquisition SPAC merger - constructive but pair already has an open position",
+  "reason_for_no_trade": "one open position per pair already exists"
+}
+```
+
+---
+### 2026-09-20T13:12:58.975Z — ADA/USD — NO TRADE
+
+**Reasoning:** No open position on ADA/USD, but no quantitative signal triggers an entry this cycle: RSI 56.14 is neutral, sma_crossover_4h shows fast_above_slow but crossed_this_candle is false (established, not fresh), volume_ratio 1.30x is elevated but below the 2x flag threshold, and momentum_trigger is not flagged (1h/4h 48h moves of 2.57%/0.69%, well under 6%). News remains the same Mastercard/Leios/Digital-Asset-Stockpile items already known, plus tomorrow's governance roundtable - constructive but no quantitative signal to pair it with. Logging no-trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 56.14,
+  "sma_crossover_4h": "fast_above_slow, not crossed this candle - established trend, no fresh signal",
+  "volume_ratio": 1.3,
+  "volume_flag_above_2x": false,
+  "momentum_trigger_flagged": false,
+  "price_action_1h_48h_pct": 2.57,
+  "price_action_4h_48h_pct": 0.69,
+  "order_book_imbalance_top10": 0.27,
+  "news_context": "Mastercard Crypto Partner Program, Leios 1,000 TPS milestone, Congressional Digital Asset Stockpile proposal, governance roundtable Sept 21 - positive but no quantitative signal is currently flagged to pair it with"
+}
+```
+
+---
+### 2026-09-20T13:13:03.200Z — LINK/USD — NO TRADE
+
+**Reasoning:** No open position on LINK/USD, but no quantitative signal triggers an entry this cycle: RSI 54.58 is neutral, sma_crossover_4h shows fast_above_slow but crossed_this_candle is false (established, not fresh), volume_ratio 1.49x is elevated but below the 2x flag threshold, and momentum_trigger is not flagged (1h/4h 48h moves of only 0.79%/-0.63%, well under 6%). News reports a reported 4% pop to $12.54, plus the upcoming Nazarov Fed panel appearance Sept 24-25 and CCIP v1.5 heading to mainnet, but our own signals show no confirming crossover, RSI extreme, or volume spike, and the reported move doesn't clear the 6% momentum threshold. Logging no-trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 54.58,
+  "sma_crossover_4h": "fast_above_slow, not crossed this candle - established trend, no fresh signal",
+  "volume_ratio": 1.49,
+  "volume_flag_above_2x": false,
+  "momentum_trigger_flagged": false,
+  "price_action_1h_48h_pct": 0.79,
+  "price_action_4h_48h_pct": -0.63,
+  "order_book_imbalance_top10": 0.58,
+  "news_context": "LINK reportedly up 4% to $12.54; Nazarov to speak at Philadelphia Fed Fintech Conference Sept 24-25; CCIP v1.5 heading to mainnet - constructive but no quantitative signal is currently flagged to pair it with"
+}
+```
+
+---
+### 2026-09-20T13:13:06.855Z — DOGE/USD — NO TRADE
+
+**Reasoning:** Already have an open long position on DOGE/USD (opened 2026-09-19, id 6cf25cad), one open position per pair enforced. RSI 49.57 (neutral), no fresh SMA crossover, volume 1.58x average (elevated but below 2x flag), momentum_trigger not flagged, price action negative (-2.38%/-2.62% over 48h). News: DOGE down 3.5% over 24h to $0.0847, whale accumulation of 240M+ DOGE continuing (bought while price fell from $0.091 to $0.081, Sept 9-14), MyDoge Doginals/DRC-20 suspension remains neutral for core DOGE - mixed/soft, not relevant since already positioned.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 49.57,
+  "sma_crossover_4h": "fast_above_slow, not crossed this candle",
+  "volume_ratio": 1.58,
+  "volume_flag_above_2x": false,
+  "momentum_trigger_flagged": false,
+  "price_action_1h_48h_pct": -2.38,
+  "price_action_4h_48h_pct": -2.62,
+  "order_book_imbalance_top10": 0.11,
+  "news_context": "DOGE down 3.5% over 24h to $0.0847; whale accumulation of 240M+ DOGE continuing amid price weakness; MyDoge Doginals/DRC-20 suspension remains neutral for core DOGE - mixed/soft but pair already has an open position",
+  "reason_for_no_trade": "one open position per pair already exists"
+}
+```
+
+---
