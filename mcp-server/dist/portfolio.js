@@ -227,6 +227,10 @@ export async function closePosition(input) {
 // own +1R level (up by its entry-to-stop risk amount)? False for a
 // zero/negative risk (shouldn't happen - openPosition requires stop_loss
 // below entry - but guards against a divide-by-nothing style edge case).
+// Called with the position's peak_price (see peakFromCandles below), not a
+// live point-sample - a trade that briefly touched +1R and pulled back
+// before the next check still earned the trailing treatment; it shouldn't
+// matter that price happens to be lower at the exact moment this runs.
 export function hasReachedOneR(entryPrice, initialStopLoss, currentPrice) {
     const risk = entryPrice - initialStopLoss;
     return risk > 0 && currentPrice >= entryPrice + risk;
@@ -266,14 +270,47 @@ async function trailingStopCandidate(pos) {
     }
     return effectiveTrailingStop(pos.entry_price, pos.peak_price, pos.stop_loss, sma20);
 }
+// Pure math, exported for unit testing: the highest candle `high` at or
+// after entryTs, floored at currentPeak (never regresses even if no
+// candles qualify - e.g. entry was seconds ago). Deliberately takes the
+// still-forming last candle too (its `high` is a true running high-so-far
+// for that period, updated in real time by Kraken - unlike `close`, which
+// is just wherever price happened to be at the last completed tick), so a
+// spike-and-reversal within the current hour is still captured.
+export function peakFromCandles(candles, entryTs, currentPeak) {
+    const highsSinceEntry = candles.filter((c) => c.time >= entryTs).map((c) => c.high);
+    return highsSinceEntry.length > 0 ? Math.max(...highsSinceEntry, currentPeak) : currentPeak;
+}
+// Fetches 1h candles since the position's entry and combines them with
+// peakFromCandles above. This replaces point-sampling ticker.last once per
+// cycle to track peak_price: a price spike that occurs and reverses between
+// two checkStops runs would otherwise never be recorded, silently
+// understating the guaranteed-profit floor below what the trade actually
+// earned. Falls back to the position's current peak_price if candles are
+// unavailable this cycle.
+async function historicalPeakSinceEntry(pos) {
+    try {
+        const candles = await fetchOHLC(pos.pair, "1h");
+        const entryTs = Math.floor(new Date(pos.opened_at).getTime() / 1000);
+        return peakFromCandles(candles, entryTs, pos.peak_price);
+    }
+    catch {
+        return pos.peak_price;
+    }
+}
 // Meant to be called on a schedule (or on demand) to auto-close any open
 // position whose stop-loss or take-profit has been breached, independent
 // of whether anyone is actively chatting with the agent.
 //
 // Two-pass: first bring every position's trailing state up to date and
 // persist it (so a stop-loss advance survives even if nothing closes this
-// cycle), then decide closes against that freshly-saved state. Exit rule
-// per position:
+// cycle), then decide closes against that freshly-saved state. peak_price
+// is refreshed from 1h candle highs since entry (historicalPeakSinceEntry),
+// not a live point-sample, so a spike-and-reversal between two runs of this
+// function still counts - both for how much profit gets locked in, and for
+// whether the trade has EVER earned the +1R trailing treatment even if
+// price has since pulled back below +1R by the time this specific cycle
+// runs. Exit rule per position:
 //   - Before the trade has ever reached +1R: unchanged fixed-target
 //     behavior - take-profit (2:1) checked first, then the original
 //     stop-loss. Take-profit checked first so a candle that gaps through
@@ -292,11 +329,12 @@ export async function checkStops() {
     let stateChanged = false;
     for (const pos of state.open_positions) {
         const ticker = await fetchTicker(pos.pair);
-        if (ticker.last > pos.peak_price) {
-            pos.peak_price = ticker.last;
+        const newPeak = Math.max(await historicalPeakSinceEntry(pos), ticker.last, pos.peak_price);
+        if (newPeak > pos.peak_price) {
+            pos.peak_price = newPeak;
             stateChanged = true;
         }
-        if (!pos.trailing_active && hasReachedOneR(pos.entry_price, pos.initial_stop_loss, ticker.last)) {
+        if (!pos.trailing_active && hasReachedOneR(pos.entry_price, pos.initial_stop_loss, pos.peak_price)) {
             pos.trailing_active = true;
             stateChanged = true;
         }

@@ -198,6 +198,28 @@ the remaining two ("No opportunity-cost / position-swap logic" and
     the new peak-based floor is provably >= the old flat one once trailing
     is active, so `checkStops`'s existing "only move up" logic corrects it
     automatically on the next cycle with no manual edit needed.
+  - **Revised 2026-09-20: `peak_price` now tracks 1h candle highs since
+    entry, not a live point-sample of `ticker.last`.** User asked what
+    happens if a trade spikes to a new high and reverses within the hour
+    between two `checkStops` runs - traced it and found a real gap: the
+    old code only compared `ticker.last` (a single price at the instant of
+    each check) against the stored `peak_price`, so a spike-and-reversal
+    between checks was never recorded at all. That silently understated
+    the guaranteed-profit floor below what the trade actually earned, and
+    - separately - meant `hasReachedOneR` could miss that a trade had ever
+    reached +1R if price had already pulled back below it by the time a
+    given cycle ran. Fixed with `peakFromCandles` (pure, unit-tested) and
+    `historicalPeakSinceEntry`: each cycle now fetches 1h candles since
+    `opened_at` and takes the highest `high` among them (deliberately
+    including the still-forming last candle, whose `high` is a true
+    running high-so-far, unlike `close`), combined via `Math.max` with
+    `ticker.last` and the existing `peak_price` so the value can only ever
+    increase. `hasReachedOneR` is now also evaluated against the refreshed
+    `peak_price` rather than a live-only price, so a trade that touched
+    +1R and pulled back still correctly earns the trailing treatment. No
+    backfill needed - `peak_price` is monotonic, so the very next
+    `checkStops` cycle self-corrects any position where the old
+    point-sampled value happened to understate the true historical peak.
 
 This required a full session cutover per "The hourly routine" section
 above (both `mcp-server/src/` and `instructions/kraken-agent-instructions.md`

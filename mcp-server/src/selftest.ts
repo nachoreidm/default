@@ -1,8 +1,13 @@
 import { fetchOHLC, fetchTicker, fetchDepth, closedCandles } from "./kraken.js";
 import { rsi, sma, smaCrossover, volumeVs7dAvg, orderBookImbalance, priceAction } from "./indicators.js";
 import { computeSignals } from "./signals.js";
-import { hasReachedOneR, effectiveTrailingStop } from "./portfolio.js";
+import { hasReachedOneR, effectiveTrailingStop, peakFromCandles } from "./portfolio.js";
 import { ALLOWED_PAIRS } from "./types.js";
+import type { Candle } from "./types.js";
+
+function candle(time: number, high: number): Candle {
+  return { time, open: high, high, low: high, close: high, vwap: high, volume: 0, count: 0 };
+}
 
 function assert(cond: boolean, msg: string) {
   if (!cond) throw new Error(`ASSERTION FAILED: ${msg}`);
@@ -70,6 +75,20 @@ async function main() {
   // +3R on a $10 original risk) locks 0.3*30=9 -> floor=109, clearly
   // higher than the 103 floor a peak of only 110 (+1R) would produce.
   assert(effectiveTrailingStop(100, 130, 90, null) === 109, "effectiveTrailingStop locks more profit for a bigger peak (130 -> 109) than a smaller one (110 -> 103)");
+
+  // peakFromCandles(candles, entryTs, currentPeak) - the fix for
+  // point-sampling ticker.last: a spike-and-reversal between two checks
+  // must still be captured via candle highs, not missed entirely.
+  const candles = [
+    candle(1000, 105), // before entry - must be excluded
+    candle(2000, 108), // at/after entry - counts
+    candle(3000, 112), // the spike that would be missed by point-sampling
+    candle(4000, 106), // price already reversed back down by "now"
+  ];
+  assert(peakFromCandles(candles, 2000, 100) === 112, "peakFromCandles catches an intra-window spike that already reversed (got not 112)");
+  assert(peakFromCandles(candles, 2000, 115) === 115, "peakFromCandles never regresses below the currently-stored peak (115 > 112)");
+  assert(peakFromCandles([], 2000, 100) === 100, "peakFromCandles falls back to currentPeak when no candles qualify");
+  assert(peakFromCandles([candle(500, 999)], 2000, 100) === 100, "peakFromCandles ignores candles before entryTs even if their high is huge");
 
   // --- Live Kraken API smoke test (public endpoints, no auth) ---
   const ticker = await fetchTicker("BTC/USD");
