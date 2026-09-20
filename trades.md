@@ -33140,3 +33140,115 @@ next cycle without any manual edit needed here.
 ```
 
 ---
+### 2026-09-20T01:12:36.690Z — BTC/USD — NO TRADE
+
+**Reasoning:** Already have an open long position on BTC/USD (one per pair enforced by code). Momentum_trigger just dropped below threshold for the first time this session (+5.99%/+5.08%, both under 6%), RSI 72.7 (still overbought), fast SMA above slow, volume ratio 0.63x (quiet). News: G20 recognized digital assets as growth engines, SEC Release 2026-81 on tokenized share registers - bullish backdrop but momentum cooling.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 72.72,
+  "momentum_trigger_flagged": false,
+  "sma_crossover_4h": "fast_above_slow, not crossed this candle",
+  "volume_ratio": 0.63,
+  "news_context": "G20 recognized digital assets as growth/settlement engines; SEC Release 2026-81 on tokenized share registers - bullish backdrop, momentum cooling below threshold"
+}
+```
+
+---
+### 2026-09-20T01:12:38.316Z — ETH/USD — NO TRADE
+
+**Reasoning:** Already have an open long position on ETH/USD (one per pair enforced by code). RSI 70.3 (overbought), momentum_trigger flagged (+6.97%/+6.25%), fast SMA above slow. News: a major whale accumulated $208M in ETH over three weeks signaling strong conviction, developer activity remains near record highs - bullish, consistent with existing position.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 70.35,
+  "momentum_trigger_flagged": true,
+  "sma_crossover_4h": "fast_above_slow, not crossed this candle",
+  "volume_ratio": 0.63,
+  "news_context": "A major whale accumulated $208M in ETH over three weeks; developer activity remains near record highs - bullish"
+}
+```
+
+---
+### 2026-09-20T01:12:41.210Z — SOL/USD — NO TRADE
+
+**Reasoning:** Already have an open long position on SOL/USD (one per pair enforced by code). Momentum_trigger flagged (+8.34%/+6.24%), RSI 67.3 (elevated but not overbought), fast SMA above slow, volume ratio 0.89x (below average). News: SOL ETFs attracted $153.87M (strongest week since Oct 2025), network averaging 9.5M new addresses/day, $229M in 30-day RWA net inflows leading blockchains - strongly bullish, consistent with existing trailing-active position.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 67.32,
+  "momentum_trigger_flagged": true,
+  "sma_crossover_4h": "fast_above_slow, not crossed this candle",
+  "volume_ratio": 0.89,
+  "news_context": "SOL ETFs attracted $153.87M (strongest week since Oct 2025); network averaging 9.5M new addresses/day; leading blockchains with $229M in 30-day RWA net inflows - strongly bullish"
+}
+```
+
+---
+### 2026-09-20T01:12:44.116Z — XRP/USD — NO TRADE
+
+**Reasoning:** Already have an open long position on XRP/USD (one per pair enforced by code). Momentum_trigger flagged (+7.80%/+6.39%), RSI 59.8 (neutral), fast SMA below slow, volume ratio 0.79x. News: Ripple unlocked 1B XRP from escrow (routine monthly unlock, not necessarily a sell wall per analysis), Ripple added XRP payments to Stripe/Tempo AI standard - mixed but net constructive, consistent with existing position.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 59.8,
+  "momentum_trigger_flagged": true,
+  "sma_crossover_4h": "fast_below_slow, not crossed this candle",
+  "volume_ratio": 0.79,
+  "news_context": "Ripple unlocked 1B XRP from escrow (routine monthly unlock); Ripple added XRP payments to Stripe/Tempo AI standard - mixed, net constructive"
+}
+```
+
+---
+### 2026-09-20T01:12:46.967Z — ADA/USD — NO TRADE
+
+**Reasoning:** Already have an open long position on ADA/USD (one per pair enforced by code). Momentum_trigger flagged (+9.26%/+5.41%), RSI 65.7 (not overbought), fast SMA above slow, volume ratio 1.30x. News: Intersect board-seat voting underway (Sept 14-25), ADA has 9th most bullish community sentiment among all cryptocurrencies per CoinMarketCap - bullish, consistent with existing trailing-active position.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 65.65,
+  "momentum_trigger_flagged": true,
+  "sma_crossover_4h": "fast_above_slow, not crossed this candle",
+  "volume_ratio": 1.3,
+  "news_context": "Intersect board-seat voting underway Sept 14-25; ADA has 9th most bullish community sentiment among all cryptocurrencies per CoinMarketCap - bullish"
+}
+```
+
+---
+### 2026-09-20T01:12:49.623Z — LINK/USD — NO TRADE
+
+**Reasoning:** Already have an open long position on LINK/USD (one per pair enforced by code, trailing_active since crossing +1R). Momentum_trigger flagged (+7.48%/+5.71%), RSI 67.0 (elevated but not overbought), fast SMA above slow, volume ratio 1.49x. News: Coinbase/Base tokenized-stocks integration remains the headline catalyst, CRE adoption ongoing unifying Functions/Automation - bullish, no material change.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 66.99,
+  "momentum_trigger_flagged": true,
+  "sma_crossover_4h": "fast_above_slow, not crossed this candle",
+  "volume_ratio": 1.49,
+  "news_context": "Coinbase/Base tokenized-stocks integration remains the headline catalyst; CRE adoption ongoing unifying Functions/Automation - bullish"
+}
+```
+
+---
+### 2026-09-20T01:12:51.724Z — DOGE/USD — NO TRADE
+
+**Reasoning:** Already have an open long position on DOGE/USD (one per pair enforced by code). Momentum_trigger flagged (+6.32%/+3.86%), RSI 61.7 (not overbought), fast SMA above slow, volume ratio 1.58x. News: whale accumulation of 240M+ DOGE continues, mixed but cautiously optimistic sentiment, merchant adoption (AMC, Newegg, Dallas Mavericks) unchanged - bullish, consistent with existing position.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 61.71,
+  "momentum_trigger_flagged": true,
+  "sma_crossover_4h": "fast_above_slow, not crossed this candle",
+  "volume_ratio": 1.58,
+  "news_context": "Whale accumulation of 240M+ DOGE continues; mixed but cautiously optimistic sentiment; merchant adoption unchanged - bullish"
+}
+```
+
+---
