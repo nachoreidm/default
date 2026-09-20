@@ -34863,3 +34863,147 @@ next cycle without any manual edit needed here.
 ```
 
 ---
+### 2026-09-20T14:13:00.118Z — BTC/USD — NO TRADE
+
+**Reasoning:** Already have an open long position on BTC/USD (opened 2026-09-19, id a040a78d), one open position per pair enforced. RSI 62.28 (neutral), no fresh SMA crossover, volume 0.63x average, momentum_trigger not flagged. News: BTC holding near $81K, up 4.37%/4.39% over 7/30 days, Fear & Greed at 71, Deutsche Bank custody plans, Hyperliquid manual borrowing - stable/positive but not relevant since already positioned.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 62.28,
+  "sma_crossover_4h": "fast_above_slow, not crossed this candle",
+  "volume_ratio": 0.63,
+  "volume_flag_above_2x": false,
+  "momentum_trigger_flagged": false,
+  "price_action_1h_48h_pct": -0.45,
+  "price_action_4h_48h_pct": -0.28,
+  "order_book_imbalance_top10": -0.62,
+  "news_context": "BTC holding near $81K, up 4.37%/4.39% over 7/30 days; Fear & Greed at 71; Deutsche Bank BTC custody plans; Hyperliquid manual borrowing launch - stable/positive but pair already has an open position",
+  "reason_for_no_trade": "one open position per pair already exists"
+}
+```
+
+---
+### 2026-09-20T14:13:03.604Z — ETH/USD — NO TRADE
+
+**Reasoning:** Already have an open long position on ETH/USD (opened 2026-09-19, id 0deba717), one open position per pair enforced. RSI 56.54 (neutral), no fresh SMA crossover, volume 0.63x average, momentum_trigger not flagged. News: ETH still pinned near the pivotal $2,672 level with the weekly candle closing today, ETF inflows resumed (~$143.7M Sept 18) - watching but not relevant since already positioned.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 56.54,
+  "sma_crossover_4h": "fast_above_slow, not crossed this candle",
+  "volume_ratio": 0.63,
+  "volume_flag_above_2x": false,
+  "momentum_trigger_flagged": false,
+  "price_action_1h_48h_pct": -0.03,
+  "price_action_4h_48h_pct": -0.17,
+  "order_book_imbalance_top10": -0.39,
+  "news_context": "ETH still pinned near $2,672 with weekly candle closing today; ETF inflows resumed ~$143.7M Sept 18; Amsterdam hard fork prep ongoing - watching but pair already has an open position",
+  "reason_for_no_trade": "one open position per pair already exists"
+}
+```
+
+---
+### 2026-09-20T14:13:07.327Z — SOL/USD — NO TRADE
+
+**Reasoning:** No open position on SOL/USD. No quantitative signal supports a fresh entry: RSI 56.47 is neutral, sma_crossover_4h shows fast_above_slow with crossed_this_candle false (established, not new), volume_ratio 0.89x is below average, and momentum_trigger is not flagged (1h/4h 48h moves of -2.20%/-2.42%, a pullback not a breakout). News: SOL down 3.5% over 24h, testing the $112-115 resistance zone from below, ZetaChain migration proposal to Solana - nothing to pair with a quantitative signal that isn't present. Logging no-trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 56.47,
+  "sma_crossover_4h": "fast_above_slow, not crossed this candle - established trend, no fresh signal",
+  "volume_ratio": 0.89,
+  "volume_flag_above_2x": false,
+  "momentum_trigger_flagged": false,
+  "price_action_1h_48h_pct": -2.2,
+  "price_action_4h_48h_pct": -2.42,
+  "order_book_imbalance_top10": 0.05,
+  "news_context": "SOL down 3.5% over 24h; testing $112-115 resistance from below; ZetaChain proposing migration of ZETA to Solana as native SPL token - no quantitative signal currently flagged"
+}
+```
+
+---
+### 2026-09-20T14:13:11.287Z — XRP/USD — NO TRADE
+
+**Reasoning:** Already have an open long position on XRP/USD (opened 2026-09-18, id e81f2ee9), one open position per pair enforced. RSI 52.06 (neutral), no fresh SMA crossover, volume 0.79x average, momentum_trigger not flagged. News: XRP holding $1.38-1.40 after recovering from the post-CLARITY-Act-failure dip to $1.25-1.30, sellers still capping moves toward $1.45 - constructive recovery but not relevant since already positioned.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 52.06,
+  "sma_crossover_4h": "fast_above_slow, not crossed this candle",
+  "volume_ratio": 0.79,
+  "volume_flag_above_2x": false,
+  "momentum_trigger_flagged": false,
+  "price_action_1h_48h_pct": -1.64,
+  "price_action_4h_48h_pct": -0.29,
+  "order_book_imbalance_top10": 0.71,
+  "news_context": "XRP holding $1.38-1.40 after recovering from post-CLARITY-Act dip to $1.25-1.30; sellers still capping moves toward $1.45; broader market stabilizing as BTC ETF flows turned positive - constructive but pair already has an open position",
+  "reason_for_no_trade": "one open position per pair already exists"
+}
+```
+
+---
+### 2026-09-20T14:13:15.239Z — ADA/USD — NO TRADE
+
+**Reasoning:** No open position on ADA/USD, but no quantitative signal triggers an entry this cycle: RSI 56.14 is neutral, sma_crossover_4h shows fast_above_slow but crossed_this_candle is false (established, not fresh), volume_ratio 1.30x is elevated but below the 2x flag threshold, and momentum_trigger is not flagged (1h/4h 48h moves of 0.38%/0.69%, well under 6%). News: same Mastercard/Leios/Digital-Asset-Stockpile items already known, testing $0.238 resistance with $0.225 as a key support level heading into tomorrow's governance roundtable - constructive but no quantitative signal to pair it with. Logging no-trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 56.14,
+  "sma_crossover_4h": "fast_above_slow, not crossed this candle - established trend, no fresh signal",
+  "volume_ratio": 1.3,
+  "volume_flag_above_2x": false,
+  "momentum_trigger_flagged": false,
+  "price_action_1h_48h_pct": 0.38,
+  "price_action_4h_48h_pct": 0.69,
+  "order_book_imbalance_top10": 0.76,
+  "news_context": "Testing $0.238 resistance, must hold $0.225 support heading into weekend; Mastercard/Leios/Digital-Asset-Stockpile items already known; governance roundtable Sept 21 - constructive but no quantitative signal is currently flagged to pair it with"
+}
+```
+
+---
+### 2026-09-20T14:13:19.689Z — LINK/USD — NO TRADE
+
+**Reasoning:** No open position on LINK/USD, but no quantitative signal triggers an entry this cycle: RSI 54.58 is neutral, sma_crossover_4h shows fast_above_slow but crossed_this_candle is false (established, not fresh), volume_ratio 1.49x is elevated but below the 2x flag threshold, and momentum_trigger is not flagged (1h/4h 48h moves of -0.92%/-0.63%, well under 6%). News reports a reported 4% pop to $12.54 (same figure as last cycle, likely stale) plus the upcoming Nazarov Fed panel Sept 24-25, but no confirming quantitative signal is present. Logging no-trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 54.58,
+  "sma_crossover_4h": "fast_above_slow, not crossed this candle - established trend, no fresh signal",
+  "volume_ratio": 1.49,
+  "volume_flag_above_2x": false,
+  "momentum_trigger_flagged": false,
+  "price_action_1h_48h_pct": -0.92,
+  "price_action_4h_48h_pct": -0.63,
+  "order_book_imbalance_top10": 0.37,
+  "news_context": "LINK reportedly at $12.54 (4% pop, same figure repeating from last cycle); Nazarov to speak at Philadelphia Fed Fintech Conference Sept 24-25; CCIP v1.5 heading to mainnet - no quantitative signal is currently flagged to pair it with"
+}
+```
+
+---
+### 2026-09-20T14:13:23.136Z — DOGE/USD — NO TRADE
+
+**Reasoning:** Already have an open long position on DOGE/USD (opened 2026-09-19, id 6cf25cad), one open position per pair enforced. RSI 49.57 (neutral), no fresh SMA crossover, volume 1.58x average (elevated but below 2x flag), momentum_trigger not flagged, price action negative (-3.44%/-2.62% over 48h). News: DOGE down 3.5% to $0.0847, rejected again at the $0.090-0.092 resistance zone, whale accumulation of 240M+ DOGE continuing, House of Doge filed a $100M securities shelf, REX-Osprey DOGE ETF marked its 1-year anniversary - mixed, not relevant since already positioned.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 49.57,
+  "sma_crossover_4h": "fast_above_slow, not crossed this candle",
+  "volume_ratio": 1.58,
+  "volume_flag_above_2x": false,
+  "momentum_trigger_flagged": false,
+  "price_action_1h_48h_pct": -3.44,
+  "price_action_4h_48h_pct": -2.62,
+  "order_book_imbalance_top10": 0.33,
+  "news_context": "DOGE down 3.5% to $0.0847, rejected again at $0.090-0.092 resistance; whale accumulation of 240M+ DOGE continuing; House of Doge filed $100M securities shelf; REX-Osprey DOGE ETF 1-year anniversary - mixed but pair already has an open position",
+  "reason_for_no_trade": "one open position per pair already exists"
+}
+```
+
+---
