@@ -153,34 +153,43 @@ designed to leave the working hourly trigger untouched and just report the
 failure - not silently break monitoring the way the fresh-session detour
 did.
 
-**Notion connector reattachment is needed every time the trigger itself is
-recreated** - which now includes every weekly cutover, not just one-off
-fixes. This is the one manual step in the otherwise-automated weekly
-cutover above; the cutover's own instructions tell it to remind the user
-of this every time rather than assume it's been done. Two things to know:
+**Notion connector reattachment turned out NOT to be needed on a
+cutover, despite `create_trigger`'s warning - confirmed empirically,
+twice, same day (2026-09-20).** Original assumption (now corrected): since
+`create_trigger`'s `connectors` param can't be set from a session that
+doesn't itself hold the connector, and the create response explicitly
+warns "this trigger stores no MCP connectors," it seemed like every
+recreated trigger would need a manual reattach at claude.ai/code/routines.
+User pushed back on doing this weekly and asked for alternatives - turned
+out the premise was wrong, not just annoying. That warning describes what
+happens when a *trigger* spawns a session from scratch
+(`create_new_session_on_fire`); it doesn't apply to a `persistent_session_id`
+trigger, because the trigger never creates anything - the session already
+exists (made via `create_session`, which runs under `permission_mode: auto`
+and inherits the account-level Notion always-allow setting automatically
+at creation, no connector list required) and the trigger just resumes it.
+Direct evidence: the first weekly cutover's verification cycle synced to
+Notion cleanly, and the very next *real* scheduled hourly firing (10:11
+UTC, same session) also synced cleanly - neither one had any manual
+reattachment done, by anyone, in between. The weekly-cutover trigger's own
+prompt has been updated to stop asking the user to reattach anything; it
+now only escalates if a cutover's verification cycle shows Notion sync
+actually failing (which would mean this assumption broke and needs
+re-investigating), not as a routine reminder.
 
-1. `create_trigger`'s `connectors` param can't be set from a session that
-   doesn't itself hold the connector (normally true for this session) -
-   reattach at claude.ai/code/routines on the new trigger after creating it.
-   Confirmed still true on today's recreation: the new trigger's create
-   response explicitly warned it stores no MCP connectors.
-2. **Historical context, from the original persistent-session model:** a
-   Notion write tool could start prompting for interactive approval again
-   despite the account-level always-allow setting, because that setting
-   appeared to be evaluated and locked in the *first time a given session*
-   encountered the tool - a session created before the setting was fixed
-   kept asking forever, even after the fix. Confirmed by direct A/B test
-   (2026-09-11). The now-current session (created 2026-09-20, after that
-   fix) should not hit this, but it hasn't been specifically re-confirmed
-   since today's trigger recreation - watch the next couple of firings'
-   Notion sync status to be sure.
-
-If Notion does start silently prompting again: don't just re-click approve
-each time. Fix the always-allow setting first (Settings → Connectors →
-Notion, per-tool), then do a fresh cutover (`create_session` + swap
-`persistent_session_id`) so the replacement session picks up the fix from
+**Historical context, from the original persistent-session model, kept for
+reference:** a Notion write tool could start prompting for interactive
+approval again despite the account-level always-allow setting, because
+that setting appeared to be evaluated and locked in the *first time a
+given session* encountered the tool - a session created before the
+setting was fixed kept asking forever, even after the fix. Confirmed by
+direct A/B test (2026-09-11). If Notion ever does start silently prompting
+again on some future session: don't just re-click approve each time. Fix
+the always-allow setting first (Settings → Connectors → Notion, per-tool),
+then do a fresh cutover so the replacement session picks up the fix from
 its first tool call - a session that already hit the bug before the fix
-keeps asking forever, per the note above.
+keeps asking forever, per the note above. This is now the only Notion-related
+watch item; ordinary weekly cutovers need no Notion action at all.
 
 ## Shipped to paper trading (2026-09-17)
 
