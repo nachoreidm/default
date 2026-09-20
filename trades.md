@@ -33028,3 +33028,115 @@ next cycle without any manual edit needed here.
 ```
 
 ---
+### 2026-09-20T00:12:43.917Z — BTC/USD — NO TRADE
+
+**Reasoning:** Already have an open long position on BTC/USD (one per pair enforced by code). Momentum_trigger flagged (+6.14%/+5.08%), RSI 72.7 (overbought), fast SMA above slow, volume ratio 0.63x (below average, quiet Saturday night trading). News: SEC Release 2026-81 proposes permitting corporate share registers on cryptographic ledgers; August ETF inflows were $3.52B - bullish backdrop, no change to position.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 72.72,
+  "momentum_trigger_flagged": true,
+  "sma_crossover_4h": "fast_above_slow, not crossed this candle",
+  "volume_ratio": 0.63,
+  "news_context": "SEC Release 2026-81 proposes permitting corporate share registers on cryptographic ledgers; August spot BTC ETF inflows were $3.52B - bullish"
+}
+```
+
+---
+### 2026-09-20T00:12:46.336Z — ETH/USD — NO TRADE
+
+**Reasoning:** Already have an open long position on ETH/USD (one per pair enforced by code). RSI 70.3 (overbought), momentum_trigger flagged (+7.59%/+6.25%), fast SMA above slow. News: base layer hit a record 203.9M trades in Q2 2026 (25.9 tps ATH), spot ETH ETFs recorded $143.8M inflow led by BlackRock - bullish, consistent with existing position.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 70.35,
+  "momentum_trigger_flagged": true,
+  "sma_crossover_4h": "fast_above_slow, not crossed this candle",
+  "volume_ratio": 0.63,
+  "news_context": "Base layer hit a record 203.9M trades in Q2 2026 (25.9 tps ATH); spot ETH ETFs recorded $143.8M inflow led by BlackRock - bullish"
+}
+```
+
+---
+### 2026-09-20T00:12:49.880Z — SOL/USD — NO TRADE
+
+**Reasoning:** Already have an open long position on SOL/USD (one per pair enforced by code). Momentum_trigger flagged (+9.57%/+6.24%), RSI 67.3 (elevated but not overbought), fast SMA above slow, volume ratio 0.89x (below average). News: SIMD-0525 250ms speed upgrade and SEC Innovation Exemption continue to drive sentiment; a wave of ecosystem token unlocks (TRUMP, PUMP, CARDS, YZY) this month is a mild dilution risk for adjacent tokens, not SOL itself - net bullish backdrop for SOL, consistent with existing trailing-active position.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 67.32,
+  "momentum_trigger_flagged": true,
+  "sma_crossover_4h": "fast_above_slow, not crossed this candle",
+  "volume_ratio": 0.89,
+  "news_context": "SIMD-0525 250ms speed upgrade and SEC Innovation Exemption continue driving sentiment; September brings ecosystem token unlocks (TRUMP, PUMP, CARDS, YZY) - mild dilution risk for adjacent tokens, not SOL itself"
+}
+```
+
+---
+### 2026-09-20T00:12:52.707Z — XRP/USD — NO TRADE
+
+**Reasoning:** Already have an open long position on XRP/USD (one per pair enforced by code). Momentum_trigger flagged (+8.51%/+6.39%), RSI 59.8 (neutral), fast SMA below slow, volume ratio 0.79x (below average). News: BatchV1_1 amendment could activate by late September enabling up to 8 transactions combined atomically, whale inflows to Binance continue - mixed but net constructive, consistent with existing position.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 59.8,
+  "momentum_trigger_flagged": true,
+  "sma_crossover_4h": "fast_below_slow, not crossed this candle",
+  "volume_ratio": 0.79,
+  "news_context": "BatchV1_1 amendment could activate by late September, enabling up to 8 transactions combined atomically; whale inflows to Binance continue - mixed, net constructive"
+}
+```
+
+---
+### 2026-09-20T00:12:56.303Z — ADA/USD — NO TRADE
+
+**Reasoning:** Already have an open long position on ADA/USD (one per pair enforced by code). Momentum_trigger flagged (+11.40%/+5.41%), RSI 65.7 (not overbought), fast SMA above slow, volume ratio 1.30x. News: Node 11.1.1 mainnet deployment (Sept 7) fixed Genesis block issues and enabled the Dijkstra-era hard fork path, Germany's Volksbanken plans to add ADA to its retail app by Q4 2026, ADA trading near $0.229 with $0.20 support / $0.25 resistance - bullish, consistent with existing trailing-active position.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 65.65,
+  "momentum_trigger_flagged": true,
+  "sma_crossover_4h": "fast_above_slow, not crossed this candle",
+  "volume_ratio": 1.3,
+  "news_context": "Node 11.1.1 mainnet deployment fixed Genesis block issues, enabling Dijkstra-era hard fork path; Germany's Volksbanken plans to add ADA to its retail app by Q4 2026; ADA near $0.229 between $0.20 support/$0.25 resistance - bullish"
+}
+```
+
+---
+### 2026-09-20T00:12:59.608Z — LINK/USD — NO TRADE
+
+**Reasoning:** Already have an open long position on LINK/USD (one per pair enforced by code, trailing_active since crossing +1R). Momentum_trigger flagged (+8.83%/+5.71%), RSI 67.0 (elevated but not overbought), fast SMA above slow, volume ratio 1.49x. News: Nazarov scheduled for Fed Philadelphia fintech panel Sept 24-25 alongside BlackRock/Vanguard, CCIP v1.5 mainnet release pending audits, Bottomline partnership remains the most significant recent catalyst - bullish, no material change.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 66.99,
+  "momentum_trigger_flagged": true,
+  "sma_crossover_4h": "fast_above_slow, not crossed this candle",
+  "volume_ratio": 1.49,
+  "news_context": "Nazarov scheduled for Fed Philadelphia fintech panel Sept 24-25; CCIP v1.5 mainnet release pending audits; Bottomline partnership remains most significant recent catalyst - bullish"
+}
+```
+
+---
+### 2026-09-20T00:13:01.823Z — DOGE/USD — NO TRADE
+
+**Reasoning:** Already have an open long position on DOGE/USD (one per pair enforced by code). Momentum_trigger flagged (+7.27%/+3.86%), RSI 61.7 (not overbought), fast SMA above slow, volume ratio 1.58x. News: continued recovery from the Sept 15 CLARITY Act selloff with whale accumulation of 240M DOGE, September target $0.088 (+5.69% from mid-month levels) - bullish, consistent with existing position.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 61.71,
+  "momentum_trigger_flagged": true,
+  "sma_crossover_4h": "fast_above_slow, not crossed this candle",
+  "volume_ratio": 1.58,
+  "news_context": "Continued recovery from the Sept 15 CLARITY Act selloff with whale accumulation of 240M DOGE; September target $0.088 - bullish"
+}
+```
+
+---
