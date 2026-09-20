@@ -33613,3 +33613,129 @@ next cycle without any manual edit needed here.
 ```
 
 ---
+### 2026-09-20T05:12:04.694Z — BTC/USD — NO TRADE
+
+**Reasoning:** Existing open long position (medium confidence, entered 09-19). One position per pair enforced - no new action. News: BTC ~$80.4-81.4K, Bitcoin higher as oil retreats and SEC offers limited relief for tokenized-stock trading; Matrixport moved 2,400 BTC to Binance (mild sell-pressure watch item). Current price $80,510, roughly flat/slightly down unrealized, stop clean at $77,300.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": 3.84,
+  "pct_change_4h_48h": 3.52,
+  "rsi_14_4h": 62.99,
+  "sma_crossover_4h": "fast_above_slow, no cross this candle",
+  "volume_ratio": 0.63,
+  "volume_flag_above_2x": false
+}
+```
+
+---
+### 2026-09-20T05:12:07.689Z — ETH/USD — NO TRADE
+
+**Reasoning:** Existing open long position (medium confidence, entered 09-19). One position per pair enforced - no new action. News: ETH broke above $2,630 on whale activity Sept 19 (highest since January), record non-empty wallets; ETF inflows $144M on Sept 18 (2nd-largest single-day of the month, BlackRock-led); Glamsterdam testnet scheduled Oct 6. Constructive but position already open. Current price $2,579.76, roughly at entry, stop clean at $2,478.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": 4.05,
+  "pct_change_4h_48h": 3.98,
+  "rsi_14_4h": 58.62,
+  "sma_crossover_4h": "fast_above_slow, no cross this candle",
+  "volume_ratio": 0.63,
+  "volume_flag_above_2x": false
+}
+```
+
+---
+### 2026-09-20T05:12:11.349Z — SOL/USD — NO TRADE
+
+**Reasoning:** Existing open long position, trailing_active=true (past +1R, guaranteed profit locked). One position per pair enforced - no new action. News: SOL near $111, up 12% on the week after the SIMD-0525 speed upgrade (250ms slot time) and SEC's 5-year Innovation Exemption for tokenized securities; SOL ETFs attracted $153.87M this week, strongest since Oct 2025. Confirms original thesis; position already benefiting via trailing stop. Current price $109.05, up unrealized, peak $114.30, trailing floor locked.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": 3.52,
+  "pct_change_4h_48h": 3.07,
+  "rsi_14_4h": 58.22,
+  "sma_crossover_4h": "fast_above_slow, no cross this candle",
+  "volume_ratio": 0.89,
+  "volume_flag_above_2x": false
+}
+```
+
+---
+### 2026-09-20T05:12:14.582Z — XRP/USD — NO TRADE
+
+**Reasoning:** Existing open long position (medium confidence, entered 09-18 momentum-only). One position per pair enforced - no new action, despite another fresh bullish SMA crossover this candle. News: CLARITY Act cloture failure (Sept 15) drove a near-10% drop toward $1.30; Fed hiked rates 25bp Sept 16; XRPL 3.4.0 lending protocol upgrade in beta; Evernorth (Ripple-backed XRP treasury co.) lined up $30M financing ahead of a SPAC merger. Mixed/recovering. Current price $1.38274, roughly flat vs entry, stop clean at $1.313.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": 4.8,
+  "pct_change_4h_48h": 4.1,
+  "rsi_14_4h": 52.65,
+  "sma_crossover_4h": "fast_above_slow, bullish cross this candle",
+  "volume_ratio": 0.79,
+  "volume_flag_above_2x": false
+}
+```
+
+---
+### 2026-09-20T05:12:18.067Z — ADA/USD — NO TRADE
+
+**Reasoning:** Existing open long position, trailing_active=true (past +1R, guaranteed profit locked). One position per pair enforced - no new action. News: ADA touched a weekly high of $0.2344 on Sept 19, up over 6% on the week; Mastercard partnership (Sept 15), Leios 1,000 TPS milestone (Sept 18), monthly active addresses up 65% to 328K, a US bill advanced proposing ADA in a Digital Asset Stockpile. Broadly positive, consistent with thesis; position already open. Current price $0.221138, up unrealized, peak $0.234965, trailing floor locked.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": 4.24,
+  "pct_change_4h_48h": 3.75,
+  "rsi_14_4h": 57.73,
+  "sma_crossover_4h": "fast_above_slow, no cross this candle",
+  "volume_ratio": 1.3,
+  "volume_flag_above_2x": false
+}
+```
+
+---
+### 2026-09-20T05:12:22.844Z — LINK/USD — NO TRADE
+
+**Reasoning:** No open position (prior LINK long closed via trailing stop two cycles ago). Re-evaluated for a fresh entry: still no quantitative signal. momentum_trigger flagged false (+2.89%/+2.21%, well below the 6% threshold), RSI 55.25 neutral, SMA still fast_above_slow but no fresh cross this candle, volume ratio 1.49x does not clear the 2x spike flag. News: Bottomline/CCIP bank partnership (Sept 4) and Arc Mainnet launch with Chainlink oracle integration (Sept 16) remain the standing bullish catalysts (same as noted in recent cycles, not fresh); LINK trading around $12.02, roughly flat. No new entry - no fresh confirming signal.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": 2.89,
+  "pct_change_4h_48h": 2.21,
+  "rsi_14_4h": 55.25,
+  "sma_crossover_4h": "fast_above_slow, no cross this candle",
+  "volume_ratio": 1.49,
+  "volume_flag_above_2x": false
+}
+```
+
+---
+### 2026-09-20T05:12:24.234Z — DOGE/USD — NO TRADE
+
+**Reasoning:** Existing open long position (medium confidence, entered 09-19 on volume-confirmed breakout). One position per pair enforced - no new action. News: CLARITY Act failure (Sept 15) triggered a broad sell-off pressuring DOGE; whale accumulation on the dip signals possible near-term rebound confidence; MyDoge Wallet ending Doginals support (Sept 2, minor). Mixed. Current price $0.0854797, down slightly unrealized (roughly stable vs prior cycle), stop clean at $0.0822.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": 1.67,
+  "pct_change_4h_48h": 1.64,
+  "rsi_14_4h": 52.26,
+  "sma_crossover_4h": "fast_above_slow, no cross this candle",
+  "volume_ratio": 1.58,
+  "volume_flag_above_2x": false
+}
+```
+
+---
