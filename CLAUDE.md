@@ -56,65 +56,89 @@ echo '{"jsonrpc":"2.0","id":1,"method":"initialize","params":{"protocolVersion":
 
 ## The hourly routine (trigger)
 
-**Architecture changed 2026-09-20: fresh session per firing, not one
-persistent session.** The trigger (`mcp__Claude_Code_Remote__list_triggers`)
-now runs with `create_new_session_on_fire: true` (`persist_session: false`,
-no `persistent_session_id`) - every hourly firing spins up a brand-new,
-disposable session rather than resuming the same one turn after turn.
-Reason: a persistent session's conversation history accumulates forever,
-and per-cycle cost climbs as that history grows - the session bound to the
-trigger before this change had racked up **$336.31 over ~18 hours** (cost
-climbing from ~$1/cycle early on toward $18-19/cycle by the end), purely
-from context accumulation, not from doing more work. A fresh session every
-firing keeps cost flat at roughly the "cycle 1" baseline (~$1-2)
-indefinitely, since there's no history to accumulate. This works cleanly
-because the routine was already fully stateless-by-design - it re-reads
-`data/portfolio_state.json`/`trades.md`/the instructions doc fresh via
-`git pull` every single cycle rather than relying on session memory (see
-the "Persistence" section of `instructions/kraken-agent-instructions.md`,
-which literally describes a "brand-new cloud VM on every firing" as the
-expected model - that's exactly what this now actually is, rather than an
-assumption the implementation didn't match).
+**2026-09-20: fresh-session-per-firing was tried and reverted within the
+same day - it's broken, don't re-attempt without fixing the root cause
+first.** The motivating problem was real and remains unsolved (see below),
+but the fix attempted did not work.
 
-**This also mostly eliminates the need for a "cutover" on ordinary code or
-instructions changes.** Push new code/docs to the branch as usual (see
-"Setup" above for the rebuild-before-commit rule) - the *next* hourly
-firing spins up a fresh session, pulls the new code, and just runs on it.
-No `create_session`/verify/`delete_trigger`/`create_trigger`/`archive_session`
-dance needed for that case anymore. A cutover-style action (deleting and
-recreating the trigger itself) is now only needed if the trigger's own
-*prompt text* needs to change (it's baked into the trigger config, e.g. if
-the pair list changes again) or its schedule/mode changes - not for every
-`src/` edit.
+What was tried: switched the trigger to `create_new_session_on_fire: true`
+(`persist_session: false`, no `persistent_session_id`), on the theory that
+a brand-new disposable session per hourly firing would keep cost flat
+instead of climbing as one persistent session's conversation history
+accumulates forever (see "the cost problem" below for the numbers that
+motivated this).
 
-**Notion connector reattachment is still needed, but now only when the
-*trigger itself* is recreated** (a rarer event under this model), not on
-every code push. Two things to know:
+What actually happened: the very first real firing under this mode
+(`trig_018vYAWycycUJfDwZTvpzzh9`, fired 08:11 UTC) reported
+`ROUTINE_RUN_STATUS_SUCCEEDED` but did **nothing** - no git commit, no
+trade decisions, nothing pushed. `get_session` on the session it spawned
+showed no `sources` field at all (no git repository configured) and no
+`post_turn_summary`, with a suspiciously low `cost_usd` (~$0.37) and
+`input_tokens` (28). **Root cause: `create_trigger`'s
+`create_new_session_on_fire` mode has no parameter to specify a git repo
+source at all** (unlike `create_session`, which takes `source_url`/
+`source_revision`), and the environment itself has no bound default
+repository (checked via `list_environments`). So every fresh session this
+mode spawned started completely empty - no repo, no `.mcp.json`, no MCP
+tools, nothing to `git pull`, nothing to commit - while the trigger
+infrastructure still reported the firing as a bare success. This is a
+dangerous failure mode specifically *because* it fails silently: a
+real-money version of this bug would look identical (routine reports
+"succeeded," nothing actually gets checked or traded) unless someone
+happens to notice the missing commit.
+
+**Fix applied same day**: reverted to the persistent-session model.
+Deleted the broken trigger, created a verification session via
+`create_session` with an explicit `source_url`/`source_revision` (confirmed
+this time to have `session_context.sources` populated correctly), had it
+run a full cycle to prove the repo + MCP tools work end-to-end, then
+recreated the hourly trigger (same name, same `11 * * * *` cron) bound to
+that verified session via `persistent_session_id` - i.e., back to exactly
+the architecture that was in place before this whole detour, with a fresh
+starting session (cost resets to the "cycle 1" baseline from here, but
+*will* start climbing again over this session's lifetime - see below).
+
+**The original cost-climb problem is still open and unsolved.** The
+persistent session bound to the trigger before this detour had racked up
+**$336.31 over ~18 hours** (cost climbing from ~$1/cycle early on toward
+$18-19/cycle by the end), purely from conversation-history accumulation,
+not from doing more work. That problem is real and will recur on the
+current (reverted-to) session too. Ideas not yet tried: a periodic
+scheduled cutover (e.g. every 1-2 days, `create_session` fresh + swap the
+trigger's `persistent_session_id`) to cap how large any one session's
+history gets, rather than fresh-per-firing; or checking whether an
+environment can be configured with a bound default repository via the
+claude.ai UI (which might make `create_new_session_on_fire` viable after
+all, if it stops spawning repo-less sessions). Don't re-attempt
+fresh-session-per-firing until one of these is actually verified working
+end-to-end on a real firing - not just reasoned through - given today's
+silent-failure experience.
+
+**Notion connector reattachment is needed every time the trigger itself is
+recreated** (as it just was). Two things to know:
 
 1. `create_trigger`'s `connectors` param can't be set from a session that
    doesn't itself hold the connector (normally true for this session) -
    reattach at claude.ai/code/routines on the new trigger after creating it.
-2. **Historical context, from the old persistent-session model:** a Notion
-   write tool could start prompting for interactive approval again despite
-   the account-level always-allow setting, because that setting appeared to
-   be evaluated and locked in the *first time a given session* encountered
-   the tool - a session created before the setting was fixed kept asking
-   forever, even after the fix. Confirmed by direct A/B test (2026-09-11).
-   **This should no longer be a practical risk under the fresh-session
-   model** - every firing gets a session created *now*, against whatever
-   the current (already-correct) account setting is, so there's no
-   possibility of a stale pre-fix session persisting for its whole
-   lifetime. Reasoning, not yet fully proven across many firings in a
-   row - the plan is to watch the first several fresh-session firings
-   specifically for Notion sync status (not just trading correctness) to
-   confirm this holds before fully trusting it unattended. Update this
-   note once confirmed.
+   Confirmed still true on today's recreation: the new trigger's create
+   response explicitly warned it stores no MCP connectors.
+2. **Historical context, from the original persistent-session model:** a
+   Notion write tool could start prompting for interactive approval again
+   despite the account-level always-allow setting, because that setting
+   appeared to be evaluated and locked in the *first time a given session*
+   encountered the tool - a session created before the setting was fixed
+   kept asking forever, even after the fix. Confirmed by direct A/B test
+   (2026-09-11). The now-current session (created 2026-09-20, after that
+   fix) should not hit this, but it hasn't been specifically re-confirmed
+   since today's trigger recreation - watch the next couple of firings'
+   Notion sync status to be sure.
 
 If Notion does start silently prompting again: don't just re-click approve
 each time. Fix the always-allow setting first (Settings → Connectors →
-Notion, per-tool) - under this model, the very next firing's fresh session
-should pick that fix up automatically, without needing a dedicated cutover
-to a new session the way the old model required.
+Notion, per-tool), then do a fresh cutover (`create_session` + swap
+`persistent_session_id`) so the replacement session picks up the fix from
+its first tool call - a session that already hit the bug before the fix
+keeps asking forever, per the note above.
 
 ## Shipped to paper trading (2026-09-17)
 
