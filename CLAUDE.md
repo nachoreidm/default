@@ -98,24 +98,66 @@ the architecture that was in place before this whole detour, with a fresh
 starting session (cost resets to the "cycle 1" baseline from here, but
 *will* start climbing again over this session's lifetime - see below).
 
-**The original cost-climb problem is still open and unsolved.** The
-persistent session bound to the trigger before this detour had racked up
-**$336.31 over ~18 hours** (cost climbing from ~$1/cycle early on toward
-$18-19/cycle by the end), purely from conversation-history accumulation,
-not from doing more work. That problem is real and will recur on the
-current (reverted-to) session too. Ideas not yet tried: a periodic
-scheduled cutover (e.g. every 1-2 days, `create_session` fresh + swap the
-trigger's `persistent_session_id`) to cap how large any one session's
-history gets, rather than fresh-per-firing; or checking whether an
-environment can be configured with a bound default repository via the
-claude.ai UI (which might make `create_new_session_on_fire` viable after
-all, if it stops spawning repo-less sessions). Don't re-attempt
-fresh-session-per-firing until one of these is actually verified working
-end-to-end on a real firing - not just reasoned through - given today's
-silent-failure experience.
+**The original cost-climb problem** - a persistent session bound to the
+trigger before this detour had racked up **$336.31 over ~18 hours** (cost
+climbing from ~$1/cycle early on toward $18-19/cycle by the end), purely
+from conversation-history accumulation, not from doing more work - **is
+now mitigated via a weekly session cutover, not fresh-session-per-firing.**
+
+**Same-day follow-up test, 2026-09-20: the "self-heal" idea for
+fresh-session-per-firing was tried and also failed, ruling that path out
+entirely.** Theory: even though `create_new_session_on_fire` can't specify
+a repo source, maybe a spawned session could attach one itself mid-session
+via `add_repo` + `register_repo_root` (both ordinary Claude Code Remote
+meta-tools, not gated on having a repo already). Tested directly with two
+throwaway sessions created via `create_session` with no `source_url`
+(deliberately mimicking a fresh firing's starting state) and a step-by-step
+script asking them to self-attach the repo and then try calling
+`portfolio_get_state`. **Both sessions refused before doing anything** -
+the very act of asking a session to attach a repo and probe an MCP tool
+mid-conversation tripped a suspected-prompt-injection safety check, and
+each sat blocked waiting for a human to click confirm in the web UI (first
+attempt: "confirm you want me to grant push access... and probe kraken
+trading MCP"; second, simplified/read-only attempt: same block, "refused
+suspected prompt injection"). Two-for-two on the identical block, with
+different wording and different access levels, means this isn't a
+prompt-phrasing problem to work around - it's a structural one: an
+unattended hourly trigger can never click "confirm," so a self-healing
+fresh session would just trade one silent-failure mode (no repo, reports
+success anyway) for a different one (stuck waiting for approval nobody's
+there to give, indefinitely). **Conclusion: fresh-session-per-firing is a
+dead end for this system, full stop - don't revisit it** unless the
+underlying "attach a repo mid-session" action stops tripping that check
+(not something this project controls) or `create_new_session_on_fire`
+gains its own repo-source parameter (a platform change, not something to
+work around here).
+
+**What's actually implemented instead: weekly automated cutover.** A
+separate trigger, `trig_01BXwQ1gY9eTyFCdvTmCVnM9` ("Weekly session cutover
+for Kraken hourly monitoring", cron `0 9 * * 0` - Sundays 09:00 UTC),
+fires into the main persistent chat session (not the hourly-monitoring
+session itself) with a self-contained procedure: look up the current
+hourly trigger's id/prompt/session, spin up a brand-new session via
+`create_session` with an explicit `source_url`/`source_revision` (the
+approach proven to work, unlike the repo-less path above), run that same
+hourly-cycle prompt on it as both a verification step and that hour's real
+cycle, and - only if it completes cleanly (repo present, MCP tools present,
+an actual git push happened) - delete the old hourly trigger and recreate
+it bound to the new session via `persistent_session_id`, then
+best-effort-archive the old session. This bounds conversation-history
+growth (and therefore cost) to at most a week's worth of cycles before
+each reset, without ever needing a repo-less session to do anything.
+User-chosen cadence: weekly, fully automated except the one unavoidable
+manual step below. If a cutover ever fails its own verification step, it's
+designed to leave the working hourly trigger untouched and just report the
+failure - not silently break monitoring the way the fresh-session detour
+did.
 
 **Notion connector reattachment is needed every time the trigger itself is
-recreated** (as it just was). Two things to know:
+recreated** - which now includes every weekly cutover, not just one-off
+fixes. This is the one manual step in the otherwise-automated weekly
+cutover above; the cutover's own instructions tell it to remind the user
+of this every time rather than assume it's been done. Two things to know:
 
 1. `create_trigger`'s `connectors` param can't be set from a session that
    doesn't itself hold the connector (normally true for this session) -
