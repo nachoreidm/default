@@ -33865,3 +33865,138 @@ next cycle without any manual edit needed here.
 ```
 
 ---
+### 2026-09-20T07:12:13.325Z — ADA/USD — LONG — CLOSED
+
+- Exit price: $0.22
+- Exit fee (paper): $1.22
+- Reason: Trailing stop-loss auto-triggered (price 0.220143 <= stop 0.22067325435) - position had reached +1R, so the fixed 2:1 take-profit was superseded by the guaranteed-profit trailing rule (stop locked in at least 30% of the peak gain reached - peak price $0.23 above entry $0.21) before this reversal closed it.
+- Realized P&L: $5.14 (0.05% of portfolio)
+- Position id: 2c7048a0-82ee-4747-8ab6-33d9874f8c3e
+
+---
+### 2026-09-20T07:12:54.592Z — BTC/USD — NO TRADE
+
+**Reasoning:** Existing open long position (medium confidence, entered 09-19). One position per pair enforced - no new action. News: Deutsche Bank plans BTC custody for EU institutions by end of 2026; SEC's tokenized-equities Innovation Exemption; broader equity markets also up. Fear & Greed at 71 (greed). Current price $80,289.50, roughly flat vs prior cycle, stop clean at $77,300.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": 3.29,
+  "pct_change_4h_48h": 3.52,
+  "rsi_14_4h": 62.99,
+  "sma_crossover_4h": "fast_above_slow, no cross this candle",
+  "volume_ratio": 0.63,
+  "volume_flag_above_2x": false
+}
+```
+
+---
+### 2026-09-20T07:12:57.503Z — ETH/USD — NO TRADE
+
+**Reasoning:** Existing open long position (medium confidence, entered 09-19). One position per pair enforced - no new action. News: ETH ~$2,583, ePBS testnet trial succeeded (mainnet targeted Q4 2026), a whale accumulated $208M in ETH over 3 weeks, ETF inflows $143.8M on Sept 18 led by BlackRock. Constructive but position already open. Current price $2,574.34, roughly flat, stop clean at $2,478.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": 3.44,
+  "pct_change_4h_48h": 3.98,
+  "rsi_14_4h": 58.62,
+  "sma_crossover_4h": "fast_above_slow, no cross this candle",
+  "volume_ratio": 0.63,
+  "volume_flag_above_2x": false
+}
+```
+
+---
+### 2026-09-20T07:13:00.036Z — SOL/USD — NO TRADE
+
+**Reasoning:** Existing open long position, trailing_active=true (past +1R, guaranteed profit locked). One position per pair enforced - no new action. News: 250ms block-time cut and SEC Innovation Exemption remain standing catalysts; SOL ETFs attracted $153.87M this week; exchange supply fell 4.91%. Consistent with thesis; position already benefiting via trailing stop. Current price $108.70, up unrealized, peak $114.30, trailing floor locked.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": 2.6,
+  "pct_change_4h_48h": 3.07,
+  "rsi_14_4h": 58.22,
+  "sma_crossover_4h": "fast_above_slow, no cross this candle",
+  "volume_ratio": 0.89,
+  "volume_flag_above_2x": false
+}
+```
+
+---
+### 2026-09-20T07:13:03.578Z — XRP/USD — NO TRADE
+
+**Reasoning:** Existing open long position (medium confidence, entered 09-18 momentum-only). One position per pair enforced - no new action, despite yet another fresh bullish SMA crossover this candle. News: CLARITY Act cloture failure (Sept 15) remains the standing headwind; Ripple's Sept 1 escrow release (1B XRP, ~$1.38B) absorbed without lasting price impact; RLUSD stablecoin launch still planned later in 2026. Current price $1.38267, roughly flat vs entry, stop clean at $1.313.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": 3.97,
+  "pct_change_4h_48h": 4.1,
+  "rsi_14_4h": 52.65,
+  "sma_crossover_4h": "fast_above_slow, bullish cross this candle",
+  "volume_ratio": 0.79,
+  "volume_flag_above_2x": false
+}
+```
+
+---
+### 2026-09-20T07:13:08.072Z — ADA/USD — NO TRADE
+
+**Reasoning:** Prior ADA long closed this cycle via trailing stop-loss for a guaranteed +$5.14 realized profit (entry $0.2145 -> exit $0.2200, had reached +1R at peak $0.235). Re-evaluated for a fresh entry: news is genuinely positive (ADA reportedly +11% in 24h on the Mastercard partnership per some sources, a governance roundtable scheduled Sept 21), but our own live signals don't confirm a fresh entry - momentum_trigger flagged false (+2.82%/+3.75%, below the 6% threshold), RSI 57.73 neutral, no fresh SMA crossover this candle (fast_above_slow, not crossed), volume ratio 1.30x below the 2x flag. The reported 24h price pop isn't corroborated by our own 48h-window momentum calc. No new entry - no quantitative confirmation despite the headline.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": 2.82,
+  "pct_change_4h_48h": 3.75,
+  "rsi_14_4h": 57.73,
+  "sma_crossover_4h": "fast_above_slow, no cross this candle",
+  "volume_ratio": 1.3,
+  "volume_flag_above_2x": false
+}
+```
+
+---
+### 2026-09-20T07:13:12.034Z — LINK/USD — NO TRADE
+
+**Reasoning:** No open position (prior LINK long closed via trailing stop four cycles ago). Re-evaluated for a fresh entry: still no quantitative signal. momentum_trigger flagged false (+1.30%/+2.21%, cooling further, well below the 6% threshold), RSI 55.25 neutral, SMA still fast_above_slow with no fresh cross, volume ratio 1.49x below the 2x flag. News: Chainlink Reserves added $1.1M in LINK (total ~$70.5M, none ever sold - a slow-moving structural positive, not a trigger), Nazarov speaking at Fed Reserve Bank Philadelphia fintech panel Sept 24-25, Bottomline/CCIP bank partnership. No fresh catalyst, no new entry.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": 1.3,
+  "pct_change_4h_48h": 2.21,
+  "rsi_14_4h": 55.25,
+  "sma_crossover_4h": "fast_above_slow, no cross this candle",
+  "volume_ratio": 1.49,
+  "volume_flag_above_2x": false
+}
+```
+
+---
+### 2026-09-20T07:13:13.981Z — DOGE/USD — NO TRADE
+
+**Reasoning:** Existing open long position (medium confidence, entered 09-19 on volume-confirmed breakout). One position per pair enforced - no new action. News: whale accumulation (240M DOGE) continues to be cited post-CLARITY-Act-failure dip; MyDoge Wallet suspended Doginals/DRC-20 support (Sept 17, unrelated to price); weekly target $0.086, cautiously optimistic consensus. Current price $0.0852457, roughly flat, stop clean at $0.0822.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": 0.78,
+  "pct_change_4h_48h": 1.64,
+  "rsi_14_4h": 52.26,
+  "sma_crossover_4h": "fast_above_slow, no cross this candle",
+  "volume_ratio": 1.58,
+  "volume_flag_above_2x": false
+}
+```
+
+---
