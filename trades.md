@@ -33739,3 +33739,129 @@ next cycle without any manual edit needed here.
 ```
 
 ---
+### 2026-09-20T06:12:39.684Z — BTC/USD — NO TRADE
+
+**Reasoning:** Existing open long position (medium confidence, entered 09-19). One position per pair enforced - no new action. News: BTC facing rate-hike headwinds (Fed hawkish tone, 10yr yield elevated) after a strong August; historically Septembers have delivered gains the past 3 years. No fresh BTC-specific catalyst. Current price $80,417.50, roughly flat vs prior cycle, stop clean at $77,300.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": 3.77,
+  "pct_change_4h_48h": 3.52,
+  "rsi_14_4h": 62.99,
+  "sma_crossover_4h": "fast_above_slow, no cross this candle",
+  "volume_ratio": 0.63,
+  "volume_flag_above_2x": false
+}
+```
+
+---
+### 2026-09-20T06:12:41.918Z — ETH/USD — NO TRADE
+
+**Reasoning:** Existing open long position (medium confidence, entered 09-19). One position per pair enforced - no new action. News: ETH holding above $2,600, ETF inflows returning, open interest at 4-month high, a whale accumulated $208M in ETH over 3 weeks; Glamsterdam hard-fork prep continues (ePBS targeted Q4 2026). Constructive but position already open. Current price $2,574.85, roughly flat, stop clean at $2,478.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": 3.71,
+  "pct_change_4h_48h": 3.98,
+  "rsi_14_4h": 58.62,
+  "sma_crossover_4h": "fast_above_slow, no cross this candle",
+  "volume_ratio": 0.63,
+  "volume_flag_above_2x": false
+}
+```
+
+---
+### 2026-09-20T06:12:45.251Z — SOL/USD — NO TRADE
+
+**Reasoning:** Existing open long position, trailing_active=true (past +1R, guaranteed profit locked). One position per pair enforced - no new action. News: 250ms block-time cut (Sept 18) and SEC's 5-year Innovation Exemption remain the standing bullish catalysts; sentiment described as a tug-of-war between ecosystem optimism and technical caution. Consistent with thesis; position already benefiting via trailing stop. Current price $108.51, up unrealized, peak $114.30, trailing floor locked.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": 3.04,
+  "pct_change_4h_48h": 3.07,
+  "rsi_14_4h": 58.22,
+  "sma_crossover_4h": "fast_above_slow, no cross this candle",
+  "volume_ratio": 0.89,
+  "volume_flag_above_2x": false
+}
+```
+
+---
+### 2026-09-20T06:12:48.143Z — XRP/USD — NO TRADE
+
+**Reasoning:** Existing open long position (medium confidence, entered 09-18 momentum-only). One position per pair enforced - no new action, despite yet another fresh bullish SMA crossover this candle. News: XRP cleared the $1.40 wall with $1.60-1.80 targeted next; Garlinghouse criticized Senate Democrats after CLARITY Act failure, expects rulemaking shift to SEC/CFTC; RLUSD stablecoin launch still planned later in 2026. Current price $1.38016, roughly flat vs entry, stop clean at $1.313.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": 4.58,
+  "pct_change_4h_48h": 4.1,
+  "rsi_14_4h": 52.65,
+  "sma_crossover_4h": "fast_above_slow, bullish cross this candle",
+  "volume_ratio": 0.79,
+  "volume_flag_above_2x": false
+}
+```
+
+---
+### 2026-09-20T06:12:51.161Z — ADA/USD — NO TRADE
+
+**Reasoning:** Existing open long position, trailing_active=true (past +1R, guaranteed profit locked). One position per pair enforced - no new action. News: ADA ~$0.2285-0.229, up 9% on the week; Mastercard partnership and Leios 1,000 TPS milestone remain standing catalysts; IOG warned of a YouTube channel hijack promoting a scam AI video (Sept 18, not price-relevant); Amaru Rust node client targeting Nov 2026 mainnet capability. Broadly positive; position already open. Current price $0.220935, up unrealized, peak $0.234965, trailing floor locked.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": 3.7,
+  "pct_change_4h_48h": 3.75,
+  "rsi_14_4h": 57.73,
+  "sma_crossover_4h": "fast_above_slow, no cross this candle",
+  "volume_ratio": 1.3,
+  "volume_flag_above_2x": false
+}
+```
+
+---
+### 2026-09-20T06:12:55.190Z — LINK/USD — NO TRADE
+
+**Reasoning:** No open position (prior LINK long closed via trailing stop three cycles ago). Re-evaluated for a fresh entry: still no quantitative signal. momentum_trigger flagged false (+1.79%/+2.21%, cooling further, well below the 6% threshold), RSI 55.25 neutral, SMA still fast_above_slow with no fresh cross, volume ratio 1.49x below the 2x flag. News: CCIP v1.5 mainnet release pending, Nazarov speaking at a Fed Reserve Bank Philadelphia fintech panel Sept 24-25 - same standing Schwab-listing catalyst as recent cycles, no fresh trigger; LINK actually down slightly (~$11.99, -1.2% 24h per one source). No new entry.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": 1.79,
+  "pct_change_4h_48h": 2.21,
+  "rsi_14_4h": 55.25,
+  "sma_crossover_4h": "fast_above_slow, no cross this candle",
+  "volume_ratio": 1.49,
+  "volume_flag_above_2x": false
+}
+```
+
+---
+### 2026-09-20T06:12:57.998Z — DOGE/USD — NO TRADE
+
+**Reasoning:** Existing open long position (medium confidence, entered 09-19 on volume-confirmed breakout). One position per pair enforced - no new action. News: whale accumulation (240M DOGE) continues to be cited as a bullish counter-signal; a weekly bullish engulfing pattern noted after ~2 weeks of correction/sideways action; MyDoge Wallet suspended Doginals/DRC-20 support (Sept 17, minor/unrelated). Mixed-to-cautiously-optimistic. Current price $0.0852188, down slightly unrealized, stop clean at $0.0822.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": 1.44,
+  "pct_change_4h_48h": 1.64,
+  "rsi_14_4h": 52.26,
+  "sma_crossover_4h": "fast_above_slow, no cross this candle",
+  "volume_ratio": 1.58,
+  "volume_flag_above_2x": false
+}
+```
+
+---
