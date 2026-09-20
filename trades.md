@@ -34278,3 +34278,156 @@ next cycle without any manual edit needed here.
 ```
 
 ---
+### 2026-09-20T10:12:14.857Z — SOL/USD — LONG — CLOSED
+
+- Exit price: $107.87
+- Exit fee (paper): $1.22
+- Reason: Trailing stop-loss auto-triggered (price 107.92 <= stop 108.162918) - position had reached +1R, so the fixed 2:1 take-profit was superseded by the guaranteed-profit trailing rule (stop locked in at least 30% of the peak gain reached - peak price $114.30 above entry $105.53) before this reversal closed it.
+- Realized P&L: $4.17 (0.04% of portfolio)
+- Position id: 9cf2aea4-bf5c-4975-a2e2-58cb441b245a
+
+---
+### 2026-09-20T10:13:05.841Z — BTC/USD — NO TRADE
+
+**Reasoning:** Already have an open long position on BTC/USD (opened 2026-09-19, id a040a78d), one open position per pair enforced. RSI 60.95 (neutral), no fresh SMA crossover, volume 0.63x average, momentum_trigger not flagged. News: Deutsche Bank moving into BTC custody for EU institutions, SEC's Innovation Exemption for tokenized equities, Fear & Greed at 71, analysts noting BTC's muted reaction to the CLARITY-adjacent Senate setback as a sign of weakening sell pressure - broadly constructive but not relevant since already positioned.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 60.95,
+  "sma_crossover_4h": "fast_above_slow, not crossed this candle",
+  "volume_ratio": 0.63,
+  "volume_flag_above_2x": false,
+  "momentum_trigger_flagged": false,
+  "price_action_1h_48h_pct": 2.83,
+  "price_action_4h_48h_pct": 2.94,
+  "order_book_imbalance_top10": -0.54,
+  "news_context": "Deutsche Bank to offer BTC custody to EU institutions by end of 2026; SEC's five-year Innovation Exemption for tokenized equities; Fear & Greed Index at 71; BTC's limited reaction to Senate's failure to advance crypto market-structure bill seen as bullish - constructive but pair already has an open position",
+  "reason_for_no_trade": "one open position per pair already exists"
+}
+```
+
+---
+### 2026-09-20T10:13:10.357Z — ETH/USD — NO TRADE
+
+**Reasoning:** Already have an open long position on ETH/USD (opened 2026-09-19, id 0deba717), one open position per pair enforced. RSI 56.14 (neutral), no fresh SMA crossover, volume 0.63x average, momentum_trigger not flagged. News: weekly candle closing near the pivotal $2,672 level, latest Geth release ships Amsterdam EIPs, ePBS public test underway ahead of Q4 mainnet target, developer activity near record highs - mildly constructive but not relevant since already positioned.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 56.14,
+  "sma_crossover_4h": "fast_above_slow, not crossed this candle",
+  "volume_ratio": 0.63,
+  "volume_flag_above_2x": false,
+  "momentum_trigger_flagged": false,
+  "price_action_1h_48h_pct": 2.69,
+  "price_action_4h_48h_pct": 2.8,
+  "order_book_imbalance_top10": -0.75,
+  "news_context": "Weekly close vs. pivotal $2,672 level in focus; latest Geth release ships Amsterdam EIPs; ePBS public test underway, mainnet targeted Q4 2026; developer activity near record highs - mildly constructive but pair already has an open position",
+  "reason_for_no_trade": "one open position per pair already exists"
+}
+```
+
+---
+### 2026-09-20T10:13:16.651Z — SOL/USD — NO TRADE
+
+**Reasoning:** The prior SOL/USD position was auto-closed this cycle by portfolio_check_stops (trailing stop triggered at $107.87, guaranteed-profit exit of +$4.17 after having reached +1R and peaked at $114.30). With the slot now free, re-evaluated for a fresh entry, but no quantitative signal supports one this cycle: RSI 56.31 is neutral, sma_crossover_4h shows fast_above_slow with crossed_this_candle false (established trend, not new), volume_ratio 0.89x is below average, and momentum_trigger is not flagged (1h/4h 48h moves of 1.97%/2.63%, well under the 6% threshold). News remains the same speed-upgrade/regulatory-exemption catalyst already priced into the now-closed trade, and per the instructions can't independently justify a new entry without a quantitative signal. Logging no-trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 56.31,
+  "sma_crossover_4h": "fast_above_slow, not crossed this candle - established trend, no fresh signal",
+  "volume_ratio": 0.89,
+  "volume_flag_above_2x": false,
+  "momentum_trigger_flagged": false,
+  "price_action_1h_48h_pct": 1.97,
+  "price_action_4h_48h_pct": 2.63,
+  "order_book_imbalance_top10": -0.43,
+  "news_context": "SIMD-0525 stage 3 (250ms block time) and SEC Innovation Exemption both already priced in from the prior trade; SOL ETFs saw $153.87M inflows, strongest week since Oct 2025 - constructive but no quantitative signal is currently flagged to pair it with, and the pair just closed its last position via trailing stop this same cycle"
+}
+```
+
+---
+### 2026-09-20T10:13:20.781Z — XRP/USD — NO TRADE
+
+**Reasoning:** Already have an open long position on XRP/USD (opened 2026-09-18, id e81f2ee9), one open position per pair enforced. RSI 51.88 (neutral), no fresh SMA crossover, volume 0.79x average, momentum_trigger not flagged. News: Senate CLARITY Act cloture vote failed Sept 15; Ripple's 1B XRP escrow release Sept 1; XRPL 3.4.0 beta with Lending Protocol v1.1; RLUSD stablecoin launch planned later in 2026 (dual XRPL/Ethereum issuance) - all already reflected in the open position's thesis, not relevant for a new entry since already positioned.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 51.88,
+  "sma_crossover_4h": "fast_above_slow, not crossed this candle",
+  "volume_ratio": 0.79,
+  "volume_flag_above_2x": false,
+  "momentum_trigger_flagged": false,
+  "price_action_1h_48h_pct": 3.88,
+  "price_action_4h_48h_pct": 4.27,
+  "order_book_imbalance_top10": -0.06,
+  "news_context": "Senate CLARITY Act cloture vote failed Sept 15; Ripple's 1B XRP escrow release Sept 1; XRPL 3.4.0 beta with Lending Protocol v1.1; RLUSD dual XRPL/Ethereum stablecoin launch planned later in 2026 - unchanged from entry thesis, pair already has an open position",
+  "reason_for_no_trade": "one open position per pair already exists"
+}
+```
+
+---
+### 2026-09-20T10:13:24.970Z — ADA/USD — NO TRADE
+
+**Reasoning:** No open position on ADA/USD, but no quantitative signal triggers an entry this cycle: RSI 54.01 is neutral, sma_crossover_4h shows fast_above_slow but crossed_this_candle is false (established trend, not fresh), volume_ratio 1.30x is elevated but below the 2x flag threshold, and momentum_trigger is not flagged (1h/4h 48h moves of 2.44%/2.40%, well under the 6% threshold). News is positive (Mastercard Crypto Partner Program drove an 11% pop Sept 15; Leios hit 1,000 TPS in lab testing Sept 18; Node 11.1.1 mainnet deployment Sept 7; governance roundtable scheduled Sept 21) but per the instructions news can never independently justify a trade absent a quantitative signal. Logging no-trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 54.01,
+  "sma_crossover_4h": "fast_above_slow, not crossed this candle - established trend, no fresh signal",
+  "volume_ratio": 1.3,
+  "volume_flag_above_2x": false,
+  "momentum_trigger_flagged": false,
+  "price_action_1h_48h_pct": 2.44,
+  "price_action_4h_48h_pct": 2.4,
+  "order_book_imbalance_top10": 0.54,
+  "news_context": "Cardano joined Mastercard's Crypto Partner Program Sept 15 (11% pop at the time); Leios scaling hit 1,000 TPS in lab testing Sept 18; Node 11.1.1 mainnet deployment Sept 7; governance roundtable scheduled Sept 21 - positive but no quantitative signal is currently flagged to pair it with"
+}
+```
+
+---
+### 2026-09-20T10:13:30.030Z — LINK/USD — NO TRADE
+
+**Reasoning:** No open position on LINK/USD, but no quantitative signal triggers an entry this cycle: RSI 52.31 is neutral, sma_crossover_4h shows fast_above_slow but crossed_this_candle is false (established trend, not fresh), volume_ratio 1.49x is elevated but below the 2x flag threshold, and momentum_trigger is not flagged (1h/4h 48h moves of only 1.03%/1.32%, well under the 6% threshold). News is mildly constructive (Sergey Nazarov to appear at the Philadelphia Fed's Fintech event Sept 24 alongside BlackRock/Vanguard; Bottomline partnership connecting 600+ banks via CCIP; Schwab added LINK alongside SOL/AVAX to its retail platform; CCIP v1.5 heading to mainnet) but none of it is a same-day, large-magnitude catalyst and no quantitative signal is present to pair it with. Logging no-trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 52.31,
+  "sma_crossover_4h": "fast_above_slow, not crossed this candle - established trend, no fresh signal",
+  "volume_ratio": 1.49,
+  "volume_flag_above_2x": false,
+  "momentum_trigger_flagged": false,
+  "price_action_1h_48h_pct": 1.03,
+  "price_action_4h_48h_pct": 1.32,
+  "order_book_imbalance_top10": 0.12,
+  "news_context": "Sergey Nazarov to appear at Philadelphia Fed Fintech event Sept 24 alongside BlackRock/Vanguard; Bottomline partnership connecting 600+ banks via CCIP; Schwab added LINK (with SOL/AVAX) to its retail platform; CCIP v1.5 heading to mainnet - mildly constructive but no quantitative signal is currently flagged to pair it with"
+}
+```
+
+---
+### 2026-09-20T10:13:33.884Z — DOGE/USD — NO TRADE
+
+**Reasoning:** Already have an open long position on DOGE/USD (opened 2026-09-19, id 6cf25cad), one open position per pair enforced. RSI 48.45 (neutral), no fresh SMA crossover, volume 1.58x average (elevated but below 2x flag), momentum_trigger not flagged, price action modestly negative (-0.92%/-0.46% over 48h). News: MyDoge wallet suspending Doginals/DRC-20 support Sept 17 (Maestro API shutdown, neutral for core DOGE); whale accumulation of 240M+ DOGE; weekly chart shows bullish engulfing pattern; CLARITY Act failed key Senate vote - mixed, not relevant since already positioned.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 48.45,
+  "sma_crossover_4h": "fast_above_slow, not crossed this candle",
+  "volume_ratio": 1.58,
+  "volume_flag_above_2x": false,
+  "momentum_trigger_flagged": false,
+  "price_action_1h_48h_pct": -0.92,
+  "price_action_4h_48h_pct": -0.46,
+  "order_book_imbalance_top10": -0.16,
+  "news_context": "MyDoge wallet suspending Doginals/DRC-20 support Sept 17 (Maestro API shutdown, neutral for core DOGE); whale accumulation of 240M+ DOGE; weekly chart shows bullish engulfing pattern; CLARITY Act failed key Senate procedural vote - mixed but pair already has an open position",
+  "reason_for_no_trade": "one open position per pair already exists"
+}
+```
+
+---

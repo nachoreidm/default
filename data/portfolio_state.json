@@ -1,39 +1,7 @@
 {
   "starting_balance": 10000,
-  "cash": 8474.97502690793,
+  "cash": 8778.189502978987,
   "open_positions": [
-    {
-      "id": "9cf2aea4-bf5c-4975-a2e2-58cb441b245a",
-      "pair": "SOL/USD",
-      "direction": "long",
-      "entry_price": 105.53274,
-      "stop_loss": 108.162918,
-      "initial_stop_loss": 99.5,
-      "take_profit": 117.59822000000001,
-      "trailing_active": true,
-      "peak_price": 114.3,
-      "size_pct": 3,
-      "size_usd": 299.0430638847151,
-      "quantity": 2.8223174308672005,
-      "entry_fee": 1.1961722555388603,
-      "opened_at": "2026-09-18T05:14:09.529Z",
-      "signals_at_entry": {
-        "rsi_14_4h": 68.12,
-        "sma_crossover_4h": "fast_below_slow, no cross this candle - not a crossover signal",
-        "volume_ratio": 1.68,
-        "volume_flag_above_2x": false,
-        "momentum_trigger_flagged": true,
-        "price_action_1h_48h_pct": 8.81,
-        "price_action_4h_48h_pct": 7.85,
-        "order_book_imbalance_top10": 0.07,
-        "news_context": "Solana's 250ms slot-time speed upgrade went live on mainnet today (Sept 18, 2026) per dated coverage ('Solana Speed Upgrade Enters Final Stretch, Key September Date Ahead') - a concrete, dated technical catalyst distinct from the broader market-wide rally (Iran crypto payments, XRP/HBAR ETF inflows, whale buying) also lifting BTC/ETH/XRP without tripping their momentum thresholds."
-      },
-      "invalidation": "A break back below the rising 20-period 4h SMA (~$99.64, set as the stop) invalidates the thesis - would mean the breakout has failed and the speed-upgrade narrative isn't translating into sustained buying.",
-      "confidence": "medium",
-      "confidence_reason": "Momentum-only setup capped at medium per the rules - no confirming crossover, RSI extreme (68.1, elevated but under 70), or volume spike (1.68x, below the 2x flag). Confidence rests on the momentum_trigger (1h/48h +8.81%, well past the 6% threshold) plus a fresh, dated (today, Sept 18) SOL-specific catalyst: mainnet activation of the 250ms slot-time speed upgrade, a concrete technical milestone distinct from the broader multi-asset rally also lifting BTC/ETH/XRP without tripping their thresholds.",
-      "momentum_only": true,
-      "status": "open"
-    },
     {
       "id": "e81f2ee9-b84e-4b53-af98-2d6e4b84d121",
       "pair": "XRP/USD",
@@ -351,6 +319,44 @@
       "close_reason": "Trailing stop-loss auto-triggered (price 0.220143 <= stop 0.22067325435) - position had reached +1R, so the fixed 2:1 take-profit was superseded by the guaranteed-profit trailing rule (stop locked in at least 30% of the peak gain reached - peak price $0.23 above entry $0.21) before this reversal closed it.",
       "pnl_usd": 5.137469752108643,
       "pnl_pct_of_portfolio": 0.051589788729277886
+    },
+    {
+      "id": "9cf2aea4-bf5c-4975-a2e2-58cb441b245a",
+      "pair": "SOL/USD",
+      "direction": "long",
+      "entry_price": 105.53274,
+      "stop_loss": 108.162918,
+      "initial_stop_loss": 99.5,
+      "take_profit": 117.59822000000001,
+      "trailing_active": true,
+      "peak_price": 114.3,
+      "size_pct": 3,
+      "size_usd": 299.0430638847151,
+      "quantity": 2.8223174308672005,
+      "entry_fee": 1.1961722555388603,
+      "opened_at": "2026-09-18T05:14:09.529Z",
+      "signals_at_entry": {
+        "rsi_14_4h": 68.12,
+        "sma_crossover_4h": "fast_below_slow, no cross this candle - not a crossover signal",
+        "volume_ratio": 1.68,
+        "volume_flag_above_2x": false,
+        "momentum_trigger_flagged": true,
+        "price_action_1h_48h_pct": 8.81,
+        "price_action_4h_48h_pct": 7.85,
+        "order_book_imbalance_top10": 0.07,
+        "news_context": "Solana's 250ms slot-time speed upgrade went live on mainnet today (Sept 18, 2026) per dated coverage ('Solana Speed Upgrade Enters Final Stretch, Key September Date Ahead') - a concrete, dated technical catalyst distinct from the broader market-wide rally (Iran crypto payments, XRP/HBAR ETF inflows, whale buying) also lifting BTC/ETH/XRP without tripping their momentum thresholds."
+      },
+      "invalidation": "A break back below the rising 20-period 4h SMA (~$99.64, set as the stop) invalidates the thesis - would mean the breakout has failed and the speed-upgrade narrative isn't translating into sustained buying.",
+      "confidence": "medium",
+      "confidence_reason": "Momentum-only setup capped at medium per the rules - no confirming crossover, RSI extreme (68.1, elevated but under 70), or volume spike (1.68x, below the 2x flag). Confidence rests on the momentum_trigger (1h/48h +8.81%, well past the 6% threshold) plus a fresh, dated (today, Sept 18) SOL-specific catalyst: mainnet activation of the 250ms slot-time speed upgrade, a concrete technical milestone distinct from the broader multi-asset rally also lifting BTC/ETH/XRP without tripping their thresholds.",
+      "momentum_only": true,
+      "status": "closed",
+      "exit_price": 107.86604000000001,
+      "exit_fee": 1.217728819562475,
+      "closed_at": "2026-09-20T10:12:14.857Z",
+      "close_reason": "Trailing stop-loss auto-triggered (price 107.92 <= stop 108.162918) - position had reached +1R, so the fixed 2:1 take-profit was superseded by the guaranteed-profit trailing rule (stop locked in at least 30% of the peak gain reached - peak price $114.30 above entry $105.53) before this reversal closed it.",
+      "pnl_usd": 4.171412186341172,
+      "pnl_pct_of_portfolio": 0.04191719698494956
     }
   ],
   "daily_loss": [
@@ -391,10 +397,10 @@
     },
     {
       "date": "2026-09-20",
-      "realized_pnl_usd": 6.737377603626442,
+      "realized_pnl_usd": 10.908789789967614,
       "halted": false
     }
   ],
   "created_at": "2026-09-06T14:02:11.057Z",
-  "updated_at": "2026-09-20T08:17:32.453Z"
+  "updated_at": "2026-09-20T10:12:15.094Z"
 }
