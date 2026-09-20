@@ -386,13 +386,47 @@ decision isn't lost between sessions:
   orders resting on the exchange - they're soft checks this agent runs
   once an hour, so they can't react to anything that happens between
   checks. Fix for the live version: place genuine resting orders on
-  Kraken itself (`stop-loss`, `stop-loss-limit`, or Kraken's native
-  `trailing-stop` order type) so the exchange's own matching engine owns
-  the trigger and reacts continuously as the market moves, rather than
-  this agent's hourly poll loop. Not implemented - paper trading has no
-  real order book to rest an order on, so this is specifically a live-build
-  item; the peak-scaling profit-lock math itself (what level the floor
-  *should* be at) doesn't change, only how it gets enforced.
+  Kraken itself so the exchange's own matching engine owns the trigger
+  and reacts continuously as the market moves, rather than this agent's
+  hourly poll loop. Not implemented - paper trading has no real order
+  book to rest an order on, so this is specifically a live-build item;
+  the peak-scaling profit-lock math itself (what level the floor *should*
+  be at) doesn't change, only how it gets enforced.
+  - **Design decision 2026-09-20: keep the bespoke peak-scaling/SMA logic
+    (option 2), don't switch to Kraken's native `trailing-stop` order
+    type (option 1).** Two ways to use real resting orders were weighed.
+    Kraken's native `trailing-stop` order type would close the gap-risk
+    completely (exchange-managed, truly continuous) but only supports a
+    fixed trailing distance set at placement - it has no concept of "wait
+    for +1R first," "floor at 0.3x peak gain," or "switch to the
+    20-period 4h SMA once that's higher." Adopting it would mean
+    discarding the exact strategy already built and paper-tested, in
+    exchange for simplicity, right as real money enters the picture. User
+    chose to keep the existing logic instead: the hourly run keeps
+    computing the correct floor exactly as `checkStops` does today, but
+    instead of only comparing against a locally-stored `stop_loss` and
+    self-triggering a market order, it must now also **actively manage a
+    real resting order on Kraken** - cancel and replace it with a fresh
+    `stop-loss` (or `stop-loss-limit`) order whenever the computed floor
+    moves up. This closes the *execution* gap (a real order sits at the
+    last-computed level and fires immediately if touched, rather than
+    waiting up to an hour for the next poll to notice) without closing
+    the separate, smaller *logic-update* lag (the floor itself still only
+    recomputes once an hour) - those are different gaps and this only
+    fixes the first one, which is also the one that can turn a guaranteed
+    profit into a real loss.
+    - **New duty for the live hourly run: reconciliation, not just
+      detection.** Once orders rest on Kraken, the exchange can fill one
+      at any moment, not just when this agent happens to be checking. So
+      each cycle needs to query Kraken's order/trade history first, to
+      find out whether any resting order already filled since the last
+      run (and at what real price/time), and update
+      `data/portfolio_state.json` / `trades.md` to match what Kraken
+      actually did - rather than assuming nothing closed just because the
+      agent didn't personally trigger it. This is a real architecture
+      change from today's checkStops (which is the sole decision-maker)
+      to a live version where Kraken's engine can act unilaterally between
+      runs and the agent's job is partly to catch up to reality.
 
 ## Network access
 
