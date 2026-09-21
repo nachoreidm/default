@@ -1,9 +1,10 @@
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import { z } from "zod";
-import { fetchOHLC, fetchDepth, fetchTicker, closedCandles, INTERVAL_MINUTES } from "./kraken.js";
+import { fetchOHLC, fetchDepth, fetchTicker, closedCandles, pairCode, INTERVAL_MINUTES } from "./kraken.js";
 import { computeSignals } from "./signals.js";
 import { getSnapshot, openPosition, closePosition, checkStops, logNoTrade } from "./portfolio-live.js";
+import { queryBalance, addOrder } from "./kraken-private.js";
 import {
   ALLOWED_PAIRS,
   RISK_LIMITS,
@@ -65,6 +66,23 @@ server.tool(
   `Compute the full authorized signal set for a pair in one call: 1h/4h price action over the last 48h, 24h volume vs 7-day average, RSI(14) on 4h, 20/50 SMA crossover on 4h, top-10 order book imbalance, and momentum_trigger (flagged when the 1h or 4h price-action window shows a move at or above ${MOMENTUM_THRESHOLD_PCT}% over 48h - unlike the other signals this one isn't confirmed by anything else, see portfolio_open_position's momentum_only param). Any signal that can't be reliably computed is reported in data_gaps instead of being estimated.`,
   { pair: pairSchema },
   async ({ pair }) => wrap(() => computeSignals(pair))()
+);
+
+server.tool(
+  "kraken_verify_credentials",
+  "Verifies KRAKEN_API_KEY/KRAKEN_API_SECRET actually authenticate against Kraken's private API, WITHOUT placing any real order or risking any money: runs a real (read-only) Balance query, then a validate:true AddOrder call on BTC/EUR (Kraken authenticates and validates the order shape but places nothing - a wrong signature is rejected outright). Run this once after setting new credentials, before trusting any other tool that touches the private API.",
+  {},
+  async () => wrap(async () => {
+    const balance = await queryBalance();
+    const validation = await addOrder({
+      pair: pairCode("BTC/EUR"),
+      type: "buy",
+      ordertype: "market",
+      volume: "0.0001",
+      validate: true,
+    });
+    return { balance, validate_only_order_check: validation, note: "No real order was placed - validate:true only." };
+  })()
 );
 
 server.tool(
