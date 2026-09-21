@@ -38304,3 +38304,132 @@ next cycle without any manual edit needed here.
 ```
 
 ---
+### 2026-09-21T15:14:48.260Z — BTC/USD — NO TRADE
+
+**Reasoning:** Already has an open position, trailing_active true, stop climbing (peak $86,331). RSI still sharply extreme (83.08) but moot - position already open.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 83.08,
+  "sma_crossover": "no fresh cross",
+  "volume_ratio": 0.56,
+  "momentum_1h_pct": 5.16,
+  "momentum_4h_pct": 4,
+  "price": 86202.9,
+  "has_open_position": true,
+  "trailing_active": true
+}
+```
+
+---
+### 2026-09-21T15:14:51.419Z — ETH/USD — NO TRADE
+
+**Reasoning:** Already has an open position (one-position-per-pair enforced), now +3.6%, not yet at +1R. RSI extreme (75.26) but moot - position already open.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 75.26,
+  "sma_crossover": "no fresh cross",
+  "volume_ratio": 0.73,
+  "momentum_1h_pct": 3.65,
+  "momentum_4h_pct": 3.21,
+  "price": 2746.88,
+  "has_open_position": true
+}
+```
+
+---
+### 2026-09-21T15:14:53.183Z — SOL/USD — NO TRADE
+
+**Reasoning:** No open position. RSI still extreme (76.36) as the sole confirming signal - no fresh crossover, no volume spike (0.84x), momentum climbing but still under threshold (5.76%/4.64% vs 6%). Same single-signal insufficiency - declining again.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 76.36,
+  "sma_crossover": "no fresh cross",
+  "volume_ratio": 0.84,
+  "momentum_1h_pct": 5.76,
+  "momentum_4h_pct": 4.64,
+  "price": 118.5,
+  "has_open_position": false
+}
+```
+
+---
+### 2026-09-21T15:14:55.481Z — XRP/USD — NO TRADE
+
+**Reasoning:** Already has an open position, trailing_active true, stop climbing (now $1.4300, peak $1.50808), now +7.1% unrealized. RSI extreme (72.05) but moot - position already open.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 72.05,
+  "sma_crossover": "no fresh cross",
+  "volume_ratio": 0.64,
+  "momentum_1h_pct": 4.65,
+  "momentum_4h_pct": 3.82,
+  "price": 1.50062,
+  "has_open_position": true,
+  "trailing_active": true
+}
+```
+
+---
+### 2026-09-21T15:14:56.896Z — ADA/USD — NO TRADE
+
+**Reasoning:** Already has an open position (opened 2026-09-21 12:27 UTC) - one-position-per-pair enforced. momentum_trigger flagged again (7.50%/6.33%) and RSI still extreme (72.50), but moot for a new entry. Currently -0.3% unrealized, not yet at +1R. News: x402 payment integration going live is a real fresh development but doesn't change the one-position enforcement.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 72.5,
+  "sma_crossover": "no fresh cross",
+  "volume_ratio": 0.925,
+  "momentum_1h_pct": 7.5,
+  "momentum_4h_pct": 6.33,
+  "price": 0.244469,
+  "has_open_position": true
+}
+```
+
+---
+### 2026-09-21T15:14:58.308Z — LINK/USD — NO TRADE
+
+**Reasoning:** No open position. RSI still extreme (70.41) as the sole confirming signal - no fresh crossover, no volume spike (1.08x), momentum not flagged (3.48%/3.86%, under 6%). Same single-signal insufficiency - declining again.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 70.41,
+  "sma_crossover": "no fresh cross",
+  "volume_ratio": 1.08,
+  "momentum_1h_pct": 3.48,
+  "momentum_4h_pct": 3.86,
+  "price": 13.05513,
+  "has_open_position": false
+}
+```
+
+---
+### 2026-09-21T15:14:59.990Z — DOGE/USD — NO TRADE
+
+**Reasoning:** Already has an open position, trailing_active true (stop $0.09078, peak $0.0980793), now +10.3% unrealized. momentum_trigger and RSI extreme both flagged but moot - position already open.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 74.21,
+  "sma_crossover": "no fresh cross",
+  "volume_ratio": 0.8,
+  "momentum_1h_pct": 6.84,
+  "momentum_4h_pct": 4.99,
+  "price": 0.0972067,
+  "has_open_position": true,
+  "trailing_active": true
+}
+```
+
+---
