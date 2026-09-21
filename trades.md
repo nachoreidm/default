@@ -36447,3 +36447,147 @@ next cycle without any manual edit needed here.
 ```
 
 ---
+### 2026-09-21T01:13:13.655Z — BTC/USD — NO TRADE
+
+**Reasoning:** Already have an open long position on BTC/USD (opened 2026-09-19, id a040a78d), one open position per pair enforced, now positive (+0.3%). RSI 67.13 (elevated but not extreme), no fresh SMA crossover, volume 0.56x average, momentum_trigger not flagged. News: BTC holding near $81K, Strategic Bitcoin Reserve legislation and ETF inflows already known, Bank of Japan raised rates to a 31-year high (mildly risk-off for global markets) - not relevant since already positioned.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 67.13,
+  "sma_crossover_4h": "fast_above_slow, not crossed this candle",
+  "volume_ratio": 0.56,
+  "volume_flag_above_2x": false,
+  "momentum_trigger_flagged": false,
+  "price_action_1h_48h_pct": 0.42,
+  "price_action_4h_48h_pct": 0.07,
+  "order_book_imbalance_top10": -0.06,
+  "news_context": "BTC holding near $81K; Strategic Bitcoin Reserve legislation and ETF inflows already known; Bank of Japan raised rates to 31-year high (mildly risk-off) - pair already has an open position",
+  "reason_for_no_trade": "one open position per pair already exists"
+}
+```
+
+---
+### 2026-09-21T01:13:18.906Z — ETH/USD — NO TRADE
+
+**Reasoning:** Already have an open long position on ETH/USD (opened 2026-09-19, id 0deba717), one open position per pair enforced, now positive (+1.3%) and made a new peak ($2,706.27) above its earlier $2,672 resistance level. RSI 66.87 (elevated but not extreme), no fresh SMA crossover, volume 0.73x average, momentum_trigger not flagged (1h/48h +2.95%, below the 6% threshold). News: ETH cleared $2,672 and is targeting the $2,750-2,800 zone, Vitalik's privacy roadmap comments already known - not relevant since already positioned; peak_price tracking will continue to raise the guaranteed-profit floor once/if +1R is reached.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 66.87,
+  "sma_crossover_4h": "fast_above_slow, not crossed this candle",
+  "volume_ratio": 0.73,
+  "volume_flag_above_2x": false,
+  "momentum_trigger_flagged": false,
+  "price_action_1h_48h_pct": 2.95,
+  "price_action_4h_48h_pct": 0.99,
+  "order_book_imbalance_top10": -0.02,
+  "news_context": "ETH cleared $2,672, buyers targeting $2,750-2,800; Vitalik reaffirmed privacy roadmap priority Sept 20 - constructive but pair already has an open position",
+  "reason_for_no_trade": "one open position per pair already exists"
+}
+```
+
+---
+### 2026-09-21T01:13:21.550Z — SOL/USD — NO TRADE
+
+**Reasoning:** No open position on SOL/USD. No quantitative signal supports a fresh entry: RSI 64.45 is elevated but not extreme, sma_crossover_4h shows fast_above_slow with crossed_this_candle false (established, not new), volume_ratio 0.84x is below average, and momentum_trigger is not flagged (1h/4h 48h moves of -0.93%/-1.84%, a modest pullback). News: Alpenglow consensus upgrade still expected in October, not yet a catalyst. Logging no-trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 64.45,
+  "sma_crossover_4h": "fast_above_slow, not crossed this candle - established trend, no fresh signal",
+  "volume_ratio": 0.84,
+  "volume_flag_above_2x": false,
+  "momentum_trigger_flagged": false,
+  "price_action_1h_48h_pct": -0.93,
+  "price_action_4h_48h_pct": -1.84,
+  "order_book_imbalance_top10": -0.46,
+  "news_context": "Alpenglow consensus upgrade expected to reach mainnet in October - not yet live; SIMD-0525/SEC exemption catalysts already known - no quantitative signal currently flagged, modest pullback"
+}
+```
+
+---
+### 2026-09-21T01:13:25.264Z — XRP/USD — NO TRADE
+
+**Reasoning:** Already have an open long position on XRP/USD (opened 2026-09-18, id e81f2ee9), one open position per pair enforced, now the strongest performer at +1.86%. RSI 58.95 (neutral), no fresh SMA crossover, volume 0.64x average, momentum_trigger not flagged. News: RLUSD stablecoin launch still slated for later in 2026 (dual XRPL/Ethereum issuance), same items already known - not relevant since already positioned.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 58.95,
+  "sma_crossover_4h": "fast_above_slow, not crossed this candle",
+  "volume_ratio": 0.64,
+  "volume_flag_above_2x": false,
+  "momentum_trigger_flagged": false,
+  "price_action_1h_48h_pct": 1,
+  "price_action_4h_48h_pct": -0.53,
+  "order_book_imbalance_top10": -0.08,
+  "news_context": "RLUSD stablecoin launch still slated for later in 2026, dual XRPL/Ethereum issuance; XRP roughly flat near $1.41-1.43 - constructive but pair already has an open position",
+  "reason_for_no_trade": "one open position per pair already exists"
+}
+```
+
+---
+### 2026-09-21T01:13:29.164Z — ADA/USD — NO TRADE
+
+**Reasoning:** No open position on ADA/USD. No quantitative signal triggers an entry this cycle: RSI 62.21 is elevated but not extreme, sma_crossover_4h shows fast_above_slow but crossed_this_candle is false (established, not fresh), volume_ratio 0.93x is roughly average, and momentum_trigger is not flagged (1h/4h 48h moves of 0.80%/-1.32%, well under 6%). News: Cardano Foundation treasury roundtable held today (Sept 21), governance roundtable still ahead on Sept 23, Mastercard partnership already known - constructive but no quantitative signal to pair it with. Logging no-trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 62.21,
+  "sma_crossover_4h": "fast_above_slow, not crossed this candle - established trend, no fresh signal",
+  "volume_ratio": 0.93,
+  "volume_flag_above_2x": false,
+  "momentum_trigger_flagged": false,
+  "price_action_1h_48h_pct": 0.8,
+  "price_action_4h_48h_pct": -1.32,
+  "order_book_imbalance_top10": -0.3,
+  "news_context": "Cardano Foundation treasury roundtable held today Sept 21; governance roundtable ahead Sept 23; Mastercard Crypto Partner Program already known - constructive but no quantitative signal is currently flagged to pair it with"
+}
+```
+
+---
+### 2026-09-21T01:13:33.987Z — LINK/USD — NO TRADE
+
+**Reasoning:** No open position on LINK/USD, but no quantitative signal triggers an entry this cycle: RSI 63.78 is elevated but not extreme, sma_crossover_4h shows fast_above_slow but crossed_this_candle is false (established, not fresh), volume_ratio 1.08x is roughly average, and momentum_trigger is not flagged (1h/4h 48h moves of 3.16%/0.98% - the 1h reading has climbed but is still barely half the 6% threshold). News: Arc Mainnet launched with Chainlink integration Sept 16, a Microsoft AI $35 LINK-by-2027 prediction Sept 16 (speculative), same Nazarov Fed panel item - constructive but no confirming quantitative signal present. Logging no-trade; worth watching if the 1h momentum keeps extending.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 63.78,
+  "sma_crossover_4h": "fast_above_slow, not crossed this candle - established trend, no fresh signal",
+  "volume_ratio": 1.08,
+  "volume_flag_above_2x": false,
+  "momentum_trigger_flagged": false,
+  "price_action_1h_48h_pct": 3.16,
+  "price_action_4h_48h_pct": 0.98,
+  "order_book_imbalance_top10": -0.1,
+  "news_context": "Arc Mainnet launched with Chainlink integration Sept 16; Microsoft AI predicted $35 LINK by 2027 Sept 16 (speculative); Nazarov to speak at Philadelphia Fed Fintech Conference Sept 24-25 - constructive but no quantitative signal is currently flagged to pair it with"
+}
+```
+
+---
+### 2026-09-21T01:13:37.552Z — DOGE/USD — NO TRADE
+
+**Reasoning:** Already have an open long position on DOGE/USD (opened 2026-09-19, id 6cf25cad), one open position per pair enforced, now positive (+1.1%). RSI 58.10 (neutral), no fresh SMA crossover, volume 0.80x average, momentum_trigger not flagged. News: whale accumulation of 240M DOGE continuing, MyDoge Doginals/DRC-20 suspension remains neutral for core DOGE - mixed, not relevant since already positioned.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 58.1,
+  "sma_crossover_4h": "fast_above_slow, not crossed this candle",
+  "volume_ratio": 0.8,
+  "volume_flag_above_2x": false,
+  "momentum_trigger_flagged": false,
+  "price_action_1h_48h_pct": 0.94,
+  "price_action_4h_48h_pct": -0.83,
+  "order_book_imbalance_top10": -0.01,
+  "news_context": "Whale accumulation of 240M+ DOGE continuing; MyDoge Doginals/DRC-20 suspension remains neutral for core DOGE - mixed but pair already has an open position",
+  "reason_for_no_trade": "one open position per pair already exists"
+}
+```
+
+---
