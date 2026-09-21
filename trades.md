@@ -37908,3 +37908,141 @@ next cycle without any manual edit needed here.
 ```
 
 ---
+### 2026-09-21T12:27:31.989Z — ADA/USD — LONG — OPENED
+
+- Entry price: $0.24
+- Stop-loss: $0.23
+- Take-profit: $0.28 (2:1 risk/reward, fixed at entry)
+- Position size: 3% of portfolio ($301.14, qty 1227.88426781)
+- Entry fee (paper): $1.20
+- Confidence: medium — RSI extreme (72.50, overbought) confirms strength alongside momentum_trigger flagged (1h/48h +6.29%, 4h/48h +6.33%, clearing the 6% threshold for the third consecutive cycle) - not momentum-only since RSI extreme is an independent confirming signal, matching the ETH 2026-09-19 entry precedent (RSI extreme + momentum trigger, no crossover, no volume spike). Capped at medium rather than high: no fresh SMA crossover this candle (existing fast_above_slow trend, not a new cross), no volume spike (0.93x, below average - the move isn't broadly volume-confirmed), and price is significantly extended/overbought, the same entry-timing risk flagged in the 2026-09-15 loss review about chasing an already-extended move. News search found nothing new beyond already-known, stale items (Mastercard partnership Sept 15, Hoskinson AI comments Sept 19); today's Foundation treasury roundtable outcome isn't known yet. Since this isn't a momentum-only trade, a fresh catalyst isn't required per the rules - it's neutral here (no fresh confirming catalyst, but also no negative news).
+- Momentum-only trigger: no
+- Invalidation (what proves this wrong): A break back below the rising 20-period 4h SMA (~$0.2254, set as the stop) invalidates the thesis - would mean the RSI-extreme/momentum push has failed and price is reverting rather than continuing the breakout.
+- Signals supporting this trade:
+```json
+{
+  "rsi_14_4h": 72.4994,
+  "sma_crossover_4h": "fast_above_slow, not crossed this candle - existing trend, not a fresh crossover signal",
+  "volume_ratio": 0.925,
+  "volume_flag_above_2x": false,
+  "momentum_trigger_flagged": true,
+  "price_action_1h_48h_pct": 6.29,
+  "price_action_4h_48h_pct": 6.33,
+  "order_book_imbalance_top10": 0.554,
+  "news_context": "No fresh dated catalyst found beyond already-known items (Mastercard Crypto Partner Program membership, Sept 15; Hoskinson 'crypto eats AI' comments, Sept 19); today's Cardano Foundation treasury roundtable outcome not yet known. Not required since trade is not momentum-only - RSI extreme independently confirms."
+}
+```
+- Position id: fc824fdf-e881-42b3-9abc-02eaaaef7f3a
+
+---
+### 2026-09-21T12:27:38.813Z — BTC/USD — NO TRADE
+
+**Reasoning:** Already has an open position, trailing_active true, stop continuing to climb (peak $85,427.5). RSI now sharply extreme (83.08) on real news - BTC crossed $84K for the first time since Jan 31, liquidating $262M of shorts, part of a broader risk-on rally ahead of a Trump-Xi summit - but moot for a new entry given the existing position.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 83.08,
+  "sma_crossover": "no fresh cross",
+  "volume_ratio": 0.56,
+  "momentum_1h_pct": 4.38,
+  "momentum_4h_pct": 4,
+  "price": 85187.9,
+  "has_open_position": true,
+  "trailing_active": true
+}
+```
+
+---
+### 2026-09-21T12:27:41.379Z — ETH/USD — NO TRADE
+
+**Reasoning:** Already has an open position (one-position-per-pair enforced), now +2.65%, not yet at +1R. RSI now extreme (75.26) but position already open - moot. No fresh crossover, volume 0.73x (below average), momentum not flagged (3.16%/3.21%, close to but under 6%).
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 75.26,
+  "sma_crossover": "no fresh cross",
+  "volume_ratio": 0.73,
+  "momentum_1h_pct": 3.16,
+  "momentum_4h_pct": 3.21,
+  "price": 2724.48,
+  "has_open_position": true
+}
+```
+
+---
+### 2026-09-21T12:27:44.152Z — SOL/USD — NO TRADE
+
+**Reasoning:** No open position. RSI now extreme (76.36) but this is the sole confirming signal - no fresh crossover this candle, no volume spike (0.84x, below average), momentum not flagged (4.48%/4.64%, under 6%). A single quantitative signal with everything else neutral is insufficient per the rules' "signals conflict" no-trade guidance (the same standard applied when a lone volume spike wasn't enough) - declining rather than manufacturing a rationale.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 76.36,
+  "sma_crossover": "no fresh cross",
+  "volume_ratio": 0.84,
+  "momentum_1h_pct": 4.48,
+  "momentum_4h_pct": 4.64,
+  "price": 116.4,
+  "has_open_position": false
+}
+```
+
+---
+### 2026-09-21T12:27:46.011Z — XRP/USD — NO TRADE
+
+**Reasoning:** Already has an open position, trailing_active true, stop at $1.4268 (peak $1.49732), now +6.2% unrealized. RSI extreme (72.05) but position already open - moot for a new entry. News: unusual Binance inflow spike (663% above baseline) noted but not actionable given the open position.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 72.05,
+  "sma_crossover": "no fresh cross",
+  "volume_ratio": 0.64,
+  "momentum_1h_pct": 3.58,
+  "momentum_4h_pct": 3.82,
+  "price": 1.48898,
+  "has_open_position": true,
+  "trailing_active": true
+}
+```
+
+---
+### 2026-09-21T12:27:48.113Z — LINK/USD — NO TRADE
+
+**Reasoning:** No open position. RSI now extreme (70.41, just crossed the 70 threshold) but this is the sole confirming signal - no fresh crossover, no volume spike (1.08x, near-average), momentum not flagged (4.11%/3.86%, under 6%). Same "single signal, others neutral" insufficiency as SOL this cycle - declining.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 70.41,
+  "sma_crossover": "no fresh cross",
+  "volume_ratio": 1.08,
+  "momentum_1h_pct": 4.11,
+  "momentum_4h_pct": 3.86,
+  "price": 13.07358,
+  "has_open_position": false
+}
+```
+
+---
+### 2026-09-21T12:27:49.689Z — DOGE/USD — NO TRADE
+
+**Reasoning:** Already has an open position, trailing_active true (stop $0.08979, peak $0.0948), now +6.2% unrealized. RSI now extreme (74.21) but position already open - moot for a new entry.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 74.21,
+  "sma_crossover": "no fresh cross",
+  "volume_ratio": 0.8,
+  "momentum_1h_pct": 4.91,
+  "momentum_4h_pct": 4.99,
+  "price": 0.093449,
+  "has_open_position": true,
+  "trailing_active": true
+}
+```
+
+---

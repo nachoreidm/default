@@ -1,6 +1,6 @@
 {
   "starting_balance": 10000,
-  "cash": 8778.189502978987,
+  "cash": 8477.050795686004,
   "open_positions": [
     {
       "id": "e81f2ee9-b84e-4b53-af98-2d6e4b84d121",
@@ -71,11 +71,11 @@
       "pair": "BTC/USD",
       "direction": "long",
       "entry_price": 81228.09375,
-      "stop_loss": 82436.465625,
+      "stop_loss": 82487.915625,
       "initial_stop_loss": 77300,
       "take_profit": 89084.28125,
       "trailing_active": true,
-      "peak_price": 85256,
+      "peak_price": 85427.5,
       "size_pct": 3,
       "size_usd": 300.93964922456695,
       "quantity": 0.0036900520102094445,
@@ -129,6 +129,38 @@
       "invalidation": "Price closes back below the 20/50-period 4h SMA cluster (~$2494-2495), or 4h RSI drops back under 60 — would indicate the overbought push has failed and reversion is underway rather than continuation.",
       "confidence": "medium",
       "confidence_reason": "Two real confirming signals (RSI 72.67 overbought/extreme, momentum_trigger flagged at +7.35%/+6.91% over 48h) support the long, so this is not momentum-only. But no fresh SMA crossover (still fast_below_slow) and volume ratio only 1.52x (no spike), and price is already extended/overbought at entry - the same entry-timing pattern flagged in the 2026-09-15 loss review (POL/ETH/XRP all entered near an already-extended move and stopped out). News is mixed (CLARITY Act cloture failure -5% on Sept 15, offset by record ETF inflows and bullish SEC on-chain-stocks roundtable), not enough to raise conviction. Capping at medium given the extension risk, consistent with how the prior ETH trade was discretionarily capped for the same reason.",
+      "momentum_only": false,
+      "status": "open"
+    },
+    {
+      "id": "fc824fdf-e881-42b3-9abc-02eaaaef7f3a",
+      "pair": "ADA/USD",
+      "direction": "long",
+      "entry_price": 0.2442690735,
+      "stop_loss": 0.2254,
+      "initial_stop_loss": 0.2254,
+      "take_profit": 0.2820072205,
+      "trailing_active": false,
+      "peak_price": 0.2442690735,
+      "size_pct": 3,
+      "size_usd": 301.13870729298264,
+      "quantity": 1227.8842678126043,
+      "entry_fee": 1.2045548291719306,
+      "opened_at": "2026-09-21T12:27:31.989Z",
+      "signals_at_entry": {
+        "rsi_14_4h": 72.4994,
+        "sma_crossover_4h": "fast_above_slow, not crossed this candle - existing trend, not a fresh crossover signal",
+        "volume_ratio": 0.925,
+        "volume_flag_above_2x": false,
+        "momentum_trigger_flagged": true,
+        "price_action_1h_48h_pct": 6.29,
+        "price_action_4h_48h_pct": 6.33,
+        "order_book_imbalance_top10": 0.554,
+        "news_context": "No fresh dated catalyst found beyond already-known items (Mastercard Crypto Partner Program membership, Sept 15; Hoskinson 'crypto eats AI' comments, Sept 19); today's Cardano Foundation treasury roundtable outcome not yet known. Not required since trade is not momentum-only - RSI extreme independently confirms."
+      },
+      "invalidation": "A break back below the rising 20-period 4h SMA (~$0.2254, set as the stop) invalidates the thesis - would mean the RSI-extreme/momentum push has failed and price is reverting rather than continuing the breakout.",
+      "confidence": "medium",
+      "confidence_reason": "RSI extreme (72.50, overbought) confirms strength alongside momentum_trigger flagged (1h/48h +6.29%, 4h/48h +6.33%, clearing the 6% threshold for the third consecutive cycle) - not momentum-only since RSI extreme is an independent confirming signal, matching the ETH 2026-09-19 entry precedent (RSI extreme + momentum trigger, no crossover, no volume spike). Capped at medium rather than high: no fresh SMA crossover this candle (existing fast_above_slow trend, not a new cross), no volume spike (0.93x, below average - the move isn't broadly volume-confirmed), and price is significantly extended/overbought, the same entry-timing risk flagged in the 2026-09-15 loss review about chasing an already-extended move. News search found nothing new beyond already-known, stale items (Mastercard partnership Sept 15, Hoskinson AI comments Sept 19); today's Foundation treasury roundtable outcome isn't known yet. Since this isn't a momentum-only trade, a fresh catalyst isn't required per the rules - it's neutral here (no fresh confirming catalyst, but also no negative news).",
       "momentum_only": false,
       "status": "open"
     }
@@ -399,8 +431,13 @@
       "date": "2026-09-20",
       "realized_pnl_usd": 10.908789789967614,
       "halted": false
+    },
+    {
+      "date": "2026-09-21",
+      "realized_pnl_usd": 0,
+      "halted": false
     }
   ],
   "created_at": "2026-09-06T14:02:11.057Z",
-  "updated_at": "2026-09-21T11:18:03.339Z"
+  "updated_at": "2026-09-21T12:27:31.989Z"
 }
