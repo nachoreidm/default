@@ -37260,3 +37260,130 @@ next cycle without any manual edit needed here.
 ```
 
 ---
+### 2026-09-21T07:18:40.192Z — BTC/USD — NO TRADE
+
+**Reasoning:** Already has an open position (one-position-per-pair enforced). No fresh signal anyway: RSI 68.83 (elevated, not extreme), no fresh crossover, volume 0.56x (below average), momentum not flagged (0.69%/0.42%). No BTC-specific catalyst found this cycle.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 68.83,
+  "sma_crossover": "no fresh cross",
+  "volume_ratio": 0.56,
+  "momentum_1h_pct": 0.69,
+  "momentum_4h_pct": 0.42,
+  "price": 81570.3,
+  "has_open_position": true
+}
+```
+
+---
+### 2026-09-21T07:18:41.924Z — ETH/USD — NO TRADE
+
+**Reasoning:** Already has an open position (one-position-per-pair enforced). No fresh signal: RSI 69.49 (elevated, not extreme), no fresh crossover, volume 0.73x (below average), momentum not flagged (1.36%/1.49%). News mentions ETH testing $2,600-2,700 range and whale buybacks, but no confirming quant signal and position already open regardless.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 69.49,
+  "sma_crossover": "no fresh cross",
+  "volume_ratio": 0.73,
+  "momentum_1h_pct": 1.36,
+  "momentum_4h_pct": 1.49,
+  "price": 2658.68,
+  "has_open_position": true
+}
+```
+
+---
+### 2026-09-21T07:18:44.109Z — SOL/USD — NO TRADE
+
+**Reasoning:** No open position, no qualifying quantitative signal: RSI 65.53 (neutral-high), no fresh crossover, volume 0.84x (below average), momentum not flagged (0.53%/-0.02%). News positive (tokenized-equity ATH, Innovation Exemption) but cannot independently justify a trade absent a confirming quantitative signal.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 65.53,
+  "sma_crossover": "no fresh cross",
+  "volume_ratio": 0.84,
+  "momentum_1h_pct": 0.53,
+  "momentum_4h_pct": -0.02,
+  "price": 111.86,
+  "has_open_position": false
+}
+```
+
+---
+### 2026-09-21T07:18:46.468Z — XRP/USD — NO TRADE
+
+**Reasoning:** Already has an open position (one-position-per-pair enforced). No fresh signal: RSI 61.64 (neutral), no fresh crossover, volume 0.64x (below average), momentum not flagged (1.86%/0.89%). News search again returned the same anomalous "Bitcoin above $800,000" claim - disregarded as an unreliable/repeating data artifact per established practice; position already open regardless.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 61.64,
+  "sma_crossover": "no fresh cross",
+  "volume_ratio": 0.64,
+  "momentum_1h_pct": 1.86,
+  "momentum_4h_pct": 0.89,
+  "price": 1.44002,
+  "has_open_position": true
+}
+```
+
+---
+### 2026-09-21T07:18:50.506Z — ADA/USD — NO TRADE
+
+**Reasoning:** No open position, no qualifying quantitative signal: RSI 65.55 (neutral-high), no fresh crossover, volume 0.93x (near-average), momentum climbing further but still under threshold (5.07%/4.57% vs 6% required - closest yet to triggering). News: Mastercard Crypto Partner Program, treasury roundtable today - constructive but not an independent trigger. Watching next cycle in case the 1h/48h figure clears 6%.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 65.55,
+  "sma_crossover": "no fresh cross",
+  "volume_ratio": 0.93,
+  "momentum_1h_pct": 5.07,
+  "momentum_4h_pct": 4.57,
+  "momentum_threshold_pct": 6,
+  "price": 0.232573,
+  "has_open_position": false
+}
+```
+
+---
+### 2026-09-21T07:18:51.886Z — LINK/USD — NO TRADE
+
+**Reasoning:** No open position, no qualifying quantitative signal: RSI 66.54 (neutral-high), no fresh crossover, volume 1.08x (near-average, not a spike), momentum not flagged (1.95%/3.08%). News: Fed Philadelphia panel Sept 24, Coinbase/Base tokenized-stocks integration - background only, no confirming quant signal.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 66.54,
+  "sma_crossover": "no fresh cross",
+  "volume_ratio": 1.08,
+  "momentum_1h_pct": 1.95,
+  "momentum_4h_pct": 3.08,
+  "price": 12.54337,
+  "has_open_position": false
+}
+```
+
+---
+### 2026-09-21T07:18:53.085Z — DOGE/USD — NO TRADE
+
+**Reasoning:** Already has an open position (one-position-per-pair enforced). No fresh signal anyway: RSI 62.23 (neutral), no fresh crossover, volume 0.80x (below average), momentum not flagged (2.71%/2.00%). News: whale accumulation, mixed sentiment - position already open regardless.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 62.23,
+  "sma_crossover": "no fresh cross",
+  "volume_ratio": 0.8,
+  "momentum_1h_pct": 2.71,
+  "momentum_4h_pct": 2,
+  "price": 0.0892806,
+  "has_open_position": true
+}
+```
+
+---
