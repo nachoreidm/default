@@ -37777,3 +37777,134 @@ next cycle without any manual edit needed here.
 ```
 
 ---
+### 2026-09-21T11:18:44.841Z — BTC/USD — NO TRADE
+
+**Reasoning:** Already has an open position, trailing_active remains true, stop unchanged this cycle (peak steady at $85,256, price pulled back slightly to $84,643). No fresh signal for a new entry anyway: RSI 70.79 (overbought, unchanged), no fresh crossover, volume 0.56x.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 70.79,
+  "sma_crossover": "no fresh cross",
+  "volume_ratio": 0.56,
+  "momentum_1h_pct": 3.86,
+  "momentum_4h_pct": 0.52,
+  "price": 84643,
+  "has_open_position": true,
+  "trailing_active": true
+}
+```
+
+---
+### 2026-09-21T11:18:47.059Z — ETH/USD — NO TRADE
+
+**Reasoning:** Already has an open position (one-position-per-pair enforced), now +2.5%, not yet at +1R. No fresh signal: RSI 68.28 (elevated, not extreme), no fresh crossover, volume 0.73x (below average), momentum not flagged (2.90%/0.85%). News: bullish structure holds with short-term pause noted - background only.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 68.28,
+  "sma_crossover": "no fresh cross",
+  "volume_ratio": 0.73,
+  "momentum_1h_pct": 2.9,
+  "momentum_4h_pct": 0.85,
+  "price": 2718,
+  "has_open_position": true
+}
+```
+
+---
+### 2026-09-21T11:18:49.254Z — SOL/USD — NO TRADE
+
+**Reasoning:** No open position, no qualifying quantitative signal: RSI 67.05 (neutral-high), no fresh crossover, volume 0.84x (below average), momentum not flagged (3.70%/0.22%). News constructive (SEC exemption, technical breakout, 200-day MA turning to support) but not an independent trigger absent a confirming quant signal.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 67.05,
+  "sma_crossover": "no fresh cross",
+  "volume_ratio": 0.84,
+  "momentum_1h_pct": 3.7,
+  "momentum_4h_pct": 0.22,
+  "price": 116.27,
+  "has_open_position": false
+}
+```
+
+---
+### 2026-09-21T11:18:52.831Z — XRP/USD — NO TRADE
+
+**Reasoning:** Already has an open position, trailing stop continues climbing (now $1.4268, peak $1.49732), now +6.3% unrealized. No fresh signal for a new entry anyway: RSI 64.84 (neutral), no fresh crossover, volume 0.64x. News mentions unusual XRP exchange inflow activity (663% above baseline into Binance) - noted but not actionable given position already open and no confirming quant signal for a second entry (which would be rejected by code anyway).
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 64.84,
+  "sma_crossover": "no fresh cross",
+  "volume_ratio": 0.64,
+  "momentum_1h_pct": 3.94,
+  "momentum_4h_pct": 0.34,
+  "price": 1.49119,
+  "has_open_position": true,
+  "trailing_active": true
+}
+```
+
+---
+### 2026-09-21T11:18:56.800Z — ADA/USD — NO TRADE
+
+**Reasoning:** No open position. momentum_trigger cleared the 6% threshold again this cycle (1h/48h +6.04%), but still no confirming crossover, RSI extreme (66.02, neutral-high), or volume spike (0.93x, below average) - a momentum-only setup requiring a real, fresh, pair-specific news catalyst per the rules. Same search results as recent prior cycles: the only "catalyst" claiming a matching magnitude move is the same low-quality press-release-style source ("$200M DeFi plan", bundled with unrelated presale promotion) already judged unreliable; Mastercard partnership (Sept 15) and Hoskinson comments (Sept 19) are real but stale, not explaining today's move; the treasury roundtable is happening today but is forward-looking with no outcome yet. Declining again for the same reasons - will keep re-evaluating each cycle.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 66.02,
+  "sma_crossover": "no fresh cross",
+  "volume_ratio": 0.93,
+  "momentum_1h_pct": 6.04,
+  "momentum_4h_pct": 2.31,
+  "momentum_threshold_pct": 6,
+  "momentum_trigger_flagged": true,
+  "price": 0.242118,
+  "has_open_position": false
+}
+```
+
+---
+### 2026-09-21T11:18:59.079Z — LINK/USD — NO TRADE
+
+**Reasoning:** No open position, no qualifying quantitative signal: RSI 62.43 (neutral), no fresh crossover, volume 1.08x (near-average, not a spike), momentum not flagged (4.19%/0.22%, climbing but under 6%). News: Fed panel Sept 24-25, 16 new integrations - background only.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 62.43,
+  "sma_crossover": "no fresh cross",
+  "volume_ratio": 1.08,
+  "momentum_1h_pct": 4.19,
+  "momentum_4h_pct": 0.22,
+  "price": 13.05549,
+  "has_open_position": false
+}
+```
+
+---
+### 2026-09-21T11:19:00.422Z — DOGE/USD — NO TRADE
+
+**Reasoning:** Already has an open position, trailing_active remains true, now +6.0% unrealized. No fresh signal for a new entry anyway: RSI 66.16 (neutral-high), no fresh crossover, volume 0.80x.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 66.16,
+  "sma_crossover": "no fresh cross",
+  "volume_ratio": 0.8,
+  "momentum_1h_pct": 5.11,
+  "momentum_4h_pct": 1.54,
+  "price": 0.0932924,
+  "has_open_position": true,
+  "trailing_active": true
+}
+```
+
+---
