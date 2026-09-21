@@ -1,11 +1,16 @@
+// LIVE TRADING - EUR-denominated (see CLAUDE.md's live-build decision log).
+// Re-screened for EUR liquidity 2026-09-21, not just carried over from the
+// USD-based paper-trading list: DOGE (weakest in the old lineup at ~$2.6M
+// 24h EUR volume) swapped for SUI (~$8.0M, ~3x better) - see CLAUDE.md for
+// the full liquidity table and the L1-diversity tradeoff that swap accepts.
 export const ALLOWED_PAIRS = [
-  "BTC/USD",
-  "ETH/USD",
-  "SOL/USD",
-  "XRP/USD",
-  "ADA/USD",
-  "LINK/USD",
-  "DOGE/USD",
+  "BTC/EUR",
+  "ETH/EUR",
+  "SOL/EUR",
+  "XRP/EUR",
+  "ADA/EUR",
+  "LINK/EUR",
+  "SUI/EUR",
 ] as const;
 export type AllowedPair = (typeof ALLOWED_PAIRS)[number];
 
@@ -77,7 +82,7 @@ export interface Position {
   // fixed fraction of the original 1R.
   peak_price: number;
   size_pct: number;
-  size_usd: number;
+  size_eur: number;
   quantity: number;
   entry_fee: number;
   opened_at: string;
@@ -87,6 +92,12 @@ export interface Position {
   confidence_reason: string;
   momentum_only: boolean;
   status: "open";
+  // LIVE TRADING: Kraken's transaction IDs for this position's real orders -
+  // needed to cancel/replace the resting stop as the trailing floor rises,
+  // and to reconcile against Kraken's order history each cycle to detect a
+  // fill that happened between runs. Absent for paper positions.
+  entry_order_txid?: string;
+  stop_order_txid?: string;
 }
 
 export interface ClosedPosition extends Omit<Position, "status"> {
@@ -95,13 +106,13 @@ export interface ClosedPosition extends Omit<Position, "status"> {
   exit_fee: number;
   closed_at: string;
   close_reason: string;
-  pnl_usd: number;
+  pnl_eur: number;
   pnl_pct_of_portfolio: number;
 }
 
 export interface DailyLoss {
   date: string; // UTC YYYY-MM-DD
-  realized_pnl_usd: number;
+  realized_pnl_eur: number;
   halted: boolean;
 }
 
@@ -115,9 +126,17 @@ export interface PortfolioState {
   updated_at: string;
 }
 
+// LIVE TRADING limits. Raised from paper trading's 5%/25% (see CLAUDE.md's
+// live-build decision log, 2026-09-20): since every position always carries
+// a stop-loss, real per-trade risk is size_pct x stop_distance_pct, not
+// size_pct alone - a stop makes a larger position meaningfully safer than
+// the raw number suggests. All three numbers scaled by the same 8/5=1.6x
+// factor (high 5->8, exposure 25->40) so the exposure cap's *relative*
+// headroom - "5 full-size high-confidence positions before it binds" - is
+// unchanged at the new sizes, not an arbitrary jump.
 export const RISK_LIMITS = {
-  MAX_POSITION_PCT: 5,
-  MAX_TOTAL_EXPOSURE_PCT: 25,
+  MAX_POSITION_PCT: 8,
+  MAX_TOTAL_EXPOSURE_PCT: 40,
   // Matches ALLOWED_PAIRS.length (one open position per pair, see
   // ONE_POSITION_PER_PAIR below) - not a loosening of actual risk, since
   // MAX_TOTAL_EXPOSURE_PCT stays the binding aggregate-risk constraint
@@ -143,7 +162,7 @@ export const TAKE_PROFIT_RR_MULTIPLE = 2;
 // act on; that's what "no trade" is for.
 export const CONFIDENCE_MAX_SIZE_PCT: Record<Confidence, number> = {
   low: 0,
-  medium: 3,
+  medium: 5,
   high: RISK_LIMITS.MAX_POSITION_PCT,
 };
 

@@ -1,23 +1,25 @@
 import { ALLOWED_PAIRS, isAllowedPair } from "./types.js";
 const KRAKEN_API_BASE = "https://api.kraken.com/0/public";
+// LIVE TRADING - EUR pair codes, confirmed live against Kraken's Ticker
+// endpoint 2026-09-21 (see CLAUDE.md's live-build decision log). Kraken
+// nests BTC/ETH/XRP's responses under legacy X/Z-prefixed keys (XXBTZEUR,
+// XETHZEUR, XXRPZEUR) while the others key directly - firstResultKey()
+// below already handles either case generically, no special-casing needed.
 const PAIR_CODE = {
-    "BTC/USD": "XBTUSD",
-    "ETH/USD": "ETHUSD",
-    "SOL/USD": "SOLUSD",
-    "XRP/USD": "XRPUSD",
-    "ADA/USD": "ADAUSD",
-    "LINK/USD": "LINKUSD",
-    // Kraken's internal ticker for Dogecoin is XDG, not DOGE - confirmed live
-    // against /0/public/AssetPairs (2026-09-17); "DOGEUSD" itself is not a
-    // valid Kraken pair code.
-    "DOGE/USD": "XDGUSD",
+    "BTC/EUR": "XBTEUR",
+    "ETH/EUR": "ETHEUR",
+    "SOL/EUR": "SOLEUR",
+    "XRP/EUR": "XRPEUR",
+    "ADA/EUR": "ADAEUR",
+    "LINK/EUR": "LINKEUR",
+    "SUI/EUR": "SUIEUR",
 };
 export const INTERVAL_MINUTES = {
     "1h": 60,
     "4h": 240,
     "1d": 1440,
 };
-class KrakenApiError extends Error {
+export class KrakenApiError extends Error {
 }
 function assertAllowedPair(pair) {
     if (!isAllowedPair(pair)) {
@@ -48,6 +50,12 @@ function firstResultKey(result) {
         throw new KrakenApiError("Kraken response contained no pair data");
     }
     return keys[0];
+}
+// Exposes the pair-code lookup for callers that need to place real orders
+// (kraken-private.ts's AddOrder needs Kraken's own pair code, e.g.
+// "XBTEUR" for "BTC/EUR") - avoids duplicating the PAIR_CODE table.
+export function pairCode(pair) {
+    return PAIR_CODE[pair];
 }
 export async function fetchOHLC(pair, interval) {
     const p = assertAllowedPair(pair);

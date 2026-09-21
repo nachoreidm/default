@@ -1,7 +1,7 @@
 import { fetchOHLC, fetchTicker, fetchDepth, closedCandles } from "./kraken.js";
 import { rsi, sma, smaCrossover, volumeVs7dAvg, orderBookImbalance, priceAction } from "./indicators.js";
 import { computeSignals } from "./signals.js";
-import { hasReachedOneR, effectiveTrailingStop, peakFromCandles } from "./portfolio.js";
+import { hasReachedOneR, effectiveTrailingStop, peakFromCandles } from "./trailing-math.js";
 import { ALLOWED_PAIRS } from "./types.js";
 function candle(time, high) {
     return { time, open: high, high, low: high, close: high, vwap: high, volume: 0, count: 0 };
@@ -35,7 +35,7 @@ async function main() {
     assert(vol !== null && Math.abs(vol.ratio - 2.5) < 0.001, `volume ratio 2.5x flags above-2x (got ${vol?.ratio})`);
     assert(vol.flag_above_2x === true, "volume flag_above_2x true for 2.5x");
     const imb = orderBookImbalance({
-        pair: "BTC/USD",
+        pair: "BTC/EUR",
         bids: [{ price: 100, volume: 10 }],
         asks: [{ price: 101, volume: 5 }],
     }, 10);
@@ -77,25 +77,25 @@ async function main() {
     assert(peakFromCandles([], 2000, 100) === 100, "peakFromCandles falls back to currentPeak when no candles qualify");
     assert(peakFromCandles([candle(500, 999)], 2000, 100) === 100, "peakFromCandles ignores candles before entryTs even if their high is huge");
     // --- Live Kraken API smoke test (public endpoints, no auth) ---
-    const ticker = await fetchTicker("BTC/USD");
-    assert(ticker.last > 0, `live BTC/USD ticker last price > 0 (got ${ticker.last})`);
+    const ticker = await fetchTicker("BTC/EUR");
+    assert(ticker.last > 0, `live BTC/EUR ticker last price > 0 (got ${ticker.last})`);
     assert(ticker.ask >= ticker.bid, "ask >= bid");
-    // Every allowed pair (including the newly added ADA/LINK/DOGE and the
-    // Kraken-internal XDG code for DOGE) must resolve to a real, tradeable
-    // Kraken ticker - catches a wrong PAIR_CODE mapping immediately.
+    // Every allowed pair (the EUR-re-screened live lineup, including SUI's
+    // pair code) must resolve to a real, tradeable Kraken ticker - catches a
+    // wrong PAIR_CODE mapping immediately.
     for (const pair of ALLOWED_PAIRS) {
         const t = await fetchTicker(pair);
         assert(t.last > 0, `live ${pair} ticker last price > 0 (got ${t.last})`);
     }
-    const candles1h = closedCandles(await fetchOHLC("BTC/USD", "1h"));
+    const candles1h = closedCandles(await fetchOHLC("BTC/EUR", "1h"));
     assert(candles1h.length > 48, `enough 1h candles for 48h window (got ${candles1h.length})`);
     const pa = priceAction(candles1h.slice(-48), 48);
     assert(pa.candles_used === 48, "priceAction uses the 48 candles given");
-    const book = await fetchDepth("BTC/USD", 10);
+    const book = await fetchDepth("BTC/EUR", 10);
     assert(book.bids.length > 0 && book.asks.length > 0, "order book has bids and asks");
-    const signals = await computeSignals("BTC/USD");
+    const signals = await computeSignals("BTC/EUR");
     assert(signals.current_price > 0, "compute_signals returns a current price");
-    console.log("\nFull signal report for BTC/USD:\n", JSON.stringify(signals, null, 2));
+    console.log("\nFull signal report for BTC/EUR:\n", JSON.stringify(signals, null, 2));
     console.log("\nALL SELF-TESTS PASSED");
 }
 main().catch((e) => {
