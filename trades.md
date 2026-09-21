@@ -39347,3 +39347,134 @@ next cycle without any manual edit needed here.
 ```
 
 ---
+### 2026-09-21T23:12:41.482Z — BTC/USD — NO TRADE
+
+**Reasoning:** Already has an open position, trailing_active true, stop unchanged (peak steady at $87,446.7). RSI extreme and momentum_trigger both fired again but moot - position already open.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 86.33,
+  "sma_crossover": "no fresh cross",
+  "volume_ratio": 0.56,
+  "momentum_1h_pct": 6.41,
+  "momentum_4h_pct": 6.48,
+  "price": 86624.3,
+  "has_open_position": true,
+  "trailing_active": true
+}
+```
+
+---
+### 2026-09-21T23:12:43.047Z — ETH/USD — NO TRADE
+
+**Reasoning:** Already has an open position (one-position-per-pair enforced), now +4.8%, not yet at +1R. RSI extreme (78.31) but moot - position already open.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 78.31,
+  "sma_crossover": "no fresh cross",
+  "volume_ratio": 0.73,
+  "momentum_1h_pct": 5.58,
+  "momentum_4h_pct": 4.96,
+  "price": 2782.44,
+  "has_open_position": true
+}
+```
+
+---
+### 2026-09-21T23:12:44.904Z — SOL/USD — NO TRADE
+
+**Reasoning:** Already has an open position (opened prior cycle) - one-position-per-pair enforced. RSI extreme (78.60) and momentum_trigger flagged (7.55%/6.58%), but moot. Currently +1.0% unrealized, not yet at +1R.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 78.6,
+  "sma_crossover": "no fresh cross",
+  "volume_ratio": 0.843,
+  "momentum_1h_pct": 7.55,
+  "momentum_4h_pct": 6.58,
+  "price": 119.56,
+  "has_open_position": true
+}
+```
+
+---
+### 2026-09-21T23:12:48.259Z — XRP/USD — NO TRADE
+
+**Reasoning:** Already has an open position, trailing_active true, stop climbing (now $1.4500, peak $1.5748), now +11.0% unrealized. RSI extreme and momentum_trigger both flagged but moot - position already open.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 74.87,
+  "sma_crossover": "no fresh cross",
+  "volume_ratio": 0.64,
+  "momentum_1h_pct": 10.32,
+  "momentum_4h_pct": 6.89,
+  "price": 1.55692,
+  "has_open_position": true,
+  "trailing_active": true
+}
+```
+
+---
+### 2026-09-21T23:12:49.640Z — ADA/USD — NO TRADE
+
+**Reasoning:** Already has an open position (opened 2026-09-21 12:27 UTC) - one-position-per-pair enforced. RSI extreme (74.54) and momentum_trigger flagged (7.99%/7.43%), but moot. Now +0.3% unrealized, not yet at +1R.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 74.54,
+  "sma_crossover": "no fresh cross",
+  "volume_ratio": 0.925,
+  "momentum_1h_pct": 7.99,
+  "momentum_4h_pct": 7.43,
+  "price": 0.246083,
+  "has_open_position": true
+}
+```
+
+---
+### 2026-09-21T23:12:51.667Z — LINK/USD — NO TRADE
+
+**Reasoning:** No open position. momentum_trigger flagged again (6.40%/4.83%), RSI still not extreme (69.68), no fresh crossover, no volume spike - a momentum-only setup requiring a real, plausible news catalyst. Same situation as last cycle: no fresh LINK-specific catalyst found, only the week-old 16-integrations ecosystem summary (Sept 14-20) and continued attribution of the broader rally to the market-wide BTC-led short squeeze. Declining again for the same reason - not pair-specific.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 69.68,
+  "sma_crossover": "no fresh cross",
+  "volume_ratio": 1.08,
+  "momentum_1h_pct": 6.4,
+  "momentum_4h_pct": 4.83,
+  "momentum_threshold_pct": 6,
+  "momentum_trigger_flagged": true,
+  "price": 13.23802,
+  "has_open_position": false
+}
+```
+
+---
+### 2026-09-21T23:12:53.541Z — DOGE/USD — NO TRADE
+
+**Reasoning:** Already has an open position, trailing_active true (stop $0.09191, peak $0.1018605), now +15.0% unrealized, DOGE's best trade this session. RSI extreme and momentum_trigger both fired very strongly but moot - position already open. News confirms move is market-wide (BTC-led short squeeze), not DOGE-specific.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 81.31,
+  "sma_crossover": "no fresh cross",
+  "volume_ratio": 0.8,
+  "momentum_1h_pct": 14.39,
+  "momentum_4h_pct": 12.36,
+  "price": 0.1012197,
+  "has_open_position": true,
+  "trailing_active": true
+}
+```
+
+---
