@@ -38433,3 +38433,141 @@ next cycle without any manual edit needed here.
 ```
 
 ---
+### 2026-09-21T16:13:01.878Z — SOL/USD — LONG — OPENED
+
+- Entry price: $117.82
+- Stop-loss: $111.43
+- Take-profit: $130.60 (2:1 risk/reward, fixed at entry)
+- Position size: 3% of portfolio ($301.68, qty 2.55028061)
+- Entry fee (paper): $1.21
+- Confidence: medium — RSI extreme (78.04, sharply overbought) confirms strength alongside momentum_trigger flagged (4h/48h +6.10%, clearing the 6% threshold) - not momentum-only since RSI extreme is an independent confirming signal, matching the ETH and ADA entry precedents this session (RSI extreme + momentum trigger, no crossover, no volume spike). Capped at medium rather than high: no fresh SMA crossover this candle (existing fast_above_slow trend, not a new cross), no volume spike (0.84x, below average), and price is significantly extended/overbought (RSI 78, among the highest readings seen this session) - the same entry-timing risk flagged in the 2026-09-15 loss review about chasing an already-extended move. News is genuinely supportive and fresh: tokenized-equity ecosystem hit a record 850K holders, 12 consecutive weeks of ETF inflows, DFDV growing its SOL treasury 4.24% in a week - broadly bullish institutional backdrop, though not required since this isn't a momentum-only trade.
+- Momentum-only trigger: no
+- Invalidation (what proves this wrong): A break back below the rising 20-period 4h SMA (~$111.43, set as the stop) invalidates the thesis - would mean the RSI-extreme/momentum push has failed and price is reverting rather than continuing the breakout.
+- Signals supporting this trade:
+```json
+{
+  "rsi_14_4h": 78.0430106915334,
+  "sma_crossover_4h": "fast_above_slow, not crossed this candle - existing trend, not a fresh crossover signal",
+  "volume_ratio": 0.8427784163795846,
+  "volume_flag_above_2x": false,
+  "momentum_trigger_flagged": true,
+  "price_action_1h_48h_pct": 5.32,
+  "price_action_4h_48h_pct": 6.1,
+  "order_book_imbalance_top10": -0.169,
+  "news_context": "Tokenized-equity ecosystem hit a record 850K unique on-chain holders; SOL spot ETFs posted 12 consecutive weeks of net inflows ($13.19M this week); DeFi Development Corp grew its SOL treasury holdings 4.24% in a week. Broadly bullish institutional backdrop, though not required for this non-momentum-only trade."
+}
+```
+- Position id: 6a7e5eb9-870e-49da-8867-041fcf4926bb
+
+---
+### 2026-09-21T16:13:09.258Z — BTC/USD — NO TRADE
+
+**Reasoning:** Already has an open position, trailing_active true, stop climbing (peak $86,331, unchanged - price pulled back slightly this cycle). RSI extreme (85.30, highest reading yet) but moot - position already open.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 85.3,
+  "sma_crossover": "no fresh cross",
+  "volume_ratio": 0.56,
+  "momentum_1h_pct": 5.03,
+  "momentum_4h_pct": 5.64,
+  "price": 85764.1,
+  "has_open_position": true,
+  "trailing_active": true
+}
+```
+
+---
+### 2026-09-21T16:13:11.000Z — ETH/USD — NO TRADE
+
+**Reasoning:** Already has an open position (one-position-per-pair enforced), now +3.7%, not yet at +1R. RSI extreme (77.80) but moot - position already open.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 77.8,
+  "sma_crossover": "no fresh cross",
+  "volume_ratio": 0.73,
+  "momentum_1h_pct": 4,
+  "momentum_4h_pct": 4.61,
+  "price": 2749.97,
+  "has_open_position": true
+}
+```
+
+---
+### 2026-09-21T16:13:12.730Z — XRP/USD — NO TRADE
+
+**Reasoning:** Already has an open position, trailing_active true, stop at $1.4300 (peak $1.50808), now +6.8% unrealized. RSI extreme (73.31) but moot - position already open. Real fresh news confirms strong catalyst (XRP jumped 8% on Ripple's Batch V1.1 XRPL upgrade news) but not actionable given existing position.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 73.31,
+  "sma_crossover": "no fresh cross",
+  "volume_ratio": 0.64,
+  "momentum_1h_pct": 4.24,
+  "momentum_4h_pct": 4.74,
+  "price": 1.49639,
+  "has_open_position": true,
+  "trailing_active": true
+}
+```
+
+---
+### 2026-09-21T16:13:14.576Z — ADA/USD — NO TRADE
+
+**Reasoning:** Already has an open position (opened 2026-09-21 12:27 UTC) - one-position-per-pair enforced. RSI extreme (74.50) and momentum_trigger flagged again (6.57%/6.37%), but moot for a new entry. Currently -0.1% unrealized, not yet at +1R.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 74.5,
+  "sma_crossover": "no fresh cross",
+  "volume_ratio": 0.925,
+  "momentum_1h_pct": 6.57,
+  "momentum_4h_pct": 6.37,
+  "price": 0.244995,
+  "has_open_position": true
+}
+```
+
+---
+### 2026-09-21T16:13:16.516Z — LINK/USD — NO TRADE
+
+**Reasoning:** No open position, no qualifying signal: RSI dropped back to 69.52 (no longer overbought extreme), no fresh crossover, no volume spike (1.08x), momentum not flagged (3.33%/4.19%, under 6%).
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 69.52,
+  "sma_crossover": "no fresh cross",
+  "volume_ratio": 1.08,
+  "momentum_1h_pct": 3.33,
+  "momentum_4h_pct": 4.19,
+  "price": 12.98717,
+  "has_open_position": false
+}
+```
+
+---
+### 2026-09-21T16:13:18.776Z — DOGE/USD — NO TRADE
+
+**Reasoning:** Already has an open position, trailing_active true (stop $0.09078, peak $0.0980793), now +10.0% unrealized. RSI extreme (79.93) and momentum_trigger flagged again, but moot - position already open.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 79.93,
+  "sma_crossover": "no fresh cross",
+  "volume_ratio": 0.8,
+  "momentum_1h_pct": 8.57,
+  "momentum_4h_pct": 9.08,
+  "price": 0.0967851,
+  "has_open_position": true,
+  "trailing_active": true
+}
+```
+
+---

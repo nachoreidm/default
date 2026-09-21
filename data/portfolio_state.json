@@ -1,6 +1,6 @@
 {
   "starting_balance": 10000,
-  "cash": 8477.050795686004,
+  "cash": 8175.372878897149,
   "open_positions": [
     {
       "id": "e81f2ee9-b84e-4b53-af98-2d6e4b84d121",
@@ -107,7 +107,7 @@
       "initial_stop_loss": 2478,
       "take_profit": 2971.1415899999997,
       "trailing_active": false,
-      "peak_price": 2757.11,
+      "peak_price": 2765.49,
       "size_pct": 3,
       "size_usd": 300.7080771422701,
       "quantity": 0.11334674980885551,
@@ -161,6 +161,38 @@
       "invalidation": "A break back below the rising 20-period 4h SMA (~$0.2254, set as the stop) invalidates the thesis - would mean the RSI-extreme/momentum push has failed and price is reverting rather than continuing the breakout.",
       "confidence": "medium",
       "confidence_reason": "RSI extreme (72.50, overbought) confirms strength alongside momentum_trigger flagged (1h/48h +6.29%, 4h/48h +6.33%, clearing the 6% threshold for the third consecutive cycle) - not momentum-only since RSI extreme is an independent confirming signal, matching the ETH 2026-09-19 entry precedent (RSI extreme + momentum trigger, no crossover, no volume spike). Capped at medium rather than high: no fresh SMA crossover this candle (existing fast_above_slow trend, not a new cross), no volume spike (0.93x, below average - the move isn't broadly volume-confirmed), and price is significantly extended/overbought, the same entry-timing risk flagged in the 2026-09-15 loss review about chasing an already-extended move. News search found nothing new beyond already-known, stale items (Mastercard partnership Sept 15, Hoskinson AI comments Sept 19); today's Foundation treasury roundtable outcome isn't known yet. Since this isn't a momentum-only trade, a fresh catalyst isn't required per the rules - it's neutral here (no fresh confirming catalyst, but also no negative news).",
+      "momentum_only": false,
+      "status": "open"
+    },
+    {
+      "id": "6a7e5eb9-870e-49da-8867-041fcf4926bb",
+      "pair": "SOL/USD",
+      "direction": "long",
+      "entry_price": 117.81888,
+      "stop_loss": 111.4285,
+      "initial_stop_loss": 111.4285,
+      "take_profit": 130.59963999999997,
+      "trailing_active": false,
+      "peak_price": 117.81888,
+      "size_pct": 3,
+      "size_usd": 301.67791678885453,
+      "quantity": 2.550280609709574,
+      "entry_fee": 1.206711667155418,
+      "opened_at": "2026-09-21T16:13:01.878Z",
+      "signals_at_entry": {
+        "rsi_14_4h": 78.0430106915334,
+        "sma_crossover_4h": "fast_above_slow, not crossed this candle - existing trend, not a fresh crossover signal",
+        "volume_ratio": 0.8427784163795846,
+        "volume_flag_above_2x": false,
+        "momentum_trigger_flagged": true,
+        "price_action_1h_48h_pct": 5.32,
+        "price_action_4h_48h_pct": 6.1,
+        "order_book_imbalance_top10": -0.169,
+        "news_context": "Tokenized-equity ecosystem hit a record 850K unique on-chain holders; SOL spot ETFs posted 12 consecutive weeks of net inflows ($13.19M this week); DeFi Development Corp grew its SOL treasury holdings 4.24% in a week. Broadly bullish institutional backdrop, though not required for this non-momentum-only trade."
+      },
+      "invalidation": "A break back below the rising 20-period 4h SMA (~$111.43, set as the stop) invalidates the thesis - would mean the RSI-extreme/momentum push has failed and price is reverting rather than continuing the breakout.",
+      "confidence": "medium",
+      "confidence_reason": "RSI extreme (78.04, sharply overbought) confirms strength alongside momentum_trigger flagged (4h/48h +6.10%, clearing the 6% threshold) - not momentum-only since RSI extreme is an independent confirming signal, matching the ETH and ADA entry precedents this session (RSI extreme + momentum trigger, no crossover, no volume spike). Capped at medium rather than high: no fresh SMA crossover this candle (existing fast_above_slow trend, not a new cross), no volume spike (0.84x, below average), and price is significantly extended/overbought (RSI 78, among the highest readings seen this session) - the same entry-timing risk flagged in the 2026-09-15 loss review about chasing an already-extended move. News is genuinely supportive and fresh: tokenized-equity ecosystem hit a record 850K holders, 12 consecutive weeks of ETF inflows, DFDV growing its SOL treasury 4.24% in a week - broadly bullish institutional backdrop, though not required since this isn't a momentum-only trade.",
       "momentum_only": false,
       "status": "open"
     }
@@ -439,5 +471,5 @@
     }
   ],
   "created_at": "2026-09-06T14:02:11.057Z",
-  "updated_at": "2026-09-21T15:14:06.373Z"
+  "updated_at": "2026-09-21T16:13:01.878Z"
 }
