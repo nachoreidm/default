@@ -37133,3 +37133,130 @@ next cycle without any manual edit needed here.
 ```
 
 ---
+### 2026-09-21T06:23:00.268Z — BTC/USD — NO TRADE
+
+**Reasoning:** Already has an open position (one-position-per-pair enforced). No fresh signal anyway: RSI 68.83 (elevated, not extreme), no fresh crossover, volume 0.56x (below average), momentum not flagged (0.63%/0.42%). News: FOMC speaker Goolsbee today, minor token unlocks, Switchboard oracle shutdown migration deadline - no BTC-specific catalyst.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 68.83,
+  "sma_crossover": "no fresh cross",
+  "volume_ratio": 0.56,
+  "momentum_1h_pct": 0.63,
+  "momentum_4h_pct": 0.42,
+  "price": 81743.2,
+  "has_open_position": true
+}
+```
+
+---
+### 2026-09-21T06:23:05.693Z — ETH/USD — NO TRADE
+
+**Reasoning:** Already has an open position (one-position-per-pair enforced). No fresh signal: RSI 69.49 (elevated, not extreme), no fresh crossover, volume 0.73x (below average), momentum not flagged (1.47%/1.49%). News: Vitalik privacy focus reiterated, Hegotá upgrade H2 2026, traders watching $2,672 weekly close - informational, no immediate catalyst.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 69.49,
+  "sma_crossover": "no fresh cross",
+  "volume_ratio": 0.73,
+  "momentum_1h_pct": 1.47,
+  "momentum_4h_pct": 1.49,
+  "price": 2671.34,
+  "has_open_position": true
+}
+```
+
+---
+### 2026-09-21T06:23:07.023Z — SOL/USD — NO TRADE
+
+**Reasoning:** No open position, no qualifying quantitative signal: RSI 65.53 (neutral-high), no fresh crossover, volume 0.84x (below average), momentum flat (-0.05%/-0.02%). News positive (tokenized-equity holders ATH at 850K, SEC Innovation Exemption, SIMD-0525 upgrade) but per policy cannot independently justify a trade absent a confirming quantitative signal - none present.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 65.53,
+  "sma_crossover": "no fresh cross",
+  "volume_ratio": 0.84,
+  "momentum_1h_pct": -0.05,
+  "momentum_4h_pct": -0.02,
+  "price": 112.28,
+  "has_open_position": false
+}
+```
+
+---
+### 2026-09-21T06:23:08.439Z — XRP/USD — NO TRADE
+
+**Reasoning:** Already has an open position (one-position-per-pair enforced). No fresh signal: RSI 61.64 (neutral), no fresh crossover, volume 0.64x (below average), momentum not flagged (0.60%/0.89%). News: 7 XRP spot ETFs now trading with $2B AUM, RLUSD now majority-issued on XRPL vs Ethereum - constructive background, position already open regardless.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 61.64,
+  "sma_crossover": "no fresh cross",
+  "volume_ratio": 0.64,
+  "momentum_1h_pct": 0.6,
+  "momentum_4h_pct": 0.89,
+  "price": 1.43878,
+  "has_open_position": true
+}
+```
+
+---
+### 2026-09-21T06:23:09.693Z — ADA/USD — NO TRADE
+
+**Reasoning:** No open position, no qualifying quantitative signal: RSI 65.55 (neutral-high), no fresh crossover, volume 0.93x (near-average), momentum still under threshold (3.89%/4.57% vs 6%). News: Mastercard Crypto Partner Program, Foundation treasury roundtable today, Hoskinson commentary - constructive but not an independent trigger absent a confirming quant signal.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 65.55,
+  "sma_crossover": "no fresh cross",
+  "volume_ratio": 0.93,
+  "momentum_1h_pct": 3.89,
+  "momentum_4h_pct": 4.57,
+  "momentum_threshold_pct": 6,
+  "price": 0.233604,
+  "has_open_position": false
+}
+```
+
+---
+### 2026-09-21T06:23:11.791Z — LINK/USD — NO TRADE
+
+**Reasoning:** No open position, no qualifying quantitative signal: RSI 66.54 (neutral-high), no fresh crossover, volume 1.08x (near-average, not a spike), momentum not flagged (1.66%/3.08%). News: Fed Philadelphia Fintech panel Sept 24-25, Schwab adding LINK/SOL/AVAX to platform - background only, no confirming quant signal this cycle.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 66.54,
+  "sma_crossover": "no fresh cross",
+  "volume_ratio": 1.08,
+  "momentum_1h_pct": 1.66,
+  "momentum_4h_pct": 3.08,
+  "price": 12.60347,
+  "has_open_position": false
+}
+```
+
+---
+### 2026-09-21T06:23:13.755Z — DOGE/USD — NO TRADE
+
+**Reasoning:** Already has an open position (one-position-per-pair enforced). No fresh signal anyway: RSI 62.23 (neutral), no fresh crossover, volume 0.80x (below average), momentum not flagged (1.48%/2.00%). News: Bitwise DOGE ETF (BWOW) closing, whale accumulation, mixed/background - position already open regardless.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 62.23,
+  "sma_crossover": "no fresh cross",
+  "volume_ratio": 0.8,
+  "momentum_1h_pct": 1.48,
+  "momentum_4h_pct": 2,
+  "price": 0.0892155,
+  "has_open_position": true
+}
+```
+
+---
