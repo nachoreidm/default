@@ -36879,3 +36879,130 @@ next cycle without any manual edit needed here.
 ```
 
 ---
+### 2026-09-21T04:15:10.391Z — BTC/USD — NO TRADE
+
+**Reasoning:** Already has an open position (one-position-per-pair enforced). No fresh signal anyway: RSI 68.83 (elevated but not >70 extreme), fast SMA above slow with no fresh crossover this candle, volume 0.56x average (below-average, not a spike), momentum not flagged (0.50%/0.42% vs 6% threshold). News: BTC holding $80-82K range, FOMC speaker (Goolsbee) and token unlocks noted but no BTC-specific catalyst; Switchboard oracle shutdown is infra-related noise, not BTC-specific.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 68.83,
+  "sma_crossover": "fast_above_slow, no fresh cross",
+  "volume_ratio": 0.56,
+  "momentum_1h_pct": 0.5,
+  "momentum_4h_pct": 0.42,
+  "price": 81278,
+  "has_open_position": true
+}
+```
+
+---
+### 2026-09-21T04:15:12.403Z — ETH/USD — NO TRADE
+
+**Reasoning:** Already has an open position (one-position-per-pair enforced). No fresh signal: RSI 69.49 (elevated, not extreme), no fresh crossover, volume 0.73x (below average), momentum not flagged (1.77%/1.49%). News: traders watching $2,672 weekly close as key trigger, Vitalik reaffirmed privacy focus, Glamsterdam hard fork testnet Sept 28 - all informational/medium-term, no immediate actionable catalyst.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 69.49,
+  "sma_crossover": "no fresh cross",
+  "volume_ratio": 0.73,
+  "momentum_1h_pct": 1.77,
+  "momentum_4h_pct": 1.49,
+  "price": 2658.56,
+  "has_open_position": true
+}
+```
+
+---
+### 2026-09-21T04:15:16.481Z — SOL/USD — NO TRADE
+
+**Reasoning:** No open position, but no qualifying quantitative signal: RSI 65.53 (neutral-high, not extreme), no fresh crossover, volume 0.84x (below average, not a spike), momentum not flagged (-0.70%/-0.02%, essentially flat). News is positive (Transaction V1 launch, SIMD-0525 slot-time reduction, SEC 5-year Innovation Exemption for tokenized securities, strong ETF inflows) but per policy news alone cannot justify a trade without a confirming quantitative signal - none present this cycle. Recent trailing-stop close on this pair (2026-09-21 earlier) also means we're not re-entering same-session without a fresh setup.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 65.53,
+  "sma_crossover": "no fresh cross",
+  "volume_ratio": 0.84,
+  "momentum_1h_pct": -0.7,
+  "momentum_4h_pct": -0.02,
+  "price": 111.14,
+  "has_open_position": false
+}
+```
+
+---
+### 2026-09-21T04:15:19.257Z — XRP/USD — NO TRADE
+
+**Reasoning:** Already has an open position (one-position-per-pair enforced). No fresh signal: RSI 61.64 (neutral), no fresh crossover, volume 0.64x (below average), momentum not flagged (0.58%/0.89%). News: XRPL 3.4.0 beta/Lending Protocol, RLUSD stablecoin launch later in 2026, escrow release absorbed without negative impact, institutional adoption (Goldman ETF holdings, Schwab repo collateral) - constructive background but nothing pair-specific actionable this cycle, and position already open regardless.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 61.64,
+  "sma_crossover": "no fresh cross",
+  "volume_ratio": 0.64,
+  "momentum_1h_pct": 0.58,
+  "momentum_4h_pct": 0.89,
+  "price": 1.4165,
+  "has_open_position": true
+}
+```
+
+---
+### 2026-09-21T04:15:22.781Z — ADA/USD — NO TRADE
+
+**Reasoning:** No open position, no qualifying quantitative signal: RSI 65.55 (neutral-high, not extreme), no fresh crossover, volume 0.93x (near-average, not a spike), momentum climbing but still below threshold (2.63%/4.57% vs 6% required to flag). News is positive (Mastercard Crypto Partner Program membership, node 11.1.1 maintenance release, Hoskinson comments) but per policy cannot independently justify a trade absent a confirming quantitative signal - momentum is worth watching next cycle if the 4h figure keeps climbing toward 6%, but not there yet.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 65.55,
+  "sma_crossover": "no fresh cross",
+  "volume_ratio": 0.93,
+  "momentum_1h_pct": 2.63,
+  "momentum_4h_pct": 4.57,
+  "momentum_threshold_pct": 6,
+  "price": 0.230709,
+  "has_open_position": false
+}
+```
+
+---
+### 2026-09-21T04:15:26.465Z — LINK/USD — NO TRADE
+
+**Reasoning:** No open position, no qualifying quantitative signal from our own compute_signals: RSI 66.54 (neutral-high, not extreme), no fresh crossover, volume 1.08x (essentially average, not a 2x spike), momentum not flagged (2.71%/3.08% vs 6% threshold). Note: a news search returned a conflicting claim (LINK up 9.8% to $12.50 with volume 36% above average) that is inconsistent with our own live compute_signals data (price 12.61, volume ratio only 1.08x) - treating that as an unreliable/stale data-quality artifact per established practice and relying on the tool's deterministic values instead. Other news (Fed Philadelphia Fintech panel Sept 24-25, Bottomline/CCIP bank partnership) is advisory-only background, not an independent trade trigger.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 66.54,
+  "sma_crossover": "no fresh cross",
+  "volume_ratio": 1.08,
+  "momentum_1h_pct": 2.71,
+  "momentum_4h_pct": 3.08,
+  "price": 12.61328,
+  "has_open_position": false
+}
+```
+
+---
+### 2026-09-21T04:15:29.232Z — DOGE/USD — NO TRADE
+
+**Reasoning:** Already has an open position (one-position-per-pair enforced). No fresh signal anyway: RSI 62.23 (neutral), no fresh crossover, volume 0.80x (below average), momentum not flagged (1.17%/2.00%). News: CLARITY Act procedural failure pressured broader market, whale accumulation (240M DOGE) as a counter-signal, technical levels around $0.087/$0.10 cited - mixed and not pair-specific actionable, and position already open regardless.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 62.23,
+  "sma_crossover": "no fresh cross",
+  "volume_ratio": 0.8,
+  "momentum_1h_pct": 1.17,
+  "momentum_4h_pct": 2,
+  "price": 0.0880448,
+  "has_open_position": true
+}
+```
+
+---
