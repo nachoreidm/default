@@ -39087,3 +39087,134 @@ next cycle without any manual edit needed here.
 ```
 
 ---
+### 2026-09-21T21:12:58.214Z — BTC/USD — NO TRADE
+
+**Reasoning:** Already has an open position, trailing_active true, stop climbing (peak now $87,446.7). RSI extreme (86.33) and momentum_trigger flagged (7.30%/6.48%) but moot - position already open. Real, well-documented catalyst: BTC hit an 8-month high, $262-750M in shorts liquidated, ahead of Trump-Xi summit.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 86.33,
+  "sma_crossover": "no fresh cross",
+  "volume_ratio": 0.56,
+  "momentum_1h_pct": 7.3,
+  "momentum_4h_pct": 6.48,
+  "price": 86624.1,
+  "has_open_position": true,
+  "trailing_active": true
+}
+```
+
+---
+### 2026-09-21T21:12:59.667Z — ETH/USD — NO TRADE
+
+**Reasoning:** Already has an open position (one-position-per-pair enforced), now +4.5%, not yet at +1R. RSI extreme (78.31) but moot - position already open.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 78.31,
+  "sma_crossover": "no fresh cross",
+  "volume_ratio": 0.73,
+  "momentum_1h_pct": 5.99,
+  "momentum_4h_pct": 4.96,
+  "price": 2772.05,
+  "has_open_position": true
+}
+```
+
+---
+### 2026-09-21T21:13:01.302Z — SOL/USD — NO TRADE
+
+**Reasoning:** Already has an open position (opened prior cycle) - one-position-per-pair enforced. RSI extreme (78.60) and momentum_trigger flagged (7.86%/6.58%), but moot. Currently +0.5% unrealized, not yet at +1R.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 78.6,
+  "sma_crossover": "no fresh cross",
+  "volume_ratio": 0.843,
+  "momentum_1h_pct": 7.86,
+  "momentum_4h_pct": 6.58,
+  "price": 118.91,
+  "has_open_position": true
+}
+```
+
+---
+### 2026-09-21T21:13:03.060Z — XRP/USD — NO TRADE
+
+**Reasoning:** Already has an open position, trailing_active true, stop climbing (now $1.4392, peak $1.53862), now +8.4% unrealized. RSI extreme and momentum_trigger both flagged, but moot - position already open.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 74.87,
+  "sma_crossover": "no fresh cross",
+  "volume_ratio": 0.64,
+  "momentum_1h_pct": 8.83,
+  "momentum_4h_pct": 6.89,
+  "price": 1.52096,
+  "has_open_position": true,
+  "trailing_active": true
+}
+```
+
+---
+### 2026-09-21T21:13:04.994Z — ADA/USD — NO TRADE
+
+**Reasoning:** Already has an open position (opened 2026-09-21 12:27 UTC) - one-position-per-pair enforced. RSI extreme (74.54) and momentum_trigger flagged (8.53%/7.43%), but moot. Currently -0.2% unrealized, not yet at +1R.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 74.54,
+  "sma_crossover": "no fresh cross",
+  "volume_ratio": 0.925,
+  "momentum_1h_pct": 8.53,
+  "momentum_4h_pct": 7.43,
+  "price": 0.244587,
+  "has_open_position": true
+}
+```
+
+---
+### 2026-09-21T21:13:09.707Z — LINK/USD — NO TRADE
+
+**Reasoning:** No open position. momentum_trigger cleared the 6% threshold this cycle (1h/48h +6.57%), but RSI is not extreme (69.68, just under 70), no fresh crossover, no volume spike (1.08x) - this is a momentum-only setup requiring a real, plausible news catalyst per the rules. News search explicitly states "No single news event explains the move" for LINK's rally - the only cited driver is the same broad market-wide short squeeze/rally (BTC breaking $84K) lifting every pair in scope this cycle, not a LINK-specific catalyst. The one LINK-specific item (16 ecosystem integrations) is a week-old summary (Sept 14-20), not a fresh event explaining today's specific acceleration. Declining as insufficient - a market-wide rally lifting all pairs equally doesn't meet the bar of a pair-specific catalyst the momentum-only exception is meant to require.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 69.68,
+  "sma_crossover": "no fresh cross",
+  "volume_ratio": 1.08,
+  "momentum_1h_pct": 6.57,
+  "momentum_4h_pct": 4.83,
+  "momentum_threshold_pct": 6,
+  "momentum_trigger_flagged": true,
+  "price": 13.09458,
+  "has_open_position": false
+}
+```
+
+---
+### 2026-09-21T21:13:11.837Z — DOGE/USD — NO TRADE
+
+**Reasoning:** Already has an open position, trailing_active true (stop $0.09169, peak $0.101132), now +12.3% unrealized. RSI extreme and momentum_trigger both fired very strongly (14.71%/12.36%) but moot - position already open. News confirms the move is market-wide (BTC-led short squeeze), not DOGE-specific.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 81.31,
+  "sma_crossover": "no fresh cross",
+  "volume_ratio": 0.8,
+  "momentum_1h_pct": 14.71,
+  "momentum_4h_pct": 12.36,
+  "price": 0.0988027,
+  "has_open_position": true,
+  "trailing_active": true
+}
+```
+
+---
