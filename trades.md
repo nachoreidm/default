@@ -770,3 +770,127 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-09-22T18:43:02.092Z — BTC/EUR — NO TRADE
+
+**Reasoning:** Already have an open long position (entry 74,971, now +0.77% unrealized) - one position per pair is code-enforced, no new entry evaluated.
+
+**Signals considered:**
+```json
+{
+  "note": "existing open position - no new entry evaluated",
+  "current_price": 75554.3
+}
+```
+
+---
+### 2026-09-22T18:43:03.559Z — SOL/EUR — NO TRADE
+
+**Reasoning:** Already have an open long position (entry 101.68, now +1.44% unrealized) - one position per pair is code-enforced, no new entry evaluated.
+
+**Signals considered:**
+```json
+{
+  "note": "existing open position - no new entry evaluated",
+  "current_price": 103.15
+}
+```
+
+---
+### 2026-09-22T18:43:04.791Z — LINK/EUR — NO TRADE
+
+**Reasoning:** Already have an open long position (entry 11.2895, now +0.80% unrealized) - one position per pair is code-enforced, no new entry evaluated. Momentum_trigger still not flagged.
+
+**Signals considered:**
+```json
+{
+  "note": "existing open position - no new entry evaluated",
+  "momentum_trigger": {
+    "flagged": false
+  },
+  "current_price": 11.37658
+}
+```
+
+---
+### 2026-09-22T18:43:06.012Z — SUI/EUR — NO TRADE
+
+**Reasoning:** Already have an open long position (entry 0.867, now +1.58% unrealized) - one position per pair is code-enforced, no new entry evaluated.
+
+**Signals considered:**
+```json
+{
+  "note": "existing open position - no new entry evaluated",
+  "current_price": 0.8809
+}
+```
+
+---
+### 2026-09-22T18:43:09.680Z — ETH/EUR — NO TRADE
+
+**Reasoning:** Momentum trigger not flagged again (5.29%/4.75%, fifth consecutive cycle without it). Volume still unconfirmed (1.22x, unchanged). Only new item in news was a minor Vitalik Buterin prediction-market mention on Base, not a price-moving catalyst. Passing again.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 5.288276465441815,
+    "pct_change_4h_48h": 4.750659146863156
+  },
+  "rsi_14_4h": 70.18355070656915,
+  "volume": {
+    "ratio": 1.218113622892478,
+    "flag_above_2x": false
+  },
+  "order_book_imbalance_top10": -0.1282621134597684,
+  "news_context": "Minor: Vitalik Buterin welcomed a prediction-market project to Base. No price-moving catalyst."
+}
+```
+
+---
+### 2026-09-22T18:43:13.361Z — XRP/EUR — NO TRADE
+
+**Reasoning:** Sixth consecutive cycle with the same unresolved objection: volume still 1.30x, never once confirmed. News is again the same recycled items (stale Gensler-resignation/Garlinghouse-Trump speculation, ETF inflow figures repeated verbatim from prior cycles) - no genuinely new development. RSI remains extreme at 77.8. Passing again.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": true,
+    "pct_change_1h_48h": 12.465931691506858,
+    "pct_change_4h_48h": 12.22713479296504
+  },
+  "rsi_14_4h": 77.81655636583713,
+  "volume": {
+    "ratio": 1.2985602199881892,
+    "flag_above_2x": false
+  },
+  "order_book_imbalance_top10": 0.14979296401549333,
+  "news_context": "Same recycled items as prior cycles - no new development."
+}
+```
+
+---
+### 2026-09-22T18:43:15.759Z — ADA/EUR — NO TRADE
+
+**Reasoning:** Sixth consecutive cycle with the same unresolved objection: volume still 1.20x, never once confirmed. News is the same repeated Mastercard/x402 items with no new development. RSI remains extreme at 77.4. Passing again.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": true,
+    "pct_change_1h_48h": 10.79359762905222,
+    "pct_change_4h_48h": 11.336737061963328
+  },
+  "rsi_14_4h": 77.42864326932936,
+  "volume": {
+    "ratio": 1.2027276029211935,
+    "flag_above_2x": false
+  },
+  "order_book_imbalance_top10": -0.07932112265212292,
+  "news_context": "Same repeated items as prior cycles (Mastercard, x402 SDK). No new development."
+}
+```
+
+---
