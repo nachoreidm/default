@@ -39478,3 +39478,109 @@ next cycle without any manual edit needed here.
 ```
 
 ---
+### 2026-09-22T00:15:21.327Z — LINK/USD — LONG — OPENED
+
+- Entry price: $13.17
+- Stop-loss: $12.52
+- Take-profit: $14.49 (2:1 risk/reward, fixed at entry)
+- Position size: 3% of portfolio ($302.39, qty 22.86101586)
+- Entry fee (paper): $1.21
+- Confidence: medium — Three independent confirming signals align for the first time this session on LINK: RSI extreme (71.99, just crossed above 70), momentum_trigger flagged (1h/48h +6.36%, 4h/48h +9.19%, both past the 6% threshold), and a genuine volume spike (2.06x prior-7d average, clearing the 2x flag) - not momentum-only, since RSI extreme and the volume spike each independently confirm on top of momentum. Capped at medium rather than high: no fresh SMA crossover this candle (existing fast_above_slow trend, not a new cross) and RSI is significantly overbought - the same entry-timing extension risk flagged in the 2026-09-15 loss review and applied consistently to every RSI-extreme entry this session (ETH, ADA, SOL). News found: LINK up ~7% 24h / 13% 7d to ~$12.86-13.18, with several items in play (Charles Schwab announcing LINK+SOL+AVAX platform listing, Arc Mainnet's Sept 16 launch integrating Chainlink's oracle infra, Bottomline connecting 600+ banks via CCIP) but none freshly dated to today specifically - not required here since this isn't a momentum-only trade, but broadly consistent with sustained rather than one-off buying interest, unlike the market-wide-only short-squeeze narrative that repeatedly failed to qualify LINK's momentum-only setups on 21:11/22:11/23:11 UTC cycles.
+- Momentum-only trigger: no
+- Invalidation (what proves this wrong): A break back below the rising 20-period 4h SMA (~$12.52, set as the stop) invalidates the thesis - would mean the RSI-extreme/momentum/volume push has failed and price is reverting rather than continuing the breakout.
+- Signals supporting this trade:
+```json
+{
+  "rsi_14_4h": 71.99,
+  "sma_crossover_4h": "fast_above_slow, not crossed this candle - existing trend, not a fresh crossover signal",
+  "volume_ratio": 2.06,
+  "volume_flag_above_2x": true,
+  "momentum_trigger_flagged": true,
+  "price_action_1h_48h_pct": 6.36,
+  "price_action_4h_48h_pct": 9.19,
+  "order_book_imbalance_top10": 0.081,
+  "news_context": "LINK up ~7% 24h / 13% 7d to ~$12.86-13.18. Charles Schwab announced it will add LINK (with SOL, AVAX) to its retail crypto platform; Arc Mainnet launched Sept 16 with Chainlink oracle infrastructure from day one; Bottomline connected 600+ banks via CCIP for a major SWIFT service provider. No single item freshly dated to today specifically, but multiple real fundamental catalysts in the recent window rather than pure market-wide short-squeeze spillover - not required as this is not a momentum-only trade (RSI extreme + volume spike independently confirm)."
+}
+```
+- Position id: e3061082-b997-442f-bbbe-7f8ef2236cb0
+
+---
+### 2026-09-22T00:15:28.888Z — BTC/USD — NO TRADE
+
+**Reasoning:** Already has an open position (opened 2026-09-19 04:12 UTC, entry $81,228.09, trailing_active, peak $87,446.70, unrealized +6.01%) - one-position-per-pair rule prevents a second entry. Market continues to rally strongly (BTC briefly crossed $84K on Sept 21, first time since Jan 31) but no action to take on this pair this cycle beyond the trailing-stop monitoring already handled in Step 1.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": "not re-pulled (position already open)",
+  "note": "portfolio_check_stops returned no closes this cycle; existing trailing-active position continues to trail below rising 20-period 4h SMA",
+  "news_context": "BTC briefly crossed $84K on Sept 21 (first since Jan 31), liquidating $262.3M in shorts; Strategy (MSTR) bought 950 more BTC for $75.7M between Sept 14-20"
+}
+```
+
+---
+### 2026-09-22T00:15:31.525Z — ETH/USD — NO TRADE
+
+**Reasoning:** Already has an open position (opened 2026-09-19 12:55 UTC, entry $2,642.38, not yet trailing_active, peak $2,806.69, unrealized +4.55%) - one-position-per-pair rule prevents a second entry.
+
+**Signals considered:**
+```json
+{
+  "note": "portfolio_check_stops returned no closes this cycle; existing position not yet at +1R",
+  "news_context": "ETH ~$2,724.95, up 5.9% 24h / 7.6% 7d; traders watching $2,672 weekly close as a key trigger; Vitalik reaffirmed privacy focus; Glamsterdam hard fork testnet on Sepolia Sept 28"
+}
+```
+
+---
+### 2026-09-22T00:15:34.233Z — SOL/USD — NO TRADE
+
+**Reasoning:** Already has an open position (opened 2026-09-21 16:13 UTC, entry $117.82, not yet trailing_active, peak $119.97, unrealized +0.34%) - one-position-per-pair rule prevents a second entry.
+
+**Signals considered:**
+```json
+{
+  "note": "portfolio_check_stops returned no closes this cycle; existing position not yet at +1R",
+  "news_context": "SOL surged 7.2% on Sept 21 in a broad altcoin rally; slot-time cut to 250ms network upgrade; SOL ETF assets surpassing $1B"
+}
+```
+
+---
+### 2026-09-22T00:15:36.259Z — XRP/USD — NO TRADE
+
+**Reasoning:** Already has an open position (opened 2026-09-18 19:12 UTC, entry $1.397, trailing_active, peak $1.575, unrealized +9.02%) - one-position-per-pair rule prevents a second entry.
+
+**Signals considered:**
+```json
+{
+  "note": "portfolio_check_stops returned no closes this cycle; existing trailing-active position continues to trail",
+  "news_context": "XRP trading $1.38-1.54 depending on source; CLARITY Act failed to advance in Senate (Garlinghouse critical), Ripple sees possible shift to SEC/CFTC rulemaking; XRPL 3.4.0 upgrade planned with Lending Protocol v1.1"
+}
+```
+
+---
+### 2026-09-22T00:15:38.655Z — ADA/USD — NO TRADE
+
+**Reasoning:** Already has an open position (opened 2026-09-21 12:27 UTC, entry $0.2443, not yet trailing_active, peak $0.2477, unrealized -0.27%) - one-position-per-pair rule prevents a second entry.
+
+**Signals considered:**
+```json
+{
+  "note": "portfolio_check_stops returned no closes this cycle; existing position not yet at +1R, slightly underwater but well within stop distance",
+  "news_context": "ADA ~$0.2217-0.2286; Cardano Foundation joined Mastercard's Crypto Partner Program; Hoskinson predicted 'crypto will eat AI'; broke above a falling trendline Sept 19 hitting a weekly high of $0.2344"
+}
+```
+
+---
+### 2026-09-22T00:15:41.560Z — DOGE/USD — NO TRADE
+
+**Reasoning:** Already has an open position (opened 2026-09-19 00:13 UTC, entry $0.0876, trailing_active, peak $0.1021, unrealized +13.59%) - one-position-per-pair rule prevents a second entry.
+
+**Signals considered:**
+```json
+{
+  "note": "portfolio_check_stops returned no closes this cycle; existing trailing-active position continues to trail below rising 20-period 4h SMA",
+  "news_context": "DOGE ~$0.086-0.094 depending on source, up ~10% 24h / 11% 7d; Bitwise closing its Dogecoin ETF (BWOW) effective Oct 14; sentiment reading Bullish/Greed"
+}
+```
+
+---
