@@ -1266,3 +1266,127 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-09-22T22:42:57.770Z — BTC/EUR — NO TRADE
+
+**Reasoning:** Already have an open long position (entry 74,971, now +0.51% unrealized) - one position per pair is code-enforced, no new entry evaluated.
+
+**Signals considered:**
+```json
+{
+  "note": "existing open position - no new entry evaluated",
+  "current_price": 75363.1
+}
+```
+
+---
+### 2026-09-22T22:42:59.186Z — SOL/EUR — NO TRADE
+
+**Reasoning:** Already have an open long position (entry 101.68, now +1.98% unrealized) - one position per pair is code-enforced, no new entry evaluated.
+
+**Signals considered:**
+```json
+{
+  "note": "existing open position - no new entry evaluated",
+  "current_price": 103.63
+}
+```
+
+---
+### 2026-09-22T22:43:00.705Z — LINK/EUR — NO TRADE
+
+**Reasoning:** Already have an open long position (entry 11.2895, now +0.80% unrealized) - one position per pair is code-enforced, no new entry evaluated. Momentum_trigger still not flagged.
+
+**Signals considered:**
+```json
+{
+  "note": "existing open position - no new entry evaluated",
+  "momentum_trigger": {
+    "flagged": false
+  },
+  "current_price": 11.37664
+}
+```
+
+---
+### 2026-09-22T22:43:02.282Z — SUI/EUR — NO TRADE
+
+**Reasoning:** Already have an open long position (entry 0.867, now +3.08% unrealized, approaching but not yet at +1R which would trigger trailing) - one position per pair is code-enforced, no new entry evaluated.
+
+**Signals considered:**
+```json
+{
+  "note": "existing open position - no new entry evaluated",
+  "current_price": 0.8939
+}
+```
+
+---
+### 2026-09-22T22:43:04.827Z — ETH/EUR — NO TRADE
+
+**Reasoning:** Momentum trigger not flagged again (4.46%/4.35%, ninth consecutive cycle without it). Volume still unconfirmed (1.22x, unchanged). News is an exact repeat of last cycle (Binance withdrawals, ETF inflows, BitMine accumulation). Passing again.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 4.463675502022016,
+    "pct_change_4h_48h": 4.35069530371509
+  },
+  "rsi_14_4h": 70.69893267873883,
+  "volume": {
+    "ratio": 1.218113622892478,
+    "flag_above_2x": false
+  },
+  "order_book_imbalance_top10": -0.1202382640760177,
+  "news_context": "Exact repeat of last cycle - no new item."
+}
+```
+
+---
+### 2026-09-22T22:43:09.166Z — XRP/EUR — NO TRADE
+
+**Reasoning:** Tenth consecutive cycle with the same unresolved objection: volume still 1.30x, never once confirmed. RSI remains at an extreme 78.9, unchanged from last cycle. News this cycle actually shows a deceleration signal - 24h price change is now slightly negative (-0.50%) despite still being up 21.3% over 7 days - consistent with an extended move losing momentum, reinforcing rather than resolving the caution. Passing again.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": true,
+    "pct_change_1h_48h": 11.593092713774645,
+    "pct_change_4h_48h": 12.925009367719662
+  },
+  "rsi_14_4h": 78.89386894935842,
+  "volume": {
+    "ratio": 1.2985602199881892,
+    "flag_above_2x": false
+  },
+  "order_book_imbalance_top10": -0.0065416775252870344,
+  "news_context": "24h price change now slightly negative (-0.50%) despite 7-day gain of 21.3% - a deceleration signal. Rest repeats prior cycles (Stripe, Gensler/Garlinghouse speculation)."
+}
+```
+
+---
+### 2026-09-22T22:43:14.256Z — ADA/EUR — NO TRADE
+
+**Reasoning:** Tenth consecutive cycle with the same unresolved objection: volume still 1.20x, never once confirmed. News added genuinely new items this cycle - IndiaChain (Trivolve) launched on mainnet targeting 10M+ agricultural settlements for the Telangana state government, and monthly active addresses grew 65% to 328,000 - real usage-growth signals, more substantive than the repeated Mastercard/x402 items. Still, the core volume-confirmation bar applied to every pair this session remains unmet, and RSI is still extreme at 77.5. Passing again, though this is the most credible case building for ADA if volume ever does confirm.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": true,
+    "pct_change_1h_48h": 10.293681250974501,
+    "pct_change_4h_48h": 11.296014357588643
+  },
+  "rsi_14_4h": 77.48400582071923,
+  "volume": {
+    "ratio": 1.2027276029211935,
+    "flag_above_2x": false
+  },
+  "order_book_imbalance_top10": 0.16799298556642894,
+  "news_context": "New: IndiaChain (Trivolve) mainnet launch for Telangana agricultural settlements (10M+ target); monthly active addresses up 65% to 328,000. Rest repeats prior cycles (Mastercard, x402 SDK)."
+}
+```
+
+---
