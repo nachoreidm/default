@@ -1142,3 +1142,127 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-09-22T21:43:00.500Z — BTC/EUR — NO TRADE
+
+**Reasoning:** Already have an open long position (entry 74,971, now +0.43% unrealized) - one position per pair is code-enforced, no new entry evaluated.
+
+**Signals considered:**
+```json
+{
+  "note": "existing open position - no new entry evaluated",
+  "current_price": 75300.9
+}
+```
+
+---
+### 2026-09-22T21:43:02.032Z — SOL/EUR — NO TRADE
+
+**Reasoning:** Already have an open long position (entry 101.68, now +1.36% unrealized) - one position per pair is code-enforced, no new entry evaluated.
+
+**Signals considered:**
+```json
+{
+  "note": "existing open position - no new entry evaluated",
+  "current_price": 103.07
+}
+```
+
+---
+### 2026-09-22T21:43:03.184Z — LINK/EUR — NO TRADE
+
+**Reasoning:** Already have an open long position (entry 11.2895, now -0.18% unrealized, first negative reading but well within the 10.75 stop) - one position per pair is code-enforced, no new entry evaluated. Momentum_trigger still not flagged.
+
+**Signals considered:**
+```json
+{
+  "note": "existing open position - no new entry evaluated",
+  "momentum_trigger": {
+    "flagged": false
+  },
+  "current_price": 11.28578
+}
+```
+
+---
+### 2026-09-22T21:43:04.621Z — SUI/EUR — NO TRADE
+
+**Reasoning:** Already have an open long position (entry 0.867, now +1.61% unrealized) - one position per pair is code-enforced, no new entry evaluated.
+
+**Signals considered:**
+```json
+{
+  "note": "existing open position - no new entry evaluated",
+  "current_price": 0.8812
+}
+```
+
+---
+### 2026-09-22T21:43:08.008Z — ETH/EUR — NO TRADE
+
+**Reasoning:** Momentum trigger not flagged again (5.01%/4.35%, eighth consecutive cycle without it). Volume still unconfirmed (1.22x, unchanged). News is a repeat of last cycle's items (Binance withdrawals, ETF inflows, BitMine accumulation). Passing again.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 5.008696716224844,
+    "pct_change_4h_48h": 4.35069530371509
+  },
+  "rsi_14_4h": 70.69893267873883,
+  "volume": {
+    "ratio": 1.218113622892478,
+    "flag_above_2x": false
+  },
+  "order_book_imbalance_top10": 0.12739413420470785,
+  "news_context": "Repeat of last cycle (Binance withdrawal highs, ETF inflows, BitMine accumulation). No new item."
+}
+```
+
+---
+### 2026-09-22T21:43:12.122Z — XRP/EUR — NO TRADE
+
+**Reasoning:** Ninth consecutive cycle with the same unresolved objection: volume still 1.30x, never once confirmed. RSI remains at an extreme 78.9. News added one new positive item this cycle - "XRP is quietly draining off exchanges" (accumulation signal, consistent with the earlier Stripe catalyst) - but the rest is the same recycled ETF/Stripe items, and the core volume objection is unchanged. Passing again.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": true,
+    "pct_change_1h_48h": 12.473881300240075,
+    "pct_change_4h_48h": 12.925009367719662
+  },
+  "rsi_14_4h": 78.89386894935842,
+  "volume": {
+    "ratio": 1.2985602199881892,
+    "flag_above_2x": false
+  },
+  "order_book_imbalance_top10": -0.1114816072016575,
+  "news_context": "New: XRP reported quietly draining off exchanges (accumulation signal). Rest repeats prior cycles (Stripe integration, spot ETFs)."
+}
+```
+
+---
+### 2026-09-22T21:43:15.216Z — ADA/EUR — NO TRADE
+
+**Reasoning:** Ninth consecutive cycle with the same unresolved objection: volume still 1.20x, never once confirmed. News added a minor new item (Midnight network live, Dijkstra/Leios scaling upgrades on the roadmap for late 2026) alongside the same repeated Mastercard/x402 items - not a catalyst proportionate to reconsidering. RSI remains extreme at 77.5. Passing again.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": true,
+    "pct_change_1h_48h": 11.576967724602195,
+    "pct_change_4h_48h": 11.296014357588643
+  },
+  "rsi_14_4h": 77.48400582071923,
+  "volume": {
+    "ratio": 1.2027276029211935,
+    "flag_above_2x": false
+  },
+  "order_book_imbalance_top10": 0.42020174680149885,
+  "news_context": "New minor item: Midnight network live, Dijkstra/Leios scaling upgrades on roadmap for late 2026. Rest repeats prior cycles."
+}
+```
+
+---
