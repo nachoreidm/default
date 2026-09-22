@@ -193,11 +193,38 @@ Everything below happened, in order, on 2026-09-22:
    from a different session/thread than the one it's bound to - updating
    the hourly trigger's prompt to add this step required delete +
    recreate rather than an in-place edit (same trigger name/cron/session,
-   new trigger id `trig_013Cztzc1zs23bLzB4Gx8Eo6`) - a real constraint,
-   not a one-off issue, if this needs touching again. The
+   trigger id `trig_013Cztzc1zs23bLzB4Gx8Eo6`) - a real constraint, not a
+   one-off issue, if this needs touching again. The
    "surface guaranteed-profit-lock status in Notion" item from the paper
    branch's decision log is still open and can be batched with any future
    schema change here.
+   - **Bug found on the very next cycle (14:44 UTC) and fixed same day**:
+     the original step-5 wording ("update the summary page... with fresh
+     numbers... and a fresh Last synced timestamp") didn't specify which
+     Notion tool/command to use. The agent used something append-like
+     (not `replace_content`), leaving the summary page with a stale
+     "Last synced" line plus a duplicated, garbled `<database>` embed
+     fragment appended after it - and the Trade Log got **zero** of that
+     cycle's 7 rows (verified via `notion-query-data-sources`: only the
+     first cycle's backfilled rows were present). Not a Notion
+     connector/access problem - this session, in a completely different
+     CCR environment, could read/write the same Notion resources without
+     issue, proving access was never the constraint; execution
+     instructions were. Fixed: (1) manually rewrote the summary page via
+     `notion-update-page` `command: "replace_content"` with correct
+     figures; (2) manually backfilled the missing 7 Trade Log rows via
+     `notion-create-pages`; (3) replaced the trigger with trigger id
+     `trig_015b4LnQ7sRY5qtpXfGAMrRA` (same name/cron/session), whose
+     step 5 is now explicit: mandates `notion-update-page` with
+     `command: "replace_content"` (spelling out NOT `insert_content`, NOT
+     `update_content`), gives the exact page sections to rewrite each
+     time (Portfolio Summary heading, Last synced line, metrics table,
+     REAL MONEY paragraph, Links, routine description, ending with the
+     Trade Log `<database>` embed), gives the exact `notion-create-pages`
+     schema/property-omission rules for Trade Log rows, and adds a new
+     step 5d - query the Trade Log after writing to confirm the rows
+     actually landed, mirroring the "verify the git push, don't trust the
+     summary" discipline already used elsewhere in this project.
 9. First cycle watched directly (see below) before the recurring triggers
    were created - confirmed clean before leaving it unattended.
 
@@ -228,6 +255,32 @@ that a session's `post_turn_summary` is a convenience, not ground truth,
 especially for anything involving real money; the weekly-cutover trigger's
 prompt now explicitly says to cross-check against the actual commit for
 this reason.
+
+### Second live cycle (2026-09-22 14:44 UTC)
+
+Reconciliation and trailing checks on the three existing positions came
+back clean (no fills, no +1R trailing trigger yet). BTC/SOL/LINK logged
+no-trade (existing position, one-per-pair rule). ETH/XRP/ADA logged
+no-trade (still volume-unconfirmed / order-book concerns, same pattern as
+cycle one). A fourth position was opened:
+
+| Pair | Entry | Stop-loss | Take-profit | Size |
+|---|---|---|---|---|
+| SUI/EUR | €0.87 | €0.78 | €1.05 | 3% (€149.81) |
+
+Momentum-only (medium confidence, capped below the 5% medium ceiling given
+extension risk) - unlike cycle one, this cycle's news search surfaced a
+concrete, proportionate catalyst for SUI specifically: CME Group launched
+SUI futures and Grayscale created a Grayscale SUI Trust, both genuine
+institutional-access events. Order book had flipped negative in the last
+15 minutes before entry (real near-term selling pressure), flagged
+explicitly in the trade's own reasoning rather than ignored. Real resting
+stop-loss order confirmed on Kraken (order `OCN5SW-F2BWT-PAHRUP`; entry
+order `OWJ4ES-2JMUW-YAYFFC`) - see `trades.md` for full detail. This is
+also the cycle that surfaced the Notion-sync bug documented above.
+
+Total after this cycle: 4 open positions (BTC, SOL, LINK, SUI), ~€749.61
+committed (~15% of the €5,000 account), well under the 40% exposure cap.
 
 ## Network access
 
