@@ -1018,3 +1018,127 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-09-22T20:43:04.092Z — BTC/EUR — NO TRADE
+
+**Reasoning:** Already have an open long position (entry 74,971, now +0.60% unrealized) - one position per pair is code-enforced, no new entry evaluated.
+
+**Signals considered:**
+```json
+{
+  "note": "existing open position - no new entry evaluated",
+  "current_price": 75425.9
+}
+```
+
+---
+### 2026-09-22T20:43:05.489Z — SOL/EUR — NO TRADE
+
+**Reasoning:** Already have an open long position (entry 101.68, now +1.55% unrealized) - one position per pair is code-enforced, no new entry evaluated.
+
+**Signals considered:**
+```json
+{
+  "note": "existing open position - no new entry evaluated",
+  "current_price": 103.27
+}
+```
+
+---
+### 2026-09-22T20:43:06.834Z — LINK/EUR — NO TRADE
+
+**Reasoning:** Already have an open long position (entry 11.2895, now +0.38% unrealized) - one position per pair is code-enforced, no new entry evaluated. Momentum_trigger still not flagged.
+
+**Signals considered:**
+```json
+{
+  "note": "existing open position - no new entry evaluated",
+  "momentum_trigger": {
+    "flagged": false
+  },
+  "current_price": 11.32874
+}
+```
+
+---
+### 2026-09-22T20:43:08.727Z — SUI/EUR — NO TRADE
+
+**Reasoning:** Already have an open long position (entry 0.867, now +1.57% unrealized) - one position per pair is code-enforced, no new entry evaluated.
+
+**Signals considered:**
+```json
+{
+  "note": "existing open position - no new entry evaluated",
+  "current_price": 0.8808
+}
+```
+
+---
+### 2026-09-22T20:43:11.027Z — ETH/EUR — NO TRADE
+
+**Reasoning:** Momentum trigger not flagged again (4.88%/4.35%, seventh consecutive cycle without it). Volume still unconfirmed (1.22x, unchanged). News is a repeat of prior cycles' rally story. Passing again.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 4.87568614788504,
+    "pct_change_4h_48h": 4.35069530371509
+  },
+  "rsi_14_4h": 70.69893267873883,
+  "volume": {
+    "ratio": 1.218113622892478,
+    "flag_above_2x": false
+  },
+  "order_book_imbalance_top10": -0.059126185685541774,
+  "news_context": "Repeat of prior cycles' rally story; no new pair-specific catalyst."
+}
+```
+
+---
+### 2026-09-22T20:43:15.130Z — XRP/EUR — NO TRADE
+
+**Reasoning:** Eighth consecutive cycle with the same unresolved objection: volume still 1.30x, never once confirmed. RSI has now climbed to 78.9 - the most extreme reading of any pair across the entire session, well beyond the levels BTC/ADA have topped out at. News is the same recycled Stripe/Gensler/Garlinghouse items with no new development. An 8-hour-old move with zero volume confirmation and record-high RSI is about as clear a case for staying out as this session has produced. Passing again.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": true,
+    "pct_change_1h_48h": 13.192403161538962,
+    "pct_change_4h_48h": 12.925009367719662
+  },
+  "rsi_14_4h": 78.89386894935842,
+  "volume": {
+    "ratio": 1.2985602199881892,
+    "flag_above_2x": false
+  },
+  "order_book_imbalance_top10": 0.008216532443879604,
+  "news_context": "Same recycled items (Stripe integration, Gensler/Garlinghouse speculation) - no new development."
+}
+```
+
+---
+### 2026-09-22T20:43:18.389Z — ADA/EUR — NO TRADE
+
+**Reasoning:** Eighth consecutive cycle with the same unresolved objection: volume still 1.20x, never once confirmed. Order book has now turned sharply negative (-0.49, the worst reading of the session for this pair - heavy resting ask-side supply). News is the same repeated Mastercard/x402/BMW items. RSI remains extreme at 77.5. Passing again.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": true,
+    "pct_change_1h_48h": 11.755177248958471,
+    "pct_change_4h_48h": 11.296014357588643
+  },
+  "rsi_14_4h": 77.48400582071923,
+  "volume": {
+    "ratio": 1.2027276029211935,
+    "flag_above_2x": false
+  },
+  "order_book_imbalance_top10": -0.4869902660445557,
+  "news_context": "Same repeated items (Mastercard, x402 SDK, BMW enterprise client mention). No new development."
+}
+```
+
+---
