@@ -646,3 +646,127 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-09-22T17:42:48.181Z — BTC/EUR — NO TRADE
+
+**Reasoning:** Already have an open long position (entry 74,971, now +0.88% unrealized) - one position per pair is code-enforced, no new entry evaluated.
+
+**Signals considered:**
+```json
+{
+  "note": "existing open position - no new entry evaluated",
+  "current_price": 75672.2
+}
+```
+
+---
+### 2026-09-22T17:42:49.696Z — SOL/EUR — NO TRADE
+
+**Reasoning:** Already have an open long position (entry 101.68, now +1.40% unrealized) - one position per pair is code-enforced, no new entry evaluated.
+
+**Signals considered:**
+```json
+{
+  "note": "existing open position - no new entry evaluated",
+  "current_price": 103.11
+}
+```
+
+---
+### 2026-09-22T17:42:51.068Z — LINK/EUR — NO TRADE
+
+**Reasoning:** Already have an open long position (entry 11.2895, now +0.80% unrealized) - one position per pair is code-enforced, no new entry evaluated. Momentum_trigger still not flagged this cycle.
+
+**Signals considered:**
+```json
+{
+  "note": "existing open position - no new entry evaluated",
+  "momentum_trigger": {
+    "flagged": false
+  },
+  "current_price": 11.37794
+}
+```
+
+---
+### 2026-09-22T17:42:52.605Z — SUI/EUR — NO TRADE
+
+**Reasoning:** Already have an open long position (entry 0.867, now +1.60% unrealized) - one position per pair is code-enforced, no new entry evaluated.
+
+**Signals considered:**
+```json
+{
+  "note": "existing open position - no new entry evaluated",
+  "current_price": 0.8811
+}
+```
+
+---
+### 2026-09-22T17:42:55.844Z — ETH/EUR — NO TRADE
+
+**Reasoning:** Momentum trigger not flagged again (5.02%/4.75%, under threshold - fourth consecutive cycle without it). Volume still unconfirmed (1.22x, unchanged). News is an exact repeat of prior cycles (~5-6% 24h gain, same market-cap/ranking figures), nothing new. Passing again.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 5.020318357384377,
+    "pct_change_4h_48h": 4.750659146863156
+  },
+  "rsi_14_4h": 70.18355070656915,
+  "volume": {
+    "ratio": 1.218113622892478,
+    "flag_above_2x": false
+  },
+  "order_book_imbalance_top10": 0.04729059935857392,
+  "news_context": "Repeat of prior cycles' rally story; no new pair-specific catalyst."
+}
+```
+
+---
+### 2026-09-22T17:42:59.846Z — XRP/EUR — NO TRADE
+
+**Reasoning:** Fifth consecutive cycle with the same unresolved objection: volume still 1.30x, never once confirmed. News is an exact repeat of the last cycle, word for word (same 1.4B token Binance-inflow distribution risk, same institutional minting platform item). RSI remains extreme at 77.8. Nothing has changed to justify reconsidering - passing again.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": true,
+    "pct_change_1h_48h": 12.04452860503816,
+    "pct_change_4h_48h": 12.22713479296504
+  },
+  "rsi_14_4h": 77.81655636583713,
+  "volume": {
+    "ratio": 1.2985602199881892,
+    "flag_above_2x": false
+  },
+  "order_book_imbalance_top10": 0.2791467366608295,
+  "news_context": "Exact repeat of last cycle: 1.4B+ XRP moved to Binance (unresolved distribution risk), institutional minting platform, RLUSD/Notabene compliance integration. No new development."
+}
+```
+
+---
+### 2026-09-22T17:43:02.816Z — ADA/EUR — NO TRADE
+
+**Reasoning:** Fifth consecutive cycle with the same unresolved objection: volume still 1.20x, never once confirmed across the entire session. News is an exact repeat of prior cycles (x402 SDK, Mastercard partnership), no new development. RSI remains extreme at 77.4. Passing again.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": true,
+    "pct_change_1h_48h": 9.780302304834965,
+    "pct_change_4h_48h": 11.336737061963328
+  },
+  "rsi_14_4h": 77.42864326932936,
+  "volume": {
+    "ratio": 1.2027276029211935,
+    "flag_above_2x": false
+  },
+  "order_book_imbalance_top10": 0.2690815598652578,
+  "news_context": "Exact repeat of prior cycles (x402 SDK integration, Mastercard Crypto Partner Program). No new development found."
+}
+```
+
+---
