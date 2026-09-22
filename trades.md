@@ -387,3 +387,136 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 - Position id: 3099c8ad-4078-461d-ab49-1baf38fa88a3
 
 ---
+### 2026-09-22T15:43:04.665Z — BTC/EUR — NO TRADE
+
+**Reasoning:** Already have an open long position (entry 74,971, now +0.87% unrealized) - one position per pair is code-enforced, no new entry evaluated.
+
+**Signals considered:**
+```json
+{
+  "note": "existing open position - no new entry evaluated",
+  "current_price": 75566.2
+}
+```
+
+---
+### 2026-09-22T15:43:06.166Z — SOL/EUR — NO TRADE
+
+**Reasoning:** Already have an open long position (entry 101.68, now +1.03% unrealized) - one position per pair is code-enforced, no new entry evaluated.
+
+**Signals considered:**
+```json
+{
+  "note": "existing open position - no new entry evaluated",
+  "current_price": 102.66
+}
+```
+
+---
+### 2026-09-22T15:43:07.544Z — LINK/EUR — NO TRADE
+
+**Reasoning:** Already have an open long position (entry 11.2895, now +1.18% unrealized) - one position per pair is code-enforced, no new entry evaluated. Note: momentum_trigger no longer flags this cycle (4.93%/5.03%, both under the 6% threshold) - would not have qualified as a fresh entry anyway.
+
+**Signals considered:**
+```json
+{
+  "note": "existing open position - no new entry evaluated",
+  "momentum_trigger": {
+    "flagged": false
+  },
+  "current_price": 11.39674
+}
+```
+
+---
+### 2026-09-22T15:43:09.208Z — SUI/EUR — NO TRADE
+
+**Reasoning:** Already have an open long position (entry 0.867, now +1.67% unrealized) - one position per pair is code-enforced, no new entry evaluated.
+
+**Signals considered:**
+```json
+{
+  "note": "existing open position - no new entry evaluated",
+  "current_price": 0.8817
+}
+```
+
+---
+### 2026-09-22T15:43:13.254Z — ETH/EUR — NO TRADE
+
+**Reasoning:** Momentum trigger no longer flags this cycle (1h/48h +5.35%, 4h/48h +5.13%, both now under the 6% threshold - was flagged the prior two cycles). No fresh basis for an entry: volume still unconfirmed (1.22x, unchanged across all three cycles), order book back to negative (-0.21, more resting asks than bids). News remains generically positive (broad rally, ~6% 24h gain) but offers nothing pair-specific or new since the last check. Passing again.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 5.3478004730543605,
+    "pct_change_4h_48h": 5.133695011826359
+  },
+  "rsi_14_4h": 69.09264936634757,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow"
+  },
+  "volume": {
+    "ratio": 1.218113622892478,
+    "flag_above_2x": false
+  },
+  "order_book_imbalance_top10": -0.2081108103494524,
+  "news_context": "Generic continuation of the broad rally (~6% 24h gain, ~10.8% 7-day); no new pair-specific catalyst found this cycle."
+}
+```
+
+---
+### 2026-09-22T15:43:20.287Z — XRP/EUR — NO TRADE
+
+**Reasoning:** Order book has now been positive for two consecutive cycles and strengthened further (+0.47, up from +0.19 last cycle), and news this cycle is more concretely positive - an institutional minting platform launch, RLUSD added to Notabene's compliance network, and a reminder that spot XRP ETFs (Bitwise, Grayscale, 21Shares, Canary, Franklin Templeton) are already live. However the one objection that has persisted across all three cycles is still unresolved: volume remains unconfirmed at 1.30x (essentially unchanged since the first cycle) despite a sustained double-digit multi-day move, and RSI is still elevated at 73.8. Since volume confirmation has been the consistent bar applied to every pair this session (it's why BTC/SOL/SUI qualified and ETH/ADA didn't), staying disciplined and passing again rather than lowering the bar because the order book and news happen to look better this cycle. Would reconsider promptly if volume expands.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": true,
+    "pct_change_1h_48h": 12.945141544892087,
+    "pct_change_4h_48h": 10.842826106710076
+  },
+  "rsi_14_4h": 73.81208231032788,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow"
+  },
+  "volume": {
+    "ratio": 1.2985602199881892,
+    "flag_above_2x": false
+  },
+  "order_book_imbalance_top10": 0.4732347800388663,
+  "news_context": "Ripple launched an institutional minting platform and added RLUSD to Notabene's compliance network; spot XRP ETFs already live (Bitwise, Grayscale, 21Shares, Canary Capital, Franklin Templeton); monthly transfer volume reportedly fell even as holder count grew."
+}
+```
+
+---
+### 2026-09-22T15:43:23.436Z — ADA/EUR — NO TRADE
+
+**Reasoning:** No material change from last cycle: volume still the weakest of any pair relative to its own average (1.20x, unchanged across all three cycles), order book back to mildly negative (-0.13). News is a repeat of the same two items already priced in (Mastercard partnership, x402 SDK) with no new development. The core objection - a large multi-day move with no volume confirmation - remains unresolved. Passing again.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": true,
+    "pct_change_1h_48h": 11.940153452685424,
+    "pct_change_4h_48h": 9.756521739130424
+  },
+  "rsi_14_4h": 72.93273231596238,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow"
+  },
+  "volume": {
+    "ratio": 1.2027276029211935,
+    "flag_above_2x": false
+  },
+  "order_book_imbalance_top10": -0.12582641888656024,
+  "news_context": "Same catalysts as prior cycles (Mastercard Crypto Partner Program, x402 SDK integration) - no new development found this cycle."
+}
+```
+
+---
