@@ -894,3 +894,127 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-09-22T19:42:47.554Z — BTC/EUR — NO TRADE
+
+**Reasoning:** Already have an open long position (entry 74,971, now +0.62% unrealized) - one position per pair is code-enforced, no new entry evaluated.
+
+**Signals considered:**
+```json
+{
+  "note": "existing open position - no new entry evaluated",
+  "current_price": 75443.4
+}
+```
+
+---
+### 2026-09-22T19:42:49.069Z — SOL/EUR — NO TRADE
+
+**Reasoning:** Already have an open long position (entry 101.68, now +1.61% unrealized) - one position per pair is code-enforced, no new entry evaluated.
+
+**Signals considered:**
+```json
+{
+  "note": "existing open position - no new entry evaluated",
+  "current_price": 103.22
+}
+```
+
+---
+### 2026-09-22T19:42:50.898Z — LINK/EUR — NO TRADE
+
+**Reasoning:** Already have an open long position (entry 11.2895, now +0.47% unrealized) - one position per pair is code-enforced, no new entry evaluated. Momentum_trigger still not flagged.
+
+**Signals considered:**
+```json
+{
+  "note": "existing open position - no new entry evaluated",
+  "momentum_trigger": {
+    "flagged": false
+  },
+  "current_price": 11.33977
+}
+```
+
+---
+### 2026-09-22T19:42:52.243Z — SUI/EUR — NO TRADE
+
+**Reasoning:** Already have an open long position (entry 0.867, now +1.40% unrealized) - one position per pair is code-enforced, no new entry evaluated.
+
+**Signals considered:**
+```json
+{
+  "note": "existing open position - no new entry evaluated",
+  "current_price": 0.8793
+}
+```
+
+---
+### 2026-09-22T19:42:55.862Z — ETH/EUR — NO TRADE
+
+**Reasoning:** Momentum trigger still not flagged (5.03%/4.75%, sixth consecutive cycle without it) - no base trigger to evaluate regardless of news. News this cycle is genuinely more specific and positive than prior repeats (Binance ETH withdrawals at a 3-year high, $270M spot ETF inflows today, BitMine treasury accumulating 27,562 ETH today), but per the instructions news is advisory only and never a standalone trigger - without momentum flagged, there's no entry case this cycle. Passing.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 5.033961341691244,
+    "pct_change_4h_48h": 4.750659146863156
+  },
+  "rsi_14_4h": 70.18355070656915,
+  "volume": {
+    "ratio": 1.218113622892478,
+    "flag_above_2x": false
+  },
+  "order_book_imbalance_top10": 0.3537726723095526,
+  "news_context": "New this cycle: Binance ETH withdrawals hit a 3-year high (accumulation signal); spot ETH ETFs attracted $270M inflows today; BitMine accumulated 27,562 ETH today. Genuinely positive but momentum trigger not met."
+}
+```
+
+---
+### 2026-09-22T19:43:01.535Z — XRP/EUR — NO TRADE
+
+**Reasoning:** Seventh consecutive cycle with the same core objection unresolved: volume still 1.30x, never once confirmed across the entire session - itself informative for a move this size and this old. News this cycle did surface something genuinely new (Ripple linked XRP to Stripe's payment tools, described as driving momentum toward $1.50) but also a fresh conflicting signal in the same breath: a $5.15M outflow from two US spot XRP ETFs, a reversal from prior cycles' inflow narrative. A new bullish catalyst arriving alongside a new bearish flow signal, with the volume-confirmation bar still unmet after 7 hours, isn't enough to override the standing discipline applied to every pair this session. RSI remains extreme at 77.8. Passing again.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": true,
+    "pct_change_1h_48h": 12.797337422912511,
+    "pct_change_4h_48h": 12.22713479296504
+  },
+  "rsi_14_4h": 77.81655636583713,
+  "volume": {
+    "ratio": 1.2985602199881892,
+    "flag_above_2x": false
+  },
+  "order_book_imbalance_top10": 0.03548574038143035,
+  "news_context": "New: Ripple linked XRP to Stripe's payment tools (17 Sep), cited as driving momentum toward $1.50. Also new: $5.15M outflow from two US spot XRP ETFs this cycle, a reversal from the prior inflow narrative."
+}
+```
+
+---
+### 2026-09-22T19:43:04.450Z — ADA/EUR — NO TRADE
+
+**Reasoning:** Seventh consecutive cycle with the same unresolved objection: volume still 1.20x, never once confirmed. News is essentially the same Mastercard/x402 items repeated, with only a minor new mention (BMW as an enterprise client) that doesn't change the picture. RSI remains extreme at 77.4. Passing again.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": true,
+    "pct_change_1h_48h": 10.481600694199193,
+    "pct_change_4h_48h": 11.336737061963328
+  },
+  "rsi_14_4h": 77.42864326932936,
+  "volume": {
+    "ratio": 1.2027276029211935,
+    "flag_above_2x": false
+  },
+  "order_book_imbalance_top10": 0.08475782335913275,
+  "news_context": "Same repeated items (Mastercard, x402 SDK) plus a minor new mention of BMW as an enterprise client. No material new development."
+}
+```
+
+---
