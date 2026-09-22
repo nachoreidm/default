@@ -520,3 +520,129 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-09-22T16:45:33.742Z — BTC/EUR — NO TRADE
+
+**Reasoning:** Already have an open long position (entry 74,971, now +0.56% unrealized) - one position per pair is code-enforced, no new entry evaluated. Note: RSI has climbed further to 78.2 (most extreme reading yet) and order book flipped sharply negative (-0.42, from +0.19 last cycle) - would not have qualified as a fresh entry this cycle regardless.
+
+**Signals considered:**
+```json
+{
+  "note": "existing open position - no new entry evaluated",
+  "rsi_14_4h": 78.2,
+  "order_book_imbalance_top10": -0.42,
+  "current_price": 75447
+}
+```
+
+---
+### 2026-09-22T16:45:36.006Z — SOL/EUR — NO TRADE
+
+**Reasoning:** Already have an open long position (entry 101.68, now +0.72% unrealized) - one position per pair is code-enforced, no new entry evaluated.
+
+**Signals considered:**
+```json
+{
+  "note": "existing open position - no new entry evaluated",
+  "current_price": 102.52
+}
+```
+
+---
+### 2026-09-22T16:45:37.289Z — LINK/EUR — NO TRADE
+
+**Reasoning:** Already have an open long position (entry 11.2895, now +0.48% unrealized) - one position per pair is code-enforced, no new entry evaluated. Note: momentum_trigger no longer flags this cycle (4.15%/4.52%, both under threshold).
+
+**Signals considered:**
+```json
+{
+  "note": "existing open position - no new entry evaluated",
+  "momentum_trigger": {
+    "flagged": false
+  },
+  "current_price": 11.34889
+}
+```
+
+---
+### 2026-09-22T16:45:38.877Z — SUI/EUR — NO TRADE
+
+**Reasoning:** Already have an open long position (entry 0.867, now +1.05% unrealized) - one position per pair is code-enforced, no new entry evaluated.
+
+**Signals considered:**
+```json
+{
+  "note": "existing open position - no new entry evaluated",
+  "current_price": 0.8763
+}
+```
+
+---
+### 2026-09-22T16:45:40.274Z — ETH/EUR — NO TRADE
+
+**Reasoning:** Momentum trigger not flagged again this cycle (4.44%/4.75%, under the 6% threshold - third consecutive cycle without a fresh momentum case, having only flagged the first two cycles). Volume still unconfirmed (1.22x, unchanged across all four cycles), order book negative (-0.20). News is a repeat of the same 5-6% rally story already priced in, nothing new. Passing again.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 4.442007129147242,
+    "pct_change_4h_48h": 4.750659146863156
+  },
+  "rsi_14_4h": 70.18355070656915,
+  "volume": {
+    "ratio": 1.218113622892478,
+    "flag_above_2x": false
+  },
+  "order_book_imbalance_top10": -0.19547243224123445,
+  "news_context": "Same rally story as prior cycles (~5-6% 24h gain); no new pair-specific catalyst."
+}
+```
+
+---
+### 2026-09-22T16:45:45.184Z — XRP/EUR — NO TRADE
+
+**Reasoning:** Fourth consecutive cycle with the same unresolved objection: volume still at 1.30x (never confirmed once), and RSI has now climbed to 77.8 - the most overbought reading of any pair this cycle. News repeats the same items as last cycle almost verbatim, including the same distribution-risk flag (large holders moving 1.4B+ XRP onto Binance) that was never resolved. Extension risk has only grown (12.1%/12.2% over 48h now, up from prior cycles) without any new volume or catalyst to support it. Passing again - this is now the clearest case for staying out of any pair this cycle.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": true,
+    "pct_change_1h_48h": 12.083587926188441,
+    "pct_change_4h_48h": 12.22713479296504
+  },
+  "rsi_14_4h": 77.81655636583713,
+  "volume": {
+    "ratio": 1.2985602199881892,
+    "flag_above_2x": false
+  },
+  "order_book_imbalance_top10": -0.028905797535776087,
+  "news_context": "Same repeated items as last cycle: large holders moving 1.4B+ XRP to Binance (distribution risk, unresolved); XRP ETF inflows ($1.8B cumulative) cited as institutional support. No new development."
+}
+```
+
+---
+### 2026-09-22T16:45:49.580Z — ADA/EUR — NO TRADE
+
+**Reasoning:** Order book is now strongly positive (+0.44, the best reading yet, up from -0.13 last cycle), but the core objection remains completely unchanged after four cycles: volume is still 1.20x, never once confirming this move. RSI has also climbed to 77.4 (extreme, matching XRP as the most overbought pairs this cycle). News is the same repeated Mastercard/x402 items with no new development. A move this large and this old, still without any volume confirmation and now at an extreme RSI, is a stronger case for staying out than for entering despite the better order book. Passing again.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": true,
+    "pct_change_1h_48h": 9.291119431073078,
+    "pct_change_4h_48h": 11.336737061963328
+  },
+  "rsi_14_4h": 77.42864326932936,
+  "volume": {
+    "ratio": 1.2027276029211935,
+    "flag_above_2x": false
+  },
+  "order_book_imbalance_top10": 0.4437691698398194,
+  "news_context": "Same repeated items as prior cycles (Mastercard Crypto Partner Program, x402 SDK integration for machine-to-machine payments). No new development found."
+}
+```
+
+---
