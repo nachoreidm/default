@@ -182,9 +182,22 @@ Everything below happened, in order, on 2026-09-22:
    (`trig_01U9hjsV4GHewJ4ie3q334xm`, Sundays 10:00 UTC, mirroring the
    paper branch's cost-climb mitigation - same per-cycle cost growth
    applies to any persistent session regardless of what it's trading).
-8. Live-specific Notion page/log - **not yet done**, still open. Batch
-   with the existing "surface guaranteed-profit-lock status in Notion"
-   item from the paper branch's decision log if picking this up.
+8. Live-specific Notion page/log created 2026-09-22, separate from the
+   paper ones: summary page "Kraken Live Trading Agent"
+   (page_id `3e378a93-63b8-8107-a22d-f3599a28de9f`) with an embedded Trade
+   Log database (`collection://a3ed2931-8ba7-424a-8e26-41ec2fa97b3a`,
+   same schema as paper's but EUR-formatted - "P&L EUR" not "P&L USD").
+   Backfilled with the first cycle's 7 rows. The hourly trigger's prompt
+   (step 5) now syncs both automatically each cycle, mirroring paper's
+   step 5. **Note**: `update_trigger` can't change a trigger's prompt text
+   from a different session/thread than the one it's bound to - updating
+   the hourly trigger's prompt to add this step required delete +
+   recreate rather than an in-place edit (same trigger name/cron/session,
+   new trigger id `trig_013Cztzc1zs23bLzB4Gx8Eo6`) - a real constraint,
+   not a one-off issue, if this needs touching again. The
+   "surface guaranteed-profit-lock status in Notion" item from the paper
+   branch's decision log is still open and can be batched with any future
+   schema change here.
 9. First cycle watched directly (see below) before the recurring triggers
    were created - confirmed clean before leaving it unattended.
 
