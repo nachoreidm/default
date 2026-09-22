@@ -152,37 +152,69 @@ X/Z-prefixed keys (`XXBTZEUR`, `XETHZEUR`, `XXRPZEUR`) while the rest key
 directly; the existing `firstResultKey()` helper already handled this
 generically, no special-casing needed.
 
-## What's left before the first live trade
+## Status: LIVE as of 2026-09-22
 
-1. **Create the Kraken API key** with the exact permissions listed above
-   (explicitly without Withdraw Funds).
-2. **Create a dedicated CCR environment** (not "Default") and set
-   `KRAKEN_API_KEY`/`KRAKEN_API_SECRET` on it.
-3. **Run the `validate: true` `AddOrder` smoke test** - the actual
-   correctness gate for the signing implementation. Do this before
-   anything else that touches the private API for real.
-4. **Confirm the real Balance query works** and returns EUR under `ZEUR`
-   (or `EUR`) - `portfolio-live.ts`'s `liveCashEur()` throws a clear error
-   naming whatever key it actually got back if this assumption is wrong;
-   don't treat that error as a bug to silently work around, treat it as
-   the balance-key assumption needing a one-line fix once known.
-5. **Create + verify a session** against this branch and the new
-   environment, mirroring the exact verification pattern already proven on
-   the paper branch (`create_session` with explicit `source_url`/
-   `source_revision`, confirm `session_context.sources` and MCP tools
-   before trusting anything).
-6. **User funds the account with €5,000.**
-7. **Create the live hourly trigger** (`persistent_session_id`-bound,
-   verified session, cron offset from paper's `:11` - e.g. `:41` - so they
-   never fire in the same minute) and **the live weekly cutover trigger**
-   (mirroring the paper branch's cost-climb mitigation - a persistent
-   session's per-cycle cost climbs the same way regardless of what it's
-   trading).
-8. **Set up a live-specific Notion summary page / trade log** (not the
-   existing paper ones) before the first cycle, so live and paper data
-   never intermix.
-9. **Watch the first cycle directly** before leaving it fully unattended,
-   same as was done for paper trading's early runs.
+Everything below happened, in order, on 2026-09-22:
+
+1. Kraken API key created with the exact permissions listed above
+   (confirmed without Withdraw Funds).
+2. Dedicated CCR environment created (`env_0112pJKVzgfw4uhzex18Ete4`,
+   "Kraken live") with `KRAKEN_API_KEY`/`KRAKEN_API_SECRET` set.
+3. `validate: true` `AddOrder` smoke test run via the `kraken_verify_credentials`
+   tool - signing implementation confirmed correct against live Kraken
+   (no signature error).
+4. Real Balance query confirmed working - EUR under `ZEUR`, as assumed.
+   (Also caught and fixed a bug the same day: `liveCashEur()` threw
+   instead of returning 0 when the account was genuinely empty, since
+   Kraken's Balance endpoint omits zero-balance assets entirely rather
+   than returning them as `"0"` - fixed before it could matter.)
+5. Session created + verified against this branch and the new environment
+   (`session_01LRiaYGGANTDzxrg7qQQRTm`) - repo, MCP tools, and Kraken auth
+   all confirmed working before it ran anything real.
+6. **User funded the account with €5,000** (confirmed via real Balance
+   query: €5,000.0000 under `ZEUR`).
+7. That same verified session ran the **first live cycle** immediately
+   after funding - see "First live cycle" below - then became the
+   persistent session bound to two triggers: **hourly monitoring**
+   (`trig_012ddfbAjirGwKWLkvYtpt1m`, cron `41 * * * *` - offset from
+   paper trading's `:11`, though paper trading's triggers are currently
+   disabled anyway, see below) and **weekly cutover**
+   (`trig_01U9hjsV4GHewJ4ie3q334xm`, Sundays 10:00 UTC, mirroring the
+   paper branch's cost-climb mitigation - same per-cycle cost growth
+   applies to any persistent session regardless of what it's trading).
+8. Live-specific Notion page/log - **not yet done**, still open. Batch
+   with the existing "surface guaranteed-profit-lock status in Notion"
+   item from the paper branch's decision log if picking this up.
+9. First cycle watched directly (see below) before the recurring triggers
+   were created - confirmed clean before leaving it unattended.
+
+**Paper trading's hourly and weekly-cutover triggers were disabled
+2026-09-22** (not deleted - a one-line `enabled: true` away from resuming)
+at the user's request, to stop spending on a comparison run now that live
+is active. The paper branch, its data, and its code are untouched.
+
+### First live cycle (2026-09-22 14:26 UTC)
+
+Opened three real positions, all medium confidence, all sized at 4%
+(€200 each, €600/12% of the €5,000 account committed, well under the 40%
+exposure cap):
+
+| Pair | Entry | Stop-loss | Take-profit |
+|---|---|---|---|
+| BTC/EUR | €74,971.00 | €71,800.00 | €81,313.00 |
+| SOL/EUR | €101.68 | €96.50 | €112.04 |
+| LINK/EUR | €11.29 | €10.75 | €12.37 |
+
+Each has a real resting stop-loss order confirmed on Kraken (see
+`trades.md` for the order IDs). Passed on ETH/XRP/ADA/SUI despite momentum
+flagging on all four - unconfirmed volume, adverse order-book skew, or (SUI)
+no news catalyst proportionate to the size of the move. Verified directly
+against the commit and `trades.md`, not just the session's own summary,
+which had a small inaccuracy (misnamed one of the three pairs) - a reminder
+that a session's `post_turn_summary` is a convenience, not ground truth,
+especially for anything involving real money; the weekly-cutover trigger's
+prompt now explicitly says to cross-check against the actual commit for
+this reason.
 
 ## Network access
 
