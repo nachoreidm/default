@@ -11,7 +11,7 @@
       "initial_stop_loss": 71800,
       "take_profit": 81313,
       "trailing_active": false,
-      "peak_price": 74971,
+      "peak_price": 75075.9,
       "size_pct": 4,
       "size_eur": 200,
       "quantity": 0.0026674,
@@ -54,7 +54,7 @@
       "initial_stop_loss": 96.5,
       "take_profit": 112.04000000000002,
       "trailing_active": false,
-      "peak_price": 101.68,
+      "peak_price": 101.79,
       "size_pct": 4,
       "size_eur": 199.93449073280001,
       "quantity": 1.96611752,
@@ -130,6 +130,49 @@
       "status": "open",
       "entry_order_txid": "OWEOSJ-DWL5P-35ROD3",
       "stop_order_txid": "OGU72B-VPHA7-ZJ37KJ"
+    },
+    {
+      "id": "3099c8ad-4078-461d-ab49-1baf38fa88a3",
+      "pair": "SUI/EUR",
+      "direction": "long",
+      "entry_price": 0.867,
+      "stop_loss": 0.775,
+      "initial_stop_loss": 0.775,
+      "take_profit": 1.051,
+      "trailing_active": false,
+      "peak_price": 0.867,
+      "size_pct": 3,
+      "size_eur": 149.80890120021104,
+      "quantity": 172.75011,
+      "entry_fee": 1.19833296,
+      "opened_at": "2026-09-22T14:44:31.601Z",
+      "signals_at_entry": {
+        "momentum_trigger": {
+          "flagged": true,
+          "pct_change_1h_48h": 24.259362772498598,
+          "pct_change_4h_48h": 20.30443055178037
+        },
+        "rsi_14_4h": 73.82000965252826,
+        "sma_crossover_4h": {
+          "state": "fast_above_slow",
+          "fast_value": 0.802755,
+          "slow_value": 0.7032839999999999
+        },
+        "volume": {
+          "ratio": 3.247659302391874,
+          "flag_above_2x": true
+        },
+        "order_book_imbalance_top10": -0.21713077064931108,
+        "current_price": 0.8642,
+        "news_context": "CME Group launched SUI futures contracts; Grayscale created a Grayscale SUI Trust (SUI reportedly gained ~31% around this news); Tether's Hadron platform expanded to SUI for tokenized real-world assets; weekly volume up 299%, daily volume up 28% (outpacing broader market's 15% avg increase)."
+      },
+      "invalidation": "Thesis invalidated on a 4h close below the rising 20-period 4h SMA (currently ~0.803), or if the CME/Grayscale-driven demand thesis fails to hold price above that trend line.",
+      "confidence": "medium",
+      "confidence_reason": "This cycle's news search surfaced concrete, proportionate institutional catalysts that were missing last cycle: CME Group launched SUI futures contracts, and Grayscale created a Grayscale SUI Trust - both genuine institutional-access events that plausibly explain a large speculative move, similar in kind to the ETF-driven rationale accepted for BTC. However this remains the most extended pair in the lineup by far (+24%/+20% over 48h, RSI 73.8), and the order-book imbalance flipped negative in just the last 15 minutes (-0.22, from +0.58), showing real near-term selling pressure right now. Classifying as momentum_only since the price action and its (only just-identified) catalyst are the real drivers here rather than a clean multi-signal confluence like BTC/SOL/LINK - code caps this at medium regardless, and sizing below the medium cap (3% vs 5%) given the extension risk.",
+      "momentum_only": true,
+      "status": "open",
+      "entry_order_txid": "OWJ4ES-2JMUW-YAYFFC",
+      "stop_order_txid": "OCN5SW-F2BWT-PAHRUP"
     }
   ],
   "closed_positions": [],
@@ -141,5 +184,5 @@
     }
   ],
   "created_at": "2026-09-22T14:26:40.467Z",
-  "updated_at": "2026-09-22T14:31:21.301Z"
+  "updated_at": "2026-09-22T14:44:31.601Z"
 }

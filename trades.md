@@ -231,3 +231,159 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 - Position id: 836cb669-d4dd-403d-a562-c69ed336e2bf
 
 ---
+### 2026-09-22T14:43:53.548Z — BTC/EUR — NO TRADE
+
+**Reasoning:** Already have an open long position on this pair (opened 14:30 UTC this cycle-block, entry 74,971, stop 71,800) - one position per pair is code-enforced, so no new entry considered regardless of signal readings this cycle.
+
+**Signals considered:**
+```json
+{
+  "note": "existing open position - no new entry evaluated",
+  "current_price": 75031.5,
+  "existing_position_id": "9b1501f0-cd3d-413b-9746-ffd766756903"
+}
+```
+
+---
+### 2026-09-22T14:43:55.418Z — SOL/EUR — NO TRADE
+
+**Reasoning:** Already have an open long position on this pair (opened 14:31 UTC this cycle-block, entry 101.68, stop 96.50) - one position per pair is code-enforced, so no new entry considered regardless of signal readings this cycle.
+
+**Signals considered:**
+```json
+{
+  "note": "existing open position - no new entry evaluated",
+  "current_price": 101.7,
+  "existing_position_id": "87ddf369-9a09-47e8-ac57-0598aa190726"
+}
+```
+
+---
+### 2026-09-22T14:43:57.682Z — LINK/EUR — NO TRADE
+
+**Reasoning:** Already have an open long position on this pair (opened 14:31 UTC this cycle-block, entry 11.2895, stop 10.75) - one position per pair is code-enforced, so no new entry considered regardless of signal readings this cycle.
+
+**Signals considered:**
+```json
+{
+  "note": "existing open position - no new entry evaluated",
+  "current_price": 11.20773,
+  "existing_position_id": "836cb669-d4dd-403d-a562-c69ed336e2bf"
+}
+```
+
+---
+### 2026-09-22T14:44:03.646Z — ETH/EUR — NO TRADE
+
+**Reasoning:** Unchanged from last cycle's core objection: volume still not confirming the move (1.22x 7-day avg, unchanged, well under the 2x flag) despite a real uptrend and positive news flow (reported 6-8% single-day rally, whale accumulation cited as bullish). Order book flipped positive this cycle (+0.28, from -0.47 fifteen minutes ago) but that reversal in such a short window shows the top-10 book is noisy/short-term here, not a stable confirming signal on its own. Passing again - would want volume expansion alongside the trend before entering.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": true,
+    "pct_change_1h_48h": 7.0757631662006215,
+    "pct_change_4h_48h": 5.133695011826359
+  },
+  "rsi_14_4h": 69.09264936634757,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow"
+  },
+  "volume": {
+    "ratio": 1.218113622892478,
+    "flag_above_2x": false
+  },
+  "order_book_imbalance_top10": 0.2817595455187458,
+  "news_context": "Reported ~6-8% single-day rally with ETH breaking through Fibonacci resistance near $2,719; analysts citing aggressive whale/institutional accumulation as a bullish supply signal, offset by 'technical caution' in broader sentiment."
+}
+```
+
+---
+### 2026-09-22T14:44:09.727Z — XRP/EUR — NO TRADE
+
+**Reasoning:** Same core objection as last cycle: a large move (15.6% 1h/48h) still unconfirmed by volume (1.30x, unchanged, well under 2x). Fresh news this cycle adds a new concern rather than resolving the prior one - large holders reported moving over 1.4 billion XRP onto Binance, which is a distribution signal (tokens moved to an exchange are typically positioned for sale), alongside speculative/unconfirmed catalysts (Gensler resignation speculation, a rumored Garlinghouse-Trump meeting) that are not yet verified events. Order book is mildly positive (+0.19) but that's the weakest kind of confirmation given how much it swung on ETH/ADA/SUI in just 15 minutes this cycle. Passing again.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": true,
+    "pct_change_1h_48h": 15.598999583159639,
+    "pct_change_4h_48h": 10.842826106710076
+  },
+  "rsi_14_4h": 73.81208231032788,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow"
+  },
+  "volume": {
+    "ratio": 1.2985602199881892,
+    "flag_above_2x": false
+  },
+  "order_book_imbalance_top10": 0.1944629145721429,
+  "news_context": "Large holders reported moving 1.4B+ XRP onto Binance (distribution risk); speculative/unverified catalysts (SEC chair resignation rumor, Garlinghouse-Trump meeting speculation); ETF demand cited as strengthening."
+}
+```
+
+---
+### 2026-09-22T14:44:15.555Z — ADA/EUR — NO TRADE
+
+**Reasoning:** Order book improved substantially this cycle (-0.03, near flat, vs -0.41 fifteen minutes ago - the heavy ask overhang from last cycle has largely cleared) and news reconfirmed genuine positive catalysts (Mastercard partnership, x402 SDK integration) plus a new one - the Van Rossem hard fork upgrading Cardano to v11 via the network's first community vote. But the core objection from last cycle is unchanged: volume is still the weakest of all seven pairs relative to its own average (1.20x, unmoved), despite a ~15% two-day move - the move still isn't volume-confirmed. Close to qualifying, but passing again until volume actually expands alongside the improved order book and news flow.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": true,
+    "pct_change_1h_48h": 14.974048308074373,
+    "pct_change_4h_48h": 9.756521739130424
+  },
+  "rsi_14_4h": 72.93273231596238,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow"
+  },
+  "volume": {
+    "ratio": 1.2027276029211935,
+    "flag_above_2x": false
+  },
+  "order_book_imbalance_top10": -0.02521724157485333,
+  "news_context": "Van Rossem hard fork moved Cardano to v11 via first community-voted upgrade; Mastercard Crypto Partner Program collaboration (15 Sep) and x402 SDK integration (21 Sep) reconfirmed; community sentiment described as cautiously optimistic."
+}
+```
+
+---
+### 2026-09-22T14:44:31.601Z — SUI/EUR — LONG — OPENED (LIVE)
+
+- Entry price: €0.87 (real fill, Kraken order OWJ4ES-2JMUW-YAYFFC)
+- Stop-loss: €0.78 (real resting order OCN5SW-F2BWT-PAHRUP)
+- Take-profit target: €1.05 (2:1 risk/reward, polled - not a resting order, see checkStops)
+- Position size: 3% of portfolio (€149.81, qty 172.75011000)
+- Entry fee (real): €1.20
+- Confidence: medium — This cycle's news search surfaced concrete, proportionate institutional catalysts that were missing last cycle: CME Group launched SUI futures contracts, and Grayscale created a Grayscale SUI Trust - both genuine institutional-access events that plausibly explain a large speculative move, similar in kind to the ETF-driven rationale accepted for BTC. However this remains the most extended pair in the lineup by far (+24%/+20% over 48h, RSI 73.8), and the order-book imbalance flipped negative in just the last 15 minutes (-0.22, from +0.58), showing real near-term selling pressure right now. Classifying as momentum_only since the price action and its (only just-identified) catalyst are the real drivers here rather than a clean multi-signal confluence like BTC/SOL/LINK - code caps this at medium regardless, and sizing below the medium cap (3% vs 5%) given the extension risk.
+- Momentum-only trigger: yes
+- Invalidation: Thesis invalidated on a 4h close below the rising 20-period 4h SMA (currently ~0.803), or if the CME/Grayscale-driven demand thesis fails to hold price above that trend line.
+- Signals supporting this trade:
+```json
+{
+  "momentum_trigger": {
+    "flagged": true,
+    "pct_change_1h_48h": 24.259362772498598,
+    "pct_change_4h_48h": 20.30443055178037
+  },
+  "rsi_14_4h": 73.82000965252826,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "fast_value": 0.802755,
+    "slow_value": 0.7032839999999999
+  },
+  "volume": {
+    "ratio": 3.247659302391874,
+    "flag_above_2x": true
+  },
+  "order_book_imbalance_top10": -0.21713077064931108,
+  "current_price": 0.8642,
+  "news_context": "CME Group launched SUI futures contracts; Grayscale created a Grayscale SUI Trust (SUI reportedly gained ~31% around this news); Tether's Hadron platform expanded to SUI for tokenized real-world assets; weekly volume up 299%, daily volume up 28% (outpacing broader market's 15% avg increase)."
+}
+```
+- Position id: 3099c8ad-4078-461d-ab49-1baf38fa88a3
+
+---
