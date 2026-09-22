@@ -60,15 +60,15 @@ async function main() {
   // effectiveTrailingStop(entryPrice, peakPrice, currentStopLoss, sma20).
   // entry=100, peakPrice=110 (peak gain=10, equivalent to a trade that
   // just barely reached +1R with a $10 original risk) -> 0.3x peak-gain
-  // lock = 103, fee-floor (ROUND_TRIP_COST_PCT=0.9%) = 100.9 -> lock (103) wins.
+  // lock = 103, fee-floor (ROUND_TRIP_COST_PCT=1.3%) = 101.3 -> lock (103) wins.
   assert(effectiveTrailingStop(100, 110, 90, null) === 103, "effectiveTrailingStop floors at 0.3x peak gain with no SMA data (got not 103)");
   assert(effectiveTrailingStop(100, 110, 90, 101) === 103, "effectiveTrailingStop floors at the peak-gain lock when SMA is still below it (101 < 103)");
   assert(effectiveTrailingStop(100, 110, 90, 110) === 110, "effectiveTrailingStop trails up to a rising SMA above the lock floor (110 > 103)");
   assert(effectiveTrailingStop(100, 110, 108, 105) === 108, "effectiveTrailingStop never moves the stop down (108 already above candidate 103/105)");
   // entry=100, peakPrice=101 (peak gain=1, a very small gain so far) ->
-  // 0.3x peak gain = 100.3, fee-floor = 100.9 -> fee-floor wins here,
+  // 0.3x peak gain = 100.3, fee-floor = 101.3 -> fee-floor wins here,
   // proving the max() defensive term works.
-  assert(effectiveTrailingStop(100, 101, 95, null) === 100.9, "effectiveTrailingStop falls back to the fee/slippage floor when 0.3x peak gain is too small (got not 100.9)");
+  assert(effectiveTrailingStop(100, 101, 95, null) === 101.3, "effectiveTrailingStop falls back to the fee/slippage floor when 0.3x peak gain is too small (got not 101.3)");
   // The core new behavior: the lock RATCHETS UP as the peak extends
   // further, rather than staying pinned at the gain reached when +1R
   // first triggered. entry=100, a rally to peak=130 (peak gain=30, e.g.

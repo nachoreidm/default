@@ -215,11 +215,19 @@ export const TRAIL_SMA_PERIOD = 20;
 // for what happens as the rally continues past that point.
 export const PEAK_PROFIT_LOCK_FRACTION = 0.3;
 
-// Kraken's lowest-volume-tier fee schedule (approximate as of 2025; fees are
-// tier/volume dependent and change over time - update if you care about
-// precise paper-vs-live parity). We model market-style (taker) fills since
-// paper "recommendations" are meant to be actionable immediately.
-export const TAKER_FEE_PCT = 0.4;
+// Kraken's spot taker fee for this account's tier (verified 2026-09-22
+// against Kraken's current published schedule: entry tier is 0.40%/0.80%
+// maker/taker below $2,500 in 30-day volume or assets-on-platform (AoP,
+// whichever is better); above $2,500 it drops to 0.30%/0.60%. This
+// account's ~€5,000 AoP alone clears the $2,500 threshold, so 0.60% taker
+// is the applicable rate even at zero trading volume - update this if the
+// balance/volume later crosses the next tier ($10,000 -> 0.38% taker) or
+// if Kraken revises the schedule again. Every order this system places
+// (market entry, triggered stop-loss, market take-profit close) is a
+// taker fill - there is no maker-fee path in this design (see
+// portfolio-live.ts) - so this is the real, not approximate, rate that
+// applies to every trade.
+export const TAKER_FEE_PCT = 0.6;
 // Small modeled slippage on top of the quoted ask/bid to approximate market
 // impact and quote staleness. Not derived from real depth data.
 export const SLIPPAGE_PCT = 0.05;

@@ -282,6 +282,41 @@ also the cycle that surfaced the Notion-sync bug documented above.
 Total after this cycle: 4 open positions (BTC, SOL, LINK, SUI), ~€749.61
 committed (~15% of the €5,000 account), well under the 40% exposure cap.
 
+## Fee constant corrected (2026-09-22)
+
+`TAKER_FEE_PCT` in `types.ts` was `0.4` (paper trading's estimate, dated
+2025 by its own comment) - stale against Kraken's current published fee
+schedule. Verified live 2026-09-22: entry tier is 0.40%/0.80% maker/taker
+below $2,500 in 30-day volume *or* assets-on-platform (AoP, whichever is
+better - Kraken switched to this "whichever" model 2026-07-09); above
+$2,500 it drops to 0.30%/0.60%. This account's ~€5,000 AoP alone clears
+that threshold even at zero trading volume, so **0.60% is the correct
+taker rate for this account right now** - corrected to `TAKER_FEE_PCT =
+0.6`. This matters more here than it would elsewhere: every order this
+system places (market entry, triggered stop-loss, market take-profit
+close) is a taker fill by design - real resting orders execute as market
+once triggered, there's no maker-fee path at all - so ~1.2% round-trip
+fee cost (`ROUND_TRIP_COST_PCT`, now 1.3% after the fix) applies to every
+completed trade, win or loss. The fix flows through the trailing stop's
+profit-lock safety floor (`effectiveTrailingStop` in `trailing-math.ts`)
+which was previously under-protecting by roughly half against a real
+round-trip cost. `selftest.ts`'s two assertions that hard-coded the old
+0.9%-derived floor value (100.9) were updated to the new 101.3 accordingly
+- both still pass, along with the rest of the self-test suite and a
+pruned-build MCP smoke test.
+
+**Left open, not yet decided**: the fixed 2:1 `TAKE_PROFIT_RR_MULTIPLE`
+take-profit target itself is still computed gross, not net of the ~1.2%
+round-trip fee - a trade that closes exactly at the nominal 2R target
+nets less than "2R" after fees. Fixing the stale constant was a clear,
+low-risk correctness fix (it's just the current fee rate, verified against
+Kraken's schedule). Making the take-profit target itself fee-aware would
+be a real strategy change - it would raise the target on every trade,
+changing win rate relative to paper trading's historical numbers - so
+that's being thought through separately rather than folded into this fix.
+If crossed later, update the threshold logic here and the corresponding
+note in `TAKE_PROFIT_RR_MULTIPLE`'s comment in `types.ts`.
+
 ## Network access
 
 Same as paper trading: `api.kraken.com` is the only allowlisted domain
