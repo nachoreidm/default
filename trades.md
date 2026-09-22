@@ -39689,3 +39689,108 @@ next cycle without any manual edit needed here.
 ```
 
 ---
+### 2026-09-22T02:12:23.729Z — BTC/USD — NO TRADE
+
+**Reasoning:** Already has an open position (entry $81,228.09, trailing_active, peak $87,446.70, unrealized +4.75%) - one-position-per-pair rule prevents a second entry.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 86.52,
+  "volume_ratio": 1.74,
+  "momentum_trigger_flagged": true,
+  "note": "portfolio_check_stops returned no closes this cycle; existing trailing-active position continues to trail"
+}
+```
+
+---
+### 2026-09-22T02:12:25.445Z — ETH/USD — NO TRADE
+
+**Reasoning:** Already has an open position (entry $2,642.38, not yet trailing_active, peak $2,806.69, unrealized +3.24%) - one-position-per-pair rule prevents a second entry.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 79.38,
+  "volume_ratio": 1.62,
+  "momentum_trigger_flagged": true,
+  "note": "portfolio_check_stops returned no closes this cycle; existing position not yet at +1R"
+}
+```
+
+---
+### 2026-09-22T02:12:27.450Z — SOL/USD — NO TRADE
+
+**Reasoning:** Already has an open position (entry $117.82, not yet trailing_active, peak $119.97, unrealized -0.83%) - one-position-per-pair rule prevents a second entry.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 79.37,
+  "volume_ratio": 1.29,
+  "momentum_trigger_flagged": true,
+  "note": "portfolio_check_stops returned no closes this cycle; existing position not yet at +1R"
+}
+```
+
+---
+### 2026-09-22T02:12:28.758Z — XRP/USD — NO TRADE
+
+**Reasoning:** Already has an open position (entry $1.3965, trailing_active, peak $1.5748, unrealized +7.66%) - one-position-per-pair rule prevents a second entry.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 78.04,
+  "volume_ratio": 1.41,
+  "momentum_trigger_flagged": true,
+  "note": "portfolio_check_stops returned no closes this cycle; existing trailing-active position continues to trail"
+}
+```
+
+---
+### 2026-09-22T02:12:30.036Z — ADA/USD — NO TRADE
+
+**Reasoning:** Already has an open position (entry $0.2443, not yet trailing_active, peak $0.2488, unrealized -0.02%) - one-position-per-pair rule prevents a second entry.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 74.84,
+  "volume_ratio": 1.54,
+  "momentum_trigger_flagged": true,
+  "note": "portfolio_check_stops returned no closes this cycle; existing position not yet at +1R, roughly flat"
+}
+```
+
+---
+### 2026-09-22T02:12:31.599Z — LINK/USD — NO TRADE
+
+**Reasoning:** Already has an open position (entry $13.17, not yet trailing_active, unrealized -2.01%) - one-position-per-pair rule prevents a second entry.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 71.99,
+  "volume_ratio": 2.06,
+  "momentum_trigger_flagged": true,
+  "note": "portfolio_check_stops returned no closes this cycle; position pulled back further from entry, still well within stop distance ($12.52)"
+}
+```
+
+---
+### 2026-09-22T02:12:33.075Z — DOGE/USD — NO TRADE
+
+**Reasoning:** Already has an open position (entry $0.0876, trailing_active, peak $0.1021, unrealized +13.24%) - one-position-per-pair rule prevents a second entry.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 82.71,
+  "volume_ratio": 2.84,
+  "momentum_trigger_flagged": true,
+  "note": "portfolio_check_stops returned no closes this cycle; existing trailing-active position continues to trail below rising 20-period 4h SMA"
+}
+```
+
+---
