@@ -76,8 +76,17 @@ async function liveCashEur(): Promise<number> {
   const balance = await queryBalance();
   const raw = balance["ZEUR"] ?? balance["EUR"];
   if (raw === undefined) {
+    // Kraken's Balance endpoint omits zero-balance assets entirely - an
+    // empty response is a genuine, valid "nothing in this account yet"
+    // (e.g. before funding, or fully deployed with zero cash left), not an
+    // error. Only throw if the account holds OTHER assets but still has no
+    // EUR key - that's the actually-surprising case (the assumed key name
+    // may be wrong), not a plain empty balance.
+    if (Object.keys(balance).length === 0) {
+      return 0;
+    }
     throw new KrakenApiError(
-      `Kraken Balance response has no ZEUR/EUR key - got: ${Object.keys(balance).join(", ") || "(empty)"}. Verify the real balance key before trusting any sizing math.`
+      `Kraken Balance response has assets (${Object.keys(balance).join(", ")}) but no ZEUR/EUR key - the assumed EUR balance key may be wrong. Verify before trusting any sizing math.`
     );
   }
   return Number(raw);
