@@ -3049,3 +3049,139 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-09-23T12:43:14.008Z — BTC/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule, code-enforced). Momentum trigger not flagged (1.06%/0.18%). No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 1.0613964822057151,
+    "pct_change_4h_48h": 0.1754821421899104
+  },
+  "rsi_14_4h": 67.70263908143147,
+  "volume_ratio": 0.9250447886218419,
+  "existing_position": true
+}
+```
+
+---
+### 2026-09-23T12:43:17.254Z — ETH/EUR — NO TRADE
+
+**Reasoning:** 23rd consecutive cycle without a momentum flag (0.40%/-0.51%). Volume ratio 0.593, well below the 2x confirmation threshold. News mostly repeat (Revolut EUR stablecoin, Ethereum mainnet 11th anniversary marker) with no new proportionate catalyst. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 0.39854189939442786,
+    "pct_change_4h_48h": -0.5102104514072305
+  },
+  "rsi_14_4h": 62.28368037051669,
+  "volume_ratio": 0.5931297164452256,
+  "news_context": "Revolut EUR stablecoin, Ethereum mainnet 11th anniversary - repeat/non-catalyst"
+}
+```
+
+---
+### 2026-09-23T12:43:19.724Z — SOL/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule, code-enforced). Momentum trigger not flagged (0.97%/-0.20%). No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 0.9738343497934381,
+    "pct_change_4h_48h": -0.20416099552789593
+  },
+  "rsi_14_4h": 64.56211287276801,
+  "volume_ratio": 0.9704359306256067,
+  "existing_position": true
+}
+```
+
+---
+### 2026-09-23T12:43:23.463Z — XRP/EUR — NO TRADE
+
+**Reasoning:** 24th consecutive cycle with momentum flagged (6.42%/5.78%, now marginal) but still unconfirmed by volume (ratio 0.986, below the 2x flag). RSI cooled to 66.81. News was an exact repeat of prior cycles (Stripe integration, broader market strength) with nothing new. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": true,
+    "pct_change_1h_48h": 6.424376201097483,
+    "pct_change_4h_48h": 5.777801643129468
+  },
+  "rsi_14_4h": 66.806319821038,
+  "volume_ratio": 0.9855791624804029,
+  "order_book_imbalance": 0.3388832697643799,
+  "news_context": "Stripe integration, broader market strength - exact repeat of prior cycles"
+}
+```
+
+---
+### 2026-09-23T12:43:26.397Z — ADA/EUR — NO TRADE
+
+**Reasoning:** Momentum trigger dropped off this cycle for the first time after 23 consecutive flagged cycles (2.78%/3.06%, below the 6% threshold) as the earlier rally cools. Volume ratio 1.263 still below 2x. News was an exact repeat of prior cycles (x402, Mastercard, market-cap rank). No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 2.784010171266181,
+    "pct_change_4h_48h": 3.05521317130096
+  },
+  "rsi_14_4h": 66.12296016375544,
+  "volume_ratio": 1.262615760764887,
+  "order_book_imbalance": 0.6554594393652714,
+  "news_context": "x402, Mastercard, market-cap rank - exact repeat of prior cycles"
+}
+```
+
+---
+### 2026-09-23T12:43:29.171Z — LINK/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule, code-enforced). Momentum trigger not flagged (-2.25%/-1.65%). Position now -1.02% unrealized, well within stop-loss. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -2.2453892139126554,
+    "pct_change_4h_48h": -1.6470209436105134
+  },
+  "rsi_14_4h": 54.81984868281552,
+  "volume_ratio": 0.9704945636012612,
+  "existing_position": true,
+  "unrealized_pnl_pct": -1.0205392515621006
+}
+```
+
+---
+### 2026-09-23T12:43:30.989Z — SUI/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule, code-enforced). Momentum trigger not flagged (-1.61%/-0.06%). Still short of +1R trailing activation (peak 0.9071 vs. threshold 0.959). No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -1.6066481994459787,
+    "pct_change_4h_48h": -0.05627462014630781
+  },
+  "rsi_14_4h": 69.40359266023464,
+  "volume_ratio": 1.0352651815881038,
+  "existing_position": true
+}
+```
+
+---
