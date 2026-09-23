@@ -2643,3 +2643,138 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-09-23T09:43:11.676Z — BTC/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule, code-enforced). Momentum trigger remains not flagged this cycle (1.99%/2.12%, well below the 6% threshold) as the original rally window continues rolling off the 48h lookback. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 1.9928946262220797,
+    "pct_change_4h_48h": 2.1153099056929374
+  },
+  "rsi_14_4h": 71.972869442161,
+  "volume_ratio": 0.9250447886218419,
+  "existing_position": true
+}
+```
+
+---
+### 2026-09-23T09:43:15.340Z — ETH/EUR — NO TRADE
+
+**Reasoning:** 20th consecutive cycle without a momentum flag (1.01%/1.29%, well below the 6% threshold). Volume ratio 0.593, well below the 2x confirmation threshold. News (Binance ETH withdrawals hitting a 3-year high, ETF inflows led by BlackRock, BitMine accumulation) is substantively the same set of items reported in prior cycles - no new proportionate catalyst. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 1.0090825869975184,
+    "pct_change_4h_48h": 1.2871483319350312
+  },
+  "rsi_14_4h": 65.79671257784634,
+  "volume_ratio": 0.5931297164452256,
+  "news_context": "Binance ETH withdrawals 3yr high, ETF inflows ~$270M led by BlackRock, BitMine accumulating 27,562 ETH - repeat of prior cycles' items"
+}
+```
+
+---
+### 2026-09-23T09:43:17.513Z — SOL/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule, code-enforced). Momentum trigger remains not flagged this cycle (1.81%/1.58%). No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 1.81152247079786,
+    "pct_change_4h_48h": 1.5835546375528666
+  },
+  "rsi_14_4h": 68.27942907693065,
+  "volume_ratio": 0.9704359306256067,
+  "existing_position": true
+}
+```
+
+---
+### 2026-09-23T09:43:22.665Z — XRP/EUR — NO TRADE
+
+**Reasoning:** 21st consecutive cycle with momentum flagged (8.89%/9.51%, above the 6% threshold) but still unconfirmed by volume (ratio 0.986, well below the 2x flag). RSI extended at 78.53, the most overbought of the seven pairs this cycle. News found some incremental items (Batch V1.1 amendment nearing Sept 29 mainnet activation; Goldman/Schwab institutional XRP-ETF exposure) alongside the already-known Stripe integration, but nothing that changes the volume-confirmation gate the framework requires for a momentum-only entry at this RSI level. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": true,
+    "pct_change_1h_48h": 8.889061891786683,
+    "pct_change_4h_48h": 9.509074311884033
+  },
+  "rsi_14_4h": 78.52708869992996,
+  "volume_ratio": 0.9855791624804029,
+  "order_book_imbalance": 0.06335050601103295,
+  "news_context": "Stripe integration (17 Sep, prior known); Batch V1.1 amendment activation window closing ~29 Sep; Goldman $87M in XRP ETFs, Schwab using XRP ETFs as repo collateral - incremental but volume still unconfirmed"
+}
+```
+
+---
+### 2026-09-23T09:43:26.695Z — ADA/EUR — NO TRADE
+
+**Reasoning:** 21st consecutive cycle with momentum flagged (7.47%/6.64%) but still unconfirmed by volume (ratio 1.263, below the 2x flag). RSI cooled slightly to 75.01. Order book flipped positive this cycle (+0.052, from -0.261 last cycle) but that's noisy and not treated as standalone decisive. News (x402 SDK payment integration, Mastercard partnership, market-cap rank climb to 16) is substantively a repeat of prior cycles' items with no new proportionate catalyst. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": true,
+    "pct_change_1h_48h": 7.474754317289975,
+    "pct_change_4h_48h": 6.642464445067447
+  },
+  "rsi_14_4h": 75.00777095925524,
+  "volume_ratio": 1.262615760764887,
+  "order_book_imbalance": 0.052366169246788066,
+  "news_context": "x402 SDK integration, Mastercard partnership, market cap rank 16 - repeat of prior cycles' items"
+}
+```
+
+---
+### 2026-09-23T09:43:28.667Z — LINK/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule, code-enforced). Momentum trigger remains not flagged this cycle (0.12%/-0.27%). No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 0.11880741840974739,
+    "pct_change_4h_48h": -0.27481695746544743
+  },
+  "rsi_14_4h": 60.20384455801913,
+  "volume_ratio": 0.9704945636012612,
+  "existing_position": true
+}
+```
+
+---
+### 2026-09-23T09:43:31.148Z — SUI/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule, code-enforced). Momentum trigger remains not flagged this cycle (3.49%/1.57%). Still short of +1R trailing activation (peak 0.9071 vs. threshold 0.959). No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 3.4889148191365273,
+    "pct_change_4h_48h": 1.5699119042240823
+  },
+  "rsi_14_4h": 74.34291565339461,
+  "volume_ratio": 1.0352651815881038,
+  "existing_position": true
+}
+```
+
+---
