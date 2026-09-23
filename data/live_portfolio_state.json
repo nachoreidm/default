@@ -89,49 +89,6 @@
       "stop_order_txid": "OFHUSQ-NXEQX-DW3WTN"
     },
     {
-      "id": "836cb669-d4dd-403d-a562-c69ed336e2bf",
-      "pair": "LINK/EUR",
-      "direction": "long",
-      "entry_price": 11.28952,
-      "stop_loss": 10.75,
-      "initial_stop_loss": 10.75,
-      "take_profit": 12.368559999999999,
-      "trailing_active": false,
-      "peak_price": 11.55555,
-      "size_pct": 4,
-      "size_eur": 199.866808005952,
-      "quantity": 17.7089707,
-      "entry_fee": 1.599406,
-      "opened_at": "2026-09-22T14:31:21.301Z",
-      "signals_at_entry": {
-        "momentum_trigger": {
-          "flagged": true,
-          "pct_change_1h_48h": 8.230519265454292,
-          "pct_change_4h_48h": 5.029700874734618
-        },
-        "rsi_14_4h": 64.79193149759834,
-        "sma_crossover_4h": {
-          "state": "fast_above_slow",
-          "fast_value": 10.9838535,
-          "slow_value": 10.336174000000003
-        },
-        "volume": {
-          "ratio": 1.4274464333301713,
-          "flag_above_2x": false
-        },
-        "order_book_imbalance_top10": 0.21316172217249696,
-        "current_price": 11.37315,
-        "news_context": "Coinbase selected Chainlink as official oracle infrastructure for tokenized US stocks on Base; Charles Schwab announced adding LINK (with SOL, AVAX) to its retail crypto platform; Bottomline partnership (600+ banks, $16T processed annually) drove a spike to ~$13.64 on 7 Sep; Chainlink founder Sergey Nazarov scheduled at a Federal Reserve Bank meeting 24 Sep alongside BlackRock/Vanguard executives."
-      },
-      "invalidation": "Thesis invalidated on a 4h close below the rising 20-period 4h SMA (currently ~10.98) - matches the level portfolio_check_stops will trail beneath once the position reaches +1R.",
-      "confidence": "medium",
-      "confidence_reason": "Cleanest confluence of the cycle: RSI at 64.8 is the healthiest (least overbought) of all seven pairs, order book is bid-skewed (+0.21, real resting buy support rather than overhead supply), SMA bullish, and news carries multiple concrete, dated institutional catalysts (Coinbase selected LINK as oracle infra for tokenized US stocks on Base; Charles Schwab announced adding LINK alongside SOL/AVAX to its retail platform; Bottomline partnership serving 600+ banks; Chainlink founder scheduled at a Fed Reserve Bank meeting 24 Sep alongside BlackRock/Vanguard). No genuine contradicting signal, unlike ETH/ADA/XRP/SUI this cycle. Held at medium rather than high because volume (1.43x) doesn't clear the 2x confirmation flag.",
-      "momentum_only": false,
-      "status": "open",
-      "entry_order_txid": "OWEOSJ-DWL5P-35ROD3",
-      "stop_order_txid": "OGU72B-VPHA7-ZJ37KJ"
-    },
-    {
       "id": "3099c8ad-4078-461d-ab49-1baf38fa88a3",
       "pair": "SUI/EUR",
       "direction": "long",
@@ -175,14 +132,69 @@
       "stop_order_txid": "OCN5SW-F2BWT-PAHRUP"
     }
   ],
-  "closed_positions": [],
+  "closed_positions": [
+    {
+      "id": "836cb669-d4dd-403d-a562-c69ed336e2bf",
+      "pair": "LINK/EUR",
+      "direction": "long",
+      "entry_price": 11.28952,
+      "stop_loss": 10.75,
+      "initial_stop_loss": 10.75,
+      "take_profit": 12.368559999999999,
+      "trailing_active": false,
+      "peak_price": 11.55555,
+      "size_pct": 4,
+      "size_eur": 199.866808005952,
+      "quantity": 17.7089707,
+      "entry_fee": 1.599406,
+      "opened_at": "2026-09-22T14:31:21.301Z",
+      "signals_at_entry": {
+        "momentum_trigger": {
+          "flagged": true,
+          "pct_change_1h_48h": 8.230519265454292,
+          "pct_change_4h_48h": 5.029700874734618
+        },
+        "rsi_14_4h": 64.79193149759834,
+        "sma_crossover_4h": {
+          "state": "fast_above_slow",
+          "fast_value": 10.9838535,
+          "slow_value": 10.336174000000003
+        },
+        "volume": {
+          "ratio": 1.4274464333301713,
+          "flag_above_2x": false
+        },
+        "order_book_imbalance_top10": 0.21316172217249696,
+        "current_price": 11.37315,
+        "news_context": "Coinbase selected Chainlink as official oracle infrastructure for tokenized US stocks on Base; Charles Schwab announced adding LINK (with SOL, AVAX) to its retail crypto platform; Bottomline partnership (600+ banks, $16T processed annually) drove a spike to ~$13.64 on 7 Sep; Chainlink founder Sergey Nazarov scheduled at a Federal Reserve Bank meeting 24 Sep alongside BlackRock/Vanguard executives."
+      },
+      "invalidation": "Thesis invalidated on a 4h close below the rising 20-period 4h SMA (currently ~10.98) - matches the level portfolio_check_stops will trail beneath once the position reaches +1R.",
+      "confidence": "medium",
+      "confidence_reason": "Cleanest confluence of the cycle: RSI at 64.8 is the healthiest (least overbought) of all seven pairs, order book is bid-skewed (+0.21, real resting buy support rather than overhead supply), SMA bullish, and news carries multiple concrete, dated institutional catalysts (Coinbase selected LINK as oracle infra for tokenized US stocks on Base; Charles Schwab announced adding LINK alongside SOL/AVAX to its retail platform; Bottomline partnership serving 600+ banks; Chainlink founder scheduled at a Fed Reserve Bank meeting 24 Sep alongside BlackRock/Vanguard). No genuine contradicting signal, unlike ETH/ADA/XRP/SUI this cycle. Held at medium rather than high because volume (1.43x) doesn't clear the 2x confirmation flag.",
+      "momentum_only": false,
+      "status": "closed",
+      "entry_order_txid": "OWEOSJ-DWL5P-35ROD3",
+      "stop_order_txid": "OGU72B-VPHA7-ZJ37KJ",
+      "exit_price": 10.74705,
+      "exit_fee": 1.522554,
+      "closed_at": "2026-09-23T14:41:54.450Z",
+      "close_reason": "Stop-loss filled on Kraken (order OGU72B-VPHA7-ZJ37KJ).",
+      "pnl_eur": -11.070168444517037,
+      "pnl_pct_of_portfolio": -0.21418784361622098
+    }
+  ],
   "daily_loss": [
     {
       "date": "2026-09-22",
       "realized_pnl_eur": 0,
       "halted": false
+    },
+    {
+      "date": "2026-09-23",
+      "realized_pnl_eur": -11.070168444517037,
+      "halted": false
     }
   ],
   "created_at": "2026-09-22T14:26:40.467Z",
-  "updated_at": "2026-09-23T06:41:58.766Z"
+  "updated_at": "2026-09-23T14:41:55.304Z"
 }

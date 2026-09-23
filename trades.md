@@ -3319,3 +3319,151 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-09-23T14:41:54.450Z — LINK/EUR — LONG — CLOSED (LIVE)
+
+- Exit price: €10.75 (real fill)
+- Exit fee (real): €1.52
+- Reason: Stop-loss filled on Kraken (order OGU72B-VPHA7-ZJ37KJ).
+- Realized P&L: €-11.07 (-0.21% of portfolio)
+- Position id: 836cb669-d4dd-403d-a562-c69ed336e2bf
+
+---
+### 2026-09-23T14:42:43.423Z — BTC/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule, code-enforced). Momentum trigger not flagged (0.57%/0.18%). Position now -1.29% unrealized, well within stop-loss. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 0.5681263857352377,
+    "pct_change_4h_48h": 0.1754821421899104
+  },
+  "rsi_14_4h": 67.70263908143147,
+  "volume_ratio": 0.9250447886218419,
+  "existing_position": true,
+  "unrealized_pnl_pct": -1.2933964799999984
+}
+```
+
+---
+### 2026-09-23T14:42:46.327Z — ETH/EUR — NO TRADE
+
+**Reasoning:** 25th consecutive cycle without a momentum flag (-0.14%/-0.51%). Volume ratio 0.593, well below the 2x confirmation threshold. News mostly repeat (Consensys/MetaMask rebrand, Buterin comments on Hegotá upgrade work) with no proportionate price catalyst. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -0.14084448002817423,
+    "pct_change_4h_48h": -0.5102104514072305
+  },
+  "rsi_14_4h": 62.28368037051669,
+  "volume_ratio": 0.5931297164452256,
+  "news_context": "Consensys/MetaMask rebrand, Buterin Hegota upgrade comments - repeat/non-catalyst"
+}
+```
+
+---
+### 2026-09-23T14:42:48.753Z — SOL/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule, code-enforced). Momentum trigger not flagged (-0.42%/-0.20%). Position now -1.12% unrealized, well within stop-loss. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -0.41808458920757674,
+    "pct_change_4h_48h": -0.20416099552789593
+  },
+  "rsi_14_4h": 64.56211287276801,
+  "volume_ratio": 0.9704359306256067,
+  "existing_position": true,
+  "unrealized_pnl_pct": -1.1210542456106076
+}
+```
+
+---
+### 2026-09-23T14:42:51.632Z — XRP/EUR — NO TRADE
+
+**Reasoning:** Momentum trigger remains un-flagged this cycle (5.95%/5.78%, still marginally below the 6% threshold on both windows). News was an exact repeat of prior cycles (Stripe integration, ETF issuers, regulatory-footing comment). No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 5.95488214455502,
+    "pct_change_4h_48h": 5.777801643129468
+  },
+  "rsi_14_4h": 66.806319821038,
+  "volume_ratio": 0.9855791624804029,
+  "news_context": "Stripe integration, ETF issuers, regulatory footing - exact repeat"
+}
+```
+
+---
+### 2026-09-23T14:42:54.193Z — ADA/EUR — NO TRADE
+
+**Reasoning:** Third consecutive cycle without a momentum flag (2.51%/3.06%) as the earlier rally continues cooling. News was an exact repeat of prior cycles (x402, Mastercard, IndiaChain). No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 2.50706596626207,
+    "pct_change_4h_48h": 3.05521317130096
+  },
+  "rsi_14_4h": 66.12296016375544,
+  "volume_ratio": 1.262615760764887,
+  "news_context": "x402, Mastercard, IndiaChain - exact repeat"
+}
+```
+
+---
+### 2026-09-23T14:42:59.136Z — LINK/EUR — NO TRADE
+
+**Reasoning:** Position closed this cycle via resting stop-loss fill (entry 11.28952, exit 10.74705, real loss -€11.07 / -0.21% of portfolio) - reconciled by portfolio_check_stops before this decision. Pair now flat and eligible for a fresh entry, but momentum trigger is not flagged (-1.52%/-1.65%) and news (16 new chain integrations, $70.5M strategic reserve, Bottomline partnership) is mostly repeat with no proportionate new catalyst to justify a momentum-only re-entry so soon after a stop-out. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -1.5185509926032632,
+    "pct_change_4h_48h": -1.6470209436105134
+  },
+  "rsi_14_4h": 54.81984868281552,
+  "volume_ratio": 0.9704945636012612,
+  "news_context": "16 new chain integrations, $70.5M strategic reserve, Bottomline partnership - mostly repeat/incremental",
+  "position_just_closed": true,
+  "close_reason": "stop_loss",
+  "realized_pnl_eur": -11.070168444517037
+}
+```
+
+---
+### 2026-09-23T14:43:01.345Z — SUI/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule, code-enforced). Momentum trigger not flagged (-2.00%/-0.06%). Position now -1.80% unrealized, well within stop-loss. Still short of +1R trailing activation. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -1.9957866725801106,
+    "pct_change_4h_48h": -0.05627462014630781
+  },
+  "rsi_14_4h": 69.40359266023464,
+  "volume_ratio": 1.0352651815881038,
+  "existing_position": true,
+  "unrealized_pnl_pct": -1.7988967962654252
+}
+```
+
+---
