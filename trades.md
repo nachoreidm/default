@@ -2014,3 +2014,127 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-09-23T04:43:04.025Z — BTC/EUR — NO TRADE
+
+**Reasoning:** Already have an open long position (entry 74,971, now +1.69% unrealized) - one position per pair is code-enforced, no new entry evaluated.
+
+**Signals considered:**
+```json
+{
+  "note": "existing open position - no new entry evaluated",
+  "current_price": 76246.3
+}
+```
+
+---
+### 2026-09-23T04:43:05.397Z — SOL/EUR — NO TRADE
+
+**Reasoning:** Already have an open long position (entry 101.68, now +2.78% unrealized) - one position per pair is code-enforced, no new entry evaluated.
+
+**Signals considered:**
+```json
+{
+  "note": "existing open position - no new entry evaluated",
+  "current_price": 104.52
+}
+```
+
+---
+### 2026-09-23T04:43:07.165Z — LINK/EUR — NO TRADE
+
+**Reasoning:** Already have an open long position (entry 11.2895, now +1.84% unrealized) - one position per pair is code-enforced, no new entry evaluated. Momentum_trigger still not flagged.
+
+**Signals considered:**
+```json
+{
+  "note": "existing open position - no new entry evaluated",
+  "momentum_trigger": {
+    "flagged": false
+  },
+  "current_price": 11.49387
+}
+```
+
+---
+### 2026-09-23T04:43:08.962Z — SUI/EUR — NO TRADE
+
+**Reasoning:** Already have an open long position (entry 0.867, now +3.57% unrealized, still short of the 0.959 +1R trailing threshold) - one position per pair is code-enforced, no new entry evaluated.
+
+**Signals considered:**
+```json
+{
+  "note": "existing open position - no new entry evaluated",
+  "current_price": 0.8982
+}
+```
+
+---
+### 2026-09-23T04:43:10.880Z — ETH/EUR — NO TRADE
+
+**Reasoning:** Momentum trigger not flagged again (4.61%/4.71%, fifteenth consecutive cycle without it). Volume still below average (0.59x). News is an exact repeat of prior cycles. Passing again.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 4.611067769506955,
+    "pct_change_4h_48h": 4.709455582447843
+  },
+  "rsi_14_4h": 73.88830576415418,
+  "volume": {
+    "ratio": 0.5931297164452256,
+    "flag_above_2x": false
+  },
+  "order_book_imbalance_top10": 0.0030222983746222712,
+  "news_context": "Exact repeat of prior cycles - no new item."
+}
+```
+
+---
+### 2026-09-23T04:43:14.947Z — XRP/EUR — NO TRADE
+
+**Reasoning:** Sixteenth consecutive cycle with the same unresolved objection: volume still 0.99x, never confirmed. RSI climbed to 78.5. News is largely a repeat with one minor new item (Ripple statement that a legal setback doesn't alter XRP's regulatory footing) - not a price catalyst. Passing again.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": true,
+    "pct_change_1h_48h": 14.492132195299542,
+    "pct_change_4h_48h": 12.895582873963932
+  },
+  "rsi_14_4h": 78.48884114382656,
+  "volume": {
+    "ratio": 0.9855791624804029,
+    "flag_above_2x": false
+  },
+  "order_book_imbalance_top10": -0.15424636259718186,
+  "news_context": "Mostly repeat (Stripe integration, spot ETFs); minor new item on a regulatory setback not affecting XRP's standing - not a price catalyst."
+}
+```
+
+---
+### 2026-09-23T04:43:17.974Z — ADA/EUR — NO TRADE
+
+**Reasoning:** Sixteenth consecutive cycle with the same unresolved objection: volume still 1.26x, never once confirmed. RSI has now reached 81.5 - a new extreme for any pair this session, well past the levels that preceded the other overbought pairs' passes. News is an exact repeat of prior cycles. This is now the single most overbought reading of the entire session on top of a volume-unconfirmed multi-day move - a clear pass.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": true,
+    "pct_change_1h_48h": 12.823821339950358,
+    "pct_change_4h_48h": 12.358217807102085
+  },
+  "rsi_14_4h": 81.53900007173701,
+  "volume": {
+    "ratio": 1.262615760764887,
+    "flag_above_2x": false
+  },
+  "order_book_imbalance_top10": 0.8061690161045143,
+  "news_context": "Exact repeat of prior cycles - no new development."
+}
+```
+
+---
