@@ -1514,3 +1514,131 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-09-23T00:43:12.780Z — BTC/EUR — NO TRADE
+
+**Reasoning:** Already have an open long position (entry 74,971, now +0.80% unrealized) - one position per pair is code-enforced, no new entry evaluated. Note: volume ratio has dropped below the 2x flag for the first time this session (0.93x) as the 24h window rolls forward - would not have qualified as a fresh entry on today's numbers.
+
+**Signals considered:**
+```json
+{
+  "note": "existing open position - no new entry evaluated",
+  "volume": {
+    "ratio": 0.9250447886218419,
+    "flag_above_2x": false
+  },
+  "current_price": 75608.8
+}
+```
+
+---
+### 2026-09-23T00:43:14.253Z — SOL/EUR — NO TRADE
+
+**Reasoning:** Already have an open long position (entry 101.68, now +2.18% unrealized) - one position per pair is code-enforced, no new entry evaluated.
+
+**Signals considered:**
+```json
+{
+  "note": "existing open position - no new entry evaluated",
+  "current_price": 104.02
+}
+```
+
+---
+### 2026-09-23T00:43:15.852Z — LINK/EUR — NO TRADE
+
+**Reasoning:** Already have an open long position (entry 11.2895, now +1.35% unrealized) - one position per pair is code-enforced, no new entry evaluated. Momentum_trigger still not flagged.
+
+**Signals considered:**
+```json
+{
+  "note": "existing open position - no new entry evaluated",
+  "momentum_trigger": {
+    "flagged": false
+  },
+  "current_price": 11.4383
+}
+```
+
+---
+### 2026-09-23T00:43:17.324Z — SUI/EUR — NO TRADE
+
+**Reasoning:** Already have an open long position (entry 0.867, now +3.07% unrealized, peak 0.9055 - still short of the 0.959 +1R trailing threshold) - one position per pair is code-enforced, no new entry evaluated.
+
+**Signals considered:**
+```json
+{
+  "note": "existing open position - no new entry evaluated",
+  "current_price": 0.8938
+}
+```
+
+---
+### 2026-09-23T00:43:20.433Z — ETH/EUR — NO TRADE
+
+**Reasoning:** Momentum trigger not flagged again (2.64%/3.59%, the weakest reading of the session and eleventh consecutive cycle without it - the move has clearly decelerated). Volume also fell further below average (0.59x, well under the 7-day average now). News is an exact repeat of prior cycles. Passing again.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 2.6375099242767197,
+    "pct_change_4h_48h": 3.5908460352062472
+  },
+  "rsi_14_4h": 70.8413249484787,
+  "volume": {
+    "ratio": 0.5931297164452256,
+    "flag_above_2x": false
+  },
+  "order_book_imbalance_top10": 0.11532456345004567,
+  "news_context": "Exact repeat of prior cycles - no new item."
+}
+```
+
+---
+### 2026-09-23T00:43:24.610Z — XRP/EUR — NO TRADE
+
+**Reasoning:** Twelfth consecutive cycle with the same unresolved objection: volume still not confirming (now 0.99x, actually below its own 7-day average rather than just under the 2x flag). RSI has cooled meaningfully to 73.9 (from a peak of 78.9), which reduces immediate blow-off risk somewhat, but the combination of a still-large cumulative move with volume now below average is a weaker case for entry, not a stronger one - real participation appears to be fading, not building. News is a repeat of prior cycles. Passing again.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": true,
+    "pct_change_1h_48h": 10.589960282613761,
+    "pct_change_4h_48h": 10.776481221452897
+  },
+  "rsi_14_4h": 73.90786932311212,
+  "volume": {
+    "ratio": 0.9855791624804029,
+    "flag_above_2x": false
+  },
+  "order_book_imbalance_top10": 0.5556945269649086,
+  "news_context": "Repeat of prior cycles (Stripe integration, spot ETFs). No new development."
+}
+```
+
+---
+### 2026-09-23T00:43:27.479Z — ADA/EUR — NO TRADE
+
+**Reasoning:** Twelfth consecutive cycle with the same unresolved objection: volume still 1.26x, never once confirmed. RSI climbed further to 78.3, the most extreme reading yet for this pair. News is an exact repeat of prior cycles (IndiaChain, address growth, Mastercard, x402). Passing again.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": true,
+    "pct_change_1h_48h": 10.474735207454,
+    "pct_change_4h_48h": 9.92541452881395
+  },
+  "rsi_14_4h": 78.29486018297366,
+  "volume": {
+    "ratio": 1.262615760764887,
+    "flag_above_2x": false
+  },
+  "order_book_imbalance_top10": -0.11084471458329843,
+  "news_context": "Exact repeat of prior cycles - no new development."
+}
+```
+
+---
