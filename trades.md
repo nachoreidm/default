@@ -2778,3 +2778,138 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-09-23T10:42:59.600Z — BTC/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule, code-enforced). Momentum trigger not flagged (2.32%/2.12%). No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 2.3169934151756966,
+    "pct_change_4h_48h": 2.1153099056929374
+  },
+  "rsi_14_4h": 71.972869442161,
+  "volume_ratio": 0.9250447886218419,
+  "existing_position": true
+}
+```
+
+---
+### 2026-09-23T10:43:03.056Z — ETH/EUR — NO TRADE
+
+**Reasoning:** 21st consecutive cycle without a momentum flag (1.28%/1.29%). Volume ratio 0.593, well below the 2x confirmation threshold. News surfaced some incremental items (Consensys rebranding to MetaMask under Joe Lubin; Revolut launching a Euro stablecoin on Ethereum) but nothing that changes the underlying volume-confirmation gate. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 1.283406183684345,
+    "pct_change_4h_48h": 1.2871483319350312
+  },
+  "rsi_14_4h": 65.79671257784634,
+  "volume_ratio": 0.5931297164452256,
+  "news_context": "Consensys rebrand to MetaMask (Joe Lubin chairman/CEO); Revolut launching EUR stablecoin on Ethereum - incremental, does not overcome low volume"
+}
+```
+
+---
+### 2026-09-23T10:43:05.008Z — SOL/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule, code-enforced). Momentum trigger not flagged (1.77%/1.58%). No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 1.7717509650598755,
+    "pct_change_4h_48h": 1.5835546375528666
+  },
+  "rsi_14_4h": 68.27942907693065,
+  "volume_ratio": 0.9704359306256067,
+  "existing_position": true
+}
+```
+
+---
+### 2026-09-23T10:43:08.813Z — XRP/EUR — NO TRADE
+
+**Reasoning:** 22nd consecutive cycle with momentum flagged (7.66%/9.51%) but still unconfirmed by volume (ratio 0.986, below the 2x flag). RSI remains extended at 78.53. News was largely a repeat (Stripe integration, SEC XRP ETF approvals already known) plus one new but non-decisive detail (SBI Ripple Asia prepaid tokens on XRPL). Volume confirmation still the binding constraint. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": true,
+    "pct_change_1h_48h": 7.657935285053924,
+    "pct_change_4h_48h": 9.509074311884033
+  },
+  "rsi_14_4h": 78.52708869992996,
+  "volume_ratio": 0.9855791624804029,
+  "order_book_imbalance": 0.3575647295814612,
+  "news_context": "Stripe integration, SEC XRP ETF approvals (already known); SBI Ripple Asia prepaid tokens on XRPL - repeat/incremental, volume still unconfirmed"
+}
+```
+
+---
+### 2026-09-23T10:43:12.737Z — ADA/EUR — NO TRADE
+
+**Reasoning:** 22nd consecutive cycle with momentum flagged (5.98%/6.64% - 4h window clears the 6% threshold) but still unconfirmed by volume (ratio 1.263, below the 2x flag). Order book turned sharply negative this cycle (-0.517, real near-term selling pressure). News had one new detail (Van Rossem hard fork moved Cardano to v11, community-voted rather than company-driven) alongside repeat items (x402 SDK, Mastercard partnership). Volume confirmation still the binding constraint and order book now actively negative. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": true,
+    "pct_change_1h_48h": 5.976686817984459,
+    "pct_change_4h_48h": 6.642464445067447
+  },
+  "rsi_14_4h": 75.00777095925524,
+  "volume_ratio": 1.262615760764887,
+  "order_book_imbalance": -0.5168263795021865,
+  "news_context": "Van Rossem hard fork to v11 (community-voted); x402 SDK, Mastercard partnership - repeat/incremental, volume still unconfirmed, order book now negative"
+}
+```
+
+---
+### 2026-09-23T10:43:15.637Z — LINK/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule, code-enforced). Momentum trigger not flagged (-0.58%/-0.27%). No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -0.5788784548702562,
+    "pct_change_4h_48h": -0.27481695746544743
+  },
+  "rsi_14_4h": 60.20384455801913,
+  "volume_ratio": 0.9704945636012612,
+  "existing_position": true
+}
+```
+
+---
+### 2026-09-23T10:43:17.899Z — SUI/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule, code-enforced). Momentum trigger not flagged (1.82%/1.57%). Still short of +1R trailing activation (peak 0.9071 vs. threshold 0.959). No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 1.8217231897341917,
+    "pct_change_4h_48h": 1.5699119042240823
+  },
+  "rsi_14_4h": 74.34291565339461,
+  "volume_ratio": 1.0352651815881038,
+  "existing_position": true
+}
+```
+
+---
