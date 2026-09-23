@@ -3603,3 +3603,139 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-09-23T16:42:42.991Z — BTC/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule, code-enforced). Momentum trigger not flagged (-1.63%/-2.28%), part of a broader market-wide pullback (~2% global crypto market cap decline today). Position -1.61% unrealized, well within stop-loss. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -1.6301273361867497,
+    "pct_change_4h_48h": -2.2791554560034006
+  },
+  "rsi_14_4h": 55.00555765088055,
+  "volume_ratio": 0.9250447886218419,
+  "existing_position": true,
+  "unrealized_pnl_pct": -1.6066826100000071
+}
+```
+
+---
+### 2026-09-23T16:42:45.546Z — ETH/EUR — NO TRADE
+
+**Reasoning:** 27th consecutive cycle without a momentum flag (-2.95%/-3.28%), part of the broader market pullback. Volume ratio 0.593, well below the 2x confirmation threshold. News mostly repeat with no proportionate catalyst. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -2.952049490853678,
+    "pct_change_4h_48h": -3.277402972441426
+  },
+  "rsi_14_4h": 48.253133466281696,
+  "volume_ratio": 0.5931297164452256,
+  "news_context": "Consensys/MetaMask, Buterin comments, EIP fragmentation - repeat/non-catalyst"
+}
+```
+
+---
+### 2026-09-23T16:42:48.135Z — SOL/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule, code-enforced). Momentum trigger not flagged (-2.47%/-3.19%), part of the broader market pullback. Position -1.26% unrealized, well within stop-loss. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -2.469256295139554,
+    "pct_change_4h_48h": -3.187366789381895
+  },
+  "rsi_14_4h": 51.520465818670736,
+  "volume_ratio": 0.9704359306256067,
+  "existing_position": true,
+  "unrealized_pnl_pct": -1.258727566402409
+}
+```
+
+---
+### 2026-09-23T16:42:51.179Z — XRP/EUR — NO TRADE
+
+**Reasoning:** Momentum trigger not flagged (1.74%/0.86%), cooled substantially from prior cycles as part of the broader market pullback. News mostly repeat (Stripe, exchange outflows) plus a minor technical item (formal verification of XRPL lending). No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 1.7351809083910703,
+    "pct_change_4h_48h": 0.8555096807674358
+  },
+  "rsi_14_4h": 53.372461415165816,
+  "volume_ratio": 0.9855791624804029,
+  "news_context": "Stripe integration, exchange outflows, XRPL formal verification - repeat/minor"
+}
+```
+
+---
+### 2026-09-23T16:42:53.706Z — ADA/EUR — NO TRADE
+
+**Reasoning:** Fifth consecutive cycle without a momentum flag (-2.07%/-2.29%), part of the broader market pullback. News was an exact repeat of prior cycles (x402, Mastercard, IndiaChain). No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -2.0673510830324973,
+    "pct_change_4h_48h": -2.2878208014407897
+  },
+  "rsi_14_4h": 49.90686696453929,
+  "volume_ratio": 1.262615760764887,
+  "news_context": "x402, Mastercard, IndiaChain - exact repeat"
+}
+```
+
+---
+### 2026-09-23T16:42:57.514Z — LINK/EUR — NO TRADE
+
+**Reasoning:** Pair remains flat after prior cycle's stop-loss close. Momentum trigger not flagged (-5.74%/-6.04% - the 4h window technically crosses the 6% magnitude threshold but the trigger only fires on upward moves, per the tool's own flagged:false output; this is a decline, not a breakout). News mostly repeat (Bottomline partnership, chain integrations, Fed meeting) with no new proportionate catalyst. No re-entry - continuing to decline post stop-out, would be catching a falling knife.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -5.740151125850501,
+    "pct_change_4h_48h": -6.036089084640628
+  },
+  "rsi_14_4h": 41.095818376544415,
+  "volume_ratio": 0.9704945636012612,
+  "news_context": "Bottomline partnership, chain integrations, Fed meeting - repeat/incremental"
+}
+```
+
+---
+### 2026-09-23T16:43:00.773Z — SUI/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule, code-enforced). Momentum trigger not flagged (-5.31%/-7.47% - decline, not a breakout, so the trigger correctly stays unflagged). Position now -3.27% unrealized, the largest drawdown among the three, but still well within its stop-loss (0.775 vs current 0.8388). Still short of +1R trailing activation. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -5.314938369331667,
+    "pct_change_4h_48h": -7.470438722510774
+  },
+  "rsi_14_4h": 52.53758945337505,
+  "volume_ratio": 1.0352651815881038,
+  "existing_position": true,
+  "unrealized_pnl_pct": -3.2749114991867487
+}
+```
+
+---
