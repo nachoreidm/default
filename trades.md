@@ -2913,3 +2913,139 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-09-23T11:42:46.555Z — BTC/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule, code-enforced). Momentum trigger not flagged (1.88%/2.12%). No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 1.8769365298738367,
+    "pct_change_4h_48h": 2.1153099056929374
+  },
+  "rsi_14_4h": 71.972869442161,
+  "volume_ratio": 0.9250447886218419,
+  "existing_position": true
+}
+```
+
+---
+### 2026-09-23T11:42:50.480Z — ETH/EUR — NO TRADE
+
+**Reasoning:** 22nd consecutive cycle without a momentum flag (1.13%/1.29%). Volume ratio 0.593, well below the 2x confirmation threshold. News mostly a repeat (Consensys/MetaMask rebrand, Revolut EUR stablecoin) plus a non-price-catalyst item (quantum-resistance upgrade roadmap commentary). No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 1.1286262969505583,
+    "pct_change_4h_48h": 1.2871483319350312
+  },
+  "rsi_14_4h": 65.79671257784634,
+  "volume_ratio": 0.5931297164452256,
+  "news_context": "Consensys/MetaMask rebrand, Revolut EUR stablecoin, quantum-resistance roadmap commentary - repeat/non-catalyst"
+}
+```
+
+---
+### 2026-09-23T11:42:51.881Z — SOL/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule, code-enforced). Momentum trigger not flagged (1.33%/1.58%). No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 1.327825317202709,
+    "pct_change_4h_48h": 1.5835546375528666
+  },
+  "rsi_14_4h": 68.27942907693065,
+  "volume_ratio": 0.9704359306256067,
+  "existing_position": true
+}
+```
+
+---
+### 2026-09-23T11:42:55.815Z — XRP/EUR — NO TRADE
+
+**Reasoning:** 23rd consecutive cycle with momentum flagged (8.00%/9.51%) but still unconfirmed by volume (ratio 0.986, below the 2x flag). RSI remains extended at 78.53. News mostly repeat (Stripe, SEC ETF approvals, SBI Ripple Asia already known) plus a speculative, non-hard-catalyst item (exchange-outflow interpretation). Volume confirmation still the binding constraint. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": true,
+    "pct_change_1h_48h": 8.003651385515148,
+    "pct_change_4h_48h": 9.509074311884033
+  },
+  "rsi_14_4h": 78.52708869992996,
+  "volume_ratio": 0.9855791624804029,
+  "order_book_imbalance": 0.6807214305916743,
+  "news_context": "Stripe, SEC ETF approvals, SBI Ripple Asia (repeat); exchange-outflow speculation (non-hard-catalyst) - volume still unconfirmed"
+}
+```
+
+---
+### 2026-09-23T11:43:00.246Z — ADA/EUR — NO TRADE
+
+**Reasoning:** 23rd consecutive cycle with momentum flagged (5.89%/6.64% - 4h window clears the 6% threshold) but still unconfirmed by volume (ratio 1.263, below the 2x flag). Order book remains sharply negative (-0.606, worse than last cycle's -0.517). News had one new real-world item (IndiaChain agricultural-settlement mainnet launch) but also a negative leadership comment (Hoskinson: funding decisions hurting ADA price/growth) alongside repeats (x402, Mastercard). Volume confirmation still the binding constraint and order book actively deteriorating. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": true,
+    "pct_change_1h_48h": 5.888362501128546,
+    "pct_change_4h_48h": 6.642464445067447
+  },
+  "rsi_14_4h": 75.00777095925524,
+  "volume_ratio": 1.262615760764887,
+  "order_book_imbalance": -0.6060749584043122,
+  "news_context": "IndiaChain mainnet launch (new); Hoskinson funding-decisions criticism (negative); x402/Mastercard (repeat) - volume still unconfirmed, order book worsening"
+}
+```
+
+---
+### 2026-09-23T11:43:02.730Z — LINK/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule, code-enforced). Momentum trigger not flagged (-0.33%/-0.27%). Position now slightly negative (-1.31% unrealized) but well within the stop-loss (10.75 vs current 11.14) - no action warranted. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -0.33169992911642354,
+    "pct_change_4h_48h": -0.27481695746544743
+  },
+  "rsi_14_4h": 60.20384455801913,
+  "volume_ratio": 0.9704945636012612,
+  "existing_position": true,
+  "unrealized_pnl_pct": -1.307615758364036
+}
+```
+
+---
+### 2026-09-23T11:43:05.034Z — SUI/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule, code-enforced). Momentum trigger not flagged (0.86%/1.57%). Still short of +1R trailing activation (peak 0.9071 vs. threshold 0.959). No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 0.8583690987124523,
+    "pct_change_4h_48h": 1.5699119042240823
+  },
+  "rsi_14_4h": 74.34291565339461,
+  "volume_ratio": 1.0352651815881038,
+  "existing_position": true
+}
+```
+
+---
