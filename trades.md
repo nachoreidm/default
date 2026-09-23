@@ -2386,3 +2386,127 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-09-23T07:42:40.048Z — BTC/EUR — NO TRADE
+
+**Reasoning:** Already have an open long position (entry 74,971, now +0.68% unrealized) - one position per pair is code-enforced, no new entry evaluated.
+
+**Signals considered:**
+```json
+{
+  "note": "existing open position - no new entry evaluated",
+  "current_price": 75488.9
+}
+```
+
+---
+### 2026-09-23T07:42:41.955Z — SOL/EUR — NO TRADE
+
+**Reasoning:** Already have an open long position (entry 101.68, now +1.77% unrealized) - one position per pair is code-enforced, no new entry evaluated.
+
+**Signals considered:**
+```json
+{
+  "note": "existing open position - no new entry evaluated",
+  "current_price": 103.49
+}
+```
+
+---
+### 2026-09-23T07:42:43.671Z — LINK/EUR — NO TRADE
+
+**Reasoning:** Already have an open long position (entry 11.2895, now +0.55% unrealized) - one position per pair is code-enforced, no new entry evaluated. Momentum_trigger still not flagged.
+
+**Signals considered:**
+```json
+{
+  "note": "existing open position - no new entry evaluated",
+  "momentum_trigger": {
+    "flagged": false
+  },
+  "current_price": 11.34782
+}
+```
+
+---
+### 2026-09-23T07:42:47.184Z — SUI/EUR — NO TRADE
+
+**Reasoning:** Already have an open long position (entry 0.867, now +3.45% unrealized, still short of the 0.959 +1R trailing threshold) - one position per pair is code-enforced, no new entry evaluated.
+
+**Signals considered:**
+```json
+{
+  "note": "existing open position - no new entry evaluated",
+  "current_price": 0.8971
+}
+```
+
+---
+### 2026-09-23T07:42:48.893Z — ETH/EUR — NO TRADE
+
+**Reasoning:** Momentum trigger not flagged again (4.00%/4.71%, eighteenth consecutive cycle without it). Volume still below average (0.59x). News is an exact repeat of prior cycles. Passing again.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 4.004072669539967,
+    "pct_change_4h_48h": 4.709455582447843
+  },
+  "rsi_14_4h": 73.88830576415418,
+  "volume": {
+    "ratio": 0.5931297164452256,
+    "flag_above_2x": false
+  },
+  "order_book_imbalance_top10": -0.11089944755812664,
+  "news_context": "Exact repeat of prior cycles - no new item."
+}
+```
+
+---
+### 2026-09-23T07:42:50.530Z — XRP/EUR — NO TRADE
+
+**Reasoning:** Nineteenth consecutive cycle with the same unresolved objection: volume still 0.99x, never confirmed. News is an exact repeat of prior cycles. RSI remains at 78.5. Passing again.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": true,
+    "pct_change_1h_48h": 13.599195870860681,
+    "pct_change_4h_48h": 12.895582873963932
+  },
+  "rsi_14_4h": 78.48884114382656,
+  "volume": {
+    "ratio": 0.9855791624804029,
+    "flag_above_2x": false
+  },
+  "order_book_imbalance_top10": 0.5089818398965891,
+  "news_context": "Exact repeat of prior cycles - no new development."
+}
+```
+
+---
+### 2026-09-23T07:42:52.307Z — ADA/EUR — NO TRADE
+
+**Reasoning:** Nineteenth consecutive cycle with the same unresolved objection: volume still 1.26x, never once confirmed. News is an exact repeat of prior cycles. RSI remains extreme at 81.5. Passing again.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": true,
+    "pct_change_1h_48h": 12.04685299132627,
+    "pct_change_4h_48h": 12.358217807102085
+  },
+  "rsi_14_4h": 81.53900007173701,
+  "volume": {
+    "ratio": 1.262615760764887,
+    "flag_above_2x": false
+  },
+  "order_book_imbalance_top10": 0.4534382457718897,
+  "news_context": "Exact repeat of prior cycles - no new development."
+}
+```
+
+---
