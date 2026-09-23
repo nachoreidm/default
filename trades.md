@@ -3739,3 +3739,139 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-09-23T17:42:23.002Z — BTC/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule, code-enforced). Momentum trigger not flagged (-1.42%/-2.28%), continued market pullback. Position -1.45% unrealized, well within stop-loss. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -1.4209650760082175,
+    "pct_change_4h_48h": -2.2791554560034006
+  },
+  "rsi_14_4h": 55.00555765088055,
+  "volume_ratio": 0.9250447886218419,
+  "existing_position": true,
+  "unrealized_pnl_pct": -1.4487725299999994
+}
+```
+
+---
+### 2026-09-23T17:42:25.874Z — ETH/EUR — NO TRADE
+
+**Reasoning:** 28th consecutive cycle without a momentum flag (-2.28%/-3.28%), continued market pullback. Volume ratio 0.593, well below the 2x confirmation threshold. News mostly repeat (Consensys/MetaMask, EIP fragmentation, mainnet anniversary). No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -2.2816278593490797,
+    "pct_change_4h_48h": -3.277402972441426
+  },
+  "rsi_14_4h": 48.253133466281696,
+  "volume_ratio": 0.5931297164452256,
+  "news_context": "Consensys/MetaMask, EIP fragmentation, mainnet anniversary - repeat/non-catalyst"
+}
+```
+
+---
+### 2026-09-23T17:42:28.760Z — SOL/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule, code-enforced). Momentum trigger not flagged (-1.63%/-3.19%), continued market pullback. Position -1.21% unrealized, well within stop-loss. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -1.6345306841538627,
+    "pct_change_4h_48h": -3.187366789381895
+  },
+  "rsi_14_4h": 51.520465818670736,
+  "volume_ratio": 0.9704359306256067,
+  "existing_position": true,
+  "unrealized_pnl_pct": -1.2095585232624777
+}
+```
+
+---
+### 2026-09-23T17:42:30.866Z — XRP/EUR — NO TRADE
+
+**Reasoning:** Momentum trigger not flagged (1.10%/0.86%), remains cooled. News was an exact repeat of prior cycles (Stripe, ETF issuers). No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 1.0989854338383054,
+    "pct_change_4h_48h": 0.8555096807674358
+  },
+  "rsi_14_4h": 53.372461415165816,
+  "volume_ratio": 0.9855791624804029,
+  "news_context": "Stripe integration, ETF issuers - exact repeat"
+}
+```
+
+---
+### 2026-09-23T17:42:33.514Z — ADA/EUR — NO TRADE
+
+**Reasoning:** Sixth consecutive cycle without a momentum flag (-0.30%/-2.29%). News was an exact repeat of prior cycles (x402, Mastercard, IndiaChain). No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -0.3023517834476649,
+    "pct_change_4h_48h": -2.2878208014407897
+  },
+  "rsi_14_4h": 49.90686696453929,
+  "volume_ratio": 1.262615760764887,
+  "news_context": "x402, Mastercard, IndiaChain - exact repeat"
+}
+```
+
+---
+### 2026-09-23T17:42:37.192Z — LINK/EUR — NO TRADE
+
+**Reasoning:** Pair remains flat after prior stop-loss close. Momentum trigger not flagged (-3.94%/-6.04%, decline not breakout). News mostly repeat (Bottomline, chain integrations, strategic reserve). No re-entry.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -3.944699405243901,
+    "pct_change_4h_48h": -6.036089084640628
+  },
+  "rsi_14_4h": 41.095818376544415,
+  "volume_ratio": 0.9704945636012612,
+  "news_context": "Bottomline, chain integrations, strategic reserve - repeat/incremental"
+}
+```
+
+---
+### 2026-09-23T17:42:38.733Z — SUI/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule, code-enforced). Momentum trigger not flagged (-2.52%/-7.47%, decline not breakout). Position -2.27% unrealized, a slight improvement from last cycle's -3.27%, still well within stop-loss. Still short of +1R trailing activation. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -2.524495677233433,
+    "pct_change_4h_48h": -7.470438722510774
+  },
+  "rsi_14_4h": 52.53758945337505,
+  "volume_ratio": 1.0352651815881038,
+  "existing_position": true,
+  "unrealized_pnl_pct": -2.2716827557949073
+}
+```
+
+---
