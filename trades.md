@@ -2510,3 +2510,136 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-09-23T08:42:56.832Z — BTC/EUR — NO TRADE
+
+**Reasoning:** Already have an open long position (entry 74,971, now +0.64% unrealized) - one position per pair is code-enforced, no new entry evaluated. Momentum_trigger dropped off this cycle as the initial rally window rolls off the 48h lookback.
+
+**Signals considered:**
+```json
+{
+  "note": "existing open position - no new entry evaluated",
+  "momentum_trigger": {
+    "flagged": false
+  },
+  "current_price": 75460.1
+}
+```
+
+---
+### 2026-09-23T08:42:59.044Z — SOL/EUR — NO TRADE
+
+**Reasoning:** Already have an open long position (entry 101.68, now +1.66% unrealized) - one position per pair is code-enforced, no new entry evaluated. Momentum_trigger dropped off this cycle.
+
+**Signals considered:**
+```json
+{
+  "note": "existing open position - no new entry evaluated",
+  "momentum_trigger": {
+    "flagged": false
+  },
+  "current_price": 103.34
+}
+```
+
+---
+### 2026-09-23T08:43:00.800Z — LINK/EUR — NO TRADE
+
+**Reasoning:** Already have an open long position (entry 11.2895, now +0.91% unrealized) - one position per pair is code-enforced, no new entry evaluated. Momentum_trigger still not flagged (4h change now slightly negative).
+
+**Signals considered:**
+```json
+{
+  "note": "existing open position - no new entry evaluated",
+  "momentum_trigger": {
+    "flagged": false
+  },
+  "current_price": 11.38904
+}
+```
+
+---
+### 2026-09-23T08:43:02.349Z — SUI/EUR — NO TRADE
+
+**Reasoning:** Already have an open long position (entry 0.867, now +3.48% unrealized, still short of the 0.959 +1R trailing threshold) - one position per pair is code-enforced, no new entry evaluated. Momentum_trigger dropped off this cycle.
+
+**Signals considered:**
+```json
+{
+  "note": "existing open position - no new entry evaluated",
+  "momentum_trigger": {
+    "flagged": false
+  },
+  "current_price": 0.8976
+}
+```
+
+---
+### 2026-09-23T08:43:04.020Z — ETH/EUR — NO TRADE
+
+**Reasoning:** Momentum trigger not flagged again (2.26%/1.29%, nineteenth consecutive cycle without it, and now decelerating further as the rally window rolls off the 48h lookback). Volume still below average (0.59x). News is an exact repeat of prior cycles. Passing again.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 2.263691545422807,
+    "pct_change_4h_48h": 1.2871483319350312
+  },
+  "rsi_14_4h": 65.79671257784634,
+  "volume": {
+    "ratio": 0.5931297164452256,
+    "flag_above_2x": false
+  },
+  "order_book_imbalance_top10": -0.044018223747117266,
+  "news_context": "Exact repeat of prior cycles - no new item."
+}
+```
+
+---
+### 2026-09-23T08:43:07.268Z — XRP/EUR — NO TRADE
+
+**Reasoning:** Twentieth consecutive cycle with the same unresolved objection: volume still 0.99x, never confirmed. RSI ticked up slightly to 78.5. News is an exact repeat of prior cycles with one minor new mention (college sports sponsorships) that isn't a price catalyst. Passing again.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": true,
+    "pct_change_1h_48h": 10.081341275642718,
+    "pct_change_4h_48h": 9.509074311884033
+  },
+  "rsi_14_4h": 78.52708869992996,
+  "volume": {
+    "ratio": 0.9855791624804029,
+    "flag_above_2x": false
+  },
+  "order_book_imbalance_top10": 0.28705397979531627,
+  "news_context": "Mostly repeat; minor new item (college sports sponsorships) not a price catalyst."
+}
+```
+
+---
+### 2026-09-23T08:43:10.926Z — ADA/EUR — NO TRADE
+
+**Reasoning:** Twentieth consecutive cycle with the same unresolved objection: volume still 1.26x, never once confirmed. RSI cooled somewhat to 75.0 (from 81.5) but remains elevated. News repeats prior items plus one minor market-cap ranking note (moved to rank 16). Order book turned negative (-0.26). Passing again.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": true,
+    "pct_change_1h_48h": 8.601375252234416,
+    "pct_change_4h_48h": 6.642464445067447
+  },
+  "rsi_14_4h": 75.00777095925524,
+  "volume": {
+    "ratio": 1.262615760764887,
+    "flag_above_2x": false
+  },
+  "order_book_imbalance_top10": -0.26095446814687734,
+  "news_context": "Mostly repeat; minor new item (market cap rank climbed to 16). No price-moving catalyst."
+}
+```
+
+---
