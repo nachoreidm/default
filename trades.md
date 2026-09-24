@@ -8003,3 +8003,196 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-09-24T19:43:08.103Z — BTC/EUR — NO TRADE
+
+**Reasoning:** Existing open position (entered 2026-09-22 at €74,971, one-per-pair rule code-enforced) - no re-entry possible regardless of signals. Price at €74,245, drawdown improving slightly to -0.98%. No momentum_trigger flag (1h/4h 48h changes -1.37%/-1.42%). News is a repeat of prior cycles (Coinbase lending/custody products) plus an unrelated item on Brazil's grassroots crypto adoption ranking. Position remains well within its €71,800 stop-loss buffer; no trailing activation.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -1.3731615254457818,
+    "pct_change_4h_48h": -1.4163259993571737
+  },
+  "rsi_14_4h": 56.19575131967518,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "volume": {
+    "ratio": 1.1587151236216053,
+    "flag_above_2x": false
+  },
+  "order_book_imbalance_top10": -0.13272543059777106,
+  "existing_position": true,
+  "news": "Coinbase Bitcoin-backed loans/custody security - repeat of prior cycles; Brazil ranked #1 for grassroots crypto adoption, not BTC-price-specific."
+}
+```
+
+---
+### 2026-09-24T19:43:13.667Z — SOL/EUR — NO TRADE
+
+**Reasoning:** Existing open position (entered 2026-09-22 at €101.68, one-per-pair rule code-enforced) - no re-entry possible regardless of signals. Price at €103.24, unrealized profit improving to +1.52%, a new high for this position. No momentum_trigger flag (1h/4h 48h changes -0.09%/-0.99%, both very small). News includes a new item: Solana's on-chain RWA (real-world asset) value hit a new all-time high (~$4.6B, +11.5% over 30 days), reinforcing the bullish institutional-inflow narrative. Not yet at +1R (~€106.86 needed), no trailing activation yet.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -0.08715018882539867,
+    "pct_change_4h_48h": -0.9877021400212996
+  },
+  "rsi_14_4h": 58.242256961336835,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "volume": {
+    "ratio": 1.0714079678839485,
+    "flag_above_2x": false
+  },
+  "order_book_imbalance_top10": -0.010828543623818382,
+  "existing_position": true,
+  "news": "Solana on-chain RWA value hit new ATH (~$4.6B, +11.5% over 30 days) - new supportive item; high-level consolidation with bullish bias continuing."
+}
+```
+
+---
+### 2026-09-24T19:43:17.202Z — SUI/EUR — NO TRADE
+
+**Reasoning:** Existing open position (entered 2026-09-22 at €0.867, one-per-pair rule code-enforced) - no re-entry possible regardless of signals. Price at €0.8907, unrealized profit at +2.71%, a new high for this position. 1h/4h price action positive (+0.89%/+0.40%). News is a repeat of prior cycles (nine-month downtrend break, gasless stablecoin transfers, CFTC tokenization mention). Not yet at +1R (~€0.959 needed), no trailing activation yet, consistent with portfolio_check_stops.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 0.8883826879271103,
+    "pct_change_4h_48h": 0.3986332574031831
+  },
+  "rsi_14_4h": 62.22043374998382,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "volume": {
+    "ratio": 0.9494815845933798,
+    "flag_above_2x": false
+  },
+  "order_book_imbalance_top10": 0.4515571467352227,
+  "existing_position": true,
+  "news": "Nine-month downtrend break, gasless stablecoin transfers live, CFTC tokenization mention - repeat of prior cycles."
+}
+```
+
+---
+### 2026-09-24T19:43:20.983Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger flag (1h/4h 48h changes -1.58%/-1.83%). No volume confirmation (ratio 0.74x). RSI at 53.1, no fresh SMA crossover. News is mostly long-range price predictions (Standard Chartered's $40K decade-out target) rather than a near-term catalyst. No confirming signal. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -1.5764378910930583,
+    "pct_change_4h_48h": -1.8318965517241461
+  },
+  "rsi_14_4h": 53.05434191135705,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "volume": {
+    "ratio": 0.7393373684285016,
+    "flag_above_2x": false
+  },
+  "order_book_imbalance_top10": 0.1565499999999999,
+  "news": "Long-range price predictions (Standard Chartered $40K by next decade) - not a near-term catalyst; no ETH-specific news today."
+}
+```
+
+---
+### 2026-09-24T19:43:25.729Z — XRP/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger flag (1h/4h 48h changes -2.42%/-3.93%). Volume ratio 1.49x, below the 2x confirmation threshold. RSI neutral at 54.7, no fresh SMA crossover. News is a repeat of prior cycles (short-term DMI/MACD flip, $20M ETF inflows) with technical analysts noting a push toward $1.80 is more likely contingent on Bitcoin reclaiming $85K+ - an indirect, BTC-dependent catalyst, not an XRP-specific one today. No confirming signal. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -2.4186858449530804,
+    "pct_change_4h_48h": -3.9327990535890844
+  },
+  "rsi_14_4h": 54.726614262112875,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "volume": {
+    "ratio": 1.4936096902469425,
+    "flag_above_2x": false
+  },
+  "order_book_imbalance_top10": 0.15551084909350218,
+  "news": "Push toward $1.80 more likely if BTC reclaims $85K+ - BTC-dependent, not an XRP-specific catalyst; $20M ETF inflows, XRPL AI security - repeat of prior cycles."
+}
+```
+
+---
+### 2026-09-24T19:43:28.986Z — ADA/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger flag (1h/4h 48h changes -1.18%/-0.80%). Volume ratio 1.05x, unconfirmed. RSI at 60.4, no fresh SMA crossover. News is a repeat of prior cycles (CME futures, x402 protocol, Mastercard). No volume/momentum confirmation. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -1.1758897308951834,
+    "pct_change_4h_48h": -0.8012900361916722
+  },
+  "rsi_14_4h": 60.369974829236554,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "volume": {
+    "ratio": 1.0549844191816082,
+    "flag_above_2x": false
+  },
+  "order_book_imbalance_top10": 0.31654710315142776,
+  "news": "CME futures, x402 protocol, Mastercard partnership - repeat of prior cycles."
+}
+```
+
+---
+### 2026-09-24T19:43:36.336Z — LINK/EUR — NO TRADE
+
+**Reasoning:** Notable price move this cycle (1h/48h +4.29%, price up to €11.61-11.65 from ~€11.20 last cycle) with genuine, proportionate news catalysts: strategic reserve acquired ~97,500 LINK (~$1.1M) bringing total holdings to 5.96M LINK, 16 new integrations across 7 chains, and the Wyoming Stable Token Commission adopted Chainlink's Proof of Reserve service - real institutional-adoption news, not recycled. However, momentum_trigger is not flagged (4.29% is below the 6% threshold) and volume ratio (1.54x) remains below the 2x confirmation bar this strategy requires - RSI (56.3) and SMA state (established trend, no fresh crossover) don't add a second confirming signal either. Absent either hard threshold, this doesn't meet the bar for a fresh entry despite the genuine catalyst; watching for confirmation next cycle if the move extends with volume.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 4.29407271912666,
+    "pct_change_4h_48h": -0.8465024227361402,
+    "threshold_pct": 6
+  },
+  "rsi_14_4h": 56.29172771812041,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "volume": {
+    "ratio": 1.5411056459945272,
+    "flag_above_2x": false
+  },
+  "order_book_imbalance_top10": 0.18727521754121748,
+  "news": "Strategic reserve bought ~97,500 LINK (~$1.1M), total 5.96M LINK; 16 new integrations across 7 chains; Wyoming Stable Token Commission adopted Chainlink Proof of Reserve - genuine, new institutional-adoption catalysts, but below the volume (2x) and momentum_trigger (6%) confirmation thresholds."
+}
+```
+
+---
