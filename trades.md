@@ -5891,3 +5891,195 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-09-24T08:42:54.472Z — BTC/EUR — NO TRADE
+
+**Reasoning:** Existing open position (entered 2026-09-22 at €74,971, one-per-pair rule code-enforced) - no re-entry possible regardless of signals. Price at €73,580, continuing the pullback seen over the last two cycles. No momentum_trigger flag (1h/4h 48h changes -1.37%/-1.05%). News is a repeat of prior cycles: BTC retreated from $87.2K to ~$83.5K after a hot business-activity report, still 12% up over 7 days. Position remains well within its €71,800 stop-loss buffer; no trailing activation yet.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -1.3717875105000767,
+    "pct_change_4h_48h": -1.053396537125561
+  },
+  "rsi_14_4h": 57.17766113145635,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "volume": {
+    "ratio": 1.1587151236216053,
+    "flag_above_2x": false
+  },
+  "order_book_imbalance_top10": 0.1823556161891768,
+  "existing_position": true,
+  "news": "BTC retreated from $87.2K to ~$83.5K after hotter-than-expected business activity report; still 12% up over 7 days; unchanged narrative from prior cycles."
+}
+```
+
+---
+### 2026-09-24T08:42:59.011Z — SOL/EUR — NO TRADE
+
+**Reasoning:** Existing open position (entered 2026-09-22 at €101.68, one-per-pair rule code-enforced) - no re-entry possible regardless of signals. Price at €100.29, continuing a mild pullback. No momentum_trigger flag (1h/4h 48h changes -1.19%/-0.93%). News largely a repeat (SOL surged 17% over 7 days outpacing BTC/ETH, network upgrades from Sept 9/18, watching for a daily close above $120 resistance). Position remains well within its €96.50 stop-loss buffer; no trailing activation yet.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -1.189083820662767,
+    "pct_change_4h_48h": -0.9283690022476331
+  },
+  "rsi_14_4h": 56.73146232530491,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "volume": {
+    "ratio": 1.0714079678839485,
+    "flag_above_2x": false
+  },
+  "order_book_imbalance_top10": -0.20343017262105847,
+  "existing_position": true,
+  "news": "SOL surged 17% over 7 days outpacing BTC (11%) and ETH (11%); watching for a daily close above $120 resistance to confirm next uptrend leg; network upgrades from Sept 9/18 unchanged."
+}
+```
+
+---
+### 2026-09-24T08:43:03.701Z — SUI/EUR — NO TRADE
+
+**Reasoning:** Existing open position (entered 2026-09-22 at €0.867, one-per-pair rule code-enforced) - no re-entry possible regardless of signals. Price at €0.8403, the deepest drawdown yet (-3.08% unrealized) but still well clear of the €0.775 stop. News remains positive for the underlying thesis (nine-month downtrend break, gasless-stablecoin upgrade, CFTC tokenization mention - all repeats of the last two cycles) but Kraken's own 48h window continues to show a short-term pullback (-5.02%/-3.90%), so no momentum_trigger flag. No trailing activation.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -5.024003572624767,
+    "pct_change_4h_48h": -3.8974243108901914
+  },
+  "rsi_14_4h": 55.93815258913798,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "volume": {
+    "ratio": 0.9494815845933798,
+    "flag_above_2x": false
+  },
+  "order_book_imbalance_top10": 0.5629964938304318,
+  "existing_position": true,
+  "news": "SUI broke nine-month downtrend Sept 23; gasless-stablecoin-transfer upgrade live; CFTC tokenization remarks named SUI; up ~48% over 7 days per various sources - all repeats of prior cycles."
+}
+```
+
+---
+### 2026-09-24T08:43:08.774Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger flag (1h/4h 48h changes -1.47%/-1.15%). No volume confirmation (ratio 0.74x). RSI neutral at 54.5, no fresh SMA crossover. News (largely a repeat: $270M spot ETF inflows, Binance withdrawals near a 2023-era pace, BitMine treasury approaching 6M ETH) is genuinely bullish for the medium term but doesn't substitute for the required volume/momentum confirmation this strategy requires. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -1.4749828078437859,
+    "pct_change_4h_48h": -1.1453781336901696
+  },
+  "rsi_14_4h": 54.46939172944433,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "volume": {
+    "ratio": 0.7393373684285016,
+    "flag_above_2x": false
+  },
+  "order_book_imbalance_top10": -0.106453221693839,
+  "news": "Spot ETH ETFs saw $270M inflows Sept 22; Binance withdrawals at a monthly pace not seen since 2023; BitMine treasury approaching 6M ETH; bulls targeting $3,000 after break above $2,700 - largely a repeat of prior cycles."
+}
+```
+
+---
+### 2026-09-24T08:43:14.277Z — XRP/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger flag (1h/4h 48h changes -2.10%/-1.48%). Volume ratio 1.49x, below the 2x confirmation threshold. RSI neutral at 53.3, no fresh SMA crossover. News is a repeat of last cycle (holding near $1.50 after $1.66 rejection, $20M ETF inflows, Ripple's XRPL AI security deployment, Stripe payment-tools link from Sept 17) - no fresh catalyst, no confirming volume/momentum signal. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -2.09882394762568,
+    "pct_change_4h_48h": -1.4823040176475546
+  },
+  "rsi_14_4h": 53.34791791190005,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "volume": {
+    "ratio": 1.4936096902469425,
+    "flag_above_2x": false
+  },
+  "order_book_imbalance_top10": 0.08093866634911939,
+  "news": "XRP holding near $1.50 after $1.66 rejection; $20M ETF inflows Sept 23; Ripple XRPL AI security deployment; Stripe payment-tools link from Sept 17 - repeat of prior cycles' news."
+}
+```
+
+---
+### 2026-09-24T08:43:17.519Z — ADA/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger flag (1h/4h 48h changes -2.56%/-1.04%). Volume ratio 1.05x, unconfirmed. RSI neutral at 54.8, no fresh SMA crossover. Order book strongly positive (0.56, more resting bids than asks) but that alone isn't a confirming signal. News is a repeat of prior cycles (x402 protocol integration, Mastercard cross-border payments program, IndiaChain mainnet launch). No volume or momentum confirmation to act on. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -2.562325916476621,
+    "pct_change_4h_48h": -1.0397345437937415
+  },
+  "rsi_14_4h": 54.77112998478075,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "volume": {
+    "ratio": 1.0549844191816082,
+    "flag_above_2x": false
+  },
+  "order_book_imbalance_top10": 0.5636360135425057,
+  "news": "x402 protocol integration for AI-agent payments; Cardano Foundation joined Mastercard cross-border payments program; IndiaChain live on mainnet - all repeats of prior cycles."
+}
+```
+
+---
+### 2026-09-24T08:43:21.948Z — LINK/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger flag (1h/4h 48h changes -3.80%/-3.22%, a continuing decline). Volume ratio 1.54x, below the 2x confirmation threshold. RSI at 49.4, now the weakest of the lineup and dipping toward neutral-bearish. No fresh SMA crossover. News (Bottomline/SWIFT partnership, Nazarov's Philadelphia Fed panel today) is a repeat of the last cycle and ecosystem-oriented rather than a proportionate catalyst for the ongoing decline. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -3.796964572031019,
+    "pct_change_4h_48h": -3.218601707760935
+  },
+  "rsi_14_4h": 49.427505681821806,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "volume": {
+    "ratio": 1.5411056459945272,
+    "flag_above_2x": false
+  },
+  "order_book_imbalance_top10": 0.16798147333166036,
+  "news": "Chainlink-Bottomline strategic partnership via CCIP/CRE; Sergey Nazarov panel at Philadelphia Fed Fintech Conference today - repeat of prior cycle's news."
+}
+```
+
+---
