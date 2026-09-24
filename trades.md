@@ -7427,3 +7427,195 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-09-24T16:42:28.473Z — BTC/EUR — NO TRADE
+
+**Reasoning:** Existing open position (entered 2026-09-22 at €74,971, one-per-pair rule code-enforced) - no re-entry possible regardless of signals. Price at €74,550, drawdown improving to -0.56% (from -1.07% last cycle). No momentum_trigger flag (1h/4h 48h changes -1.76%/-1.42%). News attributes the ongoing pullback to bond yields hitting multi-year highs, pressuring risk assets broadly, alongside unrelated Coinbase custody/lending product news. Position remains well within its €71,800 stop-loss buffer; no trailing activation.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -1.7614306379610793,
+    "pct_change_4h_48h": -1.4163259993571737
+  },
+  "rsi_14_4h": 56.19575131967518,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "volume": {
+    "ratio": 1.1587151236216053,
+    "flag_above_2x": false
+  },
+  "order_book_imbalance_top10": -0.2010848508330105,
+  "existing_position": true,
+  "news": "Bond yields at multi-year highs pressuring risk assets broadly; Coinbase launched Bitcoin-backed loans via Morpho and post-quantum custody security - not BTC-price-specific."
+}
+```
+
+---
+### 2026-09-24T16:42:32.779Z — SOL/EUR — NO TRADE
+
+**Reasoning:** Existing open position (entered 2026-09-22 at €101.68, one-per-pair rule code-enforced) - no re-entry possible regardless of signals. Price at €103.39, unrealized profit now +1.62% (from +0.41% last cycle), the position's best level since entry. No momentum_trigger flag (1h/4h 48h changes -0.46%/-0.99%, both shrinking). News is a repeat of prior cycles (12 straight weeks of ETF inflows). Not yet at +1R (~€106.86 needed), no trailing activation yet.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -0.4575545171339553,
+    "pct_change_4h_48h": -0.9877021400212996
+  },
+  "rsi_14_4h": 58.242256961336835,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "volume": {
+    "ratio": 1.0714079678839485,
+    "flag_above_2x": false
+  },
+  "order_book_imbalance_top10": -0.19458328262721433,
+  "existing_position": true,
+  "news": "12 straight weeks of SOL ETF inflows ($26.1M Sept 21) - repeat of prior cycles."
+}
+```
+
+---
+### 2026-09-24T16:42:37.242Z — SUI/EUR — NO TRADE
+
+**Reasoning:** Existing open position (entered 2026-09-22 at €0.867, one-per-pair rule code-enforced) - no re-entry possible regardless of signals. Price at €0.8941, unrealized profit +3.12% and 1h/48h price action has now flipped positive (+0.63%/+0.40%), the first positive readings in several cycles. News confirms the recovery: SUI reportedly up 4.37% in the last 24h per one source, still well within the nine-month-downtrend-break narrative. Not yet at +1R (~€0.959 needed), no trailing activation yet, consistent with portfolio_check_stops.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 0.627853881278533,
+    "pct_change_4h_48h": 0.3986332574031831
+  },
+  "rsi_14_4h": 62.22043374998382,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "volume": {
+    "ratio": 0.9494815845933798,
+    "flag_above_2x": false
+  },
+  "order_book_imbalance_top10": 0.5936360866151605,
+  "existing_position": true,
+  "news": "SUI up 4.37% in last 24h per one source; nine-month downtrend break holding; exchange operators adding more altcoin futures contracts including SUI."
+}
+```
+
+---
+### 2026-09-24T16:42:41.507Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger flag (1h/4h 48h changes -1.72%/-1.83%, both shrinking). No volume confirmation (ratio 0.74x). RSI at 53.1, recovering, no fresh SMA crossover. News attributes the pullback to the same broad bond-yield-driven risk-off move as BTC, explicitly noting no ETH-specific catalyst drove it. No confirming signal. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -1.7239512178867884,
+    "pct_change_4h_48h": -1.8318965517241461
+  },
+  "rsi_14_4h": 53.05434191135705,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "volume": {
+    "ratio": 0.7393373684285016,
+    "flag_above_2x": false
+  },
+  "order_book_imbalance_top10": -0.02940993981510213,
+  "news": "ETH's decline tracked the broader market amid bond yields hitting multi-year highs, no ETH-specific catalyst - explicit macro attribution."
+}
+```
+
+---
+### 2026-09-24T16:42:45.975Z — XRP/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger flag (1h/4h 48h changes -2.56%/-3.93%, both shrinking). Volume ratio 1.49x, below the 2x confirmation threshold. RSI improving to 54.7, no fresh SMA crossover. News is a repeat of prior cycles ($20M ETF inflows, XRPL AI security), with a technical analyst now revising toward a more bullish long-term view given Bitcoin's strength, though a separate near-term view still flags further weakness first. No confirming signal for a fresh entry. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -2.5643464391799964,
+    "pct_change_4h_48h": -3.9327990535890844
+  },
+  "rsi_14_4h": 54.726614262112875,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "volume": {
+    "ratio": 1.4936096902469425,
+    "flag_above_2x": false
+  },
+  "order_book_imbalance_top10": 0.13441445396893675,
+  "news": "$20M ETF inflows Sept 23; XRPL AI security deployment; analyst revised toward bullish long-term view on BTC strength, but near-term weakness flagged first."
+}
+```
+
+---
+### 2026-09-24T16:42:51.134Z — ADA/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger flag (1h/4h 48h changes +0.54%/-0.80%, essentially flat and recovering). Volume ratio 1.05x, unconfirmed. RSI improving to 60.4, no fresh SMA crossover. Order book strongly positive (0.56). News is largely a repeat of prior cycles (CME futures, x402 protocol, Mastercard, IndiaChain) with a new technical note that ADA is nearing descending-channel resistance around $0.29, not yet confirmed as a breakout. No volume/momentum confirmation for a fresh entry. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 0.54450127172725,
+    "pct_change_4h_48h": -0.8012900361916722
+  },
+  "rsi_14_4h": 60.369974829236554,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "volume": {
+    "ratio": 1.0549844191816082,
+    "flag_above_2x": false
+  },
+  "order_book_imbalance_top10": 0.5607354802076496,
+  "news": "CME futures inclusion, x402 protocol, Mastercard, IndiaChain - repeat of prior cycles; new note on nearing descending-channel resistance near $0.29, breakout unconfirmed."
+}
+```
+
+---
+### 2026-09-24T16:42:54.749Z — LINK/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger flag (1h/4h 48h changes -1.15%/-0.85%, sharply improved from prior cycles' -5%+ readings). Volume ratio 1.54x, below the 2x confirmation threshold. RSI recovering to 56.3, no fresh SMA crossover. Order book strongly positive (0.63). News is a repeat of prior cycles (Bottomline/SWIFT partnership, $70.5M strategic reserve). No volume/momentum confirmation for a fresh entry, though the pair's recovery is notable this cycle. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -1.1456352168740527,
+    "pct_change_4h_48h": -0.8465024227361402
+  },
+  "rsi_14_4h": 56.29172771812041,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "volume": {
+    "ratio": 1.5411056459945272,
+    "flag_above_2x": false
+  },
+  "order_book_imbalance_top10": 0.6273953099684714,
+  "news": "Chainlink-Bottomline strategic partnership; $70.5M strategic reserve - repeat of prior cycles."
+}
+```
+
+---
