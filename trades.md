@@ -5507,3 +5507,195 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-09-24T06:43:06.433Z — BTC/EUR — NO TRADE
+
+**Reasoning:** Existing open position (entered 2026-09-22 at €74,971, one-per-pair rule code-enforced) - no re-entry possible regardless of signals. For context: price has pulled back to €73,953 (-1.37% unrealized), consistent with news of BTC retreating from a $87.2K high to ~$83.5K amid rising Treasury yields, after the Sept 21-22 ETF-inflow-driven rally. No momentum_trigger flag (1h/4h 48h changes both negative, -0.82%/-1.02%). Position remains well within its €71,800 stop-loss buffer; no trailing activation yet (not at +1R).
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -0.8199914038575189,
+    "pct_change_4h_48h": -1.0196797247575853
+  },
+  "rsi_14_4h": 54.09745694926015,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "volume": {
+    "ratio": 1.1587151236216053,
+    "flag_above_2x": false
+  },
+  "order_book_imbalance_top10": 0.36904761904761885,
+  "existing_position": true,
+  "news": "BTC retreated from $87.2K high to ~$83.5K as Treasury yields hit highest since 2007; Sept 21-22 rally was ETF-inflow driven ($998.95M single-day record); Senate blocked CLARITY Act (regulatory resilience)."
+}
+```
+
+---
+### 2026-09-24T06:43:11.122Z — SOL/EUR — NO TRADE
+
+**Reasoning:** Existing open position (entered 2026-09-22 at €101.68, one-per-pair rule code-enforced) - no re-entry possible regardless of signals. Price at €100.93 (-0.75% unrealized), a mild pullback despite bullish news (Alpenglow upgrade moved to public testnet targeting 150ms finality, mainnet activation tentatively Sept 28; SOL ETFs logged a 12th straight week of inflows). No momentum_trigger flag this cycle (1h/4h 48h changes -0.60%/-0.72%). Position remains well within its €96.50 stop-loss buffer; no trailing activation yet.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -0.600275536311749,
+    "pct_change_4h_48h": -0.7188577055637657
+  },
+  "rsi_14_4h": 54.55837428815661,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "volume": {
+    "ratio": 1.0714079678839485,
+    "flag_above_2x": false
+  },
+  "order_book_imbalance_top10": 0.07006948881198066,
+  "existing_position": true,
+  "news": "Alpenglow upgrade launched on public testnet (150ms finality target, mainnet tentatively Sept 28); SOL ETFs logged 12 straight weeks of inflows ($26.1M on Sept 21)."
+}
+```
+
+---
+### 2026-09-24T06:43:16.756Z — SUI/EUR — NO TRADE
+
+**Reasoning:** Existing open position (entered 2026-09-22 at €0.867, one-per-pair rule code-enforced) - no re-entry possible regardless of signals. Price at €0.8467 (-2.36% unrealized). News is notably positive for the underlying thesis - SUI reportedly broke a nine-month downtrend on Sept 23, a core protocol upgrade for stablecoin payments went live, and the CFTC named SUI in tokenization remarks - but Kraken's own 48h window still shows a short-term decline (-4.86%/-4.71% over 1h/4h), so no momentum_trigger flag. Position remains within its €0.775 stop-loss buffer (drawdown -2.36%, well short of the ~10.6% distance to stop); no trailing activation yet.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -4.862674470959029,
+    "pct_change_4h_48h": -4.709735712672234
+  },
+  "rsi_14_4h": 54.03468646590454,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "volume": {
+    "ratio": 0.9494815845933798,
+    "flag_above_2x": false
+  },
+  "order_book_imbalance_top10": 0.13408460386652044,
+  "existing_position": true,
+  "news": "SUI broke a nine-month downtrend Sept 23; gasless-stablecoin-removal protocol upgrade went live Sept 23 (payments focus); CFTC named SUI in tokenization commentary Sept 23; CME expanded futures lineup to include SUI."
+}
+```
+
+---
+### 2026-09-24T06:43:22.877Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger flag (1h/4h 48h changes -0.97%/-1.21% on Kraken's own candles, despite news reporting a recent 5.4%/24h and 12.6%/30d rally in USD terms - the two aren't contradictory: Kraken's 48h window is capturing a short pullback within a larger uptrend). No volume confirmation (ratio 0.74x, below average). RSI neutral at 52.0, SMA still fast-above-slow but no fresh crossover this candle - an established trend, not a new signal. News (record Binance ETH withdrawals, $270M spot ETF inflows Sept 22, break above $2,700 resistance) is genuinely bullish but doesn't on its own substitute for the required volume/momentum confirmation this strategy requires, and momentum_trigger itself isn't flagged. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -0.9662444069475566,
+    "pct_change_4h_48h": -1.2063881444641318
+  },
+  "rsi_14_4h": 52.04739510763865,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "volume": {
+    "ratio": 0.7393373684285016,
+    "flag_above_2x": false
+  },
+  "order_book_imbalance_top10": 0.3848121167653687,
+  "news": "Binance ETH withdrawals hit 3-year high Sept 22 (supply reduction signal); spot ETH ETFs attracted $270M inflows Sept 22 led by BlackRock; ETH broke above $2,700 resistance, bulls targeting $3,000."
+}
+```
+
+---
+### 2026-09-24T06:43:28.604Z — XRP/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger flag (1h/4h 48h changes -0.14%/-1.01%). Volume ratio 1.49x, below the 2x confirmation threshold. RSI neutral at 51.6, no fresh SMA crossover. Order book mildly negative (-0.10). News this cycle is current and substantive (not the stale Trump/Gensler content seen in prior cycles) - XRP ETFs saw $20M inflows Sept 23, Ripple deployed AI for XRPL security Sept 23 - but also flags near-term technical weakness (a shift toward sellers on 15-minute candles, price erasing part of its recent rally). Mixed/inconclusive picture with no confirming volume or momentum signal - no trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -0.13810486913997633,
+    "pct_change_4h_48h": -1.0072376357056723
+  },
+  "rsi_14_4h": 51.5541977707854,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "volume": {
+    "ratio": 1.4936096902469425,
+    "flag_above_2x": false
+  },
+  "order_book_imbalance_top10": -0.10446138231277179,
+  "news": "XRP ETFs attracted $20M inflows Sept 23; Ripple deployed AI for XRPL security hardening Sept 23; near-term technical shift toward sellers on 15-min candles, price erasing part of recent rally."
+}
+```
+
+---
+### 2026-09-24T06:43:34.122Z — ADA/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger flag (1h/4h 48h changes -1.11%/-2.18%). Volume ratio 1.05x, unconfirmed. RSI neutral at 51.5, no fresh SMA crossover. News is genuinely positive and specific (Hashdex Nasdaq Crypto Index ETF formally added ADA on Sept 24 - first regulated US fund to include ADA alongside BTC/ETH; native x402 payments protocol support added Sept 15; Cardano Foundation joined Mastercard's cross-border payments program Sept 19; IndiaChain went live on mainnet Sept 19) but Kraken's own 48h price action is a decline, not a breakout, and there's no volume or momentum confirmation to act on today. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -1.1058259517968514,
+    "pct_change_4h_48h": -2.1783850097257567
+  },
+  "rsi_14_4h": 51.47650732687101,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "volume": {
+    "ratio": 1.0549844191816082,
+    "flag_above_2x": false
+  },
+  "order_book_imbalance_top10": 0.49113702074908855,
+  "news": "Hashdex Nasdaq Crypto Index ETF formally added ADA Sept 24 (first regulated US fund with ADA alongside BTC/ETH); native x402 payments protocol support added Sept 15; Cardano Foundation joined Mastercard cross-border payments program Sept 19; IndiaChain live on mainnet Sept 19."
+}
+```
+
+---
+### 2026-09-24T06:43:40.420Z — LINK/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger flag (1h/4h 48h changes -3.56%/-4.06%, a real decline). Volume ratio 1.54x, below the 2x confirmation threshold. RSI at 45.1, the weakest of the lineup, still neutral but leaning down. No fresh SMA crossover. News is calendar/ecosystem-oriented rather than price-moving (Sergey Nazarov panel at the Philadelphia Fed's Fintech Conference Sept 24-25; 16 new integrations across 7 chains announced Sept 21; strategic reserve hit $70.5M Sept 21) - relevant long-term but not a proportionate catalyst for a current decline. No trade; this is also LINK's first re-entry-eligible cycle since the stop-loss closed the prior position on 2026-09-23, and nothing here meets the bar for a fresh entry.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -3.5564972302583957,
+    "pct_change_4h_48h": -4.064429978300781
+  },
+  "rsi_14_4h": 45.108891784396725,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "volume": {
+    "ratio": 1.5411056459945272,
+    "flag_above_2x": false
+  },
+  "order_book_imbalance_top10": 0.2825739346166222,
+  "news": "Sergey Nazarov panel at Philadelphia Fed's 10th Annual Fintech Conference Sept 24-25 alongside BlackRock/Vanguard/Sharplink; 16 new integrations across 7 chains announced Sept 21; strategic reserve hit $70.5M Sept 21."
+}
+```
+
+---
