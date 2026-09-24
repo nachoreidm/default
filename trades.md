@@ -8775,3 +8775,157 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-09-24T23:43:36.799Z — BTC/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger flag (1h/4h 48h changes -1.68%/-1.47%, a real decline continuing from last cycle). Existing open position (BTC/EUR opened 2026-09-22), one-per-pair rule applies regardless. News largely price/market-data focused (BTC ~$83.9k per one tracker, market cap ~$1.33T) with no proportionate new catalyst.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -1.683893435764211,
+    "pct_change_4h_48h": -1.468060746608442
+  },
+  "rsi_14_4h": 55.8408599870925,
+  "volume_ratio": 1.1587151236216053,
+  "flag_above_2x": false,
+  "sma_crossover_4h": "fast_above_slow",
+  "order_book_imbalance_top10": -0.051053484602917386,
+  "existing_position": true
+}
+```
+
+---
+### 2026-09-24T23:43:39.923Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger flag (1h/4h 48h changes -1.89%/-1.45%). Volume ratio 0.74x, below average (not confirming). News: CFTC examining unusual perpetual-futures activity on Kalshi's ETH market (a venue/market-structure story, not a Chainlink-like ETH catalyst); BitMine added 27,562 ETH to treasury Sept 22 (accumulation news, but not a fresh proportionate mover); approaching a longer-term monthly support zone. No confirming technical signal, no trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -1.8905981626346948,
+    "pct_change_4h_48h": -1.4472682811193947
+  },
+  "rsi_14_4h": 54.911796363625804,
+  "volume_ratio": 0.7393373684285016,
+  "flag_above_2x": false,
+  "sma_crossover_4h": "fast_above_slow",
+  "order_book_imbalance_top10": -0.013856501777404637,
+  "existing_position": false
+}
+```
+
+---
+### 2026-09-24T23:43:43.360Z — SOL/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger flag (1h/4h 48h changes -1.11%/-0.47%). Existing open position (SOL/EUR opened 2026-09-22), one-per-pair rule applies. News continues to be constructive (RWA all-time high $4.6B, 12 straight weeks of SOL ETF inflows) but this is context for the existing position, not a new-entry consideration.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -1.1103601428985146,
+    "pct_change_4h_48h": -0.47310997393067
+  },
+  "rsi_14_4h": 60.7045279429082,
+  "volume_ratio": 1.0714079678839485,
+  "flag_above_2x": false,
+  "sma_crossover_4h": "fast_above_slow",
+  "order_book_imbalance_top10": -0.2619222698495256,
+  "existing_position": true
+}
+```
+
+---
+### 2026-09-24T23:43:47.212Z — XRP/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger flag (1h/4h 48h changes -1.86%/-2.20%, giving back part of the recent rally). Volume ratio 1.49x, below the 2x confirmation threshold. News: record 11,432 new XRPL accounts created (on-chain growth, not a defined confirming signal), BatchV1_1 amendment could activate Sept 29 (future-dated, not an immediate catalyst), $18.04M ETF inflows Sept 23 (moderate, not new). No confirming technical signal, no trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -1.8627251005303245,
+    "pct_change_4h_48h": -2.195640771606725
+  },
+  "rsi_14_4h": 56.581499629265075,
+  "volume_ratio": 1.4936096902469425,
+  "flag_above_2x": false,
+  "sma_crossover_4h": "fast_above_slow",
+  "order_book_imbalance_top10": -0.0486944481798578,
+  "existing_position": false
+}
+```
+
+---
+### 2026-09-24T23:43:51.135Z — ADA/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger flag (1h/4h 48h changes -1.95%/-1.74%). Volume ratio 1.05x, unconfirmed. News is recycled/stale from prior cycles (Mastercard partnership Sept 19, IndiaChain launch Sept 19, x402 protocol Sept 15) - price has actually fallen from the ~$0.2532 Sept 22 peak these stories were attached to, down to $0.2186 now, undercutting the bullish narrative rather than confirming it. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -1.9526304644593218,
+    "pct_change_4h_48h": -1.7426798884468537
+  },
+  "rsi_14_4h": 59.187150762349525,
+  "volume_ratio": 1.0549844191816082,
+  "flag_above_2x": false,
+  "sma_crossover_4h": "fast_above_slow",
+  "order_book_imbalance_top10": 0.01745561383781053,
+  "existing_position": false
+}
+```
+
+---
+### 2026-09-24T23:43:55.053Z — LINK/EUR — NO TRADE
+
+**Reasoning:** Continued grind higher (1h/4h 48h changes +2.02%/+2.43%) but still well below the 6% momentum_trigger threshold, and volume ratio 1.54x remains below the 2x confirmation bar. News is a repeat of prior cycles (Nazarov Fed Philadelphia Fintech Conference panel Sept 24-25, 16 new integrations Sept 21, $70.5M strategic reserve Sept 21) - no fresh catalyst. No trade; LINK remains re-entry-eligible since the Sept 23 stop-loss closure but nothing here meets the entry bar.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 2.020646325874107,
+    "pct_change_4h_48h": 2.426882717350077
+  },
+  "rsi_14_4h": 63.519133812152674,
+  "volume_ratio": 1.5411056459945272,
+  "flag_above_2x": false,
+  "sma_crossover_4h": "fast_above_slow",
+  "order_book_imbalance_top10": -0.1644069512760527,
+  "existing_position": false
+}
+```
+
+---
+### 2026-09-24T23:43:58.712Z — SUI/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger flag (1h/4h 48h changes -1.44%/+0.95%). Existing open position (SUI/EUR opened 2026-09-22), one-per-pair rule applies. News: DeepBook App launched in alpha on Sui mainnet today (a genuine Sui-specific catalyst, relevant context for the existing position), Phantom wallet ending Sui support same day (a mild negative for retail accessibility) - net neutral, not actionable for a position that already exists.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -1.4406968952423522,
+    "pct_change_4h_48h": 0.9492964038418655
+  },
+  "rsi_14_4h": 66.27833046872496,
+  "volume_ratio": 0.9494815845933798,
+  "flag_above_2x": false,
+  "sma_crossover_4h": "fast_above_slow",
+  "order_book_imbalance_top10": 0.3673271003514531,
+  "existing_position": true
+}
+```
+
+---
