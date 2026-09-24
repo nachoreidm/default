@@ -5699,3 +5699,195 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-09-24T07:42:46.059Z — BTC/EUR — NO TRADE
+
+**Reasoning:** Existing open position (entered 2026-09-22 at €74,971, one-per-pair rule code-enforced) - no re-entry possible regardless of signals. Price at €74,141 (recovering slightly from the last cycle's €73,953). No momentum_trigger flag (1h/4h 48h changes -0.86%/-1.02%). News is a repeat of prior cycles: BTC retreated from $87.2K to ~$83.5K after a hot business-activity report, still 12% up over 7 days. Position remains well within its €71,800 stop-loss buffer; no trailing activation yet.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -0.8563753129889365,
+    "pct_change_4h_48h": -1.0196797247575853
+  },
+  "rsi_14_4h": 54.09745694926015,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "volume": {
+    "ratio": 1.1587151236216053,
+    "flag_above_2x": false
+  },
+  "order_book_imbalance_top10": 0.08013598834385614,
+  "existing_position": true,
+  "news": "BTC retreated from $87.2K to ~$83.5K after hotter-than-expected business activity report; still 12% up over 7 days; same pullback narrative as prior cycle."
+}
+```
+
+---
+### 2026-09-24T07:42:51.280Z — SOL/EUR — NO TRADE
+
+**Reasoning:** Existing open position (entered 2026-09-22 at €101.68, one-per-pair rule code-enforced) - no re-entry possible regardless of signals. Price at €101.47, essentially flat vs last cycle. No momentum_trigger flag (1h/4h 48h changes -0.65%/-0.72%). News largely a repeat (250ms slot-time upgrade, Transaction V1 format from Sept 9, still riding a broader BTC-correlated pullback after the Sept 21 rally to $117). Position remains well within its €96.50 stop-loss buffer; no trailing activation yet.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -0.6499261447562744,
+    "pct_change_4h_48h": -0.7188577055637657
+  },
+  "rsi_14_4h": 54.55837428815661,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "volume": {
+    "ratio": 1.0714079678839485,
+    "flag_above_2x": false
+  },
+  "order_book_imbalance_top10": -0.050397300953702484,
+  "existing_position": true,
+  "news": "Slot time cut to 250ms (Sept 18); Transaction V1 format activated Sept 9 (3.3x max tx size); price pulled back slightly from the Sept 21 rally high of $117.23 amid a broader BTC-correlated dip."
+}
+```
+
+---
+### 2026-09-24T07:42:56.418Z — SUI/EUR — NO TRADE
+
+**Reasoning:** Existing open position (entered 2026-09-22 at €0.867, one-per-pair rule code-enforced) - no re-entry possible regardless of signals. Price at €0.8491, a slight recovery from last cycle's €0.8467 (-2.05% unrealized vs -2.36% prior). News remains positive for the underlying thesis (nine-month downtrend break confirmed Sept 23, gasless-stablecoin payments upgrade, CFTC tokenization mention) but Kraken's own 48h window still shows a short-term pullback (-4.25%/-4.71%), so no momentum_trigger flag. Position remains within its €0.775 stop-loss buffer; no trailing activation yet.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -4.246668172577363,
+    "pct_change_4h_48h": -4.709735712672234
+  },
+  "rsi_14_4h": 54.03468646590454,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "volume": {
+    "ratio": 0.9494815845933798,
+    "flag_above_2x": false
+  },
+  "order_book_imbalance_top10": 0.7142768108700707,
+  "existing_position": true,
+  "news": "SUI broke nine-month downtrend Sept 23 (rallied from $0.68-0.70 range toward $1.08 briefly); gasless-stablecoin-transfer upgrade live; CFTC tokenization remarks named SUI; up 42-50% over 7 days per various sources."
+}
+```
+
+---
+### 2026-09-24T07:43:01.595Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger flag (1h/4h 48h changes -0.89%/-1.21%). No volume confirmation (ratio 0.74x). RSI neutral at 52.0, no fresh SMA crossover - established uptrend, not a new signal. News is a repeat of last cycle (Binance withdrawals 3-year high, $270M spot ETF inflows, BitMine accumulating 27,562 ETH) describing a rejection at ~$2,786-2,800 resistance and pullback to ~$2,670-2,725 - consistent with Kraken's own short-term decline. No confirming volume/momentum signal to act on. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -0.8913494577133989,
+    "pct_change_4h_48h": -1.2063881444641318
+  },
+  "rsi_14_4h": 52.04739510763865,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "volume": {
+    "ratio": 0.7393373684285016,
+    "flag_above_2x": false
+  },
+  "order_book_imbalance_top10": -0.19428630908057287,
+  "news": "ETH rejected at ~$2,786-2,800 resistance, pulled back to ~$2,670; Binance withdrawals hit 3-year high; spot ETH ETFs saw $270M inflows Sept 22; BitMine accumulated 27,562 ETH."
+}
+```
+
+---
+### 2026-09-24T07:43:06.860Z — XRP/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger flag (1h/4h 48h changes -0.43%/-1.01%). Volume ratio 1.49x, below the 2x confirmation threshold. RSI neutral at 51.6, no fresh SMA crossover. News shows XRP holding near $1.50 after a rejection at $1.66, giving back part of a rally - a large short position reportedly betting against continuation is flagged as a neutral-to-bearish signal. XRP ETF inflows ($20M) and Ripple's XRPL AI security deployment are incremental positives but don't meet the bar for a fresh entry absent volume/momentum confirmation. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -0.42596501809408416,
+    "pct_change_4h_48h": -1.0072376357056723
+  },
+  "rsi_14_4h": 51.5541977707854,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "volume": {
+    "ratio": 1.4936096902469425,
+    "flag_above_2x": false
+  },
+  "order_book_imbalance_top10": -0.2180924981860992,
+  "news": "XRP holding near $1.50 after rejection at $1.66, giving back part of a rally; large short position flagged as neutral-to-bearish; XRP ETFs saw $20M inflows Sept 23; Ripple deployed AI for XRPL security."
+}
+```
+
+---
+### 2026-09-24T07:43:11.249Z — ADA/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger flag (1h/4h 48h changes -1.17%/-2.18%). Volume ratio 1.05x, unconfirmed. RSI neutral at 51.5, no fresh SMA crossover. Order book notably negative (-0.33, more resting asks than bids). News is largely a repeat of last cycle (x402 protocol integration, Mastercard cross-border payments program, IndiaChain mainnet launch) - genuinely positive but Kraken's own 48h price action remains a decline with no volume or momentum confirmation. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -1.1745553435737608,
+    "pct_change_4h_48h": -2.1783850097257567
+  },
+  "rsi_14_4h": 51.47650732687101,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "volume": {
+    "ratio": 1.0549844191816082,
+    "flag_above_2x": false
+  },
+  "order_book_imbalance_top10": -0.3341017467261343,
+  "news": "x402 protocol integration for AI-agent payments (Sept 21); Cardano Foundation joined Mastercard cross-border payments program (Sept 19); IndiaChain live on mainnet (Sept 19); analyst flags $0.24-0.25 as key resistance wall."
+}
+```
+
+---
+### 2026-09-24T07:43:15.799Z — LINK/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger flag (1h/4h 48h changes -3.23%/-4.06%, a real decline). Volume ratio 1.54x, below the 2x confirmation threshold. RSI at 45.1, weakest of the lineup but still neutral. No fresh SMA crossover. News (Bottomline/SWIFT partnership via CCIP/CRE, strategic reserve at $70.5M) is ecosystem-oriented rather than a proportionate catalyst for the current decline. No trade; LINK remains re-entry-eligible since the Sept 23 stop-loss closure but nothing here meets the entry bar.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -3.228868124882366,
+    "pct_change_4h_48h": -4.064429978300781
+  },
+  "rsi_14_4h": 45.108891784396725,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "volume": {
+    "ratio": 1.5411056459945272,
+    "flag_above_2x": false
+  },
+  "order_book_imbalance_top10": 0.29358143097344264,
+  "news": "Chainlink-Bottomline strategic partnership via CCIP/CRE for cross-border payments (600+ banks, $16T/year processed); strategic reserve hit $70.5M Sept 21."
+}
+```
+
+---
