@@ -8582,3 +8582,196 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-09-24T22:42:37.630Z — BTC/EUR — NO TRADE
+
+**Reasoning:** Existing open position (entered 2026-09-22 at €74,971, one-per-pair rule code-enforced) - no re-entry possible regardless of signals. Price at €73,879, drawdown at -1.46% (deeper than -1.02% last cycle). No momentum_trigger flag (1h/4h 48h changes -1.48%/-1.47%). News is a repeat of prior cycles (bond yields weighing on crypto broadly). Position remains well within its €71,800 stop-loss buffer; no trailing activation.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -1.4758460462903076,
+    "pct_change_4h_48h": -1.468060746608442
+  },
+  "rsi_14_4h": 55.8408599870925,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "volume": {
+    "ratio": 1.1587151236216053,
+    "flag_above_2x": false
+  },
+  "order_book_imbalance_top10": -0.09097716211156882,
+  "existing_position": true,
+  "news": "Bond yields weighing on crypto broadly - repeat of prior cycles' macro headwind."
+}
+```
+
+---
+### 2026-09-24T22:42:42.179Z — SOL/EUR — NO TRADE
+
+**Reasoning:** Existing open position (entered 2026-09-22 at €101.68, one-per-pair rule code-enforced) - no re-entry possible regardless of signals. Price at €102.19, unrealized profit narrowed to +0.49% (from +1.20% last cycle) as broad pullback continues. No momentum_trigger flag (1h/4h 48h changes -0.75%/-0.47%). News is a repeat of prior cycles (RWA ATH, watching $117.60 resistance / $112.50 support). Not yet at +1R (~€106.86 needed), no trailing activation yet.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -0.753550381605643,
+    "pct_change_4h_48h": -0.47310997393067
+  },
+  "rsi_14_4h": 60.7045279429082,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "volume": {
+    "ratio": 1.0714079678839485,
+    "flag_above_2x": false
+  },
+  "order_book_imbalance_top10": 0.45845650225430595,
+  "existing_position": true,
+  "news": "RWA at new ATH ($4.6B); watching $117.60 resistance vs $112.50 support - repeat of prior cycles."
+}
+```
+
+---
+### 2026-09-24T22:42:46.358Z — SUI/EUR — NO TRADE
+
+**Reasoning:** Existing open position (entered 2026-09-22 at €0.867, one-per-pair rule code-enforced) - no re-entry possible regardless of signals. Price at €0.8816, unrealized profit narrowed to +1.66% (from +3.85% last cycle) as the pair pulled back from its recent high. 1h/4h price action mixed (-0.30%/+0.95%). News is a repeat of prior cycles (nine-month downtrend break, CFTC tokenization mention, CME futures expansion). Not yet at +1R (~€0.959 needed), no trailing activation yet.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -0.3025888154208266,
+    "pct_change_4h_48h": 0.9492964038418655
+  },
+  "rsi_14_4h": 66.27833046872496,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "volume": {
+    "ratio": 0.9494815845933798,
+    "flag_above_2x": false
+  },
+  "order_book_imbalance_top10": 0.5946196543586705,
+  "existing_position": true,
+  "news": "Nine-month downtrend break holding; CFTC tokenization mention; CME futures expansion - repeat of prior cycles."
+}
+```
+
+---
+### 2026-09-24T22:42:51.008Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger flag (1h/4h 48h changes -1.83%/-1.45%). No volume confirmation (ratio 0.74x). RSI at 54.9, no fresh SMA crossover. News notes the Glamsterdam hard fork's mainnet activation has slipped to Q4 2026 (a delay, not a near-term catalyst); still holding $2.63K support after the $2.8K rejection. No confirming signal. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -1.8288651305530268,
+    "pct_change_4h_48h": -1.4472682811193947
+  },
+  "rsi_14_4h": 54.911796363625804,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "volume": {
+    "ratio": 0.7393373684285016,
+    "flag_above_2x": false
+  },
+  "order_book_imbalance_top10": -0.07090156384824954,
+  "news": "Glamsterdam hard fork mainnet activation slipped to Q4 2026 (delay); holding $2.63K support after $2.8K rejection - repeat of prior cycles."
+}
+```
+
+---
+### 2026-09-24T22:42:56.370Z — XRP/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger flag (1h/4h 48h changes -1.54%/-2.20%). Volume ratio 1.49x, below the 2x confirmation threshold. RSI at 56.6, no fresh SMA crossover. News includes a new item - Ripple-backed XRP treasury company Evernorth Holdings lined up $30M in financing ahead of a planned public listing via merger with Armada Acquisition Corp. II - a real corporate-finance development but indirect to XRP's own price action; the XRP Ledger new-account surge (323% above average) noted again. No confirming technical signal. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -1.5398715440176254,
+    "pct_change_4h_48h": -2.195640771606725
+  },
+  "rsi_14_4h": 56.581499629265075,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "volume": {
+    "ratio": 1.4936096902469425,
+    "flag_above_2x": false
+  },
+  "order_book_imbalance_top10": -0.009951732605460563,
+  "news": "Evernorth Holdings (Ripple-backed XRP treasury company) lined up $30M financing ahead of public listing via Armada Acquisition Corp. II merger - new but indirect; XRP Ledger new-account surge - repeat of prior cycle."
+}
+```
+
+---
+### 2026-09-24T22:42:59.745Z — ADA/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger flag (1h/4h 48h changes -1.17%/-1.74%). Volume ratio 1.05x, unconfirmed. RSI at 59.2, no fresh SMA crossover. Order book notably negative (-0.63). News is a repeat of prior cycles (CME futures, x402 protocol, Mastercard, IndiaChain). No volume/momentum confirmation. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -1.1662717291029783,
+    "pct_change_4h_48h": -1.7426798884468537
+  },
+  "rsi_14_4h": 59.187150762349525,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "volume": {
+    "ratio": 1.0549844191816082,
+    "flag_above_2x": false
+  },
+  "order_book_imbalance_top10": -0.6268048881523439,
+  "news": "CME futures, x402 protocol, Mastercard, IndiaChain - repeat of prior cycles."
+}
+```
+
+---
+### 2026-09-24T22:43:03.458Z — LINK/EUR — NO TRADE
+
+**Reasoning:** Price holding its recovery (€11.60, 1h/48h +2.71%, 4h/48h +2.43%), still below the momentum_trigger's 6% threshold and volume remains unconfirmed (1.54x, below 2x). RSI at 63.5, no fresh SMA crossover. News is the same set of catalysts assessed over the last three cycles (Bottomline partnership, $70.5M strategic reserve) - no new information. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 2.708185316234869,
+    "pct_change_4h_48h": 2.426882717350077,
+    "threshold_pct": 6
+  },
+  "rsi_14_4h": 63.519133812152674,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "volume": {
+    "ratio": 1.5411056459945272,
+    "flag_above_2x": false
+  },
+  "order_book_imbalance_top10": 0.11256103838288274,
+  "news": "Bottomline/SWIFT partnership, $70.5M strategic reserve - same catalysts as last three cycles, still below confirmation thresholds."
+}
+```
+
+---
