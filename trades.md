@@ -4691,3 +4691,139 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-09-24T00:42:36.591Z — BTC/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule, code-enforced). Momentum trigger not flagged (-0.98%/-0.71%). Position -1.17% unrealized, well within stop-loss. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -0.9794796672840438,
+    "pct_change_4h_48h": -0.7056756677137984
+  },
+  "rsi_14_4h": 57.482533351995436,
+  "volume_ratio": 1.1587151236216053,
+  "existing_position": true,
+  "unrealized_pnl_pct": -1.172963370000005
+}
+```
+
+---
+### 2026-09-24T00:42:39.252Z — ETH/EUR — NO TRADE
+
+**Reasoning:** 35th consecutive cycle without a momentum flag (-1.72%/-1.18%). Volume ratio 0.739, still below the 2x confirmation threshold. News mostly repeat. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -1.7217318130881583,
+    "pct_change_4h_48h": -1.1774956330871718
+  },
+  "rsi_14_4h": 53.63886228028016,
+  "volume_ratio": 0.7393373684285016,
+  "news_context": "Consensys/MetaMask, EIP fragmentation, Hegota upgrade - repeat/non-catalyst"
+}
+```
+
+---
+### 2026-09-24T00:42:42.269Z — SOL/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule, code-enforced). Momentum trigger not flagged (-1.89%/-0.73%). Position -0.51% unrealized, improving, well within stop-loss. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -1.8932038834951486,
+    "pct_change_4h_48h": -0.7269869338834946
+  },
+  "rsi_14_4h": 55.623794273178014,
+  "volume_ratio": 1.0714079678839485,
+  "existing_position": true,
+  "unrealized_pnl_pct": -0.511358110675536
+}
+```
+
+---
+### 2026-09-24T00:42:44.188Z — XRP/EUR — NO TRADE
+
+**Reasoning:** Momentum trigger not flagged (-0.59%/-0.07%), price nearly flat. News mostly repeat. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -0.5931832913758569,
+    "pct_change_4h_48h": -0.07273664032489577
+  },
+  "rsi_14_4h": 52.78877744465212,
+  "volume_ratio": 1.4936096902469425,
+  "news_context": "Stripe, ETF issuers, XRPL upgrade Oct 5 - repeat"
+}
+```
+
+---
+### 2026-09-24T00:42:46.439Z — ADA/EUR — NO TRADE
+
+**Reasoning:** 13th consecutive cycle without a momentum flag (-1.95%/-3.04%). News was an exact repeat of prior cycles. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -1.9470153411139026,
+    "pct_change_4h_48h": -3.0436292095822233
+  },
+  "rsi_14_4h": 51.15161499346703,
+  "volume_ratio": 1.0549844191816082,
+  "news_context": "x402, Mastercard, IndiaChain - exact repeat"
+}
+```
+
+---
+### 2026-09-24T00:42:48.619Z — LINK/EUR — NO TRADE
+
+**Reasoning:** Pair remains flat after prior stop-loss close. Momentum trigger not flagged (-4.59%/-4.11%, decline not breakout). News mostly repeat. No re-entry.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -4.5905033401935755,
+    "pct_change_4h_48h": -4.113666089963871
+  },
+  "rsi_14_4h": 46.4287306535581,
+  "volume_ratio": 1.5411056459945272,
+  "news_context": "Chain integrations, strategic reserve, Fed meeting - repeat"
+}
+```
+
+---
+### 2026-09-24T00:42:51.921Z — SUI/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule, code-enforced). Momentum trigger not flagged (-8.07%/-6.73%, decline not breakout). Position -2.98% unrealized, slightly improved from -3.24% last cycle, still well within stop-loss (0.775 vs current 0.8414). No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -8.073314422867114,
+    "pct_change_4h_48h": -6.73013061766659
+  },
+  "rsi_14_4h": 53.743098936755054,
+  "volume_ratio": 0.9494815845933798,
+  "existing_position": true,
+  "unrealized_pnl_pct": -2.9750960126558597
+}
+```
+
+---
