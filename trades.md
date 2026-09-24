@@ -5235,3 +5235,139 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-09-24T04:42:58.729Z — BTC/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule, code-enforced). Momentum trigger not flagged (-0.88%/-1.02%). Position -1.72% unrealized, well within stop-loss. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -0.8796247149551061,
+    "pct_change_4h_48h": -1.0196797247575853
+  },
+  "rsi_14_4h": 54.09745694926015,
+  "volume_ratio": 1.1587151236216053,
+  "existing_position": true,
+  "unrealized_pnl_pct": -1.7164461200000147
+}
+```
+
+---
+### 2026-09-24T04:43:01.228Z — ETH/EUR — NO TRADE
+
+**Reasoning:** 39th consecutive cycle without a momentum flag (-1.05%/-1.21%). Volume ratio 0.739, below the 2x confirmation threshold. News mostly repeat. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -1.05468634965777,
+    "pct_change_4h_48h": -1.2063881444641318
+  },
+  "rsi_14_4h": 52.04739510763865,
+  "volume_ratio": 0.7393373684285016,
+  "news_context": "Consensys/MetaMask, quantum roadmap, EIP fragmentation - repeat/non-catalyst"
+}
+```
+
+---
+### 2026-09-24T04:43:03.738Z — SOL/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule, code-enforced). Momentum trigger not flagged (-0.52%/-0.72%). Position -0.72% unrealized, well within stop-loss. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -0.5229403058707461,
+    "pct_change_4h_48h": -0.7188577055637657
+  },
+  "rsi_14_4h": 54.55837428815661,
+  "volume_ratio": 1.0714079678839485,
+  "existing_position": true,
+  "unrealized_pnl_pct": -0.7178680918632381
+}
+```
+
+---
+### 2026-09-24T04:43:06.444Z — XRP/EUR — NO TRADE
+
+**Reasoning:** Momentum trigger not flagged (-0.31%/-1.01%). News search again returned stale/recycled content this cycle (Trump as "president-elect", Gensler resignation) - discounted as noise, not a real catalyst. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -0.3067391502414465,
+    "pct_change_4h_48h": -1.0072376357056723
+  },
+  "rsi_14_4h": 51.5541977707854,
+  "volume_ratio": 1.4936096902469425,
+  "news_context": "Stale/recycled content again (Trump president-elect, Gensler resignation) - discounted"
+}
+```
+
+---
+### 2026-09-24T04:43:09.168Z — ADA/EUR — NO TRADE
+
+**Reasoning:** 17th consecutive cycle without a momentum flag (-2.26%/-2.18%). News was an exact repeat of prior cycles. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -2.2581727676948407,
+    "pct_change_4h_48h": -2.1783850097257567
+  },
+  "rsi_14_4h": 51.47650732687101,
+  "volume_ratio": 1.0549844191816082,
+  "news_context": "x402, Mastercard, IndiaChain - exact repeat"
+}
+```
+
+---
+### 2026-09-24T04:43:10.982Z — LINK/EUR — NO TRADE
+
+**Reasoning:** Pair remains flat after prior stop-loss close. Momentum trigger not flagged (-3.85%/-4.06%, decline not breakout). News mostly repeat. No re-entry.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -3.852810347481676,
+    "pct_change_4h_48h": -4.064429978300781
+  },
+  "rsi_14_4h": 45.108891784396725,
+  "volume_ratio": 1.5411056459945272,
+  "news_context": "Bottomline, chain integrations, strategic reserve - repeat"
+}
+```
+
+---
+### 2026-09-24T04:43:13.447Z — SUI/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule, code-enforced). Momentum trigger not flagged (-4.86%/-4.71%, decline not breakout). Position -2.74% unrealized, well within stop-loss (0.775 vs current 0.8434). No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -4.860171402796574,
+    "pct_change_4h_48h": -4.709735712672234
+  },
+  "rsi_14_4h": 54.03468646590454,
+  "volume_ratio": 0.9494815845933798,
+  "existing_position": true,
+  "unrealized_pnl_pct": -2.7444687153243894
+}
+```
+
+---
