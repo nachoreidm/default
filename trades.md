@@ -12174,3 +12174,145 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-09-25T20:43:11.047Z — BTC/EUR — NO TRADE
+
+**Reasoning:** Existing open position (id 9b1501f0) - one-per-pair rule. Unrealized P&L -1.58%. Momentum trigger not flagged; order book mildly negative (-0.10).
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -0.369,
+    "pct_change_4h_48h": -0.574
+  },
+  "rsi_14_4h": 51.08,
+  "volume_ratio": 0.884,
+  "order_book_imbalance": -0.1037,
+  "news_context": "BTC roughly flat, still up on the week; recently topped its one-year moving average per one source."
+}
+```
+
+---
+### 2026-09-25T20:43:11.067Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No open position. momentum_trigger not flagged (0.72%/0.18%). Volume ratio 0.64 unconfirmed. Order book negative (-0.19). BitMine accumulation and Bitget breach speculation both ongoing, nothing new.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 0.7198,
+    "pct_change_4h_48h": 0.1823
+  },
+  "rsi_14_4h": 52.57,
+  "volume_ratio": 0.643,
+  "order_book_imbalance": -0.1875,
+  "news_context": "BitMine continues ETH accumulation (4.9% of supply); Bitget hot-wallet breach speculation unresolved; broader market optimism from positive BTC ETF flows."
+}
+```
+
+---
+### 2026-09-25T20:43:11.095Z — SOL/EUR — NO TRADE
+
+**Reasoning:** No open position. momentum_trigger flagged, but only the 1h/48h window clears (6.75%); 4h/48h (5.83%) doesn't - a single-window, marginal trigger. Volume remains weak (0.54), order book only modestly positive (+0.26). RSI 68.3 is the most elevated it's been today. Passing given weak volume confirmation and marginal trigger.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": true,
+    "pct_change_1h_48h": 6.748,
+    "pct_change_4h_48h": 5.829,
+    "threshold_pct": 6
+  },
+  "rsi_14_4h": 68.31,
+  "volume_ratio": 0.542,
+  "order_book_imbalance": 0.2567,
+  "news_context": "SOL up ~3.7% over 24h, ~8.6% over the week; Sept 21 rally to 9-month high triggered $18M in short liquidations; daily active users at all-time high."
+}
+```
+
+---
+### 2026-09-25T20:43:11.107Z — XRP/EUR — NO TRADE
+
+**Reasoning:** No open position. momentum_trigger not flagged (5.89%/4.56%, under 6%). Volume ratio 0.995 near-average. Order book turned meaningfully negative (-0.40) - real selling pressure. Same Stripe/ETF story, no new catalyst.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 5.887,
+    "pct_change_4h_48h": 4.561
+  },
+  "rsi_14_4h": 60.64,
+  "volume_ratio": 0.995,
+  "order_book_imbalance": -0.3955,
+  "news_context": "Ripple/Stripe integration (Sept 17) still primary driver; XRP up ~15.8% over the week; no fresh catalyst this cycle."
+}
+```
+
+---
+### 2026-09-25T20:43:11.119Z — ADA/EUR — NO TRADE
+
+**Reasoning:** No open position. momentum_trigger flagged and clearing on both windows this cycle (7.65%/6.88%) for the first time today. Order book still positive (+0.14) though weaker than last cycle's +0.48. News continues consistently constructive (Mastercard program, x402 AI payments, Fireblocks CNT support, RealFi Oct 1 launch, stake-pool fee reduction vote). Still passing on the one persistent disqualifier: volume ratio remains 0.57, essentially unchanged and unconfirmed across every single cycle today regardless of how strongly price or the trigger itself moves - real participation behind the move has never materialized.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": true,
+    "pct_change_1h_48h": 7.645,
+    "pct_change_4h_48h": 6.878,
+    "threshold_pct": 6
+  },
+  "rsi_14_4h": 64.16,
+  "volume_ratio": 0.57,
+  "order_book_imbalance": 0.1359,
+  "news_context": "Mastercard Crypto Program (Sept 15); x402 AI-payments integration (Sept 21); Fireblocks CNT support; RealFi launches Oct 1; stake-pool fee reduction governance vote."
+}
+```
+
+---
+### 2026-09-25T20:43:11.132Z — LINK/EUR — NO TRADE
+
+**Reasoning:** Existing open position (id 82303d21) - one-per-pair rule. Unrealized P&L -0.51%, nearly breakeven. Momentum still flagged (12.11%), order book turned negative (-0.17). News continues strongly positive (ETFs hold ~2.2% of supply, four-day inflow streak).
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": true,
+    "pct_change_1h_48h": 13.283,
+    "pct_change_4h_48h": 12.107
+  },
+  "rsi_14_4h": 66.79,
+  "volume_ratio": 1.552,
+  "order_book_imbalance": -0.1692,
+  "news_context": "Spot LINK ETFs hold ~1 in 45 tokens (2.2% of supply), four-day inflow streak; Infosys, Hamco, Paxos Labs partnerships continuing."
+}
+```
+
+---
+### 2026-09-25T20:43:11.147Z — SUI/EUR — NO TRADE
+
+**Reasoning:** Existing open position (id 3099c8ad, trailing active) - one-per-pair rule. Trailing stop updated this cycle by portfolio_check_stops: peak rose to 1.041 (from ~1.018), stop_loss moved up to 0.9192 (from 0.9124), new resting stop order txid O2FMJ6-WELL4-HAYCJM. Unrealized P&L +19.53%, new high. News continues supportive (CME Group added SUI to its crypto futures lineup, Linux Foundation Tokenization Body membership).
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": true,
+    "pct_change_1h_48h": 19.967,
+    "pct_change_4h_48h": 19.511
+  },
+  "rsi_14_4h": 72.29,
+  "volume_ratio": 0.672,
+  "order_book_imbalance": 0.2391,
+  "news_context": "CME Group expanded crypto futures to include SUI (alongside Bitcoin Cash and UNI); Sui Foundation joined Linux Foundation Tokenization Body; DeepBook app launch; Protocol 137 upgrade."
+}
+```
+
+---
