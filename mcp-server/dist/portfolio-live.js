@@ -2,7 +2,7 @@ import { promises as fs } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { randomUUID } from "node:crypto";
-import { fetchTicker, pairCode, KrakenApiError } from "./kraken.js";
+import { fetchTicker, fetchPairPrecision, pairCode, KrakenApiError } from "./kraken.js";
 import { addOrder, cancelOrder, queryBalance, queryOrdersInfo } from "./kraken-private.js";
 import { hasReachedOneR, trailingStopCandidate, historicalPeakSinceEntry } from "./trailing-math.js";
 import { ALLOWED_PAIRS, RISK_LIMITS, CONFIDENCE_MAX_SIZE_PCT, TAKE_PROFIT_RR_MULTIPLE, MOMENTUM_ONLY_MAX_CONFIDENCE, isAllowedPair, } from "./types.js";
@@ -127,15 +127,23 @@ export async function getSnapshot() {
         closed_position_count: state.closed_positions.length,
     };
 }
-// Kraken's per-pair volume/price precision requirements aren't verified
-// from this environment (network policy blocks docs.kraken.com - see the
-// live-build plan). 8 decimals is safe for volume on every pair currently
-// in scope; trims trailing zeros so it reads cleanly in order confirmations.
-function formatVolume(n) {
-    return n.toFixed(8).replace(/0+$/, "").replace(/\.$/, "");
+// Rounds to the pair's REAL tick size (fetched live from Kraken's
+// AssetPairs endpoint, see fetchPairPrecision) rather than a flat 8
+// decimals - the earlier blind-8-decimals version left SOL/EUR's
+// trailing-stop AddOrder rejected on 2026-09-25 (Kraken only allows 2
+// price decimals for that pair) after its old stop had already been
+// cancelled, and SUI/EUR's 5-decimal volume limit meant it was one
+// unlucky quantity away from the same failure (see CLAUDE.md). Volume is
+// floored, never rounded up, so a sell/stop order never requests more
+// than the position actually holds.
+async function formatVolume(pair, n) {
+    const { volumeDecimals } = await fetchPairPrecision(pair);
+    const factor = 10 ** volumeDecimals;
+    return (Math.floor(n * factor) / factor).toFixed(volumeDecimals);
 }
-function formatPrice(n) {
-    return n.toFixed(8).replace(/0+$/, "").replace(/\.$/, "");
+async function formatPrice(pair, n) {
+    const { priceDecimals } = await fetchPairPrecision(pair);
+    return n.toFixed(priceDecimals);
 }
 async function pollForFill(txid, maxAttempts = 12, delayMs = 1500) {
     for (let i = 0; i < maxAttempts; i++) {
@@ -211,7 +219,7 @@ export async function openPosition(input) {
         pair: pairCode(input.pair),
         type: "buy",
         ordertype: "market",
-        volume: formatVolume(estVolume),
+        volume: await formatVolume(input.pair, estVolume),
     });
     const entryTxid = entryOrder.txid?.[0];
     if (!entryTxid) {
@@ -239,8 +247,8 @@ export async function openPosition(input) {
         pair: pairCode(input.pair),
         type: "sell",
         ordertype: "stop-loss",
-        price: formatPrice(input.stop_loss),
-        volume: formatVolume(quantity),
+        price: await formatPrice(input.pair, input.stop_loss),
+        volume: await formatVolume(input.pair, quantity),
     });
     const stopTxid = stopOrder.txid?.[0];
     if (!stopTxid) {
@@ -328,7 +336,7 @@ export async function closePosition(input) {
         pair: pairCode(pos.pair),
         type: "sell",
         ordertype: "market",
-        volume: formatVolume(pos.quantity),
+        volume: await formatVolume(pos.pair, pos.quantity),
     });
     const sellTxid = sellOrder.txid?.[0];
     if (!sellTxid) {
@@ -386,7 +394,7 @@ export async function checkStops() {
                         // (order matters: reconciliation ran first) - safe to proceed.
                     }
                 }
-                const sellOrder = await addOrder({ pair: pairCode(pos.pair), type: "sell", ordertype: "market", volume: formatVolume(pos.quantity) });
+                const sellOrder = await addOrder({ pair: pairCode(pos.pair), type: "sell", ordertype: "market", volume: await formatVolume(pos.pair, pos.quantity) });
                 const sellTxid = sellOrder.txid?.[0];
                 if (sellTxid) {
                     const filled = await pollForFill(sellTxid);
@@ -422,8 +430,8 @@ export async function checkStops() {
                     pair: pairCode(pos.pair),
                     type: "sell",
                     ordertype: "stop-loss",
-                    price: formatPrice(candidate),
-                    volume: formatVolume(pos.quantity),
+                    price: await formatPrice(pos.pair, candidate),
+                    volume: await formatVolume(pos.pair, pos.quantity),
                 });
                 const newStopTxid = newStopOrder.txid?.[0];
                 if (!newStopTxid) {

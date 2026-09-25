@@ -113,6 +113,38 @@ export async function fetchTicker(pair: string): Promise<Ticker> {
   };
 }
 
+export interface PairPrecision {
+  priceDecimals: number;
+  volumeDecimals: number;
+}
+
+// Kraken's per-pair price/volume tick sizes vary (e.g. BTC/EUR prices are
+// whole-euro-plus-1-decimal, SUI/EUR volumes are 5 decimals not 8) - an
+// incident on 2026-09-25 showed formatPrice/formatVolume in
+// portfolio-live.ts assuming a flat 8 decimals for every pair, which
+// Kraken's AddOrder rejected for SOL/EUR's trailing-stop price and left
+// that position's stop order cancelled with no replacement placed (see
+// CLAUDE.md). Fetched here from Kraken's public AssetPairs endpoint (same
+// api.kraken.com host already allowlisted) and cached per pair for the
+// process lifetime - these tick sizes don't change within a session.
+const pairPrecisionCache = new Map<AllowedPair, PairPrecision>();
+
+export async function fetchPairPrecision(pair: string): Promise<PairPrecision> {
+  const p = assertAllowedPair(pair);
+  const cached = pairPrecisionCache.get(p);
+  if (cached) return cached;
+
+  const result = await krakenFetch<Record<string, any>>("AssetPairs", { pair: PAIR_CODE[p] });
+  const key = firstResultKey(result);
+  const info = result[key];
+  const precision: PairPrecision = {
+    priceDecimals: Number(info.pair_decimals),
+    volumeDecimals: Number(info.lot_decimals),
+  };
+  pairPrecisionCache.set(p, precision);
+  return precision;
+}
+
 export async function fetchDepth(pair: string, count = 10): Promise<OrderBook> {
   const p = assertAllowedPair(pair);
   const result = await krakenFetch<Record<string, any>>("Depth", {

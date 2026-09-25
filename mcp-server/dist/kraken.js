@@ -98,6 +98,31 @@ export async function fetchTicker(pair) {
         high24h: Number(t.h[1]),
     };
 }
+// Kraken's per-pair price/volume tick sizes vary (e.g. BTC/EUR prices are
+// whole-euro-plus-1-decimal, SUI/EUR volumes are 5 decimals not 8) - an
+// incident on 2026-09-25 showed formatPrice/formatVolume in
+// portfolio-live.ts assuming a flat 8 decimals for every pair, which
+// Kraken's AddOrder rejected for SOL/EUR's trailing-stop price and left
+// that position's stop order cancelled with no replacement placed (see
+// CLAUDE.md). Fetched here from Kraken's public AssetPairs endpoint (same
+// api.kraken.com host already allowlisted) and cached per pair for the
+// process lifetime - these tick sizes don't change within a session.
+const pairPrecisionCache = new Map();
+export async function fetchPairPrecision(pair) {
+    const p = assertAllowedPair(pair);
+    const cached = pairPrecisionCache.get(p);
+    if (cached)
+        return cached;
+    const result = await krakenFetch("AssetPairs", { pair: PAIR_CODE[p] });
+    const key = firstResultKey(result);
+    const info = result[key];
+    const precision = {
+        priceDecimals: Number(info.pair_decimals),
+        volumeDecimals: Number(info.lot_decimals),
+    };
+    pairPrecisionCache.set(p, precision);
+    return precision;
+}
 export async function fetchDepth(pair, count = 10) {
     const p = assertAllowedPair(pair);
     const result = await krakenFetch("Depth", {
