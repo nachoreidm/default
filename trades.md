@@ -11058,3 +11058,132 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-09-25T13:42:10.614Z — BTC/EUR — NO TRADE
+
+**Reasoning:** Existing open position (opened 2026-09-22, still open). One-per-pair rule (code-enforced) blocks a second entry regardless of signals. No news search performed this cycle for this reason.
+
+**Signals considered:**
+```json
+{
+  "existing_position": true,
+  "momentum_trigger_flagged": false,
+  "rsi_14_4h": 55.41,
+  "volume_ratio": 0.88
+}
+```
+
+---
+### 2026-09-25T13:42:12.074Z — LINK/EUR — NO TRADE
+
+**Reasoning:** Existing open position (re-opened 2026-09-25 09:43 UTC). One-per-pair rule (code-enforced) blocks a second entry regardless of signals. No news search performed this cycle for this reason.
+
+**Signals considered:**
+```json
+{
+  "existing_position": true,
+  "momentum_trigger_flagged": true,
+  "rsi_14_4h": 72.24,
+  "volume_ratio": 1.55
+}
+```
+
+---
+### 2026-09-25T13:42:13.275Z — SUI/EUR — NO TRADE
+
+**Reasoning:** Existing open position (opened 2026-09-22, trailing stop active). One-per-pair rule (code-enforced) blocks a second entry regardless of signals. No news search performed this cycle for this reason.
+
+**Signals considered:**
+```json
+{
+  "existing_position": true,
+  "momentum_trigger_flagged": true,
+  "rsi_14_4h": 76.95,
+  "volume_ratio": 0.67
+}
+```
+
+---
+### 2026-09-25T13:42:17.384Z — ETH/EUR — NO TRADE
+
+**Reasoning:** momentum_trigger not flagged (1h/48h +0.06%, 4h/48h +2.23%, unchanged from last cycle - 4h candle set hasn't rolled). Volume ratio 0.64, below average. News: Fusaka hard fork successfully activated (PeerDAS, EOF); BitMine added another tranche to its ETH treasury (now 5.98M ETH, 4.9% of supply); CFTC still reviewing the $5B Kalshi ETH perpetuals pattern. Constructive but no fresh trigger-qualifying move. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 0.06,
+    "pct_change_4h_48h": 2.23
+  },
+  "rsi_14_4h": 57.1,
+  "volume_ratio": 0.64,
+  "sma_crossover_4h": "fast_above_slow",
+  "order_book_imbalance_top10": -0.024,
+  "news_context": "Fusaka hard fork activated (PeerDAS, EOF); BitMine added to ETH treasury (now 5.98M ETH); CFTC reviewing $5B Kalshi ETH perpetuals pattern; Vitalik endorsed Trueo's migration to Ethereum"
+}
+```
+
+---
+### 2026-09-25T13:42:20.499Z — SOL/EUR — NO TRADE
+
+**Reasoning:** momentum_trigger barely flagged (4h/48h +6.02%, same as last cycle - candle unrolled) but still NOT volume-confirmed - ratio 0.54, below average, unchanged concern from prior two cycles. RSI 67.3 elevated. News constructive but not a fresh proportionate catalyst (Alpenglow consensus overhaul now dated to October 2026, not imminent; broader ecosystem growth roundup). No trade, consistent with prior cycles.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": true,
+    "pct_change_1h_48h": 3.35,
+    "pct_change_4h_48h": 6.02
+  },
+  "rsi_14_4h": 67.29,
+  "volume_ratio": 0.54,
+  "sma_crossover_4h": "fast_above_slow",
+  "order_book_imbalance_top10": -0.008,
+  "news_context": "Alpenglow consensus overhaul (150ms finality target) now scheduled for October 2026 in Agave 4.3, not imminent; August roundup cited $4B RWA, record transactions"
+}
+```
+
+---
+### 2026-09-25T13:42:24.097Z — XRP/EUR — NO TRADE
+
+**Reasoning:** momentum_trigger not flagged (4h/48h +5.93%, just under the bar, unchanged from last cycle). Volume ratio ~1.0, in line with average. Order book positive (+0.48) but that alone doesn't qualify without momentum/volume confirmation. News: Stripe payment-tools integration (Sep 17) cited as driving momentum, spot XRP ETFs live since Nov 2025 - both known, not fresh this cycle. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 1.6,
+    "pct_change_4h_48h": 5.93
+  },
+  "rsi_14_4h": 66.05,
+  "volume_ratio": 0.995,
+  "sma_crossover_4h": "fast_above_slow",
+  "order_book_imbalance_top10": 0.477,
+  "news_context": "Ripple-Stripe payment tools integration (Sep 17) cited driving momentum; spot XRP ETFs live since Nov 2025 approval; whale transactions and network growth surging"
+}
+```
+
+---
+### 2026-09-25T13:42:27.002Z — ADA/EUR — NO TRADE
+
+**Reasoning:** momentum_trigger flagged (4h/48h +7.45%, unchanged from last cycle) but still NOT volume-confirmed - ratio 0.57, below average, third consecutive cycle with this conflict. RSI 64.7 moderate. News: Fireblocks now supports Cardano Native Tokens, RealFi launches Oct 1 - real but forward-looking, not an immediate proportionate catalyst; Mastercard/x402 integrations are days-old, already priced in. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": true,
+    "pct_change_1h_48h": 3.56,
+    "pct_change_4h_48h": 7.45
+  },
+  "rsi_14_4h": 64.75,
+  "volume_ratio": 0.57,
+  "sma_crossover_4h": "fast_above_slow",
+  "order_book_imbalance_top10": 0.048,
+  "news_context": "Fireblocks now supports Cardano Native Tokens; RealFi launches Oct 1 (real-world credit markets on-chain); Mastercard cross-border payments program; x402 AI-agent payment integration (all prior-week news)"
+}
+```
+
+---
