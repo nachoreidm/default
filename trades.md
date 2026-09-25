@@ -10483,3 +10483,157 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-09-25T10:42:45.414Z — BTC/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger flag (1h/4h 48h changes -1.34%/-1.71%). Existing open position (BTC/EUR opened 2026-09-22), one-per-pair rule applies. News recycled.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -1.3447635801722853,
+    "pct_change_4h_48h": -1.7077872166398687
+  },
+  "rsi_14_4h": 52.058091916198116,
+  "volume_ratio": 0.8838759385588576,
+  "flag_above_2x": false,
+  "sma_crossover_4h": "fast_above_slow",
+  "order_book_imbalance_top10": 0.21342422653382276,
+  "existing_position": true
+}
+```
+
+---
+### 2026-09-25T10:42:48.543Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger flag (1h/4h 48h changes -1.03%/-1.86%). Volume ratio 0.64x, below average. News recycled (CFTC Kalshi probe, BitMine accumulation). No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -1.0251471642736711,
+    "pct_change_4h_48h": -1.8551284786273265
+  },
+  "rsi_14_4h": 49.65056994726797,
+  "volume_ratio": 0.6433949397912896,
+  "flag_above_2x": false,
+  "sma_crossover_4h": "fast_above_slow",
+  "order_book_imbalance_top10": -0.22365500818091974,
+  "existing_position": false
+}
+```
+
+---
+### 2026-09-25T10:42:52.234Z — SOL/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger flag (1h/4h 48h changes +0.85%/-0.47%). Existing open position (SOL/EUR opened 2026-09-22), one-per-pair rule applies. News: 8 straight days of ETF inflows continue; one report noted BTC/XRP/SOL all fell together Sept 24 after a strong prior week - context for the existing position.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 0.8542030673655695,
+    "pct_change_4h_48h": -0.46760837798344274
+  },
+  "rsi_14_4h": 56.32628254091091,
+  "volume_ratio": 0.5419639671633352,
+  "flag_above_2x": false,
+  "sma_crossover_4h": "fast_above_slow",
+  "order_book_imbalance_top10": -0.064788629504664,
+  "existing_position": true
+}
+```
+
+---
+### 2026-09-25T10:42:55.278Z — XRP/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger flag; decline continues (1h/4h 48h changes -2.31%/-2.31%) though order book remains bid-heavy (+0.25). Volume ~1.0x, unconfirmed. News recycled. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -2.3063920006876204,
+    "pct_change_4h_48h": -2.313387916718038
+  },
+  "rsi_14_4h": 57.21754608680386,
+  "volume_ratio": 0.9950157632923532,
+  "flag_above_2x": false,
+  "sma_crossover_4h": "fast_above_slow",
+  "order_book_imbalance_top10": 0.24581103347282365,
+  "existing_position": false
+}
+```
+
+---
+### 2026-09-25T10:42:58.170Z — ADA/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger flag (1h/4h 48h changes -0.31%/-0.49%, essentially flat). Volume 0.57x, below average. News recycled plus a speculative long-term (2020-analog) accumulation thesis - not a defined signal. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -0.310535314417005,
+    "pct_change_4h_48h": -0.49115020100776635
+  },
+  "rsi_14_4h": 59.81489321764531,
+  "volume_ratio": 0.5697589565777416,
+  "flag_above_2x": false,
+  "sma_crossover_4h": "fast_above_slow",
+  "order_book_imbalance_top10": 0.1184496750636223,
+  "existing_position": false
+}
+```
+
+---
+### 2026-09-25T10:43:02.927Z — LINK/EUR — NO TRADE
+
+**Reasoning:** momentum_trigger flagged again (1h/48h +9.54%, 4h/48h +5.98%) - but existing open position (LINK/EUR opened this session at 09:43 UTC), one-per-pair rule applies regardless of signal strength. News continues to build: LINK now $13.70 (+11.67% reported), cup-and-handle breakout targeting ~$16.80, Hamco Pan-Asia fund and Paxos gold-backed token launches confirmed live, Infosys partnership details firming up. Position already benefiting from this continuation.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": true,
+    "pct_change_1h_48h": 9.53699008214521,
+    "pct_change_4h_48h": 5.978549137430586
+  },
+  "rsi_14_4h": 65.72292253898505,
+  "volume_ratio": 1.5518825305549002,
+  "flag_above_2x": false,
+  "sma_crossover_4h": "fast_above_slow",
+  "order_book_imbalance_top10": 0.13759436410126438,
+  "existing_position": true
+}
+```
+
+---
+### 2026-09-25T10:43:06.167Z — SUI/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger flag (1h/4h 48h changes +2.84%/+0.20%). Existing open position (SUI/EUR opened 2026-09-22), one-per-pair rule applies. Order book remains strongly bid-skewed (+0.62). News: Sui Foundation joined Linux Foundation's Tokenization Body alongside Swift/Wells Fargo, TVL reached ~$1.21B - constructive context for the existing position.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 2.8443449048152267,
+    "pct_change_4h_48h": 0.20270270270270535
+  },
+  "rsi_14_4h": 61.73344053634697,
+  "volume_ratio": 0.6724085609263404,
+  "flag_above_2x": false,
+  "sma_crossover_4h": "fast_above_slow",
+  "order_book_imbalance_top10": 0.6171235627219148,
+  "existing_position": true
+}
+```
+
+---
