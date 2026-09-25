@@ -317,6 +317,78 @@ that's being thought through separately rather than folded into this fix.
 If crossed later, update the threshold logic here and the corresponding
 note in `TAKE_PROFIT_RR_MULTIPLE`'s comment in `types.ts`.
 
+## SOL/EUR precision-bug incident, manual cutover, and fresh-session switch (2026-09-25)
+
+**The incident**: `portfolio_check_stops` tried to move SOL/EUR's trailing
+stop (just past +1R) and Kraken rejected the replacement price - *"SOL/EUR
+price can only be specified up to 2 decimals."* Root cause: `formatPrice`/
+`formatVolume` in `portfolio-live.ts` did a blind `toFixed(8)` for every
+pair, assuming 8 decimals was safe everywhere. It isn't - Kraken's real
+per-pair tick sizes vary (BTC/EUR price=1 decimal, SOL/EUR price=2,
+SUI/EUR volume=5 not 8, etc.), confirmed live via `api.kraken.com/0/public/
+AssetPairs`. Since the tool cancels the old stop before placing the new
+one, the failed replacement left SOL/EUR with **no resting stop at all**.
+The agent caught this itself, not from the error alone - it noticed 3
+consecutive `portfolio_check_stops` calls where `peak_price` kept rising
+but `stop_loss`/`stop_order_txid` never changed, which is only consistent
+with a cancelled-and-never-replaced stop. No tool exists to inspect
+Kraken's raw open orders directly, so rather than guess, it closed the
+position manually via `portfolio_close_position` - a real market sell,
+**+€6.85 realized** (price had risen, so this was a gain, just smaller
+than the trailing stop would have eventually captured).
+
+**The fix** (commit `aee10a8`): added `fetchPairPrecision()` to
+`kraken.ts`, reading each pair's real `pair_decimals`/`lot_decimals` from
+Kraken's public `AssetPairs` endpoint and caching per process. `formatPrice`/
+`formatVolume` are now pair-aware - volume floors (a sell/stop order can
+never request more than the position holds), price uses standard rounding
+(fine either direction for a stop trigger). Verified against live Kraken
+data and the self-test suite; reviewed the diff directly rather than
+trusting the incident session's own commit message.
+
+**The deployment gap, and why a manual cutover happened same-day**: the
+fix was committed, but the hourly trigger was still bound to the *same
+persistent session* that hit the bug - its MCP server process was already
+running with the old code in memory, and a `git pull` doesn't reload an
+already-imported Node module. The next scheduled firing (weekly cutover)
+wasn't until Sunday, and the identical failure could have recurred on
+BTC/LINK/SUI's next trailing update in the meantime. Ran the documented
+weekly-cutover procedure manually, same-day: created a fresh session on
+the fixed branch, verified it completed one real clean cycle (confirmed
+via `git diff` on the actual commit showing zero unexpected state
+changes, not just the session's self-summary - which, true to form,
+overstated what happened that cycle by describing SUI's *already-existing*
+trailing stop as if newly triggered), then swapped the hourly trigger onto
+it and archived the old session.
+
+**Also surfaced by archiving the old session**: its lifetime cost was
+**$2,189.93 over ~69.5 hours** (2026-09-22 14:25 to 2026-09-25 11:52) -
+the same cost-climb problem paper trading hit on 2026-09-20 ($336.31 over
+18h), which motivated paper trading's switch to a fresh-session-per-firing
+model back then. Live trading had never gotten that same fix - it kept
+the older persistent-session-plus-weekly-cutover architecture, and a
+weekly cutover clearly isn't frequent enough to bound this (cost climbs
+with accumulated conversation history; $2,189.93 against a €5,000 account
+in under 3 days dwarfs the actual trading P&L, which was net -€4.22
+realized at the time). **Fixed the same day**: deleted the persistent-
+session trigger and recreated it with `create_new_session_on_fire: true`
+(new trigger id `trig_01R2Skdx6VvUEdmBgvJ77UDu`) - every hourly firing now
+gets a brand-new, disposable session, resetting cost to baseline every
+cycle, mirroring paper trading's existing fix exactly.
+
+**Notion connector note**: `create_trigger`'s `connectors` param can only
+pass through what the calling session itself already holds (normally
+nothing), so the fresh-session trigger came up with a warning that fired
+sessions would have no MCP connector tools. Kraken trading itself is
+unaffected - those tools come from `.mcp.json` in the repo, not an
+account-level connector, so they load automatically on every fresh
+session. Notion needed one manual reattachment at claude.ai/code/routines
+on the new trigger - done same-day, confirmed by the user. Should now be
+transparent going forward: paper trading's identical fresh-session switch
+(2026-09-20) proved that once the account-level Notion always-allow
+setting is correct, every subsequent fresh session inherits it
+automatically with no repeated approval prompts or reattachment needed.
+
 ## Network access
 
 Same as paper trading: `api.kraken.com` is the only allowlisted domain
