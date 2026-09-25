@@ -11466,3 +11466,146 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-09-25T15:43:00.347Z — BTC/EUR — NO TRADE
+
+**Reasoning:** Existing open position (id 9b1501f0) - one-per-pair rule. Unrealized P&L -2.18%. Momentum trigger not flagged this cycle (-0.06%/0.62%), order book flipped negative (-0.28).
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -0.0583,
+    "pct_change_4h_48h": 0.625
+  },
+  "rsi_14_4h": 55.41,
+  "volume_ratio": 0.884,
+  "order_book_imbalance": -0.2776,
+  "news_context": "BTC consolidating near $84k (USD ref); altcoins rallying broadly; Bitcoin ETF flows turned positive for 2026, net inflows now $800M after erasing an earlier $5.8B deficit."
+}
+```
+
+---
+### 2026-09-25T15:43:03.486Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No open position. momentum_trigger not flagged (1.43%/2.23%, well under 6%). Volume ratio 0.64 unconfirmed. Order book essentially flat (-0.0008). No proportionate catalyst - CFTC reviewing unusual Kalshi ETH perpetuals activity is a regulatory-scrutiny headline, not a bullish trigger. Insufficient confluence.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 1.4332,
+    "pct_change_4h_48h": 2.2349
+  },
+  "rsi_14_4h": 57.1,
+  "volume_ratio": 0.643,
+  "order_book_imbalance": -0.0008,
+  "news_context": "CFTC reviewing ~$5B unusual perpetual futures activity on Kalshi's ETH market (regulatory scrutiny, not a bullish catalyst); BitMine added 27,562 ETH to treasury, nearing 5% supply goal (continued accumulation)."
+}
+```
+
+---
+### 2026-09-25T15:43:07.201Z — SOL/EUR — NO TRADE
+
+**Reasoning:** No open position. momentum_trigger still only marginally flagged (5.68%/6.02%). Volume ratio still weak at 0.54 (unconfirmed, unchanged from last cycle). Order book imbalance flipped negative this cycle (-0.147, was +0.557 last cycle) - real near-term selling pressure now present on top of already-weak volume. News remains supportive (12-week ETF inflow streak, network upgrades) but the deteriorating order book plus persistently unconfirmed volume keeps this a pass.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": true,
+    "pct_change_1h_48h": 5.684,
+    "pct_change_4h_48h": 6.024,
+    "threshold_pct": 6
+  },
+  "rsi_14_4h": 67.29,
+  "volume_ratio": 0.542,
+  "order_book_imbalance": -0.147,
+  "news_context": "SOL touched $120 (USD ref) for first time in 8 months; Solana ETFs hit 12 consecutive weeks of inflows (~$1.4B cumulative); 200ms slot-time target, Transaction V1 Format activated Sept 9."
+}
+```
+
+---
+### 2026-09-25T15:43:10.394Z — XRP/EUR — NO TRADE
+
+**Reasoning:** No open position. momentum_trigger not flagged (5.47%/5.93%, just under 6%). Volume ratio 0.995 near-average but not confirmed elevated. Order book positive (+0.44) but the momentum trigger itself didn't clear threshold, so this doesn't qualify as a momentum-only setup, and no other multi-signal confluence is strong enough on its own.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 5.467,
+    "pct_change_4h_48h": 5.934,
+    "threshold_pct": 6
+  },
+  "rsi_14_4h": 66.05,
+  "volume_ratio": 0.995,
+  "order_book_imbalance": 0.4395,
+  "news_context": "Record 11,432 new XRPL accounts on Sept 24; BatchV1_1 amendment could activate Sept 29; Ripple AI-driven security overhaul announced Sept 23; continued spot XRP ETF inflows."
+}
+```
+
+---
+### 2026-09-25T15:43:14.607Z — ADA/EUR — NO TRADE
+
+**Reasoning:** No open position. momentum_trigger flagged (7.50%/7.45%) and news continues constructive (x402 payments support, Mastercard program, IndiaChain mainnet launch, potential golden cross). However volume ratio remains unconfirmed at 0.57, and order book imbalance is still negative (-0.095, improved from -0.33 last cycle but still net ask-heavy) - real selling pressure persists even as it eases. Passing again this cycle given the still-negative book and unconfirmed volume; would reconsider if the book flips positive with volume confirmation.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": true,
+    "pct_change_1h_48h": 7.505,
+    "pct_change_4h_48h": 7.447,
+    "threshold_pct": 6
+  },
+  "rsi_14_4h": 64.75,
+  "volume_ratio": 0.57,
+  "order_book_imbalance": -0.0952,
+  "news_context": "Native x402 AI-agent payments support (Sept 15); Cardano Foundation joined Mastercard cross-border payments program (Sept 19); IndiaChain agricultural-settlement mainnet launch (Sept 19); analyst flags potential golden cross / 2020-like base pattern."
+}
+```
+
+---
+### 2026-09-25T15:43:17.099Z — LINK/EUR — NO TRADE
+
+**Reasoning:** Existing open position (id 82303d21) - one-per-pair rule. Unrealized P&L -1.64%. Momentum still flagged (15.26%/15.73%) but irrelevant given existing position.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": true,
+    "pct_change_1h_48h": 15.257,
+    "pct_change_4h_48h": 15.732
+  },
+  "rsi_14_4h": 72.24,
+  "volume_ratio": 1.552,
+  "order_book_imbalance": 0.1833,
+  "news_context": "LINK broke above September high, open interest up ~25%; Paxos Labs launched PAXGy on Chainlink CCIP as sole cross-chain route; Hamco launched Pan-Asia institutional fund using CCIP; continued institutional demand narrative."
+}
+```
+
+---
+### 2026-09-25T15:43:20.277Z — SUI/EUR — NO TRADE
+
+**Reasoning:** Existing open position (id 3099c8ad, trailing active) - one-per-pair rule. Unrealized P&L +11.10%. Note: Phantom wallet ended SUI network support (Sept 24), a genuine bearish headwind reported to have pulled price down in the hours after - worth watching, but the resting trailing stop already manages downside risk mechanically; no manual action taken.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": true,
+    "pct_change_1h_48h": 18.237,
+    "pct_change_4h_48h": 19.396
+  },
+  "rsi_14_4h": 76.95,
+  "volume_ratio": 0.672,
+  "order_book_imbalance": -0.2036,
+  "news_context": "Phantom wallet ended Sui network support Sept 24 (bearish headwind, reported price pullback); Sui Foundation joined Linux Foundation Tokenization Body; DeepBook App launched Bitcoin prediction markets; Sui DeFi TVL above $1.2B."
+}
+```
+
+---
