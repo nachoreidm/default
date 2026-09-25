@@ -432,26 +432,37 @@ risk from this specific failure mode, only the Notion sync and subsequent
 cycle cadence are).
 
 User fixed it by setting every Notion tool to "always allow" directly in
-Notion's own connector settings. The paper-branch precedent said a
-session *already created* before such a fix stays locked into prompting
-for its whole life - so the plan was to cut over to yet another new
-session created after the fix. But before that cutover could happen, the
-existing (pre-fix) persistent session's regularly-scheduled 13:41 UTC
-firing ran on its own and completed a fully clean cycle - real commit
-(`e8bf7fc`), real fresh Notion rows at 13:42 UTC, verified directly, not
-assumed. So the fix took effect on the already-running session too,
-contradicting the strict reading of the 2026-09-11 precedent (or that
-precedent was specific to a different mechanism than whatever caused this
-occurrence - not fully understood either way). Given the hard evidence of
-a clean post-fix cycle, re-bound the trigger to this same session
-(`trig_014JzVP1T2idAxMKehYojicm`) rather than spin up yet another one on
-pure theory. Watch the next couple of cycles to confirm this holds.
+Notion's own connector settings. **First attempt at verifying the fix was
+wrong, and worth recording why**: the existing (pre-fix) persistent
+session's regularly-scheduled 13:41 UTC firing completed a fully clean
+cycle - real commit (`e8bf7fc`), real fresh Notion rows at 13:42 UTC - and
+that was initially read as evidence the fix had taken effect on the
+already-running session, contradicting the 2026-09-11 precedent. It
+hadn't. The 14:41 UTC firing on that same session prompted for Notion
+approval *again* - the 13:41 "clean" result only looked clean because the
+user was present and clicked approve in real time, not because the
+session was actually fixed. A completed cycle is not by itself proof a
+prompt didn't happen; only "did the user have to click anything" answers
+that, and that's confirmed here as the discipline to apply next time this
+comes up, not just "did the commit/Notion state end up correct."
+
+Once that was caught, did the cutover the 2026-09-11 precedent actually
+calls for: new session (`session_01FunzjeXToGyBEWjysEjUVn`) created
+*after* the settings fix, verified via real commit (`bbc0775`) and real
+Notion rows (14:52 UTC) same as always, **and this time explicitly asked
+the user whether it had prompted for approval - it hadn't.** Trigger
+re-bound to this session (`trig_01WyUaibu44awnu7EZBVR95n`). The
+2026-09-11 precedent holds exactly as stated: a session created before an
+always-allow fix stays locked into prompting for its whole life; only a
+session created after the fix is clean. This is now resolved, not just
+theorized.
 
 **Net effect of today's back-and-forth**: hourly trigger is back on the
 persistent-session model (same cost-climb exposure this was all trying to
-escape - still only a weekly cutover bounding it, see above). Both the
-fresh-session failure and the Notion approval-prompt trigger conditions
-remain not fully root-caused. Revisit if either recurs.
+escape - still only a weekly cutover bounding it, see above), now on a
+session confirmed to need no Notion approval. The fresh-session-per-fire
+failure from earlier today remains not root-caused - revisit if it comes
+up again, but don't re-attempt it blind.
 
 ## Network access
 
