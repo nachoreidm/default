@@ -11609,3 +11609,144 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-09-25T16:43:30.821Z — BTC/EUR — NO TRADE
+
+**Reasoning:** Existing open position (id 9b1501f0) - one-per-pair rule. Unrealized P&L -1.78%. Momentum trigger not flagged (-0.44%/-0.98%, price cooling off).
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -0.4419,
+    "pct_change_4h_48h": -0.9789
+  },
+  "rsi_14_4h": 49.17,
+  "volume_ratio": 0.884,
+  "order_book_imbalance": -0.0904,
+  "news_context": "BTC consolidating (USD ref ~$84k); ~$14B in options expiring on Deribit Friday; Treasury yields easing."
+}
+```
+
+---
+### 2026-09-25T16:43:30.839Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No open position. momentum_trigger not flagged (0.80%/0.17%, well under 6%). RSI 51 neutral. Volume ratio 0.64 unconfirmed. No proportionate catalyst - BitMine accumulation is ongoing/priced-in, and a Bitget hot-wallet breach rumor is a risk-off headline, not bullish.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 0.8011,
+    "pct_change_4h_48h": 0.1683
+  },
+  "rsi_14_4h": 51.24,
+  "volume_ratio": 0.643,
+  "order_book_imbalance": 0.1437,
+  "news_context": "BitMine added 27,562 ETH to treasury (nearing 5% supply goal); speculation of a possible Bitget hot-wallet breach (risk-off); SEC tokenization pilot seen as long-term positive."
+}
+```
+
+---
+### 2026-09-25T16:43:30.865Z — SOL/EUR — NO TRADE
+
+**Reasoning:** No open position. momentum_trigger no longer flagged this cycle (4.86%/4.77%, receded below the 6% bar). Volume still weak (0.54). Order book modestly positive (+0.15). News remains constructive (record daily active users, DEX volume ahead of NYSE) but without a flagged trigger there's no momentum-only basis, and no other confluence is strong enough alone.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 4.856,
+    "pct_change_4h_48h": 4.772
+  },
+  "rsi_14_4h": 64.65,
+  "volume_ratio": 0.542,
+  "order_book_imbalance": 0.154,
+  "news_context": "Daily active users hit all-time high (7.96M); weekly DEX trades (~208M) ahead of NYSE's ~190M; SGP-0002 governance proposal doubled disinflation rate."
+}
+```
+
+---
+### 2026-09-25T16:43:30.877Z — XRP/EUR — NO TRADE
+
+**Reasoning:** No open position. momentum_trigger not flagged (4.97%/5.42%, under 6%). Volume ratio 0.995 near-average, not confirmed elevated. Order book mildly negative (-0.13). News is bullish (Stripe integration, ETF inflows, whale activity) but trigger itself hasn't cleared threshold and order book doesn't support entry right now.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 4.974,
+    "pct_change_4h_48h": 5.416
+  },
+  "rsi_14_4h": 61.63,
+  "volume_ratio": 0.995,
+  "order_book_imbalance": -0.1279,
+  "news_context": "Ripple linked XRP to Stripe's payment tools (Sept 17), driving momentum; whale transactions and network growth surging; XRPL Permission Delegation upgrade targeted for Oct 5; spot XRP ETFs live since Nov 2025."
+}
+```
+
+---
+### 2026-09-25T16:43:30.890Z — ADA/EUR — NO TRADE
+
+**Reasoning:** No open position. momentum_trigger flagged again (6.32%/6.47%) and the order book has now flipped decisively positive (+0.52, up from -0.10 last cycle and -0.33 two cycles ago) - the clearest bid-side support seen for this pair yet, alongside sustained bullish news (x402, Mastercard, Fireblocks/RealFi launch Oct 1, 9-year network anniversary). This is the closest call on ADA so far. Still passing: volume ratio remains 0.57, meaningfully below average and the weakest of any factor here - a price move on sub-average volume is the one consistent disqualifier applied to every pair today (BTC/ETH/SOL/XRP all also showed volume <1.0x). Flagging for next cycle: if volume also confirms (moves toward/above 1x) with the book still supportive, this would clear the bar.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": true,
+    "pct_change_1h_48h": 6.322,
+    "pct_change_4h_48h": 6.475,
+    "threshold_pct": 6
+  },
+  "rsi_14_4h": 63.29,
+  "volume_ratio": 0.57,
+  "order_book_imbalance": 0.5245,
+  "news_context": "x402 AI-agent payments integration; Cardano Foundation joined Mastercard cross-border program; Fireblocks now supports Cardano Native Tokens, RealFi launching Oct 1; Cardano marked 9 years since genesis block."
+}
+```
+
+---
+### 2026-09-25T16:43:30.904Z — LINK/EUR — NO TRADE
+
+**Reasoning:** Existing open position (id 82303d21) - one-per-pair rule. Unrealized P&L -0.81%. Momentum still flagged (13.01%/12.36%) but irrelevant given existing position. News continues strongly positive (first LINK ETF debut, four-day inflow streak, Infosys partnership).
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": true,
+    "pct_change_1h_48h": 13.008,
+    "pct_change_4h_48h": 12.357
+  },
+  "rsi_14_4h": 66.26,
+  "volume_ratio": 1.552,
+  "order_book_imbalance": 0.0094,
+  "news_context": "First U.S. Chainlink ETFs debuted, four-day streak of net inflows, controlling 2.2% of circulating supply; Infosys partnership standardizing CCIP/PoR across banking software for 1.7B accounts; Hamco and Paxos Labs partnerships continuing."
+}
+```
+
+---
+### 2026-09-25T16:43:30.919Z — SUI/EUR — NO TRADE
+
+**Reasoning:** Existing open position (id 3099c8ad, trailing active) - one-per-pair rule. Unrealized P&L +12.82%. Order book has recovered to positive (+0.24) since the Phantom-wallet-desupport headwind noted last cycle; trailing stop continues to manage risk mechanically.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": true,
+    "pct_change_1h_48h": 14.286,
+    "pct_change_4h_48h": 14.557
+  },
+  "rsi_14_4h": 68.11,
+  "volume_ratio": 0.672,
+  "order_book_imbalance": 0.2409,
+  "news_context": "Sui Foundation joined Linux Foundation Tokenization Body; DeepBook launched public app with Bitcoin prediction markets; Mainnet v1.80.1 Protocol 137 upgrade released."
+}
+```
+
+---
