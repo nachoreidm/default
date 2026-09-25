@@ -197,7 +197,8 @@ Everything below happened, in order, on 2026-09-22:
    one-off issue, if this needs touching again. The
    "surface guaranteed-profit-lock status in Notion" item from the paper
    branch's decision log is still open and can be batched with any future
-   schema change here.
+   schema change here. **Closed 2026-09-25** - see "Open Positions table
+   added to Notion" below.
    - **Bug found on the very next cycle (14:44 UTC) and fixed same day**:
      the original step-5 wording ("update the summary page... with fresh
      numbers... and a fresh Last synced timestamp") didn't specify which
@@ -463,6 +464,38 @@ escape - still only a weekly cutover bounding it, see above), now on a
 session confirmed to need no Notion approval. The fresh-session-per-fire
 failure from earlier today remains not root-caused - revisit if it comes
 up again, but don't re-attempt it blind.
+
+## Open Positions table added to Notion (2026-09-25)
+
+Closes the "surface guaranteed-profit-lock status in Notion" item open
+since the paper branch's decision log. The summary page's "Open
+positions" line used to be one dense inline sentence with no per-position
+risk detail. Added a dedicated "## Open Positions" table (Pair | Entry |
+Current Stop | Unrealized P&L | If stopped out now) with one row per
+position showing:
+
+- **Before +1R** (`trailing_active: false`): "⚠️ Max risk: -€X.XX",
+  computed as `(entry_price - stop_loss) * quantity` - what's actually
+  lost if the resting stop fills right now, not the nominal stop
+  distance.
+- **After +1R** (`trailing_active: true`): "✅ Profit locked: +€X.XX",
+  computed as `(stop_loss - entry_price) * quantity` - the guaranteed
+  floor gain if the (now above-entry) trailing stop fills right now.
+
+Both are computed from `data/live_portfolio_state.json`'s
+`entry_price`/`stop_loss`/`quantity`/`trailing_active` fields, already
+available from the routine's step-0 git pull - **no live Kraken call
+needed**, since this is a floor derived from the resting stop's price,
+not current market price (deliberately distinct from "Unrealized P&L" in
+the same table, which does need the live price and fluctuates constantly
+- the risk/profit-locked figure only changes when the stop itself moves).
+
+Rolled out same-day: manually rewrote the live summary page with the new
+table (verified via `notion-fetch`, not assumed), then updated the hourly
+trigger's prompt so future cycles rebuild it automatically (delete +
+recreate the trigger, same session `session_01FunzjeXToGyBEWjysEjUVn`,
+new trigger id `trig_01QzdRYVyTGg3bi5y35d1q54` - same prompt-editing
+constraint noted earlier in this file).
 
 ## Network access
 
