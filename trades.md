@@ -10637,3 +10637,166 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-09-25T11:44:32.270Z — SOL/EUR — LONG — CLOSED (LIVE)
+
+- Exit price: €106.02 (real fill)
+- Exit fee (real): €1.67
+- Reason: Manual safety close, not a normal exit. portfolio_check_stops errored while trailing this position's stop ("SOL/EUR price can only be specified up to 2 decimals" - a price-precision bug in the trailing-stop price computation). Per the tool's own design, a failed replacement after a successful cancel leaves the position without a resting stop. Confirmed via 3 subsequent portfolio_check_stops calls: trailing_active flipped to true and peak_price kept updating (104.74 -> 107.16), but stop_loss and stop_order_txid never changed from their pre-trailing values (96.5 / OFHUSQ-NXEQX-DW3WTN) across all 3 calls - inconsistent with a successful trail, and strongly suggesting the original stop order was cancelled by the first failed attempt and never replaced. No tool is available to directly query Kraken's live open orders or manually place a corrected stop-loss order. Closing now, real-money position, to eliminate the unprotected downside risk and lock in the real unrealized gain (+4.3%/+EUR8.63) rather than leave it exposed to a reversal with no verified stop resting on Kraken.
+- Realized P&L: €6.85 (0.13% of portfolio)
+- Position id: 87ddf369-9a09-47e8-ac57-0598aa190726
+
+---
+### 2026-09-25T11:45:23.415Z — BTC/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger flag (1h/4h 48h changes -0.98%/-1.71%). Existing open position (BTC/EUR opened 2026-09-22), one-per-pair rule applies. News: Binance's largest daily BTC outflow since 2023 (13,800+ BTC), linked to renewed FOMO - notable but not a defined confirming signal.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -0.9817778304708138,
+    "pct_change_4h_48h": -1.7077872166398687
+  },
+  "rsi_14_4h": 52.058091916198116,
+  "volume_ratio": 0.8838759385588576,
+  "flag_above_2x": false,
+  "sma_crossover_4h": "fast_above_slow",
+  "order_book_imbalance_top10": -0.09367088607594945,
+  "existing_position": true
+}
+```
+
+---
+### 2026-09-25T11:45:26.803Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger flag (1h/4h 48h changes -0.43%/-1.86%). Volume ratio 0.64x, below average. News: 1.68M ETH queued for staking vs only 154K unstaking - a supportive long-term signal but not a defined confirming trigger. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -0.4316781488034803,
+    "pct_change_4h_48h": -1.8551284786273265
+  },
+  "rsi_14_4h": 49.65056994726797,
+  "volume_ratio": 0.6433949397912896,
+  "flag_above_2x": false,
+  "sma_crossover_4h": "fast_above_slow",
+  "order_book_imbalance_top10": 0.17871530136737243,
+  "existing_position": false
+}
+```
+
+---
+### 2026-09-25T11:45:31.235Z — SOL/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger flag (1h/4h 48h changes +1.85%/-0.47%). Re-entry-eligible after the manual safety close this cycle (trailing-stop price-precision bug), but no fresh entry signal - momentum not confirmed and no new multi-signal confluence since the prior entry's thesis. News: Alpenglow upgrade tentative Sept 28 launch (pending 95% validator adoption), SOL reported outperforming BTC/ETH this month - constructive but not a trigger on its own. No trade; will re-evaluate fresh next cycle like any other pair.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 1.8509498295177704,
+    "pct_change_4h_48h": -0.46760837798344274
+  },
+  "rsi_14_4h": 56.32628254091091,
+  "volume_ratio": 0.5419639671633352,
+  "flag_above_2x": false,
+  "sma_crossover_4h": "fast_above_slow",
+  "order_book_imbalance_top10": 0.23452135151645895,
+  "existing_position": false
+}
+```
+
+---
+### 2026-09-25T11:45:34.009Z — XRP/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger flag (1h/4h 48h changes -0.96%/-2.31%). Volume ~1.0x, unconfirmed. News recycled. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -0.956538765564607,
+    "pct_change_4h_48h": -2.313387916718038
+  },
+  "rsi_14_4h": 57.21754608680386,
+  "volume_ratio": 0.9950157632923532,
+  "flag_above_2x": false,
+  "sma_crossover_4h": "fast_above_slow",
+  "order_book_imbalance_top10": 0.3851148105383319,
+  "existing_position": false
+}
+```
+
+---
+### 2026-09-25T11:45:37.116Z — ADA/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger flag (1h/4h 48h changes +0.82%/-0.49%). Volume 0.57x, below average. News recycled plus a speculative 2020-analog accumulation thesis - not a defined signal. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 0.8181288996416399,
+    "pct_change_4h_48h": -0.49115020100776635
+  },
+  "rsi_14_4h": 59.81489321764531,
+  "volume_ratio": 0.5697589565777416,
+  "flag_above_2x": false,
+  "sma_crossover_4h": "fast_above_slow",
+  "order_book_imbalance_top10": 0.6089388911673972,
+  "existing_position": false
+}
+```
+
+---
+### 2026-09-25T11:45:40.821Z — LINK/EUR — NO TRADE
+
+**Reasoning:** momentum_trigger flagged again (1h/48h +8.93%, 4h/48h +5.98%) - but existing open position (LINK/EUR opened this session at 09:43 UTC), one-per-pair rule applies regardless. News continues building: open interest up 25% in 24h, approaching $14, Hamco/Paxos launches confirmed, Infosys partnership details firming. Position benefiting from the continued move.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": true,
+    "pct_change_1h_48h": 8.925784237345892,
+    "pct_change_4h_48h": 5.978549137430586
+  },
+  "rsi_14_4h": 65.72292253898505,
+  "volume_ratio": 1.5518825305549002,
+  "flag_above_2x": false,
+  "sma_crossover_4h": "fast_above_slow",
+  "order_book_imbalance_top10": -0.1484256813701809,
+  "existing_position": true
+}
+```
+
+---
+### 2026-09-25T11:45:44.305Z — SUI/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger flag (1h/4h 48h changes +5.83%/+0.20%, close to but below the 6% bar). Existing open position (SUI/EUR opened 2026-09-22, trailing already active with stop raised to 0.9099), one-per-pair rule applies regardless. News: Sui Foundation joined Linux Foundation's Tokenization Body alongside Swift/Wells Fargo, TVL ~$1.21B, new CLOB app launched - continued constructive context for the existing position.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 5.833333333333329,
+    "pct_change_4h_48h": 0.20270270270270535
+  },
+  "rsi_14_4h": 61.73344053634697,
+  "volume_ratio": 0.6724085609263404,
+  "flag_above_2x": false,
+  "sma_crossover_4h": "fast_above_slow",
+  "order_book_imbalance_top10": -0.035263353556896186,
+  "existing_position": true
+}
+```
+
+---
