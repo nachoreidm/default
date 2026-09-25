@@ -11316,3 +11316,153 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-09-25T14:50:29.598Z — BTC/EUR — NO TRADE
+
+**Reasoning:** Existing open position (opened 2026-09-22, id 9b1501f0) - one-per-pair rule, no new entry regardless of signals. Current unrealized P&L -1.99%, no trailing yet (not at +1R). Momentum trigger not flagged this cycle.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -0.6966,
+    "pct_change_4h_48h": 0.625
+  },
+  "rsi_14_4h": 55.41,
+  "volume_ratio": 0.884,
+  "sma_state": "fast_above_slow",
+  "order_book_imbalance": 0.0656,
+  "news_context": "Institutional buying continues (a strategy bought 950 BTC at $79,670 last week); Michael Saylor speculation on further buys near $84k; market cap ~$1.33T holding well ahead of ETH."
+}
+```
+
+---
+### 2026-09-25T14:50:33.683Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No open position, but no compelling setup: momentum_trigger not flagged (0.75%/2.23%, well under the 6% bar), volume ratio 0.64 (below average, unconfirmed), order book imbalance mildly negative (-0.11, slight ask-side skew). RSI 57 is neutral. News shows recovery in progress but no proportionate near-term catalyst (Glamsterdam upgrade has slipped to Q4, not an imminent trigger). Insufficient confluence for either a standard or momentum-only entry.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 0.7467,
+    "pct_change_4h_48h": 2.2349
+  },
+  "rsi_14_4h": 57.1,
+  "volume_ratio": 0.643,
+  "sma_state": "fast_above_slow",
+  "order_book_imbalance": -0.1109,
+  "news_context": "Bitmine Immersion Technologies continuing ETH accumulation through 2026; recovering from earlier-2026 selloff; Glamsterdam upgrade mainnet activation slipped to Q4 2026 - no near-term catalyst."
+}
+```
+
+---
+### 2026-09-25T14:50:38.667Z — SOL/EUR — NO TRADE
+
+**Reasoning:** No open position (prior position manually closed 2026-09-25 due to unrelated precision-bug incident, now fixed). momentum_trigger flagged but only marginally - 4h/48h change is 6.02%, essentially right at the 6% threshold, not a clean breakout. Volume ratio 0.54 is the weakest confirmation of any pair this cycle (barely half of the prior-week average), notably weaker than every past entry in this account's history (BTC 3.34x, LINK 1.55x, SUI 3.25x at their own entries). Order book imbalance is strongly positive (+0.557) and news is broadly supportive (ETF inflows >$1B, network upgrades, bullish consolidation above support), but the marginal trigger plus unconfirmed volume don't clear the bar for a fresh entry - passing rather than chasing a move that isn't showing real volume participation.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": true,
+    "pct_change_1h_48h": 3.773,
+    "pct_change_4h_48h": 6.024,
+    "threshold_pct": 6
+  },
+  "rsi_14_4h": 67.29,
+  "volume_ratio": 0.542,
+  "sma_state": "fast_above_slow",
+  "order_book_imbalance": 0.5573,
+  "news_context": "Solana ETF assets surpassed $1B; slot time reduced to 250ms (Sept 18 upgrade); high-level consolidation with bullish bias, support above $110 (USD reference); institutional inflows from Bitwise/Fidelity."
+}
+```
+
+---
+### 2026-09-25T14:50:42.619Z — XRP/EUR — NO TRADE
+
+**Reasoning:** No open position. momentum_trigger not flagged (5.93%/48h, just under the 6% bar). Volume ratio 0.995 is close to average but not confirmed elevated. Order book imbalance only mildly positive (+0.059). RSI 66 elevated but not extreme. News is mixed/contradictory across sources on today's exact price action, though longer-term flows (ETF inflows ~$1.75B, XRPL account growth) are positive - not a clean enough signal set for a non-momentum entry, and momentum_trigger itself didn't clear threshold.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 3.6005,
+    "pct_change_4h_48h": 5.934,
+    "threshold_pct": 6
+  },
+  "rsi_14_4h": 66.05,
+  "volume_ratio": 0.995,
+  "sma_state": "fast_above_slow",
+  "order_book_imbalance": 0.0594,
+  "news_context": "Spot XRP ETFs posting 10 consecutive green weeks, ~$1.75B cumulative net inflows; XRPL new-account growth surged 323% above 30-day average; mixed/contradictory short-term price reports across sources."
+}
+```
+
+---
+### 2026-09-25T14:50:46.965Z — ADA/EUR — NO TRADE
+
+**Reasoning:** No open position. momentum_trigger flagged (6.32%/7.45%, clears the 6% bar) and news is genuinely constructive (Hashdex Nasdaq Crypto Index ETF added ADA, Fireblocks integration announced, x402 AI-agent payment protocol integration, Mastercard cross-border exploration). However volume ratio is unconfirmed at 0.57 (below average), and order book imbalance is meaningfully negative (-0.329) - real near-term selling pressure working against the momentum thesis, the same adverse-order-book pattern that has caused this account to pass on setups before. Passing rather than entering against visible sell-side pressure.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": true,
+    "pct_change_1h_48h": 6.319,
+    "pct_change_4h_48h": 7.447,
+    "threshold_pct": 6
+  },
+  "rsi_14_4h": 64.75,
+  "volume_ratio": 0.57,
+  "sma_state": "fast_above_slow",
+  "order_book_imbalance": -0.3292,
+  "news_context": "Hashdex Nasdaq Crypto Index ETF formally added ADA (first regulated US fund with ADA alongside BTC/ETH); Fireblocks integration announced; x402 AI-agent payment protocol integration; Cardano Foundation joined Mastercard cross-border payments program."
+}
+```
+
+---
+### 2026-09-25T14:50:50.329Z — LINK/EUR — NO TRADE
+
+**Reasoning:** Existing open position (opened 2026-09-25 09:43, id 82303d21) - one-per-pair rule, no new entry regardless of signals. Current unrealized P&L -1.22%, not yet at +1R. Momentum still flagged this cycle (13.23%/15.73%) but irrelevant given existing position.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": true,
+    "pct_change_1h_48h": 13.231,
+    "pct_change_4h_48h": 15.732
+  },
+  "rsi_14_4h": 72.24,
+  "volume_ratio": 1.552,
+  "sma_state": "fast_above_slow",
+  "order_book_imbalance": 0.4362,
+  "news_context": "LINK broke above September high near $13.70, open interest up ~25% to $650.7M; cup-and-handle breakout technical target ~$16.80; Chainlink Node v2.65.0 released Sept 24; Sergey Nazarov spoke at Philadelphia Fed fintech conference alongside BlackRock/Vanguard."
+}
+```
+
+---
+### 2026-09-25T14:50:52.299Z — SUI/EUR — NO TRADE
+
+**Reasoning:** Existing open position (opened 2026-09-22 14:44, id 3099c8ad, trailing already active) - one-per-pair rule, no new entry regardless of signals. Current unrealized P&L +12.51%, trailing stop active and being maintained by portfolio_check_stops.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": true,
+    "pct_change_1h_48h": 14.289,
+    "pct_change_4h_48h": 19.396
+  },
+  "rsi_14_4h": 76.95,
+  "volume_ratio": 0.672,
+  "sma_state": "fast_above_slow",
+  "order_book_imbalance": 0.1355,
+  "news_context": "SUI up 10.5% on the day, reclaimed $1 price zone; TVL reached ~$1.21B; Mainnet v1.80.1 Protocol 137 upgrade Sept 23; Sui Foundation joined LF Decentralized Trust alongside Swift/Wells Fargo."
+}
+```
+
+---
