@@ -389,6 +389,70 @@ transparent going forward: paper trading's identical fresh-session switch
 setting is correct, every subsequent fresh session inherits it
 automatically with no repeated approval prompts or reattachment needed.
 
+### Fresh-session-per-fire reverted same day - it silently failed twice
+
+**The fresh-session architecture above didn't work in practice.** Both of
+its first two firings (12:41 UTC scheduled, then a manual `fire_trigger`
+at 13:00 UTC to retest) reported `ROUTINE_RUN_STATUS_SUCCEEDED`, but
+neither one actually did anything: no new git commit either time, no new
+Notion rows either time, and both sessions used ~5,000 output tokens
+versus a real cycle's typical 15,000+ - all pointing at the session
+stopping very early rather than running the routine. No tool was
+available to pull the session's actual transcript to find the exact
+failure point; `SUCCEEDED` on the trigger apparently just means the
+firing was dispatched, not that the routine's work completed - the same
+gap in what a routine's own status can be trusted for that motivated
+verifying against the actual commit/Notion state everywhere else in this
+project, now generalized to trigger status too, not just session
+summaries. Two failures in the same pattern within 20 minutes = a real,
+repeatable problem with this architecture in this environment, not a
+fluke - reverted to the persistent-session model the same day rather than
+investigate blind. **The fresh-session-per-fire approach for this
+specific trigger is not currently trusted and shouldn't be re-tried
+without first understanding why it silently stopped early** - it's
+proven for paper trading's hourly trigger, so this isn't a problem with
+the general pattern, just something specific to this trigger/environment
+combination that wasn't root-caused before reverting.
+
+Reverted: new persistent session (`session_013JVrHfpZ59QgfKgsfPYHai`),
+verified clean (real commit + real Notion rows, not just its own summary)
+before binding the trigger back to it.
+
+### Notion approval-prompt bug recurred on the reverted session, then resolved
+
+Right after reverting, the user reported Notion asking for manual
+approval again on the new persistent session - the same failure mode
+documented on the paper branch (2026-09-11): a Notion write tool can
+prompt for interactive approval despite the account-level always-allow
+setting, and an *unanswered* prompt can leave a persistent session
+blocked mid-turn, degrading future scheduled firings too (though the
+trading-critical steps - stops, signals, execution, git push - all
+happen *before* the Notion step in this routine, so real trading isn't at
+risk from this specific failure mode, only the Notion sync and subsequent
+cycle cadence are).
+
+User fixed it by setting every Notion tool to "always allow" directly in
+Notion's own connector settings. The paper-branch precedent said a
+session *already created* before such a fix stays locked into prompting
+for its whole life - so the plan was to cut over to yet another new
+session created after the fix. But before that cutover could happen, the
+existing (pre-fix) persistent session's regularly-scheduled 13:41 UTC
+firing ran on its own and completed a fully clean cycle - real commit
+(`e8bf7fc`), real fresh Notion rows at 13:42 UTC, verified directly, not
+assumed. So the fix took effect on the already-running session too,
+contradicting the strict reading of the 2026-09-11 precedent (or that
+precedent was specific to a different mechanism than whatever caused this
+occurrence - not fully understood either way). Given the hard evidence of
+a clean post-fix cycle, re-bound the trigger to this same session
+(`trig_014JzVP1T2idAxMKehYojicm`) rather than spin up yet another one on
+pure theory. Watch the next couple of cycles to confirm this holds.
+
+**Net effect of today's back-and-forth**: hourly trigger is back on the
+persistent-session model (same cost-climb exposure this was all trying to
+escape - still only a weekly cutover bounding it, see above). Both the
+fresh-session failure and the Notion approval-prompt trigger conditions
+remain not fully root-caused. Revisit if either recurs.
+
 ## Network access
 
 Same as paper trading: `api.kraken.com` is the only allowlisted domain
