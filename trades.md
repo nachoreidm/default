@@ -11187,3 +11187,132 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-09-25T14:42:21.290Z — BTC/EUR — NO TRADE
+
+**Reasoning:** Existing open position (opened 2026-09-22, still open). One-per-pair rule (code-enforced) blocks a second entry regardless of signals. No news search performed this cycle for this reason.
+
+**Signals considered:**
+```json
+{
+  "existing_position": true,
+  "momentum_trigger_flagged": false,
+  "rsi_14_4h": 55.41,
+  "volume_ratio": 0.88
+}
+```
+
+---
+### 2026-09-25T14:42:22.604Z — LINK/EUR — NO TRADE
+
+**Reasoning:** Existing open position (re-opened 2026-09-25 09:43 UTC). One-per-pair rule (code-enforced) blocks a second entry regardless of signals. No news search performed this cycle for this reason.
+
+**Signals considered:**
+```json
+{
+  "existing_position": true,
+  "momentum_trigger_flagged": true,
+  "rsi_14_4h": 72.24,
+  "volume_ratio": 1.55
+}
+```
+
+---
+### 2026-09-25T14:42:23.954Z — SUI/EUR — NO TRADE
+
+**Reasoning:** Existing open position (opened 2026-09-22, trailing stop active). One-per-pair rule (code-enforced) blocks a second entry regardless of signals. No news search performed this cycle for this reason.
+
+**Signals considered:**
+```json
+{
+  "existing_position": true,
+  "momentum_trigger_flagged": true,
+  "rsi_14_4h": 76.95,
+  "volume_ratio": 0.67
+}
+```
+
+---
+### 2026-09-25T14:42:27.498Z — ETH/EUR — NO TRADE
+
+**Reasoning:** momentum_trigger not flagged (1h/48h +0.75%, 4h/48h +2.23%). Volume ratio 0.64, below average. News: Fusaka hard fork remains the notable development (already known); a Bitget hot-wallet breach rumor surfaced but is unconfirmed speculation, not a clear directional catalyst; sentiment is split between bullish (low exchange pressure) and bearish (weakening structure, shorts targeting sub-$1,800) analyst calls - genuinely mixed, no edge. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 0.75,
+    "pct_change_4h_48h": 2.23
+  },
+  "rsi_14_4h": 57.1,
+  "volume_ratio": 0.64,
+  "sma_crossover_4h": "fast_above_slow",
+  "order_book_imbalance_top10": -0.14,
+  "news_context": "Fusaka hard fork activated (known); unconfirmed Bitget hot-wallet breach speculation; analyst sentiment split bullish vs bearish"
+}
+```
+
+---
+### 2026-09-25T14:42:30.365Z — SOL/EUR — NO TRADE
+
+**Reasoning:** momentum_trigger flagged (4h/48h +6.02%, unchanged from prior cycles - candle hasn't rolled) but still NOT volume-confirmed - ratio 0.54, below average, 4th consecutive cycle with this conflict. RSI 67.3 elevated. No fresh catalyst; Alpenglow still dated October 2026. No trade, consistent with prior cycles.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": true,
+    "pct_change_1h_48h": 3.77,
+    "pct_change_4h_48h": 6.02
+  },
+  "rsi_14_4h": 67.29,
+  "volume_ratio": 0.54,
+  "sma_crossover_4h": "fast_above_slow",
+  "order_book_imbalance_top10": 0.012,
+  "news_context": "No new catalyst; August ecosystem roundup ($4B RWA, record transactions) already known; Alpenglow consensus overhaul still scheduled October 2026"
+}
+```
+
+---
+### 2026-09-25T14:42:33.410Z — XRP/EUR — NO TRADE
+
+**Reasoning:** momentum_trigger not flagged (4h/48h +5.93%, just under bar, unchanged). Volume ratio ~1.0, in line with average. Order book positive (+0.19) but doesn't qualify alone. News: Stripe integration (Sep 17) and XRP ETFs remain the drivers, both already known, no fresh catalyst this cycle. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 3.6,
+    "pct_change_4h_48h": 5.93
+  },
+  "rsi_14_4h": 66.05,
+  "volume_ratio": 0.995,
+  "sma_crossover_4h": "fast_above_slow",
+  "order_book_imbalance_top10": 0.191,
+  "news_context": "Ripple-Stripe payment tools integration (Sep 17) still cited driving momentum; spot XRP ETFs live since Nov 2025; XRP up 16% weekly but remains below $1.60"
+}
+```
+
+---
+### 2026-09-25T14:42:36.762Z — ADA/EUR — NO TRADE
+
+**Reasoning:** momentum_trigger flagged (1h/48h now +6.32%, 4h/48h +7.45%) but still NOT volume-confirmed - ratio 0.57, below average, 4th consecutive cycle with this conflict. RSI 64.7 moderate. Order book essentially flat (-0.004). News: same Fireblocks CNT support / RealFi Oct 1 items as last cycle, not fresh. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": true,
+    "pct_change_1h_48h": 6.32,
+    "pct_change_4h_48h": 7.45
+  },
+  "rsi_14_4h": 64.75,
+  "volume_ratio": 0.57,
+  "sma_crossover_4h": "fast_above_slow",
+  "order_book_imbalance_top10": -0.004,
+  "news_context": "Fireblocks CNT support, RealFi launches Oct 1 (same as prior cycle); ADA's Sep 19-21 catalysts (Mastercard, x402, IndiaChain) already priced in"
+}
+```
+
+---
