@@ -10161,3 +10161,157 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-09-25T08:44:06.425Z — BTC/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger flag (1h/4h 48h changes -1.90%/-1.71%). Existing open position (BTC/EUR opened 2026-09-22), one-per-pair rule applies. News recycled.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -1.9022371361679027,
+    "pct_change_4h_48h": -1.7077872166398687
+  },
+  "rsi_14_4h": 52.058091916198116,
+  "volume_ratio": 0.8838759385588576,
+  "flag_above_2x": false,
+  "sma_crossover_4h": "fast_above_slow",
+  "order_book_imbalance_top10": 0.40555817239755054,
+  "existing_position": true
+}
+```
+
+---
+### 2026-09-25T08:44:09.587Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger flag (1h/4h 48h changes -2.01%/-1.86%). Volume ratio 0.64x, below average. News: exchange netflow flipped from deposits to withdrawals as price retreated from $2,775, consistent with the current pullback but not a confirming technical signal. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -2.00760945376483,
+    "pct_change_4h_48h": -1.8551284786273265
+  },
+  "rsi_14_4h": 49.65056994726797,
+  "volume_ratio": 0.6433949397912896,
+  "flag_above_2x": false,
+  "sma_crossover_4h": "fast_above_slow",
+  "order_book_imbalance_top10": 0.01532264346200491,
+  "existing_position": false
+}
+```
+
+---
+### 2026-09-25T08:44:12.387Z — SOL/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger flag (1h/4h 48h changes -0.66%/-0.47%). Existing open position (SOL/EUR opened 2026-09-22), one-per-pair rule applies. News recycled.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -0.6611570247933813,
+    "pct_change_4h_48h": -0.46760837798344274
+  },
+  "rsi_14_4h": 56.32628254091091,
+  "volume_ratio": 0.5419639671633352,
+  "flag_above_2x": false,
+  "sma_crossover_4h": "fast_above_slow",
+  "order_book_imbalance_top10": 0.0936498621384548,
+  "existing_position": true
+}
+```
+
+---
+### 2026-09-25T08:44:16.125Z — XRP/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger flag; decline moderating slightly (1h/4h 48h changes -3.69%/-2.31%, less severe than prior cycles) but order book now sharply ask-heavy (-0.40). Volume ~1.0x, unconfirmed. News recycled (XRPL account creation, pending BatchV1_1 amendment, MESA Forum panel); one source claims XRP ended a five-day losing streak Wednesday, inconsistent with the still-negative price action. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -3.692767466468383,
+    "pct_change_4h_48h": -2.313387916718038
+  },
+  "rsi_14_4h": 57.21754608680386,
+  "volume_ratio": 0.9950157632923532,
+  "flag_above_2x": false,
+  "sma_crossover_4h": "fast_above_slow",
+  "order_book_imbalance_top10": -0.3971947096385906,
+  "existing_position": false
+}
+```
+
+---
+### 2026-09-25T08:44:19.991Z — ADA/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger flag; decline moderating (1h/4h 48h changes -1.49%/-0.49%) with order book flipping strongly bid-heavy (+0.70). Volume 0.57x, below average. News recycled (x402, Mastercard, IndiaChain); one new analyst piece suggests a 2020-like accumulation base setup, speculative and not a defined signal. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -1.4879545464777582,
+    "pct_change_4h_48h": -0.49115020100776635
+  },
+  "rsi_14_4h": 59.81489321764531,
+  "volume_ratio": 0.5697589565777416,
+  "flag_above_2x": false,
+  "sma_crossover_4h": "fast_above_slow",
+  "order_book_imbalance_top10": 0.6988209639880144,
+  "existing_position": false
+}
+```
+
+---
+### 2026-09-25T08:44:26.256Z — LINK/EUR — NO TRADE
+
+**Reasoning:** Closest yet to confirmation: 4h window now at +5.98% (48h), just under the 6% momentum_trigger threshold; 1h window +5.00%. RSI climbed to 65.7. However volume ratio remains 1.55x, still below the 2x confirmation bar - the second hard gate isn't met either, so per the strategy's dual-confirmation design this stays a no-trade even at the threshold's edge. News is mixed: genuine new institutional catalysts (Infosys partnership standardizing CCIP/Proof of Reserve across 1.7B accounts, Hamco Pan-Asia fund, Paxos gold-backed token, DTCC collateral system targeted Q4 2026) but one report says the Infosys news itself triggered a 4.4% LINK drop on Sept 24 as traders wanted concrete timelines - a mixed, not unambiguously bullish, reaction. No trade; flagging for close attention next cycle as the pair nearest to a confirmed entry.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 5.00401906107288,
+    "pct_change_4h_48h": 5.978549137430586
+  },
+  "rsi_14_4h": 65.72292253898505,
+  "volume_ratio": 1.5518825305549002,
+  "flag_above_2x": false,
+  "sma_crossover_4h": "fast_above_slow",
+  "order_book_imbalance_top10": 0.5948224272509267,
+  "existing_position": false
+}
+```
+
+---
+### 2026-09-25T08:44:28.721Z — SUI/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger flag (1h/4h 48h changes +0.33%/+0.20%, essentially flat). Existing open position (SUI/EUR opened 2026-09-22), one-per-pair rule applies. Order book remains strongly bid-skewed (+0.62). News recycled.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 0.32698162137783443,
+    "pct_change_4h_48h": 0.20270270270270535
+  },
+  "rsi_14_4h": 61.73344053634697,
+  "volume_ratio": 0.6724085609263404,
+  "flag_above_2x": false,
+  "sma_crossover_4h": "fast_above_slow",
+  "order_book_imbalance_top10": 0.6166792659553048,
+  "existing_position": true
+}
+```
+
+---
