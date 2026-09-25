@@ -10315,3 +10315,171 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-09-25T09:43:38.073Z — LINK/EUR — LONG — OPENED (LIVE)
+
+- Entry price: €12.29 (real fill, Kraken order ODOAY7-IMZLA-WGANPO)
+- Stop-loss: €11.20 (real resting order ODXWV3-4QG7S-IYEGVS)
+- Take-profit target: €14.47 (2:1 risk/reward, polled - not a resting order, see checkStops)
+- Position size: 4% of portfolio (€199.74, qty 16.25018269)
+- Entry fee (real): €1.60
+- Confidence: medium — momentum_trigger is the only hard-confirmed signal (1h/48h +8.02%, 4h/48h +5.98%, both at/above the 6% bar) - volume ratio 1.55x remains below the 2x confirmation threshold, so this is classified momentum_only and capped at medium regardless. However the news backdrop is unusually substantive and multi-sourced for this size of move: sustained spot LINK ETF inflows (~$13M net in September), a reported institutional whale-buying spree, the strategic reserve's own ~97,500 LINK ($1.1M) purchase, 16 new integrations across 7 chains, and the Wyoming Stable Token Commission adopting Chainlink's Proof of Reserve service - plus a recovery from an earlier-week 4.4% dip triggered by the Infosys partnership news itself (market digesting then re-rating the news positively). RSI at 65.7 is elevated but well short of SUI's 73.8 at its momentum-only entry, and the SMA state remains a clean established uptrend (fast well above slow). Sizing at 4% (below the 5% medium cap) given volume is unconfirmed and this is the single most extended pair in today's lineup.
+- Momentum-only trigger: yes
+- Invalidation: Thesis invalidated on a 4h close below the rising 20-period 4h SMA (currently ~11.25) - that line is the trend structure this entry depends on, and it's also the level portfolio_check_stops will trail beneath once the position is profitable.
+- Signals supporting this trade:
+```json
+{
+  "momentum_trigger": {
+    "flagged": true,
+    "pct_change_1h_48h": 8.015453522681444,
+    "pct_change_4h_48h": 5.978549137430586
+  },
+  "rsi_14_4h": 65.72292253898505,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "fast_value": 11.251273499999996,
+    "slow_value": 10.863969000000003
+  },
+  "volume": {
+    "ratio": 1.5518825305549002,
+    "flag_above_2x": false
+  },
+  "order_book_imbalance_top10": 0.15347742784966004,
+  "current_price": 12.29838,
+  "news": "14% price surge (recovering from an earlier 4.4% Infosys-news dip); sustained spot LINK ETF inflows (~$13M net in September); reported institutional whale-buying spree; strategic reserve bought ~97,500 LINK (~$1.1M), total 5.96M LINK; 16 new integrations across 7 chains; Wyoming Stable Token Commission adopted Chainlink Proof of Reserve."
+}
+```
+- Position id: 82303d21-e0ea-4ea8-9758-11855212b61e
+
+---
+### 2026-09-25T09:43:47.274Z — BTC/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger flag (1h/4h 48h changes -1.53%/-1.71%). Existing open position (BTC/EUR opened 2026-09-22), one-per-pair rule applies. News recycled.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -1.5340456067612744,
+    "pct_change_4h_48h": -1.7077872166398687
+  },
+  "rsi_14_4h": 52.058091916198116,
+  "volume_ratio": 0.8838759385588576,
+  "flag_above_2x": false,
+  "sma_crossover_4h": "fast_above_slow",
+  "order_book_imbalance_top10": 0.042709867452135446,
+  "existing_position": true
+}
+```
+
+---
+### 2026-09-25T09:43:50.423Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger flag (1h/4h 48h changes -1.43%/-1.86%). Volume ratio 0.64x, below average. News recycled ($66M ETF inflows extending to five sessions, but exchange netflow flipped to withdrawals). No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -1.4269973371620348,
+    "pct_change_4h_48h": -1.8551284786273265
+  },
+  "rsi_14_4h": 49.65056994726797,
+  "volume_ratio": 0.6433949397912896,
+  "flag_above_2x": false,
+  "sma_crossover_4h": "fast_above_slow",
+  "order_book_imbalance_top10": -0.11689345888401464,
+  "existing_position": false
+}
+```
+
+---
+### 2026-09-25T09:43:54.118Z — SOL/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger flag (1h/4h 48h changes +0.15%/-0.47%, flattening out). Existing open position (SOL/EUR opened 2026-09-22), one-per-pair rule applies. News: 8 straight days of ETF inflows (~$130M), bullish flag breakout setup targeting $145-150 - constructive context for the existing position.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 0.1458860143940923,
+    "pct_change_4h_48h": -0.46760837798344274
+  },
+  "rsi_14_4h": 56.32628254091091,
+  "volume_ratio": 0.5419639671633352,
+  "flag_above_2x": false,
+  "sma_crossover_4h": "fast_above_slow",
+  "order_book_imbalance_top10": 0.2942741622132999,
+  "existing_position": true
+}
+```
+
+---
+### 2026-09-25T09:43:56.304Z — XRP/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger flag; decline continues (1h/4h 48h changes -3.10%/-2.31%) but order book has flipped extremely bid-heavy (+0.85). Volume ~1.0x, unconfirmed. News recycled. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -3.095749248604557,
+    "pct_change_4h_48h": -2.313387916718038
+  },
+  "rsi_14_4h": 57.21754608680386,
+  "volume_ratio": 0.9950157632923532,
+  "flag_above_2x": false,
+  "sma_crossover_4h": "fast_above_slow",
+  "order_book_imbalance_top10": 0.8492051540261724,
+  "existing_position": false
+}
+```
+
+---
+### 2026-09-25T09:43:59.597Z — ADA/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger flag (1h/4h 48h changes -0.39%/-0.49%, essentially flat, decline has stabilized). Volume 0.57x, below average. News recycled (Mastercard, x402, IndiaChain) plus a speculative 2020-analog accumulation thesis from one analyst - not a defined signal. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -0.39395426528654515,
+    "pct_change_4h_48h": -0.49115020100776635
+  },
+  "rsi_14_4h": 59.81489321764531,
+  "volume_ratio": 0.5697589565777416,
+  "flag_above_2x": false,
+  "sma_crossover_4h": "fast_above_slow",
+  "order_book_imbalance_top10": 0.1385369645880459,
+  "existing_position": false
+}
+```
+
+---
+### 2026-09-25T09:44:02.208Z — SUI/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger flag (1h/4h 48h changes +1.92%/+0.20%). Existing open position (SUI/EUR opened 2026-09-22), one-per-pair rule applies. Order book remains strongly bid-skewed (+0.65). News recycled.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 1.9241588837627999,
+    "pct_change_4h_48h": 0.20270270270270535
+  },
+  "rsi_14_4h": 61.73344053634697,
+  "volume_ratio": 0.6724085609263404,
+  "flag_above_2x": false,
+  "sma_crossover_4h": "fast_above_slow",
+  "order_book_imbalance_top10": 0.6458582946108501,
+  "existing_position": true
+}
+```
+
+---

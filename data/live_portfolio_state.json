@@ -130,6 +130,49 @@
       "status": "open",
       "entry_order_txid": "OWJ4ES-2JMUW-YAYFFC",
       "stop_order_txid": "OCN5SW-F2BWT-PAHRUP"
+    },
+    {
+      "id": "82303d21-e0ea-4ea8-9758-11855212b61e",
+      "pair": "LINK/EUR",
+      "direction": "long",
+      "entry_price": 12.28871,
+      "stop_loss": 11.2,
+      "initial_stop_loss": 11.2,
+      "take_profit": 14.466130000000001,
+      "trailing_active": false,
+      "peak_price": 12.28871,
+      "size_pct": 4,
+      "size_eur": 199.743345547992,
+      "quantity": 16.25018269,
+      "entry_fee": 1.59755,
+      "opened_at": "2026-09-25T09:43:38.073Z",
+      "signals_at_entry": {
+        "momentum_trigger": {
+          "flagged": true,
+          "pct_change_1h_48h": 8.015453522681444,
+          "pct_change_4h_48h": 5.978549137430586
+        },
+        "rsi_14_4h": 65.72292253898505,
+        "sma_crossover_4h": {
+          "state": "fast_above_slow",
+          "fast_value": 11.251273499999996,
+          "slow_value": 10.863969000000003
+        },
+        "volume": {
+          "ratio": 1.5518825305549002,
+          "flag_above_2x": false
+        },
+        "order_book_imbalance_top10": 0.15347742784966004,
+        "current_price": 12.29838,
+        "news": "14% price surge (recovering from an earlier 4.4% Infosys-news dip); sustained spot LINK ETF inflows (~$13M net in September); reported institutional whale-buying spree; strategic reserve bought ~97,500 LINK (~$1.1M), total 5.96M LINK; 16 new integrations across 7 chains; Wyoming Stable Token Commission adopted Chainlink Proof of Reserve."
+      },
+      "invalidation": "Thesis invalidated on a 4h close below the rising 20-period 4h SMA (currently ~11.25) - that line is the trend structure this entry depends on, and it's also the level portfolio_check_stops will trail beneath once the position is profitable.",
+      "confidence": "medium",
+      "confidence_reason": "momentum_trigger is the only hard-confirmed signal (1h/48h +8.02%, 4h/48h +5.98%, both at/above the 6% bar) - volume ratio 1.55x remains below the 2x confirmation threshold, so this is classified momentum_only and capped at medium regardless. However the news backdrop is unusually substantive and multi-sourced for this size of move: sustained spot LINK ETF inflows (~$13M net in September), a reported institutional whale-buying spree, the strategic reserve's own ~97,500 LINK ($1.1M) purchase, 16 new integrations across 7 chains, and the Wyoming Stable Token Commission adopting Chainlink's Proof of Reserve service - plus a recovery from an earlier-week 4.4% dip triggered by the Infosys partnership news itself (market digesting then re-rating the news positively). RSI at 65.7 is elevated but well short of SUI's 73.8 at its momentum-only entry, and the SMA state remains a clean established uptrend (fast well above slow). Sizing at 4% (below the 5% medium cap) given volume is unconfirmed and this is the single most extended pair in today's lineup.",
+      "momentum_only": true,
+      "status": "open",
+      "entry_order_txid": "ODOAY7-IMZLA-WGANPO",
+      "stop_order_txid": "ODXWV3-4QG7S-IYEGVS"
     }
   ],
   "closed_positions": [
@@ -193,8 +236,13 @@
       "date": "2026-09-23",
       "realized_pnl_eur": -11.070168444517037,
       "halted": false
+    },
+    {
+      "date": "2026-09-25",
+      "realized_pnl_eur": 0,
+      "halted": false
     }
   ],
   "created_at": "2026-09-22T14:26:40.467Z",
-  "updated_at": "2026-09-25T01:41:33.725Z"
+  "updated_at": "2026-09-25T09:43:38.073Z"
 }
