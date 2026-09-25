@@ -10800,3 +10800,132 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-09-25T12:01:35.931Z — BTC/EUR — NO TRADE
+
+**Reasoning:** Existing open position (opened 2026-09-22, still open, currently -1.05% unrealized). One-per-pair rule (code-enforced) blocks a second entry regardless of signals. No news search performed this cycle for this reason.
+
+**Signals considered:**
+```json
+{
+  "existing_position": true,
+  "momentum_trigger_flagged": false,
+  "rsi_14_4h": 55.4,
+  "volume_ratio": 0.88
+}
+```
+
+---
+### 2026-09-25T12:01:37.400Z — LINK/EUR — NO TRADE
+
+**Reasoning:** Existing open position (re-opened 2026-09-25 09:43 UTC, currently +0.49% unrealized). One-per-pair rule (code-enforced) blocks a second entry regardless of signals. No news search performed this cycle for this reason.
+
+**Signals considered:**
+```json
+{
+  "existing_position": true,
+  "momentum_trigger_flagged": true,
+  "rsi_14_4h": 72.24,
+  "volume_ratio": 1.55
+}
+```
+
+---
+### 2026-09-25T12:01:39.179Z — SUI/EUR — NO TRADE
+
+**Reasoning:** Existing open position (opened 2026-09-22, trailing stop already active, currently +15.1% unrealized). One-per-pair rule (code-enforced) blocks a second entry regardless of signals. No news search performed this cycle for this reason.
+
+**Signals considered:**
+```json
+{
+  "existing_position": true,
+  "momentum_trigger_flagged": true,
+  "rsi_14_4h": 76.95,
+  "volume_ratio": 0.67
+}
+```
+
+---
+### 2026-09-25T12:01:44.805Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger (4h/48h +2.23%, well below the 6% bar) and no other strong confluence: volume ratio 0.64 (below 7-day average, not confirming), RSI 57 (neutral), order book mildly positive (+0.19) but not decisive. News is mixed-to-positive but doesn't rise to the level of a standalone catalyst: BitMine added 27,562 ETH to treasury and ETH ETFs posted record weekly inflows for a second straight week (genuinely bullish institutional flow), but this is offset by a CFTC review of unusual perpetual-futures activity on Kalshi (regulatory overhang, market-integrity question) and the Glamsterdam upgrade slipping to Q4 2026 (delay, mildly negative). No hard technical trigger and no single proportionate catalyst - not enough to trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -0.096,
+    "pct_change_4h_48h": 2.23
+  },
+  "rsi_14_4h": 57.1,
+  "volume_ratio": 0.64,
+  "sma_crossover_4h": "fast_above_slow",
+  "order_book_imbalance_top10": 0.194,
+  "news_context": "BitMine added 27,562 ETH to treasury; ETH ETFs record weekly inflows 2nd straight week; CFTC reviewing unusual Kalshi ETH perpetuals activity (~$5B volume, clustered order sizes); Glamsterdam upgrade mainnet slipped to Q4 2026"
+}
+```
+
+---
+### 2026-09-25T12:01:51.006Z — SOL/EUR — NO TRADE
+
+**Reasoning:** momentum_trigger is barely flagged (4h/48h +6.02%, just above the 6% bar) but the move is NOT volume-confirmed - ratio is 0.54, i.e. last-24h volume is actually below the 7-day daily average, which is the opposite of what a genuine breakout should show and directly contradicts the price move's credibility (contrast BTC/SUI's prior entries, both >3x volume). Order book is essentially flat (-0.026, no real bid support). RSI 67.3 is elevated. News is generally constructive for SOL (slot-time reduction, pending Alpenglow upgrade, $153.87M SOL ETF inflows, falling exchange supply, leading RWA inflows) but is diffuse ecosystem news, not one clear proportionate catalyst for a momentum-only entry the way SUI's CME/Grayscale news was. Given the signal conflict (flagged trigger vs. contradicting below-average volume) and no standout catalyst, not trading this cycle.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": true,
+    "pct_change_1h_48h": 3.41,
+    "pct_change_4h_48h": 6.02
+  },
+  "rsi_14_4h": 67.29,
+  "volume_ratio": 0.54,
+  "sma_crossover_4h": "fast_above_slow",
+  "order_book_imbalance_top10": -0.026,
+  "news_context": "Slot time cut 300ms->250ms (Sep 18); Transaction V1 format live (Sep 9); Alpenglow upgrade tentatively Sep 28; SOL ETFs attracted $153.87M; exchange supply down 4.91%; SOL led blockchains with $229M 30-day RWA net inflows"
+}
+```
+
+---
+### 2026-09-25T12:01:55.026Z — XRP/EUR — NO TRADE
+
+**Reasoning:** momentum_trigger not flagged (4h/48h +5.93%, just under the 6% bar). Volume ratio ~1.0 (in line with average, not confirming a breakout). RSI 66, order book meaningfully positive (+0.52) but that alone isn't a qualifying signal without the momentum trigger or volume confirmation. News is actively cautionary right now: XRP "plunged to $1.47" after an earlier spike to nearly $1.65 this week (highest since start of 2026) - i.e. a sharp reversal off a local high is underway, the opposite of a fresh breakout setup. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 1.92,
+    "pct_change_4h_48h": 5.93
+  },
+  "rsi_14_4h": 66.05,
+  "volume_ratio": 0.995,
+  "sma_crossover_4h": "fast_above_slow",
+  "order_book_imbalance_top10": 0.516,
+  "news_context": "XRP plunged to $1.47 after spiking to ~$1.65 (2026 high) earlier this week - broader market correction; record 11,432 new XRPL accounts Sep 24; BatchV1_1 amendment may activate Sep 29; spot XRP ETF inflows continuing"
+}
+```
+
+---
+### 2026-09-25T12:01:59.818Z — ADA/EUR — NO TRADE
+
+**Reasoning:** momentum_trigger is flagged (4h/48h +7.45%) but, like SOL, is NOT volume-confirmed - ratio 0.57, below the 7-day daily average despite the flagged move, undermining confidence in the breakout. RSI 64.7 is moderate. News shows the rally is already cooling: ADA rallied 26% over the week to ~$0.262 but has since retraced to $0.246 at press time - i.e. the move this signal is flagging appears to already be rolling over, not breaking out fresh. Real catalysts exist (Mastercard cross-border payments program, x402 AI-agent payment protocol integration, IndiaChain mainnet launch) but they're diffuse ecosystem news from days ago, not a fresh proportionate catalyst for a same-cycle momentum-only entry, and the price/volume signals argue against entering now. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": true,
+    "pct_change_1h_48h": 2.07,
+    "pct_change_4h_48h": 7.45
+  },
+  "rsi_14_4h": 64.75,
+  "volume_ratio": 0.57,
+  "sma_crossover_4h": "fast_above_slow",
+  "order_book_imbalance_top10": 0.169,
+  "news_context": "ADA rallied 26% to ~$0.262 this week, retraced to $0.246 at press time; Cardano Foundation joined Mastercard cross-border payments program (Sep 19); x402 AI-agent payment protocol integration (Sep 21); IndiaChain agricultural settlement mainnet launch (Sep 19)"
+}
+```
+
+---
