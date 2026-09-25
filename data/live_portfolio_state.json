@@ -50,11 +50,11 @@
       "pair": "SUI/EUR",
       "direction": "long",
       "entry_price": 0.867,
-      "stop_loss": 0.9099,
+      "stop_loss": 0.91236,
       "initial_stop_loss": 0.775,
       "take_profit": 1.051,
       "trailing_active": true,
-      "peak_price": 1.01,
+      "peak_price": 1.0182,
       "size_pct": 3,
       "size_eur": 149.80890120021104,
       "quantity": 172.75011,
@@ -86,7 +86,7 @@
       "momentum_only": true,
       "status": "open",
       "entry_order_txid": "OWJ4ES-2JMUW-YAYFFC",
-      "stop_order_txid": "ORU3AD-KBC3M-JQPGW6"
+      "stop_order_txid": "OFG3IZ-Q2EAV-BLAE7T"
     },
     {
       "id": "82303d21-e0ea-4ea8-9758-11855212b61e",
@@ -97,7 +97,7 @@
       "initial_stop_loss": 11.2,
       "take_profit": 14.466130000000001,
       "trailing_active": false,
-      "peak_price": 12.39848,
+      "peak_price": 12.46664,
       "size_pct": 4,
       "size_eur": 199.743345547992,
       "quantity": 16.25018269,
@@ -250,5 +250,5 @@
     }
   ],
   "created_at": "2026-09-22T14:26:40.467Z",
-  "updated_at": "2026-09-25T11:44:32.599Z"
+  "updated_at": "2026-09-25T13:08:10.633Z"
 }

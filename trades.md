@@ -10929,3 +10929,132 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-09-25T13:09:07.448Z — BTC/EUR — NO TRADE
+
+**Reasoning:** Existing open position (opened 2026-09-22, still open, currently ~-1.24% unrealized). One-per-pair rule (code-enforced) blocks a second entry regardless of signals. No news search performed this cycle for this reason.
+
+**Signals considered:**
+```json
+{
+  "existing_position": true,
+  "momentum_trigger_flagged": false,
+  "rsi_14_4h": 55.41,
+  "volume_ratio": 0.88
+}
+```
+
+---
+### 2026-09-25T13:09:08.892Z — LINK/EUR — NO TRADE
+
+**Reasoning:** Existing open position (re-opened 2026-09-25 09:43 UTC, currently +0.35% unrealized). One-per-pair rule (code-enforced) blocks a second entry regardless of signals. No news search performed this cycle for this reason.
+
+**Signals considered:**
+```json
+{
+  "existing_position": true,
+  "momentum_trigger_flagged": true,
+  "rsi_14_4h": 72.24,
+  "volume_ratio": 1.55
+}
+```
+
+---
+### 2026-09-25T13:09:10.634Z — SUI/EUR — NO TRADE
+
+**Reasoning:** Existing open position (opened 2026-09-22, trailing stop active, currently +14.75% unrealized). One-per-pair rule (code-enforced) blocks a second entry regardless of signals. No news search performed this cycle for this reason.
+
+**Signals considered:**
+```json
+{
+  "existing_position": true,
+  "momentum_trigger_flagged": true,
+  "rsi_14_4h": 76.95,
+  "volume_ratio": 0.67
+}
+```
+
+---
+### 2026-09-25T13:09:14.519Z — ETH/EUR — NO TRADE
+
+**Reasoning:** momentum_trigger not flagged (1h/48h +0.06%, 4h/48h +2.23%, well under the 6% bar). Volume ratio 0.64, below average. No qualifying signal confluence. News is mixed/low-signal: CFTC reviewing unusual $5B ETH perpetuals volume on Kalshi (market-integrity question, not a directional catalyst); BitMine added 27,562 ETH to treasury (bullish but incremental, already known); Glamsterdam upgrade mainnet slipped to Q4 2026 (delayed catalyst, mildly negative). No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 0.06,
+    "pct_change_4h_48h": 2.23
+  },
+  "rsi_14_4h": 57.1,
+  "volume_ratio": 0.64,
+  "sma_crossover_4h": "fast_above_slow",
+  "order_book_imbalance_top10": -0.058,
+  "news_context": "CFTC reviewing unusual $5B ETH perpetuals volume on Kalshi (Sep 23); BitMine added 27,562 ETH to treasury (Sep 22); Glamsterdam upgrade mainnet slipped to Q4 2026"
+}
+```
+
+---
+### 2026-09-25T13:09:19.180Z — SOL/EUR — NO TRADE
+
+**Reasoning:** momentum_trigger barely flagged (4h/48h +6.02%, just above the bar) but still NOT volume-confirmed - ratio 0.54, below the 7-day daily average, unchanged from last cycle's identical concern (the 4h candle set has not rolled meaningfully since then, signals are essentially unchanged). RSI 67.3 elevated. News is constructive but diffuse (250ms slot-time cut live, Transaction V1 format active, Alpenglow upgrade tentatively Sep 28, ETF inflows, consolidation with bullish bias above $110 support) - no single proportionate fresh catalyst, and the underlying volume/price conflict from last cycle's decline still holds. No trade, consistent with prior cycle's reasoning.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": true,
+    "pct_change_1h_48h": 3.35,
+    "pct_change_4h_48h": 6.02
+  },
+  "rsi_14_4h": 67.29,
+  "volume_ratio": 0.54,
+  "sma_crossover_4h": "fast_above_slow",
+  "order_book_imbalance_top10": -0.031,
+  "news_context": "250ms slot-time cut live (Sep 18); Transaction V1 format active (Sep 9); Alpenglow upgrade tentatively Sep 28; ETF inflows continuing; consolidation with bullish bias above $110 support"
+}
+```
+
+---
+### 2026-09-25T13:09:22.629Z — XRP/EUR — NO TRADE
+
+**Reasoning:** momentum_trigger not flagged (4h/48h +5.93%, just under the 6% bar, same near-miss as last cycle). Volume ratio ~0.995, in line with average, not confirming a breakout. RSI 66.1. Order book positive (-0.19 actually - wait, negative) - order book is negative (-0.19), not confirming. News shows continued choppiness around the $1.45-$1.65 range with institutional tailwinds (ETF inflows, EU license) but no fresh proportionate catalyst for a momentum-only entry this cycle. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 1.6,
+    "pct_change_4h_48h": 5.93
+  },
+  "rsi_14_4h": 66.05,
+  "volume_ratio": 0.995,
+  "sma_crossover_4h": "fast_above_slow",
+  "order_book_imbalance_top10": -0.191,
+  "news_context": "XRP trading ~$1.53, range-bound $1.45-$1.55 with break levels watched ($1.60-1.65 up, $1.36-1.37 down); ETF inflows and Ripple EU license fueling long-term optimism; Ripple adding AI code review + red team ahead of mainnet deployments"
+}
+```
+
+---
+### 2026-09-25T13:09:26.840Z — ADA/EUR — NO TRADE
+
+**Reasoning:** momentum_trigger flagged (4h/48h +7.45%) but, unchanged from last cycle, NOT volume-confirmed - ratio 0.57, below the 7-day daily average despite the flagged move. RSI 64.75 moderate. Order book imbalance strongly positive this cycle (+0.85, up sharply from +0.17 last cycle) but that alone doesn't outweigh the volume/price conflict, especially with conflicting price reports in the news search itself (one source shows -5.73% 24h, another shows the week's 26% rally already retracing). Real catalysts (Mastercard cross-border payments program, x402 AI-agent payment protocol integration) are from days ago, not fresh. Given the same volume disconfirmation as last cycle's decline, no trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": true,
+    "pct_change_1h_48h": 3.56,
+    "pct_change_4h_48h": 7.45
+  },
+  "rsi_14_4h": 64.75,
+  "volume_ratio": 0.57,
+  "sma_crossover_4h": "fast_above_slow",
+  "order_book_imbalance_top10": 0.852,
+  "news_context": "ADA ~$0.2474, one source shows -5.73% 24h while up 22% from a week ago; Mastercard cross-border payments program integration (Sep 19); x402 AI-agent payment protocol integration (Sep 21); analyst commentary flags possible 2020-like accumulation base"
+}
+```
+
+---
