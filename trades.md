@@ -14239,3 +14239,178 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-09-26T11:56:46.309Z — BTC/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule) - no new entry considered. For context: momentum_trigger not flagged this cycle (1h/48h +0.67%, 4h/48h +0.54%, well below the 6% bar), RSI neutral at 51.9, volume ratio 0.70 (below average). Consolidating, no reconciliation or trailing action needed on the open position.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 0.6684153326959731,
+    "pct_change_4h_48h": 0.541895804563431
+  },
+  "rsi_14_4h": 51.91859881034083,
+  "volume_ratio": 0.7042583899185113,
+  "sma_crossover_4h": "fast_above_slow",
+  "order_book_imbalance_top10": -0.10810810810810802,
+  "news_context": "BTC trading ~$83,974 per CoinDesk/prediction-market data; no fresh catalyst beyond ongoing price levels.",
+  "existing_position": true
+}
+```
+
+---
+### 2026-09-26T11:56:46.331Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No open position, but no entry signal clears the bar: momentum_trigger not flagged (1h/48h +1.30%, 4h/48h +1.40%, far below the 6% threshold), volume ratio 0.46 (well below the 7-day average, no confirmation), RSI neutral at 52.2. SMA crossover is bullish (fast above slow) but that alone isn't a trigger. News shows ETH broke above $2,700 supported by ETF flows and whale accumulation, but this is a general/ongoing bullish backdrop, not a specific catalyst tied to a flagged signal - nothing here justifies an entry without a confirmed trigger.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 1.30385876938402,
+    "pct_change_4h_48h": 1.4034620734660257
+  },
+  "rsi_14_4h": 52.19013123066233,
+  "volume_ratio": 0.45810011171585857,
+  "sma_crossover_4h": "fast_above_slow",
+  "order_book_imbalance_top10": -0.1870699256624331,
+  "news_context": "ETH broke above $2,700, briefly approached $2,800, supported by improving ETF flows and whale accumulation - general bullish backdrop, not a fresh proportionate catalyst."
+}
+```
+
+---
+### 2026-09-26T11:56:46.343Z — SOL/EUR — NO TRADE
+
+**Reasoning:** No open position. momentum_trigger flagged, but only marginally (1h/48h +6.26%, 4h/48h +6.34%, just clearing the 6% bar), and volume ratio is 0.93 - actually below the 7-day average, i.e. not confirming at all. This would need a concrete, proportionate news catalyst to justify a momentum_only entry (same bar used for this week's ADA/LINK/SUI entries). The news found doesn't clear that bar: it's dominated by a rally that already happened on Sept 21 (5 days stale, already reflected in price - SOL peaked near $117 that day and has since pulled back to ~$106), plus non-dated background items (ETF assets "surpassing $1B", an undated Morgan Stanley Trust filing). Nothing fresh and specifically dated to this move, unlike ADA/LINK/SUI's entries this week which each had concrete, dated catalysts. Order book is moderately positive (+0.245) but that alone doesn't substitute for a real catalyst. Passing this cycle.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": true,
+    "pct_change_1h_48h": 6.2606601785893385,
+    "pct_change_4h_48h": 6.340925052673817
+  },
+  "rsi_14_4h": 63.09098009114624,
+  "volume_ratio": 0.9273275638959168,
+  "flag_above_2x": false,
+  "sma_crossover_4h": "fast_above_slow",
+  "order_book_imbalance_top10": 0.24487860742463358,
+  "news_context": "SOL rallied to ~$117 on Sept 21 (stale, 5 days old, already reflected in the pullback to ~$106); background mentions of Solana ETF assets over $1B and an undated Morgan Stanley Solana Trust filing - no fresh, dated catalyst proportionate to today's marginal move."
+}
+```
+
+---
+### 2026-09-26T11:56:46.353Z — XRP/EUR — NO TRADE
+
+**Reasoning:** No open position. momentum_trigger not flagged (1h/48h +5.36%, 4h/48h +5.37%, just short of the 6% bar). Volume ratio 1.15 (not confirming, below 2x). Order book is heavily skewed against a long entry - top-10 imbalance -0.846, a large ask wall (32,593 vs 2,721 bid), real near-term selling pressure. RSI neutral at 56.1. No confluence and a hostile order book - passing.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 5.364171325616097,
+    "pct_change_4h_48h": 5.370357482543439
+  },
+  "rsi_14_4h": 56.12981156594864,
+  "volume_ratio": 1.1515224525569632,
+  "sma_crossover_4h": "fast_above_slow",
+  "order_book_imbalance_top10": -0.8458777541732506,
+  "news_context": "XRP trading near $1.54-1.56, ETF holdings +34M XRP this week, XRPL upgrade package for institutional privacy/security - generally constructive but momentum not flagged and order book shows strong ask-side pressure."
+}
+```
+
+---
+### 2026-09-26T11:56:46.364Z — ADA/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule) - no new entry considered. For context: momentum_trigger still flagged (1h/48h +8.86%, 4h/48h +8.16%), RSI 62.8, volume ratio 0.90 (unconfirmed). Position currently slightly underwater (-0.5%), stop-loss intact, trailing not yet active (not at +1R). No action needed beyond monitoring.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": true,
+    "pct_change_1h_48h": 8.858650642321987,
+    "pct_change_4h_48h": 8.161437568613852
+  },
+  "rsi_14_4h": 62.78662602415873,
+  "volume_ratio": 0.9004794277785875,
+  "sma_crossover_4h": "fast_above_slow",
+  "order_book_imbalance_top10": 0.21769277482701818,
+  "news_context": "ADA ~$0.2558, Mastercard Crypto Program participation and x402 SDK integration continuing to support sentiment, FC Barcelona Fan Lab launch on Cardano - existing thesis intact.",
+  "existing_position": true
+}
+```
+
+---
+### 2026-09-26T11:56:46.373Z — LINK/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule) - no new entry considered. For context: momentum_trigger flagged (1h/48h +16.72%, 4h/48h +15.01%), RSI 69.1 (elevated), volume ratio 2.05 (confirmed above 2x). Position up ~2% unrealized, not yet at +1R, stop-loss intact. No action needed beyond monitoring.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": true,
+    "pct_change_1h_48h": 16.72027251841876,
+    "pct_change_4h_48h": 15.007991947472178
+  },
+  "rsi_14_4h": 69.13107145842253,
+  "volume_ratio": 2.0451746697708555,
+  "flag_above_2x": true,
+  "sma_crossover_4h": "fast_above_slow",
+  "order_book_imbalance_top10": 0.3673232610381299,
+  "news_context": "LINK ~$13.36-13.97, Standard Chartered coverage with $13 target, Charles Schwab adding LINK to its platform, Coinbase selecting Chainlink as oracle infra for tokenized stocks on Base - existing thesis intact and strengthening.",
+  "existing_position": true
+}
+```
+
+---
+### 2026-09-26T11:56:46.384Z — SUI/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule) - no new entry considered. For context: momentum_trigger flagged (1h/48h +24.35%, 4h/48h +21.73%), RSI 69.2, volume ratio 1.43 (unconfirmed). Position deeply profitable (+19.5% unrealized), trailing already active with stop at 0.9676 (peak 1.0682). No action needed beyond monitoring - portfolio_check_stops already reconciled this cycle with no changes.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": true,
+    "pct_change_1h_48h": 24.346892520577352,
+    "pct_change_4h_48h": 21.734462602886783
+  },
+  "rsi_14_4h": 69.21436149168535,
+  "volume_ratio": 1.430875031909799,
+  "sma_crossover_4h": "fast_above_slow",
+  "order_book_imbalance_top10": 0.5679867222515513,
+  "news_context": "SUI ~$1.03, Sui Foundation joined Linux Foundation's Tokenization Body (Sep 24) alongside Swift/Wells Fargo, DeFi TVL above $1.2B, CME futures already live - existing thesis intact; upcoming Oct 1 token unlock (13.26M SUI, ~$15.48M) noted as a watch item, not an action trigger.",
+  "existing_position": true
+}
+```
+
+---
+### 2026-09-26T11:56:46.392Z — LTC/EUR — NO TRADE
+
+**Reasoning:** No open position. momentum_trigger flagged (1h/48h +10.41%, 4h/48h +10.82%), but volume ratio is only 1.64 (below the 2x confirmation threshold) - this would need a concrete, proportionate news catalyst to qualify as a momentum_only entry. Investigating the news actually surfaces a caution flag rather than a catalyst: LTC has "broken out of a rising channel" with futures open interest at $605.82M (up from $536.90M) and futures trading volume at $1.19B - reported as "5x spot, suggesting leverage is driving the rally." A leverage-driven rally (futures volume dwarfing spot) is a real risk factor for a sharp reversal/liquidation cascade, not a fundamentals-based catalyst comparable to this week's ADA/LINK/SUI entries. The one fundamental item found (Lite Strategy's $1M LitVM investment) is dated June 18, 2026 - three months stale, not a fresh catalyst. Passing this cycle.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": true,
+    "pct_change_1h_48h": 10.40739472783293,
+    "pct_change_4h_48h": 10.818212940773696
+  },
+  "rsi_14_4h": 67.3720441500218,
+  "volume_ratio": 1.6401958488841066,
+  "flag_above_2x": false,
+  "sma_crossover_4h": "fast_above_slow",
+  "order_book_imbalance_top10": -0.014385518609573971,
+  "news_context": "LTC ~$71, broke out of a rising channel with futures open interest $605.82M (up from $536.90M) and futures volume $1.19B reported as 5x spot - leverage-driven rally flagged as the likely driver, not organic spot demand; the one fundamental catalyst found (Lite Strategy's $1M LitVM investment) is stale (dated June 18, 2026)."
+}
+```
+
+---
