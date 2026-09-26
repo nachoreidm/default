@@ -15821,3 +15821,159 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-09-26T20:18:10.802Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/48h -0.14%, 4h/48h -0.22%, both far below the 6% bar) and no other confluence: volume ratio 0.46x (well below average, not confirming), RSI 50.8 (neutral), SMA fast/slow both flat with no fresh cross, order book meaningfully ask-heavy (-0.48, real near-term selling pressure). News is mixed-to-bearish: sentiment described as leaning bearish today (Bitget exploit spillover, exchange deposits cited by bears vs. ETF/institutional demand cited by bulls), an EU staking-regulation review raising validator-cost uncertainty, and a security breach reported on another chain (Duelbits Casino) highlighting on-chain risk generally. Nothing here rises to a qualifying entry signal - no trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -0.1414558945602878,
+    "pct_change_4h_48h": -0.21541235171884204
+  },
+  "rsi_14_4h": 50.80783724800613,
+  "volume_ratio": 0.45810011171585857,
+  "sma_crossover_4h": "fast_above_slow, flat",
+  "order_book_imbalance_top10": -0.48431943097316515,
+  "news_context": "Bearish-leaning sentiment (Bitget exploit/exchange deposits vs ETF inflows); EU staking regulation review; Glamsterdam hard fork testnet Sep 28; unrelated Duelbits Casino security breach"
+}
+```
+
+---
+### 2026-09-26T20:18:10.818Z — SOL/EUR — NO TRADE
+
+**Reasoning:** Momentum trigger not flagged (1h/48h +3.64%, 4h/48h +3.41%, below the 6% bar) despite a genuinely positive backdrop (SOL at multi-month highs, stablecoin market cap on Solana hit a new all-time high $17.39B, Alpenglow entering public testnet targeting 150ms finality). Volume ratio 0.93x is actually below the 7-day average, not confirming - no multi-signal confluence to justify entry despite RSI 62.6 and fast-above-slow SMA. Order book is ask-heavy (-0.29). No qualifying signal this cycle - no trade. (Note: this pair's prior position was manually closed 2026-09-25 after the SOL/EUR precision-bug incident; re-entry is not blocked, but nothing here supports one yet.)
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 3.6434486117876226,
+    "pct_change_4h_48h": 3.41174183514775
+  },
+  "rsi_14_4h": 62.55615739651253,
+  "volume_ratio": 0.9273275638959168,
+  "sma_crossover_4h": "fast_above_slow",
+  "order_book_imbalance_top10": -0.28874533844731787,
+  "news_context": "SOL above $120 (multi-month high); Solana stablecoin market cap ATH $17.394B; Alpenglow public testnet targeting 150ms finality; institutional/ETF/corporate treasury demand cited"
+}
+```
+
+---
+### 2026-09-26T20:18:10.835Z — XRP/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/48h -0.47%, 4h/48h -0.77%) and no volume confirmation (1.15x, near average not 2x). RSI 49 neutral, order book close to flat (-0.045). News is mixed and shows real regulatory sensitivity: reported Senate rejection of the CLARITY Act on 2026-09-26 causing a sharp reported price drop - though this isn't corroborated by the live signal data (48h price action is only mildly negative, volume isn't elevated), so treating that specific report with caution rather than as confirmed; separately, ACI Worldwide (~9% of SWIFT traffic) enabling XRP as a settlement option is a genuine positive catalyst, and Ripple's CEO downplaying XRP vs. stablecoins for payments is a mild negative. Net: no qualifying entry signal either way - no trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -0.4745611425171119,
+    "pct_change_4h_48h": -0.7683294026906307
+  },
+  "rsi_14_4h": 49.01403924437922,
+  "volume_ratio": 1.1515224525569632,
+  "sma_crossover_4h": "fast_above_slow",
+  "order_book_imbalance_top10": -0.045196973432597376,
+  "news_context": "Reported Senate rejection of CLARITY Act causing a sharp reported drop (not corroborated by live signal data); ACI Worldwide enabling XRP as SWIFT-aligned settlement option; Garlinghouse remarks favoring stablecoins over XRP for some payments use cases"
+}
+```
+
+---
+### 2026-09-26T20:18:10.846Z — BTC/EUR — NO TRADE
+
+**Reasoning:** Existing open position (opened 2026-09-22) - one-per-pair rule (code-enforced) blocks a second entry regardless of current signals. Current signals for reference: momentum not flagged (-0.44%/-0.52%), RSI 51.4 neutral, volume ratio 0.70 (below average), SMA fast still above slow, order book mildly ask-heavy (-0.14). Position currently -1.55% unrealized, still governed by its original hard stop (not yet +1R, no invalidation breach this cycle per portfolio_check_stops).
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false
+  },
+  "rsi_14_4h": 51.438031875538364,
+  "volume_ratio": 0.7042583899185113,
+  "reason": "existing_open_position"
+}
+```
+
+---
+### 2026-09-26T20:18:10.859Z — ADA/EUR — NO TRADE
+
+**Reasoning:** Existing open position (opened 2026-09-26 00:22 UTC) - one-per-pair rule blocks a second entry. Current signals for reference: momentum not flagged this cycle (+2.74%/+2.72%, below the 6% bar - the +8.56%/+8.30% flag was at entry, now cooled), RSI 57.8, volume ratio 0.90 (below average), order book strongly bid-heavy (+0.69). Position currently -2.24% unrealized, pre-+1R, no invalidation breach this cycle.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 2.7420555764935144,
+    "pct_change_4h_48h": 2.7151462797119885
+  },
+  "rsi_14_4h": 57.82826933202849,
+  "volume_ratio": 0.9004794277785875,
+  "reason": "existing_open_position"
+}
+```
+
+---
+### 2026-09-26T20:18:10.872Z — LINK/EUR — NO TRADE
+
+**Reasoning:** Existing open position (opened 2026-09-25) - one-per-pair rule blocks a second entry. Current signals for reference: momentum still flagged (+7.27%/+6.94%), volume ratio now 2.05x (confirming, above the entry cycle's 1.55x), RSI 67.8, order book mildly bid-heavy (+0.15). Position currently +0.69% unrealized, pre-+1R, no invalidation breach this cycle.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": true,
+    "pct_change_1h_48h": 7.265236374820095,
+    "pct_change_4h_48h": 6.939574575104805
+  },
+  "rsi_14_4h": 67.82248763216396,
+  "volume_ratio": 2.0451746697708555,
+  "reason": "existing_open_position"
+}
+```
+
+---
+### 2026-09-26T20:18:10.881Z — SUI/EUR — NO TRADE
+
+**Reasoning:** Existing open position (opened 2026-09-22) - one-per-pair rule blocks a second entry. Current signals for reference: momentum still flagged (+13.84%/+14.37%), RSI 66.2, volume ratio 1.43 (not 2x-confirmed), order book ask-heavy (-0.40). Position is trailing-active (+2.19R peak, tier-2 40% floor... actually 50% floor locked at €0.9676 stop), currently +17.26% unrealized. No trailing update or invalidation action this cycle per portfolio_check_stops.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": true,
+    "pct_change_1h_48h": 13.835845896147417,
+    "pct_change_4h_48h": 14.372265230562112
+  },
+  "rsi_14_4h": 66.1652614142116,
+  "volume_ratio": 1.430875031909799,
+  "reason": "existing_open_position"
+}
+```
+
+---
+### 2026-09-26T20:18:10.889Z — LTC/EUR — NO TRADE
+
+**Reasoning:** Existing open position (opened 2026-09-26 12:43 UTC) - one-per-pair rule blocks a second entry. Current signals for reference: momentum trigger not flagged this cycle (1h/48h +0.73%, 4h/48h -0.22% - the +9.23%/-1.00% mixed read at entry has cooled further), RSI 60.8, volume ratio 1.64 (not 2x-confirmed), order book near-flat (+0.03). Position currently -1.69% unrealized, pre-+1R, no invalidation breach this cycle.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 0.7342378292098977,
+    "pct_change_4h_48h": -0.22134387351778745
+  },
+  "rsi_14_4h": 60.756921346306186,
+  "volume_ratio": 1.6401958488841066,
+  "reason": "existing_open_position"
+}
+```
+
+---
