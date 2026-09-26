@@ -12740,3 +12740,146 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-09-26T00:21:45.493Z — BTC/EUR — NO TRADE
+
+**Reasoning:** Existing open position (opened 2026-09-22) - one-per-pair rule blocks a new entry. No action needed; position remains monitored/protected via portfolio_check_stops.
+
+**Signals considered:**
+```json
+{
+  "note": "existing position, full signal re-analysis skipped per one-per-pair rule",
+  "current_price": 73790.1,
+  "unrealized_pnl_pct": -1.59
+}
+```
+
+---
+### 2026-09-26T00:21:45.503Z — LINK/EUR — NO TRADE
+
+**Reasoning:** Existing open position (opened 2026-09-25) - one-per-pair rule blocks a new entry. No action needed; position remains monitored/protected via portfolio_check_stops.
+
+**Signals considered:**
+```json
+{
+  "note": "existing position, full signal re-analysis skipped per one-per-pair rule",
+  "current_price": 12.2742,
+  "unrealized_pnl_pct": -0.14
+}
+```
+
+---
+### 2026-09-26T00:21:45.517Z — SUI/EUR — NO TRADE
+
+**Reasoning:** Existing open position (opened 2026-09-22, trailing stop active) - one-per-pair rule blocks a new entry. No action needed; trailing stop is being maintained by portfolio_check_stops.
+
+**Signals considered:**
+```json
+{
+  "note": "existing position, full signal re-analysis skipped per one-per-pair rule",
+  "current_price": 1.0408,
+  "unrealized_pnl_pct": 20.02,
+  "trailing_active": true
+}
+```
+
+---
+### 2026-09-26T00:21:45.524Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No confirmed signal to act on. momentum_trigger not flagged (1h/48h +0.20%, 4h/48h +0.48%, both well below the 6% threshold) - price is essentially flat over 48h. Volume is well below average (0.46x 7-day avg), the opposite of confirmation. RSI neutral at 52.1. Order book mildly negative (-0.11), no buy-side confirmation. News shows ETH pulled back from a brief push above $2,700 toward $2,685-2,732 on a mix of ETF-flow/whale-accumulation support and a CFTC review of unusual perpetuals activity (a mild overhang, not a catalyst either way) - nothing acute enough to act on, and no technical signal supports an entry regardless. Passing.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 0.201,
+    "pct_change_4h_48h": 0.477
+  },
+  "rsi_14_4h": 52.5,
+  "volume_ratio": 0.458,
+  "sma_crossover_4h": "fast_above_slow, not fresh cross",
+  "order_book_imbalance": -0.111,
+  "news_context": "ETH pulled back from brief push above $2,700 to $2,685-2,732; ETF inflows/whale accumulation (BitMine +27,562 ETH); CFTC reviewing unusual $5B ETH perp trading pattern on Kalshi; Glamsterdam upgrade mainnet slipped to Q4 2026."
+}
+```
+
+---
+### 2026-09-26T00:21:45.531Z — SOL/EUR — NO TRADE
+
+**Reasoning:** Momentum trigger is only marginally flagged (4h/48h +6.28%, just above the 6% threshold; 1h/48h +5.86%, actually below it) and, critically, volume does NOT confirm the move - at 0.93x the 7-day average, volume is actually below average despite the price rise, which contradicts rather than supports the momentum reading. RSI at 68.8 is elevated and, per news, price is pressing right up against a well-flagged resistance level (~$118-120) after a strong run - entering a marginal, unconfirmed momentum signal directly into resistance is a weak risk/reward setup. Order book only mildly positive (+0.059). News itself is genuinely positive (12 straight weeks of SOL ETF inflows, strong network growth, RWA leadership) but describes the move that already happened, not a fresh catalyst - and doesn't offset the lack of volume confirmation or the marginal trigger. Passing; would reconsider on a confirmed breakout above resistance with volume support.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": true,
+    "pct_change_1h_48h": 5.859,
+    "pct_change_4h_48h": 6.279,
+    "threshold_pct": 6
+  },
+  "rsi_14_4h": 68.78,
+  "volume_ratio": 0.927,
+  "sma_crossover_4h": "fast_above_slow, established",
+  "order_book_imbalance": 0.0587,
+  "news_context": "SOL near $117-118 after strong September rally; ETF inflows 12 straight weeks ($26.1M on Sep 21), Bitwise BSOL crossed $1B AUM; strong network growth (9.5M new addresses/day, exchange supply down 4.91%, $229M 30-day RWA inflows); pressing against ~$118-120 resistance."
+}
+```
+
+---
+### 2026-09-26T00:21:45.537Z — XRP/EUR — NO TRADE
+
+**Reasoning:** momentum_trigger not flagged (1h/48h +4.31%, 4h/48h +4.88%, both below the 6% threshold). Volume only mildly above average (1.15x, nowhere near the 2x confirmation flag). RSI moderate at 60.1, order book mildly positive (+0.136) but not strong. News is constructive on fundamentals (record 11,432 new XRPL accounts on Sep 24, upcoming BatchV1_1 amendment, Ripple's AI-code-review/red-team security push) but nothing that rises to an acute, price-moving catalyst proportionate to a trade right now, and price action itself doesn't confirm a move worth entering. Passing.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 4.307,
+    "pct_change_4h_48h": 4.884
+  },
+  "rsi_14_4h": 60.14,
+  "volume_ratio": 1.152,
+  "sma_crossover_4h": "fast_above_slow, established",
+  "order_book_imbalance": 0.136,
+  "news_context": "Record 11,432 new XRPL accounts (Sep 24); BatchV1_1 amendment may activate Sep 29; Ripple integrated AI-powered code review + red team (Sep 23); SEC case resolved, 7 US spot ETFs live holding ~1B XRP; price well off cycle highs."
+}
+```
+
+---
+### 2026-09-26T00:22:03.733Z — ADA/EUR — LONG — OPENED (LIVE)
+
+- Entry price: €0.23 (real fill, Kraken order O2RXGB-6LBXU-SICIG6)
+- Stop-loss: €0.22 (real resting order OVNHWO-ENTW2-UHM4I5)
+- Take-profit target: €0.25 (2:1 risk/reward, polled - not a resting order, see checkStops)
+- Position size: 4% of portfolio (€200.62, qty 882.61596836)
+- Entry fee (real): €1.60
+- Confidence: medium — momentum_trigger is clearly and comfortably flagged on both windows (1h/48h +8.56%, 4h/48h +8.30%, both well above the 6% bar) - not a marginal read like SOL's this cycle. Volume ratio 0.90x does not confirm (below the 2x threshold and even below the 7-day average), so this is classified momentum_only and capped at medium regardless. However the news backdrop is unusually concrete and multi-sourced for this size of move, all within the last two weeks: Cardano joined Mastercard's Crypto Program (Sep 15) for cross-border payments/B2B settlement/stablecoin work, integrated the x402 SDK for AI-driven machine-to-machine payments (Sep 21), and was added to CME's expanded futures lineup - three genuine, verifiable institutional-access catalysts, not vague sentiment. Order book imbalance is meaningfully positive (+0.312, the strongest of any candidate pair considered this cycle), showing real bid-side support rather than the negative/flat books seen on other momentum-only entries historically. RSI at 67.3 is elevated but below the 70 overbought line and well short of SUI's 73.8 or even LINK's 65.7-adjacent entries. Sizing at 4% (below the 5% medium cap), matching the conservative sizing pattern used for LINK's similar momentum_only entry, given volume remains unconfirmed.
+- Momentum-only trigger: yes
+- Invalidation: Thesis invalidated on a 4h close below the rising 20-period 4h SMA (currently ~0.218) - that line is the trend structure this entry depends on, and it's also the level portfolio_check_stops will trail beneath once the position is profitable.
+- Signals supporting this trade:
+```json
+{
+  "momentum_trigger": {
+    "flagged": true,
+    "pct_change_1h_48h": 8.55975143403442,
+    "pct_change_4h_48h": 8.29625814819583
+  },
+  "rsi_14_4h": 67.25199826099052,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "fast_value": 0.21802194999999996,
+    "slow_value": 0.20660582000000002
+  },
+  "volume": {
+    "ratio": 0.9004794277785875,
+    "flag_above_2x": false
+  },
+  "order_book_imbalance_top10": 0.3116223279440957,
+  "current_price": 0.226563,
+  "news_context": "Cardano joined Mastercard's Crypto Program (Sep 15, 2026) for cross-border payments/B2B settlement/stablecoin interoperability; integrated x402 SDK enabling ADA for automated AI machine-to-machine payments (Sep 21, 2026); added to CME's expanded futures lineup (Sep 2026); ADA up 26% over the past week per press coverage."
+}
+```
+- Position id: 605bff0c-5903-41d8-b4d0-6574fbfee4f3
+
+---

@@ -50,7 +50,7 @@
       "pair": "SUI/EUR",
       "direction": "long",
       "entry_price": 0.867,
-      "stop_loss": 0.92736,
+      "stop_loss": 0.9676,
       "initial_stop_loss": 0.775,
       "take_profit": 1.051,
       "trailing_active": true,
@@ -86,7 +86,7 @@
       "momentum_only": true,
       "status": "open",
       "entry_order_txid": "OWJ4ES-2JMUW-YAYFFC",
-      "stop_order_txid": "OS2NGE-6RIZU-NMHVYN"
+      "stop_order_txid": "ON5NPF-NKDRI-S2CGFL"
     },
     {
       "id": "82303d21-e0ea-4ea8-9758-11855212b61e",
@@ -130,6 +130,49 @@
       "status": "open",
       "entry_order_txid": "ODOAY7-IMZLA-WGANPO",
       "stop_order_txid": "ODXWV3-4QG7S-IYEGVS"
+    },
+    {
+      "id": "605bff0c-5903-41d8-b4d0-6574fbfee4f3",
+      "pair": "ADA/EUR",
+      "direction": "long",
+      "entry_price": 0.227303,
+      "stop_loss": 0.217,
+      "initial_stop_loss": 0.217,
+      "take_profit": 0.24790900000000002,
+      "trailing_active": false,
+      "peak_price": 0.227303,
+      "size_pct": 4,
+      "size_eur": 200.62214007373723,
+      "quantity": 882.61596836,
+      "entry_fee": 1.604977,
+      "opened_at": "2026-09-26T00:22:03.733Z",
+      "signals_at_entry": {
+        "momentum_trigger": {
+          "flagged": true,
+          "pct_change_1h_48h": 8.55975143403442,
+          "pct_change_4h_48h": 8.29625814819583
+        },
+        "rsi_14_4h": 67.25199826099052,
+        "sma_crossover_4h": {
+          "state": "fast_above_slow",
+          "fast_value": 0.21802194999999996,
+          "slow_value": 0.20660582000000002
+        },
+        "volume": {
+          "ratio": 0.9004794277785875,
+          "flag_above_2x": false
+        },
+        "order_book_imbalance_top10": 0.3116223279440957,
+        "current_price": 0.226563,
+        "news_context": "Cardano joined Mastercard's Crypto Program (Sep 15, 2026) for cross-border payments/B2B settlement/stablecoin interoperability; integrated x402 SDK enabling ADA for automated AI machine-to-machine payments (Sep 21, 2026); added to CME's expanded futures lineup (Sep 2026); ADA up 26% over the past week per press coverage."
+      },
+      "invalidation": "Thesis invalidated on a 4h close below the rising 20-period 4h SMA (currently ~0.218) - that line is the trend structure this entry depends on, and it's also the level portfolio_check_stops will trail beneath once the position is profitable.",
+      "confidence": "medium",
+      "confidence_reason": "momentum_trigger is clearly and comfortably flagged on both windows (1h/48h +8.56%, 4h/48h +8.30%, both well above the 6% bar) - not a marginal read like SOL's this cycle. Volume ratio 0.90x does not confirm (below the 2x threshold and even below the 7-day average), so this is classified momentum_only and capped at medium regardless. However the news backdrop is unusually concrete and multi-sourced for this size of move, all within the last two weeks: Cardano joined Mastercard's Crypto Program (Sep 15) for cross-border payments/B2B settlement/stablecoin work, integrated the x402 SDK for AI-driven machine-to-machine payments (Sep 21), and was added to CME's expanded futures lineup - three genuine, verifiable institutional-access catalysts, not vague sentiment. Order book imbalance is meaningfully positive (+0.312, the strongest of any candidate pair considered this cycle), showing real bid-side support rather than the negative/flat books seen on other momentum-only entries historically. RSI at 67.3 is elevated but below the 70 overbought line and well short of SUI's 73.8 or even LINK's 65.7-adjacent entries. Sizing at 4% (below the 5% medium cap), matching the conservative sizing pattern used for LINK's similar momentum_only entry, given volume remains unconfirmed.",
+      "momentum_only": true,
+      "status": "open",
+      "entry_order_txid": "O2RXGB-6LBXU-SICIG6",
+      "stop_order_txid": "OVNHWO-ENTW2-UHM4I5"
     }
   ],
   "closed_positions": [
@@ -247,8 +290,13 @@
       "date": "2026-09-25",
       "realized_pnl_eur": 6.845548737599984,
       "halted": false
+    },
+    {
+      "date": "2026-09-26",
+      "realized_pnl_eur": 0,
+      "halted": false
     }
   ],
   "created_at": "2026-09-22T14:26:40.467Z",
-  "updated_at": "2026-09-25T23:41:31.930Z"
+  "updated_at": "2026-09-26T00:22:03.733Z"
 }
