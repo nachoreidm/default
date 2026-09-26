@@ -14414,3 +14414,192 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-09-26T12:43:40.877Z — LTC/EUR — LONG — OPENED (LIVE)
+
+- Entry price: €63.90 (real fill, Kraken order OY6P3D-LEW5B-6QF4TK)
+- Stop-loss: €59.80 (real resting order O4ZG5J-EXJFD-GUEQVN)
+- Take-profit target: €72.10 (2:1 risk/reward, polled - not a resting order, see checkStops)
+- Position size: 4% of portfolio (€200.45, qty 3.13650060)
+- Entry fee (real): €1.60
+- Confidence: medium — momentum_trigger is flagged on the 1h/48h window (+9.23%, well above the 6% bar) though the 4h/48h window is actually negative (-1.00%, a pullback within the broader move) - volume ratio 1.64x remains below the 2x confirmation threshold, so this is classified momentum_only and capped at medium regardless. However the news backdrop reverses the caution flag from the prior cycle (which noted futures volume dwarfing spot, suggesting a leverage-driven rally): this cycle's search finds spot volume itself surging (~$948M, ~3x the level from Sep 18) as onchain network activity climbs, Litecoin ETF holdings reportedly hitting a record, and a concrete new product launch - Coinbase Wrapped Litecoin (cbLTC) going live on Solana, secured by Chainlink's CCIP - plus a LiteForge DeFi testnet going live. RSI at 65.4 is elevated but below the 70 overbought line and in line with LINK's initial entry level. Order book is close to flat (-0.033), no strong bid-side confirmation but not a warning sign either. Sizing at 4% (below the 5% medium cap), matching the conservative sizing pattern used for ADA/LINK's similar momentum_only entries, given volume remains unconfirmed.
+- Momentum-only trigger: yes
+- Invalidation: Thesis invalidated on a 4h close below the rising 20-period 4h SMA (currently ~60.26) - that line is the trend structure this entry depends on, and it's also the level portfolio_check_stops will trail beneath once the position is profitable.
+- Signals supporting this trade:
+```json
+{
+  "momentum_trigger": {
+    "flagged": true,
+    "pct_change_1h_48h": 9.231553893233594,
+    "pct_change_4h_48h": -1.0015408320493153
+  },
+  "rsi_14_4h": 65.43323245253063,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "fast_value": 60.26150000000001,
+    "slow_value": 55.02460000000001
+  },
+  "volume": {
+    "ratio": 1.6401958488841066,
+    "flag_above_2x": false
+  },
+  "order_book_imbalance_top10": -0.03262624031207646,
+  "current_price": 63.97,
+  "news_context": "Litecoin trading at an eight-month high, up ~10% intraday; onchain network activity surge as spot volume climbed toward $948M (~3x the level around Sep 18) as price approached the $64-65 resistance zone; Litecoin ETF holdings reportedly hit a record; Coinbase Wrapped Litecoin (cbLTC) launched live on Solana, backed 1:1 by LTC in Coinbase custody with cross-chain transfers secured by Chainlink's CCIP; LiteForge testnet live, targeting DeFi/tokenized-asset use cases on Litecoin."
+}
+```
+- Position id: a3538648-c710-4a54-ba88-46086624d983
+
+---
+### 2026-09-26T12:44:19.174Z — BTC/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule) - no new entry considered. Momentum not flagged this cycle (1h/48h +0.58%, 4h/48h -0.39%), RSI neutral at 53.0. Consolidating sideways, no reconciliation or trailing action needed.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 0.5782965351181567,
+    "pct_change_4h_48h": -0.39460034758240825
+  },
+  "rsi_14_4h": 53.01371470865265,
+  "volume_ratio": 0.7042583899185113,
+  "sma_crossover_4h": "fast_above_slow",
+  "order_book_imbalance_top10": 0.020364415862808044,
+  "news_context": "BTC ~$83,974, underperforming broader market slightly as ETF inflows moderate and altcoin rotation continues.",
+  "existing_position": true
+}
+```
+
+---
+### 2026-09-26T12:44:19.188Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No open position, but momentum_trigger not flagged (1h/48h +1.43%, 4h/48h +0.11%, far below the 6% threshold), volume ratio 0.46 (well below average, no confirmation), RSI neutral at 52.2, order book essentially flat. No confluence to justify an entry - passing.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 1.4273261680758251,
+    "pct_change_4h_48h": 0.10934566368157451
+  },
+  "rsi_14_4h": 52.22563027061088,
+  "volume_ratio": 0.45810011171585857,
+  "sma_crossover_4h": "fast_above_slow",
+  "order_book_imbalance_top10": 0.0006058440650583548,
+  "news_context": "ETH ~$2,680-2,724 depending on venue, broader market context shaped by positive BTC ETF flows - general backdrop, no fresh proportionate catalyst."
+}
+```
+
+---
+### 2026-09-26T12:44:19.204Z — SOL/EUR — NO TRADE
+
+**Reasoning:** No open position. momentum_trigger flagged only marginally on the 1h window (+6.44%, just above the 6% bar; the 4h window is +4.19%, below it), and volume ratio is 0.93 - still below the 7-day average, not confirming. Same conclusion as last cycle: this would need a concrete, fresh, proportionate news catalyst to qualify as momentum_only. The news found is largely the same stale/background material as last cycle (the Sept 21 BTC-driven short squeeze, now 5 days old) plus generic infrastructure hires and a minor stablecoin/migration story - nothing freshly dated and proportionate to today's marginal move. Passing again.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": true,
+    "pct_change_1h_48h": 6.444844124700243,
+    "pct_change_4h_48h": 4.185819070904646
+  },
+  "rsi_14_4h": 64.61729569369007,
+  "volume_ratio": 0.9273275638959168,
+  "flag_above_2x": false,
+  "sma_crossover_4h": "fast_above_slow",
+  "order_book_imbalance_top10": 0.5732872554244745,
+  "news_context": "Background bullishness carried over from the Sept 21 BTC-driven short squeeze (stale); Anchorage/LayerZero stablecoin story and ZetaChain's planned migration to Solana; Solana hired institutional-partnerships staff - none freshly dated/proportionate to today's marginal move."
+}
+```
+
+---
+### 2026-09-26T12:44:19.214Z — XRP/EUR — NO TRADE
+
+**Reasoning:** No open position. momentum_trigger not flagged (1h/48h +4.35%, 4h/48h +1.99%, below the 6% bar). Volume ratio 1.15 (not confirming). Order book mildly positive (+0.194) but no hard-confirmed signal to build a trade on. News shows genuine business-expansion catalysts (Ripple's $275M raise for prime brokerage, Asia custody partnership) but without a flagged momentum_trigger there's no momentum_only pathway, and no other signal confluence. Passing.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 4.351533869592276,
+    "pct_change_4h_48h": 1.9883313184709115
+  },
+  "rsi_14_4h": 54.87794769582898,
+  "volume_ratio": 1.1515224525569632,
+  "sma_crossover_4h": "fast_above_slow",
+  "order_book_imbalance_top10": 0.19428632325738956,
+  "news_context": "Ripple raised $275M to expand into US prime brokerage/multi-asset clearing; new Asia institutional custody/tokenized-asset partnership - genuine catalysts, but momentum_trigger not flagged so no entry pathway applies."
+}
+```
+
+---
+### 2026-09-26T12:44:19.226Z — ADA/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule) - no new entry considered. momentum_trigger still flagged (1h/48h +8.47%), RSI 64.0, volume ratio 0.90 (unconfirmed). Position currently underwater (-1.46%), stop-loss intact, trailing not yet active. No action needed beyond monitoring.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": true,
+    "pct_change_1h_48h": 8.469526523433558,
+    "pct_change_4h_48h": 3.0703196347032
+  },
+  "rsi_14_4h": 64.00015357453944,
+  "volume_ratio": 0.9004794277785875,
+  "sma_crossover_4h": "fast_above_slow",
+  "order_book_imbalance_top10": 0.14552548184752262,
+  "news_context": "ADA ~$0.2558-0.2617, FC Barcelona Fan Lab partnership, rising DEX volume and on-chain activity - existing thesis intact.",
+  "existing_position": true
+}
+```
+
+---
+### 2026-09-26T12:44:19.238Z — LINK/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule) - no new entry considered. momentum_trigger flagged (1h/48h +15.86%, 4h/48h +11.43%), RSI 71.7 (increasingly overbought), volume ratio 2.05 (confirmed above 2x). Position up ~1.8% unrealized, not yet at +1R, stop-loss intact. No action needed beyond monitoring.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": true,
+    "pct_change_1h_48h": 15.863481115035565,
+    "pct_change_4h_48h": 11.433283166287744
+  },
+  "rsi_14_4h": 71.73968622612816,
+  "volume_ratio": 2.0451746697708555,
+  "flag_above_2x": true,
+  "sma_crossover_4h": "fast_above_slow",
+  "order_book_imbalance_top10": 0.42882598678667655,
+  "news_context": "LINK ~$13.27-14.26, +8% 24h per some sources, technically bullish with rising 20/50/200-day averages - existing thesis intact and strengthening.",
+  "existing_position": true
+}
+```
+
+---
+### 2026-09-26T12:44:19.247Z — SUI/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule) - no new entry considered. momentum_trigger flagged (1h/48h +22.64%, 4h/48h +17.41%), RSI 70.7, volume ratio 1.43 (unconfirmed). Position deeply profitable (+18.3% unrealized), trailing already active with stop at 0.9676 (peak 1.0682). No action needed beyond monitoring - portfolio_check_stops already reconciled this cycle with no changes.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": true,
+    "pct_change_1h_48h": 22.64486313544258,
+    "pct_change_4h_48h": 17.41349971639251
+  },
+  "rsi_14_4h": 70.68104959367965,
+  "volume_ratio": 1.430875031909799,
+  "sma_crossover_4h": "fast_above_slow",
+  "order_book_imbalance_top10": 0.652629622961663,
+  "news_context": "SUI ~$1.16-1.17, CME expanding standard/micro futures contracts for SUI, Mysten Labs' longer-term 'S2' platform vision - existing thesis intact.",
+  "existing_position": true
+}
+```
+
+---

@@ -173,6 +173,49 @@
       "status": "open",
       "entry_order_txid": "O2RXGB-6LBXU-SICIG6",
       "stop_order_txid": "OVNHWO-ENTW2-UHM4I5"
+    },
+    {
+      "id": "a3538648-c710-4a54-ba88-46086624d983",
+      "pair": "LTC/EUR",
+      "direction": "long",
+      "entry_price": 63.9,
+      "stop_loss": 59.8,
+      "initial_stop_loss": 59.8,
+      "take_profit": 72.1,
+      "trailing_active": false,
+      "peak_price": 63.9,
+      "size_pct": 4,
+      "size_eur": 200.45375343816295,
+      "quantity": 3.1365006,
+      "entry_fee": 1.60363,
+      "opened_at": "2026-09-26T12:43:40.877Z",
+      "signals_at_entry": {
+        "momentum_trigger": {
+          "flagged": true,
+          "pct_change_1h_48h": 9.231553893233594,
+          "pct_change_4h_48h": -1.0015408320493153
+        },
+        "rsi_14_4h": 65.43323245253063,
+        "sma_crossover_4h": {
+          "state": "fast_above_slow",
+          "fast_value": 60.26150000000001,
+          "slow_value": 55.02460000000001
+        },
+        "volume": {
+          "ratio": 1.6401958488841066,
+          "flag_above_2x": false
+        },
+        "order_book_imbalance_top10": -0.03262624031207646,
+        "current_price": 63.97,
+        "news_context": "Litecoin trading at an eight-month high, up ~10% intraday; onchain network activity surge as spot volume climbed toward $948M (~3x the level around Sep 18) as price approached the $64-65 resistance zone; Litecoin ETF holdings reportedly hit a record; Coinbase Wrapped Litecoin (cbLTC) launched live on Solana, backed 1:1 by LTC in Coinbase custody with cross-chain transfers secured by Chainlink's CCIP; LiteForge testnet live, targeting DeFi/tokenized-asset use cases on Litecoin."
+      },
+      "invalidation": "Thesis invalidated on a 4h close below the rising 20-period 4h SMA (currently ~60.26) - that line is the trend structure this entry depends on, and it's also the level portfolio_check_stops will trail beneath once the position is profitable.",
+      "confidence": "medium",
+      "confidence_reason": "momentum_trigger is flagged on the 1h/48h window (+9.23%, well above the 6% bar) though the 4h/48h window is actually negative (-1.00%, a pullback within the broader move) - volume ratio 1.64x remains below the 2x confirmation threshold, so this is classified momentum_only and capped at medium regardless. However the news backdrop reverses the caution flag from the prior cycle (which noted futures volume dwarfing spot, suggesting a leverage-driven rally): this cycle's search finds spot volume itself surging (~$948M, ~3x the level from Sep 18) as onchain network activity climbs, Litecoin ETF holdings reportedly hitting a record, and a concrete new product launch - Coinbase Wrapped Litecoin (cbLTC) going live on Solana, secured by Chainlink's CCIP - plus a LiteForge DeFi testnet going live. RSI at 65.4 is elevated but below the 70 overbought line and in line with LINK's initial entry level. Order book is close to flat (-0.033), no strong bid-side confirmation but not a warning sign either. Sizing at 4% (below the 5% medium cap), matching the conservative sizing pattern used for ADA/LINK's similar momentum_only entries, given volume remains unconfirmed.",
+      "momentum_only": true,
+      "status": "open",
+      "entry_order_txid": "OY6P3D-LEW5B-6QF4TK",
+      "stop_order_txid": "O4ZG5J-EXJFD-GUEQVN"
     }
   ],
   "closed_positions": [
@@ -298,5 +341,5 @@
     }
   ],
   "created_at": "2026-09-22T14:26:40.467Z",
-  "updated_at": "2026-09-26T11:42:20.586Z"
+  "updated_at": "2026-09-26T12:43:40.877Z"
 }
