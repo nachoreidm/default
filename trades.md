@@ -13900,3 +13900,116 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-09-26T09:42:46.100Z — BTC/EUR — NO TRADE
+
+**Reasoning:** Existing open position (opened 2026-09-22) - one-per-pair rule blocks a new entry. No action needed; position remains monitored/protected via portfolio_check_stops.
+
+**Signals considered:**
+```json
+{
+  "note": "existing position, full signal re-analysis skipped per one-per-pair rule",
+  "current_price": 73751.1
+}
+```
+
+---
+### 2026-09-26T09:42:46.112Z — LINK/EUR — NO TRADE
+
+**Reasoning:** Existing open position (opened 2026-09-25) - one-per-pair rule blocks a new entry. No action needed; position remains monitored/protected via portfolio_check_stops.
+
+**Signals considered:**
+```json
+{
+  "note": "existing position, full signal re-analysis skipped per one-per-pair rule",
+  "current_price": 12.32542
+}
+```
+
+---
+### 2026-09-26T09:42:46.120Z — SUI/EUR — NO TRADE
+
+**Reasoning:** Existing open position (opened 2026-09-22, trailing stop active) - one-per-pair rule blocks a new entry. No action needed; trailing stop is being maintained by portfolio_check_stops.
+
+**Signals considered:**
+```json
+{
+  "note": "existing position, full signal re-analysis skipped per one-per-pair rule",
+  "current_price": 1.0179,
+  "trailing_active": true
+}
+```
+
+---
+### 2026-09-26T09:42:46.135Z — ADA/EUR — NO TRADE
+
+**Reasoning:** Existing open position (opened 2026-09-26 00:22 UTC) - one-per-pair rule blocks a new entry. No action needed; position remains monitored/protected via portfolio_check_stops.
+
+**Signals considered:**
+```json
+{
+  "note": "existing position, full signal re-analysis skipped per one-per-pair rule",
+  "current_price": 0.223046
+}
+```
+
+---
+### 2026-09-26T09:42:46.143Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No confirmed signal to act on. momentum_trigger not flagged (1h/48h +1.70%, 4h/48h +1.40%, both well below the 6% threshold). Volume well below average (0.46x). RSI neutral at 52.2. News unchanged - Fusaka hard fork already activated, BitMine routine accumulation, unconfirmed Bitget hot-wallet speculation. Passing.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 1.697,
+    "pct_change_4h_48h": 1.403
+  },
+  "rsi_14_4h": 52.19,
+  "volume_ratio": 0.458,
+  "order_book_imbalance": 0.149,
+  "news_context": "ETH ~$2,687; Fusaka hard fork activated; BitMine treasury accumulation continues; unconfirmed Bitget hot-wallet speculation."
+}
+```
+
+---
+### 2026-09-26T09:42:46.150Z — SOL/EUR — NO TRADE
+
+**Reasoning:** momentum_trigger is now flagged more solidly than in recent cycles - both windows clear the 6% threshold this time (1h/48h +6.54%, 4h/48h +6.34%), not just a marginal single-window read. However, volume still does not confirm (0.93x, below average - the same as every prior cycle this setup has been evaluated). Critically, the news search surfaces no fresh catalyst: the same recycled items appear again (the Sep 22 active-user ATH, DEX volume stats, the August governance disinflation proposal) with nothing new today that would explain a fresh push. Contrasted with the accepted momentum_only entries on LINK and ADA, both of which had unconfirmed volume too but were paired with genuinely fresh, dated, concrete catalysts identified in that cycle's own news search - SOL lacks that here. Passing, but noting this is the closest call yet on this pair; would act on a confirmed volume breakout or an actual fresh catalyst.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": true,
+    "pct_change_1h_48h": 6.536,
+    "pct_change_4h_48h": 6.341
+  },
+  "rsi_14_4h": 63.09,
+  "volume_ratio": 0.927,
+  "order_book_imbalance": 0.098,
+  "news_context": "SOL ~$122; daily active users ATH 7.96M (Sep 22, recycled); DEX volume 208M weekly; tokenized equity supply +47% in 3 weeks; no fresh catalyst identified this cycle."
+}
+```
+
+---
+### 2026-09-26T09:42:46.156Z — XRP/EUR — NO TRADE
+
+**Reasoning:** momentum_trigger only marginally flagged (1h/48h +6.06%, just above the 6% threshold; 4h/48h +5.37%, below it) - a single-window borderline read, weaker than SOL's this cycle. Volume only mildly above average (1.15x, not the 2x confirmation flag). RSI moderate 56.1, order book nearly flat (+0.034). News is unchanged and already priced in (Stripe integration from Sep 17) - no fresh catalyst. Passing.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": true,
+    "pct_change_1h_48h": 6.061,
+    "pct_change_4h_48h": 5.37
+  },
+  "rsi_14_4h": 56.13,
+  "volume_ratio": 1.152,
+  "order_book_imbalance": 0.0345,
+  "news_context": "XRP ~$1.55, +9.6% over 7 days; Ripple-Stripe payment tools link (Sep 17, already priced in); spot XRP ETFs live."
+}
+```
+
+---
