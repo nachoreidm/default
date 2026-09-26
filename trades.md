@@ -14126,3 +14126,116 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-09-26T11:43:04.131Z — BTC/EUR — NO TRADE
+
+**Reasoning:** Existing open position (opened 2026-09-22) - one-per-pair rule blocks a new entry. No action needed; position remains monitored/protected via portfolio_check_stops.
+
+**Signals considered:**
+```json
+{
+  "note": "existing position, full signal re-analysis skipped per one-per-pair rule",
+  "current_price": 73926.3
+}
+```
+
+---
+### 2026-09-26T11:43:04.142Z — LINK/EUR — NO TRADE
+
+**Reasoning:** Existing open position (opened 2026-09-25) - one-per-pair rule blocks a new entry. No action needed; position remains monitored/protected via portfolio_check_stops.
+
+**Signals considered:**
+```json
+{
+  "note": "existing position, full signal re-analysis skipped per one-per-pair rule",
+  "current_price": 12.56807
+}
+```
+
+---
+### 2026-09-26T11:43:04.151Z — SUI/EUR — NO TRADE
+
+**Reasoning:** Existing open position (opened 2026-09-22, trailing stop active) - one-per-pair rule blocks a new entry. No action needed; trailing stop is being maintained by portfolio_check_stops.
+
+**Signals considered:**
+```json
+{
+  "note": "existing position, full signal re-analysis skipped per one-per-pair rule",
+  "current_price": 1.0379,
+  "trailing_active": true
+}
+```
+
+---
+### 2026-09-26T11:43:04.165Z — ADA/EUR — NO TRADE
+
+**Reasoning:** Existing open position (opened 2026-09-26 00:22 UTC) - one-per-pair rule blocks a new entry. No action needed; position remains monitored/protected via portfolio_check_stops.
+
+**Signals considered:**
+```json
+{
+  "note": "existing position, full signal re-analysis skipped per one-per-pair rule",
+  "current_price": 0.226323
+}
+```
+
+---
+### 2026-09-26T11:43:04.173Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No confirmed signal to act on. momentum_trigger not flagged (1h/48h +1.30%, 4h/48h +1.40%, both well below the 6% threshold). Volume well below average (0.46x). RSI neutral at 52.2. News unchanged - Fusaka hard fork already activated, unconfirmed Bitget hot-wallet speculation. Passing.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 1.304,
+    "pct_change_4h_48h": 1.403
+  },
+  "rsi_14_4h": 52.19,
+  "volume_ratio": 0.458,
+  "order_book_imbalance": -0.011,
+  "news_context": "ETH ~$2,687; Fusaka hard fork activated; unconfirmed Bitget hot-wallet speculation."
+}
+```
+
+---
+### 2026-09-26T11:43:04.182Z — SOL/EUR — NO TRADE
+
+**Reasoning:** momentum_trigger flagged again on both windows (1h/48h +6.26%, 4h/48h +6.34%), similar to two cycles ago. Volume still does not confirm (0.93x, below average - unchanged across every cycle this setup has recurred). News surfaces one arguably fresh item (Anchorage selecting LayerZero for stablecoin cross-chain transfers including Solana, dated Sep 21) alongside the same recycled active-user/DEX-volume/governance items, but that item is neither new this cycle nor a Solana-specific catalyst proportionate to a fresh price push - it's an infrastructure partnership dated several days ago, not a fresh trigger. Passing again, consistent with the standard applied throughout this recurring, still-unconfirmed setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": true,
+    "pct_change_1h_48h": 6.261,
+    "pct_change_4h_48h": 6.341
+  },
+  "rsi_14_4h": 63.09,
+  "volume_ratio": 0.927,
+  "order_book_imbalance": 0.23,
+  "news_context": "SOL ~$122; Anchorage selected LayerZero for stablecoin cross-chain transfers (Sep 21, not fresh); MoneyGram integration; SGP-0002 governance update; no fresh catalyst this cycle."
+}
+```
+
+---
+### 2026-09-26T11:43:04.190Z — XRP/EUR — NO TRADE
+
+**Reasoning:** momentum_trigger not flagged (1h/48h +5.36%, 4h/48h +5.37%, both below the 6% threshold). Volume only mildly above average (1.15x). RSI moderate 56.1, order book negative (-0.359). News: Ripple CEO Garlinghouse himself questioning XRP's central role and admitting a stablecoin might outperform it for some use cases - a genuinely negative/uncertain signal from within Ripple, not a bullish catalyst. Passing.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 5.364,
+    "pct_change_4h_48h": 5.37
+  },
+  "rsi_14_4h": 56.13,
+  "volume_ratio": 1.152,
+  "order_book_imbalance": -0.359,
+  "news_context": "XRP ~$1.55, +9.6% over 7 days; Ripple CEO Garlinghouse questioned XRP's central role, admitted a stablecoin might outperform it for some use cases; Stripe integration already priced in."
+}
+```
+
+---
