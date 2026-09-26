@@ -13674,3 +13674,116 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-09-26T07:42:58.565Z — BTC/EUR — NO TRADE
+
+**Reasoning:** Existing open position (opened 2026-09-22) - one-per-pair rule blocks a new entry. No action needed; position remains monitored/protected via portfolio_check_stops.
+
+**Signals considered:**
+```json
+{
+  "note": "existing position, full signal re-analysis skipped per one-per-pair rule",
+  "current_price": 73784.9
+}
+```
+
+---
+### 2026-09-26T07:42:58.577Z — LINK/EUR — NO TRADE
+
+**Reasoning:** Existing open position (opened 2026-09-25) - one-per-pair rule blocks a new entry. No action needed; position remains monitored/protected via portfolio_check_stops.
+
+**Signals considered:**
+```json
+{
+  "note": "existing position, full signal re-analysis skipped per one-per-pair rule",
+  "current_price": 12.35279
+}
+```
+
+---
+### 2026-09-26T07:42:58.591Z — SUI/EUR — NO TRADE
+
+**Reasoning:** Existing open position (opened 2026-09-22, trailing stop active) - one-per-pair rule blocks a new entry. No action needed; trailing stop is being maintained by portfolio_check_stops.
+
+**Signals considered:**
+```json
+{
+  "note": "existing position, full signal re-analysis skipped per one-per-pair rule",
+  "current_price": 1.0212,
+  "trailing_active": true
+}
+```
+
+---
+### 2026-09-26T07:42:58.598Z — ADA/EUR — NO TRADE
+
+**Reasoning:** Existing open position (opened 2026-09-26 00:22 UTC) - one-per-pair rule blocks a new entry. No action needed; position remains monitored/protected via portfolio_check_stops.
+
+**Signals considered:**
+```json
+{
+  "note": "existing position, full signal re-analysis skipped per one-per-pair rule",
+  "current_price": 0.224488
+}
+```
+
+---
+### 2026-09-26T07:42:58.605Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No confirmed signal to act on. momentum_trigger not flagged (1h/48h -0.27%, 4h/48h -0.17%, both well below the 6% threshold, and negative). Volume well below average (0.46x). RSI neutral at 51.7. News includes a generically-framed SEC tokenization pilot mention (potential future institutional demand, not a dated concrete event) alongside routine BitMine accumulation and unconfirmed Bitget hot-wallet speculation - nothing acute enough, and price action itself is flat-to-negative. Passing.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -0.275,
+    "pct_change_4h_48h": -0.173
+  },
+  "rsi_14_4h": 51.7,
+  "volume_ratio": 0.458,
+  "order_book_imbalance": -0.308,
+  "news_context": "ETH ~$2,689; BitMine treasury accumulation continues; unconfirmed Bitget hot-wallet speculation; SEC tokenization pilot cited as a potential long-term institutional demand driver (not a specific dated catalyst)."
+}
+```
+
+---
+### 2026-09-26T07:42:58.613Z — SOL/EUR — NO TRADE
+
+**Reasoning:** momentum_trigger remains unflagged (1h/48h +4.04%, 4h/48h +4.47%, both below the 6% threshold). Volume still unconfirmed (0.93x, below average). RSI moderate 62.9. News continues to describe existing ecosystem strength (active users, DEX volume, governance disinflation update) with no fresh acute catalyst. Passing.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 4.044,
+    "pct_change_4h_48h": 4.468
+  },
+  "rsi_14_4h": 62.87,
+  "volume_ratio": 0.927,
+  "order_book_imbalance": 0.169,
+  "news_context": "SOL ~$122; daily active users ATH 7.96M; DEX volume 208M weekly; tokenized equity supply +47% in 3 weeks; SGP-0002 governance disinflation update."
+}
+```
+
+---
+### 2026-09-26T07:42:58.621Z — XRP/EUR — NO TRADE
+
+**Reasoning:** momentum_trigger not flagged (1h/48h +2.79%, 4h/48h +3.53%, both below the 6% threshold). Volume only mildly above average (1.15x). RSI moderate 57.8, order book mildly positive (+0.173). News unchanged - Stripe integration momentum already priced in over the past week, spot XRP ETFs live. Nothing new to justify an entry. Passing.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 2.788,
+    "pct_change_4h_48h": 3.528
+  },
+  "rsi_14_4h": 57.77,
+  "volume_ratio": 1.152,
+  "order_book_imbalance": 0.173,
+  "news_context": "XRP ~$1.55, +9.6% over 7 days; Ripple-Stripe payment tools link (Sep 17); spot XRP ETFs live."
+}
+```
+
+---
