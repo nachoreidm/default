@@ -680,12 +680,24 @@ only production deps installed, matching this repo's convention of
 committing a pre-pruned `node_modules`) both passed before pushing.
 `portfolio_check_stops`'s tool description and
 `instructions/kraken-live-agent-instructions.md` both updated to document
-the new step. **Not yet deployed** - per the established pattern (see the
-SOL precision-bug and tiered-profit-lock entries above), a running
-persistent session's MCP server process won't pick this up from a `git
-pull` alone; needs the same verified cutover (new session → confirm a real
-cycle via actual commit diff → re-bind the trigger → archive the old
-session) before it's live.
+the new step.
+
+**Deployed same-day via the same cutover pattern**: created a fresh
+session (`session_01Tq7RUQiV62G5k9kXbu3Ee9`) on the branch carrying this
+fix, seeded with the exact hourly-cycle prompt so the verification run
+doubled as that hour's real cycle. Verified against the actual commit
+(`2ab61c3`, sitting directly on top of this fix's own commit `f6afdcf`),
+not the session's self-summary: 5 positions open (BTC, SUI, LINK, ADA,
+LTC), 19.33% exposure, no order or unprotected-position errors, no trade
+this cycle (none of the eight pairs qualified) - a clean, real cycle
+running the new code. Trigger re-bound to this session
+(`trig_013G1qBKvQrKjkD66aTvrsFp`); old session archived ($12.82 over its
+~8-hour life). The invalidation check itself hasn't fired live yet (no
+open position both profitable and pre-+1R at deploy time with a broken
+SMA) - the mechanism is confirmed deployed and running each cycle, not
+yet confirmed to have executed a real close; watch for its first live
+trigger and verify the close reason/fill the same way as any other
+trade.
 
 ## Network access
 
