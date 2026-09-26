@@ -13109,3 +13109,116 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-09-26T02:42:40.013Z — BTC/EUR — NO TRADE
+
+**Reasoning:** Existing open position (opened 2026-09-22) - one-per-pair rule blocks a new entry. No action needed; position remains monitored/protected via portfolio_check_stops.
+
+**Signals considered:**
+```json
+{
+  "note": "existing position, full signal re-analysis skipped per one-per-pair rule",
+  "current_price": 73776.9
+}
+```
+
+---
+### 2026-09-26T02:42:40.023Z — LINK/EUR — NO TRADE
+
+**Reasoning:** Existing open position (opened 2026-09-25) - one-per-pair rule blocks a new entry. No action needed; position remains monitored/protected via portfolio_check_stops.
+
+**Signals considered:**
+```json
+{
+  "note": "existing position, full signal re-analysis skipped per one-per-pair rule",
+  "current_price": 12.29531
+}
+```
+
+---
+### 2026-09-26T02:42:40.033Z — SUI/EUR — NO TRADE
+
+**Reasoning:** Existing open position (opened 2026-09-22, trailing stop active) - one-per-pair rule blocks a new entry. No action needed; trailing stop is being maintained by portfolio_check_stops.
+
+**Signals considered:**
+```json
+{
+  "note": "existing position, full signal re-analysis skipped per one-per-pair rule",
+  "current_price": 1.0311,
+  "trailing_active": true
+}
+```
+
+---
+### 2026-09-26T02:42:40.040Z — ADA/EUR — NO TRADE
+
+**Reasoning:** Existing open position (opened 2026-09-26 00:22 UTC) - one-per-pair rule blocks a new entry. No action needed; position remains monitored/protected via portfolio_check_stops.
+
+**Signals considered:**
+```json
+{
+  "note": "existing position, full signal re-analysis skipped per one-per-pair rule",
+  "current_price": 0.228283
+}
+```
+
+---
+### 2026-09-26T02:42:40.046Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No confirmed signal to act on. momentum_trigger not flagged (1h/48h +0.19%, 4h/48h +0.48%, both well below the 6% threshold). Volume well below average (0.46x). RSI neutral at 52.5. News unchanged from prior cycles: Fusaka hard fork already activated, BitMine routine treasury accumulation, unconfirmed Bitget hot-wallet speculation. Nothing supports an entry. Passing.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 0.187,
+    "pct_change_4h_48h": 0.477
+  },
+  "rsi_14_4h": 52.5,
+  "volume_ratio": 0.458,
+  "order_book_imbalance": -0.1216,
+  "news_context": "ETH ~$2,687, +0.1% 24h; Fusaka hard fork activated; BitMine treasury accumulation continues; unconfirmed Bitget hot-wallet-linked ETH buy speculation."
+}
+```
+
+---
+### 2026-09-26T02:42:40.053Z — SOL/EUR — NO TRADE
+
+**Reasoning:** Same marginal, unconfirmed setup persisting across multiple cycles: momentum_trigger only barely flagged (4h/48h +6.28%, just above threshold; 1h/48h +5.87%, below it), volume still does not confirm (0.93x, below average), RSI still elevated at 68.8. Order book flipped back positive this cycle (+0.177, from -0.192 last cycle) but that alone doesn't resolve the core issue - the price move itself remains unconfirmed by volume, and news continues to describe existing ecosystem strength (active users, DEX volume, tokenized assets) rather than a fresh catalyst. Passing again; still watching for a volume-confirmed breakout.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": true,
+    "pct_change_1h_48h": 5.867,
+    "pct_change_4h_48h": 6.279
+  },
+  "rsi_14_4h": 68.78,
+  "volume_ratio": 0.927,
+  "order_book_imbalance": 0.1767,
+  "news_context": "SOL ~$122; daily active users ATH 7.96M; weekly DEX trades ~208M ahead of NYSE's ~190M; memecoin trading ~78% of DEX volume; tokenized equity supply +47% in 3 weeks."
+}
+```
+
+---
+### 2026-09-26T02:42:40.059Z — XRP/EUR — NO TRADE
+
+**Reasoning:** momentum_trigger not flagged (1h/48h +4.75%, 4h/48h +4.88%, both below the 6% threshold). Volume only mildly above average (1.15x). RSI moderate 60.1, order book essentially perfectly flat (~0.0002). News unchanged from last cycle: Stripe payment-tools linkage already priced in, Ripple CEO comments on XRP's role adding uncertainty rather than a fresh catalyst. Passing.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 4.747,
+    "pct_change_4h_48h": 4.884
+  },
+  "rsi_14_4h": 60.14,
+  "volume_ratio": 1.152,
+  "order_book_imbalance": 0.0002,
+  "news_context": "XRP ~$1.53, +17.2% over 7 days; Ripple-Stripe payment tools link (Sep 17); Ripple CEO questioned on XRP's central role; spot XRP ETFs live."
+}
+```
+
+---
