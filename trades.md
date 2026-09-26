@@ -12996,3 +12996,116 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-09-26T01:42:36.926Z — BTC/EUR — NO TRADE
+
+**Reasoning:** Existing open position (opened 2026-09-22) - one-per-pair rule blocks a new entry. No action needed; position remains monitored/protected via portfolio_check_stops.
+
+**Signals considered:**
+```json
+{
+  "note": "existing position, full signal re-analysis skipped per one-per-pair rule",
+  "current_price": 73785.7
+}
+```
+
+---
+### 2026-09-26T01:42:36.938Z — LINK/EUR — NO TRADE
+
+**Reasoning:** Existing open position (opened 2026-09-25) - one-per-pair rule blocks a new entry. No action needed; position remains monitored/protected via portfolio_check_stops.
+
+**Signals considered:**
+```json
+{
+  "note": "existing position, full signal re-analysis skipped per one-per-pair rule",
+  "current_price": 12.27165
+}
+```
+
+---
+### 2026-09-26T01:42:36.951Z — SUI/EUR — NO TRADE
+
+**Reasoning:** Existing open position (opened 2026-09-22, trailing stop active) - one-per-pair rule blocks a new entry. No action needed; trailing stop is being maintained by portfolio_check_stops.
+
+**Signals considered:**
+```json
+{
+  "note": "existing position, full signal re-analysis skipped per one-per-pair rule",
+  "current_price": 1.0388,
+  "trailing_active": true
+}
+```
+
+---
+### 2026-09-26T01:42:36.961Z — ADA/EUR — NO TRADE
+
+**Reasoning:** Existing open position (opened 2026-09-26 00:22 UTC) - one-per-pair rule blocks a new entry. No action needed; position remains monitored/protected via portfolio_check_stops.
+
+**Signals considered:**
+```json
+{
+  "note": "existing position, full signal re-analysis skipped per one-per-pair rule",
+  "current_price": 0.228798
+}
+```
+
+---
+### 2026-09-26T01:42:36.971Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No confirmed signal to act on. momentum_trigger not flagged (1h/48h +0.32%, 4h/48h +0.48%, both well below the 6% threshold). Volume well below average (0.46x). RSI neutral at 52.5. News: Fusaka hard fork activated successfully (a completed, already-priced technical milestone, not a fresh catalyst); BitMine continuing routine treasury accumulation; ETH underperforming the broader crypto market on both 24h and 7d timeframes. Nothing here supports an entry. Passing.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 0.319,
+    "pct_change_4h_48h": 0.477
+  },
+  "rsi_14_4h": 52.5,
+  "volume_ratio": 0.458,
+  "order_book_imbalance": 0.091,
+  "news_context": "Fusaka hard fork activated (PeerDAS, EOF); BitMine added 27,562 ETH to treasury; ETH underperforming broader market both 24h and 7d."
+}
+```
+
+---
+### 2026-09-26T01:42:36.979Z — SOL/EUR — NO TRADE
+
+**Reasoning:** Same marginal, unconfirmed setup as the last two cycles: momentum_trigger only barely flagged (4h/48h +6.28%, just above threshold; 1h/48h +5.76%, below it), volume still does not confirm (0.93x, below average), RSI still elevated at 68.8. Order book has now turned more negative (-0.192, from -0.017 last cycle) - real near-term selling pressure building, the opposite of what would justify chasing this marginal signal. News continues to describe strong underlying ecosystem activity (record active users, MoneyGram integration, RWA growth) but nothing that's a fresh, acute price catalyst, and doesn't offset the deteriorating order book or lack of volume confirmation. Passing again.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": true,
+    "pct_change_1h_48h": 5.761,
+    "pct_change_4h_48h": 6.279
+  },
+  "rsi_14_4h": 68.78,
+  "volume_ratio": 0.927,
+  "order_book_imbalance": -0.1924,
+  "news_context": "SOL ~$122; daily active users at ATH 7.96M; MoneyGram integration for on/off-ramping; tokenized equity supply +47% in 3 weeks; August 2026 record transactions/RWA growth."
+}
+```
+
+---
+### 2026-09-26T01:42:36.988Z — XRP/EUR — NO TRADE
+
+**Reasoning:** momentum_trigger not flagged (1h/48h +4.81%, 4h/48h +4.88%, both below the 6% threshold). Volume only mildly above average (1.15x). RSI moderate 60.1, order book essentially flat (+0.016). News is mixed: Stripe payment-tools linkage continues driving recent momentum (already priced in over the past week), but a new headline has Ripple's own CEO questioning XRP's central role, adding uncertainty rather than a fresh bullish catalyst. No technical confirmation either way. Passing.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 4.809,
+    "pct_change_4h_48h": 4.884
+  },
+  "rsi_14_4h": 60.14,
+  "volume_ratio": 1.152,
+  "order_book_imbalance": 0.016,
+  "news_context": "XRP ~$1.53-1.58, +17.2% over 7 days; Ripple linked XRP to Stripe payment tools (Sep 17); new headline: Ripple CEO questioning XRP's central role."
+}
+```
+
+---
