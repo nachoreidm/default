@@ -1,7 +1,7 @@
 import { fetchOHLC, fetchTicker, fetchDepth, closedCandles } from "./kraken.js";
 import { rsi, sma, smaCrossover, volumeVs7dAvg, orderBookImbalance, priceAction } from "./indicators.js";
 import { computeSignals } from "./signals.js";
-import { hasReachedOneR, effectiveTrailingStop, peakFromCandles } from "./trailing-math.js";
+import { hasReachedOneR, effectiveTrailingStop, peakFromCandles, invalidationCheck } from "./trailing-math.js";
 import { ALLOWED_PAIRS } from "./types.js";
 function candle(time, high) {
     return { time, open: high, high, low: high, close: high, vwap: high, volume: 0, count: 0 };
@@ -106,6 +106,13 @@ async function main() {
     const signals = await computeSignals("BTC/EUR");
     assert(signals.current_price > 0, "compute_signals returns a current price");
     console.log("\nFull signal report for BTC/EUR:\n", JSON.stringify(signals, null, 2));
+    // invalidationCheck (2026-09-26 early-close feature) - live smoke test,
+    // no fixed expected outcome (breached depends on real current market
+    // state) but must return real, self-consistent numbers, never the
+    // fails-safe null/false default, for a liquid pair with ample history.
+    const inv = await invalidationCheck("BTC/EUR");
+    assert(inv.lastClose !== null && inv.sma20 !== null, `invalidationCheck returns real lastClose/sma20 for BTC/EUR (got ${JSON.stringify(inv)})`);
+    assert(inv.breached === (inv.lastClose < inv.sma20), "invalidationCheck's breached flag matches lastClose < sma20");
     console.log("\nALL SELF-TESTS PASSED");
 }
 main().catch((e) => {

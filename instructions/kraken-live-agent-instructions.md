@@ -127,7 +127,23 @@ before anything else):
    dangling-order risk) for a gap (missing a take-profit by up to an hour)
    that costs unrealized upside, not an unexpected loss — a materially
    smaller harm than the gap the resting stop-loss order exists to close.
-3. **Trailing maintenance**: once a position reaches +1R, moves the stop up
+3. **Invalidation check** (pre-trailing, currently-profitable positions
+   only, added 2026-09-26): a position that's up but hasn't yet reached +1R
+   is otherwise only protected by its original hard stop, which can let a
+   real winner round-trip all the way back down into a loss. Each cycle,
+   for such positions, checks whether the most recently CLOSED 4h candle
+   closed below the rising 20-period 4h SMA the trade's own stated
+   `invalidation` condition depends on — if so, closes the position early
+   (cancels the resting stop, real market sell) rather than waiting for the
+   hard stop. Deliberately narrower than re-qualifying the trade from
+   scratch each cycle (that would false-positive on ordinary momentum-trade
+   consolidation) and deliberately gated on a fully closed 4h candle, not
+   live price, so it only re-evaluates once every 4h. Never applies to a
+   position already `trailing_active` (governed by the trailing stop
+   instead) or to one currently underwater (left to the original hard
+   stop — this is about protecting a winner, not a general early-exit
+   rule). See CLAUDE.md's 2026-09-26 entry for the full reasoning.
+4. **Trailing maintenance**: once a position reaches +1R, moves the stop up
    to the guaranteed-profit floor (30% of the peak gain reached so far, or
    enough to clear round-trip fees, whichever is larger — see paper
    trading's identical math, this logic is unchanged) by **cancelling the

@@ -4,13 +4,14 @@ import { fileURLToPath } from "node:url";
 import { randomUUID } from "node:crypto";
 import { fetchTicker, fetchPairPrecision, pairCode, KrakenApiError } from "./kraken.js";
 import { addOrder, cancelOrder, queryBalance, queryOrdersInfo, type KrakenOrderInfo } from "./kraken-private.js";
-import { hasReachedOneR, effectiveTrailingStop, trailingStopCandidate, historicalPeakSinceEntry } from "./trailing-math.js";
+import { hasReachedOneR, effectiveTrailingStop, trailingStopCandidate, historicalPeakSinceEntry, invalidationCheck } from "./trailing-math.js";
 import {
   ALLOWED_PAIRS,
   RISK_LIMITS,
   CONFIDENCE_MAX_SIZE_PCT,
   TAKE_PROFIT_RR_MULTIPLE,
   MOMENTUM_ONLY_MAX_CONFIDENCE,
+  TRAIL_SMA_PERIOD,
   isAllowedPair,
   type AllowedPair,
   type ClosedPosition,
@@ -439,7 +440,7 @@ export async function closePosition(input: ClosePositionInput): Promise<ClosePos
 export interface StopCheckAction {
   position_id: string;
   pair: AllowedPair;
-  triggered: "stop_loss" | "take_profit";
+  triggered: "stop_loss" | "take_profit" | "invalidation";
   closed: ClosedPosition;
 }
 
@@ -510,6 +511,49 @@ export async function checkStops(): Promise<StopCheckAction[]> {
             `Take-profit auto-triggered (price ${ticker.last} >= target ${pos.take_profit}, ${TAKE_PROFIT_RR_MULTIPLE}:1 risk/reward).`
           );
           actions.push({ position_id: pos.id, pair: pos.pair, triggered: "take_profit", closed });
+          stateChanged = true;
+          continue;
+        }
+      }
+    }
+
+    // --- Invalidation check (pre-trailing only, profitable only) ---
+    // A position that's profitable but hasn't yet earned trailing
+    // protection is otherwise only guarded by its original hard stop -
+    // meaning it can round-trip all the way back down to a loss even after
+    // its own stated thesis has already broken. Added 2026-09-26: if the
+    // most recently CLOSED 4h candle has closed below the rising
+    // TRAIL_SMA_PERIOD-period 4h SMA this trade depends on (see
+    // invalidationCheck in trailing-math.ts), close early rather than wait
+    // for the hard stop. Deliberately scoped to non-trailing positions only
+    // (trailing_active positions are already governed by their own
+    // ratcheting stop) and to currently-profitable positions only (an
+    // already-underwater position is left to the original hard stop, per
+    // this feature's own framing - it's about protecting a winner, not a
+    // general early-exit rule).
+    if (!pos.trailing_active && ticker.last > pos.entry_price) {
+      const invalidation = await invalidationCheck(pos.pair);
+      if (invalidation.breached) {
+        if (pos.stop_order_txid) {
+          try {
+            await cancelOrder(pos.stop_order_txid);
+          } catch {
+            // If this fails because it already filled, the reconciliation
+            // branch above will have already caught it this same cycle.
+          }
+        }
+        const sellOrder = await addOrder({ pair: pairCode(pos.pair), type: "sell", ordertype: "market", volume: await formatVolume(pos.pair, pos.quantity) });
+        const sellTxid = sellOrder.txid?.[0];
+        if (sellTxid) {
+          const filled = await pollForFill(sellTxid);
+          const closed = await recordClose(
+            state,
+            pos,
+            Number(filled.price),
+            Number(filled.fee),
+            `Invalidation close: still-profitable pre-+1R position, but the stated technical invalidation broke - most recent closed 4h candle (${invalidation.lastClose}) closed below the ${TRAIL_SMA_PERIOD}-period 4h SMA (${invalidation.sma20}) this trade's thesis depended on. Closed early rather than risk a round-trip back to the hard stop.`
+          );
+          actions.push({ position_id: pos.id, pair: pos.pair, triggered: "invalidation", closed });
           stateChanged = true;
           continue;
         }

@@ -6,7 +6,7 @@
 // this file holds only the parts that were always exchange-agnostic.
 import { fetchOHLC, closedCandles } from "./kraken.js";
 import { sma } from "./indicators.js";
-import { TRAIL_SMA_PERIOD, PEAK_PROFIT_LOCK_TIERS, ROUND_TRIP_COST_PCT, type Candle, type Position } from "./types.js";
+import { TRAIL_SMA_PERIOD, PEAK_PROFIT_LOCK_TIERS, ROUND_TRIP_COST_PCT, type AllowedPair, type Candle, type Position } from "./types.js";
 
 // Has price reached the position's own +1R level (up by its entry-to-stop
 // risk amount)? False for zero/negative risk (shouldn't happen - open
@@ -93,5 +93,40 @@ export async function historicalPeakSinceEntry(pos: Position): Promise<number> {
     return peakFromCandles(candles, entryTs, pos.peak_price);
   } catch {
     return pos.peak_price;
+  }
+}
+
+export interface InvalidationCheck {
+  breached: boolean;
+  lastClose: number | null;
+  sma20: number | null;
+}
+
+// Formalizes each trade's own stated invalidation condition - in practice
+// almost always "the rising TRAIL_SMA_PERIOD-period 4h SMA this trade
+// depends on breaks" - into a mechanical check, added 2026-09-26 so a
+// still-profitable pre-+1R position doesn't have to round-trip all the way
+// back to its original hard stop before anything acts on a broken thesis.
+// Deliberately narrower than re-running the full entry-qualification logic
+// each cycle (rejected - would false-positive on ordinary momentum-trade
+// consolidation, see CLAUDE.md's 2026-09-26 decision log) and deliberately
+// keyed off a fully CLOSED 4h candle (closedCandles already drops the
+// still-forming one) rather than live price, so the signal only updates
+// once every 4h - inherently not noisy tick-by-tick, no extra multi-cycle
+// confirmation state needed. Fails safe: any missing/errored data reports
+// breached: false rather than guessing.
+export async function invalidationCheck(pair: AllowedPair): Promise<InvalidationCheck> {
+  try {
+    const candles4h = closedCandles(await fetchOHLC(pair, "4h"));
+    const closes = candles4h.map((c) => c.close);
+    const smaSeries = sma(closes, TRAIL_SMA_PERIOD);
+    if (smaSeries.length === 0 || closes.length === 0) {
+      return { breached: false, lastClose: null, sma20: null };
+    }
+    const sma20 = smaSeries[smaSeries.length - 1];
+    const lastClose = closes[closes.length - 1];
+    return { breached: lastClose < sma20, lastClose, sma20 };
+  } catch {
+    return { breached: false, lastClose: null, sma20: null };
   }
 }

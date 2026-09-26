@@ -619,6 +619,74 @@ spot," suggesting the rally is leverage- rather than fundamentals-driven
 (`trig_01HRmDwqmW7kpkk3YbbzLBwM`); old session archived ($17.35 over its
 ~11.75-hour life).
 
+## Invalidation-based early close for still-profitable, pre-+1R positions (2026-09-26)
+
+**Motivation**: a position that's currently profitable but hasn't yet
+reached +1R was, until now, only protected by its original hard stop -
+meaning a real winner could round-trip all the way back down into a loss
+even after the specific technical condition its own `invalidation` field
+stated (near-universally "the rising 20-period 4h SMA") had already
+broken. Raised by the user: "Do you think it's worth building a logic that
+close positions that are in profit and not reach r1 ... if after assessing
+1 or two cycles the pair won't qualify for a fresh trade?" Two designs were
+considered:
+
+- **Broad**: re-run the full fresh-entry qualification logic each cycle for
+  every non-trailing position, close if it would no longer qualify as a new
+  entry today. Rejected - too noisy: ordinary momentum-trade consolidation
+  (a brief pullback, a signal or two going quiet) would false-positive an
+  exit on trades that are still fine, not actually invalidated.
+- **Narrow (built)**: formalize each trade's own *already-stated*
+  invalidation condition into a mechanical check, instead of re-deriving a
+  new one. Every position's `invalidation` field already names a specific
+  technical level at entry time - almost always the rising 4h 20-SMA - so
+  this only enforces what the trade's own thesis already committed to.
+
+**Mechanics**: new `invalidationCheck(pair)` in `trailing-math.ts` fetches
+closed 4h candles (`closedCandles` already drops the still-forming one),
+computes the 20-period SMA via the existing `sma()` helper, and reports
+`breached: true` if the most recently closed candle's `close` is below that
+SMA. Fails safe - any fetch/compute error returns `breached: false` rather
+than guessing. Wired into `checkStops()` in `portfolio-live.ts`, inserted
+between the existing take-profit check and the trailing-maintenance block,
+scoped narrowly on purpose:
+
+- **Only** positions with `trailing_active: false` (a trailing position is
+  already governed by its own ratcheting stop, which supersedes this).
+- **Only** positions currently profitable (`ticker.last > entry_price`) -
+  an already-underwater position is left to the original hard stop; this
+  guards a winner, it's not a general early-exit rule.
+- Triggers a real cancel-of-resting-stop + market-sell close (mirroring the
+  existing take-profit-close code path exactly), recorded via `recordClose`
+  with an explicit reason string naming the actual candle close and SMA
+  values that triggered it, and a new `StopCheckAction.triggered:
+  "invalidation"` value distinct from `"stop_loss"`/`"take_profit"`.
+
+The "would this false-positive on normal noise" concern is addressed
+structurally, not with new stateful tracking: since it's keyed off a fully
+**closed** 4h candle rather than live price, the signal only updates once
+every 4 hours - inherently not tick-by-tick noisy, no multi-cycle
+confirmation counter needed.
+
+**Verified**: `selftest.ts` extended with a live smoke test asserting
+`invalidationCheck` returns real (non-null, non-fallback) `lastClose`/
+`sma20` values and that `breached` is internally consistent with them - no
+fixed expected outcome since it depends on live market state (the test run
+during development happened to return `breached: true` for BTC/EUR against
+real Kraken data, i.e. BTC's 4h close was genuinely below its 20-SMA at
+that moment - a real signal, not a fixture). Full existing self-test suite
+and a pruned-build smoke test (`node dist/index.js` starts cleanly with
+only production deps installed, matching this repo's convention of
+committing a pre-pruned `node_modules`) both passed before pushing.
+`portfolio_check_stops`'s tool description and
+`instructions/kraken-live-agent-instructions.md` both updated to document
+the new step. **Not yet deployed** - per the established pattern (see the
+SOL precision-bug and tiered-profit-lock entries above), a running
+persistent session's MCP server process won't pick this up from a `git
+pull` alone; needs the same verified cutover (new session → confirm a real
+cycle via actual commit diff → re-bind the trigger → archive the old
+session) before it's live.
+
 ## Network access
 
 Same as paper trading: `api.kraken.com` is the only allowlisted domain

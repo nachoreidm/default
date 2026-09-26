@@ -93,3 +93,32 @@ export async function historicalPeakSinceEntry(pos) {
         return pos.peak_price;
     }
 }
+// Formalizes each trade's own stated invalidation condition - in practice
+// almost always "the rising TRAIL_SMA_PERIOD-period 4h SMA this trade
+// depends on breaks" - into a mechanical check, added 2026-09-26 so a
+// still-profitable pre-+1R position doesn't have to round-trip all the way
+// back to its original hard stop before anything acts on a broken thesis.
+// Deliberately narrower than re-running the full entry-qualification logic
+// each cycle (rejected - would false-positive on ordinary momentum-trade
+// consolidation, see CLAUDE.md's 2026-09-26 decision log) and deliberately
+// keyed off a fully CLOSED 4h candle (closedCandles already drops the
+// still-forming one) rather than live price, so the signal only updates
+// once every 4h - inherently not noisy tick-by-tick, no extra multi-cycle
+// confirmation state needed. Fails safe: any missing/errored data reports
+// breached: false rather than guessing.
+export async function invalidationCheck(pair) {
+    try {
+        const candles4h = closedCandles(await fetchOHLC(pair, "4h"));
+        const closes = candles4h.map((c) => c.close);
+        const smaSeries = sma(closes, TRAIL_SMA_PERIOD);
+        if (smaSeries.length === 0 || closes.length === 0) {
+            return { breached: false, lastClose: null, sma20: null };
+        }
+        const sma20 = smaSeries[smaSeries.length - 1];
+        const lastClose = closes[closes.length - 1];
+        return { breached: lastClose < sma20, lastClose, sma20 };
+    }
+    catch {
+        return { breached: false, lastClose: null, sma20: null };
+    }
+}
