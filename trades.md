@@ -14603,3 +14603,177 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-09-26T13:43:08.467Z — BTC/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule) - no new entry considered. Momentum not flagged (1h/48h -0.33%, 4h/48h -0.39%), RSI neutral at 53.0. Consolidating/pulling back slightly, no reconciliation or trailing action needed.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -0.33211781812094215,
+    "pct_change_4h_48h": -0.39460034758240825
+  },
+  "rsi_14_4h": 53.01371470865265,
+  "volume_ratio": 0.7042583899185113,
+  "sma_crossover_4h": "fast_above_slow",
+  "order_book_imbalance_top10": -0.13302984319676273,
+  "news_context": "BTC ~$84,000, slipping slightly (-0.32% to -1%) as attention rotates to altcoins and ETF inflows moderate.",
+  "existing_position": true
+}
+```
+
+---
+### 2026-09-26T13:43:08.481Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No open position. momentum_trigger not flagged (1h/48h +0.58%, 4h/48h +0.11%, far below the 6% bar), volume ratio 0.46 (well below average). RSI neutral at 52.2, order book close to flat. No confluence - passing.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 0.5814003015614595,
+    "pct_change_4h_48h": 0.10934566368157451
+  },
+  "rsi_14_4h": 52.22563027061088,
+  "volume_ratio": 0.45810011171585857,
+  "sma_crossover_4h": "fast_above_slow",
+  "order_book_imbalance_top10": 0.06721856752162027,
+  "news_context": "ETH ~$2,690, broader market optimism from BTC ETF flows - general backdrop, no fresh proportionate catalyst."
+}
+```
+
+---
+### 2026-09-26T13:43:08.491Z — SOL/EUR — NO TRADE
+
+**Reasoning:** No open position. momentum_trigger not flagged this cycle (1h/48h +5.18%, 4h/48h +4.19%, both now below the 6% bar - actually cooled from last cycle's marginal +6.44%). Volume ratio 0.93, still unconfirmed. No entry pathway applies without a flagged trigger. Passing.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 5.183499851617365,
+    "pct_change_4h_48h": 4.185819070904646
+  },
+  "rsi_14_4h": 64.61729569369007,
+  "volume_ratio": 0.9273275638959168,
+  "sma_crossover_4h": "fast_above_slow",
+  "order_book_imbalance_top10": 0.15833608635110388,
+  "news_context": "SOL ~$121, seven-month high on ETF demand and network upgrades - background bullishness, but momentum trigger not flagged this cycle."
+}
+```
+
+---
+### 2026-09-26T13:43:08.508Z — XRP/EUR — NO TRADE
+
+**Reasoning:** No open position. momentum_trigger not flagged (1h/48h +2.56%, 4h/48h +1.99%, well below the 6% bar). Volume ratio 1.15 (not confirming). RSI neutral at 54.9, order book mildly positive. No entry pathway - passing.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 2.5619290531080066,
+    "pct_change_4h_48h": 1.9883313184709115
+  },
+  "rsi_14_4h": 54.87794769582898,
+  "volume_ratio": 1.1515224525569632,
+  "sma_crossover_4h": "fast_above_slow",
+  "order_book_imbalance_top10": 0.08544599670915759,
+  "news_context": "XRP ~$1.54-1.58, rising on rate-hike-fear rotation alongside DOGE, Ripple's Asia custody partnership and prime brokerage expansion continuing - momentum trigger not flagged, so no entry pathway."
+}
+```
+
+---
+### 2026-09-26T13:43:08.518Z — ADA/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule) - no new entry considered. Momentum no longer flagged this cycle (1h/48h +5.84%, 4h/48h +3.07%, cooled below the 6% bar), RSI 64.0. Position underwater (-1.53%), stop-loss intact, trailing not yet active. No action needed beyond monitoring.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 5.837870966221156,
+    "pct_change_4h_48h": 3.0703196347032
+  },
+  "rsi_14_4h": 64.00015357453944,
+  "volume_ratio": 0.9004794277785875,
+  "sma_crossover_4h": "fast_above_slow",
+  "order_book_imbalance_top10": 0.050651647636220605,
+  "news_context": "ADA ~$0.2559, FC Barcelona Fan Lab partnership and rising DEX volume continuing to support sentiment - existing thesis intact.",
+  "existing_position": true
+}
+```
+
+---
+### 2026-09-26T13:43:08.529Z — LINK/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule) - no new entry considered. momentum_trigger flagged (1h/48h +13.52%, 4h/48h +11.43%), RSI 71.7 (increasingly overbought), volume ratio 2.05 (confirmed). Position up ~1.43% unrealized, not yet at +1R, stop-loss intact. No action needed beyond monitoring.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": true,
+    "pct_change_1h_48h": 13.521628003611557,
+    "pct_change_4h_48h": 11.433283166287744
+  },
+  "rsi_14_4h": 71.73968622612816,
+  "volume_ratio": 2.0451746697708555,
+  "flag_above_2x": true,
+  "sma_crossover_4h": "fast_above_slow",
+  "order_book_imbalance_top10": 0.43163251419640314,
+  "news_context": "LINK ~$13.27, +8% 24h, mid-term bullish structure with rising 20/50/200-day averages - existing thesis intact.",
+  "existing_position": true
+}
+```
+
+---
+### 2026-09-26T13:43:08.538Z — SUI/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule) - no new entry considered. momentum_trigger flagged (1h/48h +18.29%, 4h/48h +17.41%), RSI 70.7, volume ratio 1.43 (unconfirmed). Position deeply profitable (+18.3% unrealized), trailing already active with stop at 0.9676 (peak 1.0682, unchanged this cycle). No action needed beyond monitoring - portfolio_check_stops already reconciled clean.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": true,
+    "pct_change_1h_48h": 18.292682926829272,
+    "pct_change_4h_48h": 17.41349971639251
+  },
+  "rsi_14_4h": 70.68104959367965,
+  "volume_ratio": 1.430875031909799,
+  "sma_crossover_4h": "fast_above_slow",
+  "order_book_imbalance_top10": 0.1485081615518511,
+  "news_context": "SUI ~$1.17, CME expanding futures lineup, SUI processed over $1T stablecoin volume since August - existing thesis intact.",
+  "existing_position": true
+}
+```
+
+---
+### 2026-09-26T13:43:08.546Z — LTC/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule) - no new entry considered. Momentum no longer flagged this cycle (1h/48h +2.43%, 4h/48h -1.00%, cooled well below the 6% bar as the pair consolidates just below its recent high). RSI 65.4, order book positive (+0.426). Position essentially flat (-0.84% unrealized), stop-loss intact, not yet at +1R. No action needed beyond monitoring.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 2.433947157726174,
+    "pct_change_4h_48h": -1.0015408320493153
+  },
+  "rsi_14_4h": 65.43323245253063,
+  "volume_ratio": 1.6401958488841066,
+  "sma_crossover_4h": "fast_above_slow",
+  "order_book_imbalance_top10": 0.42600843511083974,
+  "news_context": "LTC ~$70-74 depending on venue, up sharply over the past week on ETF inflows and network activity - existing thesis intact.",
+  "existing_position": true
+}
+```
+
+---
