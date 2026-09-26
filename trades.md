@@ -12883,3 +12883,116 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 - Position id: 605bff0c-5903-41d8-b4d0-6574fbfee4f3
 
 ---
+### 2026-09-26T00:43:06.908Z — BTC/EUR — NO TRADE
+
+**Reasoning:** Existing open position (opened 2026-09-22) - one-per-pair rule blocks a new entry. No action needed; position remains monitored/protected via portfolio_check_stops.
+
+**Signals considered:**
+```json
+{
+  "note": "existing position, full signal re-analysis skipped per one-per-pair rule",
+  "current_price": 73622.5
+}
+```
+
+---
+### 2026-09-26T00:43:06.918Z — LINK/EUR — NO TRADE
+
+**Reasoning:** Existing open position (opened 2026-09-25) - one-per-pair rule blocks a new entry. No action needed; position remains monitored/protected via portfolio_check_stops.
+
+**Signals considered:**
+```json
+{
+  "note": "existing position, full signal re-analysis skipped per one-per-pair rule",
+  "current_price": 12.24162
+}
+```
+
+---
+### 2026-09-26T00:43:06.930Z — SUI/EUR — NO TRADE
+
+**Reasoning:** Existing open position (opened 2026-09-22, trailing stop active) - one-per-pair rule blocks a new entry. No action needed; trailing stop is being maintained by portfolio_check_stops.
+
+**Signals considered:**
+```json
+{
+  "note": "existing position, full signal re-analysis skipped per one-per-pair rule",
+  "current_price": 1.0381,
+  "trailing_active": true
+}
+```
+
+---
+### 2026-09-26T00:43:06.936Z — ADA/EUR — NO TRADE
+
+**Reasoning:** Existing open position (opened this session, 2026-09-26 00:22 UTC) - one-per-pair rule blocks a new entry. No action needed; position remains monitored/protected via portfolio_check_stops.
+
+**Signals considered:**
+```json
+{
+  "note": "existing position, full signal re-analysis skipped per one-per-pair rule",
+  "current_price": 0.226005
+}
+```
+
+---
+### 2026-09-26T00:43:06.942Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No confirmed signal to act on, unchanged from prior check this cycle window. momentum_trigger not flagged (1h/48h +0.20%, 4h/48h +0.48%, both well below the 6% threshold). Volume well below average (0.46x 7-day avg). RSI neutral at 52.5. News: ETH trading ~$2,689, up modestly (+0.92% 24h) but underperforming the broader market; BitMine continuing treasury accumulation (routine, already priced in); unconfirmed speculation about a Bitget hot-wallet-linked ETH purchase on Arbitrum (not a fundamental catalyst for spot EUR price action). Nothing here changes the no-trade call. Passing.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 0.201,
+    "pct_change_4h_48h": 0.477
+  },
+  "rsi_14_4h": 52.5,
+  "volume_ratio": 0.458,
+  "order_book_imbalance": 0.167,
+  "news_context": "ETH ~$2,689, +0.92% 24h, underperforming market; BitMine added 27,562 ETH to treasury; unconfirmed speculation of a Bitget hot-wallet-linked ETH buy on Arbitrum."
+}
+```
+
+---
+### 2026-09-26T00:43:06.947Z — SOL/EUR — NO TRADE
+
+**Reasoning:** Same marginal, unconfirmed setup as the prior check this cycle window: momentum_trigger only barely flagged (4h/48h +6.28%, just above threshold; 1h/48h +5.86%, below it), and volume still does NOT confirm the move (0.93x 7-day avg, below average). RSI 68.8 remains elevated. News shows continued strength (network daily active users hit an ATH of 7.96M, memecoin trading and DEX volume surging, tokenized equity supply up 47% in 3 weeks) - genuinely positive but describes ecosystem activity, not a fresh price catalyst, and doesn't resolve the lack of volume confirmation on the price move itself. Passing again; would reconsider on a volume-confirmed breakout.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": true,
+    "pct_change_1h_48h": 5.859,
+    "pct_change_4h_48h": 6.279
+  },
+  "rsi_14_4h": 68.78,
+  "volume_ratio": 0.927,
+  "order_book_imbalance": -0.0168,
+  "news_context": "SOL ~$122; daily active users hit ATH 7.96M (returning users +124% in a day on Sep 22); memecoin trading ~78% of DEX volume; weekly DEX trades ~208M, ahead of NYSE's ~190M; tokenized equity supply +47% in 3 weeks to $684M."
+}
+```
+
+---
+### 2026-09-26T00:43:06.953Z — XRP/EUR — NO TRADE
+
+**Reasoning:** momentum_trigger not flagged (1h/48h +4.31%, 4h/48h +4.88%, both below the 6% threshold). Volume only mildly above average (1.15x). RSI moderate 60.1, order book essentially flat (-0.0046). News constructive (Stripe payment-tools linkage driving recent momentum, spot XRP ETFs live, SBI Ripple Asia prepaid-token launch in Japan) but describes drivers behind a move already priced in over the past week, not a fresh catalyst, and price action itself still doesn't confirm an entry. Passing.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 4.307,
+    "pct_change_4h_48h": 4.884
+  },
+  "rsi_14_4h": 60.14,
+  "volume_ratio": 1.152,
+  "order_book_imbalance": -0.0046,
+  "news_context": "XRP ~$1.53, +17.2% over 7 days; Ripple linked XRP to Stripe payment tools (Sep 17); spot XRP ETFs live (Bitwise, Grayscale, 21Shares, Canary, Franklin Templeton); SBI Ripple Asia launching XRPL prepaid tokens for Japan."
+}
+```
+
+---
