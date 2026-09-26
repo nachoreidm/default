@@ -15977,3 +15977,156 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-09-26T20:42:36.829Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/48h -0.14%, 4h/48h -0.22%, unchanged from last cycle - no new 4h candle yet). Volume ratio 0.46x (well below average), RSI 50.8 neutral, order book ask-heavy (-0.41). News: mixed/neutral - a bullish long-term call (Peter Brandt eyeing $8,600), continued institutional treasury buying, but also a protocol-fragmentation concern (EIP-8141 vs Base's EIP-8130 diverging). Nothing rises to a qualifying entry signal - no trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -0.1414558945602878,
+    "pct_change_4h_48h": -0.21541235171884204
+  },
+  "rsi_14_4h": 50.80783724800613,
+  "volume_ratio": 0.45810011171585857,
+  "order_book_imbalance_top10": -0.41048520354514056,
+  "news_context": "Mixed: bullish long-term price calls, institutional treasury buying continuing; EIP-8141/EIP-8130 protocol fragmentation concern between Ethereum and Base"
+}
+```
+
+---
+### 2026-09-26T20:42:36.845Z — SOL/EUR — NO TRADE
+
+**Reasoning:** Momentum trigger still not flagged (+3.64%/+3.41%, below 6% bar, unchanged from last cycle). Volume ratio 0.93x still below average. RSI 62.6, order book ask-heavy (-0.25). News stays positive (MoneyGram integration for on/off-ramp, strong August ecosystem roundup, positive sentiment) but doesn't change the lack of a qualifying multi-signal confluence. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 3.6434486117876226,
+    "pct_change_4h_48h": 3.41174183514775
+  },
+  "rsi_14_4h": 62.55615739651253,
+  "volume_ratio": 0.9273275638959168,
+  "order_book_imbalance_top10": -0.24530496318416908,
+  "news_context": "MoneyGram global network integration for on/off-ramp; positive August ecosystem roundup (RWAs, stablecoins, ETF developments); positive social sentiment"
+}
+```
+
+---
+### 2026-09-26T20:42:36.862Z — XRP/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (-0.47%/-0.77%), volume ratio 1.15x not confirming. RSI 49 neutral, order book mildly bid-heavy (+0.19). News is mixed: SBI Ripple Asia launching prepaid tokens on XRP Ledger (Japan, $200B market) and Goldman Sachs disclosing a $153.8M position across spot XRP ETFs are positive institutional signals, but a $83M stolen-XRP movement from a Bitget hack is a negative headline risk. Net: no qualifying entry signal - no trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -0.4745611425171119,
+    "pct_change_4h_48h": -0.7683294026906307
+  },
+  "rsi_14_4h": 49.01403924437922,
+  "volume_ratio": 1.1515224525569632,
+  "order_book_imbalance_top10": 0.19442838341435595,
+  "news_context": "SBI Ripple Asia prepaid tokens on XRPL (Japan); Goldman Sachs $153.8M across spot XRP ETFs; $83M stolen XRP moved post-Bitget hack (Ripple cannot freeze)"
+}
+```
+
+---
+### 2026-09-26T20:42:36.872Z — BTC/EUR — NO TRADE
+
+**Reasoning:** Existing open position - one-per-pair rule blocks a second entry. Signals for reference: momentum not flagged, RSI 51.4, volume ratio 0.70, order book now mildly bid-heavy (+0.13). Position -1.71% unrealized, pre-+1R, no invalidation breach this cycle.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false
+  },
+  "rsi_14_4h": 51.438031875538364,
+  "volume_ratio": 0.7042583899185113,
+  "reason": "existing_open_position"
+}
+```
+
+---
+### 2026-09-26T20:42:36.881Z — ADA/EUR — NO TRADE
+
+**Reasoning:** Existing open position - one-per-pair rule blocks a second entry. Signals for reference: momentum not flagged this cycle (+2.74%/+2.72%), RSI 57.8, volume ratio 0.90, order book now mildly ask-heavy (-0.09). Position -3.49% unrealized, pre-+1R, no invalidation breach this cycle.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 2.7420555764935144,
+    "pct_change_4h_48h": 2.7151462797119885
+  },
+  "rsi_14_4h": 57.82826933202849,
+  "volume_ratio": 0.9004794277785875,
+  "reason": "existing_open_position"
+}
+```
+
+---
+### 2026-09-26T20:42:36.890Z — LINK/EUR — NO TRADE
+
+**Reasoning:** Existing open position - one-per-pair rule blocks a second entry. Signals for reference: momentum still flagged (+7.27%/+6.94%), volume ratio 2.05x confirming, RSI 67.8, order book bid-heavy (+0.26). Position -0.21% unrealized, pre-+1R, no invalidation breach this cycle.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": true,
+    "pct_change_1h_48h": 7.265236374820095,
+    "pct_change_4h_48h": 6.939574575104805
+  },
+  "rsi_14_4h": 67.82248763216396,
+  "volume_ratio": 2.0451746697708555,
+  "reason": "existing_open_position"
+}
+```
+
+---
+### 2026-09-26T20:42:36.900Z — SUI/EUR — NO TRADE
+
+**Reasoning:** Existing open position (trailing-active) - one-per-pair rule blocks a second entry. Signals for reference: momentum still flagged (+13.84%/+14.37%), RSI 66.2, volume ratio 1.43, order book ask-heavy (-0.41). Position +15.48% unrealized, trailing stop at €0.9676 unchanged this cycle - no invalidation/trailing action per portfolio_check_stops.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": true,
+    "pct_change_1h_48h": 13.835845896147417,
+    "pct_change_4h_48h": 14.372265230562112
+  },
+  "rsi_14_4h": 66.1652614142116,
+  "volume_ratio": 1.430875031909799,
+  "reason": "existing_open_position"
+}
+```
+
+---
+### 2026-09-26T20:42:36.910Z — LTC/EUR — NO TRADE
+
+**Reasoning:** Existing open position - one-per-pair rule blocks a second entry. Signals for reference: momentum not flagged this cycle (+0.73%/-0.22%), RSI 60.8, volume ratio 1.64, order book ask-heavy (-0.38). Position -1.91% unrealized, pre-+1R, no invalidation breach this cycle.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 0.7342378292098977,
+    "pct_change_4h_48h": -0.22134387351778745
+  },
+  "rsi_14_4h": 60.756921346306186,
+  "volume_ratio": 1.6401958488841066,
+  "reason": "existing_open_position"
+}
+```
+
+---
