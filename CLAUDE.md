@@ -497,6 +497,47 @@ recreate the trigger, same session `session_01FunzjeXToGyBEWjysEjUVn`,
 new trigger id `trig_01QzdRYVyTGg3bi5y35d1q54` - same prompt-editing
 constraint noted earlier in this file).
 
+## Tiered trailing-stop profit-lock: 0.4/0.5/0.6 by peak R-multiple (2026-09-26)
+
+Prompted by SUI/EUR running to over +2R while still only guaranteeing 30%
+of that peak gain under the old flat `PEAK_PROFIT_LOCK_FRACTION`. Replaced
+it with `PEAK_PROFIT_LOCK_TIERS` in `types.ts` - the locked *fraction*
+itself now grows in steps as the peak's own R-multiple grows, on top of
+the already-ratcheting absolute floor:
+
+- **+1R**: 0.4 (up slightly from the original flat 0.3 baseline - a
+  deliberate small tightening of the guarantee at the exact moment
+  trailing activates, not just for deep winners)
+- **+2R**: 0.5 (reuses `TAKE_PROFIT_RR_MULTIPLE` as the threshold - once a
+  trade has run as far as its own take-profit target would have taken it)
+- **+3R**: 0.6 (a genuinely extended, often fast/parabolic move)
+
+`effectiveTrailingStop` (`trailing-math.ts`) now takes `initialStopLoss`
+to compute the peak's R-multiple (`peakGain / (entryPrice -
+initialStopLoss)`) and picks the highest tier the peak has cleared;
+`trailingStopCandidate` passes `pos.initial_stop_loss` through.
+`selftest.ts` got new cases at each tier boundary (just below +2R,
+exactly +2R, exactly +3R) alongside updated existing assertions - full
+suite and a pruned-build smoke test both passed before pushing (commit
+`b6af6af`).
+
+**Deployed same-day via cutover**, same lesson as the SOL precision-bug
+incident: a running persistent session's MCP server process doesn't pick
+up new code from a `git pull` alone. Created a fresh session
+(`session_01J5vnnMUrHQnXnE9UMjbVvQ`), and this time verified the fix
+itself took effect, not just that a cycle completed: SUI/EUR's real
+resting stop moved from €0.92736 to €0.9676 in that session's very next
+cycle (commit `24c015a`) - exactly the tier-2 value predicted (peak
+€1.0682 is +2.19R; 0.5 × €0.2012 peak gain = €0.1006 above the €0.867
+entry). Confirmed by reading the actual commit diff, not the session's
+own summary. That same cycle also opened a new position, ADA/EUR (€0.2273
+entry, momentum-only, 4% size) - concrete catalysts (Mastercard Crypto
+Program, x402 AI-payments integration, CME futures listing). Trigger
+re-bound to this session (`trig_01YJ8vM3c9umJcs3tEKWweKr`); old session
+archived (cost $13.17 over its ~9-hour life - unremarkable, confirming
+the persistent-session cost-climb problem is really about *duration*
+lived, not something inherent to persistence itself).
+
 ## Network access
 
 Same as paper trading: `api.kraken.com` is the only allowlisted domain
