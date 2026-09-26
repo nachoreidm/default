@@ -605,6 +605,19 @@ open positions, LTC's news-search mapping → "Litecoin").
 Deployed via the same cutover pattern as prior code changes this week -
 see the SOL precision-bug and tiered-profit-lock entries above for why a
 `git pull` alone doesn't get new code into a running persistent session.
+**Also updated the hourly trigger's own prompt text** this time (not just
+the code) - it hardcodes the pair list and "seven total" wording, which
+would have kept the routine ignoring LTC even with the code live, so this
+needed the same delete+recreate the trigger takes for any prompt edit.
+
+Verified against the actual commit, not the deploy session's summary: the
+new session's first cycle logged a real, substantive LTC/EUR evaluation
+(momentum flagged +10.4%/+10.8%, but volume unconfirmed at 1.64x and a
+news search surfaced a caution flag - futures open interest/volume "5x
+spot," suggesting the rally is leverage- rather than fundamentals-driven
+- correctly passed). Trigger re-bound to this session
+(`trig_01HRmDwqmW7kpkk3YbbzLBwM`); old session archived ($17.35 over its
+~11.75-hour life).
 
 ## Network access
 
