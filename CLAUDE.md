@@ -538,6 +538,21 @@ archived (cost $13.17 over its ~9-hour life - unremarkable, confirming
 the persistent-session cost-climb problem is really about *duration*
 lived, not something inherent to persistence itself).
 
+**Connector mechanics clarification**: the user checked this new
+trigger's Notion connector in the claude.ai/code routines UI, found it
+unattached, and added it manually. Worth recording precisely what that
+does and doesn't mean: for a **persist_session** trigger, Notion access
+actually flows from the underlying session's own account-level connector
+permissions, not from the trigger's own `mcp_connections` field - that
+field was empty on this trigger the whole time, yet the session had
+already synced to Notion successfully (the very cycle that moved SUI's
+stop and opened ADA, before the manual attach). `mcp_connections`
+mattering was specific to the **fresh-session-per-fire** trigger tried
+earlier that same day - a brand-new session every firing starts with
+nothing, so the trigger has to explicitly grant it there. So this manual
+attach was likely not functionally necessary for this trigger, but is
+harmless and now makes the binding explicit rather than implicit.
+
 ## Network access
 
 Same as paper trading: `api.kraken.com` is the only allowlisted domain
