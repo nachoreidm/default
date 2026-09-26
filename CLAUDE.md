@@ -553,6 +553,59 @@ nothing, so the trigger has to explicitly grant it there. So this manual
 attach was likely not functionally necessary for this trigger, but is
 harmless and now makes the binding explicit rather than implicit.
 
+## LTC/EUR added as an 8th pair (2026-09-26)
+
+Prompted by a live re-screen of EUR volume (same methodology as the
+original 2026-09-21 screen), five days after the pool was last checked:
+
+| Pair | 24h EUR volume |
+|---|---|
+| BTC/EUR | €21.5M |
+| XRP/EUR | €21.3M |
+| SOL/EUR | €11.0M |
+| ETH/EUR | €9.6M |
+| NEAR/EUR | €6.3M |
+| **LTC/EUR** | **€5.4M** |
+| SUI/EUR | €5.3M |
+| LINK/EUR | €5.1M |
+| ADA/EUR | €4.8M |
+| AVAX/EUR | €2.1M |
+| DOGE/EUR | €1.7M |
+
+Liquidity rankings had shifted since the original screen: NEAR and LTC
+had both overtaken 3 of the original 7 (SUI, LINK, ADA) on 24h EUR
+volume. **Decided to expand to 8 pairs (add LTC) rather than swap out one
+of the weaker three** - the aggregate 40% exposure cap is the real
+binding risk constraint regardless of position count, so adding a pair
+isn't a risk loosening, just a wider opportunity set plus one more pair's
+worth of signal/news-search overhead per cycle.
+
+**LTC picked over NEAR despite NEAR's higher volume**, specifically for
+diversification: the pool already leans heavily L1-smart-contract-
+platform (SOL/ADA/SUI, a tradeoff already accepted once when DOGE was
+swapped for SUI) - adding NEAR would have pushed that cluster to 4 of 8
+pairs. LTC is a genuinely different asset class - older, payments-
+focused, distinct market character - filling closer to the diversity role
+DOGE used to play, but with far deeper liquidity than DOGE ever had.
+
+**Mechanics**: `ALLOWED_PAIRS` in `types.ts` gained `"LTC/EUR"`;
+`RISK_LIMITS.MAX_OPEN_POSITIONS` bumped 7→8 to match (per its own comment,
+"recompute this if the pair list changes" - not a risk loosening on its
+own, see above). `kraken.ts`'s `PAIR_CODE` got `"LTC/EUR": "LTCEUR"` -
+confirmed live that Kraken accepts `LTCEUR` as the query pair and nests
+the result under the legacy `XLTCZEUR` key, the same pattern
+`firstResultKey()` already handles generically for BTC/ETH/XRP, so no new
+code needed there. `selftest.ts`'s live-ticker loop iterates
+`ALLOWED_PAIRS` already, so it picked up LTC automatically - confirmed
+passing, plus a direct `compute_signals("LTC/EUR")` smoke test (full
+signal set, zero `data_gaps`) before pruning and deploying.
+`instructions/kraken-live-agent-instructions.md` updated (pair list, max
+open positions, LTC's news-search mapping → "Litecoin").
+
+Deployed via the same cutover pattern as prior code changes this week -
+see the SOL precision-bug and tiered-profit-lock entries above for why a
+`git pull` alone doesn't get new code into a running persistent session.
+
 ## Network access
 
 Same as paper trading: `api.kraken.com` is the only allowlisted domain

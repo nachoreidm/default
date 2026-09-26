@@ -3,6 +3,13 @@
 // USD-based paper-trading list: DOGE (weakest in the old lineup at ~$2.6M
 // 24h EUR volume) swapped for SUI (~$8.0M, ~3x better) - see CLAUDE.md for
 // the full liquidity table and the L1-diversity tradeoff that swap accepts.
+// LTC/EUR added 2026-09-26 as an 8th pair (expansion, not a swap) - a
+// re-check of live EUR volume found it (and NEAR) had overtaken 3 of the
+// original 7 on liquidity; LTC was picked over NEAR specifically for
+// diversification, not just volume - the pool already leans heavily
+// L1-smart-contract-platform (SOL/ADA/SUI), and LTC is a genuinely
+// different, older, payments-focused asset rather than another L1. See
+// CLAUDE.md for the full re-screen table and reasoning.
 export const ALLOWED_PAIRS = [
   "BTC/EUR",
   "ETH/EUR",
@@ -11,6 +18,7 @@ export const ALLOWED_PAIRS = [
   "ADA/EUR",
   "LINK/EUR",
   "SUI/EUR",
+  "LTC/EUR",
 ] as const;
 export type AllowedPair = (typeof ALLOWED_PAIRS)[number];
 
@@ -140,8 +148,9 @@ export const RISK_LIMITS = {
   // Matches ALLOWED_PAIRS.length (one open position per pair, see
   // ONE_POSITION_PER_PAIR below) - not a loosening of actual risk, since
   // MAX_TOTAL_EXPOSURE_PCT stays the binding aggregate-risk constraint
-  // either way. Recompute this if the pair list changes.
-  MAX_OPEN_POSITIONS: 7,
+  // either way. Recompute this if the pair list changes - bumped to 8
+  // 2026-09-26 when LTC/EUR was added.
+  MAX_OPEN_POSITIONS: 8,
   MAX_DAILY_LOSS_PCT: 5,
 } as const;
 

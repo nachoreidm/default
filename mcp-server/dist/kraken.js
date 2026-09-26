@@ -13,6 +13,7 @@ const PAIR_CODE = {
     "ADA/EUR": "ADAEUR",
     "LINK/EUR": "LINKEUR",
     "SUI/EUR": "SUIEUR",
+    "LTC/EUR": "LTCEUR",
 };
 export const INTERVAL_MINUTES = {
     "1h": 60,

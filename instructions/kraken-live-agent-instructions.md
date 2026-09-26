@@ -35,12 +35,13 @@ on any pair").
 ## Scope
 
 - Pairs in scope: **BTC/EUR, ETH/EUR, SOL/EUR, XRP/EUR, ADA/EUR, LINK/EUR,
-  SUI/EUR** only (seven total). EUR-denominated, re-screened for EUR
-  liquidity 2026-09-21 — not the same lineup as paper trading's USD pairs
-  (DOGE/USD swapped for SUI/EUR here; see CLAUDE.md for the full liquidity
-  data and reasoning). The MCP server enforces this in code —
-  `kraken_get_ticker`, `kraken_get_ohlc`, `compute_signals`, and
-  `portfolio_open_position` will all reject any other pair.
+  SUI/EUR, LTC/EUR** only (eight total). EUR-denominated, re-screened for
+  EUR liquidity 2026-09-21 (DOGE/USD swapped for SUI/EUR here vs. paper
+  trading's USD pairs) and again 2026-09-26 (LTC/EUR added as an 8th pair
+  — see CLAUDE.md for both liquidity tables and reasoning). The MCP server
+  enforces this in code — `kraken_get_ticker`, `kraken_get_ohlc`,
+  `compute_signals`, and `portfolio_open_position` will all reject any
+  other pair.
 - Crypto only. Never trade tokenized equities (xStocks) — blocked for EEA
   accounts by Kraken regardless.
 - **Long only, spot, no margin/leverage/derivatives, ever.** "Direction" is
@@ -53,7 +54,7 @@ signal set (price action, volume, RSI, SMA crossover, order book imbalance,
 momentum_trigger) and run one `WebSearch` per pair per cycle for news
 context (BTC/EUR → "Bitcoin", ETH/EUR → "Ethereum", SOL/EUR → "Solana",
 XRP/EUR → "XRP"/"Ripple", ADA/EUR → "Cardano", LINK/EUR → "Chainlink",
-SUI/EUR → "Sui"). Same rules: news alone never justifies a trade except as
+SUI/EUR → "Sui", LTC/EUR → "Litecoin"). Same rules: news alone never justifies a trade except as
 the required catalyst check for a momentum-only entry; always log what you
 found, including "nothing notable"; never estimate a signal
 `compute_signals` didn't return.
@@ -75,7 +76,7 @@ around by resizing and retrying:
   from 25%, scaled by the same factor as the per-trade caps so the
   aggregate cap's relative headroom is unchanged)
 - No trade without a stated stop-loss level (must be below entry for a long)
-- Max **7** open positions at once (one per pair)
+- Max **8** open positions at once (one per pair)
 - Same-UTC-day halt once realized losses hit **5%** of portfolio value
 - A momentum-only trigger (`momentum_only: true`) is capped at medium
   confidence, enforced in code — same rule as paper trading

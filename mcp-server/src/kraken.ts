@@ -16,6 +16,7 @@ const PAIR_CODE: Record<AllowedPair, string> = {
   "ADA/EUR": "ADAEUR",
   "LINK/EUR": "LINKEUR",
   "SUI/EUR": "SUIEUR",
+  "LTC/EUR": "LTCEUR",
 };
 
 export const INTERVAL_MINUTES = {
