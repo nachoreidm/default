@@ -16130,3 +16130,156 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-09-26T21:43:08.594Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/48h -0.40%, 4h/48h -0.22%). Volume ratio 0.46x well below average, RSI 50.8 neutral, order book now mildly bid-heavy (+0.21). News is mixed/neutral: MiCA staking-regulation review continuing, a security breach on an unrelated platform (Duelbits, $7M), Consensys rebranding to MetaMask, and a long-horizon quantum-security initiative from the Foundation - nothing rises to a qualifying entry signal. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -0.4045256037174074,
+    "pct_change_4h_48h": -0.21541235171884204
+  },
+  "rsi_14_4h": 50.80783724800613,
+  "volume_ratio": 0.45810011171585857,
+  "order_book_imbalance_top10": 0.2146810429649064,
+  "news_context": "MiCA staking regulation review; Duelbits $7M hack (unrelated platform); Consensys rebranding to MetaMask; Ethereum Foundation quantum-resistance roadmap"
+}
+```
+
+---
+### 2026-09-26T21:43:08.608Z — SOL/EUR — NO TRADE
+
+**Reasoning:** Momentum trigger not flagged on our 48h signal window (+2.89%/+3.41%, below the 6% bar), even though some press coverage describes a sharper recent squeeze move - treating that with caution since it isn't corroborated by the actual computed signal. Volume ratio 0.93x still not confirming. RSI 62.6, order book ask-heavy (-0.34). News remains structurally positive (Alpenglow consensus upgrade targeting Oct 2026, slot-time halving to 200ms, 12 consecutive weeks of SOL ETF inflows, LayerZero/Anchorage stablecoin interoperability), but none of that substitutes for a qualifying momentum/volume signal. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 2.891073688309159,
+    "pct_change_4h_48h": 3.41174183514775
+  },
+  "rsi_14_4h": 62.55615739651253,
+  "volume_ratio": 0.9273275638959168,
+  "order_book_imbalance_top10": -0.3421535118495213,
+  "news_context": "Alpenglow consensus upgrade (Oct 2026 target, ~150ms finality); slot time 400ms->200ms; 12 straight weeks of SOL ETF inflows; LayerZero/Anchorage stablecoin interoperability; reported short squeeze past $117 (not corroborated by our 48h signal window)"
+}
+```
+
+---
+### 2026-09-26T21:43:08.638Z — XRP/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (-1.86%/-0.77%, actually the most negative read of the three free pairs this cycle). Volume ratio 1.15x not confirming. RSI 49 neutral, order book bid-heavy (+0.16). News confirms this cycle what last cycle's search couldn't corroborate: Senate rejected the CLARITY Act (2026-09-26), causing a reported sharp 10% drop - consistent now with the negative 1h price action, though Ripple states this doesn't change XRP's regulatory footing. Positive counterweight: ACI Worldwide's SWIFT-aligned settlement integration ($155T annual flows) and a long-horizon quantum-resistance roadmap. Net: negative-leaning news is a real headwind but momentum/volume don't confirm a directional trade either way (we're long-only) - no trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -1.8579808217963685,
+    "pct_change_4h_48h": -0.7683294026906307
+  },
+  "rsi_14_4h": 49.01403924437922,
+  "volume_ratio": 1.1515224525569632,
+  "order_book_imbalance_top10": 0.15965750736740733,
+  "news_context": "Senate rejected CLARITY Act (2026-09-26), reported ~10% drop; ACI Worldwide SWIFT-aligned settlement integration; Ripple quantum-resistance roadmap targeting 2028"
+}
+```
+
+---
+### 2026-09-26T21:43:08.648Z — BTC/EUR — NO TRADE
+
+**Reasoning:** Existing open position - one-per-pair rule blocks a second entry. Signals for reference: momentum not flagged, RSI 51.4, volume ratio 0.70, order book mildly bid-heavy (+0.08). Position -1.40% unrealized, pre-+1R, no invalidation breach this cycle.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false
+  },
+  "rsi_14_4h": 51.438031875538364,
+  "volume_ratio": 0.7042583899185113,
+  "reason": "existing_open_position"
+}
+```
+
+---
+### 2026-09-26T21:43:08.658Z — ADA/EUR — NO TRADE
+
+**Reasoning:** Existing open position - one-per-pair rule blocks a second entry. Signals for reference: momentum not flagged this cycle (+0.57%/+2.72%), RSI 57.8, volume ratio 0.90, order book now notably ask-heavy (-0.43). Position -2.37% unrealized, pre-+1R, no invalidation breach this cycle.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 0.5724012024543255,
+    "pct_change_4h_48h": 2.7151462797119885
+  },
+  "rsi_14_4h": 57.82826933202849,
+  "volume_ratio": 0.9004794277785875,
+  "reason": "existing_open_position"
+}
+```
+
+---
+### 2026-09-26T21:43:08.668Z — LINK/EUR — NO TRADE
+
+**Reasoning:** Existing open position - one-per-pair rule blocks a second entry. Signals for reference: momentum still flagged (+5.04%/+6.94%), volume ratio 2.05x confirming, RSI 67.8, order book mildly ask-heavy (-0.12). Position +0.72% unrealized, pre-+1R, no invalidation breach this cycle.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": true,
+    "pct_change_1h_48h": 5.035978614020738,
+    "pct_change_4h_48h": 6.939574575104805
+  },
+  "rsi_14_4h": 67.82248763216396,
+  "volume_ratio": 2.0451746697708555,
+  "reason": "existing_open_position"
+}
+```
+
+---
+### 2026-09-26T21:43:08.678Z — SUI/EUR — NO TRADE
+
+**Reasoning:** Existing open position (trailing-active) - one-per-pair rule blocks a second entry. Signals for reference: momentum still flagged (+12.92%/+14.37%), RSI 66.2, volume ratio 1.43, order book now mildly bid-heavy (+0.10). Position +16.88% unrealized, trailing stop at €0.9676 unchanged this cycle - no invalidation/trailing action per portfolio_check_stops.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": true,
+    "pct_change_1h_48h": 12.915917266187051,
+    "pct_change_4h_48h": 14.372265230562112
+  },
+  "rsi_14_4h": 66.1652614142116,
+  "volume_ratio": 1.430875031909799,
+  "reason": "existing_open_position"
+}
+```
+
+---
+### 2026-09-26T21:43:08.687Z — LTC/EUR — NO TRADE
+
+**Reasoning:** Existing open position - one-per-pair rule blocks a second entry. Signals for reference: momentum not flagged this cycle (-0.19%/-0.22%), RSI 60.8, volume ratio 1.64, order book ask-heavy (-0.21). Position -1.06% unrealized, pre-+1R, no invalidation breach this cycle.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -0.19090041361755877,
+    "pct_change_4h_48h": -0.22134387351778745
+  },
+  "rsi_14_4h": 60.756921346306186,
+  "volume_ratio": 1.6401958488841066,
+  "reason": "existing_open_position"
+}
+```
+
+---
