@@ -209,11 +209,35 @@ export const TRAIL_SMA_PERIOD = 20;
 // extends (peak_price only ever increases - see Position.peak_price) - a
 // bigger rally that reverses now guarantees more locked-in profit than a
 // small one that barely qualified, matching the intuition that a trade
-// that ran further earned the right to a better worst case. At the exact
-// moment of the +1R trigger, peak gain == the original 1R, so this
-// produces the identical 0.3R floor as before - the change only matters
-// for what happens as the rally continues past that point.
-export const PEAK_PROFIT_LOCK_FRACTION = 0.3;
+// that ran further earned the right to a better worst case.
+//
+// Revised again 2026-09-26: the fraction itself now also ratchets up in
+// tiers as the peak's own R-multiple grows, not just the absolute euro
+// floor. Motivated by SUI/EUR running to +3R+ while still only guaranteed
+// 30% of that peak gain - a deep winner deserves a bigger fraction locked,
+// not just a bigger absolute number at the same 30%. Tiers, keyed by how
+// many multiples of the position's own entry-to-stop risk the peak has
+// reached: 0.4 from +1R (the moment trailing activates - up from the
+// original flat 0.3, a deliberate small tightening of the baseline
+// guarantee), 0.5 from +2R (reuses TAKE_PROFIT_RR_MULTIPLE as the
+// threshold - once a trade has run as far as its own take-profit target
+// would have taken it, lock more), 0.6 from +3R (a genuinely extended,
+// often fast/parabolic move - see effectiveTrailingStop in
+// trailing-math.ts for how peakRMultiple is computed and which tier
+// applies). Sorted ascending by minRMultiple - trailing-math.ts picks the
+// highest tier whose threshold the peak has cleared. At exactly +1R this
+// still produces the same behavior the original design intended (lock a
+// fraction of the peak gain, floored by round-trip costs) - only the
+// fraction used, and how it grows with the rally, has changed.
+export interface PeakLockTier {
+  minRMultiple: number;
+  fraction: number;
+}
+export const PEAK_PROFIT_LOCK_TIERS: PeakLockTier[] = [
+  { minRMultiple: 1, fraction: 0.4 },
+  { minRMultiple: TAKE_PROFIT_RR_MULTIPLE, fraction: 0.5 },
+  { minRMultiple: 3, fraction: 0.6 },
+];
 
 // Kraken's spot taker fee for this account's tier (verified 2026-09-22
 // against Kraken's current published schedule: entry tier is 0.40%/0.80%

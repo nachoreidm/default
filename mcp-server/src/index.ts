@@ -13,7 +13,7 @@ import {
   MOMENTUM_THRESHOLD_PCT,
   MOMENTUM_ONLY_MAX_CONFIDENCE,
   TRAIL_SMA_PERIOD,
-  PEAK_PROFIT_LOCK_FRACTION,
+  PEAK_PROFIT_LOCK_TIERS,
 } from "./types.js";
 
 const server = new McpServer({ name: "kraken-live-trading", version: "0.1.0" });
@@ -117,7 +117,7 @@ server.tool(
 
 server.tool(
   "portfolio_check_stops",
-  `Reconciles against Kraken's real order state AND maintains the trailing stop - call this every cycle before anything else. Two things happen: (1) reconciliation - checks whether each open position's resting stop-loss order has already filled on Kraken (it can fire at any moment, not just when this runs) and records the REAL exit price/fee if so; (2) trailing maintenance - for positions still open, refreshes the peak price, and once a position reaches +1R (up by its own entry-to-stop risk amount) moves the REAL resting stop-loss order up to a guaranteed profit floor (locking in ${PEAK_PROFIT_LOCK_FRACTION * 100}% of the peak gain reached so far, or enough to clear round-trip fees, whichever is larger - ratcheting up as the rally extends) and then trails it below the rising ${TRAIL_SMA_PERIOD}-period 4h SMA once that's higher, by cancelling and replacing the resting order - it only ever moves up. The fixed ${TAKE_PROFIT_RR_MULTIPLE}:1 take-profit (checked here against live price, not a resting order) is superseded once trailing begins. If cancelling a stop to raise it succeeds but placing the replacement fails, this throws loudly rather than leaving the position silently unprotected - treat that as urgent. Intended to run on a scheduled hourly cycle so stops, reconciliation, and trailing are all respected even when nobody is actively chatting with the agent.`,
+  `Reconciles against Kraken's real order state AND maintains the trailing stop - call this every cycle before anything else. Two things happen: (1) reconciliation - checks whether each open position's resting stop-loss order has already filled on Kraken (it can fire at any moment, not just when this runs) and records the REAL exit price/fee if so; (2) trailing maintenance - for positions still open, refreshes the peak price, and once a position reaches +1R (up by its own entry-to-stop risk amount) moves the REAL resting stop-loss order up to a guaranteed profit floor - locking in a tiered fraction of the peak gain reached so far, or enough to clear round-trip fees, whichever is larger, ratcheting up as the rally extends: ${PEAK_PROFIT_LOCK_TIERS.map((t) => `${t.fraction * 100}% from +${t.minRMultiple}R`).join(", ")} - and then trails it below the rising ${TRAIL_SMA_PERIOD}-period 4h SMA once that's higher, by cancelling and replacing the resting order - it only ever moves up. The fixed ${TAKE_PROFIT_RR_MULTIPLE}:1 take-profit (checked here against live price, not a resting order) is superseded once trailing begins. If cancelling a stop to raise it succeeds but placing the replacement fails, this throws loudly rather than leaving the position silently unprotected - treat that as urgent. Intended to run on a scheduled hourly cycle so stops, reconciliation, and trailing are all respected even when nobody is actively chatting with the agent.`,
   {},
   async () => wrap(() => checkStops())()
 );

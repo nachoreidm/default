@@ -75,28 +75,11 @@ export const MOMENTUM_ONLY_MAX_CONFIDENCE = "medium";
 // floor once earned. Same 20-period already used by smaCrossover's fast
 // SMA, reused here rather than adding a new indicator.
 export const TRAIL_SMA_PERIOD = 20;
-// What fraction of the position's PEAK gain (peak_price - entry_price, the
-// highest price actually reached so far - not just the gain at the moment
-// +1R first triggered) to lock in as guaranteed profit, instead of
-// flooring at bare breakeven. Decided 2026-09-19, revised the same day:
-// breakeven alone means a trade that spikes to +1R and immediately
-// reverses closes at a scratch - or, after real round-trip fees/slippage
-// (see ROUND_TRIP_COST_PCT below), a small guaranteed LOSS - which defeats
-// the point of having reached +1R at all. The first fix locked a flat 0.3R
-// (0.3x the ORIGINAL 1R) the moment trailing activated - correct at that
-// exact moment, but it meant the floor never rose any further no matter
-// how much higher the rally went afterward; a trade that ran to +3R and
-// then round-tripped all the way back down would still only be guaranteed
-// the same 0.3R as one that barely ticked over +1R. Locking a fraction of
-// the PEAK gain instead means the floor keeps ratcheting up as the rally
-// extends (peak_price only ever increases - see Position.peak_price) - a
-// bigger rally that reverses now guarantees more locked-in profit than a
-// small one that barely qualified, matching the intuition that a trade
-// that ran further earned the right to a better worst case. At the exact
-// moment of the +1R trigger, peak gain == the original 1R, so this
-// produces the identical 0.3R floor as before - the change only matters
-// for what happens as the rally continues past that point.
-export const PEAK_PROFIT_LOCK_FRACTION = 0.3;
+export const PEAK_PROFIT_LOCK_TIERS = [
+    { minRMultiple: 1, fraction: 0.4 },
+    { minRMultiple: TAKE_PROFIT_RR_MULTIPLE, fraction: 0.5 },
+    { minRMultiple: 3, fraction: 0.6 },
+];
 // Kraken's spot taker fee for this account's tier (verified 2026-09-22
 // against Kraken's current published schedule: entry tier is 0.40%/0.80%
 // maker/taker below $2,500 in 30-day volume or assets-on-platform (AoP,

@@ -57,24 +57,34 @@ async function main() {
   assert(hasReachedOneR(100, 90, 150) === true, "hasReachedOneR true well past entry+1R (100/90/150)");
   assert(hasReachedOneR(100, 100, 200) === false, "hasReachedOneR false for zero risk (entry == initial stop)");
 
-  // effectiveTrailingStop(entryPrice, peakPrice, currentStopLoss, sma20).
-  // entry=100, peakPrice=110 (peak gain=10, equivalent to a trade that
-  // just barely reached +1R with a $10 original risk) -> 0.3x peak-gain
-  // lock = 103, fee-floor (ROUND_TRIP_COST_PCT=1.3%) = 101.3 -> lock (103) wins.
-  assert(effectiveTrailingStop(100, 110, 90, null) === 103, "effectiveTrailingStop floors at 0.3x peak gain with no SMA data (got not 103)");
-  assert(effectiveTrailingStop(100, 110, 90, 101) === 103, "effectiveTrailingStop floors at the peak-gain lock when SMA is still below it (101 < 103)");
-  assert(effectiveTrailingStop(100, 110, 90, 110) === 110, "effectiveTrailingStop trails up to a rising SMA above the lock floor (110 > 103)");
-  assert(effectiveTrailingStop(100, 110, 108, 105) === 108, "effectiveTrailingStop never moves the stop down (108 already above candidate 103/105)");
-  // entry=100, peakPrice=101 (peak gain=1, a very small gain so far) ->
-  // 0.3x peak gain = 100.3, fee-floor = 101.3 -> fee-floor wins here,
-  // proving the max() defensive term works.
-  assert(effectiveTrailingStop(100, 101, 95, null) === 101.3, "effectiveTrailingStop falls back to the fee/slippage floor when 0.3x peak gain is too small (got not 101.3)");
-  // The core new behavior: the lock RATCHETS UP as the peak extends
-  // further, rather than staying pinned at the gain reached when +1R
-  // first triggered. entry=100, a rally to peak=130 (peak gain=30, e.g.
-  // +3R on a $10 original risk) locks 0.3*30=9 -> floor=109, clearly
-  // higher than the 103 floor a peak of only 110 (+1R) would produce.
-  assert(effectiveTrailingStop(100, 130, 90, null) === 109, "effectiveTrailingStop locks more profit for a bigger peak (130 -> 109) than a smaller one (110 -> 103)");
+  // effectiveTrailingStop(entryPrice, initialStopLoss, peakPrice, currentStopLoss, sma20).
+  // entry=100, initialStop=90 (R=10), peakPrice=110 (peak gain=10, exactly
+  // +1R) -> tier 1 (0.4x peak gain) = 104, fee-floor (ROUND_TRIP_COST_PCT=
+  // 1.3%) = 101.3 -> lock (104) wins.
+  assert(effectiveTrailingStop(100, 90, 110, 90, null) === 104, "effectiveTrailingStop floors at tier-1 (0.4x) peak gain with no SMA data (got not 104)");
+  assert(effectiveTrailingStop(100, 90, 110, 90, 101) === 104, "effectiveTrailingStop floors at the peak-gain lock when SMA is still below it (101 < 104)");
+  assert(effectiveTrailingStop(100, 90, 110, 90, 105) === 105, "effectiveTrailingStop trails up to a rising SMA above the lock floor (105 > 104)");
+  assert(effectiveTrailingStop(100, 90, 110, 108, 105) === 108, "effectiveTrailingStop never moves the stop down (108 already above candidate 104/105)");
+  // entry=100, initialStop=90, peakPrice=101 (peak gain=1, a very small
+  // gain so far, R-multiple 0.1) -> tier-1 fraction still applies (0.4x1=
+  // 0.4), fee-floor = 101.3 -> fee-floor wins here, proving the max()
+  // defensive term still works after the tiered-fraction change.
+  assert(effectiveTrailingStop(100, 90, 101, 95, null) === 101.3, "effectiveTrailingStop falls back to the fee/slippage floor when tier-1 peak gain is too small (got not 101.3)");
+  // Tiered PEAK_PROFIT_LOCK_TIERS (revised 2026-09-26): the LOCKED FRACTION
+  // itself now grows in steps as the peak's own R-multiple grows, on top of
+  // the already-ratcheting absolute floor. entry=100, initialStop=90 (R=10):
+  // just below the +2R tier boundary (peak=119, R-multiple 1.9) still uses
+  // tier 1's 0.4 -> floor = 100 + 0.4*19 = 107.6.
+  assert(effectiveTrailingStop(100, 90, 119, 90, null) === 107.6, "effectiveTrailingStop stays on tier 1 (0.4x) just below the +2R boundary (got not 107.6)");
+  // Exactly +2R (peak=120, R-multiple 2.0) crosses into tier 2 (0.5x) ->
+  // floor = 100 + 0.5*20 = 110 - reuses TAKE_PROFIT_RR_MULTIPLE as the
+  // tier-2 threshold.
+  assert(effectiveTrailingStop(100, 90, 120, 90, null) === 110, "effectiveTrailingStop crosses into tier 2 (0.5x) exactly at +2R (got not 110)");
+  // Exactly +3R (peak=130, R-multiple 3.0) crosses into tier 3 (0.6x) ->
+  // floor = 100 + 0.6*30 = 118. Both the peak gain AND the fraction have
+  // grown vs. the +1R case (104), compounding - a genuinely extended rally
+  // now guarantees much more than a fixed fraction would have.
+  assert(effectiveTrailingStop(100, 90, 130, 90, null) === 118, "effectiveTrailingStop locks tier-3 (0.6x) profit for a peak at +3R (got not 118)");
 
   // peakFromCandles(candles, entryTs, currentPeak) - the fix for
   // point-sampling ticker.last: a spike-and-reversal between two checks

@@ -6,7 +6,7 @@
 // this file holds only the parts that were always exchange-agnostic.
 import { fetchOHLC, closedCandles } from "./kraken.js";
 import { sma } from "./indicators.js";
-import { TRAIL_SMA_PERIOD, PEAK_PROFIT_LOCK_FRACTION, ROUND_TRIP_COST_PCT } from "./types.js";
+import { TRAIL_SMA_PERIOD, PEAK_PROFIT_LOCK_TIERS, ROUND_TRIP_COST_PCT } from "./types.js";
 // Has price reached the position's own +1R level (up by its entry-to-stop
 // risk amount)? False for zero/negative risk (shouldn't happen - open
 // requires stop_loss below entry - but guards a divide-by-nothing edge
@@ -17,17 +17,38 @@ export function hasReachedOneR(entryPrice, initialStopLoss, currentPrice) {
     const risk = entryPrice - initialStopLoss;
     return risk > 0 && currentPrice >= entryPrice + risk;
 }
-// The effective stop once trailing is active. Floor guarantees
-// PEAK_PROFIT_LOCK_FRACTION of the trade's PEAK gain (peakPrice -
-// entryPrice, the highest price reached so far - not just the gain at the
-// moment +1R first triggered) as locked-in profit, or enough to clear real
-// round-trip transaction costs (ROUND_TRIP_COST_PCT), whichever is larger.
-// Since peakPrice only ever grows, this floor ratchets up as a rally
-// extends. Trails higher still if sma20 has risen above that floor. Never
-// returns a value below currentStopLoss - the trail only ever moves up.
-export function effectiveTrailingStop(entryPrice, peakPrice, currentStopLoss, sma20) {
+// Which PEAK_PROFIT_LOCK_TIERS fraction applies for a given peak R-multiple
+// (peakGain / originalRisk). Tiers are sorted ascending by minRMultiple -
+// picks the highest tier whose threshold the peak has cleared. Falls back
+// to the lowest tier's fraction if peakRMultiple is somehow below every
+// threshold (shouldn't happen in practice - this is only called once a
+// position has already reached +1R - but keeps the function total).
+function peakProfitLockFraction(peakRMultiple) {
+    let fraction = PEAK_PROFIT_LOCK_TIERS[0].fraction;
+    for (const tier of PEAK_PROFIT_LOCK_TIERS) {
+        if (peakRMultiple >= tier.minRMultiple)
+            fraction = tier.fraction;
+    }
+    return fraction;
+}
+// The effective stop once trailing is active. Floor guarantees a tiered
+// fraction of the trade's PEAK gain (peakPrice - entryPrice, the highest
+// price reached so far - not just the gain at the moment +1R first
+// triggered) as locked-in profit - see PEAK_PROFIT_LOCK_TIERS in types.ts,
+// keyed by the peak's own R-multiple (peakGain / (entryPrice -
+// initialStopLoss)) - or enough to clear real round-trip transaction costs
+// (ROUND_TRIP_COST_PCT), whichever is larger. Since peakPrice only ever
+// grows, this floor ratchets up as a rally extends - both from the peak
+// gain itself growing and, past each tier threshold, from a bigger
+// fraction of it being locked. Trails higher still if sma20 has risen
+// above that floor. Never returns a value below currentStopLoss - the
+// trail only ever moves up.
+export function effectiveTrailingStop(entryPrice, initialStopLoss, peakPrice, currentStopLoss, sma20) {
     const peakGain = peakPrice - entryPrice;
-    const profitFloor = entryPrice + Math.max(PEAK_PROFIT_LOCK_FRACTION * peakGain, entryPrice * (ROUND_TRIP_COST_PCT / 100));
+    const risk = entryPrice - initialStopLoss;
+    const peakRMultiple = risk > 0 ? peakGain / risk : 0;
+    const fraction = peakProfitLockFraction(peakRMultiple);
+    const profitFloor = entryPrice + Math.max(fraction * peakGain, entryPrice * (ROUND_TRIP_COST_PCT / 100));
     const candidate = sma20 !== null && sma20 > profitFloor ? sma20 : profitFloor;
     return Math.max(candidate, currentStopLoss);
 }
@@ -46,7 +67,7 @@ export async function trailingStopCandidate(pos) {
     catch {
         // 4h candles unavailable this cycle - trail on the guaranteed-profit floor alone.
     }
-    return effectiveTrailingStop(pos.entry_price, pos.peak_price, pos.stop_loss, sma20);
+    return effectiveTrailingStop(pos.entry_price, pos.initial_stop_loss, pos.peak_price, pos.stop_loss, sma20);
 }
 // The highest candle `high` at or after entryTs, floored at currentPeak
 // (never regresses even if no candles qualify). Deliberately takes the
