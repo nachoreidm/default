@@ -18862,3 +18862,152 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-09-27T14:42:38.132Z — BTC/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule, code-enforced). Momentum trigger not flagged (1h/48h +1.36%, 4h/48h +1.45%).
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 1.36,
+    "pct_change_4h_48h": 1.45
+  },
+  "rsi_14_4h": 59.77,
+  "existing_position": true
+}
+```
+
+---
+### 2026-09-27T14:42:38.153Z — SUI/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule, code-enforced), already trailing well past +1R - governed by portfolio_check_stops' trailing logic.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": true,
+    "pct_change_1h_48h": 11.15,
+    "pct_change_4h_48h": 13.49
+  },
+  "rsi_14_4h": 72.44,
+  "existing_position": true,
+  "trailing_active": true
+}
+```
+
+---
+### 2026-09-27T14:42:38.178Z — LINK/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule, code-enforced). Not yet at +1R; original hard stop and invalidation check cover it.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 1.32,
+    "pct_change_4h_48h": 3.4
+  },
+  "rsi_14_4h": 66.38,
+  "existing_position": true
+}
+```
+
+---
+### 2026-09-27T14:42:38.194Z — ADA/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule, code-enforced). Not yet at +1R; original hard stop and invalidation check cover it.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 0.55,
+    "pct_change_4h_48h": 1.19
+  },
+  "rsi_14_4h": 58.99,
+  "existing_position": true
+}
+```
+
+---
+### 2026-09-27T14:42:38.207Z — LTC/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule, code-enforced). Not yet at +1R; original hard stop and invalidation check cover it.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 2.22,
+    "pct_change_4h_48h": 2.19
+  },
+  "rsi_14_4h": 58.33,
+  "existing_position": true
+}
+```
+
+---
+### 2026-09-27T14:42:38.220Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/48h +0.64%, 4h/48h +1.00%). RSI neutral (56.5), volume well below average (0.20x). News search: same whale-accumulation/ETF-inflow backdrop as prior cycles, price still range-bound near $2.7K ahead of the Glamsterdam Sepolia rollout (Sep 28) - no proportionate catalyst.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 0.64,
+    "pct_change_4h_48h": 1
+  },
+  "rsi_14_4h": 56.5,
+  "volume_ratio": 0.2,
+  "news_context": "Whale accumulation and ETF inflows continue but price range-bound; no proportionate catalyst without momentum confirmation."
+}
+```
+
+---
+### 2026-09-27T14:42:38.231Z — SOL/EUR — NO TRADE
+
+**Reasoning:** Momentum trigger not flagged (1h/48h +2.45%, 4h/48h +3.32%, below 6% bar). RSI elevated at 67.9, order book flipped notably negative (-0.30). News search: record SOL ETF weekly inflows ($188.21M) are a positive backdrop but not proportionate to override the lack of momentum confirmation and the negative order book. Passing.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 2.45,
+    "pct_change_4h_48h": 3.32
+  },
+  "rsi_14_4h": 67.92,
+  "volume_ratio": 0.54,
+  "order_book_imbalance": -0.3,
+  "news_context": "Record SOL ETF weekly inflows ($188.21M) - constructive but not proportionate without momentum confirmation; order book has turned negative."
+}
+```
+
+---
+### 2026-09-27T14:42:38.241Z — XRP/EUR — NO TRADE
+
+**Reasoning:** Momentum trigger not flagged; price action still negative (1h/48h -3.39%, 4h/48h -2.32%), order book sharply negative (-0.52). Still weighed down by the CLARITY Act Senate rejection (Sep 26); no confirmed reversal. No basis for a long entry.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -3.39,
+    "pct_change_4h_48h": -2.32
+  },
+  "rsi_14_4h": 52.49,
+  "order_book_imbalance": -0.52,
+  "news_context": "CLARITY Act Senate rejection (Sep 26) still weighing; short interest in XRP perpetuals elevated; no confirmed reversal."
+}
+```
+
+---
