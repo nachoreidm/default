@@ -19011,3 +19011,151 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-09-27T15:42:30.197Z — BTC/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule, code-enforced). Momentum trigger not flagged (1h/48h +1.01%, 4h/48h +1.45%).
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 1.01,
+    "pct_change_4h_48h": 1.45
+  },
+  "rsi_14_4h": 59.77,
+  "existing_position": true
+}
+```
+
+---
+### 2026-09-27T15:42:30.212Z — SUI/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule, code-enforced), already trailing well past +1R - governed by portfolio_check_stops' trailing logic.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": true,
+    "pct_change_1h_48h": 12.83,
+    "pct_change_4h_48h": 13.49
+  },
+  "rsi_14_4h": 72.44,
+  "existing_position": true,
+  "trailing_active": true
+}
+```
+
+---
+### 2026-09-27T15:42:30.228Z — LINK/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule, code-enforced). Not yet at +1R; original hard stop and invalidation check cover it.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 1.56,
+    "pct_change_4h_48h": 3.4
+  },
+  "rsi_14_4h": 66.38,
+  "existing_position": true
+}
+```
+
+---
+### 2026-09-27T15:42:30.238Z — ADA/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule, code-enforced). Not yet at +1R; original hard stop and invalidation check cover it.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -0.2,
+    "pct_change_4h_48h": 1.19
+  },
+  "rsi_14_4h": 58.99,
+  "existing_position": true
+}
+```
+
+---
+### 2026-09-27T15:42:30.247Z — LTC/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule, code-enforced). Not yet at +1R; original hard stop and invalidation check cover it.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 0.65,
+    "pct_change_4h_48h": 2.19
+  },
+  "rsi_14_4h": 58.33,
+  "existing_position": true
+}
+```
+
+---
+### 2026-09-27T15:42:30.256Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/48h +0.18%, 4h/48h +1.00%). RSI neutral (56.5), volume well below average (0.20x). News search: Vitalik Buterin's 2030 roadmap post (Hegota fork, recursive STARKs, sync improvements) is a genuine development but a long-term structural story, not a proportionate near-term price catalyst; no momentum confirmation.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 0.18,
+    "pct_change_4h_48h": 1
+  },
+  "rsi_14_4h": 56.5,
+  "volume_ratio": 0.2,
+  "news_context": "Vitalik Buterin's 2030 architecture roadmap (Hegota fork, recursive STARKs) - long-term structural story, not a near-term catalyst; no momentum confirmation."
+}
+```
+
+---
+### 2026-09-27T15:42:30.266Z — SOL/EUR — NO TRADE
+
+**Reasoning:** Momentum trigger not flagged (1h/48h +1.40%, 4h/48h +3.32%, below 6% bar). RSI elevated at 67.9. News search surfaced a genuinely stronger backdrop this cycle - simultaneous ATHs in stablecoin supply ($17.3B), RWA ecosystem ($4.6B), and 1M+ wallets holding tokenized stocks, plus price reportedly near $123 (+15% weekly per one source) - but compute_signals' own 1h/4h windows still don't clear the 6% momentum bar, and momentum_trigger is what's required to justify a momentum_only entry. Passing per the rule, but noting this is the strongest SOL backdrop in several cycles - watch next cycle.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 1.4,
+    "pct_change_4h_48h": 3.32
+  },
+  "rsi_14_4h": 67.92,
+  "volume_ratio": 0.54,
+  "news_context": "Simultaneous ATHs: stablecoin supply $17.3B, RWA ecosystem $4.6B, 1M+ tokenized-stock wallets - strong backdrop but compute_signals momentum_trigger not flagged."
+}
+```
+
+---
+### 2026-09-27T15:42:30.275Z — XRP/EUR — NO TRADE
+
+**Reasoning:** Momentum trigger not flagged; price action still negative (1h/48h -3.66%, 4h/48h -2.32%). News search: same CLARITY Act overhang and ACI Worldwide/SWIFT settlement news as prior cycles, plus a new technical note that XRP's rally has stalled below its 50-week MA ($1.56) with underwater year-old holders. No basis for a long entry.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -3.66,
+    "pct_change_4h_48h": -2.32
+  },
+  "rsi_14_4h": 52.49,
+  "order_book_imbalance": 0.18,
+  "news_context": "CLARITY Act overhang persists; rally stalled below 50-week MA ($1.56) with underwater holders; no confirmed reversal."
+}
+```
+
+---
