@@ -19455,3 +19455,151 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-09-27T18:43:06.016Z — BTC/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule, code-enforced). Momentum trigger not flagged (1h/48h +0.86%, 4h/48h +0.63%).
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 0.86,
+    "pct_change_4h_48h": 0.63
+  },
+  "rsi_14_4h": 54.07,
+  "existing_position": true
+}
+```
+
+---
+### 2026-09-27T18:43:06.029Z — SUI/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule, code-enforced), already trailing well past +1R - governed by portfolio_check_stops' trailing logic.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": true,
+    "pct_change_1h_48h": 10.28,
+    "pct_change_4h_48h": 7.97
+  },
+  "rsi_14_4h": 70.12,
+  "existing_position": true,
+  "trailing_active": true
+}
+```
+
+---
+### 2026-09-27T18:43:06.052Z — LINK/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule, code-enforced). Not yet at +1R; original hard stop and invalidation check cover it.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 2.09,
+    "pct_change_4h_48h": 1.82
+  },
+  "rsi_14_4h": 61.35,
+  "existing_position": true
+}
+```
+
+---
+### 2026-09-27T18:43:06.065Z — ADA/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule, code-enforced). Not yet at +1R; original hard stop and invalidation check cover it.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -0.06,
+    "pct_change_4h_48h": -0.23
+  },
+  "rsi_14_4h": 55.1,
+  "existing_position": true
+}
+```
+
+---
+### 2026-09-27T18:43:06.079Z — LTC/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule, code-enforced). Not yet at +1R; original hard stop and invalidation check cover it.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 0.08,
+    "pct_change_4h_48h": 0.27
+  },
+  "rsi_14_4h": 56.34,
+  "existing_position": true
+}
+```
+
+---
+### 2026-09-27T18:43:06.090Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/48h +0.08%, 4h/48h -0.04%). RSI neutral (50.5), volume well below average (0.20x). News search: same items as prior cycles, price pinned in a range - no proportionate catalyst.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 0.08,
+    "pct_change_4h_48h": -0.04
+  },
+  "rsi_14_4h": 50.54,
+  "volume_ratio": 0.2,
+  "news_context": "No new material development; price range-bound, no momentum confirmation."
+}
+```
+
+---
+### 2026-09-27T18:43:06.108Z — SOL/EUR — NO TRADE
+
+**Reasoning:** Momentum trigger not flagged (1h/48h +0.26%, 4h/48h -0.01%, essentially flat). RSI 58.4. News search: same constructive fundamental backdrop (6-day ETF inflow streak, stablecoin/RWA ATHs) but price action remains flat, no momentum confirmation.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 0.26,
+    "pct_change_4h_48h": -0.01
+  },
+  "rsi_14_4h": 58.44,
+  "volume_ratio": 0.54,
+  "news_context": "SOL ETF inflow streak continues (6 days, $264M monthly); price action flat, no momentum confirmation."
+}
+```
+
+---
+### 2026-09-27T18:43:06.119Z — XRP/EUR — NO TRADE
+
+**Reasoning:** Momentum trigger not flagged; price action still negative (1h/48h -2.65%, 4h/48h -3.41%). Order book has flipped extremely negative (-0.97, a large resting ask wall vs thin bids) - real near-term selling pressure, reinforcing caution. Same CLARITY Act overhang, no new catalyst. No basis for a long entry.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -2.65,
+    "pct_change_4h_48h": -3.41
+  },
+  "rsi_14_4h": 47.23,
+  "order_book_imbalance": -0.97,
+  "news_context": "CLARITY Act rejection overhang persists; market digesting the move, no new catalyst, order book heavily ask-skewed."
+}
+```
+
+---
