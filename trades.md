@@ -17354,3 +17354,156 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-09-27T05:43:06.395Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/48h +0.32%, 4h/48h +0.93%). Volume ratio 0.20x well below average, RSI 53.8 neutral, order book mildly bid-heavy (+0.09). News unchanged: MiCA staking review, Duelbits hack (unrelated), Consensys/MetaMask rebrand, Frame Transactions locked into Hegotá upgrade, ARK Invest tokenized venture fund via Securitize. No qualifying entry signal. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 0.31829428216151523,
+    "pct_change_4h_48h": 0.927409730982976
+  },
+  "rsi_14_4h": 53.77287611519347,
+  "volume_ratio": 0.19655764985560062,
+  "order_book_imbalance_top10": 0.08684008866110196,
+  "news_context": "MiCA staking regulation review; Duelbits $7M hack (unrelated); Consensys->MetaMask rebrand; Frame Transactions locked into Hegotá upgrade; ARK Invest tokenized venture fund via Securitize"
+}
+```
+
+---
+### 2026-09-27T05:43:06.410Z — SOL/EUR — NO TRADE
+
+**Reasoning:** Momentum trigger still not flagged (+3.08%/+3.67%, below the 6% bar). Volume ratio 0.54x below average. RSI 59.4, order book bid-heavy (+0.22). News unchanged and still structurally positive (Alpenglow now running on public testnets ahead of mainnet, 12 straight weeks of SOL ETF inflows, LayerZero/Anchorage stablecoin work, OpenSea NFT integration). No qualifying multi-signal confluence. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 3.0767728071889096,
+    "pct_change_4h_48h": 3.6703533326808255
+  },
+  "rsi_14_4h": 59.41637978262461,
+  "volume_ratio": 0.5392216791348878,
+  "order_book_imbalance_top10": 0.22102946655230074,
+  "news_context": "Alpenglow now on public testnets ahead of mainnet (Oct 2026 target); 12 consecutive weeks of SOL ETF inflows; LayerZero/Anchorage stablecoin interoperability; OpenSea Solana NFT integration"
+}
+```
+
+---
+### 2026-09-27T05:43:06.421Z — XRP/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (-1.46%/-1.14%). Volume ratio 0.45x well below average. RSI 47.3 neutral, order book now notably ask-heavy (-0.48). News unchanged: CLARITY Act rejection/reported 10% drop, offset by ACI Worldwide's SWIFT-aligned settlement integration and RLUSD stablecoin growth. No qualifying momentum/volume signal. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -1.4596095302602812,
+    "pct_change_4h_48h": -1.1358321640943312
+  },
+  "rsi_14_4h": 47.32306902011677,
+  "volume_ratio": 0.451392799485195,
+  "order_book_imbalance_top10": -0.48124798589253226,
+  "news_context": "Senate rejected CLARITY Act (2026-09-26), reported ~10% drop; ACI Worldwide SWIFT-aligned settlement integration; RLUSD stablecoin market cap $1.72B"
+}
+```
+
+---
+### 2026-09-27T05:43:06.438Z — BTC/EUR — NO TRADE
+
+**Reasoning:** Existing open position - one-per-pair rule blocks a second entry. Signals for reference: momentum not flagged, RSI 54.5, volume ratio 0.16, order book near-flat (+0.06). Position -1.03% unrealized, pre-+1R, no invalidation breach this cycle.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false
+  },
+  "rsi_14_4h": 54.544082088210665,
+  "volume_ratio": 0.1601786775539716,
+  "reason": "existing_open_position"
+}
+```
+
+---
+### 2026-09-27T05:43:06.448Z — ADA/EUR — NO TRADE
+
+**Reasoning:** Existing open position - one-per-pair rule blocks a second entry. Signals for reference: momentum not flagged this cycle (+1.13%/+1.11%), RSI 53.9, volume ratio 0.50, order book notably ask-heavy (-0.50). Position -2.37% unrealized, pre-+1R, no invalidation breach this cycle.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 1.1291723538900547,
+    "pct_change_4h_48h": 1.1082573167833496
+  },
+  "rsi_14_4h": 53.89727979657236,
+  "volume_ratio": 0.5022731959895392,
+  "reason": "existing_open_position"
+}
+```
+
+---
+### 2026-09-27T05:43:06.458Z — LINK/EUR — NO TRADE
+
+**Reasoning:** Existing open position - one-per-pair rule blocks a second entry. Signals for reference: momentum not flagged this cycle (+4.09%/+4.56%), volume ratio 1.09 not confirming, RSI 66.4, order book flat (-0.001). Position +1.02% unrealized, pre-+1R, no invalidation breach this cycle.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 4.089797168601962,
+    "pct_change_4h_48h": 4.5569137358134535
+  },
+  "rsi_14_4h": 66.38385048029957,
+  "volume_ratio": 1.0876778999635097,
+  "reason": "existing_open_position"
+}
+```
+
+---
+### 2026-09-27T05:43:06.469Z — SUI/EUR — NO TRADE
+
+**Reasoning:** Existing open position (trailing-active) - one-per-pair rule blocks a second entry. Signals for reference: momentum still flagged (+13.80%/+15.50%), RSI 67.2, volume ratio 0.66, order book ask-heavy (-0.22). Position +18.96% unrealized, trailing stop at €0.9676 unchanged this cycle - no invalidation/trailing action per portfolio_check_stops.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": true,
+    "pct_change_1h_48h": 13.798501621379858,
+    "pct_change_4h_48h": 15.49786468869409
+  },
+  "rsi_14_4h": 67.22655863882741,
+  "volume_ratio": 0.6568662182152953,
+  "reason": "existing_open_position"
+}
+```
+
+---
+### 2026-09-27T05:43:06.478Z — LTC/EUR — NO TRADE
+
+**Reasoning:** Existing open position - one-per-pair rule blocks a second entry. Signals for reference: momentum not flagged this cycle (+0.69%/-0.10%), RSI 58.1, volume ratio 0.85, order book near-flat (-0.06). Position -1.10% unrealized, pre-+1R, no invalidation breach this cycle.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 0.6876699184391487,
+    "pct_change_4h_48h": -0.09558706388402465
+  },
+  "rsi_14_4h": 58.14581132939749,
+  "volume_ratio": 0.849839997504066,
+  "reason": "existing_open_position"
+}
+```
+
+---
