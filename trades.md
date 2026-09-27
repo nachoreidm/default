@@ -20195,3 +20195,151 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-09-27T23:42:44.745Z — BTC/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule, code-enforced). Momentum trigger not flagged (1h/48h +0.21%, 4h/48h +0.78%).
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 0.21,
+    "pct_change_4h_48h": 0.78
+  },
+  "rsi_14_4h": 56.67,
+  "existing_position": true
+}
+```
+
+---
+### 2026-09-27T23:42:44.768Z — SUI/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule, code-enforced), already trailing well past +1R - governed by portfolio_check_stops' trailing logic.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": true,
+    "pct_change_1h_48h": 5.25,
+    "pct_change_4h_48h": 6.34
+  },
+  "rsi_14_4h": 72.94,
+  "existing_position": true,
+  "trailing_active": true
+}
+```
+
+---
+### 2026-09-27T23:42:44.797Z — LINK/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule, code-enforced). Not yet at +1R; original hard stop and invalidation check cover it.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 0.27,
+    "pct_change_4h_48h": 1.11
+  },
+  "rsi_14_4h": 60.14,
+  "existing_position": true
+}
+```
+
+---
+### 2026-09-27T23:42:44.810Z — ADA/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule, code-enforced). Not yet at +1R; original hard stop and invalidation check cover it.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -2.16,
+    "pct_change_4h_48h": -1.27
+  },
+  "rsi_14_4h": 56.29,
+  "existing_position": true
+}
+```
+
+---
+### 2026-09-27T23:42:44.821Z — LTC/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule, code-enforced). Not yet at +1R; original hard stop and invalidation check cover it.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -2.32,
+    "pct_change_4h_48h": -2.01
+  },
+  "rsi_14_4h": 56.08,
+  "existing_position": true
+}
+```
+
+---
+### 2026-09-27T23:42:44.833Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/48h -0.48%, 4h/48h +0.03%). RSI neutral (50.9), volume well below average (0.20x). News search: same Vitalik roadmap story, price still near $2,700-2,713 range-bound - no proportionate catalyst.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -0.48,
+    "pct_change_4h_48h": 0.03
+  },
+  "rsi_14_4h": 50.94,
+  "volume_ratio": 0.2,
+  "news_context": "No new material development; price range-bound near $2,700-2,713; no momentum confirmation."
+}
+```
+
+---
+### 2026-09-27T23:42:44.844Z — SOL/EUR — NO TRADE
+
+**Reasoning:** Momentum trigger not flagged (1h/48h -0.37%, 4h/48h +0.88%). RSI 61.8. News search: same ETF inflow streak/staking growth backdrop as prior cycles - constructive but not proportionate without momentum confirmation, and 1h window turned slightly negative.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -0.37,
+    "pct_change_4h_48h": 0.88
+  },
+  "rsi_14_4h": 61.85,
+  "volume_ratio": 0.54,
+  "news_context": "SOL ETF inflow streak continues but no new development this cycle; no momentum confirmation."
+}
+```
+
+---
+### 2026-09-27T23:42:44.863Z — XRP/EUR — NO TRADE
+
+**Reasoning:** Momentum trigger not flagged; price action still negative (1h/48h -3.76%, 4h/48h -2.33%). Same news as prior cycles (ETF inflow streak extended to 11 weeks, XRPL amendment vote at 31.43% support) - no new catalyst, no confirmed reversal.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -3.76,
+    "pct_change_4h_48h": -2.33
+  },
+  "rsi_14_4h": 50.94,
+  "order_book_imbalance": 0.04,
+  "news_context": "XRP ETF inflow streak continues (11 weeks); no new catalyst, no confirmed reversal."
+}
+```
+
+---
