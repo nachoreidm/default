@@ -19751,3 +19751,151 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-09-27T20:42:35.109Z — BTC/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule, code-enforced). Momentum trigger not flagged (1h/48h +1.06%, 4h/48h +0.78%).
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 1.06,
+    "pct_change_4h_48h": 0.78
+  },
+  "rsi_14_4h": 56.67,
+  "existing_position": true
+}
+```
+
+---
+### 2026-09-27T20:42:35.122Z — SUI/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule, code-enforced), already trailing well past +1R - governed by portfolio_check_stops' trailing logic.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": true,
+    "pct_change_1h_48h": 8.83,
+    "pct_change_4h_48h": 6.34
+  },
+  "rsi_14_4h": 72.94,
+  "existing_position": true,
+  "trailing_active": true
+}
+```
+
+---
+### 2026-09-27T20:42:35.133Z — LINK/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule, code-enforced). Not yet at +1R; original hard stop and invalidation check cover it.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 1.7,
+    "pct_change_4h_48h": 1.11
+  },
+  "rsi_14_4h": 60.14,
+  "existing_position": true
+}
+```
+
+---
+### 2026-09-27T20:42:35.149Z — ADA/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule, code-enforced). Not yet at +1R; original hard stop and invalidation check cover it.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 0.32,
+    "pct_change_4h_48h": -1.27
+  },
+  "rsi_14_4h": 56.29,
+  "existing_position": true
+}
+```
+
+---
+### 2026-09-27T20:42:35.159Z — LTC/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule, code-enforced). Not yet at +1R; original hard stop and invalidation check cover it.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -0.03,
+    "pct_change_4h_48h": -2.01
+  },
+  "rsi_14_4h": 56.08,
+  "existing_position": true
+}
+```
+
+---
+### 2026-09-27T20:42:35.168Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/48h +0.29%, 4h/48h +0.03%). RSI neutral (50.9), volume well below average (0.20x). News search: same items as prior cycles - no proportionate catalyst.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 0.29,
+    "pct_change_4h_48h": 0.03
+  },
+  "rsi_14_4h": 50.94,
+  "volume_ratio": 0.2,
+  "news_context": "No new material development; price range-bound, no momentum confirmation."
+}
+```
+
+---
+### 2026-09-27T20:42:35.179Z — SOL/EUR — NO TRADE
+
+**Reasoning:** Momentum trigger not flagged (1h/48h +1.26%, 4h/48h +0.88%). RSI 61.8. News search: continued ETF inflow streak (6 days, $264M monthly) plus a network upgrade (Slot Time Cut to 250ms, +17% block production speed) - constructive but price action still below the 6% momentum bar.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 1.26,
+    "pct_change_4h_48h": 0.88
+  },
+  "rsi_14_4h": 61.85,
+  "volume_ratio": 0.54,
+  "news_context": "SOL ETF inflow streak continues; Slot Time Cut to 250ms boosts block production +17% - constructive but no momentum confirmation."
+}
+```
+
+---
+### 2026-09-27T20:42:35.190Z — XRP/EUR — NO TRADE
+
+**Reasoning:** Momentum trigger not flagged; price action still negative (1h/48h -1.84%, 4h/48h -2.33%), though the decline has moderated from earlier cycles. Order book flipped sharply negative (-0.68). Same news as prior cycles, no new catalyst. No basis for a long entry.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -1.84,
+    "pct_change_4h_48h": -2.33
+  },
+  "rsi_14_4h": 50.94,
+  "order_book_imbalance": -0.68,
+  "news_context": "CLARITY Act rejection overhang persists; no new catalyst; order book turned sharply ask-heavy."
+}
+```
+
+---
