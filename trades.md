@@ -18119,3 +18119,153 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-09-27T10:11:22.220Z — BTC/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule, code-enforced). Momentum trigger also not flagged this cycle (1h/48h +0.38%, 4h/48h +0.37%, both far below the 6% bar) - no signal basis for any action beyond what portfolio_check_stops already handles.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 0.38,
+    "pct_change_4h_48h": 0.37
+  },
+  "rsi_14_4h": 58.6,
+  "existing_position": true
+}
+```
+
+---
+### 2026-09-27T10:11:22.240Z — SUI/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule, code-enforced), already trailing and well past +1R - governed by portfolio_check_stops' trailing logic, not a fresh-entry decision this cycle.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": true,
+    "pct_change_1h_48h": 17.33,
+    "pct_change_4h_48h": 11.04
+  },
+  "rsi_14_4h": 75.69,
+  "existing_position": true,
+  "trailing_active": true
+}
+```
+
+---
+### 2026-09-27T10:11:22.260Z — LINK/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule, code-enforced). Not yet at +1R; original hard stop and invalidation check cover it.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 3.54,
+    "pct_change_4h_48h": 2.64
+  },
+  "rsi_14_4h": 71.37,
+  "existing_position": true
+}
+```
+
+---
+### 2026-09-27T10:11:22.268Z — ADA/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule, code-enforced). Not yet at +1R; original hard stop and invalidation check cover it.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 1.57,
+    "pct_change_4h_48h": 1.21
+  },
+  "rsi_14_4h": 60.62,
+  "existing_position": true
+}
+```
+
+---
+### 2026-09-27T10:11:22.277Z — LTC/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule, code-enforced). Not yet at +1R; original hard stop and invalidation check cover it.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 1.67,
+    "pct_change_4h_48h": 2.44
+  },
+  "rsi_14_4h": 59.82,
+  "existing_position": true
+}
+```
+
+---
+### 2026-09-27T10:11:22.289Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/48h +0.19%, 4h/48h +0.18%, far below 6% bar) and no other confluence - RSI neutral (59.2), volume well below average (0.20x), order book mildly positive but unremarkable (+0.17). News search: ETH consolidating near $2,700-2,671 ahead of the Glamsterdam hard fork (Sepolia testnet rollout Sep 28, mainnet Q4 2026); no proportionate catalyst for a fresh entry - market described as range-bound pending the upgrade and dealing with macro headwinds (rising treasury yields). Nothing here justifies a trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 0.19,
+    "pct_change_4h_48h": 0.18
+  },
+  "rsi_14_4h": 59.19,
+  "volume_ratio": 0.2,
+  "order_book_imbalance": 0.17,
+  "news_context": "Consolidating near $2,700 ahead of Glamsterdam hard fork (Sepolia Sep 28, mainnet Q4 2026); EU questioning staking regulation; no proportionate catalyst for entry."
+}
+```
+
+---
+### 2026-09-27T10:11:22.303Z — SOL/EUR — NO TRADE
+
+**Reasoning:** Momentum trigger not flagged (1h/48h +4.57%, 4h/48h +2.83%, below the 6% bar). RSI elevated at 68.3, and order book imbalance is sharply negative (-0.79, heavy resting ask-side volume vs bids) despite the recent price gain - real near-term resistance, not a confirming signal. Volume ratio 0.54x, well below the 2x confirmation threshold. News search: SOL up ~3.7% on a tokenomics governance change (SGP-0002, doubling the disinflation rate) and continued ETF inflows (~$154M) - constructive medium-term backdrop but not a proportionate catalyst for the size of move needed to justify entry now, especially against the negative order book. Passing.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 4.57,
+    "pct_change_4h_48h": 2.83
+  },
+  "rsi_14_4h": 68.29,
+  "volume_ratio": 0.54,
+  "order_book_imbalance": -0.79,
+  "news_context": "SGP-0002 tokenomics change (disinflation rate doubled), SOL ETF inflows ~$154M, but order book heavily ask-skewed right now."
+}
+```
+
+---
+### 2026-09-27T10:11:22.315Z — XRP/EUR — NO TRADE
+
+**Reasoning:** Momentum trigger not flagged and price action is actually negative (1h/48h -1.08%, 4h/48h -3.43%). Order book heavily ask-skewed (-0.79). News search explains the weakness directly: the US Senate rejected the CLARITY Act on Sep 26, 2026, causing a sharp ~10% price drop - a real negative regulatory catalyst, not noise. No basis for a long entry here.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -1.08,
+    "pct_change_4h_48h": -3.43
+  },
+  "rsi_14_4h": 52.86,
+  "order_book_imbalance": -0.79,
+  "news_context": "Senate rejected the CLARITY Act on Sep 26, 2026, causing a ~10% price drop - negative regulatory catalyst."
+}
+```
+
+---
