@@ -18418,3 +18418,151 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-09-27T11:42:22.708Z — BTC/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule, code-enforced). Momentum trigger not flagged (1h/48h +0.50%, 4h/48h +0.37%).
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 0.5,
+    "pct_change_4h_48h": 0.37
+  },
+  "rsi_14_4h": 58.6,
+  "existing_position": true
+}
+```
+
+---
+### 2026-09-27T11:42:22.721Z — SUI/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule, code-enforced), already trailing well past +1R - governed by portfolio_check_stops' trailing logic.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": true,
+    "pct_change_1h_48h": 9.83,
+    "pct_change_4h_48h": 11.04
+  },
+  "rsi_14_4h": 75.69,
+  "existing_position": true,
+  "trailing_active": true
+}
+```
+
+---
+### 2026-09-27T11:42:22.738Z — LINK/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule, code-enforced). Not yet at +1R; original hard stop and invalidation check cover it.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 2,
+    "pct_change_4h_48h": 2.64
+  },
+  "rsi_14_4h": 71.37,
+  "existing_position": true
+}
+```
+
+---
+### 2026-09-27T11:42:22.748Z — ADA/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule, code-enforced). Not yet at +1R; original hard stop and invalidation check cover it.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 0.45,
+    "pct_change_4h_48h": 1.21
+  },
+  "rsi_14_4h": 60.62,
+  "existing_position": true
+}
+```
+
+---
+### 2026-09-27T11:42:22.758Z — LTC/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule, code-enforced). Not yet at +1R; original hard stop and invalidation check cover it.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 1.73,
+    "pct_change_4h_48h": 2.44
+  },
+  "rsi_14_4h": 59.82,
+  "existing_position": true
+}
+```
+
+---
+### 2026-09-27T11:42:22.767Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/48h -0.11%, 4h/48h +0.18%). RSI neutral (59.2), volume well below average (0.20x). News search: still range-bound near $2.7K ahead of the Glamsterdam hard fork's Sepolia testnet rollout (Sep 28); EU staking-regulation review ongoing; nothing proportionate to justify a fresh entry.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -0.11,
+    "pct_change_4h_48h": 0.18
+  },
+  "rsi_14_4h": 59.19,
+  "volume_ratio": 0.2,
+  "news_context": "Range-bound near $2.7K ahead of Glamsterdam hard fork Sepolia rollout Sep 28; EU staking regulation review ongoing; no proportionate catalyst."
+}
+```
+
+---
+### 2026-09-27T11:42:22.776Z — SOL/EUR — NO TRADE
+
+**Reasoning:** Momentum trigger not flagged (1h/48h +2.81%, 4h/48h +2.83%, below 6% bar). RSI elevated at 68.3, volume ratio 0.54x unconfirmed. News search: constructive (SOL ETF inflows, tokenized-stock expansion talk, bullish network adoption metrics) but nothing proportionate to the size of move needed without momentum confirmation. Passing.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 2.81,
+    "pct_change_4h_48h": 2.83
+  },
+  "rsi_14_4h": 68.29,
+  "volume_ratio": 0.54,
+  "news_context": "SOL ETF inflows ($153.87M), Backpack tokenized-stock expansion talk, bullish adoption metrics - constructive but not proportionate without momentum confirmation."
+}
+```
+
+---
+### 2026-09-27T11:42:22.785Z — XRP/EUR — NO TRADE
+
+**Reasoning:** Momentum trigger not flagged; price action still negative (1h/48h -3.51%, 4h/48h -3.43%), the residual of the CLARITY Act Senate rejection (Sep 26) noted in prior cycles. Order book positive (+0.36) but price hasn't confirmed a reversal. No basis for a long entry.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -3.51,
+    "pct_change_4h_48h": -3.43
+  },
+  "rsi_14_4h": 52.86,
+  "order_book_imbalance": 0.36,
+  "news_context": "CLARITY Act Senate rejection (Sep 26) still weighing on price; no confirmed reversal despite improving order book."
+}
+```
+
+---
