@@ -19899,3 +19899,151 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-09-27T21:43:02.516Z — BTC/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule, code-enforced). Momentum trigger not flagged (1h/48h +0.95%, 4h/48h +0.78%).
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 0.95,
+    "pct_change_4h_48h": 0.78
+  },
+  "rsi_14_4h": 56.67,
+  "existing_position": true
+}
+```
+
+---
+### 2026-09-27T21:43:02.536Z — SUI/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule, code-enforced), already trailing well past +1R - governed by portfolio_check_stops' trailing logic. Peak refreshed this cycle (1.1354) though stop unchanged.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": true,
+    "pct_change_1h_48h": 9.41,
+    "pct_change_4h_48h": 6.34
+  },
+  "rsi_14_4h": 72.94,
+  "existing_position": true,
+  "trailing_active": true
+}
+```
+
+---
+### 2026-09-27T21:43:02.569Z — LINK/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule, code-enforced). Not yet at +1R; original hard stop and invalidation check cover it.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 2.09,
+    "pct_change_4h_48h": 1.11
+  },
+  "rsi_14_4h": 60.14,
+  "existing_position": true
+}
+```
+
+---
+### 2026-09-27T21:43:02.584Z — ADA/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule, code-enforced). Not yet at +1R; original hard stop and invalidation check cover it.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 0.67,
+    "pct_change_4h_48h": -1.27
+  },
+  "rsi_14_4h": 56.29,
+  "existing_position": true
+}
+```
+
+---
+### 2026-09-27T21:43:02.598Z — LTC/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule, code-enforced). Not yet at +1R; original hard stop and invalidation check cover it.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 0.55,
+    "pct_change_4h_48h": -2.01
+  },
+  "rsi_14_4h": 56.08,
+  "existing_position": true
+}
+```
+
+---
+### 2026-09-27T21:43:02.612Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/48h +0.22%, 4h/48h +0.03%). RSI neutral (50.9), volume well below average (0.20x). News search: notable whale/large-transaction surge (+500% week over week) but price range-bound near $2,700, no proportionate catalyst without momentum confirmation.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 0.22,
+    "pct_change_4h_48h": 0.03
+  },
+  "rsi_14_4h": 50.94,
+  "volume_ratio": 0.2,
+  "news_context": "Large ($1M+) transaction count surged ~500% week-over-week - notable but price still range-bound, no momentum confirmation."
+}
+```
+
+---
+### 2026-09-27T21:43:02.624Z — SOL/EUR — NO TRADE
+
+**Reasoning:** Momentum trigger not flagged (1h/48h +1.49%, 4h/48h +0.88%). RSI 61.8. News search: Foundation leadership hires (ex-Binance CMO, ex-Polygon exec) plus prior fundamentals - constructive but not proportionate without momentum confirmation.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 1.49,
+    "pct_change_4h_48h": 0.88
+  },
+  "rsi_14_4h": 61.85,
+  "volume_ratio": 0.54,
+  "news_context": "Solana Foundation hires ex-Binance CMO and ex-Polygon exec - constructive but no momentum confirmation."
+}
+```
+
+---
+### 2026-09-27T21:43:02.638Z — XRP/EUR — NO TRADE
+
+**Reasoning:** Momentum trigger not flagged; price action still negative (1h/48h -1.72%, 4h/48h -2.33%). Order book turned negative again (-0.28). Same news as prior cycles, no new catalyst. No basis for a long entry.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -1.72,
+    "pct_change_4h_48h": -2.33
+  },
+  "rsi_14_4h": 50.94,
+  "order_book_imbalance": -0.28,
+  "news_context": "CLARITY Act rejection overhang persists; no new catalyst, no confirmed reversal."
+}
+```
+
+---
