@@ -18714,3 +18714,151 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-09-27T13:42:37.289Z — BTC/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule, code-enforced). Momentum trigger not flagged (1h/48h +1.17%, 4h/48h +1.45%).
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 1.17,
+    "pct_change_4h_48h": 1.45
+  },
+  "rsi_14_4h": 59.77,
+  "existing_position": true
+}
+```
+
+---
+### 2026-09-27T13:42:37.310Z — SUI/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule, code-enforced), already trailing well past +1R - governed by portfolio_check_stops' trailing logic.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": true,
+    "pct_change_1h_48h": 12.38,
+    "pct_change_4h_48h": 13.49
+  },
+  "rsi_14_4h": 72.44,
+  "existing_position": true,
+  "trailing_active": true
+}
+```
+
+---
+### 2026-09-27T13:42:37.338Z — LINK/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule, code-enforced). Not yet at +1R; original hard stop and invalidation check cover it.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 1.82,
+    "pct_change_4h_48h": 3.4
+  },
+  "rsi_14_4h": 66.38,
+  "existing_position": true
+}
+```
+
+---
+### 2026-09-27T13:42:37.353Z — ADA/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule, code-enforced). Not yet at +1R; original hard stop and invalidation check cover it.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 0.57,
+    "pct_change_4h_48h": 1.19
+  },
+  "rsi_14_4h": 58.99,
+  "existing_position": true
+}
+```
+
+---
+### 2026-09-27T13:42:37.375Z — LTC/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule, code-enforced). Not yet at +1R; original hard stop and invalidation check cover it.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 2.46,
+    "pct_change_4h_48h": 2.19
+  },
+  "rsi_14_4h": 58.33,
+  "existing_position": true
+}
+```
+
+---
+### 2026-09-27T13:42:37.388Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/48h +0.61%, 4h/48h +1.00%). RSI neutral (56.5), volume well below average (0.20x). News search: whale accumulation (+260K ETH) and $690M weekly ETF inflows are constructive, but price still range-bound near $2.7K ahead of the Glamsterdam Sepolia rollout (Sep 28) - no proportionate catalyst for a fresh entry without momentum confirmation.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 0.61,
+    "pct_change_4h_48h": 1
+  },
+  "rsi_14_4h": 56.5,
+  "volume_ratio": 0.2,
+  "news_context": "Whale accumulation (+260K ETH since Sep 20), $690M weekly ETF inflows - constructive but range-bound, no proportionate catalyst without momentum confirmation."
+}
+```
+
+---
+### 2026-09-27T13:42:37.398Z — SOL/EUR — NO TRADE
+
+**Reasoning:** Momentum trigger not flagged (1h/48h +3.40%, 4h/48h +3.32%, below 6% bar). RSI elevated at 67.9, volume ratio 0.54x unconfirmed, order book flipped slightly negative (-0.07). News search: Alpenglow consensus upgrade progressing to testnet, ZetaChain migration vote - same constructive but non-proportionate backdrop as prior cycles. Passing.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 3.4,
+    "pct_change_4h_48h": 3.32
+  },
+  "rsi_14_4h": 67.92,
+  "volume_ratio": 0.54,
+  "news_context": "Alpenglow upgrade reaches testnet, ZetaChain migration vote - constructive but not proportionate without momentum confirmation."
+}
+```
+
+---
+### 2026-09-27T13:42:37.415Z — XRP/EUR — NO TRADE
+
+**Reasoning:** Momentum trigger not flagged; price action still negative (1h/48h -2.84%, 4h/48h -2.32%), still weighed down by the CLARITY Act Senate rejection (Sep 26). News search surfaced a new item this cycle - ACI Worldwide (handling ~9% of SWIFT's global payment traffic) enabled XRP as a settlement option - a genuine institutional-access development, but not proportionate to override negative price action and absent momentum confirmation. No basis for a long entry.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -2.84,
+    "pct_change_4h_48h": -2.32
+  },
+  "rsi_14_4h": 52.49,
+  "order_book_imbalance": -0.31,
+  "news_context": "ACI Worldwide (9% of SWIFT traffic) enabled XRP as settlement option - notable but not proportionate given negative price action and CLARITY Act overhang; no momentum confirmation."
+}
+```
+
+---
