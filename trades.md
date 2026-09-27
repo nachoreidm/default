@@ -20047,3 +20047,151 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-09-27T22:43:05.610Z — BTC/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule, code-enforced). Momentum trigger not flagged (1h/48h +0.81%, 4h/48h +0.78%).
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 0.81,
+    "pct_change_4h_48h": 0.78
+  },
+  "rsi_14_4h": 56.67,
+  "existing_position": true
+}
+```
+
+---
+### 2026-09-27T22:43:05.625Z — SUI/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule, code-enforced), already trailing well past +1R - governed by portfolio_check_stops' trailing logic.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": true,
+    "pct_change_1h_48h": 7.52,
+    "pct_change_4h_48h": 6.34
+  },
+  "rsi_14_4h": 72.94,
+  "existing_position": true,
+  "trailing_active": true
+}
+```
+
+---
+### 2026-09-27T22:43:05.636Z — LINK/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule, code-enforced). Not yet at +1R; original hard stop and invalidation check cover it.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 1.3,
+    "pct_change_4h_48h": 1.11
+  },
+  "rsi_14_4h": 60.14,
+  "existing_position": true
+}
+```
+
+---
+### 2026-09-27T22:43:05.646Z — ADA/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule, code-enforced). Not yet at +1R; original hard stop and invalidation check cover it.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -0.46,
+    "pct_change_4h_48h": -1.27
+  },
+  "rsi_14_4h": 56.29,
+  "existing_position": true
+}
+```
+
+---
+### 2026-09-27T22:43:05.662Z — LTC/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule, code-enforced). Not yet at +1R; original hard stop and invalidation check cover it.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -2.39,
+    "pct_change_4h_48h": -2.01
+  },
+  "rsi_14_4h": 56.08,
+  "existing_position": true
+}
+```
+
+---
+### 2026-09-27T22:43:05.674Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/48h -0.18%, 4h/48h +0.03%). RSI neutral (50.9), volume well below average (0.20x). News search: Vitalik's 2030 vision restated, price closing Q3 near $2,709 but still range-bound - no proportionate catalyst.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -0.18,
+    "pct_change_4h_48h": 0.03
+  },
+  "rsi_14_4h": 50.94,
+  "volume_ratio": 0.2,
+  "news_context": "Vitalik's 2030 roadmap restated; price closing Q3 near $2,709, still range-bound; no momentum confirmation."
+}
+```
+
+---
+### 2026-09-27T22:43:05.686Z — SOL/EUR — NO TRADE
+
+**Reasoning:** Momentum trigger not flagged (1h/48h +0.60%, 4h/48h +0.88%). RSI 61.8. News search: record SOL ETF weekly inflow ($188.21M, strongest week since launch) - genuinely strong backdrop but compute_signals' own price-action windows still haven't cleared the 6% momentum bar.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 0.6,
+    "pct_change_4h_48h": 0.88
+  },
+  "rsi_14_4h": 61.85,
+  "volume_ratio": 0.54,
+  "news_context": "Record SOL ETF weekly inflow ($188.21M) - strong backdrop but no momentum confirmation from compute_signals."
+}
+```
+
+---
+### 2026-09-27T22:43:05.697Z — XRP/EUR — NO TRADE
+
+**Reasoning:** Momentum trigger not flagged; price action still negative (1h/48h -2.86%, 4h/48h -2.33%). News search: XRP ETF inflow streak now 11 weeks ($75.59M last week) is a positive backdrop, but a low-support XRPL amendment vote (31.43% of 80% needed) and continued CLARITY Act overhang keep sentiment mixed; no confirmed price reversal.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -2.86,
+    "pct_change_4h_48h": -2.33
+  },
+  "rsi_14_4h": 50.94,
+  "order_book_imbalance": 0.14,
+  "news_context": "XRP ETF inflow streak extended to 11 weeks ($75.59M); mixed sentiment, no confirmed price reversal."
+}
+```
+
+---
