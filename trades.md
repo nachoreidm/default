@@ -16742,3 +16742,156 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-09-27T01:42:54.633Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/48h +0.08%, 4h/48h +0.52%). Volume ratio 0.20x well below average, RSI 53.8 neutral, order book mildly ask-heavy (-0.07). News unchanged: MiCA staking review, Consensys/MetaMask rebrand, Duelbits hack (unrelated), EIP-8411 propagation research, quantum-resistance planning. No qualifying entry signal. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 0.07827573367633234,
+    "pct_change_4h_48h": 0.5229801377916893
+  },
+  "rsi_14_4h": 53.76410257900955,
+  "volume_ratio": 0.19655764985560062,
+  "order_book_imbalance_top10": -0.07097030017050636,
+  "news_context": "MiCA staking regulation review; Consensys->MetaMask rebrand; Duelbits $7M hack (unrelated platform); EIP-8411 gossip-propagation research"
+}
+```
+
+---
+### 2026-09-27T01:42:54.647Z — SOL/EUR — NO TRADE
+
+**Reasoning:** Momentum trigger still not flagged (+2.79%/+3.76%, below the 6% bar). Volume ratio 0.54x below average. RSI 63.4, order book ask-heavy (-0.12). News unchanged and still structurally positive (Alpenglow Oct 2026, 12 straight weeks of SOL ETF inflows, LayerZero/Anchorage stablecoin work, OpenSea NFT integration, a network governance vote narrowly passing). No qualifying multi-signal confluence. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 2.789616427741195,
+    "pct_change_4h_48h": 3.7552291078898716
+  },
+  "rsi_14_4h": 63.3828504192255,
+  "volume_ratio": 0.5392216791348878,
+  "order_book_imbalance_top10": -0.1172139948650932,
+  "news_context": "Alpenglow consensus upgrade (Oct 2026); 12 consecutive weeks of SOL ETF inflows; LayerZero/Anchorage stablecoin interoperability; OpenSea Solana NFT integration; network governance disinflation vote narrowly passed"
+}
+```
+
+---
+### 2026-09-27T01:42:54.662Z — XRP/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (-1.61%/-0.34%). Volume ratio 0.45x well below average. RSI 50 neutral, order book ask-heavy (-0.27). News unchanged: CLARITY Act rejection/reported 10% drop, offset by ACI Worldwide's SWIFT-aligned settlement integration. No qualifying momentum/volume signal. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -1.6133317588711098,
+    "pct_change_4h_48h": -0.3431703892978428
+  },
+  "rsi_14_4h": 49.99059354122491,
+  "volume_ratio": 0.451392799485195,
+  "order_book_imbalance_top10": -0.27276749970121217,
+  "news_context": "Senate rejected CLARITY Act (2026-09-26), reported ~10% drop; ACI Worldwide SWIFT-aligned settlement integration; Ripple quantum-resistance roadmap targeting 2028"
+}
+```
+
+---
+### 2026-09-27T01:42:54.671Z — BTC/EUR — NO TRADE
+
+**Reasoning:** Existing open position - one-per-pair rule blocks a second entry. Signals for reference: momentum not flagged, RSI 55.5, volume ratio 0.16, order book near-flat (-0.02). Position -1.20% unrealized, pre-+1R, no invalidation breach this cycle.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false
+  },
+  "rsi_14_4h": 55.49059233609501,
+  "volume_ratio": 0.1601786775539716,
+  "reason": "existing_open_position"
+}
+```
+
+---
+### 2026-09-27T01:42:54.680Z — ADA/EUR — NO TRADE
+
+**Reasoning:** Existing open position - one-per-pair rule blocks a second entry. Signals for reference: momentum not flagged this cycle (+0.73%/+2.52%), RSI 57.4, volume ratio 0.50, order book bid-heavy (+0.11). Position -2.92% unrealized, pre-+1R, no invalidation breach this cycle.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 0.7287036362311403,
+    "pct_change_4h_48h": 2.5221080470536497
+  },
+  "rsi_14_4h": 57.39784792811203,
+  "volume_ratio": 0.5022731959895392,
+  "reason": "existing_open_position"
+}
+```
+
+---
+### 2026-09-27T01:42:54.689Z — LINK/EUR — NO TRADE
+
+**Reasoning:** Existing open position - one-per-pair rule blocks a second entry. Signals for reference: momentum no longer flagged this cycle (+4.79%/+5.37%, cooled below the 6% bar), volume ratio 1.09 not confirming, RSI 68.1, order book bid-heavy (+0.17). Position +0.73% unrealized, pre-+1R, no invalidation breach this cycle.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 4.785821918967877,
+    "pct_change_4h_48h": 5.374457029257294
+  },
+  "rsi_14_4h": 68.14076082403619,
+  "volume_ratio": 1.0876778999635097,
+  "reason": "existing_open_position"
+}
+```
+
+---
+### 2026-09-27T01:42:54.701Z — SUI/EUR — NO TRADE
+
+**Reasoning:** Existing open position (trailing-active) - one-per-pair rule blocks a second entry. Signals for reference: momentum still flagged (+13.46%/+14.97%), RSI 66.7, volume ratio 0.66, order book bid-heavy (+0.28). Position +19.19% unrealized, trailing stop at €0.9676 unchanged this cycle - no invalidation/trailing action per portfolio_check_stops.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": true,
+    "pct_change_1h_48h": 13.464951197870448,
+    "pct_change_4h_48h": 14.972481186117047
+  },
+  "rsi_14_4h": 66.69109695011038,
+  "volume_ratio": 0.6568662182152953,
+  "reason": "existing_open_position"
+}
+```
+
+---
+### 2026-09-27T01:42:54.710Z — LTC/EUR — NO TRADE
+
+**Reasoning:** Existing open position - one-per-pair rule blocks a second entry. Signals for reference: momentum not flagged this cycle (+0.17%/+2.48%), RSI 62.4, volume ratio 0.85, order book near-flat (-0.03). Position -0.63% unrealized, pre-+1R, no invalidation breach this cycle.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 0.17463089379266458,
+    "pct_change_4h_48h": 2.4754862562289004
+  },
+  "rsi_14_4h": 62.3960921666172,
+  "volume_ratio": 0.849839997504066,
+  "reason": "existing_open_position"
+}
+```
+
+---
