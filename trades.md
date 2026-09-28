@@ -20491,3 +20491,151 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-09-28T01:42:50.001Z — BTC/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule, code-enforced). Momentum trigger not flagged (1h/48h +0.12%, 4h/48h +0.71%).
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 0.12,
+    "pct_change_4h_48h": 0.71
+  },
+  "rsi_14_4h": 53.83,
+  "existing_position": true
+}
+```
+
+---
+### 2026-09-28T01:42:50.017Z — SUI/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule, code-enforced), already trailing well past +1R - governed by portfolio_check_stops' trailing logic.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": true,
+    "pct_change_1h_48h": 7.45,
+    "pct_change_4h_48h": 8.28
+  },
+  "rsi_14_4h": 71.45,
+  "existing_position": true,
+  "trailing_active": true
+}
+```
+
+---
+### 2026-09-28T01:42:50.031Z — LINK/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule, code-enforced). Not yet at +1R; original hard stop and invalidation check cover it.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 0.97,
+    "pct_change_4h_48h": 0.01
+  },
+  "rsi_14_4h": 58.81,
+  "existing_position": true
+}
+```
+
+---
+### 2026-09-28T01:42:50.067Z — ADA/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule, code-enforced). Not yet at +1R; original hard stop and invalidation check cover it.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -2.4,
+    "pct_change_4h_48h": -0.32
+  },
+  "rsi_14_4h": 56.16,
+  "existing_position": true
+}
+```
+
+---
+### 2026-09-28T01:42:50.078Z — LTC/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule, code-enforced). Not yet at +1R; original hard stop and invalidation check cover it.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -3.48,
+    "pct_change_4h_48h": -0.52
+  },
+  "rsi_14_4h": 56.89,
+  "existing_position": true
+}
+```
+
+---
+### 2026-09-28T01:42:50.090Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/48h -0.62%, 4h/48h +0.08%). RSI neutral (50.3), volume well below average (0.33x). News search: Glamsterdam Sepolia testnet rollout occurring today per plan - technical milestone, not a near-term price catalyst.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -0.62,
+    "pct_change_4h_48h": 0.08
+  },
+  "rsi_14_4h": 50.26,
+  "volume_ratio": 0.33,
+  "news_context": "Glamsterdam Sepolia testnet rollout today - technical milestone, no near-term price catalyst."
+}
+```
+
+---
+### 2026-09-28T01:42:50.102Z — SOL/EUR — NO TRADE
+
+**Reasoning:** Momentum trigger not flagged (1h/48h -0.29%, 4h/48h +1.19%). RSI 57.8. News search: same fundamentals (Alpenglow upgrade slated for October, network growth metrics) - constructive but no momentum confirmation.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -0.29,
+    "pct_change_4h_48h": 1.19
+  },
+  "rsi_14_4h": 57.8,
+  "volume_ratio": 0.62,
+  "news_context": "Alpenglow upgrade slated for October; continued network growth - no momentum confirmation."
+}
+```
+
+---
+### 2026-09-28T01:42:50.112Z — XRP/EUR — NO TRADE
+
+**Reasoning:** Momentum trigger not flagged; price action still negative (1h/48h -3.88%, 4h/48h -2.65%). News search: same items as prior cycles (ETF inflow streak, XRPL amendment vote) - no new catalyst, no confirmed reversal.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -3.88,
+    "pct_change_4h_48h": -2.65
+  },
+  "rsi_14_4h": 47.42,
+  "order_book_imbalance": 0.08,
+  "news_context": "ETF inflow streak continues (11 weeks); no new catalyst, no confirmed reversal."
+}
+```
+
+---
