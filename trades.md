@@ -21570,3 +21570,145 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-09-28T09:41:54.927Z — SUI/EUR — LONG — CLOSED (LIVE)
+
+- Exit price: €1.03 (real fill)
+- Exit fee (real): €1.42
+- Reason: Trailing stop-loss filled on Kraken (order OVSFRM-OS7TH-YLVP5X) - position had reached +1R, guaranteed-profit floor was in effect.
+- Realized P&L: €26.84 (0.52% of portfolio)
+- Position id: 3099c8ad-4078-461d-ab49-1baf38fa88a3
+
+---
+### 2026-09-28T09:42:46.921Z — BTC/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule) — no new entry considered.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -1.15,
+  "pct_change_4h_48h": -1.445,
+  "rsi_14_4h": 39.01,
+  "volume_ratio": 0.43
+}
+```
+
+---
+### 2026-09-28T09:42:46.940Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/4h change -1.03%/-1.66%, below 6% threshold). RSI weak (39.0), volume light (0.33x avg). News: Glamsterdam Sepolia testnet fork today, EU staking regulation review - no proportionate catalyst. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -1.034,
+  "pct_change_4h_48h": -1.663,
+  "rsi_14_4h": 39.04,
+  "volume_ratio": 0.33,
+  "news": "Glamsterdam Sepolia testnet fork today; EU staking regulation review; no proportionate catalyst"
+}
+```
+
+---
+### 2026-09-28T09:42:46.966Z — SOL/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/4h change -1.23%/-2.64%, below 6% threshold). RSI neutral (45.4), volume light (0.62x avg). News: Alpenglow upgrade rolling out but tentative on validator adoption, ETF inflows cooling sharply. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -1.234,
+  "pct_change_4h_48h": -2.638,
+  "rsi_14_4h": 45.38,
+  "volume_ratio": 0.62,
+  "news": "Alpenglow upgrade rollout tentative; SOL ETF inflows cooled sharply; no confirming price move"
+}
+```
+
+---
+### 2026-09-28T09:42:46.981Z — XRP/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger; price action negative (1h/4h change -3.81%/-4.80%). RSI weak (38.4), volume light (0.34x avg). News: ETF inflow streak extends to 11 weeks, weekly close just below 50-week EMA, but wallet-hack/theft headlines and price still declining. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -3.806,
+  "pct_change_4h_48h": -4.804,
+  "rsi_14_4h": 38.36,
+  "volume_ratio": 0.34,
+  "news": "XRP ETF inflow streak extends to 11 weeks; weekly close below 50-week EMA; D'CENT/Bitget theft headlines"
+}
+```
+
+---
+### 2026-09-28T09:42:46.998Z — ADA/EUR — NO TRADE
+
+**Reasoning:** No open position (stopped out). No momentum trigger (1h/4h change -3.55%/-5.74%, still declining), RSI weak (39.6), volume light (0.33x avg). News: Cardano Foundation treasury roundtable today, Fireblocks CNT support announced, but reported sell-side order flow overwhelming buyers and price falling below $0.25 psychological level. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -3.546,
+  "pct_change_4h_48h": -5.737,
+  "rsi_14_4h": 39.64,
+  "volume_ratio": 0.33,
+  "news": "Cardano Foundation treasury roundtable today; Fireblocks CNT support; sell-side order flow overwhelming buyers; below $0.25"
+}
+```
+
+---
+### 2026-09-28T09:42:47.013Z — LINK/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule) — no new entry considered.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -2.255,
+  "pct_change_4h_48h": -4.06,
+  "rsi_14_4h": 49.48,
+  "volume_ratio": 0.6
+}
+```
+
+---
+### 2026-09-28T09:42:47.029Z — SUI/EUR — NO TRADE
+
+**Reasoning:** Position just stopped out this cycle (real trailing-stop fill at €1.0308, +€26.84) — now eligible for a fresh entry, but current signals don't support one: no momentum trigger (1h/4h change +1.80%/0.00%, well below threshold), RSI neutral (55.2), volume light-ish (1.77x avg, below 2x confirmation). News: cautiously bullish sentiment on ecosystem growth and a recent testnet release, but no proportionate fresh breakout after the just-closed trailing stop. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": 1.801,
+  "pct_change_4h_48h": 0,
+  "rsi_14_4h": 55.2,
+  "volume_ratio": 1.77,
+  "news": "Cautiously bullish sentiment; new testnet release; GraphQL real-time subscriptions; no confirming breakout"
+}
+```
+
+---
+### 2026-09-28T09:42:47.045Z — LTC/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule) — no new entry considered.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -5.134,
+  "pct_change_4h_48h": -3.922,
+  "rsi_14_4h": 52.37,
+  "volume_ratio": 0.36
+}
+```
+
+---
