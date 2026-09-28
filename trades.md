@@ -22544,3 +22544,136 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-09-28T18:43:24.367Z — BTC/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule) — no new entry considered.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -0.124,
+  "pct_change_4h_48h": -0.617,
+  "rsi_14_4h": 45.45,
+  "volume_ratio": 0.43
+}
+```
+
+---
+### 2026-09-28T18:43:24.380Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/4h change +0.42%/-0.06%, well below 6% threshold). RSI neutral (50.3), volume light (0.33x avg). News: minor price uptick, EU staking regulation review, no proportionate catalyst. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": 0.419,
+  "pct_change_4h_48h": -0.061,
+  "rsi_14_4h": 50.26,
+  "volume_ratio": 0.33,
+  "news": "Minor price uptick; EU staking regulation review; no proportionate catalyst"
+}
+```
+
+---
+### 2026-09-28T18:43:24.389Z — SOL/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/4h change -1.05%/-1.86%, below 6% threshold). RSI neutral (47.9), volume light (0.62x avg). News: Alpenglow upgrade rollout, bullish long-term Multicoin/Bitwise commentary, SOL outran BTC recently, but no confirming price breakout this cycle. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -1.053,
+  "pct_change_4h_48h": -1.861,
+  "rsi_14_4h": 47.91,
+  "volume_ratio": 0.62,
+  "news": "Alpenglow upgrade rollout; bullish Multicoin/Bitwise commentary; SOL outran BTC recently; no confirming price move this cycle"
+}
+```
+
+---
+### 2026-09-28T18:43:24.398Z — XRP/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger; price action mildly negative (1h/4h change -0.80%/-1.76%). RSI neutral (44.8), volume light (0.34x avg). News: ETF inflow streak extends to 11 weeks, but price stuck in range, no breakout. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -0.802,
+  "pct_change_4h_48h": -1.765,
+  "rsi_14_4h": 44.85,
+  "volume_ratio": 0.34,
+  "news": "XRP ETF inflow streak extends to 11 weeks; price stuck in range"
+}
+```
+
+---
+### 2026-09-28T18:43:24.420Z — ADA/EUR — NO TRADE
+
+**Reasoning:** No open position (stopped out earlier). No momentum trigger (1h/4h change -2.41%/-3.69%, still declining), RSI weak (43.9), volume light (0.33x avg). News: Cardano Foundation treasury roundtable today, still holds cautiously bullish structure per some analysts, but price capped below $0.26 resistance. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -2.411,
+  "pct_change_4h_48h": -3.686,
+  "rsi_14_4h": 43.9,
+  "volume_ratio": 0.33,
+  "news": "Cardano Foundation treasury roundtable today; cautiously bullish structure per some analysts; capped below $0.26 resistance"
+}
+```
+
+---
+### 2026-09-28T18:43:24.430Z — LINK/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule) — no new entry considered, despite momentum_trigger flagging true again this cycle (1h/4h +6.83%/+2.30%, volume 0.60x avg). Position already open from prior cycle; check_stops handles trailing, not a new entry.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": true,
+  "pct_change_1h_48h": 6.827,
+  "pct_change_4h_48h": 2.305,
+  "rsi_14_4h": 64.36,
+  "volume_ratio": 0.6
+}
+```
+
+---
+### 2026-09-28T18:43:24.438Z — SUI/EUR — NO TRADE
+
+**Reasoning:** No open position. No momentum trigger (1h/4h change +0.97%/-0.70%, well below threshold). RSI neutral (50.9), volume light-ish (1.77x avg, below 2x confirmation). News: cautiously bullish sentiment, elevated 24h volume, but no proportionate fresh breakout. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": 0.973,
+  "pct_change_4h_48h": -0.696,
+  "rsi_14_4h": 50.91,
+  "volume_ratio": 1.77,
+  "news": "Cautiously bullish sentiment; elevated 24h volume; no confirming breakout"
+}
+```
+
+---
+### 2026-09-28T18:43:24.448Z — LTC/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule) — no new entry considered.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -3.236,
+  "pct_change_4h_48h": -2.282,
+  "rsi_14_4h": 51.43,
+  "volume_ratio": 0.36
+}
+```
+
+---
