@@ -21855,3 +21855,137 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-09-28T12:44:12.849Z — BTC/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule) — no new entry considered.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -1.081,
+  "pct_change_4h_48h": -1.189,
+  "rsi_14_4h": 41.19,
+  "volume_ratio": 0.43
+}
+```
+
+---
+### 2026-09-28T12:44:12.868Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/4h change -0.65%/-0.80%, below 6% threshold). RSI neutral (47.1), volume light (0.33x avg). News: ETH ETF 4 consecutive inflow sessions, but shorts elevated, and price stuck below $2,750-2,800 resistance. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -0.653,
+  "pct_change_4h_48h": -0.8,
+  "rsi_14_4h": 47.1,
+  "volume_ratio": 0.33,
+  "news": "ETH ETF 4 consecutive inflow sessions; shorts elevated; resistance at $2,750-2,800 unbroken"
+}
+```
+
+---
+### 2026-09-28T12:44:12.889Z — SOL/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/4h change -1.89%/-2.55%, below 6% threshold). RSI neutral (47.6), volume light (0.62x avg). News: Alpenglow upgrade rollout tentative, treasury accumulation continuing, but SOL ETF inflows cooled sharply. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -1.89,
+  "pct_change_4h_48h": -2.55,
+  "rsi_14_4h": 47.57,
+  "volume_ratio": 0.62,
+  "news": "Alpenglow upgrade rollout tentative; DFDV/DeFi Development Corp SOL treasury growth; ETF inflows cooled sharply"
+}
+```
+
+---
+### 2026-09-28T12:44:12.906Z — XRP/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger; price action negative (1h/4h change -3.16%/-3.73%). RSI neutral (44.2), volume light (0.34x avg). News: ETF inflow streak extends to 11 weeks and positive derivatives funding, but wallet-hack/theft headlines and price still declining today. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -3.16,
+  "pct_change_4h_48h": -3.731,
+  "rsi_14_4h": 44.23,
+  "volume_ratio": 0.34,
+  "news": "XRP ETF inflow streak extends to 11 weeks; positive derivatives funding; D'CENT/Bitget theft headlines; price down 2.4% today"
+}
+```
+
+---
+### 2026-09-28T12:44:12.924Z — ADA/EUR — NO TRADE
+
+**Reasoning:** No open position (stopped out prior cycle). No momentum trigger (1h/4h change -3.75%/-5.43%, still declining), RSI neutral (44.9), volume light (0.33x avg). News: Cardano Foundation treasury roundtable today, Hoskinson Midnight commentary, but price capped below $0.26 resistance and options activity dropping sharply. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -3.753,
+  "pct_change_4h_48h": -5.434,
+  "rsi_14_4h": 44.85,
+  "volume_ratio": 0.33,
+  "news": "Cardano Foundation treasury roundtable today; Hoskinson Midnight commentary; capped below $0.26 resistance"
+}
+```
+
+---
+### 2026-09-28T12:44:12.939Z — LINK/EUR — NO TRADE
+
+**Reasoning:** No open position (closed via invalidation check prior cycle). No momentum trigger (1h/4h change -0.90%/-1.15%, well below threshold), RSI neutral-firm (58.2), volume light (0.60x avg). News: Chainlink at Sibos 2026 with new Dawn Internet/Predict.fun integrations, bullish institutional narrative, but no confirming price breakout. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -0.897,
+  "pct_change_4h_48h": -1.145,
+  "rsi_14_4h": 58.2,
+  "volume_ratio": 0.6,
+  "news": "Chainlink at Sibos 2026; Dawn Internet/Predict.fun integrations; bullish institutional narrative; no confirming price move"
+}
+```
+
+---
+### 2026-09-28T12:44:12.955Z — SUI/EUR — NO TRADE
+
+**Reasoning:** No open position (trailing stop closed 2 cycles ago). No momentum trigger (1h/4h change +1.36%/+0.27%, well below threshold). RSI neutral (56.3), volume light-ish (1.77x avg, below 2x confirmation). News: cautiously bullish sentiment, Protocol 137 testnet release, elevated 24h volume, but no proportionate fresh breakout. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": 1.362,
+  "pct_change_4h_48h": 0.269,
+  "rsi_14_4h": 56.25,
+  "volume_ratio": 1.77,
+  "news": "Cautiously bullish sentiment; Protocol 137 testnet release; elevated 24h volume; no confirming breakout"
+}
+```
+
+---
+### 2026-09-28T12:44:12.967Z — LTC/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule) — no new entry considered.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -2.032,
+  "pct_change_4h_48h": -2.246,
+  "rsi_14_4h": 56.33,
+  "volume_ratio": 0.36
+}
+```
+
+---
