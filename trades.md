@@ -21989,3 +21989,137 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-09-28T14:42:56.920Z — BTC/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule) — no new entry considered.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -0.279,
+  "pct_change_4h_48h": -1.189,
+  "rsi_14_4h": 41.19,
+  "volume_ratio": 0.43
+}
+```
+
+---
+### 2026-09-28T14:42:56.935Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/4h change +0.29%/-0.80%, below 6% threshold). RSI neutral (47.1), volume light (0.33x avg). News: ETH ETF 4 consecutive inflow sessions but shorts elevated, price stuck below $2,750-2,800 resistance. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": 0.288,
+  "pct_change_4h_48h": -0.8,
+  "rsi_14_4h": 47.1,
+  "volume_ratio": 0.33,
+  "news": "ETH ETF 4 consecutive inflow sessions; shorts elevated; resistance at $2,750-2,800 unbroken"
+}
+```
+
+---
+### 2026-09-28T14:42:56.945Z — SOL/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/4h change -0.72%/-2.55%, below 6% threshold). RSI neutral (47.6), volume light (0.62x avg). News: Alpenglow upgrade rollout ongoing, bullish long-term Multicoin commentary, but SOL ETF inflows cooled sharply and no confirming price move. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -0.716,
+  "pct_change_4h_48h": -2.55,
+  "rsi_14_4h": 47.57,
+  "volume_ratio": 0.62,
+  "news": "Alpenglow upgrade rollout ongoing; bullish Multicoin commentary; ETF inflows cooled sharply"
+}
+```
+
+---
+### 2026-09-28T14:42:56.955Z — XRP/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger; price action negative (1h/4h change -1.41%/-3.73%). RSI neutral (44.2), volume light (0.34x avg). News: ETF inflow streak extends to 11 weeks, but wallet-hack/theft headlines persist and price stuck below 50-week EMA. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -1.407,
+  "pct_change_4h_48h": -3.731,
+  "rsi_14_4h": 44.23,
+  "volume_ratio": 0.34,
+  "news": "XRP ETF inflow streak extends to 11 weeks; D'CENT/Bitget theft headlines; price below 50-week EMA"
+}
+```
+
+---
+### 2026-09-28T14:42:56.976Z — ADA/EUR — NO TRADE
+
+**Reasoning:** No open position (stopped out). No momentum trigger (1h/4h change -2.91%/-5.43%, still declining), RSI neutral (44.9), volume light (0.33x avg). News: Cardano Foundation treasury roundtable today, Fireblocks CNT support catalyst, but price capped below $0.26 resistance and momentum dead-flat per analyst commentary. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -2.907,
+  "pct_change_4h_48h": -5.434,
+  "rsi_14_4h": 44.85,
+  "volume_ratio": 0.33,
+  "news": "Cardano Foundation treasury roundtable today; Fireblocks CNT support; capped below $0.26 resistance"
+}
+```
+
+---
+### 2026-09-28T14:42:56.985Z — LINK/EUR — NO TRADE
+
+**Reasoning:** No open position (closed via invalidation check earlier). News shows a real CCIP 2.0 launch and a reported ~5.75% 1h USD spike from short liquidations, but our own EUR signal data over the 48h window does not confirm a momentum trigger (1h/4h change +2.81%/-1.15%, below the 6% threshold) - the reported spike appears to be a very short intraday move not yet reflected in the 48h window basis this tool uses. RSI firm (58.2), volume light (0.60x avg). Trusting the tool's own signal computation over the news-reported short-term figure; no trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": 2.808,
+  "pct_change_4h_48h": -1.145,
+  "rsi_14_4h": 58.2,
+  "volume_ratio": 0.6,
+  "news": "Chainlink launched CCIP 2.0; reported ~5.75% 1h USD spike from short squeeze; Sibos 2026 conference; new integrations"
+}
+```
+
+---
+### 2026-09-28T14:42:56.994Z — SUI/EUR — NO TRADE
+
+**Reasoning:** No open position (trailing stop closed earlier). No momentum trigger (1h/4h change +0.69%/+0.27%, well below threshold). RSI neutral (56.3), volume light-ish (1.77x avg, below 2x confirmation). News: cautiously bullish sentiment, Sui Basecamp 2026 upcoming Oct 7-8, but no proportionate fresh breakout. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": 0.687,
+  "pct_change_4h_48h": 0.269,
+  "rsi_14_4h": 56.25,
+  "volume_ratio": 1.77,
+  "news": "Cautiously bullish sentiment; Sui Basecamp 2026 upcoming Oct 7-8; no confirming breakout"
+}
+```
+
+---
+### 2026-09-28T14:42:57.003Z — LTC/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule) — no new entry considered.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -3.311,
+  "pct_change_4h_48h": -2.246,
+  "rsi_14_4h": 56.33,
+  "volume_ratio": 0.36
+}
+```
+
+---
