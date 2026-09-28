@@ -20343,3 +20343,151 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-09-28T00:43:08.473Z — BTC/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule, code-enforced). Momentum trigger not flagged (1h/48h +0.77%, 4h/48h +0.71%).
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 0.77,
+    "pct_change_4h_48h": 0.71
+  },
+  "rsi_14_4h": 53.83,
+  "existing_position": true
+}
+```
+
+---
+### 2026-09-28T00:43:08.497Z — SUI/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule, code-enforced), already trailing well past +1R - governed by portfolio_check_stops' trailing logic. Stop just raised to €1.0155 this cycle.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": true,
+    "pct_change_1h_48h": 7.3,
+    "pct_change_4h_48h": 8.28
+  },
+  "rsi_14_4h": 71.45,
+  "existing_position": true,
+  "trailing_active": true
+}
+```
+
+---
+### 2026-09-28T00:43:08.515Z — LINK/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule, code-enforced). Not yet at +1R; original hard stop and invalidation check cover it.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -0.19,
+    "pct_change_4h_48h": 0.01
+  },
+  "rsi_14_4h": 58.81,
+  "existing_position": true
+}
+```
+
+---
+### 2026-09-28T00:43:08.550Z — ADA/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule, code-enforced). Not yet at +1R; original hard stop and invalidation check cover it.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -0.66,
+    "pct_change_4h_48h": -0.32
+  },
+  "rsi_14_4h": 56.16,
+  "existing_position": true
+}
+```
+
+---
+### 2026-09-28T00:43:08.572Z — LTC/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule, code-enforced). Not yet at +1R; original hard stop and invalidation check cover it.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -1.46,
+    "pct_change_4h_48h": -0.52
+  },
+  "rsi_14_4h": 56.89,
+  "existing_position": true
+}
+```
+
+---
+### 2026-09-28T00:43:08.589Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/48h +0.11%, 4h/48h +0.08%). RSI neutral (50.3), volume well below average (0.33x). News search: Glamsterdam Sepolia testnet rollout occurring today per plan, otherwise no new material development - no proportionate catalyst.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 0.11,
+    "pct_change_4h_48h": 0.08
+  },
+  "rsi_14_4h": 50.26,
+  "volume_ratio": 0.33,
+  "news_context": "Glamsterdam Sepolia testnet rollout on schedule for today; no new near-term catalyst, price range-bound."
+}
+```
+
+---
+### 2026-09-28T00:43:08.606Z — SOL/EUR — NO TRADE
+
+**Reasoning:** Momentum trigger not flagged (1h/48h +0.48%, 4h/48h +1.19%). RSI 57.8. News search: same fundamentals as prior cycles (Alpenglow consensus upgrade scheduled for October, continued network adoption metrics) - constructive but no momentum confirmation.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 0.48,
+    "pct_change_4h_48h": 1.19
+  },
+  "rsi_14_4h": 57.8,
+  "volume_ratio": 0.62,
+  "news_context": "Alpenglow consensus upgrade scheduled for October; continued adoption metrics - no momentum confirmation."
+}
+```
+
+---
+### 2026-09-28T00:43:08.623Z — XRP/EUR — NO TRADE
+
+**Reasoning:** Momentum trigger not flagged; price action still negative (1h/48h -2.94%, 4h/48h -2.65%). News search: RLUSD expansion via Wormhole NTT and DC presence expansion are minor positive items, but not proportionate; still no confirmed reversal from the CLARITY Act-driven weakness.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -2.94,
+    "pct_change_4h_48h": -2.65
+  },
+  "rsi_14_4h": 47.42,
+  "order_book_imbalance": -0.01,
+  "news_context": "RLUSD expansion via Wormhole NTT; minor positive but no confirmed price reversal."
+}
+```
+
+---
