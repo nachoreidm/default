@@ -23220,3 +23220,139 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-09-28T23:42:18.658Z — BTC/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule). No momentum trigger; RSI neutral 45.5, bearish SMA crossover this candle, negative order book skew.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -0.97,
+  "pct_change_4h_48h": -1.09,
+  "rsi_14_4h": 45.48,
+  "sma_state": "fast_below_slow",
+  "existing_position": true
+}
+```
+
+---
+### 2026-09-28T23:42:18.675Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger, volume unconfirmed (0.33x avg), bearish SMA crossover this candle. News: resistance test at $2,800 stalling, Bitget hack-linked selling pressure via cross-chain swaps. No bullish catalyst.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -0.23,
+  "pct_change_4h_48h": -0.67,
+  "rsi_14_4h": 48.98,
+  "volume_ratio": 0.33,
+  "sma_state": "fast_below_slow",
+  "news": "$2,800 resistance stall, Bitget hack-linked cross-chain selling"
+}
+```
+
+---
+### 2026-09-28T23:42:18.693Z — SOL/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger, volume unconfirmed (0.62x avg), negative 48h price action (-2.22%/-2.4%) despite Alpenglow rollout and record ETF inflow news - 48h momentum window not met.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -2.22,
+  "pct_change_4h_48h": -2.4,
+  "rsi_14_4h": 46.76,
+  "volume_ratio": 0.62,
+  "news": "Alpenglow consensus upgrade rollout, record $188.21M weekly SOL ETF inflows"
+}
+```
+
+---
+### 2026-09-28T23:42:18.704Z — XRP/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger, negative 48h price action (-2.15%/-2.74%), volume unconfirmed (0.34x avg). News mixed: wallet-hack fallout offset by continued ETF inflow demand, nothing decisive.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -2.15,
+  "pct_change_4h_48h": -2.74,
+  "rsi_14_4h": 42.54,
+  "volume_ratio": 0.34,
+  "news": "D'CENT wallet hack fallout, XRP ETF inflow streak continues"
+}
+```
+
+---
+### 2026-09-28T23:42:18.715Z — ADA/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger, negative recent price action (-3.26%/-4.11%) despite bullish weekly structure, volume unconfirmed (0.33x avg). News: Cardano Foundation treasury roundtable today and FC Barcelona partnership notable but not a proportionate price catalyst.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -3.26,
+  "pct_change_4h_48h": -4.11,
+  "rsi_14_4h": 42.39,
+  "volume_ratio": 0.33,
+  "news": "Cardano Foundation treasury roundtable, FC Barcelona Fan Lab partnership"
+}
+```
+
+---
+### 2026-09-28T23:42:18.725Z — LINK/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule) - momentum_trigger flagged again (+7.85%/+6.83%) but rejected as a new entry since the pair is already held.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": true,
+  "pct_change_1h_48h": 7.85,
+  "pct_change_4h_48h": 6.83,
+  "rsi_14_4h": 72.16,
+  "existing_position": true
+}
+```
+
+---
+### 2026-09-28T23:42:18.742Z — SUI/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger on the 48h window (flattened to -0.16%/-1.46%), volume 1.77x avg but no directional signal. News shows continued volume growth but no fresh proportionate catalyst; passing.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -0.16,
+  "pct_change_4h_48h": -1.46,
+  "rsi_14_4h": 50.29,
+  "volume_ratio": 1.77,
+  "news": "continued volume growth (+28.8% 24h), no new catalyst"
+}
+```
+
+---
+### 2026-09-28T23:42:18.761Z — LTC/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule). No momentum trigger; negative price action (-4.67%/-4.86%), volume unconfirmed (0.36x avg).
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -4.67,
+  "pct_change_4h_48h": -4.86,
+  "rsi_14_4h": 46.95,
+  "volume_ratio": 0.36,
+  "existing_position": true
+}
+```
+
+---
