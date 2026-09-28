@@ -20639,3 +20639,134 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-09-28T02:44:10.751Z — BTC/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule) — no new entry considered.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -0.349,
+  "pct_change_4h_48h": 0.706,
+  "rsi_14_4h": 53.83,
+  "volume_ratio": 0.43
+}
+```
+
+---
+### 2026-09-28T02:44:10.765Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/4h change -1.23%/+0.08%, well below 6% threshold). RSI neutral (50.3), volume light (0.33x avg). News: Glamsterdam upgrade testnet fork today, EU staking regulation review, no catalyst proportionate to a new entry. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -1.225,
+  "pct_change_4h_48h": 0.083,
+  "rsi_14_4h": 50.26,
+  "volume_ratio": 0.33,
+  "news": "Glamsterdam upgrade Sepolia testnet fork today; EU staking regulation review; no proportionate catalyst"
+}
+```
+
+---
+### 2026-09-28T02:44:10.782Z — SOL/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/4h change -0.70%/+1.19%, below 6% threshold). RSI neutral-firm (57.8), volume light (0.62x avg). News: Alpenglow consensus upgrade rolling out today, generally bullish network narrative, but no price move to confirm — momentum threshold not cleared. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -0.703,
+  "pct_change_4h_48h": 1.19,
+  "rsi_14_4h": 57.8,
+  "volume_ratio": 0.62,
+  "news": "Alpenglow consensus upgrade rollout today; bullish ETF/adoption flows; no confirming price move"
+}
+```
+
+---
+### 2026-09-28T02:44:10.791Z — XRP/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger; price action actually negative (1h/4h change -3.58%/-2.65%). RSI neutral (47.4), volume light (0.34x avg), order book near-flat. News: ETF inflow streak and RLUSD growth positive longer-term, but current price action is declining, not breaking out. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -3.585,
+  "pct_change_4h_48h": -2.648,
+  "rsi_14_4h": 47.42,
+  "volume_ratio": 0.34,
+  "news": "XRP ETF inflow streak extends to 11 weeks; RLUSD market cap >$2.32B; price action currently declining"
+}
+```
+
+---
+### 2026-09-28T02:44:10.799Z — ADA/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule) — no new entry considered.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -1.944,
+  "pct_change_4h_48h": -0.315,
+  "rsi_14_4h": 56.16,
+  "volume_ratio": 0.33
+}
+```
+
+---
+### 2026-09-28T02:44:10.808Z — LINK/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule) — no new entry considered.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": 0.225,
+  "pct_change_4h_48h": 0.013,
+  "rsi_14_4h": 58.81,
+  "volume_ratio": 0.6
+}
+```
+
+---
+### 2026-09-28T02:44:10.817Z — SUI/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule) — no new entry considered, despite momentum_trigger flagging true this cycle (1h/4h +7.75%/+8.28%, volume 1.77x avg). Handled via existing position's trailing stop, not a new entry.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": true,
+  "pct_change_1h_48h": 7.749,
+  "pct_change_4h_48h": 8.281,
+  "rsi_14_4h": 71.45,
+  "volume_ratio": 1.77
+}
+```
+
+---
+### 2026-09-28T02:44:10.827Z — LTC/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule) — no new entry considered.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -3.352,
+  "pct_change_4h_48h": -0.524,
+  "rsi_14_4h": 56.89,
+  "volume_ratio": 0.36
+}
+```
+
+---
