@@ -21306,3 +21306,135 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-09-28T07:43:08.060Z — BTC/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule) — no new entry considered.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -1.002,
+  "pct_change_4h_48h": -0.863,
+  "rsi_14_4h": 41.91,
+  "volume_ratio": 0.43
+}
+```
+
+---
+### 2026-09-28T07:43:08.079Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/4h change -1.41%/-1.41%, below 6% threshold). RSI softening (40.5), volume light (0.33x avg). News: Glamsterdam Sepolia testnet fork days out, EU staking regulation review ongoing - no proportionate catalyst. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -1.411,
+  "pct_change_4h_48h": -1.409,
+  "rsi_14_4h": 40.49,
+  "volume_ratio": 0.33,
+  "news": "Glamsterdam Sepolia testnet fork days out; EU staking regulation review; no proportionate catalyst"
+}
+```
+
+---
+### 2026-09-28T07:43:08.104Z — SOL/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/4h change -1.54%/-0.69%, below 6% threshold). RSI neutral (50.4), volume light (0.62x avg). News: Alpenglow consensus upgrade rolling out today, bullish sentiment on 60/90-day gains, but no confirming near-term price breakout. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -1.538,
+  "pct_change_4h_48h": -0.689,
+  "rsi_14_4h": 50.41,
+  "volume_ratio": 0.62,
+  "news": "Alpenglow consensus upgrade rollout today; bullish 60/90-day sentiment; no confirming near-term move"
+}
+```
+
+---
+### 2026-09-28T07:43:08.118Z — XRP/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger; price action negative (1h/4h change -4.55%/-3.86%). RSI softening (42.0), volume light (0.34x avg). News: ETF inflow streak extends to 11 weeks, but wallet-hack/theft headlines and heavy recent selling; price still declining. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -4.55,
+  "pct_change_4h_48h": -3.859,
+  "rsi_14_4h": 41.99,
+  "volume_ratio": 0.34,
+  "news": "XRP ETF inflow streak extends to 11 weeks; D'CENT wallet hack/Bitget theft headlines; price declining"
+}
+```
+
+---
+### 2026-09-28T07:43:08.130Z — ADA/EUR — NO TRADE
+
+**Reasoning:** No open position (stopped out). No momentum trigger (1h/4h change -4.24%/-2.21%, accelerating declines), RSI neutral (48.6), volume light (0.33x avg), order book increasingly negative (-0.38). News: Cardano Foundation treasury roundtable/board election results today, generally constructive longer-term, but price action deteriorating, not confirming. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -4.236,
+  "pct_change_4h_48h": -2.205,
+  "rsi_14_4h": 48.57,
+  "volume_ratio": 0.33,
+  "news": "Cardano Foundation treasury roundtable/board election results today; price action deteriorating"
+}
+```
+
+---
+### 2026-09-28T07:43:08.144Z — LINK/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule) — no new entry considered.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -1.746,
+  "pct_change_4h_48h": -1.057,
+  "rsi_14_4h": 55.23,
+  "volume_ratio": 0.6
+}
+```
+
+---
+### 2026-09-28T07:43:08.158Z — SUI/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule) — no new entry considered, despite momentum_trigger flagging true this cycle (1h/4h +3.31%/+6.21%, volume 1.77x avg). Handled via existing position's trailing stop, not a new entry.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": true,
+  "pct_change_1h_48h": 3.312,
+  "pct_change_4h_48h": 6.213,
+  "rsi_14_4h": 65.07,
+  "volume_ratio": 1.77
+}
+```
+
+---
+### 2026-09-28T07:43:08.171Z — LTC/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule) — no new entry considered.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -3.692,
+  "pct_change_4h_48h": -3.954,
+  "rsi_14_4h": 54.57,
+  "volume_ratio": 0.36
+}
+```
+
+---
