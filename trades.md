@@ -21712,3 +21712,146 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-09-28T11:42:25.769Z — LINK/EUR — LONG — CLOSED (LIVE)
+
+- Exit price: €12.39 (real fill)
+- Exit fee (real): €1.61
+- Reason: Invalidation close: still-profitable pre-+1R position, but the stated technical invalidation broke - most recent closed 4h candle (12.01915) closed below the 20-period 4h SMA (12.2992825) this trade's thesis depended on. Closed early rather than risk a round-trip back to the hard stop.
+- Realized P&L: €-0.03 (-0.00% of portfolio)
+- Position id: 82303d21-e0ea-4ea8-9758-11855212b61e
+
+---
+### 2026-09-28T11:43:23.336Z — BTC/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule) — no new entry considered.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -1.37,
+  "pct_change_4h_48h": -1.445,
+  "rsi_14_4h": 39.01,
+  "volume_ratio": 0.43
+}
+```
+
+---
+### 2026-09-28T11:43:23.351Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/4h change -1.13%/-1.66%, below 6% threshold). RSI weak (39.0), volume light (0.33x avg). News: ETF inflow streak (4 consecutive sessions) but heavy shorts building and 1h chart flagged bearish - no proportionate breakout. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -1.134,
+  "pct_change_4h_48h": -1.663,
+  "rsi_14_4h": 39.04,
+  "volume_ratio": 0.33,
+  "news": "ETH ETF 4 consecutive inflow sessions; Bitfinex shorts elevated; 1h chart flagged bearish"
+}
+```
+
+---
+### 2026-09-28T11:43:23.375Z — SOL/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/4h change -2.22%/-2.64%, below 6% threshold). RSI neutral (45.4), volume light (0.62x avg). News: Alpenglow upgrade rollout tentative on validator adoption, SOL ETF inflows cooled sharply. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -2.215,
+  "pct_change_4h_48h": -2.638,
+  "rsi_14_4h": 45.38,
+  "volume_ratio": 0.62,
+  "news": "Alpenglow upgrade rollout tentative; SOL ETF inflows cooled sharply; no confirming price move"
+}
+```
+
+---
+### 2026-09-28T11:43:23.386Z — XRP/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger; price action negative (1h/4h change -3.58%/-4.80%). RSI weak (38.4), volume light (0.34x avg). News: ETF inflow streak extends to 11 weeks, but wallet-hack/theft headlines and upcoming 1B XRP escrow unlock Oct 1 add supply overhang; price still declining. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -3.581,
+  "pct_change_4h_48h": -4.804,
+  "rsi_14_4h": 38.36,
+  "volume_ratio": 0.34,
+  "news": "XRP ETF inflow streak extends to 11 weeks; 1B XRP escrow unlock Oct 1; D'CENT/Bitget theft headlines"
+}
+```
+
+---
+### 2026-09-28T11:43:23.397Z — ADA/EUR — NO TRADE
+
+**Reasoning:** No open position (stopped out prior cycle). No momentum trigger (1h/4h change -4.45%/-5.74%, still declining), RSI weak (39.6), volume light (0.33x avg). News: Cardano Foundation treasury roundtable today, Catalyst governance shift, FC Barcelona partnership, but technical outlook cautious per analyst commentary and price capped below $0.26 resistance. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -4.455,
+  "pct_change_4h_48h": -5.737,
+  "rsi_14_4h": 39.64,
+  "volume_ratio": 0.33,
+  "news": "Cardano Foundation treasury roundtable today; Catalyst governance shift; FC Barcelona partnership; capped below $0.26 resistance"
+}
+```
+
+---
+### 2026-09-28T11:43:23.410Z — LINK/EUR — NO TRADE
+
+**Reasoning:** Position just closed this cycle via the invalidation check (thesis broke, 4h close below 20-SMA; P&L essentially flat at -€0.03) — now eligible for a fresh entry, but current signals don't support one: no momentum trigger (1h/4h change -2.33%/-4.06%, still declining), RSI neutral (49.5), volume light (0.60x avg). News: Chainlink at Sibos 2026 (Sept 28-Oct 1) with new integrations (Dawn Internet, Predict.fun) and bullish institutional narrative, but no confirming price breakout - re-entering immediately after an invalidation close on the same pair would be chasing. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -2.328,
+  "pct_change_4h_48h": -4.06,
+  "rsi_14_4h": 49.48,
+  "volume_ratio": 0.6,
+  "news": "Chainlink at Sibos 2026; new Dawn Internet/Predict.fun integrations; bullish institutional narrative; no confirming price move"
+}
+```
+
+---
+### 2026-09-28T11:43:23.421Z — SUI/EUR — NO TRADE
+
+**Reasoning:** No open position (trailing stop closed prior cycle). No momentum trigger (1h/4h change -0.76%/0.00%, well below threshold). RSI neutral (55.2), volume light-ish (1.77x avg, below 2x confirmation). News: cautiously bullish sentiment, new testnet release, but no proportionate fresh breakout. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -0.763,
+  "pct_change_4h_48h": 0,
+  "rsi_14_4h": 55.2,
+  "volume_ratio": 1.77,
+  "news": "Cautiously bullish sentiment; new testnet release; no confirming breakout"
+}
+```
+
+---
+### 2026-09-28T11:43:23.435Z — LTC/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule) — no new entry considered.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -2.444,
+  "pct_change_4h_48h": -3.922,
+  "rsi_14_4h": 52.37,
+  "volume_ratio": 0.36
+}
+```
+
+---
