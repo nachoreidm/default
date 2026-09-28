@@ -22948,3 +22948,139 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-09-28T21:42:27.564Z — BTC/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule). No momentum trigger; RSI neutral 45.5, bearish SMA crossover this candle.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -0.63,
+  "pct_change_4h_48h": -1.09,
+  "rsi_14_4h": 45.48,
+  "sma_state": "fast_below_slow",
+  "existing_position": true
+}
+```
+
+---
+### 2026-09-28T21:42:27.599Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger, volume unconfirmed (0.33x avg), bearish SMA crossover this candle. News: broad market pullback after Trump comments on potential Iran strikes; positioning is heavily one-sided long (73.8% of Binance accounts), a crowded-long risk, not a fresh bullish catalyst.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -0.01,
+  "pct_change_4h_48h": -0.67,
+  "rsi_14_4h": 48.98,
+  "volume_ratio": 0.33,
+  "sma_state": "fast_below_slow",
+  "news": "geopolitical risk-off pullback, crowded long positioning (73.8% long)"
+}
+```
+
+---
+### 2026-09-28T21:42:27.613Z — SOL/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger, volume unconfirmed (0.62x avg), negative 48h price action (-1.97%/-2.4%) despite strong recent weekly/monthly gains and Alpenglow upgrade/ETF inflow news - the news is genuinely positive but the qualifying 48h momentum window isn't met.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -1.97,
+  "pct_change_4h_48h": -2.4,
+  "rsi_14_4h": 46.76,
+  "volume_ratio": 0.62,
+  "news": "Alpenglow consensus upgrade milestone, record SOL ETF inflows"
+}
+```
+
+---
+### 2026-09-28T21:42:27.629Z — XRP/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger, negative 48h price action (-1.87%/-2.74%), volume unconfirmed (0.34x avg). News mixed: ongoing wallet-hack fallout and range-bound outlook offset by ETF inflow streak - nothing decisive for a new long.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -1.87,
+  "pct_change_4h_48h": -2.74,
+  "rsi_14_4h": 42.54,
+  "volume_ratio": 0.34,
+  "news": "D'CENT wallet hack fallout, XRP ETF inflow streak, range-bound $1.30-$1.60"
+}
+```
+
+---
+### 2026-09-28T21:42:27.643Z — ADA/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger, negative recent price action (-2.57%/-4.11%) despite bullish weekly structure, volume unconfirmed (0.33x avg). News: Cardano Foundation treasury roundtable today and a Barcelona FC partnership are notable but not a proportionate price catalyst for a new momentum entry.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -2.57,
+  "pct_change_4h_48h": -4.11,
+  "rsi_14_4h": 42.39,
+  "volume_ratio": 0.33,
+  "news": "Cardano Foundation treasury roundtable, FC Barcelona Fan Lab partnership"
+}
+```
+
+---
+### 2026-09-28T21:42:27.659Z — LINK/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule) - momentum_trigger flagged again (+9.40%/+6.83%) but rejected as a new entry since the pair is already held.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": true,
+  "pct_change_1h_48h": 9.4,
+  "pct_change_4h_48h": 6.83,
+  "rsi_14_4h": 72.16,
+  "existing_position": true
+}
+```
+
+---
+### 2026-09-28T21:42:27.671Z — SUI/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger on the 48h window despite volume 1.77x avg. News conflicting this cycle - some sources show continued strength, one flags a sharp intraday reversal (-3.2% in 1h, -6.98% 24h). No clean directional signal; passing.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": 0.69,
+  "pct_change_4h_48h": -1.46,
+  "rsi_14_4h": 50.29,
+  "volume_ratio": 1.77,
+  "news": "mixed - some sources bullish continuation, one flags a sharp intraday reversal"
+}
+```
+
+---
+### 2026-09-28T21:42:27.692Z — LTC/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule). No momentum trigger; negative price action (-3.87%/-4.86%), volume unconfirmed (0.36x avg).
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -3.87,
+  "pct_change_4h_48h": -4.86,
+  "rsi_14_4h": 46.95,
+  "volume_ratio": 0.36,
+  "existing_position": true
+}
+```
+
+---
