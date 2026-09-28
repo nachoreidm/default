@@ -20901,3 +20901,144 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-09-28T04:42:17.950Z — ADA/EUR — LONG — CLOSED (LIVE)
+
+- Exit price: €0.22 (real fill)
+- Exit fee (real): €1.53
+- Reason: Stop-loss filled on Kraken (order OVNHWO-ENTW2-UHM4I5).
+- Realized P&L: €-10.67 (-0.21% of portfolio)
+- Position id: 605bff0c-5903-41d8-b4d0-6574fbfee4f3
+
+---
+### 2026-09-28T04:43:10.312Z — BTC/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule) — no new entry considered.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -0.738,
+  "pct_change_4h_48h": -0.863,
+  "rsi_14_4h": 41.91,
+  "volume_ratio": 0.43
+}
+```
+
+---
+### 2026-09-28T04:43:10.326Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/4h change -1.39%/-1.41%, below 6% threshold, price action negative). RSI softening (40.5), volume light (0.33x avg). News: EU staking regulation review ongoing, ETF flows in focus but no confirmed catalyst. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -1.389,
+  "pct_change_4h_48h": -1.409,
+  "rsi_14_4h": 40.49,
+  "volume_ratio": 0.33,
+  "news": "EU staking regulation review; ETF net flows in focus; no confirmed catalyst"
+}
+```
+
+---
+### 2026-09-28T04:43:10.348Z — SOL/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/4h change -0.65%/-0.69%, below 6% threshold). RSI neutral (50.4), volume light (0.62x avg). News: Alpenglow consensus upgrade rolling out today, bullish adoption/ETF flows, but no confirming price breakout. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -0.651,
+  "pct_change_4h_48h": -0.689,
+  "rsi_14_4h": 50.41,
+  "volume_ratio": 0.62,
+  "news": "Alpenglow consensus upgrade rollout today; bullish ETF/adoption flows; no confirming price move"
+}
+```
+
+---
+### 2026-09-28T04:43:10.361Z — XRP/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger; price action negative (1h/4h change -4.14%/-3.86%). RSI softening (42.0), volume light (0.34x avg). News: ETF inflow streak extends to 11 weeks, but current price action is declining, not breaking out. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -4.135,
+  "pct_change_4h_48h": -3.859,
+  "rsi_14_4h": 41.99,
+  "volume_ratio": 0.34,
+  "news": "XRP ETF inflow streak extends to 11 weeks; price action currently declining"
+}
+```
+
+---
+### 2026-09-28T04:43:10.373Z — ADA/EUR — NO TRADE
+
+**Reasoning:** Position just stopped out this cycle (real fill at €0.216954, -€10.67) — now eligible for a fresh entry, but current signals don't support one: no momentum trigger (1h/4h change -2.43%/-2.21%, price still declining post-stop), RSI neutral (48.6), volume light (0.33x avg). News: Cardano Foundation treasury roundtable and board election results today, FC Barcelona Fan Lab partnership - positive longer-term but no proportionate price-confirming move right now, and re-entering immediately after a stop-out on the same declining trend would be chasing, not confirming. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -2.43,
+  "pct_change_4h_48h": -2.205,
+  "rsi_14_4h": 48.57,
+  "volume_ratio": 0.33,
+  "news": "Cardano Foundation treasury roundtable/board election results today; FC Barcelona Fan Lab partnership; price still declining post-stop-out"
+}
+```
+
+---
+### 2026-09-28T04:43:10.383Z — LINK/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule) — no new entry considered.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -1.818,
+  "pct_change_4h_48h": -1.057,
+  "rsi_14_4h": 55.23,
+  "volume_ratio": 0.6
+}
+```
+
+---
+### 2026-09-28T04:43:10.393Z — SUI/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule) — no new entry considered, despite momentum_trigger flagging true this cycle (1h/4h +5.97%/+6.21%, volume 1.77x avg). Handled via existing position's trailing stop, not a new entry.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": true,
+  "pct_change_1h_48h": 5.974,
+  "pct_change_4h_48h": 6.213,
+  "rsi_14_4h": 65.07,
+  "volume_ratio": 1.77
+}
+```
+
+---
+### 2026-09-28T04:43:10.403Z — LTC/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule) — no new entry considered.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -2.063,
+  "pct_change_4h_48h": -3.954,
+  "rsi_14_4h": 54.57,
+  "volume_ratio": 0.36
+}
+```
+
+---
