@@ -22391,3 +22391,156 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-09-28T17:43:19.473Z — LINK/EUR — LONG — OPENED (LIVE)
+
+- Entry price: €13.40 (real fill, Kraken order OTRQPR-WZIXN-RKEWZW)
+- Stop-loss: €12.30 (real resting order O4KCPG-QPDJT-PNJMY3)
+- Take-profit target: €15.59 (2:1 risk/reward, polled - not a resting order, see checkStops)
+- Position size: 4% of portfolio (€199.55, qty 14.89581769)
+- Entry fee (real): €1.20
+- Confidence: medium — momentum_trigger is clearly flagged (1h/48h +6.56%, above the 6% bar; 4h/48h +2.30%, a genuine multi-window move). Volume ratio 0.60x does not confirm (well below the 2x threshold), so this is classified momentum_only and capped at medium regardless. The news backdrop is unusually concrete and multi-sourced for this size of move: Chainlink launched CCIP 2.0 (institutional-grade cross-chain security upgrade) live today, LINK touched its 2026 high (~$14.89) with reported whale accumulation as small holders cash out, Chainlink is presenting at SWIFT's Sibos 2026 conference (Sept 28-Oct 1, Miami) across three institutional sessions, the network treasury now holds over $87M LINK reducing circulating supply, and Standard Chartered reiterated a $200-by-2030 price target already ahead of schedule. RSI at 64.4 is elevated but well short of overbought (70), SMA state is a clean established uptrend (fast well above slow), and order book is positive (+0.23). Sizing at 4% (below the 5% medium cap) given volume remains unconfirmed, matching the conservative pattern used for prior momentum_only entries on this pair and others (ADA, LTC).
+- Momentum-only trigger: yes
+- Invalidation: Thesis invalidated on a 4h close below the rising 20-period 4h SMA (currently ~12.37) - that line is the trend structure this entry depends on, and it's also the level portfolio_check_stops will trail beneath once the position is profitable.
+- Signals supporting this trade:
+```json
+{
+  "momentum_trigger": {
+    "flagged": true,
+    "pct_change_1h_48h": 6.561867333571522,
+    "pct_change_4h_48h": 2.304805887133214
+  },
+  "rsi_14_4h": 64.360791481396,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "fast_value": 12.3706,
+    "slow_value": 11.6618262
+  },
+  "volume": {
+    "ratio": 0.5974581479104064,
+    "flag_above_2x": false
+  },
+  "order_book_imbalance_top10": 0.226633402968411,
+  "current_price": 13.38491,
+  "news_context": "Chainlink launched CCIP 2.0 (institutional cross-chain security upgrade) live today; LINK touched its 2026 high (~$14.89) amid reported whale accumulation as small holders cash out; Chainlink presenting at SWIFT's Sibos 2026 conference (Sept 28-Oct 1, Miami); network treasury holds over $87M LINK; Standard Chartered reiterated $200-by-2030 price target, already ahead of schedule."
+}
+```
+- Position id: 47071fe2-d37b-48fb-873a-78353817b59d
+
+---
+### 2026-09-28T17:43:37.722Z — BTC/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule) — no new entry considered.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -0.425,
+  "pct_change_4h_48h": -0.617,
+  "rsi_14_4h": 45.45,
+  "volume_ratio": 0.43
+}
+```
+
+---
+### 2026-09-28T17:43:37.736Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/4h change -0.05%/-0.06%, well below 6% threshold). RSI neutral (50.3), volume light (0.33x avg). News: minor price uptick, EU staking regulation review, no proportionate catalyst. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -0.049,
+  "pct_change_4h_48h": -0.061,
+  "rsi_14_4h": 50.26,
+  "volume_ratio": 0.33,
+  "news": "Minor price uptick; EU staking regulation review; no proportionate catalyst"
+}
+```
+
+---
+### 2026-09-28T17:43:37.746Z — SOL/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/4h change -1.77%/-1.86%, below 6% threshold). RSI neutral (47.9), volume light (0.62x avg). News: Alpenglow upgrade rollout ongoing, Solana Foundation 200ms slot-time report, but no confirming price move. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -1.771,
+  "pct_change_4h_48h": -1.861,
+  "rsi_14_4h": 47.91,
+  "volume_ratio": 0.62,
+  "news": "Alpenglow upgrade rollout ongoing; Solana Foundation 200ms slot-time report; no confirming price move"
+}
+```
+
+---
+### 2026-09-28T17:43:37.755Z — XRP/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger; price action negative (1h/4h change -2.28%/-1.76%). RSI neutral (44.8), volume light (0.34x avg). News: ETF inflow streak extends to 11 weeks, bulls reportedly gaining ground, but price still below 50-week EMA. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -2.28,
+  "pct_change_4h_48h": -1.765,
+  "rsi_14_4h": 44.85,
+  "volume_ratio": 0.34,
+  "news": "XRP ETF inflow streak extends to 11 weeks; bulls reportedly gaining ground; price below 50-week EMA"
+}
+```
+
+---
+### 2026-09-28T17:43:37.772Z — ADA/EUR — NO TRADE
+
+**Reasoning:** No open position (stopped out earlier). No momentum trigger (1h/4h change -3.86%/-3.69%, still declining), RSI weak (43.9), volume light (0.33x avg). News: Cardano Foundation treasury roundtable today, still holds bullish EMA structure per some analysts, but price down ~5% over 24h. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -3.864,
+  "pct_change_4h_48h": -3.686,
+  "rsi_14_4h": 43.9,
+  "volume_ratio": 0.33,
+  "news": "Cardano Foundation treasury roundtable today; bullish EMA structure per some analysts; price down ~5% 24h"
+}
+```
+
+---
+### 2026-09-28T17:43:37.781Z — SUI/EUR — NO TRADE
+
+**Reasoning:** No open position. No momentum trigger (1h/4h change -1.20%/-0.70%, well below threshold). RSI neutral (50.9), volume light-ish (1.77x avg, below 2x confirmation). News: cautiously bullish sentiment, elevated 24h volume, but no proportionate fresh breakout. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -1.199,
+  "pct_change_4h_48h": -0.696,
+  "rsi_14_4h": 50.91,
+  "volume_ratio": 1.77,
+  "news": "Cautiously bullish sentiment; elevated 24h volume; no confirming breakout"
+}
+```
+
+---
+### 2026-09-28T17:43:37.791Z — LTC/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule) — no new entry considered.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -3.59,
+  "pct_change_4h_48h": -2.282,
+  "rsi_14_4h": 51.43,
+  "volume_ratio": 0.36
+}
+```
+
+---

@@ -87,6 +87,49 @@
       "status": "open",
       "entry_order_txid": "OY6P3D-LEW5B-6QF4TK",
       "stop_order_txid": "O4ZG5J-EXJFD-GUEQVN"
+    },
+    {
+      "id": "47071fe2-d37b-48fb-873a-78353817b59d",
+      "pair": "LINK/EUR",
+      "direction": "long",
+      "entry_price": 13.3964,
+      "stop_loss": 12.3,
+      "initial_stop_loss": 12.3,
+      "take_profit": 15.589199999999998,
+      "trailing_active": false,
+      "peak_price": 13.3964,
+      "size_pct": 4,
+      "size_eur": 199.55301344088002,
+      "quantity": 14.89581769,
+      "entry_fee": 1.197303,
+      "opened_at": "2026-09-28T17:43:19.473Z",
+      "signals_at_entry": {
+        "momentum_trigger": {
+          "flagged": true,
+          "pct_change_1h_48h": 6.561867333571522,
+          "pct_change_4h_48h": 2.304805887133214
+        },
+        "rsi_14_4h": 64.360791481396,
+        "sma_crossover_4h": {
+          "state": "fast_above_slow",
+          "fast_value": 12.3706,
+          "slow_value": 11.6618262
+        },
+        "volume": {
+          "ratio": 0.5974581479104064,
+          "flag_above_2x": false
+        },
+        "order_book_imbalance_top10": 0.226633402968411,
+        "current_price": 13.38491,
+        "news_context": "Chainlink launched CCIP 2.0 (institutional cross-chain security upgrade) live today; LINK touched its 2026 high (~$14.89) amid reported whale accumulation as small holders cash out; Chainlink presenting at SWIFT's Sibos 2026 conference (Sept 28-Oct 1, Miami); network treasury holds over $87M LINK; Standard Chartered reiterated $200-by-2030 price target, already ahead of schedule."
+      },
+      "invalidation": "Thesis invalidated on a 4h close below the rising 20-period 4h SMA (currently ~12.37) - that line is the trend structure this entry depends on, and it's also the level portfolio_check_stops will trail beneath once the position is profitable.",
+      "confidence": "medium",
+      "confidence_reason": "momentum_trigger is clearly flagged (1h/48h +6.56%, above the 6% bar; 4h/48h +2.30%, a genuine multi-window move). Volume ratio 0.60x does not confirm (well below the 2x threshold), so this is classified momentum_only and capped at medium regardless. The news backdrop is unusually concrete and multi-sourced for this size of move: Chainlink launched CCIP 2.0 (institutional-grade cross-chain security upgrade) live today, LINK touched its 2026 high (~$14.89) with reported whale accumulation as small holders cash out, Chainlink is presenting at SWIFT's Sibos 2026 conference (Sept 28-Oct 1, Miami) across three institutional sessions, the network treasury now holds over $87M LINK reducing circulating supply, and Standard Chartered reiterated a $200-by-2030 price target already ahead of schedule. RSI at 64.4 is elevated but well short of overbought (70), SMA state is a clean established uptrend (fast well above slow), and order book is positive (+0.23). Sizing at 4% (below the 5% medium cap) given volume remains unconfirmed, matching the conservative pattern used for prior momentum_only entries on this pair and others (ADA, LTC).",
+      "momentum_only": true,
+      "status": "open",
+      "entry_order_txid": "OTRQPR-WZIXN-RKEWZW",
+      "stop_order_txid": "O4KCPG-QPDJT-PNJMY3"
     }
   ],
   "closed_positions": [
@@ -364,5 +407,5 @@
     }
   ],
   "created_at": "2026-09-22T14:26:40.467Z",
-  "updated_at": "2026-09-28T11:42:26.428Z"
+  "updated_at": "2026-09-28T17:43:19.473Z"
 }
