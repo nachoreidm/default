@@ -23084,3 +23084,139 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-09-28T22:42:26.947Z — BTC/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule). No momentum trigger; RSI neutral 45.5, bearish SMA crossover this candle, negative order book skew.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -1.13,
+  "pct_change_4h_48h": -1.09,
+  "rsi_14_4h": 45.48,
+  "sma_state": "fast_below_slow",
+  "existing_position": true
+}
+```
+
+---
+### 2026-09-28T22:42:26.970Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger, volume unconfirmed (0.33x avg), bearish SMA crossover this candle. News: consolidating below $2,700-2,800 resistance; Bitget withdrawal restart creates cross-chain selling pressure risk. No clean bullish catalyst.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -0.4,
+  "pct_change_4h_48h": -0.67,
+  "rsi_14_4h": 48.98,
+  "volume_ratio": 0.33,
+  "sma_state": "fast_below_slow",
+  "news": "resistance test at $2,700-2,800, Bitget withdrawal restart selling-pressure risk"
+}
+```
+
+---
+### 2026-09-28T22:42:27.023Z — SOL/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger, volume unconfirmed (0.62x avg), negative 48h price action (-2.72%/-2.4%) despite Alpenglow upgrade rollout and record ETF inflow news - 48h momentum window not met.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -2.72,
+  "pct_change_4h_48h": -2.4,
+  "rsi_14_4h": 46.76,
+  "volume_ratio": 0.62,
+  "news": "Alpenglow consensus upgrade rollout, record $188M weekly SOL ETF inflows"
+}
+```
+
+---
+### 2026-09-28T22:42:27.039Z — XRP/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger, negative 48h price action (-2.28%/-2.74%), volume unconfirmed (0.34x avg). News: ongoing wallet-hack fallout and range-bound outlook, ETF inflow streak continues but nothing decisive.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -2.28,
+  "pct_change_4h_48h": -2.74,
+  "rsi_14_4h": 42.54,
+  "volume_ratio": 0.34,
+  "news": "D'CENT wallet hack fallout, XRP ETF inflow streak, range-bound $1.30-$1.60"
+}
+```
+
+---
+### 2026-09-28T22:42:27.054Z — ADA/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger, negative recent price action (-3.23%/-4.11%) despite bullish weekly structure, volume unconfirmed (0.33x avg). News: Cardano Foundation treasury roundtable today and FC Barcelona partnership notable but not a proportionate price catalyst.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -3.23,
+  "pct_change_4h_48h": -4.11,
+  "rsi_14_4h": 42.39,
+  "volume_ratio": 0.33,
+  "news": "Cardano Foundation treasury roundtable, FC Barcelona Fan Lab partnership"
+}
+```
+
+---
+### 2026-09-28T22:42:27.065Z — LINK/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule) - momentum_trigger flagged again (+7.67%/+6.83%) but rejected as a new entry since the pair is already held.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": true,
+  "pct_change_1h_48h": 7.67,
+  "pct_change_4h_48h": 6.83,
+  "rsi_14_4h": 72.16,
+  "existing_position": true
+}
+```
+
+---
+### 2026-09-28T22:42:27.079Z — SUI/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger on the 48h window despite volume 1.77x avg; price action now slightly negative (-0.63%/-1.46%) after last cycle's mixed signals. News mostly ecosystem/dev-focused (Overflow hackathon results, tZERO tokenized-securities integration), nothing proportionate to a new entry.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -0.63,
+  "pct_change_4h_48h": -1.46,
+  "rsi_14_4h": 50.29,
+  "volume_ratio": 1.77,
+  "news": "Sui Overflow hackathon results, tZERO tokenized-securities integration"
+}
+```
+
+---
+### 2026-09-28T22:42:27.092Z — LTC/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule). No momentum trigger; negative price action (-4.31%/-4.86%), volume unconfirmed (0.36x avg).
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -4.31,
+  "pct_change_4h_48h": -4.86,
+  "rsi_14_4h": 46.95,
+  "volume_ratio": 0.36,
+  "existing_position": true
+}
+```
+
+---
