@@ -22810,3 +22810,141 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-09-28T20:45:03.089Z — BTC/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule). No momentum trigger; RSI neutral 45.5, bearish SMA crossover this candle, slight negative order-book skew.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -0.61,
+  "pct_change_4h_48h": -1.09,
+  "rsi_14_4h": 45.48,
+  "sma_state": "fast_below_slow",
+  "existing_position": true
+}
+```
+
+---
+### 2026-09-28T20:45:03.100Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/4h moves well under 6% threshold), volume unconfirmed (0.33x avg), bearish SMA crossover this candle. News: price consolidating near $2,650-2,700 after a strong 3-month run, MACD momentum fading, no fresh catalyst proportionate to a new entry.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": 0.04,
+  "pct_change_4h_48h": -0.67,
+  "rsi_14_4h": 48.98,
+  "volume_ratio": 0.33,
+  "sma_state": "fast_below_slow",
+  "news": "consolidation near resistance, fading MACD momentum, no near-term catalyst"
+}
+```
+
+---
+### 2026-09-28T20:45:03.113Z — SOL/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger, volume unconfirmed (0.62x avg). News flags a major Alpenglow consensus upgrade rollout, but it's a network/tech event not a directional price catalyst, and price action this 48h window is actually negative (-1.5%/-2.4%). Passing.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -1.52,
+  "pct_change_4h_48h": -2.4,
+  "rsi_14_4h": 46.76,
+  "volume_ratio": 0.62,
+  "sma_state": "fast_above_slow",
+  "news": "Alpenglow consensus upgrade rollout (technical, not a price catalyst)"
+}
+```
+
+---
+### 2026-09-28T20:45:03.121Z — XRP/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger, negative price action (-1.78%/-2.74%), volume unconfirmed (0.34x avg). News shows a wallet-hack/stolen-funds headline weighing on sentiment plus range-bound technical outlook - nothing supporting a new long here.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -1.78,
+  "pct_change_4h_48h": -2.74,
+  "rsi_14_4h": 42.54,
+  "volume_ratio": 0.34,
+  "news": "D'CENT wallet hack / Bitget theft headline, range-bound $1.30-$1.60 outlook"
+}
+```
+
+---
+### 2026-09-28T20:45:03.128Z — ADA/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger, negative recent price action (-2.6%/-4.1%) despite bullish weekly structure, volume unconfirmed (0.33x avg). News notes a Cardano Foundation roundtable on treasury funding today - governance event, not a trading catalyst. Passing.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -2.6,
+  "pct_change_4h_48h": -4.11,
+  "rsi_14_4h": 42.39,
+  "volume_ratio": 0.33,
+  "news": "Cardano Foundation treasury-fund roundtable today (governance, not price catalyst)"
+}
+```
+
+---
+### 2026-09-28T20:45:03.135Z — LINK/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule) - momentum_trigger flagged again (+8.27%/+6.83%) but rejected as a new entry since the pair is already held.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": true,
+  "pct_change_1h_48h": 8.27,
+  "pct_change_4h_48h": 6.83,
+  "rsi_14_4h": 72.16,
+  "existing_position": true
+}
+```
+
+---
+### 2026-09-28T20:45:03.141Z — SUI/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger on the 48h window despite volume 1.77x avg and strong recent daily gains (+9.28% on 9/28 alone per news, testnet Protocol 137 release). Order book heavily bid-skewed (+0.59) which is constructive, but the qualifying 48h momentum threshold isn't met and no proportionate new catalyst beyond routine testnet news. Passing this cycle, will re-check next.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": 0.42,
+  "pct_change_4h_48h": -1.46,
+  "rsi_14_4h": 50.29,
+  "volume_ratio": 1.77,
+  "order_book_imbalance": 0.59,
+  "news": "Protocol 137 testnet release, short liquidations, +9.28% intraday move"
+}
+```
+
+---
+### 2026-09-28T20:45:03.147Z — LTC/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule). No momentum trigger; negative price action (-3.33%/-4.86%), volume unconfirmed (0.36x avg).
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -3.33,
+  "pct_change_4h_48h": -4.86,
+  "rsi_14_4h": 46.95,
+  "volume_ratio": 0.36,
+  "existing_position": true
+}
+```
+
+---

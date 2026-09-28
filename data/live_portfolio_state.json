@@ -97,7 +97,7 @@
       "initial_stop_loss": 12.3,
       "take_profit": 15.589199999999998,
       "trailing_active": false,
-      "peak_price": 13.48325,
+      "peak_price": 13.51113,
       "size_pct": 4,
       "size_eur": 199.55301344088002,
       "quantity": 14.89581769,
@@ -407,5 +407,5 @@
     }
   ],
   "created_at": "2026-09-22T14:26:40.467Z",
-  "updated_at": "2026-09-28T18:42:16.621Z"
+  "updated_at": "2026-09-28T20:44:05.321Z"
 }
