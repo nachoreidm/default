@@ -25415,3 +25415,154 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-09-29T15:44:02.663Z — BTC/EUR — NO TRADE
+
+**Reasoning:** Existing open position (entry €74,971, stop €71,800) - one-position-per-pair rule blocks a new entry. No momentum trigger anyway (1h -0.47%, 4h +0.15%).
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -0.4699,
+  "pct_change_4h_48h": 0.1475,
+  "rsi_14_4h": 56.95,
+  "volume_ratio": 0.84,
+  "sma_state": "fast_below_slow",
+  "order_book_imbalance": 0.113
+}
+```
+
+---
+### 2026-09-29T15:44:02.684Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h +1.17%, 4h +1.90%). News shows a DeFi exploit (GIWA phishing, unrelated to ETH protocol itself) and continued institutional accumulation (Bitmine), but derivatives sentiment has turned slightly negative and signals don't independently qualify (SMA fast still below slow, volume below average). Passing.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": 1.1725,
+  "pct_change_4h_48h": 1.9005,
+  "rsi_14_4h": 61.99,
+  "volume_ratio": 0.657,
+  "sma_state": "fast_below_slow",
+  "order_book_imbalance": 0.0179,
+  "news": "DeFi exploit unrelated to ETH core, Bitmine institutional accumulation continues, derivatives sentiment turning slightly negative"
+}
+```
+
+---
+### 2026-09-29T15:44:02.692Z — SOL/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h -0.87%, 4h -1.04%). News shows record ETF inflows and a network-usage surge, but live 48h price action is flat/negative and volume is below average - not a qualifying setup this cycle. Passing.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -0.8697,
+  "pct_change_4h_48h": -1.0381,
+  "rsi_14_4h": 53.88,
+  "volume_ratio": 0.865,
+  "sma_state": "fast_above_slow",
+  "order_book_imbalance": 0.43,
+  "news": "record SOL ETF inflows and record daily active users - bullish backdrop but flat/negative near-term price action, no momentum trigger"
+}
+```
+
+---
+### 2026-09-29T15:44:02.699Z — XRP/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h +2.31%, 4h +0.31%). News shows RLUSD multichain expansion via Wormhole NTT and continued regulatory clarity, but SMA fast still below slow and price action modest. Passing.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": 2.3129,
+  "pct_change_4h_48h": 0.307,
+  "rsi_14_4h": 52.23,
+  "volume_ratio": 0.743,
+  "sma_state": "fast_below_slow",
+  "order_book_imbalance": 0.374,
+  "news": "RLUSD expanding via Wormhole NTT, continued regulatory clarity - no proportionate near-term catalyst, no momentum trigger"
+}
+```
+
+---
+### 2026-09-29T15:44:02.707Z — ADA/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h -0.41%, 4h +0.10%). News mentions a UCLA partnership, Indianchain milestone, and an upcoming RealFi mainnet launch (Oct 1), but current signal price action is flat and doesn't independently qualify. Passing.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -0.4074,
+  "pct_change_4h_48h": 0.1048,
+  "rsi_14_4h": 55.81,
+  "volume_ratio": 1.114,
+  "sma_state": "fast_above_slow",
+  "order_book_imbalance": 0.606,
+  "news": "UCLA partnership, Indianchain milestone, upcoming RealFi mainnet launch - positive backdrop but flat live price action, no momentum trigger"
+}
+```
+
+---
+### 2026-09-29T15:44:02.714Z — LINK/EUR — NO TRADE
+
+**Reasoning:** Existing open position (entry €13.3964, stop €12.30) - one-position-per-pair rule blocks a new entry. Momentum trigger IS flagged again this cycle (1h +7.45%, 4h +9.16%, volume 2.45x confirming) but already held.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": true,
+  "pct_change_1h_48h": 7.4495,
+  "pct_change_4h_48h": 9.1635,
+  "rsi_14_4h": 68.09,
+  "volume_ratio": 2.45,
+  "flag_above_2x": true,
+  "sma_state": "fast_above_slow",
+  "order_book_imbalance": 0.056
+}
+```
+
+---
+### 2026-09-29T15:44:02.720Z — SUI/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger - price action negative this window (1h -5.66%, 4h -4.46%), a pullback. News cites a $1.17 price up 14.6% over 7 days, inconsistent with the live compute_signals 48h negative price action and with the current €1.0082 quote - not a reliable catalyst either way. Passing.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -5.6562,
+  "pct_change_4h_48h": -4.4606,
+  "rsi_14_4h": 54.77,
+  "volume_ratio": 0.865,
+  "sma_state": "fast_above_slow",
+  "order_book_imbalance": -0.422,
+  "news": "news cites a 7-day +14.6% rally inconsistent with live negative 48h price action - not a reliable catalyst"
+}
+```
+
+---
+### 2026-09-29T15:44:02.727Z — LTC/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h -3.39%, 4h -2.66%), a pullback. News cites LTC at $68.61 (7-day +13.8%), inconsistent with the live €59.66 quote and negative 48h price action from compute_signals - not a reliable catalyst. Also notes Coinbase Wrapped Litecoin (cbLTC) launch on Solana, a structural development not an immediate price catalyst. Passing.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -3.3925,
+  "pct_change_4h_48h": -2.6564,
+  "rsi_14_4h": 48.65,
+  "volume_ratio": 0.916,
+  "sma_state": "fast_above_slow",
+  "order_book_imbalance": 0.152,
+  "news": "news price figure inconsistent with live quote; cbLTC wrapped-token launch on Solana is structural, not an immediate catalyst; no momentum trigger"
+}
+```
+
+---
