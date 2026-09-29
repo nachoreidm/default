@@ -26472,3 +26472,154 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-09-29T22:42:54.903Z — BTC/EUR — NO TRADE
+
+**Reasoning:** Existing open position (entry €74,971, stop €71,800) - one-position-per-pair rule blocks new entry. No momentum trigger; signals near-flat (1h -0.55%, 4h -0.70%).
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -0.5543,
+  "pct_change_4h_48h": -0.6991,
+  "rsi_14_4h": 50.22,
+  "volume_ratio": 0.84,
+  "sma_state": "fast_below_slow",
+  "order_book_imbalance": 0.0209
+}
+```
+
+---
+### 2026-09-29T22:42:54.918Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger, roughly flat (1h +0.40%, 4h +0.41%). News: Hegotá fork roadmap coverage continues; EU regulators flagging longer-term quantum risk with a 2029 migration target - not a near-term catalyst. Passing.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": 0.4031,
+  "pct_change_4h_48h": 0.4103,
+  "rsi_14_4h": 52.23,
+  "volume_ratio": 0.657,
+  "sma_state": "fast_below_slow",
+  "order_book_imbalance": -0.0217,
+  "news": "Hegotá fork roadmap continues; EU quantum-risk warning with 2029 target - not a near-term catalyst"
+}
+```
+
+---
+### 2026-09-29T22:42:54.928Z — SOL/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h -1.85%, 4h -2.29%, still a mild pullback). News shows continued record ETF inflows and mainnet upgrade progress, but price action negative here - long-only strategy doesn't qualify. Passing.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -1.8548,
+  "pct_change_4h_48h": -2.2861,
+  "rsi_14_4h": 49.56,
+  "volume_ratio": 0.865,
+  "sma_state": "fast_above_slow",
+  "order_book_imbalance": 0.2487,
+  "news": "record ETF inflows continue, mainnet upgrade progress - bullish backdrop but negative near-term price action"
+}
+```
+
+---
+### 2026-09-29T22:42:54.938Z — XRP/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h -0.59%, 4h -1.15%). News shows whale accumulation (470M XRP in 5 days) and continued ETF inflow streak - a genuinely constructive backdrop, but signals remain modestly negative and don't independently qualify (SMA fast below slow). Passing.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -0.587,
+  "pct_change_4h_48h": -1.1461,
+  "rsi_14_4h": 46.56,
+  "volume_ratio": 0.743,
+  "sma_state": "fast_below_slow",
+  "order_book_imbalance": 0.1032,
+  "news": "whale accumulation (470M XRP/5 days), continued ETF inflow streak - constructive but signals don't independently qualify"
+}
+```
+
+---
+### 2026-09-29T22:42:54.956Z — ADA/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger, negative price action here (1h -3.05%, 4h -4.36%) despite news citing a same-day +3.7% gain from UCLA/Indianchain/RealFi catalysts - inconsistent with the live compute_signals 48h window (recurring discrepancy pattern), not acted on.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -3.0518,
+  "pct_change_4h_48h": -4.361,
+  "rsi_14_4h": 44.96,
+  "volume_ratio": 1.114,
+  "sma_state": "fast_above_slow",
+  "order_book_imbalance": -0.5677,
+  "news": "news cites a same-day +3.7% gain from concrete catalysts, inconsistent with live negative 48h price action - not acted on"
+}
+```
+
+---
+### 2026-09-29T22:42:54.965Z — LINK/EUR — NO TRADE
+
+**Reasoning:** Existing open position (entry €13.3964, stop €12.30) - one-position-per-pair rule blocks new entry. Momentum trigger not flagged this cycle (1h +5.62%, 4h +4.87%, both below 6% threshold), volume still elevated (2.45x).
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": 5.6156,
+  "pct_change_4h_48h": 4.8712,
+  "rsi_14_4h": 55.89,
+  "volume_ratio": 2.45,
+  "flag_above_2x": true,
+  "sma_state": "fast_above_slow",
+  "order_book_imbalance": 0.3606
+}
+```
+
+---
+### 2026-09-29T22:42:54.974Z — SUI/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger - price action sharply negative (1h -7.90%, 4h -9.00%), continuing the multi-cycle pullback. News confirms a -4% slip in the last 24h consistent with the negative signals, alongside continued institutional infrastructure progress (Securitize, CME futures). Passing.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -7.9026,
+  "pct_change_4h_48h": -8.9984,
+  "rsi_14_4h": 50.17,
+  "volume_ratio": 0.865,
+  "sma_state": "fast_above_slow",
+  "order_book_imbalance": 0.1634,
+  "news": "confirmed -4% 24h slip consistent with negative signals; institutional infrastructure progress continues but not an entry catalyst"
+}
+```
+
+---
+### 2026-09-29T22:42:54.983Z — LTC/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger, negative price action (1h -4.95%, 4h -5.28%). News surfaces a genuine negative catalyst this cycle: South Korean exchanges reportedly delisting LTC over MWEB privacy-feature regulatory compliance issues - consistent with the negative price action here, reinforcing the no-trade decision (not a reason to short, just confirms no long entry). Passing.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -4.9494,
+  "pct_change_4h_48h": -5.2833,
+  "rsi_14_4h": 42.4,
+  "volume_ratio": 0.916,
+  "sma_state": "fast_above_slow",
+  "order_book_imbalance": 0.2198,
+  "news": "South Korean exchanges reportedly delisting LTC over MWEB regulatory compliance issues - genuine negative catalyst consistent with price action"
+}
+```
+
+---
