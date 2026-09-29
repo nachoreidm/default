@@ -24453,3 +24453,139 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-09-29T08:42:46.972Z — BTC/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule). No momentum trigger; RSI improved to 53.6, but SMA fast still below slow.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -0.66,
+  "pct_change_4h_48h": -0.81,
+  "rsi_14_4h": 53.64,
+  "sma_state": "fast_below_slow",
+  "existing_position": true
+}
+```
+
+---
+### 2026-09-29T08:42:46.994Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger, volume unconfirmed (0.66x avg), SMA fast still below slow. News: BitMine treasury milestone and elevated whale activity, but no move large enough to qualify and still testing $2,800 resistance.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": 0.2,
+  "pct_change_4h_48h": 0.34,
+  "rsi_14_4h": 58.16,
+  "volume_ratio": 0.66,
+  "sma_state": "fast_below_slow",
+  "news": "BitMine crosses 6M ETH treasury milestone, testing $2,800 resistance"
+}
+```
+
+---
+### 2026-09-29T08:42:47.025Z — SOL/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger, volume unconfirmed (0.86x avg), negative 48h price action (-3.47%/-3.32%). News: record ETF inflows but one source flags a rejection at $125 - not enough for a qualifying entry.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -3.47,
+  "pct_change_4h_48h": -3.32,
+  "rsi_14_4h": 51.83,
+  "volume_ratio": 0.86,
+  "news": "rejection at $125, record SOL ETF inflows"
+}
+```
+
+---
+### 2026-09-29T08:42:47.038Z — XRP/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger, negative 48h price action (-1.53%/-1.70%), volume unconfirmed (0.74x avg), fresh bearish SMA crossover this candle. News sentiment leaning bearish (43/100), nothing decisive.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -1.53,
+  "pct_change_4h_48h": -1.7,
+  "rsi_14_4h": 49.91,
+  "volume_ratio": 0.74,
+  "sma_state": "fast_below_slow_crossed_bearish",
+  "news": "bearish news sentiment score 43/100"
+}
+```
+
+---
+### 2026-09-29T08:42:47.054Z — ADA/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger, negative 48h price action (-1.36%/-1.60%) despite a +3.44% intraday move per news, volume roughly in line (1.11x). News: Amaru Node release tomorrow notable but not a proportionate catalyst.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -1.36,
+  "pct_change_4h_48h": -1.6,
+  "rsi_14_4h": 54.07,
+  "volume_ratio": 1.11,
+  "news": "Amaru Node General Release scheduled Sept 30, +3.44% intraday per news"
+}
+```
+
+---
+### 2026-09-29T08:42:47.069Z — LINK/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule) - momentum_trigger flagged again with volume confirmation (+6.29%/+6.69%, volume 2.45x avg) - but rejected as a new entry since the pair is already held.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": true,
+  "pct_change_1h_48h": 6.29,
+  "pct_change_4h_48h": 6.69,
+  "rsi_14_4h": 66.5,
+  "volume_ratio": 2.45,
+  "existing_position": true
+}
+```
+
+---
+### 2026-09-29T08:42:47.083Z — SUI/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (a sharp decline, not a qualifying upward move); 1h/48h down -8.61%, 4h/48h down -7.37% - a real pullback continuing. News is inconsistent/stale relative to live price; not a reliable catalyst.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -8.61,
+  "pct_change_4h_48h": -7.37,
+  "rsi_14_4h": 51.42,
+  "volume_ratio": 0.87
+}
+```
+
+---
+### 2026-09-29T08:42:47.094Z — LTC/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger, negative 48h price action (-4.19%/-3.73%), volume roughly in line (0.92x). News search again returned stale figures inconsistent with live €60.47 price - not a reliable catalyst either way, and signals alone don't qualify.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -4.19,
+  "pct_change_4h_48h": -3.73,
+  "rsi_14_4h": 47.56,
+  "volume_ratio": 0.92
+}
+```
+
+---
