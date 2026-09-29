@@ -25566,3 +25566,154 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-09-29T16:43:29.764Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h -0.15%, 4h -0.31%, essentially flat). News: ETH testing $2,800 resistance, a Bitget-hack-linked cross-chain selling pressure event, and Hegotá quantum-safe fork roadmap - none proportionate to trigger entry, and signals remain below threshold (SMA fast below slow). Passing.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -0.1504,
+  "pct_change_4h_48h": -0.3109,
+  "rsi_14_4h": 49.05,
+  "volume_ratio": 0.657,
+  "sma_state": "fast_below_slow",
+  "order_book_imbalance": 0.0324,
+  "news": "Bitget hack-linked selling pressure, Hegotá fork roadmap - no proportionate catalyst, flat price action"
+}
+```
+
+---
+### 2026-09-29T16:43:29.775Z — SOL/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h -2.64%, 4h -3.61%, a pullback). News shows continued record ETF inflows and network upgrades, but this is a long-only strategy and price action here is negative - no entry qualifies. Passing.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -2.6353,
+  "pct_change_4h_48h": -3.6081,
+  "rsi_14_4h": 47.45,
+  "volume_ratio": 0.865,
+  "sma_state": "fast_above_slow",
+  "order_book_imbalance": 0.233,
+  "news": "record ETF inflows continue but price pulling back on broader risk-off, no momentum trigger"
+}
+```
+
+---
+### 2026-09-29T16:43:29.789Z — ADA/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger - price action negative (1h -3.42%, 4h -4.04%). News confirms a broad market risk-off pullback (2% market decline, $202M liquidations) rather than an ADA-specific issue, consistent with the negative signals here. Passing.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -3.4216,
+  "pct_change_4h_48h": -4.0354,
+  "rsi_14_4h": 45.78,
+  "volume_ratio": 1.114,
+  "sma_state": "fast_above_slow",
+  "order_book_imbalance": 0.118,
+  "news": "broad market risk-off pullback (2% market decline, $202M liquidations), not ADA-specific - consistent with negative signals"
+}
+```
+
+---
+### 2026-09-29T16:43:29.802Z — SUI/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger - price action sharply negative (1h -7.66%, 4h -9.90%). News confirms a broad risk-off decline with low trading conviction and no SUI-specific negative catalyst, consistent with signals. Passing.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -7.6584,
+  "pct_change_4h_48h": -9.9005,
+  "rsi_14_4h": 49.43,
+  "volume_ratio": 0.865,
+  "sma_state": "fast_above_slow",
+  "order_book_imbalance": 0.46,
+  "news": "broad risk-off decline, low trading conviction, no SUI-specific catalyst"
+}
+```
+
+---
+### 2026-09-29T16:43:29.810Z — LTC/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger - price action negative (1h -4.95%, 4h -4.66%). News price figure ($68.61) again inconsistent with the live €59.79 quote - continuing to treat LTC news search results as unreliable; attention rotating elsewhere per the same source. No entry regardless since price action is negative. Passing.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -4.9505,
+  "pct_change_4h_48h": -4.6612,
+  "rsi_14_4h": 43.12,
+  "volume_ratio": 0.916,
+  "sma_state": "fast_above_slow",
+  "order_book_imbalance": 0.379,
+  "news": "news price figure inconsistent with live quote (unreliable source pattern); attention rotating to other assets"
+}
+```
+
+---
+### 2026-09-29T16:43:39.002Z — BTC/EUR — NO TRADE
+
+**Reasoning:** Existing open position (entry €74,971, stop €71,800) - one-position-per-pair rule blocks new entry. No momentum trigger; signals turned mildly bearish this cycle (1h -1.21%, 4h -1.55%, RSI cooling to 45.8, SMA fast below slow).
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -1.2065,
+  "pct_change_4h_48h": -1.5469,
+  "rsi_14_4h": 45.78,
+  "volume_ratio": 0.84,
+  "sma_state": "fast_below_slow",
+  "order_book_imbalance": 0.126
+}
+```
+
+---
+### 2026-09-29T16:43:39.014Z — XRP/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h +0.42%, 4h -0.43%). News confirms a broad-market pullback after XRP's rally got rejected near $1.58-1.62 resistance, RSI overbought on daily - consistent with the flat/slightly negative signals here. No entry. Passing.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": 0.4161,
+  "pct_change_4h_48h": -0.4342,
+  "rsi_14_4h": 53.11,
+  "volume_ratio": 0.743,
+  "sma_state": "fast_below_slow",
+  "order_book_imbalance": 0.392,
+  "news": "broad market pullback after rejection near resistance, daily RSI overbought - consistent with flat/negative signals"
+}
+```
+
+---
+### 2026-09-29T16:43:39.028Z — LINK/EUR — NO TRADE
+
+**Reasoning:** Existing open position (entry €13.3964, stop €12.30) - one-position-per-pair rule blocks new entry. Momentum trigger no longer flagged this cycle (1h +5.29%, 4h +5.48%, both now below the 6% threshold as the broader market pulls back), though volume remains elevated (2.45x).
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": 5.2934,
+  "pct_change_4h_48h": 5.4763,
+  "rsi_14_4h": 57.98,
+  "volume_ratio": 2.45,
+  "flag_above_2x": true,
+  "sma_state": "fast_above_slow",
+  "order_book_imbalance": 0.22
+}
+```
+
+---
