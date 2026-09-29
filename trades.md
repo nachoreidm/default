@@ -23494,3 +23494,149 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-09-29T01:41:43.692Z — LTC/EUR — LONG — CLOSED (LIVE)
+
+- Exit price: €59.77 (real fill)
+- Exit fee (real): €1.13
+- Reason: Stop-loss filled on Kraken (order O4ZG5J-EXJFD-GUEQVN).
+- Realized P&L: €-14.11 (-0.27% of portfolio)
+- Position id: a3538648-c710-4a54-ba88-46086624d983
+
+---
+### 2026-09-29T01:42:35.473Z — BTC/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule). No momentum trigger; RSI neutral 46.4, SMA fast still below slow.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -1.39,
+  "pct_change_4h_48h": -0.92,
+  "rsi_14_4h": 46.35,
+  "sma_state": "fast_below_slow",
+  "existing_position": true
+}
+```
+
+---
+### 2026-09-29T01:42:35.490Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger, volume unconfirmed (0.66x avg), SMA fast below slow. News: consolidating near $2,670-2,700, Bitget ETH withdrawal resumed today - nothing bullish.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -0.65,
+  "pct_change_4h_48h": -0.18,
+  "rsi_14_4h": 52.6,
+  "volume_ratio": 0.66,
+  "sma_state": "fast_below_slow",
+  "news": "consolidation near $2,700 resistance, Bitget ETH withdrawal resumed"
+}
+```
+
+---
+### 2026-09-29T01:42:35.518Z — SOL/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger, volume unconfirmed (0.86x avg), negative 48h price action (-2.52%/-1.31%). News still positive (ETF inflows, network upgrades) but 48h momentum window not met.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -2.52,
+  "pct_change_4h_48h": -1.31,
+  "rsi_14_4h": 48.59,
+  "volume_ratio": 0.86,
+  "news": "record SOL ETF inflows, network slot-time reduction, high derivatives OI"
+}
+```
+
+---
+### 2026-09-29T01:42:35.533Z — XRP/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger, negative 48h price action (-2.12%/-1.16%), volume unconfirmed (0.74x avg). News: BatchV1_1 amendment failed to activate, wallet-hack fallout continues.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -2.12,
+  "pct_change_4h_48h": -1.16,
+  "rsi_14_4h": 46.12,
+  "volume_ratio": 0.74,
+  "news": "BatchV1_1 amendment failed to activate, D'CENT wallet hack fallout"
+}
+```
+
+---
+### 2026-09-29T01:42:35.548Z — ADA/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger, negative 48h price action (-2.31%/-1.74%), volume roughly in line with average (1.11x). News: Amaru Node release tomorrow and Fireblocks partnership notable but not a proportionate catalyst.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -2.31,
+  "pct_change_4h_48h": -1.74,
+  "rsi_14_4h": 47.71,
+  "volume_ratio": 1.11,
+  "news": "Amaru Node General Release (Sept 30), Cardano Foundation/Fireblocks partnership"
+}
+```
+
+---
+### 2026-09-29T01:42:35.563Z — LINK/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule) - momentum_trigger flagged again with volume confirmation (+8.74%/+9.59%, volume 2.45x avg) - but rejected as a new entry since the pair is already held.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": true,
+  "pct_change_1h_48h": 8.74,
+  "pct_change_4h_48h": 9.59,
+  "rsi_14_4h": 75.11,
+  "volume_ratio": 2.45,
+  "existing_position": true
+}
+```
+
+---
+### 2026-09-29T01:42:35.579Z — SUI/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger, negative price action (-2.66%/-0.04%), volume roughly in line (0.87x). News shows continued elevated volume but no fresh proportionate catalyst; passing.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -2.66,
+  "pct_change_4h_48h": -0.04,
+  "rsi_14_4h": 53.44,
+  "volume_ratio": 0.87,
+  "news": "continued elevated volume, no new catalyst"
+}
+```
+
+---
+### 2026-09-29T01:42:35.594Z — LTC/EUR — NO TRADE
+
+**Reasoning:** Position just closed this cycle via hard stop-loss - now flat, evaluated fresh. No momentum trigger (negative 48h price action -4.2%/-2.93%), volume roughly in line with average (0.92x). News search returned stale/inconsistent price figures (likely cached from an earlier date, inconsistent with the live €59.3 price) - no reliable fresh catalyst either way, and signals alone don't qualify regardless. Passing.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -4.2,
+  "pct_change_4h_48h": -2.93,
+  "rsi_14_4h": 48.01,
+  "volume_ratio": 0.92,
+  "just_closed_this_cycle": true
+}
+```
+
+---
