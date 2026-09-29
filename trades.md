@@ -25264,3 +25264,154 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-09-29T15:13:32.984Z — BTC/EUR — NO TRADE
+
+**Reasoning:** Existing open position (entry €74,971, stop €71,800) - one-position-per-pair rule blocks a new entry regardless of signals. No momentum trigger anyway (1h -0.47%, 4h +0.15%, both well below 6% threshold).
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -0.4699,
+  "pct_change_4h_48h": 0.1475,
+  "rsi_14_4h": 56.95,
+  "volume_ratio": 0.84,
+  "sma_state": "fast_below_slow",
+  "order_book_imbalance": -0.161
+}
+```
+
+---
+### 2026-09-29T15:13:32.996Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h +1.17%, 4h +1.90%, both below 6% threshold). News shows ETH testing $2,800 resistance with institutional ETF inflows and a Hegotá quantum-safe fork roadmap update - constructive backdrop but not a proportionate catalyst for a fresh entry given signals don't independently qualify (SMA fast still below slow, volume below average at 0.66x, negative order-book imbalance -0.23). Passing.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": 1.1725,
+  "pct_change_4h_48h": 1.9005,
+  "rsi_14_4h": 61.99,
+  "volume_ratio": 0.657,
+  "sma_state": "fast_below_slow",
+  "order_book_imbalance": -0.2335,
+  "news": "ETH testing $2,800 resistance, record ETF inflows, Hegotá fork roadmap - constructive but not proportionate catalyst without signal confirmation"
+}
+```
+
+---
+### 2026-09-29T15:13:33.005Z — SOL/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h -0.87%, 4h -1.04%, price action negative this window despite SOL's broader multi-week rally). News shows record $188M weekly ETF inflows and a network upgrade (250ms slot time), but the immediate 48h price action is flat-to-down and volume is below average (0.86x) - not a fresh qualifying setup this cycle. Passing.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -0.8697,
+  "pct_change_4h_48h": -1.0381,
+  "rsi_14_4h": 53.88,
+  "volume_ratio": 0.865,
+  "sma_state": "fast_above_slow",
+  "order_book_imbalance": 0.1915,
+  "news": "record SOL ETF inflows and network upgrades - broader bullish backdrop but 48h price action flat/negative, no momentum trigger"
+}
+```
+
+---
+### 2026-09-29T15:13:33.013Z — XRP/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h +2.31%, 4h +0.31%, below 6% threshold). News shows continued ETF inflow streak (11 weeks) and ledger protocol updates, but SMA fast still below slow and price action modest - not a qualifying setup. Passing.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": 2.3129,
+  "pct_change_4h_48h": 0.307,
+  "rsi_14_4h": 52.23,
+  "volume_ratio": 0.743,
+  "sma_state": "fast_below_slow",
+  "order_book_imbalance": 0.1,
+  "news": "XRP ETF inflow streak continues (11 weeks), ledger amendment pending validator support - no proportionate near-term catalyst, no momentum trigger"
+}
+```
+
+---
+### 2026-09-29T15:13:33.021Z — ADA/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h -0.41%, 4h +0.10%, both well below 6% threshold). News mentions ADA breaking above its 20-day SMA and Mastercard/x402/FC Barcelona partnerships, but the compute_signals price-action windows here are flat - not consistent with a fresh breakout at this moment. Passing.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -0.4074,
+  "pct_change_4h_48h": 0.1048,
+  "rsi_14_4h": 55.81,
+  "volume_ratio": 1.114,
+  "sma_state": "fast_above_slow",
+  "order_book_imbalance": 0.101,
+  "news": "Mastercard/FC Barcelona partnerships, Amaru node release - positive backdrop but flat live price action, no momentum trigger"
+}
+```
+
+---
+### 2026-09-29T15:13:33.029Z — SUI/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger - price action is actually negative this window (1h -5.66%, 4h -4.46%), a pullback rather than a breakout. News search surfaced a stale rally reference (SUI reaching $1.04 around Sept 21) that doesn't match the current negative price action - not a reliable catalyst either way. Passing.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -5.6562,
+  "pct_change_4h_48h": -4.4606,
+  "rsi_14_4h": 54.77,
+  "volume_ratio": 0.865,
+  "sma_state": "fast_above_slow",
+  "order_book_imbalance": 0.013,
+  "news": "stale reference to a ~Sept 21 rally to $1.04, inconsistent with current negative 48h price action - not a reliable catalyst"
+}
+```
+
+---
+### 2026-09-29T15:13:33.037Z — LINK/EUR — NO TRADE
+
+**Reasoning:** Existing open position (entry €13.3964, stop €12.30) - one-position-per-pair rule blocks a new entry. Momentum trigger IS flagged again this cycle (1h +7.45%, 4h +9.16%, volume 2.45x avg confirming) with RSI 68.09, but already held so no action taken beyond the existing position.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": true,
+  "pct_change_1h_48h": 7.4495,
+  "pct_change_4h_48h": 9.1635,
+  "rsi_14_4h": 68.09,
+  "volume_ratio": 2.45,
+  "flag_above_2x": true,
+  "sma_state": "fast_above_slow",
+  "order_book_imbalance": -0.204
+}
+```
+
+---
+### 2026-09-29T15:13:33.045Z — LTC/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h -3.39%, 4h -2.66%, a pullback not a breakout). News mentions LTC recently touching $72.50 on leverage-driven futures volume (5x spot) before pulling back - consistent directionally with the current retracement, but flagged in prior cycles as a leverage-driven move, and no momentum trigger fires this cycle regardless. Passing.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -3.3925,
+  "pct_change_4h_48h": -2.6564,
+  "rsi_14_4h": 48.65,
+  "volume_ratio": 0.916,
+  "sma_state": "fast_above_slow",
+  "order_book_imbalance": 0.475,
+  "news": "LTC pulled back from a leverage-driven rally to $72.50 (futures OI 5x spot) - no momentum trigger, no fresh entry"
+}
+```
+
+---
