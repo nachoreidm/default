@@ -23776,3 +23776,139 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-09-29T03:42:43.413Z — BTC/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule). No momentum trigger; RSI neutral 46.4, SMA fast still below slow.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -1.53,
+  "pct_change_4h_48h": -0.92,
+  "rsi_14_4h": 46.35,
+  "sma_state": "fast_below_slow",
+  "existing_position": true
+}
+```
+
+---
+### 2026-09-29T03:42:43.425Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger, volume unconfirmed (0.66x avg), SMA fast below slow. News: consolidating near $2,670-2,700, no fresh bullish catalyst.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -1.31,
+  "pct_change_4h_48h": -0.18,
+  "rsi_14_4h": 52.6,
+  "volume_ratio": 0.66,
+  "sma_state": "fast_below_slow",
+  "news": "consolidation near $2,700 resistance"
+}
+```
+
+---
+### 2026-09-29T03:42:43.435Z — SOL/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger, volume unconfirmed (0.86x avg), negative 48h price action (-2.9%/-1.31%) despite ETF inflow and Alpenglow news - 48h momentum window not met.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -2.9,
+  "pct_change_4h_48h": -1.31,
+  "rsi_14_4h": 48.59,
+  "volume_ratio": 0.86,
+  "news": "cumulative $1.22B SOL ETF inflows, Alpenglow upgrade activation targeted"
+}
+```
+
+---
+### 2026-09-29T03:42:43.447Z — XRP/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger, negative 48h price action (-2.51%/-1.16%), volume unconfirmed (0.74x avg). News: BatchV1_1 amendment failed to activate, wallet-hack fallout continues.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -2.51,
+  "pct_change_4h_48h": -1.16,
+  "rsi_14_4h": 46.12,
+  "volume_ratio": 0.74,
+  "news": "BatchV1_1 amendment failed to activate, D'CENT wallet hack fallout"
+}
+```
+
+---
+### 2026-09-29T03:42:43.457Z — ADA/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger, negative 48h price action (-4.42%/-1.74%), volume roughly in line (1.11x). News: Amaru Node release tomorrow notable but not a proportionate catalyst.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -4.42,
+  "pct_change_4h_48h": -1.74,
+  "rsi_14_4h": 47.71,
+  "volume_ratio": 1.11,
+  "news": "Amaru Node General Release scheduled Sept 30"
+}
+```
+
+---
+### 2026-09-29T03:42:43.468Z — LINK/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule) - momentum_trigger flagged again with volume confirmation (+6.57%/+9.59%, volume 2.45x avg) - but rejected as a new entry since the pair is already held.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": true,
+  "pct_change_1h_48h": 6.57,
+  "pct_change_4h_48h": 9.59,
+  "rsi_14_4h": 75.11,
+  "volume_ratio": 2.45,
+  "existing_position": true
+}
+```
+
+---
+### 2026-09-29T03:42:43.478Z — SUI/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger, negative price action (-4.85%/-0.04%), volume roughly in line (0.87x). News notes AlphaFi wound down after an oracle error - a mild negative for the ecosystem; passing.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -4.85,
+  "pct_change_4h_48h": -0.04,
+  "rsi_14_4h": 53.44,
+  "volume_ratio": 0.87,
+  "news": "AlphaFi wound down after oracle error, Sui Overflow 2026 hackathon results"
+}
+```
+
+---
+### 2026-09-29T03:42:43.496Z — LTC/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger, negative 48h price action (-5.21%/-2.93%), volume roughly in line (0.92x). News search again returned stale figures inconsistent with live €59.79 price - not a reliable catalyst either way, and signals alone don't qualify.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -5.21,
+  "pct_change_4h_48h": -2.93,
+  "rsi_14_4h": 48.01,
+  "volume_ratio": 0.92
+}
+```
+
+---
