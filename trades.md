@@ -24859,3 +24859,138 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-09-29T11:43:09.288Z — BTC/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule). No momentum trigger; RSI 53.6, SMA fast still below slow.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -0.73,
+  "pct_change_4h_48h": -0.81,
+  "rsi_14_4h": 53.64,
+  "sma_state": "fast_below_slow",
+  "existing_position": true
+}
+```
+
+---
+### 2026-09-29T11:43:09.304Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger, volume unconfirmed (0.66x avg), SMA fast still below slow. News: still testing $2,700-2,800 resistance, no fresh bullish catalyst.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": 0.51,
+  "pct_change_4h_48h": 0.34,
+  "rsi_14_4h": 58.16,
+  "volume_ratio": 0.66,
+  "sma_state": "fast_below_slow",
+  "news": "consolidating below $2,700-2,800 resistance"
+}
+```
+
+---
+### 2026-09-29T11:43:09.319Z — SOL/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger, volume unconfirmed (0.86x avg), negative 48h price action (-3.36%/-3.32%). News confirms a pullback from a nearly $125 weekend high - momentum has cooled, not qualifying for entry.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -3.36,
+  "pct_change_4h_48h": -3.32,
+  "rsi_14_4h": 51.83,
+  "volume_ratio": 0.86,
+  "news": "pullback from near-$125 weekend high, record SOL ETF inflows"
+}
+```
+
+---
+### 2026-09-29T11:43:09.342Z — XRP/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger, negative 48h price action (-1.67%/-1.70%), volume unconfirmed (0.74x avg), bearish SMA crossover this candle. News is routine, nothing decisive.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -1.67,
+  "pct_change_4h_48h": -1.7,
+  "rsi_14_4h": 49.91,
+  "volume_ratio": 0.74,
+  "sma_state": "fast_below_slow_crossed_bearish"
+}
+```
+
+---
+### 2026-09-29T11:43:09.353Z — ADA/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger, negative 48h price action (-1.82%/-1.60%) despite +3.44% intraday per news, volume roughly in line (1.11x). News: Amaru Node release tomorrow notable but not a proportionate catalyst.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -1.82,
+  "pct_change_4h_48h": -1.6,
+  "rsi_14_4h": 54.07,
+  "volume_ratio": 1.11,
+  "news": "Amaru Node General Release scheduled Sept 30"
+}
+```
+
+---
+### 2026-09-29T11:43:09.365Z — LINK/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule) - momentum_trigger flagged again with volume confirmation (+7.57%/+6.69%, volume 2.45x avg) - but rejected as a new entry since the pair is already held.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": true,
+  "pct_change_1h_48h": 7.57,
+  "pct_change_4h_48h": 6.69,
+  "rsi_14_4h": 66.5,
+  "volume_ratio": 2.45,
+  "existing_position": true
+}
+```
+
+---
+### 2026-09-29T11:43:09.376Z — SUI/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (a decline, not a qualifying upward move); 1h/48h down -5.96%, 4h/48h down -7.37%. News shows steady volume but no fresh proportionate catalyst.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -5.96,
+  "pct_change_4h_48h": -7.37,
+  "rsi_14_4h": 51.42,
+  "volume_ratio": 0.87
+}
+```
+
+---
+### 2026-09-29T11:43:09.388Z — LTC/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger, negative 48h price action (-3.81%/-3.73%), volume roughly in line (0.92x). News is inconsistent with the live €60.74 price (referencing $68-72 figures) - not a reliable catalyst, and signals alone don't qualify.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -3.81,
+  "pct_change_4h_48h": -3.73,
+  "rsi_14_4h": 47.56,
+  "volume_ratio": 0.92
+}
+```
+
+---
