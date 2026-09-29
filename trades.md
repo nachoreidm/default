@@ -23356,3 +23356,141 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-09-29T00:43:04.143Z — BTC/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule). No momentum trigger; RSI neutral 46.4, SMA fast still below slow.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -0.85,
+  "pct_change_4h_48h": -0.92,
+  "rsi_14_4h": 46.35,
+  "sma_state": "fast_below_slow",
+  "existing_position": true
+}
+```
+
+---
+### 2026-09-29T00:43:04.162Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger, volume unconfirmed (0.66x avg), SMA fast below slow. News: consolidating near $2,670-2,700 after a strong Q3, Bitget ETH withdrawals resuming today - no fresh bullish catalyst.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -0.06,
+  "pct_change_4h_48h": -0.18,
+  "rsi_14_4h": 52.6,
+  "volume_ratio": 0.66,
+  "sma_state": "fast_below_slow",
+  "news": "consolidation near $2,700 resistance, Bitget ETH withdrawal restart"
+}
+```
+
+---
+### 2026-09-29T00:43:04.181Z — SOL/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger, volume unconfirmed (0.86x avg), negative 48h price action (-1.5%/-1.31%) despite Alpenglow rollout and cumulative $1.22B ETF inflows - 48h momentum window not met.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -1.5,
+  "pct_change_4h_48h": -1.31,
+  "rsi_14_4h": 48.59,
+  "volume_ratio": 0.86,
+  "news": "Alpenglow upgrade targeting Sept 28 activation, cumulative $1.22B SOL ETF inflows"
+}
+```
+
+---
+### 2026-09-29T00:43:04.195Z — XRP/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger, negative 48h price action (-1.26%/-1.16%), volume unconfirmed (0.74x avg). News: BatchV1_1 amendment failed to activate (validator support fell below threshold), wallet-hack fallout continues - nothing bullish.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -1.26,
+  "pct_change_4h_48h": -1.16,
+  "rsi_14_4h": 46.12,
+  "volume_ratio": 0.74,
+  "news": "BatchV1_1 amendment failed to activate, D'CENT wallet hack fallout continues"
+}
+```
+
+---
+### 2026-09-29T00:43:04.208Z — ADA/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger, negative 48h price action (-1.71%/-1.74%), volume roughly in line with average (1.11x). News: Amaru Node release and Cardano Foundation/Fireblocks partnership are notable but not a proportionate near-term catalyst.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -1.71,
+  "pct_change_4h_48h": -1.74,
+  "rsi_14_4h": 47.71,
+  "volume_ratio": 1.11,
+  "news": "Amaru Node General Release (Sept 30), Cardano Foundation/Fireblocks partnership"
+}
+```
+
+---
+### 2026-09-29T00:43:04.221Z — LINK/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule) - momentum_trigger flagged again, now with volume confirmation too (+9.68%/+9.59%, volume 2.45x avg, flag_above_2x true) - but rejected as a new entry since the pair is already held.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": true,
+  "pct_change_1h_48h": 9.68,
+  "pct_change_4h_48h": 9.59,
+  "rsi_14_4h": 75.11,
+  "volume_ratio": 2.45,
+  "flag_above_2x": true,
+  "existing_position": true
+}
+```
+
+---
+### 2026-09-29T00:43:04.233Z — SUI/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger on the 48h window (flat, +0.42%/-0.04%), volume roughly in line with average (0.87x). News shows continued volume growth but no fresh proportionate catalyst; passing.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": 0.42,
+  "pct_change_4h_48h": -0.04,
+  "rsi_14_4h": 53.44,
+  "volume_ratio": 0.87,
+  "news": "continued elevated volume, no new catalyst"
+}
+```
+
+---
+### 2026-09-29T00:43:04.245Z — LTC/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule). No momentum trigger; negative price action (-3.53%/-2.93%), volume roughly in line with average (0.92x).
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -3.53,
+  "pct_change_4h_48h": -2.93,
+  "rsi_14_4h": 48.01,
+  "volume_ratio": 0.92,
+  "existing_position": true
+}
+```
+
+---
