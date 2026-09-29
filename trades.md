@@ -24048,3 +24048,138 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-09-29T05:43:10.769Z — BTC/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule). No momentum trigger; RSI 42.6, SMA fast below slow.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -1.3,
+  "pct_change_4h_48h": -1.84,
+  "rsi_14_4h": 42.59,
+  "sma_state": "fast_below_slow",
+  "existing_position": true
+}
+```
+
+---
+### 2026-09-29T05:43:10.782Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger, volume unconfirmed (0.66x avg), SMA fast below slow, negative 48h price action. News notes elevated whale activity but no directional catalyst; still below $2,700 resistance.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -1.17,
+  "pct_change_4h_48h": -1.79,
+  "rsi_14_4h": 46.82,
+  "volume_ratio": 0.66,
+  "sma_state": "fast_below_slow",
+  "news": "whale transaction volume up sharply, still below $2,700 resistance"
+}
+```
+
+---
+### 2026-09-29T05:43:10.792Z — SOL/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger, volume unconfirmed (0.86x avg), negative 48h price action (-2.66%/-4.83%). News: record ETF inflows and STRIDE security program launch, but nothing overrides the negative price action for a new long.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -2.66,
+  "pct_change_4h_48h": -4.83,
+  "rsi_14_4h": 45.37,
+  "volume_ratio": 0.86,
+  "news": "record SOL ETF inflows, STRIDE security program launch"
+}
+```
+
+---
+### 2026-09-29T05:43:10.811Z — XRP/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger, negative 48h price action (-2.01%/-3.18%), volume unconfirmed (0.74x avg). News: BatchV1_1 amendment failed to activate, otherwise routine institutional commentary.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -2.01,
+  "pct_change_4h_48h": -3.18,
+  "rsi_14_4h": 44.23,
+  "volume_ratio": 0.74,
+  "news": "BatchV1_1 amendment failed to activate, Ripple institutional expansion commentary"
+}
+```
+
+---
+### 2026-09-29T05:43:10.820Z — ADA/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger, negative 48h price action (-3.80%/-5.76%), volume roughly in line (1.11x). News: Amaru Node release tomorrow and Fireblocks integration notable but not a proportionate catalyst.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -3.8,
+  "pct_change_4h_48h": -5.76,
+  "rsi_14_4h": 42.71,
+  "volume_ratio": 1.11,
+  "news": "Amaru Node General Release scheduled Sept 30, Cardano Foundation/Fireblocks integration"
+}
+```
+
+---
+### 2026-09-29T05:43:10.830Z — LINK/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule). Momentum has cooled this cycle - no longer flagged (1h/48h +4.26%, below the 6% bar), though volume remains elevated (2.45x avg).
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": 4.26,
+  "pct_change_4h_48h": 3.14,
+  "rsi_14_4h": 62.93,
+  "volume_ratio": 2.45,
+  "existing_position": true
+}
+```
+
+---
+### 2026-09-29T05:43:10.840Z — SUI/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (a sharp decline, not a qualifying upward move); 4h/48h window down -11.66%, 1h/48h down -4.96%. News is stale/inconsistent with live price (referencing a rally from several days ago) - not a reliable catalyst, and signals alone don't qualify.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -4.96,
+  "pct_change_4h_48h": -11.66,
+  "rsi_14_4h": 45.63,
+  "volume_ratio": 0.87
+}
+```
+
+---
+### 2026-09-29T05:43:10.850Z — LTC/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger, negative 48h price action (-5.63%/-5.72%), volume roughly in line (0.92x). News search again returned stale figures inconsistent with live €59.82 price - not a reliable catalyst either way, and signals alone don't qualify.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -5.63,
+  "pct_change_4h_48h": -5.72,
+  "rsi_14_4h": 43.03,
+  "volume_ratio": 0.92
+}
+```
+
+---
