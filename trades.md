@@ -26170,3 +26170,154 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-09-29T20:42:46.836Z — BTC/EUR — NO TRADE
+
+**Reasoning:** Existing open position (entry €74,971, stop €71,800) - one-position-per-pair rule blocks new entry. No momentum trigger; signals near-flat (1h -0.75%, 4h -0.70%), RSI back near neutral at 50.2.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -0.7516,
+  "pct_change_4h_48h": -0.6991,
+  "rsi_14_4h": 50.22,
+  "volume_ratio": 0.84,
+  "sma_state": "fast_below_slow",
+  "order_book_imbalance": -0.114
+}
+```
+
+---
+### 2026-09-29T20:42:46.854Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger, mild positive drift (1h +0.52%, 4h +0.41%). News: still failing to close above $2,800 resistance, ongoing Bitget-hack-linked selling pressure - no proportionate catalyst, SMA fast still below slow. Passing.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": 0.5226,
+  "pct_change_4h_48h": 0.4103,
+  "rsi_14_4h": 52.23,
+  "volume_ratio": 0.657,
+  "sma_state": "fast_below_slow",
+  "order_book_imbalance": 0.1343,
+  "news": "still failing to close above $2,800 resistance, ongoing Bitget-hack-linked selling pressure - no proportionate catalyst"
+}
+```
+
+---
+### 2026-09-29T20:42:46.873Z — SOL/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h -2.84%, 4h -2.29%, still pulling back). News shows continued strong ETF inflows and a network-wide governance vote passing, but price action negative here - long-only strategy doesn't qualify. Passing.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -2.8391,
+  "pct_change_4h_48h": -2.2861,
+  "rsi_14_4h": 49.56,
+  "volume_ratio": 0.865,
+  "sma_state": "fast_above_slow",
+  "order_book_imbalance": 0.0357,
+  "news": "strong ETF inflows continue, disinflation governance vote passed - bullish backdrop but negative near-term price action"
+}
+```
+
+---
+### 2026-09-29T20:42:46.888Z — XRP/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h -1.56%, 4h -1.15%). News: 2026 ETF inflows nearly stopped and Standard Chartered cut its target to $2.80, alongside continued institutional custody partnership news in Asia - net mixed, consistent with the modestly negative signals. Passing.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -1.5621,
+  "pct_change_4h_48h": -1.1461,
+  "rsi_14_4h": 46.56,
+  "volume_ratio": 0.743,
+  "sma_state": "fast_below_slow",
+  "order_book_imbalance": 0.5643,
+  "news": "ETF inflows nearly stopped, price target cut, vs continued institutional partnerships in Asia - net mixed"
+}
+```
+
+---
+### 2026-09-29T20:42:46.902Z — ADA/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger, negative price action here (1h -4.17%, 4h -4.36%) despite news citing a same-day breakout above the 20-day SMA - inconsistent with the live compute_signals 48h window (recurring discrepancy pattern), not acted on. Passing.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -4.1733,
+  "pct_change_4h_48h": -4.361,
+  "rsi_14_4h": 44.96,
+  "volume_ratio": 1.114,
+  "sma_state": "fast_above_slow",
+  "order_book_imbalance": -0.3467,
+  "news": "news cites a same-day breakout above 20-day SMA, inconsistent with live negative 48h price action - not acted on"
+}
+```
+
+---
+### 2026-09-29T20:42:46.915Z — LINK/EUR — NO TRADE
+
+**Reasoning:** Existing open position (entry €13.3964, stop €12.30) - one-position-per-pair rule blocks new entry. Momentum trigger not flagged this cycle (1h +4.95%, 4h +4.87%, both below 6% threshold), volume still elevated (2.45x).
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": 4.9455,
+  "pct_change_4h_48h": 4.8712,
+  "rsi_14_4h": 55.89,
+  "volume_ratio": 2.45,
+  "flag_above_2x": true,
+  "sma_state": "fast_above_slow",
+  "order_book_imbalance": 0.3479
+}
+```
+
+---
+### 2026-09-29T20:42:46.929Z — SUI/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger - price action sharply negative (1h -9.24%, 4h -9.00%), continuing the multi-cycle pullback. News cites a stale 7-day +14.6% figure inconsistent with the live negative 48h action. Passing.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -9.2355,
+  "pct_change_4h_48h": -8.9984,
+  "rsi_14_4h": 50.17,
+  "volume_ratio": 0.865,
+  "sma_state": "fast_above_slow",
+  "order_book_imbalance": 0.3249,
+  "news": "stale 7-day rally figure inconsistent with live sharply negative 48h price action"
+}
+```
+
+---
+### 2026-09-29T20:42:46.942Z — LTC/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger, negative price action (1h -5.12%, 4h -5.28%). News price figure ($69.75) again inconsistent with the live €59.41 quote - continuing pattern of unreliable LTC news search results. No entry regardless since price action is negative. Passing.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -5.1167,
+  "pct_change_4h_48h": -5.2833,
+  "rsi_14_4h": 42.4,
+  "volume_ratio": 0.916,
+  "sma_state": "fast_above_slow",
+  "order_book_imbalance": 0.197,
+  "news": "news price figure inconsistent with live quote - unreliable source pattern continues"
+}
+```
+
+---
