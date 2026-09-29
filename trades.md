@@ -26019,3 +26019,154 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-09-29T19:43:03.032Z — BTC/EUR — NO TRADE
+
+**Reasoning:** Existing open position (entry €74,971, stop €71,800) - one-position-per-pair rule blocks new entry. No momentum trigger; signals remain mildly bearish (1h -0.92%, 4h -1.55%, SMA fast below slow).
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -0.9198,
+  "pct_change_4h_48h": -1.5469,
+  "rsi_14_4h": 45.78,
+  "volume_ratio": 0.84,
+  "sma_state": "fast_below_slow",
+  "order_book_imbalance": -0.196
+}
+```
+
+---
+### 2026-09-29T19:43:03.050Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger, roughly flat (1h +0.54%, 4h -0.31%). News: ETH failing to close above $2,800 resistance, Bitget-hack-linked ETH still being swapped for BTC via THORChain (ongoing selling pressure), though Deutsche Bank seeking institutional custody approval is a longer-term positive - no proportionate near-term catalyst. Passing.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": 0.5445,
+  "pct_change_4h_48h": -0.3109,
+  "rsi_14_4h": 49.05,
+  "volume_ratio": 0.657,
+  "sma_state": "fast_below_slow",
+  "order_book_imbalance": -0.0099,
+  "news": "failing to close above $2,800 resistance, ongoing Bitget-hack-linked selling pressure via THORChain, Deutsche Bank custody bid is longer-term - no near-term catalyst"
+}
+```
+
+---
+### 2026-09-29T19:43:03.076Z — SOL/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h -2.79%, 4h -3.61%, a pullback). News shows continued record ETF inflows and an Alpenglow testnet milestone, but price action is negative here - long-only strategy doesn't qualify. Passing.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -2.794,
+  "pct_change_4h_48h": -3.6081,
+  "rsi_14_4h": 47.45,
+  "volume_ratio": 0.865,
+  "sma_state": "fast_above_slow",
+  "order_book_imbalance": -0.0524,
+  "news": "record ETF inflows continue, Alpenglow consensus testnet milestone - bullish backdrop but negative near-term price action"
+}
+```
+
+---
+### 2026-09-29T19:43:03.087Z — XRP/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h -1.68%, 4h -0.43%). News: continued Bitget-hack-linked XRP sell pressure overhang alongside genuinely positive institutional developments (Goldman Sachs largest XRP ETF holder, 11-week inflow streak) - net effect roughly flat, consistent with signals. No entry. Passing.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -1.6846,
+  "pct_change_4h_48h": -0.4342,
+  "rsi_14_4h": 53.11,
+  "volume_ratio": 0.743,
+  "sma_state": "fast_below_slow",
+  "order_book_imbalance": -0.0529,
+  "news": "Bitget-hack-linked sell pressure overhang vs institutional inflow streak - net roughly flat, consistent with signals"
+}
+```
+
+---
+### 2026-09-29T19:43:03.098Z — ADA/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger, negative price action here (1h -3.60%, 4h -4.04%) despite news citing a same-day +3.3% bounce and Fireblocks institutional custody support - inconsistent with the live compute_signals 48h window, not acted on. Passing.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -3.5956,
+  "pct_change_4h_48h": -4.0354,
+  "rsi_14_4h": 45.78,
+  "volume_ratio": 1.114,
+  "sma_state": "fast_above_slow",
+  "order_book_imbalance": 0.0772,
+  "news": "news cites a same-day bounce and Fireblocks support, inconsistent with live negative 48h price action - not acted on"
+}
+```
+
+---
+### 2026-09-29T19:43:03.110Z — LINK/EUR — NO TRADE
+
+**Reasoning:** Existing open position (entry €13.3964, stop €12.30) - one-position-per-pair rule blocks new entry. Momentum trigger not flagged this cycle (1h +4.02%, 4h +5.48%, both below 6% threshold), volume still elevated (2.45x).
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": 4.0201,
+  "pct_change_4h_48h": 5.4763,
+  "rsi_14_4h": 57.98,
+  "volume_ratio": 2.45,
+  "flag_above_2x": true,
+  "sma_state": "fast_above_slow",
+  "order_book_imbalance": -0.4861
+}
+```
+
+---
+### 2026-09-29T19:43:03.121Z — SUI/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger - price action sharply negative (1h -9.33%, 4h -9.90%), continuing the multi-cycle pullback. News cites a stale 7-day +14.6% figure inconsistent with the live negative 48h action. Passing.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -9.3271,
+  "pct_change_4h_48h": -9.9005,
+  "rsi_14_4h": 49.43,
+  "volume_ratio": 0.865,
+  "sma_state": "fast_above_slow",
+  "order_book_imbalance": 0.6122,
+  "news": "stale 7-day rally figure inconsistent with live sharply negative 48h price action"
+}
+```
+
+---
+### 2026-09-29T19:43:03.131Z — LTC/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger, negative price action (1h -4.58%, 4h -4.66%). News price figure ($69.29) again inconsistent with the live €59.67 quote, and flags the rally as leverage-driven (futures OI 5x spot) - continuing pattern of unreliable/cautionary LTC news. No entry regardless since price action is negative. Passing.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -4.5811,
+  "pct_change_4h_48h": -4.6612,
+  "rsi_14_4h": 43.12,
+  "volume_ratio": 0.916,
+  "sma_state": "fast_above_slow",
+  "order_book_imbalance": -0.0823,
+  "news": "news price figure inconsistent with live quote; rally flagged as leverage-driven (futures OI 5x spot)"
+}
+```
+
+---
