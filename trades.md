@@ -25128,3 +25128,139 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-09-29T13:43:15.213Z — BTC/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule). No momentum trigger; RSI 57.0, SMA fast still below slow.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -0.5,
+  "pct_change_4h_48h": 0.15,
+  "rsi_14_4h": 56.95,
+  "sma_state": "fast_below_slow",
+  "existing_position": true
+}
+```
+
+---
+### 2026-09-29T13:43:15.233Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger, volume unconfirmed (0.66x avg), SMA fast still below slow despite improving price action. News: consolidating below $2,700-2,730 resistance, no breakout confirmed yet.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": 1.35,
+  "pct_change_4h_48h": 1.9,
+  "rsi_14_4h": 61.99,
+  "volume_ratio": 0.66,
+  "sma_state": "fast_below_slow",
+  "news": "consolidating below $2,700-2,730 resistance"
+}
+```
+
+---
+### 2026-09-29T13:43:15.271Z — SOL/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger, volume unconfirmed (0.86x avg), negative 48h price action (-1.55%/-1.04%). News confirms a pullback (-1.6% intraday) after a strong two-week recovery; ETF inflows remain positive but don't offset the signal gap.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -1.55,
+  "pct_change_4h_48h": -1.04,
+  "rsi_14_4h": 53.88,
+  "volume_ratio": 0.86,
+  "news": "pullback after strong two-week recovery, SOL ETF inflows tripling XRP's"
+}
+```
+
+---
+### 2026-09-29T13:43:15.294Z — XRP/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger, mild positive price action (+1.21%/+0.31%) well below the 6% bar, volume unconfirmed (0.74x avg). News highlights a Fed rate-hike risk and a large unreleased-token overhang - nothing bullish enough to qualify.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": 1.21,
+  "pct_change_4h_48h": 0.31,
+  "rsi_14_4h": 52.23,
+  "volume_ratio": 0.74,
+  "news": "Fed rate-hike risk, large Ripple escrow overhang"
+}
+```
+
+---
+### 2026-09-29T13:43:15.309Z — ADA/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger, price roughly flat (-1.20%/+0.10%), volume roughly in line (1.11x). News notes bullish long-term commentary (multi-year compression breakout thesis) but nothing proportionate to today's move for a qualifying entry.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -1.2,
+  "pct_change_4h_48h": 0.1,
+  "rsi_14_4h": 55.81,
+  "volume_ratio": 1.11,
+  "news": "multi-year compression breakout thesis, Amaru Node release tomorrow"
+}
+```
+
+---
+### 2026-09-29T13:43:15.325Z — LINK/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule) - momentum_trigger flagged again with strong volume confirmation (+7.97%/+9.16%, volume 2.45x avg) - but rejected as a new entry since the pair is already held.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": true,
+  "pct_change_1h_48h": 7.97,
+  "pct_change_4h_48h": 9.16,
+  "rsi_14_4h": 68.09,
+  "volume_ratio": 2.45,
+  "existing_position": true
+}
+```
+
+---
+### 2026-09-29T13:43:15.339Z — SUI/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (a decline, not a qualifying upward move); 1h/48h down -5.66%, 4h/48h down -4.46%. News is a sponsorship announcement (Sui Basecamp 2026), not a price catalyst.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -5.66,
+  "pct_change_4h_48h": -4.46,
+  "rsi_14_4h": 54.77,
+  "volume_ratio": 0.87,
+  "news": "Sui Basecamp 2026 sponsorship announcement"
+}
+```
+
+---
+### 2026-09-29T13:43:15.353Z — LTC/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger, negative 48h price action (-3.18%/-2.66%), volume roughly in line (0.92x). News is inconsistent with the live €60.18 price (referencing $69 figures) - not a reliable catalyst, and signals alone don't qualify.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -3.18,
+  "pct_change_4h_48h": -2.66,
+  "rsi_14_4h": 48.65,
+  "volume_ratio": 0.92
+}
+```
+
+---
