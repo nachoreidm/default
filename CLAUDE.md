@@ -829,8 +829,12 @@ Per the same discipline the 2026-09-25 incident established - a completed
 cycle alone is not proof a prompt didn't appear, since the user could have
 been present and clicked approve - explicitly asked the user whether a
 Notion approval prompt appeared during this specific cycle rather than
-inferring it from the clean result alone. Answer pending as of this
-writing; update this entry once confirmed either way.
+inferring it from the clean result alone. **Confirmed: no prompt
+appeared.** This is now resolved, not just theorized - the same
+distinction the 2026-09-25 incident had to learn the hard way (a "clean"
+cycle that only looked clean because a human was present to click
+approve, versus a session that's actually fixed) held up correctly this
+time on the first check.
 
 ## Network access
 
