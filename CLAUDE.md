@@ -773,14 +773,31 @@ both passed before pushing. `portfolio_check_stops`'s tool description and
 `instructions/kraken-live-agent-instructions.md` both updated to document
 the new step as step 4 (renumbering trailing maintenance to step 5).
 
-**Not yet deployed** - per the established pattern (see every prior code
-change this week), a running persistent session's MCP server process won't
-pick this up from a `git pull` alone; needs the same verified cutover (new
-session → confirm a real cycle via actual commit diff → re-bind the
-trigger → archive the old session) before it's live. Also not yet
-confirmed to have fired for real, same caveat as the original invalidation
-feature - watch for its first live `"fast_invalidation"` close and verify
-the reason/fill like any other trade.
+**Deployed same-day via the same cutover pattern**: created a fresh session
+(`session_01793RYihdo3qKsQGHdWw8My`) on the branch carrying this fix,
+seeded with the exact hourly-cycle prompt so the verification run doubled
+as that hour's real cycle. Verified against the actual commit (`4fb33be`,
+sitting directly on top of this fix's own commit `37503fe`), not the
+session's self-summary: only 2 positions open now (BTC/EUR, LINK/EUR - SUI,
+ADA, and LTC all closed since the previous check, per the closed-trade
+review above), both currently underwater (-1.78%/-4.96%), no order or
+unprotected-position errors. Neither the 4h nor the fast 1h invalidation
+check fired this cycle, correctly - both open positions are currently
+underwater, so the "currently profitable" gate they share correctly
+excludes them; this is expected behavior, not a sign anything's broken.
+Trigger re-bound to this session (`trig_01DKgBnVNdcHRRLyRp7pfYFr`); old
+session archived - **$103.06 over its ~2.5-day life**, its highest lifetime
+cost yet for a live-trading session, consistent with the already-documented
+pattern that cost climbs with session *duration* rather than trade count
+(this session happened to span the full week between weekly cutovers,
+absorbing every code-change cutover as an *additional* manual swap on top).
+
+**Still not yet confirmed to have fired for real** - same caveat as the
+original 4h invalidation feature: the mechanism is confirmed deployed and
+running every cycle, but hasn't had a live position both profitable and
+pre-+1R with a broken SMA (on either timeframe) since deploying. Watch for
+its first live `"fast_invalidation"` close and verify the reason/fill the
+same way as any other trade.
 
 ## Network access
 
