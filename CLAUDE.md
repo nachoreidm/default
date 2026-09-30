@@ -799,6 +799,39 @@ pre-+1R with a broken SMA (on either timeframe) since deploying. Watch for
 its first live `"fast_invalidation"` close and verify the reason/fill the
 same way as any other trade.
 
+## Notion approval-prompt recurred a third time, then re-fixed (2026-09-30)
+
+Same failure mode as the paper branch's 2026-09-11 incident and this
+branch's 2026-09-25 recurrence: the user reported Notion asking for manual
+approval again during a live cycle, despite the account-level always-allow
+setting. Investigating found the actual cause this time - not all Notion
+tools had been set to "always allow" individually; some had been missed
+when the setting was applied. User fixed it by explicitly setting every
+Notion tool to "always allow."
+
+Applied the 2026-09-11/2026-09-25 precedent exactly, without re-litigating
+it: a session created *before* an always-allow fix stays locked into
+prompting for its whole life; only a session created *after* the fix is
+clean. The persistent session bound to the hourly trigger at the time
+(`session_01793RYihdo3qKsQGHdWw8My`) was created before this fix, so it
+needed a cutover regardless of whether its next cycle looked clean.
+
+Created a new session (`session_013AgRGjmtnsb1yF1HrxyEjc`) *after* the
+fix, verified via real commit (`e3accb3`) and a genuine clean cycle (2
+positions, BTC/EUR and LINK/EUR, both underwater and non-trailing - no
+order errors, Notion synced). Trigger re-bound
+(`trig_015eLFk3FZkeiB3A2XGbrNui`); old session archived (cost $1.46 over
+its ~4-minute life - it had only just been created for the fast-
+invalidation deploy immediately prior, so this is a second cutover in
+quick succession, not wasted spend on a long-lived session).
+
+Per the same discipline the 2026-09-25 incident established - a completed
+cycle alone is not proof a prompt didn't appear, since the user could have
+been present and clicked approve - explicitly asked the user whether a
+Notion approval prompt appeared during this specific cycle rather than
+inferring it from the clean result alone. Answer pending as of this
+writing; update this entry once confirmed either way.
+
 ## Network access
 
 Same as paper trading: `api.kraken.com` is the only allowlisted domain
