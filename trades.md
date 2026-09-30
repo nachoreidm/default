@@ -28844,3 +28844,131 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-09-30T14:43:06.022Z — BTC/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule) - no new entry regardless of signal quality.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 52.43,
+  "sma_state": "fast_below_slow",
+  "volume_ratio": 0.87,
+  "momentum_flagged": false,
+  "news": "Search returned only generic/stale institutional-adoption background, no dated catalyst; existing position blocks a new entry regardless."
+}
+```
+
+---
+### 2026-09-30T14:43:06.044Z — ETH/EUR — NO TRADE
+
+**Reasoning:** SMA fast_below_slow (bearish structure), RSI neutral 53.5, volume ratio 1.30x (below 2x confirmation), momentum not flagged. No qualifying setup against a bearish trend structure.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 53.48,
+  "sma_state": "fast_below_slow",
+  "volume_ratio": 1.3,
+  "momentum_flagged": false,
+  "news": "Search returned an old article citing ETH at ~$3,039 (well above current ~€2,357) - stale, not dated to this cycle; no fresh catalyst."
+}
+```
+
+---
+### 2026-09-30T14:43:06.058Z — SOL/EUR — NO TRADE
+
+**Reasoning:** RSI neutral 51.7, volume ratio 1.08x (well below 2x confirmation), momentum not flagged. Not a strong enough confluence to enter despite SMA fast_above_slow.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 51.72,
+  "sma_state": "fast_above_slow",
+  "volume_ratio": 1.08,
+  "momentum_flagged": false,
+  "news": "Network activity is positive background but not dated to this cycle."
+}
+```
+
+---
+### 2026-09-30T14:43:06.070Z — XRP/EUR — NO TRADE
+
+**Reasoning:** SMA fast_below_slow (bearish structure), RSI 52.4 neutral, momentum not flagged. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 52.41,
+  "sma_state": "fast_below_slow",
+  "volume_ratio": 1.19,
+  "momentum_flagged": false,
+  "news": "SEC/Ripple legal-battle background, nothing dated to this cycle that would justify a fresh entry against a bearish technical structure."
+}
+```
+
+---
+### 2026-09-30T14:43:06.093Z — ADA/EUR — NO TRADE
+
+**Reasoning:** SMA fast_below_slow (bearish structure), RSI neutral 51.1, momentum not flagged despite a real positive move. No qualifying setup against the bearish trend structure.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 51.06,
+  "sma_state": "fast_below_slow",
+  "volume_ratio": 1.15,
+  "momentum_flagged": false,
+  "news": "Search returned an old article citing ADA near $0.935 (well above current ~€0.215) - clearly stale, not dated to this cycle; no fresh catalyst."
+}
+```
+
+---
+### 2026-09-30T14:43:06.106Z — LINK/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule) - no new entry regardless of signal quality.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 52.08,
+  "sma_state": "fast_above_slow",
+  "volume_ratio": 1.39,
+  "momentum_flagged": false,
+  "news": "S&P Global Ratings partnership and Caliber Corp accumulation are positive background, but existing position blocks a new entry."
+}
+```
+
+---
+### 2026-09-30T14:43:06.119Z — SUI/EUR — NO TRADE
+
+**Reasoning:** RSI neutral 50.3, volume below average (0.83x), momentum not flagged. Not a strong enough confluence to enter.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 50.28,
+  "sma_state": "fast_above_slow",
+  "volume_ratio": 0.83,
+  "momentum_flagged": false,
+  "news": "Search returned an old article citing SUI at ~$3.20-3.30 (far above current ~€1.01) - clearly stale, not dated to this cycle; no fresh catalyst."
+}
+```
+
+---
+### 2026-09-30T14:43:06.130Z — LTC/EUR — NO TRADE
+
+**Reasoning:** RSI weak-neutral (45.0), volume ratio very low (0.27x, well below average participation), price down -3.0%/-3.4% over the window despite fast_above_slow SMA state. Weak participation and negative price action outweigh the SMA signal; momentum not flagged.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 45,
+  "sma_state": "fast_above_slow",
+  "volume_ratio": 0.27,
+  "momentum_flagged": false,
+  "news": "Search returned an old article about a Feb 2025 .ltc domain-extension launch - clearly stale, not dated to this cycle; no fresh catalyst."
+}
+```
+
+---
