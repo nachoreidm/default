@@ -143,7 +143,20 @@ before anything else):
    instead) or to one currently underwater (left to the original hard
    stop — this is about protecting a winner, not a general early-exit
    rule). See CLAUDE.md's 2026-09-26 entry for the full reasoning.
-4. **Trailing maintenance**: once a position reaches +1R, moves the stop up
+4. **Fast invalidation check** (pre-trailing, currently-profitable positions
+   only, added 2026-09-30): same scope and purpose as the 4h check above,
+   but faster — added after a review of every closed live trade found the
+   4h check alone is too slow for a quick reversal: by the time a 4h candle
+   closes below the SMA, price can already be well underwater, at which
+   point the "currently profitable" gate blocks it from firing at all. This
+   check runs the same logic on 1h candles instead, but requires **2
+   consecutive** closed 1h candles below the rising 1h 20-period SMA (not
+   just one) specifically to filter the extra noise a faster timeframe
+   carries — a single dipping candle does not trigger it. Runs alongside
+   the 4h check, not instead of it; either one firing closes the position.
+   See CLAUDE.md's 2026-09-30 entry for the trade-by-trade review that
+   motivated this.
+5. **Trailing maintenance**: once a position reaches +1R, moves the stop up
    to the guaranteed-profit floor (30% of the peak gain reached so far, or
    enough to clear round-trip fees, whichever is larger — see paper
    trading's identical math, this logic is unchanged) by **cancelling the

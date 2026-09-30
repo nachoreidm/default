@@ -699,6 +699,89 @@ yet confirmed to have executed a real close; watch for its first live
 trigger and verify the close reason/fill the same way as any other
 trade.
 
+## Closed-trade review and fast (1h) invalidation check (2026-09-30)
+
+**Prompted by**: "most trades in live model resulted in loss" - reviewed all
+6 closed live trades at that point rather than answering from impression.
+Net realized P&L across all 6: **-€2.19** (essentially flat, not a real
+drawdown) - LINK #1 -€11.07, SOL +€6.85 (the precision-bug manual close),
+ADA -€10.67, SUI +€26.84 (trailing, +3R), LINK #2 -€0.03 (the invalidation
+feature's first real save), LTC -€14.11. Four of six show red, but SUI's
+one big trailing winner very nearly offsets three separate losers - the
+expected shape for a 2:1 R:R system (low win rate, asymmetric payoff), not
+itself evidence of a problem.
+
+**The actual finding** came from a data-driven counterfactual, not
+impression: for each of the 3 real losers (LINK #1, ADA, LTC), fetched the
+real historical OHLC between entry and exit and checked, candle by candle,
+whether the position was ever simultaneously (a) profitable and (b) below
+its own SMA on a closed candle - on both the 4h timeframe the existing
+invalidation check uses, and a hypothetical faster 1h timeframe. Result
+split cleanly in two:
+
+- **ADA and LTC were unavoidable by any moving-average exit, at any
+  speed.** Neither ever had a closed candle - 4h OR 1h - that was both
+  profitable and below its SMA. Both fell from a tiny peak (ADA +2.5%, LTC
+  +0.85%) straight through breakeven within the first one or two candles
+  after entry - the reversal outran the indicator entirely, on either
+  timeframe. Both share the same profile: `momentum_only`, volume
+  unconfirmed (ADA 0.90x, LTC 1.64x - both under the 2x bar this system
+  requires, and ADA is under even the more commonly-cited 1.5x bar),
+  entered mid-extension (RSI 65-67) rather than on a pullback. No exit-side
+  fix helps this pattern - the lever is entry quality, deliberately left
+  alone here (a separate, not-yet-built idea: tighten momentum-only entry
+  timing to require a pullback rather than entering into the live
+  extension, matching the "enter on the pullback, not the breakout candle"
+  principle - see the crypto-trading-research comparison done the same
+  week).
+- **LINK #1 is different, and fixable.** It predates the invalidation
+  feature's 2026-09-26 build entirely, so nothing was watching it - but on
+  a 1h basis it WAS profitable and below its own 1h SMA as early as 5.5
+  hours after entry (still near breakeven), and only rode the full 4h-scale
+  hard stop down to -€11.07 over the following ~5 days because the faster
+  signal didn't exist yet. This is a genuine gap the existing 4h-only check
+  doesn't cover: a slow-bleed reversal that stays profitable-but-weakening
+  for a while before finally breaking, where 4h is simply too coarse to
+  catch it before it round-trips.
+
+**Built the fix for the fixable half**: a second, faster companion check -
+`fastInvalidationCheck` in `trailing-math.ts`, run on 1h candles instead of
+4h. Runs alongside the existing 4h `invalidationCheck` in `checkStops`
+(`portfolio-live.ts`), not instead of it - either firing closes the
+position (4h tried first, since it's already usually being fetched
+elsewhere and needs no extra call when it already breaches). Deliberately
+requires **2 consecutive** closed 1h candles below the 1h 20-period SMA
+(`FAST_INVALIDATION_CONFIRM_CANDLES`), not just one - a single-candle rule
+on 1h would produce far more false positives than the existing 4h check's
+single-candle rule does, since 1h is inherently noisier. The confirmation
+logic itself (`fastInvalidationFromCloses`) is split out as a pure
+function taking a plain closes array, specifically so it's unit-testable
+with synthetic data without a network call - mirrors how `peakFromCandles`
+is already structured. Scoped identically to the 4h check: non-trailing
+positions only, currently-profitable positions only. New
+`StopCheckAction.triggered` value `"fast_invalidation"`, distinct from
+`"invalidation"`, so a future review can tell which speed actually caught
+a given close.
+
+**Verified**: `selftest.ts` got three new pure-logic unit tests against
+synthetic closes (both of the last 2 candles below their SMA → breaches;
+only the last one dips, second-to-last sits exactly at its SMA → does NOT
+breach, proving the 2-candle requirement actually gates something; too
+little history → fails safe) plus a live smoke test mirroring the existing
+`invalidationCheck` one. Full self-test suite and a pruned-build smoke test
+both passed before pushing. `portfolio_check_stops`'s tool description and
+`instructions/kraken-live-agent-instructions.md` both updated to document
+the new step as step 4 (renumbering trailing maintenance to step 5).
+
+**Not yet deployed** - per the established pattern (see every prior code
+change this week), a running persistent session's MCP server process won't
+pick this up from a `git pull` alone; needs the same verified cutover (new
+session → confirm a real cycle via actual commit diff → re-bind the
+trigger → archive the old session) before it's live. Also not yet
+confirmed to have fired for real, same caveat as the original invalidation
+feature - watch for its first live `"fast_invalidation"` close and verify
+the reason/fill like any other trade.
+
 ## Network access
 
 Same as paper trading: `api.kraken.com` is the only allowlisted domain

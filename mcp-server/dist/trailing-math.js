@@ -122,3 +122,47 @@ export async function invalidationCheck(pair) {
         return { breached: false, lastClose: null, sma20: null };
     }
 }
+export const FAST_INVALIDATION_SMA_PERIOD = 20;
+export const FAST_INVALIDATION_CONFIRM_CANDLES = 2;
+// Pure confirmation logic for fastInvalidationCheck below - split out so
+// it's unit-testable with synthetic closes, no network call needed. `closes`
+// is oldest-first, same convention as everywhere else in this file. Requires
+// FAST_INVALIDATION_CONFIRM_CANDLES consecutive closes to ALL sit below
+// their own SMA(FAST_INVALIDATION_SMA_PERIOD) value at that point - a single
+// dipping candle is not enough, since 1h is inherently noisier than 4h and a
+// one-candle rule would false-positive on normal wicks/pullbacks far more
+// than the existing 4h check does.
+export function fastInvalidationFromCloses(closes) {
+    const smaSeries = sma(closes, FAST_INVALIDATION_SMA_PERIOD);
+    if (smaSeries.length < FAST_INVALIDATION_CONFIRM_CANDLES || closes.length < FAST_INVALIDATION_CONFIRM_CANDLES) {
+        return { breached: false, lastCloses: null, lastSmas: null };
+    }
+    const lastCloses = closes.slice(-FAST_INVALIDATION_CONFIRM_CANDLES);
+    const lastSmas = smaSeries.slice(-FAST_INVALIDATION_CONFIRM_CANDLES);
+    const breached = lastCloses.every((c, i) => c < lastSmas[i]);
+    return { breached, lastCloses, lastSmas };
+}
+// Faster companion to invalidationCheck (4h), added 2026-09-30 after a
+// review of every closed live trade so far found a split failure mode: two
+// losses (ADA, LTC) fell below entry before ANY closed candle - 4h or even
+// 1h - ever printed below its own SMA, so no MA-based exit at any speed
+// could have helped there (the only lever for that pattern is entry
+// quality, left alone here). But the very first live loss (LINK, predating
+// invalidationCheck's existence) WOULD have been caught on 1h data ~5.5
+// hours after entry, still near breakeven - it only rode the full 4h-scale
+// stop down because the faster signal didn't exist yet. This adds that
+// faster signal as an ADDITION alongside the 4h check, not a replacement -
+// see checkStops in portfolio-live.ts for how the two combine. Requires
+// FAST_INVALIDATION_CONFIRM_CANDLES consecutive closed 1h candles (see
+// fastInvalidationFromCloses) specifically to filter the extra noise a
+// faster timeframe carries. Fails safe on any fetch/compute error.
+export async function fastInvalidationCheck(pair) {
+    try {
+        const candles1h = closedCandles(await fetchOHLC(pair, "1h"));
+        const closes = candles1h.map((c) => c.close);
+        return fastInvalidationFromCloses(closes);
+    }
+    catch {
+        return { breached: false, lastCloses: null, lastSmas: null };
+    }
+}

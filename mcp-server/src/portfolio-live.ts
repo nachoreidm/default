@@ -4,7 +4,16 @@ import { fileURLToPath } from "node:url";
 import { randomUUID } from "node:crypto";
 import { fetchTicker, fetchPairPrecision, pairCode, KrakenApiError } from "./kraken.js";
 import { addOrder, cancelOrder, queryBalance, queryOrdersInfo, type KrakenOrderInfo } from "./kraken-private.js";
-import { hasReachedOneR, effectiveTrailingStop, trailingStopCandidate, historicalPeakSinceEntry, invalidationCheck } from "./trailing-math.js";
+import {
+  hasReachedOneR,
+  effectiveTrailingStop,
+  trailingStopCandidate,
+  historicalPeakSinceEntry,
+  invalidationCheck,
+  fastInvalidationCheck,
+  FAST_INVALIDATION_SMA_PERIOD,
+  FAST_INVALIDATION_CONFIRM_CANDLES,
+} from "./trailing-math.js";
 import {
   ALLOWED_PAIRS,
   RISK_LIMITS,
@@ -440,7 +449,7 @@ export async function closePosition(input: ClosePositionInput): Promise<ClosePos
 export interface StopCheckAction {
   position_id: string;
   pair: AllowedPair;
-  triggered: "stop_loss" | "take_profit" | "invalidation";
+  triggered: "stop_loss" | "take_profit" | "invalidation" | "fast_invalidation";
   closed: ClosedPosition;
 }
 
@@ -517,7 +526,7 @@ export async function checkStops(): Promise<StopCheckAction[]> {
       }
     }
 
-    // --- Invalidation check (pre-trailing only, profitable only) ---
+    // --- Invalidation checks (pre-trailing only, profitable only) ---
     // A position that's profitable but hasn't yet earned trailing
     // protection is otherwise only guarded by its original hard stop -
     // meaning it can round-trip all the way back down to a loss even after
@@ -531,9 +540,21 @@ export async function checkStops(): Promise<StopCheckAction[]> {
     // already-underwater position is left to the original hard stop, per
     // this feature's own framing - it's about protecting a winner, not a
     // general early-exit rule).
+    //
+    // Added 2026-09-30: a review of every closed live trade found the 4h
+    // check alone is too slow for a fast reversal - by the time a 4h candle
+    // closes below the SMA, a quick dump can already be well underwater
+    // (the "profitable" gate above then blocks it from firing at all). A
+    // faster, 1h-based companion check (fastInvalidationCheck) runs
+    // alongside the 4h one, requiring FAST_INVALIDATION_CONFIRM_CANDLES
+    // consecutive closed 1h candles below the 1h SMA (not just one) to
+    // filter the extra noise a faster timeframe carries. Either check
+    // firing closes the position; the 4h check is tried first purely to
+    // avoid the extra 1h fetch when it isn't needed.
     if (!pos.trailing_active && ticker.last > pos.entry_price) {
       const invalidation = await invalidationCheck(pos.pair);
-      if (invalidation.breached) {
+      const fastInvalidation = invalidation.breached ? null : await fastInvalidationCheck(pos.pair);
+      if (invalidation.breached || fastInvalidation?.breached) {
         if (pos.stop_order_txid) {
           try {
             await cancelOrder(pos.stop_order_txid);
@@ -546,14 +567,11 @@ export async function checkStops(): Promise<StopCheckAction[]> {
         const sellTxid = sellOrder.txid?.[0];
         if (sellTxid) {
           const filled = await pollForFill(sellTxid);
-          const closed = await recordClose(
-            state,
-            pos,
-            Number(filled.price),
-            Number(filled.fee),
-            `Invalidation close: still-profitable pre-+1R position, but the stated technical invalidation broke - most recent closed 4h candle (${invalidation.lastClose}) closed below the ${TRAIL_SMA_PERIOD}-period 4h SMA (${invalidation.sma20}) this trade's thesis depended on. Closed early rather than risk a round-trip back to the hard stop.`
-          );
-          actions.push({ position_id: pos.id, pair: pos.pair, triggered: "invalidation", closed });
+          const reason = invalidation.breached
+            ? `Invalidation close: still-profitable pre-+1R position, but the stated technical invalidation broke - most recent closed 4h candle (${invalidation.lastClose}) closed below the ${TRAIL_SMA_PERIOD}-period 4h SMA (${invalidation.sma20}) this trade's thesis depended on. Closed early rather than risk a round-trip back to the hard stop.`
+            : `Fast invalidation close: still-profitable pre-+1R position, but the last ${FAST_INVALIDATION_CONFIRM_CANDLES} closed 1h candles (${fastInvalidation!.lastCloses}) all closed below their own 1h ${FAST_INVALIDATION_SMA_PERIOD}-period SMA (${fastInvalidation!.lastSmas}) - a faster reversal signal the 4h check alone would have missed. Closed early rather than risk a round-trip back to the hard stop.`;
+          const closed = await recordClose(state, pos, Number(filled.price), Number(filled.fee), reason);
+          actions.push({ position_id: pos.id, pair: pos.pair, triggered: invalidation.breached ? "invalidation" : "fast_invalidation", closed });
           stateChanged = true;
           continue;
         }

@@ -1,7 +1,7 @@
 import { fetchOHLC, fetchTicker, fetchDepth, closedCandles } from "./kraken.js";
 import { rsi, sma, smaCrossover, volumeVs7dAvg, orderBookImbalance, priceAction } from "./indicators.js";
 import { computeSignals } from "./signals.js";
-import { hasReachedOneR, effectiveTrailingStop, peakFromCandles, invalidationCheck } from "./trailing-math.js";
+import { hasReachedOneR, effectiveTrailingStop, peakFromCandles, invalidationCheck, fastInvalidationFromCloses, fastInvalidationCheck } from "./trailing-math.js";
 import { ALLOWED_PAIRS } from "./types.js";
 function candle(time, high) {
     return { time, open: high, high, low: high, close: high, vwap: high, volume: 0, count: 0 };
@@ -86,6 +86,26 @@ async function main() {
     assert(peakFromCandles(candles, 2000, 115) === 115, "peakFromCandles never regresses below the currently-stored peak (115 > 112)");
     assert(peakFromCandles([], 2000, 100) === 100, "peakFromCandles falls back to currentPeak when no candles qualify");
     assert(peakFromCandles([candle(500, 999)], 2000, 100) === 100, "peakFromCandles ignores candles before entryTs even if their high is huge");
+    // fastInvalidationFromCloses (2026-09-30 fast-invalidation feature) - pure
+    // confirmation logic, no network needed. 20 flat closes at 100 (SMA~100),
+    // then the last 2 dip to 90/89 - both below their own SMA(20) at that
+    // point, so this should breach (the 2-candle confirmation requirement is
+    // satisfied).
+    const dipBoth = [...Array(20).fill(100), 90, 89];
+    const dipBothResult = fastInvalidationFromCloses(dipBoth);
+    assert(dipBothResult.breached === true, `fastInvalidationFromCloses breaches when the last 2 closes are both below their SMA (got ${JSON.stringify(dipBothResult)})`);
+    // Same setup but only the LAST candle dips (100, then 89) - the
+    // second-to-last close (100) sits exactly AT its own SMA (not below it),
+    // so the 2-candle confirmation requirement is NOT met. Proves a single
+    // dipping candle alone can't trigger this - the whole reason it requires
+    // FAST_INVALIDATION_CONFIRM_CANDLES consecutive closes, unlike the 4h
+    // check's single-candle rule.
+    const dipOne = [...Array(20).fill(100), 100, 89];
+    const dipOneResult = fastInvalidationFromCloses(dipOne);
+    assert(dipOneResult.breached === false, `fastInvalidationFromCloses does NOT breach on a single dipping candle - confirmation requires ${dipOneResult ? 2 : "?"} consecutive closes (got ${JSON.stringify(dipOneResult)})`);
+    // Too little history for even one SMA(20) value - fails safe, not a crash.
+    const tooShort = fastInvalidationFromCloses([1, 2, 3]);
+    assert(tooShort.breached === false && tooShort.lastCloses === null, `fastInvalidationFromCloses fails safe with too little history (got ${JSON.stringify(tooShort)})`);
     // --- Live Kraken API smoke test (public endpoints, no auth) ---
     const ticker = await fetchTicker("BTC/EUR");
     assert(ticker.last > 0, `live BTC/EUR ticker last price > 0 (got ${ticker.last})`);
@@ -113,6 +133,12 @@ async function main() {
     const inv = await invalidationCheck("BTC/EUR");
     assert(inv.lastClose !== null && inv.sma20 !== null, `invalidationCheck returns real lastClose/sma20 for BTC/EUR (got ${JSON.stringify(inv)})`);
     assert(inv.breached === (inv.lastClose < inv.sma20), "invalidationCheck's breached flag matches lastClose < sma20");
+    // fastInvalidationCheck (2026-09-30) - live smoke test, same style as
+    // invalidationCheck above: no fixed expected outcome, but must return
+    // real (non-null) data for a liquid pair with ample 1h history.
+    const fastInv = await fastInvalidationCheck("BTC/EUR");
+    assert(fastInv.lastCloses !== null && fastInv.lastSmas !== null, `fastInvalidationCheck returns real lastCloses/lastSmas for BTC/EUR (got ${JSON.stringify(fastInv)})`);
+    assert(fastInv.breached === fastInv.lastCloses.every((c, i) => c < fastInv.lastSmas[i]), "fastInvalidationCheck's breached flag matches the 2-candle confirmation logic");
     console.log("\nALL SELF-TESTS PASSED");
 }
 main().catch((e) => {
