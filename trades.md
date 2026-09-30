@@ -26903,3 +26903,132 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-09-30T00:24:00.447Z — BTC/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule) - no new entry regardless of signal quality.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 50.74,
+  "sma_state": "fast_below_slow",
+  "volume_ratio": 0.87,
+  "momentum_flagged": false,
+  "news": "Generic/evergreen search results (Truth Social ETF plans, Metaplanet/Twenty One Capital accumulation) not dated to this cycle; existing position blocks a new entry regardless."
+}
+```
+
+---
+### 2026-09-30T00:24:00.470Z — ETH/EUR — NO TRADE
+
+**Reasoning:** SMA fast_below_slow (bearish structure), RSI neutral 49.8, volume ratio 1.30x (below 2x confirmation), momentum not flagged. No qualifying setup against a bearish trend structure.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 49.84,
+  "sma_state": "fast_below_slow",
+  "volume_ratio": 1.3,
+  "momentum_flagged": false,
+  "news": "Search returned an old article citing ETH at ~$3,039 (well above current ~€2,354) - not dated to this cycle; ERC-8004/x402 AI-commerce and quantum-resistance funding are background developments, no fresh catalyst."
+}
+```
+
+---
+### 2026-09-30T00:24:00.483Z — SOL/EUR — NO TRADE
+
+**Reasoning:** SMA only marginally fast_above_slow, RSI neutral 50.8, volume ratio 1.08x (well below 2x confirmation), momentum not flagged, price down slightly over the window. Not a strong enough confluence to enter.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 50.76,
+  "sma_state": "fast_above_slow_marginal",
+  "volume_ratio": 1.08,
+  "momentum_flagged": false,
+  "news": "Network activity (daily actives at 3-month high, 28M+ tx/day) is positive background but not dated to this cycle and not a trade catalyst; price action itself is flat-to-down."
+}
+```
+
+---
+### 2026-09-30T00:24:00.494Z — XRP/EUR — NO TRADE
+
+**Reasoning:** SMA fast_below_slow (bearish structure), RSI 45.8 leaning weak, momentum not flagged, price down over the 1h window. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 45.77,
+  "sma_state": "fast_below_slow",
+  "volume_ratio": 1.19,
+  "momentum_flagged": false,
+  "news": "SEC/Ripple legal-battle background and cross-border payment partnerships are longstanding themes, nothing dated to this cycle that would justify a fresh entry against a bearish technical structure."
+}
+```
+
+---
+### 2026-09-30T00:24:00.507Z — ADA/EUR — NO TRADE
+
+**Reasoning:** SMA only marginally fast_above_slow (0.2196 vs 0.2190, essentially flat), price still down -3.9%/-1.9% over the window despite the barely-bullish SMA state, RSI 46.4, volume ratio 1.15x not confirming, momentum not flagged. Declining price outweighs the marginal SMA signal.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 46.38,
+  "sma_state": "fast_above_slow_marginal",
+  "volume_ratio": 1.15,
+  "order_book_imbalance": 0.364,
+  "momentum_flagged": false,
+  "news": "Search returned an old article citing ADA near $0.935 (well above current ~€0.214) - clearly stale, not dated to this cycle; no fresh catalyst found."
+}
+```
+
+---
+### 2026-09-30T00:24:00.518Z — LINK/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule) - no new entry regardless of signal quality.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 55.11,
+  "sma_state": "fast_above_slow",
+  "volume_ratio": 1.39,
+  "momentum_flagged": false,
+  "news": "S&P Global Ratings stablecoin-transparency partnership and Caliber Corp treasury accumulation are positive background, but existing position blocks a new entry."
+}
+```
+
+---
+### 2026-09-30T00:24:00.531Z — SUI/EUR — NO TRADE
+
+**Reasoning:** Price down sharply (-8.9%/-6.4% over the window) despite fast_above_slow SMA state, volume below average (0.83x), momentum not flagged (decline, not a qualifying up-move). Recent sharp reversal, not a bullish setup.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 50.81,
+  "sma_state": "fast_above_slow",
+  "volume_ratio": 0.83,
+  "momentum_flagged": false,
+  "news": "Search returned an old article citing SUI at ~$3.20-3.30 (far above current ~€1.01) - clearly stale, not dated to this cycle; no fresh catalyst found for the current decline."
+}
+```
+
+---
+### 2026-09-30T00:24:00.541Z — LTC/EUR — NO TRADE
+
+**Reasoning:** RSI weak (40.7), volume ratio very low (0.27x, well below average participation), price down -4.4%/-5.3% over the window despite fast_above_slow SMA state. Weak participation and negative price action outweigh the SMA signal; momentum not flagged.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 40.67,
+  "sma_state": "fast_above_slow",
+  "volume_ratio": 0.27,
+  "momentum_flagged": false,
+  "news": "Search returned an old article about a Feb 2025 .ltc domain-extension launch - clearly stale, not dated to this cycle; no fresh catalyst found."
+}
+```
+
+---
