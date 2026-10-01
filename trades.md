@@ -32496,3 +32496,139 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-10-01T17:42:32.028Z — BTC/EUR — NO TRADE
+
+**Reasoning:** Existing open position (entry €74,971.00, non-trailing, now modestly profitable) - one-position-per-pair rule, log no-trade instead of a new entry. No momentum trigger, RSI rising but still well below the 6% move bar.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 62.26,
+  "pct_change_1h_48h": 2.24,
+  "pct_change_4h_48h": 1.6,
+  "sma_state": "fast_below_slow",
+  "volume_ratio": 0.996
+}
+```
+
+---
+### 2026-10-01T17:42:32.041Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h +1.03%, 4h +0.65%, well below the 6% bar), SMA fast above slow but no volume confirmation (0.92x). News search returned the same recurring generic/stale Ethereum stories with no fresh price-relevant catalyst. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 55.41,
+  "pct_change_1h_48h": 1.03,
+  "pct_change_4h_48h": 0.65,
+  "sma_state": "fast_above_slow",
+  "volume_ratio": 0.925
+}
+```
+
+---
+### 2026-10-01T17:42:32.062Z — SOL/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger, price roughly flat, SMA fast still below slow, volume 1.77x - below the 2x confirmation bar, order book negative. News search returned an unrelated $130-137 price range claim, wildly inconsistent with real current price €105.73. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 48.7,
+  "pct_change_1h_48h": 0.37,
+  "pct_change_4h_48h": -0.33,
+  "sma_state": "fast_below_slow",
+  "volume_ratio": 1.77
+}
+```
+
+---
+### 2026-10-01T17:42:32.073Z — XRP/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger, price roughly flat/slightly positive, SMA fast below slow, volume below average. News search again surfaced only the stale SEC-litigation background, no dated catalyst. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 49.72,
+  "pct_change_1h_48h": 0.79,
+  "pct_change_4h_48h": 0.48,
+  "sma_state": "fast_below_slow",
+  "volume_ratio": 0.717
+}
+```
+
+---
+### 2026-10-01T17:42:32.082Z — ADA/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h +2.31%, 4h +2.37%, both below the 6% bar), SMA fast still below slow, volume near average - no confirmation, order book negative. News search again returned the same stale $0.935 price-milestone article vs real current price €0.223 - not usable as a catalyst. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 51.83,
+  "pct_change_1h_48h": 2.31,
+  "pct_change_4h_48h": 2.37,
+  "sma_state": "fast_below_slow",
+  "volume_ratio": 0.997
+}
+```
+
+---
+### 2026-10-01T17:42:32.090Z — LINK/EUR — NO TRADE
+
+**Reasoning:** Existing open position (entry €13.3964, non-trailing) - one-position-per-pair rule, log no-trade instead of a new entry. Price still red (-1.71%/-1.56% over the 1h/4h windows), but momentum_trigger never flags on downward moves by design - no action beyond existing stop/invalidation checks, which came back clean this cycle.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 52.07,
+  "pct_change_1h_48h": -1.71,
+  "pct_change_4h_48h": -1.56,
+  "sma_state": "fast_above_slow",
+  "volume_ratio": 0.553
+}
+```
+
+---
+### 2026-10-01T17:42:32.099Z — SUI/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h +2.01%, 4h +1.17%, both below the 6% bar), volume near average - no confirmation, order book strongly negative. News search returned stale figures (quoted SUI at $3.24-$3.30) wildly inconsistent with real current price €1.05 - not usable as a catalyst. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 50.94,
+  "pct_change_1h_48h": 2.01,
+  "pct_change_4h_48h": 1.17,
+  "sma_state": "fast_above_slow",
+  "volume_ratio": 0.998
+}
+```
+
+---
+### 2026-10-01T17:42:32.106Z — LTC/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger, price roughly flat/slightly positive, SMA fast below slow, volume well below average (0.27x). News search returned contradictory stale stories (a 5% drop claim alongside the old .ltc domain/UFC stories), inconsistent with the actual flat-to-slightly-positive price action. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 47.63,
+  "pct_change_1h_48h": 0.66,
+  "pct_change_4h_48h": 0.49,
+  "sma_state": "fast_below_slow",
+  "volume_ratio": 0.272
+}
+```
+
+---
