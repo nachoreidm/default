@@ -31270,3 +31270,139 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-10-01T08:42:49.590Z — BTC/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule) - no new entry evaluated. Stops check confirmed clean, position remains pre-+1R and non-trailing.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 50.37,
+  "sma_crossover_4h": "fast_below_slow",
+  "volume_ratio": 1,
+  "existing_position": true
+}
+```
+
+---
+### 2026-10-01T08:42:49.607Z — LINK/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule) - no new entry evaluated. Stops check confirmed clean, position remains pre-+1R and non-trailing (still underwater, price drifting lower further this cycle).
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 49.17,
+  "sma_crossover_4h": "fast_above_slow",
+  "volume_ratio": 0.55,
+  "existing_position": true
+}
+```
+
+---
+### 2026-10-01T08:42:49.618Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger flag; price actually down (1h/48h -0.87%, 4h/48h -1.69%). RSI neutral (50.9), SMA fast below slow, volume ratio 0.92x (below 2x bar). News search returned generic Foundation/staking items with no dated, proportionate catalyst tied to this cycle. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 50.86,
+  "sma_crossover_4h": "fast_below_slow",
+  "volume_ratio": 0.92,
+  "order_book_imbalance": 0.163,
+  "news_context": "generic Foundation/staking news, no fresh catalyst"
+}
+```
+
+---
+### 2026-10-01T08:42:49.638Z — SOL/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger flag; price down (1h/48h -1.10%, 4h/48h -1.84%). RSI below neutral (46.2), fresh bearish SMA crossover this candle (fast crossed below slow) - not relevant for a long-only entry. Volume ratio 1.77x elevated but still below 2x bar. News search cited SOL near $130-137, inconsistent with real current price of €104.25, confirming stale article. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 46.24,
+  "sma_crossover_4h": "fast_below_slow_fresh_bearish_cross",
+  "volume_ratio": 1.77,
+  "order_book_imbalance": 0.018,
+  "news_context": "stale article citing SOL price levels inconsistent with real price ~€104 - discounted"
+}
+```
+
+---
+### 2026-10-01T08:42:49.649Z — XRP/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger flag; price down (1h/48h -0.52%, 4h/48h -1.59%). RSI below neutral (46.4), SMA fast below slow, volume ratio only 0.72x. News search returned old SEC-lawsuit background with no fresh, dated catalyst. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 46.42,
+  "sma_crossover_4h": "fast_below_slow",
+  "volume_ratio": 0.72,
+  "order_book_imbalance": 0.006,
+  "news_context": "stale SEC litigation background, no fresh catalyst"
+}
+```
+
+---
+### 2026-10-01T08:42:49.661Z — ADA/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger flag; price down (1h/48h -1.43%, 4h/48h -1.76%). RSI neutral (52.3), SMA fast below slow, volume ratio ~1.0x (not confirming). News search again cited ADA at $0.935 - same stale article as every prior cycle, wildly inconsistent with real current price of €0.2185. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 52.27,
+  "sma_crossover_4h": "fast_below_slow",
+  "volume_ratio": 1,
+  "order_book_imbalance": 0.394,
+  "news_context": "stale article citing ADA at $0.935, inconsistent with real price ~€0.219 - discounted"
+}
+```
+
+---
+### 2026-10-01T08:42:49.671Z — SUI/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger flag (1h/48h +0.17%, 4h/48h -2.78% - 4h trend turned negative). RSI neutral (48.9), SMA fast above slow but 4h trend weakening, volume ratio ~1.0x not confirming. News search again surfaced the same stale $3.95-4.00/$2.58 price-level articles as prior cycles, inconsistent with real current price of €1.0205. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": 0.17,
+  "pct_change_4h_48h": -2.78,
+  "rsi_14_4h": 48.9,
+  "sma_crossover_4h": "fast_above_slow_but_4h_weakening",
+  "volume_ratio": 1,
+  "order_book_imbalance": 0.273,
+  "news_context": "stale articles citing SUI at $3.95-4.00/$2.58, inconsistent with real price ~€1.02 - discounted"
+}
+```
+
+---
+### 2026-10-01T08:42:49.682Z — LTC/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger flag; price down (1h/48h -1.81%, 4h/48h -2.63%). RSI below neutral (45.0), SMA fast below slow (bearish structure persists), volume ratio very weak (0.27x). News search again cited LTC at $127.85 with a stale Feb-2025 domain-launch catalyst - wildly inconsistent with real current price of €59.40. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 44.97,
+  "sma_crossover_4h": "fast_below_slow",
+  "volume_ratio": 0.27,
+  "order_book_imbalance": 0.188,
+  "news_context": "stale article citing LTC at $127.85, inconsistent with real price ~€59.40 - discounted"
+}
+```
+
+---
