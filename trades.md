@@ -33857,3 +33857,184 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-10-02T03:43:57.265Z — BTC/EUR — NO TRADE
+
+**Reasoning:** Existing open position (entry €74,971, opened 2026-09-22) - one-position-per-pair rule blocks a new entry regardless of signal quality. For reference: fresh bullish 4h SMA crossover this candle (fast 73935.0 just crossed above slow 73918.7), RSI 66.7, but volume 1.49x remains below the 2x confirmation bar, so even disregarding the one-position rule this wouldn't qualify for a confirmed entry.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 3.07,
+    "pct_change_4h_48h": 2.66
+  },
+  "rsi_14_4h": 66.7,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": true,
+    "crossover_direction": "bullish"
+  },
+  "volume_ratio": 1.49,
+  "order_book_imbalance": 0.062,
+  "existing_position": true
+}
+```
+
+---
+### 2026-10-02T03:43:57.290Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger (1h +2.63%, 4h +2.06%, both well below 6% bar). No fresh SMA crossover (already fast_above_slow, not this candle). Volume ratio 1.17x, well below 2x confirmation. RSI 59.5, neutral. News search returned generic/evergreen coverage (Glamsterdam upgrade testnet fork Oct 6, Vitalik's 2030 roadmap, ETF inflow commentary) with no pair-specific catalyst proportionate to current price action - consistent with the established pattern of stale/generic daily search results. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 2.63,
+    "pct_change_4h_48h": 2.06
+  },
+  "rsi_14_4h": 59.5,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "volume_ratio": 1.17,
+  "order_book_imbalance": -0.0045
+}
+```
+
+---
+### 2026-10-02T03:43:57.302Z — SOL/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger (1h +1.60%, 4h +0.23%, both far below 6% bar). SMA state fast_below_slow, no bullish signal. Volume ratio 1.28x, below 2x confirmation. RSI 53.3, neutral. News search returned generic/evergreen coverage (Alpenglow consensus already live, Firedancer TPS milestones, Visa/Meta stablecoin rail adoption) with stale price references (~$83) inconsistent with the real current price (€106.90) - no actionable pair-specific catalyst. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 1.6,
+    "pct_change_4h_48h": 0.23
+  },
+  "rsi_14_4h": 53.3,
+  "sma_crossover_4h": {
+    "state": "fast_below_slow"
+  },
+  "volume_ratio": 1.28,
+  "order_book_imbalance": 0.077
+}
+```
+
+---
+### 2026-10-02T03:43:57.312Z — XRP/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger (1h +1.46%, 4h +0.84%, both far below 6% bar). SMA state fast_below_slow. Volume ratio 0.79x, below both 2x and the 7-day average. RSI 51.4, neutral. News search returned generic business-development coverage (Ripple fintech acquisitions, prime brokerage raise, ETF inflow totals) with no fresh pair-specific catalyst tied to today's price action. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 1.46,
+    "pct_change_4h_48h": 0.84
+  },
+  "rsi_14_4h": 51.4,
+  "sma_crossover_4h": {
+    "state": "fast_below_slow"
+  },
+  "volume_ratio": 0.79,
+  "order_book_imbalance": -0.035
+}
+```
+
+---
+### 2026-10-02T03:43:57.322Z — ADA/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger (1h +3.12%, 4h +1.86%, both below 6% bar). SMA state fast_below_slow. Volume ratio 1.04x, below 2x. RSI 50.8, neutral. News search returned generic/dated coverage (SEC digital-commodity classification, Midnight sidechain, SPAR integration from earlier in the year) with no fresh catalyst proportionate to current move. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 3.12,
+    "pct_change_4h_48h": 1.86
+  },
+  "rsi_14_4h": 50.8,
+  "sma_crossover_4h": {
+    "state": "fast_below_slow"
+  },
+  "volume_ratio": 1.04,
+  "order_book_imbalance": 0.215
+}
+```
+
+---
+### 2026-10-02T03:43:57.332Z — LINK/EUR — NO TRADE
+
+**Reasoning:** Existing open position (entry €13.3964, opened 2026-09-28) - one-position-per-pair rule blocks a new entry. For reference: no momentum_trigger this cycle (1h +1.42%, 4h +0.86%, both far below the 6% bar), volume ratio 0.48x well below confirmation.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 1.42,
+    "pct_change_4h_48h": 0.86
+  },
+  "rsi_14_4h": 53.4,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow"
+  },
+  "volume_ratio": 0.48,
+  "existing_position": true
+}
+```
+
+---
+### 2026-10-02T03:43:57.343Z — SUI/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger (1h +4.18%, 4h +3.40%, both below the 6% bar - closest of the six candidates but still not flagged). SMA bullish (fast_above_slow) but not a fresh crossover. Volume ratio 0.75x, below both 2x and 1x (below own 7-day average). Order book notably negative (-0.45), real near-term selling pressure. News search surfaced only an upcoming Oct 7-8 "AI DeFi Breakthrough" event and dated Grayscale/Mubadala coverage from August - no catalyst proportionate to today. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 4.18,
+    "pct_change_4h_48h": 3.4
+  },
+  "rsi_14_4h": 54.7,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "volume_ratio": 0.75,
+  "order_book_imbalance": -0.449
+}
+```
+
+---
+### 2026-10-02T03:43:57.353Z — LTC/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger (1h +3.75%, 4h +2.38%, both below the 6% bar). SMA state fast_below_slow. Volume ratio 0.38x, well below confirmation and below its own 7-day average. RSI 53.3, neutral. News search returned generic 15th-anniversary/evergreen coverage (BitPay payment-volume stats, MWEB privacy feature, 2027 halving lookahead) with no fresh pair-specific catalyst. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 3.75,
+    "pct_change_4h_48h": 2.38
+  },
+  "rsi_14_4h": 53.3,
+  "sma_crossover_4h": {
+    "state": "fast_below_slow"
+  },
+  "volume_ratio": 0.38,
+  "order_book_imbalance": 0.171
+}
+```
+
+---
