@@ -36898,3 +36898,148 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-10-02T20:44:15.274Z — BTC/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger (1h/4h 48h change +1.50%/+1.53%, well below 6% threshold). RSI 52.3 neutral, SMA structure mildly bullish (fast_above_slow) but no fresh entry signal. Order book flat (imbalance ~0). Volume 1.49x, below 2x confirmation bar. News searches returned stale/generic ETF-inflow commentary, no pair-specific fresh catalyst for today. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": 1.498,
+  "pct_change_4h_48h": 1.528,
+  "rsi_14_4h": 52.31,
+  "sma_state": "fast_above_slow",
+  "volume_ratio": 1.49,
+  "order_book_imbalance": -1e-16
+}
+```
+
+---
+### 2026-10-02T20:44:15.310Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger (1h/4h 48h change +0.17%/+0.02%, essentially flat). RSI 46.9 neutral, SMA fast_above_slow but barely (gap narrowing). Volume 1.17x, unconfirmed. Order book skewed slightly toward asks (-0.05). News searches surfaced only stale Glamsterdam-upgrade/ETF-inflow commentary already priced in, and a noted bearish-pennant technical pattern - nothing fresh or actionable today. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": 0.168,
+  "pct_change_4h_48h": 0.018,
+  "rsi_14_4h": 46.88,
+  "sma_state": "fast_above_slow",
+  "volume_ratio": 1.17,
+  "order_book_imbalance": -0.0495
+}
+```
+
+---
+### 2026-10-02T20:44:15.331Z — SOL/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger (1h/4h 48h change +0.72%/+0.62%). RSI 47.6 neutral. SMA just crossed bearish this candle (fast_below_slow, crossed_this_candle: true) - structure turning negative, not a long setup. Volume 1.28x, unconfirmed. Order book flat. News searches showed only generic/dated price-action commentary, nothing pair-specific fresh. No qualifying setup; bearish SMA cross argues against any long consideration here.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": 0.721,
+  "pct_change_4h_48h": 0.624,
+  "rsi_14_4h": 47.57,
+  "sma_state": "fast_below_slow",
+  "crossed_this_candle": true,
+  "volume_ratio": 1.28,
+  "order_book_imbalance": 0.003
+}
+```
+
+---
+### 2026-10-02T20:44:15.348Z — XRP/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger (1h/4h 48h change -0.74%/-0.58%). RSI 42.7, SMA fast_below_slow (bearish structure). Volume 0.79x, below average. Order book notably skewed toward asks (-0.38, more sell-side depth). News searches surfaced only generic/stale 2026-strategy commentary (Ripple acquisitions, AI integration, OCC trust bank charter) already priced in weeks/months ago - nothing fresh or time-specific for today. No qualifying setup; bearish structure and negative order book argue against a long.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -0.742,
+  "pct_change_4h_48h": -0.579,
+  "rsi_14_4h": 42.66,
+  "sma_state": "fast_below_slow",
+  "volume_ratio": 0.79,
+  "order_book_imbalance": -0.376
+}
+```
+
+---
+### 2026-10-02T20:44:15.367Z — ADA/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger (1h/4h 48h change -1.41%/-2.25%). RSI 41.4, SMA fast_below_slow (bearish). Volume 1.04x, unconfirmed. Order book modestly bid-skewed (+0.22) but conflicts with bearish price/SMA trend. News searches surfaced only stale/background items (Hoskinson's 2026 goals, SEC digital-commodity classification from March, spot-ETF filings) already priced in months ago - nothing fresh. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -1.413,
+  "pct_change_4h_48h": -2.251,
+  "rsi_14_4h": 41.43,
+  "sma_state": "fast_below_slow",
+  "volume_ratio": 1.04,
+  "order_book_imbalance": 0.221
+}
+```
+
+---
+### 2026-10-02T20:44:15.385Z — LINK/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger (1h/4h 48h change -4.24%/-4.67%, continued decline since last cycle's stop-out). RSI 37.1 approaching oversold. SMA still fast_above_slow but price falling within that structure. Volume weak at 0.48x. Order book bid-skewed (+0.48) but not enough alone to justify re-entry so soon after a real stop-loss fill last cycle with no fresh volume/price confirmation. News searches showed only the same DTCC/BitGo-type background items already known, no new concrete catalyst since the last stop-out. No qualifying setup; continuing to hold off re-entry.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -4.244,
+  "pct_change_4h_48h": -4.667,
+  "rsi_14_4h": 37.05,
+  "sma_state": "fast_above_slow",
+  "volume_ratio": 0.48,
+  "order_book_imbalance": 0.481
+}
+```
+
+---
+### 2026-10-02T20:44:15.411Z — SUI/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger (1h/4h 48h change -2.89%/-2.98%). RSI 43.7, SMA fast_above_slow but price pulling back within that structure. Volume 0.75x, unconfirmed. Order book notably bid-skewed (+0.51) but price action is still negative over the window. News searches surfaced only old (May/August 2026) institutional-adoption items already priced in, nothing fresh for today. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -2.885,
+  "pct_change_4h_48h": -2.98,
+  "rsi_14_4h": 43.74,
+  "sma_state": "fast_above_slow",
+  "volume_ratio": 0.75,
+  "order_book_imbalance": 0.509
+}
+```
+
+---
+### 2026-10-02T20:44:15.438Z — LTC/EUR — NO TRADE
+
+**Reasoning:** momentum_trigger now clear (1h/4h 48h change +3.95%/+2.87%, both below the 6% threshold) - the prior cycles' stale lagging flag has fully rolled off as the triggering candle left the 48h window. RSI 52.1 neutral, SMA still fast_below_slow (bearish structure, consistent with every prior decline this week). Volume weak at 0.38x, the weakest reading seen all week. News searches surfaced only generic 15th-anniversary/background commentary, no fresh concrete catalyst. No qualifying setup - consistent with the documented momentum-only/unconfirmed-volume/non-bullish-SMA losing pattern from the 2026-09-30 closed-trade review.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": 3.952,
+  "pct_change_4h_48h": 2.866,
+  "rsi_14_4h": 52.12,
+  "sma_state": "fast_below_slow",
+  "volume_ratio": 0.38,
+  "order_book_imbalance": 0.153
+}
+```
+
+---
