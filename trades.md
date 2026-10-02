@@ -33585,3 +33585,139 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-10-02T01:42:59.350Z — BTC/EUR — NO TRADE
+
+**Reasoning:** Existing open position (entry €74,971.00, non-trailing, profitable) - one-position-per-pair rule, log no-trade instead of a new entry. No momentum trigger, RSI elevated but still below the 6% move bar.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 66.7,
+  "pct_change_1h_48h": 2.51,
+  "pct_change_4h_48h": 2.66,
+  "sma_state": "fast_above_slow",
+  "volume_ratio": 1.49
+}
+```
+
+---
+### 2026-10-02T01:42:59.365Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h +2.20%, 4h +2.06%, well below the 6% bar), SMA fast above slow but volume 1.17x - no confirmation. News search returned the same recurring generic/stale Ethereum stories with no fresh price-relevant catalyst. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 59.55,
+  "pct_change_1h_48h": 2.2,
+  "pct_change_4h_48h": 2.06,
+  "sma_state": "fast_above_slow",
+  "volume_ratio": 1.17
+}
+```
+
+---
+### 2026-10-02T01:42:59.377Z — SOL/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger, price roughly flat, SMA fast still below slow, volume 1.28x - below the 2x confirmation bar. News search again quoted stale figures ($81.65) inconsistent with real current price €105.61. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 53.3,
+  "pct_change_1h_48h": 0.37,
+  "pct_change_4h_48h": 0.23,
+  "sma_state": "fast_below_slow",
+  "volume_ratio": 1.28
+}
+```
+
+---
+### 2026-10-02T01:42:59.390Z — XRP/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger, price modestly positive but well below the 6% bar, SMA fast below slow, volume below average. News search again surfaced only the stale SEC-litigation background, no dated catalyst. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 51.38,
+  "pct_change_1h_48h": 0.68,
+  "pct_change_4h_48h": 0.84,
+  "sma_state": "fast_below_slow",
+  "volume_ratio": 0.79
+}
+```
+
+---
+### 2026-10-02T01:42:59.416Z — ADA/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h +1.27%, 4h +1.86%, both below the 6% bar), SMA fast still below slow, volume near average - no confirmation. News search again returned the same stale $0.935 price-milestone article vs real current price €0.218 - not usable as a catalyst. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 50.76,
+  "pct_change_1h_48h": 1.27,
+  "pct_change_4h_48h": 1.86,
+  "sma_state": "fast_below_slow",
+  "volume_ratio": 1.04
+}
+```
+
+---
+### 2026-10-02T01:42:59.431Z — LINK/EUR — NO TRADE
+
+**Reasoning:** Existing open position (entry €13.3964, non-trailing) - one-position-per-pair rule, log no-trade instead of a new entry. Price roughly flat, momentum_trigger not flagged - no action beyond existing stop/invalidation checks, which came back clean this cycle.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 53.39,
+  "pct_change_1h_48h": -0.3,
+  "pct_change_4h_48h": 0.86,
+  "sma_state": "fast_above_slow",
+  "volume_ratio": 0.48
+}
+```
+
+---
+### 2026-10-02T01:42:59.444Z — SUI/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h +2.14%, 4h +3.40%, both below the 6% bar), volume below average (0.75x) - no confirmation, order book negative. News search returned stale figures ($3.24-$3.30) wildly inconsistent with real current price €1.04 - not usable as a catalyst. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 54.7,
+  "pct_change_1h_48h": 2.14,
+  "pct_change_4h_48h": 3.4,
+  "sma_state": "fast_above_slow",
+  "volume_ratio": 0.75
+}
+```
+
+---
+### 2026-10-02T01:42:59.454Z — LTC/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h +3.38%, 4h +2.38%, both below the 6% bar), SMA fast below slow, volume well below average (0.38x). News search returned the same old stale stories (.ltc domain, UFC partnership) with no fresh catalyst. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 53.3,
+  "pct_change_1h_48h": 3.38,
+  "pct_change_4h_48h": 2.38,
+  "sma_state": "fast_below_slow",
+  "volume_ratio": 0.38
+}
+```
+
+---
