@@ -3,49 +3,6 @@
   "cash": 5000,
   "open_positions": [
     {
-      "id": "9b1501f0-cd3d-413b-9746-ffd766756903",
-      "pair": "BTC/EUR",
-      "direction": "long",
-      "entry_price": 74971,
-      "stop_loss": 71800,
-      "initial_stop_loss": 71800,
-      "take_profit": 81313,
-      "trailing_active": false,
-      "peak_price": 77520.9,
-      "size_pct": 4,
-      "size_eur": 200,
-      "quantity": 0.0026674,
-      "entry_fee": 1.59982,
-      "opened_at": "2026-09-22T14:30:54.550Z",
-      "signals_at_entry": {
-        "momentum_trigger": {
-          "flagged": true,
-          "pct_change_1h_48h": 7.402921268257927,
-          "pct_change_4h_48h": 6.529363384939262
-        },
-        "rsi_14_4h": 76.18601896791469,
-        "sma_crossover_4h": {
-          "state": "fast_above_slow",
-          "fast_value": 72063.22,
-          "slow_value": 69178.8
-        },
-        "volume": {
-          "ratio": 3.3397948287682517,
-          "flag_above_2x": true
-        },
-        "order_book_imbalance_top10": -0.012151536812008592,
-        "current_price": 75187.4,
-        "news_context": "Bitcoin rally attributed to ETF inflows (~$3.5B reported for the month); one source flags risk of a 'long flush' pullback after the rapid rise; price recovered sharply from an early-Sept dip (~$76-78k -> ~$85-86k per press reporting)."
-      },
-      "invalidation": "Thesis invalidated on a 4h close below the rising 20-period 4h SMA (currently ~72,063) - that line is the trend structure this entry depends on, and it's also the level portfolio_check_stops will trail beneath once the position is profitable.",
-      "confidence": "medium",
-      "confidence_reason": "Strong volume confirmation (3.34x 7-day avg, flagged) and clear bullish trend (SMA fast well above slow) align with a genuinely supportive news backdrop (ETF-driven rally per press coverage). Held back from high by RSI at 76.2 (most overbought of the majors) and a essentially-flat order book (-0.01, no real bid-side confirmation at current levels) - real trend and volume support, but entering after a 7.4% 2-day move at this RSI carries real pullback risk, so sizing at medium (4% of 5% cap) rather than pushing to high/8%.",
-      "momentum_only": false,
-      "status": "open",
-      "entry_order_txid": "OUPGAK-GXDUU-3PT4CX",
-      "stop_order_txid": "O7BMG4-2M7YV-7KDW33"
-    },
-    {
       "id": "47071fe2-d37b-48fb-873a-78353817b59d",
       "pair": "LINK/EUR",
       "direction": "long",
@@ -383,6 +340,55 @@
       "close_reason": "Stop-loss filled on Kraken (order O4ZG5J-EXJFD-GUEQVN).",
       "pnl_eur": -14.11011257616292,
       "pnl_pct_of_portfolio": -0.27310249759304234
+    },
+    {
+      "id": "9b1501f0-cd3d-413b-9746-ffd766756903",
+      "pair": "BTC/EUR",
+      "direction": "long",
+      "entry_price": 74971,
+      "stop_loss": 71800,
+      "initial_stop_loss": 71800,
+      "take_profit": 81313,
+      "trailing_active": false,
+      "peak_price": 77520.9,
+      "size_pct": 4,
+      "size_eur": 200,
+      "quantity": 0.0026674,
+      "entry_fee": 1.59982,
+      "opened_at": "2026-09-22T14:30:54.550Z",
+      "signals_at_entry": {
+        "momentum_trigger": {
+          "flagged": true,
+          "pct_change_1h_48h": 7.402921268257927,
+          "pct_change_4h_48h": 6.529363384939262
+        },
+        "rsi_14_4h": 76.18601896791469,
+        "sma_crossover_4h": {
+          "state": "fast_above_slow",
+          "fast_value": 72063.22,
+          "slow_value": 69178.8
+        },
+        "volume": {
+          "ratio": 3.3397948287682517,
+          "flag_above_2x": true
+        },
+        "order_book_imbalance_top10": -0.012151536812008592,
+        "current_price": 75187.4,
+        "news_context": "Bitcoin rally attributed to ETF inflows (~$3.5B reported for the month); one source flags risk of a 'long flush' pullback after the rapid rise; price recovered sharply from an early-Sept dip (~$76-78k -> ~$85-86k per press reporting)."
+      },
+      "invalidation": "Thesis invalidated on a 4h close below the rising 20-period 4h SMA (currently ~72,063) - that line is the trend structure this entry depends on, and it's also the level portfolio_check_stops will trail beneath once the position is profitable.",
+      "confidence": "medium",
+      "confidence_reason": "Strong volume confirmation (3.34x 7-day avg, flagged) and clear bullish trend (SMA fast well above slow) align with a genuinely supportive news backdrop (ETF-driven rally per press coverage). Held back from high by RSI at 76.2 (most overbought of the majors) and a essentially-flat order book (-0.01, no real bid-side confirmation at current levels) - real trend and volume support, but entering after a 7.4% 2-day move at this RSI carries real pullback risk, so sizing at medium (4% of 5% cap) rather than pushing to high/8%.",
+      "momentum_only": false,
+      "status": "closed",
+      "entry_order_txid": "OUPGAK-GXDUU-3PT4CX",
+      "stop_order_txid": "O7BMG4-2M7YV-7KDW33",
+      "exit_price": 75577,
+      "exit_fee": 1.20956,
+      "closed_at": "2026-10-02T16:42:22.311Z",
+      "close_reason": "Fast invalidation close: still-profitable pre-+1R position, but the last 2 closed 1h candles (75968.7,75781.3) all closed below their own 1h 20-period SMA (76113.25999999998,76139.07499999998) - a faster reversal signal the 4h check alone would have missed. Closed early rather than risk a round-trip back to the hard stop.",
+      "pnl_eur": 0.3845297999999673,
+      "pnl_pct_of_portfolio": 0.007429795416514148
     }
   ],
   "daily_loss": [
@@ -415,8 +421,13 @@
       "date": "2026-09-29",
       "realized_pnl_eur": -14.11011257616292,
       "halted": false
+    },
+    {
+      "date": "2026-10-02",
+      "realized_pnl_eur": 0.3845297999999673,
+      "halted": false
     }
   ],
   "created_at": "2026-09-22T14:26:40.467Z",
-  "updated_at": "2026-10-02T12:42:12.756Z"
+  "updated_at": "2026-10-02T16:42:22.938Z"
 }
