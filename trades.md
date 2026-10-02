@@ -36534,3 +36534,191 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-10-02T18:42:06.016Z — LINK/EUR — LONG — CLOSED (LIVE)
+
+- Exit price: €12.30 (real fill)
+- Exit fee (real): €1.10
+- Reason: Stop-loss filled on Kraken (order O4KCPG-QPDJT-PNJMY3).
+- Realized P&L: €-17.49 (-0.34% of portfolio)
+- Position id: 47071fe2-d37b-48fb-873a-78353817b59d
+
+---
+### 2026-10-02T18:43:07.485Z — LTC/EUR — NO TRADE
+
+**Reasoning:** momentum_trigger still flagged (1h +6.08%, 4h +7.73%) but price has now visibly pulled back from last cycle (€62.19 -> €60.34), confirming the reversal risk flagged in the prior two declines. News reiterates the SEC missed its Oct 2 Canary Litecoin ETF deadline, and adds that the existing spot Litecoin ETF has seen zero inflows over its last 5 trading sessions - weak real demand despite the speculative narrative. Combined with unchanged unconfirmed volume (0.38x) and non-bullish SMA (fast_below_slow), and price now actively reversing, this confirms rather than challenges the no-trade decision from the last three cycles. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": true,
+    "pct_change_1h_48h": 6.08,
+    "pct_change_4h_48h": 7.73
+  },
+  "rsi_14_4h": 65.6,
+  "sma_crossover_4h": {
+    "state": "fast_below_slow"
+  },
+  "volume_ratio": 0.38,
+  "order_book_imbalance": -0.016,
+  "news_context": "SEC missed Oct 2 ETF deadline; existing Litecoin ETF seeing zero inflows for 5 sessions - weak demand",
+  "price_reversal": "price fell from 62.19 to 60.34 since last cycle"
+}
+```
+
+---
+### 2026-10-02T18:43:07.506Z — BTC/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger (1h +1.74%, 4h +2.72%, both far below the 6% bar). SMA fast_above_slow, not fresh. Volume ratio 1.49x, below 2x. Order book notably negative (-0.71). News search returned stale/inconsistent price quotes (ranging from ~$81.7k to ~$84.7k across different sources, none matching real current price ~€74,594) - treated with established skepticism, no actionable same-day catalyst. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 1.74,
+    "pct_change_4h_48h": 2.72
+  },
+  "rsi_14_4h": 60.8,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow"
+  },
+  "volume_ratio": 1.49,
+  "order_book_imbalance": -0.715
+}
+```
+
+---
+### 2026-10-02T18:43:07.524Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger (1h +0.95%, 4h +1.65%, both far below the 6% bar). SMA fast_above_slow, not fresh. Volume ratio 1.17x, below 2x. News search returned generic/evergreen coverage (Glamsterdam testnet Oct 6, Vitalik's 2030 roadmap) with no fresh pair-specific catalyst. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 0.95,
+    "pct_change_4h_48h": 1.65
+  },
+  "rsi_14_4h": 52.5,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow"
+  },
+  "volume_ratio": 1.17,
+  "order_book_imbalance": -0.227
+}
+```
+
+---
+### 2026-10-02T18:43:07.564Z — SOL/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger (1h +1.51%, 4h +3.03%, both below the 6% bar). SMA fast_above_slow, settled. Volume ratio 1.28x, below 2x. News search returned generic/evergreen coverage (fee overhaul proposal, MoneyGram integration, Bank Leumi partnership) with no fresh pair-specific catalyst. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 1.51,
+    "pct_change_4h_48h": 3.03
+  },
+  "rsi_14_4h": 54.8,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow"
+  },
+  "volume_ratio": 1.28,
+  "order_book_imbalance": -0.281
+}
+```
+
+---
+### 2026-10-02T18:43:07.587Z — XRP/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger (1h +0.94%, 4h +1.91%, both far below the 6% bar). SMA state fast_below_slow. Volume ratio 0.79x, below both 2x and 1x. News search returned generic business-development coverage plus a note of large unrealized-loss overhang on-chain - no fresh catalyst. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 0.94,
+    "pct_change_4h_48h": 1.91
+  },
+  "rsi_14_4h": 52.6,
+  "sma_crossover_4h": {
+    "state": "fast_below_slow"
+  },
+  "volume_ratio": 0.79,
+  "order_book_imbalance": 0.162
+}
+```
+
+---
+### 2026-10-02T18:43:07.605Z — ADA/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger (1h +2.86%, 4h +4.47%, both below the 6% bar). SMA state fast_below_slow. Volume ratio 1.04x, below 2x. News search returned generic/stale coverage (SEC classification, Van Rossum hard fork, pending ETF applications) noting ADA down 12.9% YTD - no fresh dated catalyst. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 2.86,
+    "pct_change_4h_48h": 4.47
+  },
+  "rsi_14_4h": 55.6,
+  "sma_crossover_4h": {
+    "state": "fast_below_slow"
+  },
+  "volume_ratio": 1.04,
+  "order_book_imbalance": 0.046
+}
+```
+
+---
+### 2026-10-02T18:43:07.646Z — LINK/EUR — NO TRADE
+
+**Reasoning:** Position just closed this cycle via stop-loss (see portfolio_check_stops). No momentum_trigger (1h -0.71%, pulling back; 4h +0.68%). News search found a genuinely new, concrete catalyst - DTCC announced plans to integrate Chainlink into its Collateral AppChain infrastructure by Q4 2026 for institutional near-real-time collateral settlement, and BitGo chose Chainlink's CCIP as exclusive provider for its $7.3B WBTC ecosystem - but there's no momentum_trigger or other confirming signal (SMA already above but price action negative/flat, volume 0.48x unconfirmed), and this is only one cycle after a real stop-loss exit. No qualifying setup for an immediate re-entry; will reassess next cycle if price action and signals turn supportive.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -0.71,
+    "pct_change_4h_48h": 0.68
+  },
+  "rsi_14_4h": 49,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow"
+  },
+  "volume_ratio": 0.48,
+  "order_book_imbalance": -0.3,
+  "news_context": "DTCC Collateral AppChain integration (Q4 2026), BitGo WBTC CCIP exclusivity - concrete but no confirming price/volume signal"
+}
+```
+
+---
+### 2026-10-02T18:43:07.665Z — SUI/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger (1h +0.73%, 4h +2.21%, both well below the 6% bar). SMA bullish (fast_above_slow), not fresh. Volume ratio 0.75x, below both 2x and its own 7-day average. News search surfaced only the upcoming Oct 7-8 Basecamp event and a note that SUI was down 3.67% on Sept 9 amid altcoin risk-off - no fresh dated catalyst for today. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 0.73,
+    "pct_change_4h_48h": 2.21
+  },
+  "rsi_14_4h": 51.9,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow"
+  },
+  "volume_ratio": 0.75,
+  "order_book_imbalance": 0.192
+}
+```
+
+---
