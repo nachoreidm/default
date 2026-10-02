@@ -36722,3 +36722,179 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-10-02T19:43:08.293Z — LTC/EUR — NO TRADE
+
+**Reasoning:** momentum_trigger still flagged on the 4h/48h window (+7.73%, unchanged from last two cycles - same underlying candle still inside the 48h lookback), but the 1h/48h window has fallen further to +4.03% and price remains well off its €63.77 peak (currently €60.94). Order book has turned negative (-0.21), consistent with continued consolidation/reversal rather than fresh momentum. News search returned only generic/evergreen coverage (15th anniversary, LitVM Layer-2 roadmap, institutional treasury purchases) with no new dated catalyst - the ETF story from prior cycles isn't mentioned as advancing further. Volume still 0.38x, SMA still fast_below_slow. No qualifying setup - this is a stale momentum reading on a cooling pair, not an active breakout.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": true,
+    "pct_change_1h_48h": 4.03,
+    "pct_change_4h_48h": 7.73
+  },
+  "rsi_14_4h": 65.6,
+  "sma_crossover_4h": {
+    "state": "fast_below_slow"
+  },
+  "volume_ratio": 0.38,
+  "order_book_imbalance": -0.211
+}
+```
+
+---
+### 2026-10-02T19:43:08.315Z — BTC/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger (1h +1.52%, 4h +2.72%, both far below the 6% bar). SMA fast_above_slow, not fresh. Volume ratio 1.49x, below 2x. News search returned stale/inconsistent price quotes (~$81.7k-$84.9k range, inconsistent with each other and not confirmable against real current price) with no actionable same-day catalyst. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 1.52,
+    "pct_change_4h_48h": 2.72
+  },
+  "rsi_14_4h": 60.8,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow"
+  },
+  "volume_ratio": 1.49,
+  "order_book_imbalance": 0.059
+}
+```
+
+---
+### 2026-10-02T19:43:08.346Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger (1h +0.57%, 4h +1.65%, both far below the 6% bar). SMA fast_above_slow, not fresh. Volume ratio 1.17x, below 2x. News search returned generic/evergreen coverage (Glamsterdam testnet Oct 6, treasury buys/sells) with no fresh pair-specific catalyst. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 0.57,
+    "pct_change_4h_48h": 1.65
+  },
+  "rsi_14_4h": 52.5,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow"
+  },
+  "volume_ratio": 1.17,
+  "order_book_imbalance": 0.205
+}
+```
+
+---
+### 2026-10-02T19:43:08.361Z — SOL/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger (1h +1.60%, 4h +3.03%, both below the 6% bar). SMA fast_above_slow, settled. Volume ratio 1.28x, below 2x. News search returned generic/evergreen coverage with no fresh pair-specific catalyst. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 1.6,
+    "pct_change_4h_48h": 3.03
+  },
+  "rsi_14_4h": 54.8,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow"
+  },
+  "volume_ratio": 1.28,
+  "order_book_imbalance": -0.324
+}
+```
+
+---
+### 2026-10-02T19:43:08.378Z — XRP/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger (1h -0.88%, pulling back; 4h +1.91%). SMA state fast_below_slow. Volume ratio 0.79x, below both 2x and 1x. News search returned generic business-development coverage with no fresh catalyst. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -0.88,
+    "pct_change_4h_48h": 1.91
+  },
+  "rsi_14_4h": 52.6,
+  "sma_crossover_4h": {
+    "state": "fast_below_slow"
+  },
+  "volume_ratio": 0.79,
+  "order_book_imbalance": -0.371
+}
+```
+
+---
+### 2026-10-02T19:43:08.392Z — ADA/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger (1h -0.50%, pulling back; 4h +4.47%, same lagging window as recent cycles). SMA state fast_below_slow. Volume ratio 1.04x, below 2x. Order book negative (-0.23). News search returned generic/stale coverage (CME ADA futures, Van Rossum hard fork, pending ETF applications with an Oct 23 SEC deadline still ahead, not today) with no fresh dated catalyst. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -0.5,
+    "pct_change_4h_48h": 4.47
+  },
+  "rsi_14_4h": 55.6,
+  "sma_crossover_4h": {
+    "state": "fast_below_slow"
+  },
+  "volume_ratio": 1.04,
+  "order_book_imbalance": -0.233
+}
+```
+
+---
+### 2026-10-02T19:43:08.408Z — LINK/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger (1h -3.19%, a real pullback continuing from the stop-loss exit one cycle ago; 4h +0.68%, lagging). SMA still fast_above_slow but price is falling away from it. Volume ratio 0.48x, below confirmation. News reiterates the DTCC Collateral AppChain (Q4 2026 production start) and BitGo CCIP/WBTC exclusivity from last cycle plus a new SmartCon 2026 conference date (November) - all forward-looking, none an immediate same-day catalyst, and price action is actively negative. No qualifying setup; continuing to stay out after the stop-out.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -3.19,
+    "pct_change_4h_48h": 0.68
+  },
+  "rsi_14_4h": 49,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow"
+  },
+  "volume_ratio": 0.48,
+  "order_book_imbalance": 0.279
+}
+```
+
+---
+### 2026-10-02T19:43:08.423Z — SUI/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger (1h -1.68%, pulling back; 4h +2.21%, lagging). SMA bullish (fast_above_slow), not fresh. Volume ratio 0.75x, below both 2x and its own 7-day average. News search surfaced only the upcoming Oct 7-8 Basecamp event and older institutional items, nothing new or dated to today. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -1.68,
+    "pct_change_4h_48h": 2.21
+  },
+  "rsi_14_4h": 51.9,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow"
+  },
+  "volume_ratio": 0.75,
+  "order_book_imbalance": 0.025
+}
+```
+
+---
