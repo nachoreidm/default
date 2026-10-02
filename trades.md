@@ -34038,3 +34038,181 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-10-02T04:42:52.982Z — BTC/EUR — NO TRADE
+
+**Reasoning:** Existing open position (entry €74,971, opened 2026-09-22) - one-position-per-pair rule blocks a new entry. For reference: no momentum_trigger (1h +3.51%, 4h +3.53%, both below the 6% bar), RSI 70.6 now overbought, order book flipped notably negative (-0.32), volume 1.49x still below 2x confirmation.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 3.51,
+    "pct_change_4h_48h": 3.53
+  },
+  "rsi_14_4h": 70.6,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow"
+  },
+  "volume_ratio": 1.49,
+  "order_book_imbalance": -0.317,
+  "existing_position": true
+}
+```
+
+---
+### 2026-10-02T04:42:52.997Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger (1h +2.59%, 4h +2.53%, both well below 6% bar). SMA fast_above_slow but not a fresh crossover. Volume ratio 1.17x, below 2x. Order book notably negative (-0.36). News search returned generic/evergreen coverage (Glamsterdam upgrade testnet Oct 6, Vitalik's 2030 roadmap, ETF inflow commentary with stale price references) with no fresh pair-specific catalyst. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 2.59,
+    "pct_change_4h_48h": 2.53
+  },
+  "rsi_14_4h": 62,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow"
+  },
+  "volume_ratio": 1.17,
+  "order_book_imbalance": -0.362
+}
+```
+
+---
+### 2026-10-02T04:42:53.014Z — SOL/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger (1h +2.81%, 4h +3.14%, both below 6% bar). SMA state fast_below_slow. Volume ratio 1.28x, below 2x. Order book negative (-0.30). News search returned generic/evergreen coverage (Alpenglow upgrade timeline, Visa/Meta stablecoin rail adoption, BlackRock on-chain vehicle) with no fresh pair-specific catalyst tied to today's move. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 2.81,
+    "pct_change_4h_48h": 3.14
+  },
+  "rsi_14_4h": 63.2,
+  "sma_crossover_4h": {
+    "state": "fast_below_slow"
+  },
+  "volume_ratio": 1.28,
+  "order_book_imbalance": -0.299
+}
+```
+
+---
+### 2026-10-02T04:42:53.024Z — XRP/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger (1h +1.78%, 4h +1.41%, both far below 6% bar). SMA state fast_below_slow. Volume ratio 0.79x, below both 2x and 1x. News search returned generic business-development coverage (fintech acquisitions, OCC trust bank rule, escrow unlock) with no fresh pair-specific catalyst. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 1.78,
+    "pct_change_4h_48h": 1.41
+  },
+  "rsi_14_4h": 56,
+  "sma_crossover_4h": {
+    "state": "fast_below_slow"
+  },
+  "volume_ratio": 0.79,
+  "order_book_imbalance": -0.148
+}
+```
+
+---
+### 2026-10-02T04:42:53.034Z — ADA/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger (1h +3.01%, 4h +2.97%, both below 6% bar). SMA state fast_below_slow. Volume ratio 1.04x, below 2x. Order book positive (+0.25) but no confirming trigger. News search returned stale/conflicting price references (one source citing $0.39, another $0.28) inconsistent with real current price (€0.2256) and no fresh dated catalyst. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 3.01,
+    "pct_change_4h_48h": 2.97
+  },
+  "rsi_14_4h": 55,
+  "sma_crossover_4h": {
+    "state": "fast_below_slow"
+  },
+  "volume_ratio": 1.04,
+  "order_book_imbalance": 0.253
+}
+```
+
+---
+### 2026-10-02T04:42:53.044Z — LINK/EUR — NO TRADE
+
+**Reasoning:** Existing open position (entry €13.3964, opened 2026-09-28) - one-position-per-pair rule blocks a new entry. For reference: no momentum_trigger this cycle (1h +1.13%, 4h +1.58%, both far below the 6% bar), volume ratio 0.48x well below confirmation.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 1.13,
+    "pct_change_4h_48h": 1.58
+  },
+  "rsi_14_4h": 53.7,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow"
+  },
+  "volume_ratio": 0.48,
+  "existing_position": true
+}
+```
+
+---
+### 2026-10-02T04:42:53.055Z — SUI/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger (1h +3.16%, 4h +2.53%, both below the 6% bar). SMA bullish (fast_above_slow) but not a fresh crossover. Volume ratio 0.75x, below both 2x and its own 7-day average. Order book negative (-0.14). News search surfaced a notable upcoming catalyst - Sui Basecamp 2026 on Oct 7-8 in Singapore alongside TOKEN2049, themed around Agentic Finance with a planned live 6M+ TPS demo - and a reported +56.1% 7-day move, but that figure and the cited $1.27 price are stale/inconsistent with the real current price (€1.0712, ~$1.16) and real signals (no momentum flag, sub-1x volume, negative order book). Treating the headline move with the established skepticism toward cached search results; no qualifying setup today, event is 5 days out.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 3.16,
+    "pct_change_4h_48h": 2.53
+  },
+  "rsi_14_4h": 55.7,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "volume_ratio": 0.75,
+  "order_book_imbalance": -0.14
+}
+```
+
+---
+### 2026-10-02T04:42:53.065Z — LTC/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger (1h +3.47%, 4h +3.80%, both below the 6% bar). SMA state fast_below_slow. Volume ratio 0.38x, well below confirmation and below its own 7-day average. News search returned generic 15th-anniversary/evergreen coverage (BitPay payment stats, MWEB privacy feature, 2027 halving lookahead) with no fresh pair-specific catalyst. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 3.47,
+    "pct_change_4h_48h": 3.8
+  },
+  "rsi_14_4h": 57.1,
+  "sma_crossover_4h": {
+    "state": "fast_below_slow"
+  },
+  "volume_ratio": 0.38,
+  "order_book_imbalance": 0.262
+}
+```
+
+---
