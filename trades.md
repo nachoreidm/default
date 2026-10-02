@@ -34571,3 +34571,180 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-10-02T07:42:51.065Z — BTC/EUR — NO TRADE
+
+**Reasoning:** Existing open position (entry €74,971, opened 2026-09-22) - one-position-per-pair rule blocks a new entry. For reference: no momentum_trigger (1h +4.01%, 4h +3.53%, both below the 6% bar), RSI 70.6 overbought, volume 1.49x still below 2x confirmation, order book now negative (-0.25).
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 4.01,
+    "pct_change_4h_48h": 3.53
+  },
+  "rsi_14_4h": 70.6,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow"
+  },
+  "volume_ratio": 1.49,
+  "order_book_imbalance": -0.253,
+  "existing_position": true
+}
+```
+
+---
+### 2026-10-02T07:42:51.081Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger (1h +2.81%, 4h +2.53%, both below the 6% bar). SMA fast_above_slow, not fresh. Volume ratio 1.17x, below 2x. News search returned generic/evergreen coverage (Glamsterdam testnet Oct 6, Vitalik's 2030 roadmap, ETF inflow commentary) with no fresh pair-specific catalyst. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 2.81,
+    "pct_change_4h_48h": 2.53
+  },
+  "rsi_14_4h": 62,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow"
+  },
+  "volume_ratio": 1.17,
+  "order_book_imbalance": -0.181
+}
+```
+
+---
+### 2026-10-02T07:42:51.106Z — SOL/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger (1h +3.50%, 4h +3.14%, both below the 6% bar). SMA state fast_below_slow. Volume ratio 1.28x, below 2x. News search returned generic/evergreen coverage (Alpenglow timeline, Morgan Stanley ETPs, MoneyGram integration) with no fresh pair-specific catalyst proportionate to today's move. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 3.5,
+    "pct_change_4h_48h": 3.14
+  },
+  "rsi_14_4h": 63.2,
+  "sma_crossover_4h": {
+    "state": "fast_below_slow"
+  },
+  "volume_ratio": 1.28,
+  "order_book_imbalance": -0.108
+}
+```
+
+---
+### 2026-10-02T07:42:51.121Z — XRP/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger (1h +2.28%, 4h +1.41%, both far below the 6% bar). SMA state fast_below_slow. Volume ratio 0.79x, below both 2x and 1x. News search returned generic business-development coverage (prime brokerage raise, Jeonbuk Bank partnership) with no fresh catalyst. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 2.28,
+    "pct_change_4h_48h": 1.41
+  },
+  "rsi_14_4h": 56,
+  "sma_crossover_4h": {
+    "state": "fast_below_slow"
+  },
+  "volume_ratio": 0.79,
+  "order_book_imbalance": -0.02
+}
+```
+
+---
+### 2026-10-02T07:42:51.136Z — ADA/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger (1h +4.91%, closest of the cycle but still below the 6% bar; 4h +2.97%). SMA state fast_below_slow. Volume ratio 1.04x, below 2x. News search returned generic/stale coverage (SEC classification, Hoskinson's rank-1 goal, Brave browser partnership, IOG funding request) with no fresh dated catalyst. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 4.91,
+    "pct_change_4h_48h": 2.97
+  },
+  "rsi_14_4h": 55,
+  "sma_crossover_4h": {
+    "state": "fast_below_slow"
+  },
+  "volume_ratio": 1.04,
+  "order_book_imbalance": -0.071
+}
+```
+
+---
+### 2026-10-02T07:42:51.150Z — LINK/EUR — NO TRADE
+
+**Reasoning:** Existing open position (entry €13.3964, opened 2026-09-28) - one-position-per-pair rule blocks a new entry. For reference: no momentum_trigger this cycle (1h +1.56%, 4h +1.58%, both far below the 6% bar), volume ratio 0.48x well below confirmation.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 1.56,
+    "pct_change_4h_48h": 1.58
+  },
+  "rsi_14_4h": 53.7,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow"
+  },
+  "volume_ratio": 0.48,
+  "existing_position": true
+}
+```
+
+---
+### 2026-10-02T07:42:51.167Z — SUI/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger (1h +2.53%, 4h +2.53%, both below the 6% bar). SMA bullish (fast_above_slow), not fresh. Volume ratio 0.75x, below both 2x and its own 7-day average. News search again surfaced only the upcoming Oct 7-8 event and older institutional items. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 2.53,
+    "pct_change_4h_48h": 2.53
+  },
+  "rsi_14_4h": 55.7,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow"
+  },
+  "volume_ratio": 0.75,
+  "order_book_imbalance": 0.1
+}
+```
+
+---
+### 2026-10-02T07:42:51.179Z — LTC/EUR — NO TRADE
+
+**Reasoning:** momentum_trigger no longer flagged this cycle (1h +5.38%, back below the 6% bar after last cycle's brief +6.24% flag; 4h +3.80%). SMA still fast_below_slow, volume ratio still weak at 0.38x (below its own 7-day average). Same assessment as last cycle applies - weak participation, non-bullish SMA structure - and now the momentum signal itself has receded. News search unchanged (15th-anniversary/evergreen coverage, no fresh catalyst). No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 5.38,
+    "pct_change_4h_48h": 3.8
+  },
+  "rsi_14_4h": 57.1,
+  "sma_crossover_4h": {
+    "state": "fast_below_slow"
+  },
+  "volume_ratio": 0.38,
+  "order_book_imbalance": 0.095
+}
+```
+
+---
