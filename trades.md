@@ -36357,3 +36357,180 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-10-02T17:42:34.454Z — LTC/EUR — NO TRADE
+
+**Reasoning:** momentum_trigger still flagged (4h/48h +7.73%, same reading as last cycle; 1h/48h +5.63%, just under). News search surfaced an important update: the SEC missed its October 2 deadline on Canary Capital's spot Litecoin ETF application - the exact catalyst underlying the last two cycles' price action did NOT resolve positively today; status is now unclear (government shutdown/new listing-standard speculation cited). This weakens rather than strengthens the case for a momentum entry - price remains elevated on a catalyst that just turned into a non-event/uncertainty, a classic setup for a "sell the news" pullback. Combined with the unchanged structural concerns (volume still 0.38x unconfirmed, SMA still fast_below_slow), the bar for entry is not met - if anything this cycle's news makes the case weaker than the prior two declines. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": true,
+    "pct_change_1h_48h": 5.63,
+    "pct_change_4h_48h": 7.73
+  },
+  "rsi_14_4h": 65.6,
+  "sma_crossover_4h": {
+    "state": "fast_below_slow"
+  },
+  "volume_ratio": 0.38,
+  "order_book_imbalance": 0.313,
+  "news_context": "SEC missed its Oct 2 deadline on the Canary Litecoin ETF - catalyst status now unclear, not an approval"
+}
+```
+
+---
+### 2026-10-02T17:42:34.479Z — BTC/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger (1h +2.06%, 4h +2.72%, both far below the 6% bar). SMA fast_above_slow, not fresh. Volume ratio 1.49x, below 2x. RSI 60.8, neutral. News search returned a stale/inconsistent price quote (~$81,766, one source citing an October average near $84,679) not matching the real current price (~€75,181/~$85k range conversion is roughly consistent actually, but figures conflict with each other) - treated with established skepticism, no actionable same-day catalyst. Still no fresh setup only one cycle after the fast-invalidation close.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 2.06,
+    "pct_change_4h_48h": 2.72
+  },
+  "rsi_14_4h": 60.8,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow"
+  },
+  "volume_ratio": 1.49,
+  "order_book_imbalance": 0.189
+}
+```
+
+---
+### 2026-10-02T17:42:34.516Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger (1h +0.97%, 4h +1.65%, both far below the 6% bar). SMA fast_above_slow, not fresh. Volume ratio 1.17x, below 2x. News search returned generic/evergreen coverage (Glamsterdam testnet Oct 6, Vitalik's 2030 roadmap, a corporate ETH treasury sale) with no fresh pair-specific catalyst. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 0.97,
+    "pct_change_4h_48h": 1.65
+  },
+  "rsi_14_4h": 52.5,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow"
+  },
+  "volume_ratio": 1.17,
+  "order_book_imbalance": 0.076
+}
+```
+
+---
+### 2026-10-02T17:42:34.538Z — SOL/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger (1h +1.39%, 4h +3.03%, both below the 6% bar). SMA fast_above_slow, settled. Volume ratio 1.28x, below 2x. News search returned generic/evergreen coverage with no fresh pair-specific catalyst. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 1.39,
+    "pct_change_4h_48h": 3.03
+  },
+  "rsi_14_4h": 54.8,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow"
+  },
+  "volume_ratio": 1.28,
+  "order_book_imbalance": 0.074
+}
+```
+
+---
+### 2026-10-02T17:42:34.564Z — XRP/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger (1h +0.96%, 4h +1.91%, both far below the 6% bar). SMA state fast_below_slow. Volume ratio 0.79x, below both 2x and 1x. News search returned generic business-development coverage, also noting SEC decisions on several altcoin ETFs (XRP among them) expected around this time but nothing dated/confirmed today. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 0.96,
+    "pct_change_4h_48h": 1.91
+  },
+  "rsi_14_4h": 52.6,
+  "sma_crossover_4h": {
+    "state": "fast_below_slow"
+  },
+  "volume_ratio": 0.79,
+  "order_book_imbalance": 0.243
+}
+```
+
+---
+### 2026-10-02T17:42:34.585Z — ADA/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger (1h +3.20%, 4h +4.47%, both below the 6% bar). SMA state fast_below_slow. Volume ratio 1.04x, below 2x. Order book strongly positive (+0.51). News search returned generic/stale coverage (SEC classification, Hoskinson's rank-1 goal, Midnight sidechain) with no fresh dated catalyst. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 3.2,
+    "pct_change_4h_48h": 4.47
+  },
+  "rsi_14_4h": 55.6,
+  "sma_crossover_4h": {
+    "state": "fast_below_slow"
+  },
+  "volume_ratio": 1.04,
+  "order_book_imbalance": 0.506
+}
+```
+
+---
+### 2026-10-02T17:42:34.603Z — LINK/EUR — NO TRADE
+
+**Reasoning:** Existing open position (entry €13.3964, opened 2026-09-28) - one-position-per-pair rule blocks a new entry. For reference: no momentum_trigger this cycle (1h -0.71%, pulling back; 4h +0.68%), volume ratio 0.48x well below confirmation.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -0.71,
+    "pct_change_4h_48h": 0.68
+  },
+  "rsi_14_4h": 49,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow"
+  },
+  "volume_ratio": 0.48,
+  "existing_position": true
+}
+```
+
+---
+### 2026-10-02T17:42:34.625Z — SUI/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger (1h +0.34%, 4h +2.21%, both well below the 6% bar). SMA bullish (fast_above_slow), not fresh. Volume ratio 0.75x, below both 2x and its own 7-day average. News search again surfaced the upcoming Oct 7-8 Basecamp event and the already-stale +56.1%/$1.27 figure from late September. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 0.34,
+    "pct_change_4h_48h": 2.21
+  },
+  "rsi_14_4h": 51.9,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow"
+  },
+  "volume_ratio": 0.75,
+  "order_book_imbalance": 0.778
+}
+```
+
+---
