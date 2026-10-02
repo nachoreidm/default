@@ -34393,3 +34393,181 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-10-02T06:43:10.686Z — LTC/EUR — NO TRADE
+
+**Reasoning:** momentum_trigger IS flagged (1h/48h +6.24%, just above the 6% bar; 4h/48h +3.80%, more modest) - the first momentum flag on a pair without an existing position in several cycles. However, declining to trade despite the flag: (1) Volume ratio is 0.38x - not just unconfirmed but the weakest volume behind any momentum move considered this week, well below even its own 7-day average, meaning this move has unusually thin participation. (2) SMA structure is fast_below_slow (20-period still under the 50-period) - unlike every prior momentum_only entry on this account (LINK, ADA, prior LTC), which all had an established fast_above_slow uptrend structure backing the spike; here price has popped above both SMAs intraday but the trend structure itself hasn't turned bullish yet. (3) News search found one dated, concrete item - Litecoin Foundation signed an MOU with Greywick Digital for cLTC on the Canton Network (Oct 1, 2026) - but this is a conditional, multi-month development announcement (testnet validation, late-2026 mainnet launch), not the kind of immediate demand-shock catalyst that would plausibly drive a same-day 6% move; a separate Oct 1 piece ("Litecoin Pullback May Precede Next Sustainable Breakout") frames the technical picture as still consolidating, not breaking out. This combination (volume-unconfirmed, non-bullish SMA structure, momentum-only, mid-extension, weak/disconnected catalyst) is exactly the profile the 2026-09-30 closed-trade review identified as the common thread behind this account's real losers (ADA, prior LTC) - entering here would repeat that pattern rather than learn from it. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": true,
+    "pct_change_1h_48h": 6.24,
+    "pct_change_4h_48h": 3.8
+  },
+  "rsi_14_4h": 57.1,
+  "sma_crossover_4h": {
+    "state": "fast_below_slow"
+  },
+  "volume_ratio": 0.38,
+  "order_book_imbalance": 0.167,
+  "news_context": "Litecoin Foundation MOU with Greywick Digital for cLTC on Canton Network (Oct 1, 2026) - conditional, late-2026 launch, not an immediate demand catalyst"
+}
+```
+
+---
+### 2026-10-02T06:43:29.668Z — BTC/EUR — NO TRADE
+
+**Reasoning:** Existing open position (entry €74,971, opened 2026-09-22) - one-position-per-pair rule blocks a new entry. For reference: no momentum_trigger (1h +4.50%, 4h +3.53%, both below the 6% bar), RSI 70.6 overbought, volume 1.49x still below 2x confirmation.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 4.5,
+    "pct_change_4h_48h": 3.53
+  },
+  "rsi_14_4h": 70.6,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow"
+  },
+  "volume_ratio": 1.49,
+  "order_book_imbalance": 0.21,
+  "existing_position": true
+}
+```
+
+---
+### 2026-10-02T06:43:29.682Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger (1h +3.09%, 4h +2.53%, both well below 6% bar). SMA fast_above_slow, not fresh. Volume ratio 1.17x, below 2x. News search returned generic/evergreen coverage (Glamsterdam testnet Oct 6, Vitalik's 2030 roadmap, ETF inflow commentary) with no fresh pair-specific catalyst. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 3.09,
+    "pct_change_4h_48h": 2.53
+  },
+  "rsi_14_4h": 62,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow"
+  },
+  "volume_ratio": 1.17,
+  "order_book_imbalance": 0.335
+}
+```
+
+---
+### 2026-10-02T06:43:29.698Z — SOL/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger (1h +4.01%, 4h +3.14%, both below 6% bar). SMA state fast_below_slow. Volume ratio 1.28x, below 2x. News search returned generic/evergreen coverage (Alpenglow upgrade timeline, Visa/Meta stablecoin adoption) with no fresh pair-specific catalyst. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 4.01,
+    "pct_change_4h_48h": 3.14
+  },
+  "rsi_14_4h": 63.2,
+  "sma_crossover_4h": {
+    "state": "fast_below_slow"
+  },
+  "volume_ratio": 1.28,
+  "order_book_imbalance": 0.362
+}
+```
+
+---
+### 2026-10-02T06:43:29.708Z — XRP/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger (1h +2.46%, 4h +1.41%, both far below 6% bar). SMA state fast_below_slow. Volume ratio 0.79x, below both 2x and 1x. News search returned generic business-development coverage (fintech acquisitions, AI treasury integration, ETF inflow totals) with no fresh catalyst. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 2.46,
+    "pct_change_4h_48h": 1.41
+  },
+  "rsi_14_4h": 56,
+  "sma_crossover_4h": {
+    "state": "fast_below_slow"
+  },
+  "volume_ratio": 0.79,
+  "order_book_imbalance": 0.111
+}
+```
+
+---
+### 2026-10-02T06:43:29.718Z — ADA/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger (1h +5.49%, closest of the cycle besides LTC but still below the 6% bar; 4h +2.97%). SMA state fast_below_slow. Volume ratio 1.04x, below 2x. Order book positive (+0.31). News search returned generic/stale coverage (SEC classification, SPAR integration, Hoskinson's rank-1 goal) with no fresh dated catalyst. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 5.49,
+    "pct_change_4h_48h": 2.97
+  },
+  "rsi_14_4h": 55,
+  "sma_crossover_4h": {
+    "state": "fast_below_slow"
+  },
+  "volume_ratio": 1.04,
+  "order_book_imbalance": 0.312
+}
+```
+
+---
+### 2026-10-02T06:43:29.729Z — LINK/EUR — NO TRADE
+
+**Reasoning:** Existing open position (entry €13.3964, opened 2026-09-28) - one-position-per-pair rule blocks a new entry. For reference: no momentum_trigger this cycle (1h +1.84%, 4h +1.58%, both far below the 6% bar), volume ratio 0.48x well below confirmation.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 1.84,
+    "pct_change_4h_48h": 1.58
+  },
+  "rsi_14_4h": 53.7,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow"
+  },
+  "volume_ratio": 0.48,
+  "existing_position": true
+}
+```
+
+---
+### 2026-10-02T06:43:29.738Z — SUI/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger (1h +2.91%, 4h +2.53%, both below the 6% bar). SMA bullish (fast_above_slow), not fresh. Volume ratio 0.75x, below both 2x and its own 7-day average. Order book sharply negative (-0.67), real near-term selling pressure. News search again surfaced only the upcoming Oct 7-8 event and older institutional items (Grayscale AI Fund, Mubadala) - no new catalyst for today. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 2.91,
+    "pct_change_4h_48h": 2.53
+  },
+  "rsi_14_4h": 55.7,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow"
+  },
+  "volume_ratio": 0.75,
+  "order_book_imbalance": -0.665
+}
+```
+
+---
