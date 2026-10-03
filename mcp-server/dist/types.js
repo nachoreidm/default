@@ -49,18 +49,50 @@ export const RISK_LIMITS = {
 // takes profit at $2/unit of gain. Checked every cycle by
 // portfolio_check_stops alongside the stop-loss.
 export const TAKE_PROFIT_RR_MULTIPLE = 2;
-// Position size is capped by stated confidence, not just the global 5% max.
-// Formalizes a pattern the agent was already applying ad hoc (e.g. sizing a
-// medium-confidence trade at 3% on its own judgment) into a fixed, code-
-// enforced rule so sizing is consistent and auditable across cycles rather
-// than a case-by-case call. Low confidence doesn't trade at all - if the
-// signal isn't strong enough to size at least 2%, it isn't strong enough to
-// act on; that's what "no trade" is for.
+// Position size is now DERIVED, not chosen directly - see TARGET_RISK_PCT
+// and computePositionSizePct (portfolio-live.ts), added 2026-10-03. Flat
+// confidence-based sizing (this constant's original role, formalizing a
+// pattern the agent had been applying ad hoc) meant two trades at the same
+// confidence tier could carry very different REAL risk purely because one
+// pair's technical stop level happened to sit further from entry than the
+// other's - e.g. LINK's ~8-9%-stop trades risked nearly double the euros
+// of ADA's ~4.5%-stop trade at the identical 4% size and medium confidence
+// (see CLAUDE.md's 2026-10-03 entry for the full trade-by-trade numbers
+// that motivated this). This constant now only serves as a CEILING on the
+// computed size - a backstop against a freak very-tight stop producing an
+// oversized position - not the primary sizing dial. Low confidence still
+// doesn't trade at all; that's what "no trade" is for.
 export const CONFIDENCE_MAX_SIZE_PCT = {
     low: 0,
     medium: 5,
     high: RISK_LIMITS.MAX_POSITION_PCT,
 };
+// The real risk (as % of portfolio value) a position now TARGETS at its
+// stop, by confidence - the primary sizing dial, replacing
+// CONFIDENCE_MAX_SIZE_PCT's old role. Actual size = this ÷ the trade's own
+// stop distance (entry-to-stop as % of entry price), clamped to
+// CONFIDENCE_MAX_SIZE_PCT and RISK_LIMITS.MAX_POSITION_PCT - so a wide
+// stop gets a smaller position and a tight stop gets a larger one, and
+// every trade's real euro loss-if-stopped stays roughly constant instead
+// of varying with wherever a pair's technical stop level happens to sit.
+// Same 0.4/0.25 = 1.6x ratio between high and medium that the old flat
+// caps used (8/5 = 1.6x), so high-confidence trades still target
+// proportionally more risk than medium ones. Calibrated against this
+// account's own actual historical risk (closed trades realized
+// 0.18%-0.35% of portfolio value per stop-hit before this change existed)
+// rather than picked arbitrarily.
+export const TARGET_RISK_PCT = {
+    low: 0,
+    medium: 0.25,
+    high: 0.4,
+};
+// Below this computed size, a position isn't worth opening - too small
+// relative to the real ~1.3% round-trip fee cost (ROUND_TRIP_COST_PCT
+// below) to be worth the capital or attention. Only binds when a pair's
+// stop sits unusually far from entry relative to the confidence tier's
+// risk budget - portfolio_open_position rejects the call (log a no-trade
+// instead) rather than opening a dust position in that case.
+export const MIN_POSITION_PCT = 1;
 // A 48h price move at or above this, on either the 1h or 4h window, flags
 // compute_signals' momentum_trigger. Calibrated against a real missed
 // move (2026-09-13, XRP ran 3.84% -> 5.22% on genuine CLARITY Act news

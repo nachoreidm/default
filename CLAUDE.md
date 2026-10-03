@@ -836,6 +836,81 @@ cycle that only looked clean because a human was present to click
 approve, versus a session that's actually fixed) held up correctly this
 time on the first check.
 
+## Risk-based position sizing, replacing flat confidence-based % (2026-10-03)
+
+**Prompted by**: "are the stop losses too wide? concerned I've lost too
+much when they hit." Reviewed actual numbers first rather than assuming:
+every real stop-hit so far has cost 0.21%-0.35% of the account - well
+under the commonly-cited 1-2% per-trade risk guideline, so stops aren't
+"too wide" in absolute euro terms. But the review surfaced a real
+inconsistency: stop *distance* (% from entry) varies a lot by pair/
+technical level - 4.2% (BTC) up to 10.6% (SUI) - and the old flat
+confidence-based sizing (medium 4-5%, high up to 8%) didn't adjust for
+that. Two trades at the identical confidence tier and nearly identical
+flat size (LINK #2/#3 at ~4%, stops ~8-9% away, vs. ADA at 4%, stop ~4.5%
+away) ended up risking nearly double the euros for the same confidence
+level, purely because of where the technical stop happened to sit - not
+because the trade itself was judged riskier.
+
+**The fix**: position size is now DERIVED, not chosen. New
+`TARGET_RISK_PCT` in `types.ts` (medium 0.25%, high 0.4% of portfolio
+value - same 1.6x ratio the old flat caps used) replaces
+`CONFIDENCE_MAX_SIZE_PCT` as the primary sizing dial; the old flat caps
+(5%/8%) and the global `RISK_LIMITS.MAX_POSITION_PCT` (8%) remain as
+ceilings on the *computed* size instead, guarding against a freak
+very-tight stop producing an oversized position. New
+`computePositionSizePct(confidence, stopDistancePct)` in
+`portfolio-live.ts` implements `(targetRisk / stopDistancePct) * 100`,
+clamped to those ceilings - a pure function, unit-tested directly with
+synthetic stop distances (no network needed), mirroring how
+`peakFromCandles`/`fastInvalidationFromCloses` are already structured for
+testability. **Caught a real bug before it shipped**: the first version
+of this formula was missing the final `*100` (percent-to-fraction
+conversion), which would have silently sized every position to roughly
+1/100th of the intended risk - caught by reasoning through the dimensional
+analysis before trusting the unit tests, not by the tests themselves (they
+were written against the same wrong formula initially).
+
+**A real behavioral change, not just a cap**: `portfolio_open_position`'s
+`size_pct` input parameter is **removed entirely** - the tool now computes
+size itself from `confidence` and the stop distance between `stop_loss`
+and the live ask at calculation time. This is a bigger change than merely
+tightening a ceiling (which alone wouldn't have helped - the calling agent
+would just keep requesting its usual flat % and getting rejected on
+wide-stop trades without knowing why) - removing the parameter forces the
+mechanical formula to decide every time, consistent with this project's
+existing philosophy of turning ad hoc agent judgment into fixed,
+code-enforced rules (see `CONFIDENCE_MAX_SIZE_PCT`'s original 2026-09-19
+comment, which did exactly this for the cap itself). New
+`MIN_POSITION_PCT` (1%) rejects the call outright if the computed size
+would be too small to be worth the ~1.3% round-trip fee cost, rather than
+opening a dust position.
+
+**Illustrative effect, recomputed against the account's own real trade
+history** (target risk 0.25% for medium): BTC/ADA/LINK #1's tighter
+~4-5% stops would have sized UP (4% → ~5-6%); LTC's 6.4% stop stays
+close to flat; SUI/LINK #2/LINK #3's wider ~8-11% stops would have sized
+DOWN (3-4% → ~2.4-3%). The real tradeoff, stated plainly before building:
+this would have shrunk SUI specifically - the account's single best trade
+- costing roughly €5-6 of its +€26.84 realized gain, as the price of
+making every trade's downside equally small. Accepted knowingly, not
+discovered after the fact.
+
+**Verified**: new unit tests in `selftest.ts` (boundary cases hitting each
+cap exactly, a below-cap case, the `low`-confidence and zero-stop-distance
+fail-safe cases) plus the full existing suite, all passing against the
+corrected formula. Pruned-build smoke test passed. `portfolio_open_position`'s
+tool description, zod schema (size_pct removed), and
+`instructions/kraken-live-agent-instructions.md`'s risk-rules and
+required-output-format sections all updated to match. **Also updated the
+hourly trigger's own prompt text** this time (not just the code and the
+instructions doc) - step 3 hardcoded the stale "confidence-based sizing
+cap... medium caps at 5%; high can use the full 8%" wording, which would
+have kept telling the deployed session a now-false story about how size
+works even with the code live (same lesson as LTC's addition - see that
+entry above). Required the same delete+recreate the trigger always takes
+for a prompt edit.
+
 ## Network access
 
 Same as paper trading: `api.kraken.com` is the only allowlisted domain

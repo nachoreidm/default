@@ -5,7 +5,7 @@ import { randomUUID } from "node:crypto";
 import { fetchTicker, fetchPairPrecision, pairCode, KrakenApiError } from "./kraken.js";
 import { addOrder, cancelOrder, queryBalance, queryOrdersInfo } from "./kraken-private.js";
 import { hasReachedOneR, trailingStopCandidate, historicalPeakSinceEntry, invalidationCheck, fastInvalidationCheck, FAST_INVALIDATION_SMA_PERIOD, FAST_INVALIDATION_CONFIRM_CANDLES, } from "./trailing-math.js";
-import { ALLOWED_PAIRS, RISK_LIMITS, CONFIDENCE_MAX_SIZE_PCT, TAKE_PROFIT_RR_MULTIPLE, MOMENTUM_ONLY_MAX_CONFIDENCE, TRAIL_SMA_PERIOD, isAllowedPair, } from "./types.js";
+import { ALLOWED_PAIRS, RISK_LIMITS, CONFIDENCE_MAX_SIZE_PCT, TARGET_RISK_PCT, MIN_POSITION_PCT, TAKE_PROFIT_RR_MULTIPLE, MOMENTUM_ONLY_MAX_CONFIDENCE, TRAIL_SMA_PERIOD, isAllowedPair, } from "./types.js";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.resolve(__dirname, "..", "..");
 const STATE_PATH = path.join(REPO_ROOT, "data", "live_portfolio_state.json");
@@ -145,6 +145,23 @@ async function formatPrice(pair, n) {
     const { priceDecimals } = await fetchPairPrecision(pair);
     return n.toFixed(priceDecimals);
 }
+// Derives position size from target risk ÷ stop distance instead of a
+// flat confidence-based percentage (2026-10-03) - see TARGET_RISK_PCT in
+// types.ts for the full reasoning. Pure, no network - unit-tested directly
+// in selftest.ts with synthetic stop distances. Clamped to
+// CONFIDENCE_MAX_SIZE_PCT (now a ceiling, not the primary dial) and the
+// global RISK_LIMITS.MAX_POSITION_PCT so an unusually tight stop can't
+// produce an oversized position.
+export function computePositionSizePct(confidence, stopDistancePct) {
+    const targetRisk = TARGET_RISK_PCT[confidence];
+    if (targetRisk <= 0 || stopDistancePct <= 0)
+        return 0;
+    // size_eur/portfolio = (targetRisk/100) / (stopDistancePct/100) = targetRisk/stopDistancePct,
+    // and size_pct = that ratio * 100 - the /100s from both percentages cancel,
+    // leaving one *100 to convert the ratio back to a percent.
+    const raw = (targetRisk / stopDistancePct) * 100;
+    return Math.min(raw, CONFIDENCE_MAX_SIZE_PCT[confidence], RISK_LIMITS.MAX_POSITION_PCT);
+}
 async function pollForFill(txid, maxAttempts = 12, delayMs = 1500) {
     for (let i = 0; i < maxAttempts; i++) {
         const info = await queryOrdersInfo([txid]);
@@ -165,15 +182,8 @@ export async function openPosition(input) {
     if (!input.stop_loss || input.stop_loss <= 0) {
         return { ok: false, reason: "A stop-loss level is required for every position." };
     }
-    if (input.size_pct <= 0 || input.size_pct > RISK_LIMITS.MAX_POSITION_PCT) {
-        return { ok: false, reason: `Position size must be > 0% and <= ${RISK_LIMITS.MAX_POSITION_PCT}% of portfolio value (requested ${input.size_pct}%).` };
-    }
-    const confidenceCap = CONFIDENCE_MAX_SIZE_PCT[input.confidence];
-    if (confidenceCap === 0) {
-        return { ok: false, reason: `Confidence "low" doesn't trade at all - if the signal isn't strong enough to size at least 2%, log a no-trade instead.` };
-    }
-    if (input.size_pct > confidenceCap) {
-        return { ok: false, reason: `Position size ${input.size_pct}% exceeds the ${confidenceCap}% cap for "${input.confidence}" confidence.` };
+    if (CONFIDENCE_MAX_SIZE_PCT[input.confidence] === 0) {
+        return { ok: false, reason: `Confidence "low" doesn't trade at all - if the signal isn't strong enough to risk capital on, log a no-trade instead.` };
     }
     if (input.momentum_only && input.confidence === "high") {
         return {
@@ -198,17 +208,27 @@ export async function openPosition(input) {
     }
     const { value: portfolioVal, cash, positionValues } = await portfolioValue(state);
     const totalExposureEur = Object.values(positionValues).reduce((a, v) => a + v, 0);
-    const newSizeEur = portfolioVal * (input.size_pct / 100);
+    const ticker = await fetchTicker(input.pair);
+    if (input.stop_loss >= ticker.ask) {
+        return { ok: false, reason: `Stop-loss (${input.stop_loss}) must be below the current ask (${ticker.ask}) for a long position.` };
+    }
+    // Size is derived from the trade's own stop distance, not chosen - see
+    // computePositionSizePct above and TARGET_RISK_PCT in types.ts.
+    const stopDistancePct = ((ticker.ask - input.stop_loss) / ticker.ask) * 100;
+    const sizePct = computePositionSizePct(input.confidence, stopDistancePct);
+    if (sizePct < MIN_POSITION_PCT) {
+        return {
+            ok: false,
+            reason: `Computed position size (${sizePct.toFixed(2)}%) from a ${stopDistancePct.toFixed(2)}% stop distance at "${input.confidence}" confidence (target risk ${TARGET_RISK_PCT[input.confidence]}% of portfolio) falls below the ${MIN_POSITION_PCT}% minimum - this stop is too wide relative to the confidence tier's risk budget to size a meaningful position. Log a no-trade instead.`,
+        };
+    }
+    const newSizeEur = portfolioVal * (sizePct / 100);
     const newTotalExposurePct = ((totalExposureEur + newSizeEur) / portfolioVal) * 100;
     if (newTotalExposurePct > RISK_LIMITS.MAX_TOTAL_EXPOSURE_PCT) {
         return {
             ok: false,
-            reason: `Opening this position would bring total exposure to ${newTotalExposurePct.toFixed(1)}%, over the ${RISK_LIMITS.MAX_TOTAL_EXPOSURE_PCT}% cap.`,
+            reason: `Opening this position (computed size ${sizePct.toFixed(2)}%) would bring total exposure to ${newTotalExposurePct.toFixed(1)}%, over the ${RISK_LIMITS.MAX_TOTAL_EXPOSURE_PCT}% cap.`,
         };
-    }
-    const ticker = await fetchTicker(input.pair);
-    if (input.stop_loss >= ticker.ask) {
-        return { ok: false, reason: `Stop-loss (${input.stop_loss}) must be below the current ask (${ticker.ask}) for a long position.` };
     }
     if (newSizeEur > cash) {
         return { ok: false, reason: `Insufficient EUR balance: need €${newSizeEur.toFixed(2)}, have €${cash.toFixed(2)}.` };
@@ -268,7 +288,7 @@ export async function openPosition(input) {
         take_profit: takeProfit,
         trailing_active: false,
         peak_price: entryPrice,
-        size_pct: input.size_pct,
+        size_pct: sizePct,
         size_eur: newSizeEur,
         quantity,
         entry_fee: entryFee,

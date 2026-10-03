@@ -2,6 +2,7 @@ import { fetchOHLC, fetchTicker, fetchDepth, closedCandles } from "./kraken.js";
 import { rsi, sma, smaCrossover, volumeVs7dAvg, orderBookImbalance, priceAction } from "./indicators.js";
 import { computeSignals } from "./signals.js";
 import { hasReachedOneR, effectiveTrailingStop, peakFromCandles, invalidationCheck, fastInvalidationFromCloses, fastInvalidationCheck } from "./trailing-math.js";
+import { computePositionSizePct } from "./portfolio-live.js";
 import { ALLOWED_PAIRS } from "./types.js";
 function candle(time, high) {
     return { time, open: high, high, low: high, close: high, vwap: high, volume: 0, count: 0 };
@@ -106,6 +107,15 @@ async function main() {
     // Too little history for even one SMA(20) value - fails safe, not a crash.
     const tooShort = fastInvalidationFromCloses([1, 2, 3]);
     assert(tooShort.breached === false && tooShort.lastCloses === null, `fastInvalidationFromCloses fails safe with too little history (got ${JSON.stringify(tooShort)})`);
+    // computePositionSizePct (2026-10-03 risk-based sizing) - pure, no network.
+    // medium targetRisk=0.25%, high targetRisk=0.4%; caps: medium<=5%, high<=8%
+    // (also the global RISK_LIMITS.MAX_POSITION_PCT=8%).
+    assert(computePositionSizePct("medium", 5) === 5, `computePositionSizePct medium at 5% stop distance hits the 5% cap exactly (got ${computePositionSizePct("medium", 5)})`);
+    assert(computePositionSizePct("medium", 10) === 2.5, `computePositionSizePct medium at 10% stop distance -> 2.5% (got ${computePositionSizePct("medium", 10)})`);
+    assert(computePositionSizePct("high", 5) === 8, `computePositionSizePct high at 5% stop distance hits the 8% cap exactly (got ${computePositionSizePct("high", 5)})`);
+    assert(computePositionSizePct("high", 40) === 1, `computePositionSizePct high at 40% stop distance -> 1% (got ${computePositionSizePct("high", 40)})`);
+    assert(computePositionSizePct("low", 5) === 0, `computePositionSizePct returns 0 for "low" confidence regardless of stop distance (got ${computePositionSizePct("low", 5)})`);
+    assert(computePositionSizePct("medium", 0) === 0, "computePositionSizePct fails safe (0) for a zero/invalid stop distance");
     // --- Live Kraken API smoke test (public endpoints, no auth) ---
     const ticker = await fetchTicker("BTC/EUR");
     assert(ticker.last > 0, `live BTC/EUR ticker last price > 0 (got ${ticker.last})`);

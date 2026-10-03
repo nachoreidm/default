@@ -65,25 +65,34 @@ Enforced **in code** by `portfolio_open_position` / `portfolio_check_stops`
 / `portfolio_close_position` — a rejection is final, not something to work
 around by resizing and retrying:
 
-- Max position size: **8%** of portfolio's current value per trade
-- Confidence-based sizing: `low` doesn't trade at all (call
-  `portfolio_log_no_trade`); `medium` caps at **5%**; `high` can use the
-  full **8%**. (Raised from paper trading's 3%/5% — see CLAUDE.md's
-  2026-09-20 live-build decision log for the full reasoning: since every
-  position always carries a stop, real per-trade risk is
-  `size_pct × stop_distance_pct`, not `size_pct` alone.)
-- Max total exposure at any time: **40%** of portfolio value (also raised
-  from 25%, scaled by the same factor as the per-trade caps so the
-  aggregate cap's relative headroom is unchanged)
+- **Position size is not something you choose (changed 2026-10-03)** —
+  `portfolio_open_position` computes it automatically from a target risk %
+  (by confidence: `medium` 0.25%, `high` 0.4% of portfolio value) divided
+  by this trade's own stop distance (entry-to-stop as a % of the current
+  ask), so every trade's real euro loss-if-stopped stays roughly constant
+  no matter how close or far a pair's technical stop level happens to sit.
+  A wide stop gets a smaller position; a tight stop gets a larger one. Do
+  not pass a size — just pass `stop_loss` and `confidence` and the tool
+  derives the rest. (See CLAUDE.md's 2026-10-03 entry for the full
+  reasoning and the trade-by-trade numbers that motivated moving off flat
+  confidence-based sizing.)
+- The computed size is still capped: `low` doesn't trade at all (call
+  `portfolio_log_no_trade`); `medium` is capped at **5%**; `high` is capped
+  at **8%** — these are now backstop ceilings, not the primary dial. If the
+  computed size falls below **1%** (the stop is too wide relative to the
+  confidence tier's risk budget), the call is rejected outright — log a
+  no-trade instead of trying to force a smaller or larger size through.
+- Max total exposure at any time: **40%** of portfolio value
 - No trade without a stated stop-loss level (must be below entry for a long)
 - Max **8** open positions at once (one per pair)
 - Same-UTC-day halt once realized losses hit **5%** of portfolio value
 - A momentum-only trigger (`momentum_only: true`) is capped at medium
   confidence, enforced in code — same rule as paper trading
 
-Position sizing is a percentage of the portfolio's **current** mark-to-market
-value, always read fresh from `portfolio_get_state` (which queries Kraken's
-real EUR balance directly — never a locally-tracked cash figure).
+Position sizing is computed against the portfolio's **current**
+mark-to-market value, always read fresh from `portfolio_get_state` (which
+queries Kraken's real EUR balance directly — never a locally-tracked cash
+figure).
 
 ## Order execution — what actually happens on Kraken
 
@@ -182,11 +191,12 @@ nothing worth doing. A "no trade" call is a valid, good outcome.
 ## Required output format for every recommendation
 
 Before discussing a trade idea further, call `portfolio_open_position` with
-pair, stop-loss, position size (%), `signals_at_entry` (including
-`news_context`), `invalidation`, `confidence` + `confidence_reason`, and
-`momentum_only` — identical shape to paper trading. If the tool call is
-rejected by a risk limit, report the rejection — don't retry with smaller
-numbers just to force a trade through. If it fails with an order-placement
+pair, stop-loss, `signals_at_entry` (including `news_context`),
+`invalidation`, `confidence` + `confidence_reason`, and `momentum_only` —
+**no position size** (computed automatically from confidence and stop
+distance, see "Risk rules" above). If the tool call is rejected by a risk
+limit, report the rejection — don't retry with a different stop just to
+force a larger or smaller size through. If it fails with an order-placement
 or stop-placement error, treat that as urgent (see "Order execution"
 above), not just a rejection to route around.
 
