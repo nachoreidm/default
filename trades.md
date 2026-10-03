@@ -40815,3 +40815,181 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-10-03T17:42:55.933Z — BTC/EUR — NO TRADE
+
+**Reasoning:** No fresh entry signal: price mild (-0.13% 1h/48h, +0.29% 4h/48h), RSI neutral at 57.0, SMA fast-above-slow with no crossover this candle. Volume still elevated (2.13x), order book flipped bid-heavy (+0.27). momentum_trigger not flagged. News continued the generic "Upctober" bullish sentiment - no specific actionable catalyst this hour. No trade.
+
+**Signals considered:**
+```json
+{
+  "current_price": 75562.8,
+  "pct_change_1h_48h": -0.13163726326791161,
+  "pct_change_4h_48h": 0.2942934963130273,
+  "rsi_14_4h": 57.006323433858455,
+  "sma_state": "fast_above_slow",
+  "crossed_this_candle": false,
+  "volume_ratio": 2.128694940696519,
+  "flag_above_2x": true,
+  "order_book_imbalance": 0.2661989269500618,
+  "momentum_trigger_flagged": false,
+  "news_context": "Generic 'Upctober' bullish sentiment - no specific actionable catalyst this hour"
+}
+```
+
+---
+### 2026-10-03T17:42:55.970Z — ETH/EUR — NO TRADE
+
+**Reasoning:** Mildly negative: -0.78% 1h/48h, -0.67% 4h/48h, RSI neutral at 50.5, SMA fast-above-slow with no crossover, volume just under the 2x flag (1.95x), order book near-neutral (+0.01). momentum_trigger not flagged. News repeated EDCON 2026 closing today and the Glamsterdam testnet fork upcoming Oct 6 - background/longer-horizon, no immediate catalyst. No trade.
+
+**Signals considered:**
+```json
+{
+  "current_price": 2388.23,
+  "pct_change_1h_48h": -0.7762773631530467,
+  "pct_change_4h_48h": -0.6676245809125257,
+  "rsi_14_4h": 50.46940282163563,
+  "sma_state": "fast_above_slow",
+  "crossed_this_candle": false,
+  "volume_ratio": 1.954219890790018,
+  "flag_above_2x": false,
+  "order_book_imbalance": 0.005733714089726329,
+  "momentum_trigger_flagged": false,
+  "news_context": "EDCON conference closing today, Glamsterdam testnet fork upcoming Oct 6 - background/longer-horizon, no immediate catalyst"
+}
+```
+
+---
+### 2026-10-03T17:42:55.987Z — SOL/EUR — NO TRADE
+
+**Reasoning:** Still mixed, no confluence: price up (+1.04% 1h/48h, +1.30% 4h/48h) but SMA remains bearish (fast below slow, no crossover), volume unconfirmed (1.48x). Order book bid-heavy (+0.26). momentum_trigger not flagged. News referenced only forward-looking items (Breakpoint in November) - no near-term catalyst. No trade.
+
+**Signals considered:**
+```json
+{
+  "current_price": 106.73,
+  "pct_change_1h_48h": 1.0438413361169183,
+  "pct_change_4h_48h": 1.3035204567079015,
+  "rsi_14_4h": 54.5817611427822,
+  "sma_state": "fast_below_slow",
+  "crossed_this_candle": false,
+  "volume_ratio": 1.4848317365891543,
+  "flag_above_2x": false,
+  "order_book_imbalance": 0.26285152675855233,
+  "momentum_trigger_flagged": false,
+  "news_context": "Forward-looking conference item (Breakpoint in November) - no near-term catalyst"
+}
+```
+
+---
+### 2026-10-03T17:42:56.004Z — XRP/EUR — NO TRADE
+
+**Reasoning:** Turned negative on both windows: -0.70% 1h/48h, -0.67% 4h/48h, RSI soft at 49.2, SMA bearish (fast below slow, no crossover), volume unconfirmed (1.57x), order book now ask-heavy (-0.29). momentum_trigger not flagged. News referenced Ripple's ongoing corporate strategy and ETF inflows - background, not a proportionate near-term catalyst. No trade.
+
+**Signals considered:**
+```json
+{
+  "current_price": 1.3275,
+  "pct_change_1h_48h": -0.697320820007335,
+  "pct_change_4h_48h": -0.6678509590519645,
+  "rsi_14_4h": 49.1865436566756,
+  "sma_state": "fast_below_slow",
+  "crossed_this_candle": false,
+  "volume_ratio": 1.5696235879873366,
+  "flag_above_2x": false,
+  "order_book_imbalance": -0.28930666550813,
+  "momentum_trigger_flagged": false,
+  "news_context": "Ripple corporate strategy / ETF inflows - background, not a near-term catalyst"
+}
+```
+
+---
+### 2026-10-03T17:42:56.019Z — ADA/EUR — NO TRADE
+
+**Reasoning:** Bearish and weakening: price down on both windows (-2.37% 1h/48h, -1.29% 4h/48h), RSI soft at 48.2, SMA bearish (fast below slow, no crossover), volume unconfirmed (1.51x), order book now sharply ask-heavy (-0.37, flipped from last cycle's bid-heavy reading). momentum_trigger not flagged. News referenced background governance/funding and 2026 roadmap items - none proportionate to today, and now contradicted by the bearish order-book flip. No trade.
+
+**Signals considered:**
+```json
+{
+  "current_price": 0.218738,
+  "pct_change_1h_48h": -2.371844603593862,
+  "pct_change_4h_48h": -1.2875478128455589,
+  "rsi_14_4h": 48.189752661501686,
+  "sma_state": "fast_below_slow",
+  "crossed_this_candle": false,
+  "volume_ratio": 1.5095414465980777,
+  "flag_above_2x": false,
+  "order_book_imbalance": -0.36760903602508627,
+  "momentum_trigger_flagged": false,
+  "news_context": "Background governance/funding and 2026 roadmap items - no near-term catalyst; order book flipped sharply bearish this cycle"
+}
+```
+
+---
+### 2026-10-03T17:42:56.033Z — LINK/EUR — NO TRADE
+
+**Reasoning:** Still weak with the bearish 4h SMA crossover persisting (fast below slow, crossed last candle): price down (-3.27% 1h/48h, -4.22% 4h/48h), RSI soft at 43.3, volume still well below average (0.66x). Order book mildly bid-heavy (+0.14) but doesn't offset the bearish structure. momentum_trigger not flagged. News repeated DTCC/institutional background items - no near-term catalyst for a long entry against the confirmed bearish trend. No trade.
+
+**Signals considered:**
+```json
+{
+  "current_price": 12.36327,
+  "pct_change_1h_48h": -3.269940053710376,
+  "pct_change_4h_48h": -4.224253371118938,
+  "rsi_14_4h": 43.28172687263183,
+  "sma_state": "fast_below_slow",
+  "crossed_this_candle": true,
+  "crossover_direction": "bearish",
+  "volume_ratio": 0.6561039197633093,
+  "flag_above_2x": false,
+  "order_book_imbalance": 0.13846311514032086,
+  "momentum_trigger_flagged": false,
+  "news_context": "DTCC/institutional background items - no near-term catalyst; bearish SMA crossover from last cycle persists"
+}
+```
+
+---
+### 2026-10-03T17:42:56.046Z — SUI/EUR — NO TRADE
+
+**Reasoning:** Now negative on both windows (-1.65% 1h/48h, -1.07% 4h/48h) with the bearish 4h SMA crossover from last cycle persisting (fast below slow). Volume remains below average (0.75x). Order book mildly bullish (+0.26) but doesn't offset the now-confirmed bearish price/trend picture. momentum_trigger not flagged. News repeated the upcoming "AI DeFi Breakthrough" event Oct 7-8 - still forward-looking, not arrived, and increasingly contradicted by price action. No trade.
+
+**Signals considered:**
+```json
+{
+  "current_price": 1.0437,
+  "pct_change_1h_48h": -1.6528145069890512,
+  "pct_change_4h_48h": -1.0679519894149974,
+  "rsi_14_4h": 53.7241694731207,
+  "sma_state": "fast_below_slow",
+  "crossed_this_candle": true,
+  "crossover_direction": "bearish",
+  "volume_ratio": 0.748488990458404,
+  "flag_above_2x": false,
+  "order_book_imbalance": 0.25983323130720765,
+  "momentum_trigger_flagged": false,
+  "news_context": "Upcoming 'AI DeFi Breakthrough' event Oct 7-8 still forward-looking; bearish SMA crossover and now-negative price action persist"
+}
+```
+
+---
+### 2026-10-03T17:42:56.058Z — LTC/EUR — NO TRADE
+
+**Reasoning:** Momentum cooled from prior cycles (+1.92% 1h/48h, +2.09% 4h/48h), SMA remains bearish (fast below slow, no crossover), volume roughly average (1.06x). RSI mild at 55.7, order book mildly bullish (+0.19). News repeated the 15th-anniversary/payments narrative - background color, no near-term catalyst. No trade.
+
+**Signals considered:**
+```json
+{
+  "current_price": 61.36,
+  "pct_change_1h_48h": 1.9230769230769174,
+  "pct_change_4h_48h": 2.0946726043212864,
+  "rsi_14_4h": 55.672570860481514,
+  "sma_state": "fast_below_slow",
+  "crossed_this_candle": false,
+  "volume_ratio": 1.0593659229020795,
+  "flag_above_2x": false,
+  "order_book_imbalance": 0.19138983041300475,
+  "momentum_trigger_flagged": false,
+  "news_context": "15th-anniversary / payments narrative - background color, no near-term catalyst"
+}
+```
+
+---
