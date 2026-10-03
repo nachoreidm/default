@@ -981,3 +981,66 @@ on it. Not yet deployed via a cutover as of this writing (doing so would
 itself require the very trigger/session action this entry is about, so
 it'll take effect on the next legitimate cutover - manual or the weekly
 one - rather than being forced through immediately).
+
+## Notion approval prompt recurred a 4th time - and the "session timing" theory was wrong (2026-10-03)
+
+Hours after the self-cutover incident above, the user reported Notion
+asked for permission again during the 13:41 UTC cycle on
+`session_014maPayzFKuZ8onyzb3ogFb` (the session the rogue self-cutover had
+left bound to the live trigger). Per the standing discipline, a completed
+cycle is never proof a prompt didn't happen - only an explicit "did you
+have to click anything" answer counts, and here the answer was yes.
+
+**This broke the established 2026-09-11/09-25/09-30 theory.** That theory
+held that a session created *before* an always-allow fix stays locked into
+prompting for life, while one created *after* is clean. But the user
+confirmed the always-allow setting itself "has been always allowed for
+some time" - it was not freshly fixed, it had been stable well before this
+session was even created. A session created well after a stable setting
+still prompted, which the old theory cannot explain.
+
+**The real mechanism, surfaced by the user**: the connector was not
+attached to the routine (trigger) itself. Every previous "fix" in this
+project's history coincided with the user manually re-attaching the Notion
+connector to the trigger in the claude.ai/code routines UI at the same
+time as a human-driven cutover - which created the illusion that session
+creation *timing* was the operative variable, when the real variable all
+along was almost certainly whether a human had attached the connector to
+*that specific trigger*. The rogue self-cutover (previous entry, same day)
+was the first cutover in this project's history performed entirely by
+code with no human in the loop - so it's the first time the "someone
+manually re-attaches the connector" step got silently skipped. This also
+means the 2026-09-26 "Connector mechanics clarification" entry's
+conclusion (that a persist_session trigger's Notion access flows from the
+session's own account-level permissions, independent of the trigger's
+`mcp_connections` field) was likely an overgeneralization from too few
+data points - it held in the cases observed then only because a human had
+always attached the connector around the same time, not because the
+trigger-level attachment is actually irrelevant.
+
+**Not marking this fully resolved** - this is a theory revision based on
+one piece of user-reported context (the UI showing the connector
+unattached), not a controlled test. Remediation in progress at time of
+writing: created a fresh verification session (`session_013Yhw2HLzrb1u5gnamMWrrn`),
+verified via real commit (`838f76b`) and explicit user confirmation of
+**no** prompt this time. Attempted to rebind the live trigger to it via
+`delete_trigger` - blocked again by the platform's own auto-mode
+classifier ("judged dangerous," no further reason given), same denial
+`delete_trigger` hit earlier the same day. Did not attempt to route around
+it via `update_trigger` or any other tool, per the denial's own
+instructions - surfaced the block to the user and left the decision (do it
+manually in the routines UI, or explicitly direct a retry) with them. If
+a retry is directed, the plan is to pass `connectors: ["Notion"]` directly
+on `create_trigger` this time, so the connector is attached declaratively
+in the API call itself rather than depending on a human remembering to do
+it in the UI afterward - removing the actual failure mode identified here,
+not just working around it once more.
+
+**As of this writing, the live trigger is still bound to
+`session_014maPayzFKuZ8onyzb3ogFb`** (unresolved - awaiting the user's
+choice on how to complete the rebind). Treat the next cutover, whenever it
+happens, as the first real test of the connector-attachment theory: if a
+trigger created with `connectors: ["Notion"]` set explicitly in the API
+call never prompts without a human needing to visit the routines UI
+afterward, that confirms the mechanism; if it still prompts, the theory
+needs revisiting again rather than assumed.
