@@ -40285,3 +40285,179 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-10-03T14:43:42.147Z — BTC/EUR — NO TRADE
+
+**Reasoning:** No fresh entry signal: price action mild (+1.23% 1h/48h, +0.58% 4h/48h), RSI neutral at 55.4, SMA fast-above-slow but no crossover this candle. Volume still elevated (2.13x) but order book flipped more bearish since last cycle (-0.30 imbalance, ask-heavy). momentum_trigger not flagged. News searches surfaced generic "Upctober" bullish sentiment and ETF inflow themes but nothing specific/actionable for this hour, and some results quoted prices wildly inconsistent with the real current price - treated as unreliable noise, not a catalyst. No trade.
+
+**Signals considered:**
+```json
+{
+  "current_price": 75390.1,
+  "pct_change_1h_48h": 1.2307502507630208,
+  "pct_change_4h_48h": 0.5808168830873898,
+  "rsi_14_4h": 55.43606119104316,
+  "sma_state": "fast_above_slow",
+  "crossed_this_candle": false,
+  "volume_ratio": 2.128694940696519,
+  "flag_above_2x": true,
+  "order_book_imbalance": -0.2980295566502463,
+  "momentum_trigger_flagged": false,
+  "news_context": "Generic 'Upctober' bullish sentiment / ETF inflow themes - no specific actionable catalyst, some stale/mismatched price references disregarded"
+}
+```
+
+---
+### 2026-10-03T14:43:42.168Z — ETH/EUR — NO TRADE
+
+**Reasoning:** Still flat: price action near zero (-0.04% 1h/48h, +0.03% 4h/48h), RSI neutral at 51.2, SMA fast-above-slow with no crossover, volume just under the 2x flag (1.95x), order book bearish-skewed (-0.19). momentum_trigger not flagged. News referenced EDCON 2026 conference wrapping up and general Glamsterdam-upgrade progress, but nothing specific or time-proportionate to this hour; other results quoted prices inconsistent with the real current price and were disregarded. No trade.
+
+**Signals considered:**
+```json
+{
+  "current_price": 2383.86,
+  "pct_change_1h_48h": -0.03645001948190239,
+  "pct_change_4h_48h": 0.029744947548347538,
+  "rsi_14_4h": 51.23606176726207,
+  "sma_state": "fast_above_slow",
+  "crossed_this_candle": false,
+  "volume_ratio": 1.954219890790018,
+  "flag_above_2x": false,
+  "order_book_imbalance": -0.1930954159891004,
+  "momentum_trigger_flagged": false,
+  "news_context": "EDCON conference wrap-up / general upgrade roadmap commentary - no specific actionable catalyst this hour"
+}
+```
+
+---
+### 2026-10-03T14:43:42.196Z — SOL/EUR — NO TRADE
+
+**Reasoning:** Still mixed, no confluence: price up (+2.01% 1h/48h, +1.69% 4h/48h) but SMA structure remains bearish (fast below slow, no crossover) and volume unconfirmed (1.48x). Order book flipped to ask-heavy this cycle (-0.32, more bearish than last cycle's +0.34). momentum_trigger not flagged. News turned up only a forward-looking conference announcement (Breakpoint, November), no near-term catalyst. No trade.
+
+**Signals considered:**
+```json
+{
+  "current_price": 106.25,
+  "pct_change_1h_48h": 2.0067210753720492,
+  "pct_change_4h_48h": 1.6863083261473517,
+  "rsi_14_4h": 52.98456635985817,
+  "sma_state": "fast_below_slow",
+  "crossed_this_candle": false,
+  "volume_ratio": 1.4848317365891543,
+  "flag_above_2x": false,
+  "order_book_imbalance": -0.3177777976114329,
+  "momentum_trigger_flagged": false,
+  "news_context": "Only a forward-looking conference announcement (mid-November) - no near-term catalyst"
+}
+```
+
+---
+### 2026-10-03T14:43:42.209Z — XRP/EUR — NO TRADE
+
+**Reasoning:** Still flat/no basis: price mild (+0.52% 1h/48h, -0.12% 4h/48h), RSI soft at 47.9, SMA bearish (fast below slow, no crossover), volume unconfirmed (1.57x), order book near-neutral (+0.01). momentum_trigger not flagged. News surfaced general corporate/regulatory progress (Luxembourg e-money license, FCA approval, OCC trust-bank rule) but these are background strategic developments, not a proportionate near-term price catalyst. No trade.
+
+**Signals considered:**
+```json
+{
+  "current_price": 1.32131,
+  "pct_change_1h_48h": 0.5183040362356877,
+  "pct_change_4h_48h": -0.12166093626025702,
+  "rsi_14_4h": 47.94437704278045,
+  "sma_state": "fast_below_slow",
+  "crossed_this_candle": false,
+  "volume_ratio": 1.5696235879873366,
+  "flag_above_2x": false,
+  "order_book_imbalance": 0.007271793578401939,
+  "momentum_trigger_flagged": false,
+  "news_context": "General corporate/regulatory progress (EU licensing, OCC rule) - background strategic news, not a proportionate near-term catalyst"
+}
+```
+
+---
+### 2026-10-03T14:43:42.237Z — ADA/EUR — NO TRADE
+
+**Reasoning:** Still bearish-leaning: price flattish on 1h (+0.14%) but down on 4h (-0.55%), RSI soft at 48.7, SMA bearish (fast below slow, no crossover), volume unconfirmed (1.51x). Order book very bid-heavy (+0.67) but that alone doesn't offset the bearish SMA/price trend. momentum_trigger not flagged. News referenced a yearly-low price quote inconsistent with the real current price (disregarded as stale/unreliable) plus background adoption stories (SPAR retail, stablecoin integration) - none proportionate to today. No trade.
+
+**Signals considered:**
+```json
+{
+  "current_price": 0.218688,
+  "pct_change_1h_48h": 0.14049973828480158,
+  "pct_change_4h_48h": -0.5490750022783122,
+  "rsi_14_4h": 48.73419199921057,
+  "sma_state": "fast_below_slow",
+  "crossed_this_candle": false,
+  "volume_ratio": 1.5095414465980777,
+  "flag_above_2x": false,
+  "order_book_imbalance": 0.6677684962399698,
+  "momentum_trigger_flagged": false,
+  "news_context": "Stale/mismatched price reference plus background adoption stories (SPAR retail, stablecoin integration) - no proportionate near-term catalyst"
+}
+```
+
+---
+### 2026-10-03T14:43:42.251Z — LINK/EUR — NO TRADE
+
+**Reasoning:** Still weak: price down (-2.69% 1h/48h, -2.61% 4h/48h), RSI soft at 45.2, volume still well below average (0.66x). Order book bid-skewed (+0.23) but not enough to offset the declining price/participation. SMA fast-above-slow is a lagging legacy signal given the current decline, no crossover this candle. momentum_trigger not flagged. News referenced genuine-sounding institutional developments (DTCC Collateral AppChain integration by Q4, BitGo CCIP selection for WBTC) - real-sounding but background/longer-horizon, not a proportionate trigger for an immediate entry against currently bearish price action. No trade.
+
+**Signals considered:**
+```json
+{
+  "current_price": 12.36425,
+  "pct_change_1h_48h": -2.689280093855548,
+  "pct_change_4h_48h": -2.607010592725478,
+  "rsi_14_4h": 45.15672095965228,
+  "sma_state": "fast_above_slow",
+  "crossed_this_candle": false,
+  "volume_ratio": 0.6561039197633093,
+  "flag_above_2x": false,
+  "order_book_imbalance": 0.2314112817624049,
+  "momentum_trigger_flagged": false,
+  "news_context": "DTCC Collateral AppChain integration (Q4) and BitGo CCIP selection - real-sounding but background/longer-horizon, not a near-term catalyst against currently bearish price action"
+}
+```
+
+---
+### 2026-10-03T14:43:42.265Z — SUI/EUR — NO TRADE
+
+**Reasoning:** Price up but still unconfirmed: +4.06% 1h/48h, +3.24% 4h/48h (closer to the 6% momentum threshold than last cycle but still below it), RSI mild at 55.6, SMA fast-above-slow with no crossover. Volume remains below average (0.75x) - the move still isn't confirmed by participation. Order book mildly bullish (+0.10). momentum_trigger not flagged. News flagged an upcoming "AI DeFi Breakthrough" event Oct 7-8 - a forward-looking catalyst, not yet arrived, so not actionable this cycle; background institutional-adoption stories (Grayscale AI Fund weighting, Mubadala Capital) are older context, not a fresh trigger. No trade - worth watching for the event date.
+
+**Signals considered:**
+```json
+{
+  "current_price": 1.0502,
+  "pct_change_1h_48h": 4.059807901772445,
+  "pct_change_4h_48h": 3.2384306819293522,
+  "rsi_14_4h": 55.61965986210467,
+  "sma_state": "fast_above_slow",
+  "crossed_this_candle": false,
+  "volume_ratio": 0.748488990458404,
+  "flag_above_2x": false,
+  "order_book_imbalance": 0.10129009272774316,
+  "momentum_trigger_flagged": false,
+  "news_context": "Upcoming 'AI DeFi Breakthrough' event Oct 7-8 flagged as a forward-looking, not-yet-arrived catalyst; background institutional-adoption stories are older context"
+}
+```
+
+---
+### 2026-10-03T14:43:42.278Z — LTC/EUR — NO TRADE
+
+**Reasoning:** Still the strongest mover of the eight (+4.28% 1h/48h, +3.84% 4h/48h) but still under the 6% momentum threshold, and not confirmed: SMA remains bearish (fast below slow, no crossover), volume roughly average (1.06x, not elevated). RSI mild at 55.8, order book mildly bullish (+0.20). News referenced Litecoin's 15-year anniversary and general payments-leadership narrative plus a longer-horizon LitVM/ZK-rollup development - background color, not a proportionate near-term catalyst. No trade.
+
+**Signals considered:**
+```json
+{
+  "current_price": 61.8,
+  "pct_change_1h_48h": 4.28355451033092,
+  "pct_change_4h_48h": 3.840348817709205,
+  "rsi_14_4h": 55.80191067597653,
+  "sma_state": "fast_below_slow",
+  "crossed_this_candle": false,
+  "volume_ratio": 1.0593659229020795,
+  "flag_above_2x": false,
+  "order_book_imbalance": 0.19819152539106066,
+  "momentum_trigger_flagged": false,
+  "news_context": "15-year anniversary / payments-leadership narrative and a longer-horizon LitVM development - background color, no near-term catalyst"
+}
+```
+
+---
