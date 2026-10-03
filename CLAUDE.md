@@ -1044,3 +1044,33 @@ trigger created with `connectors: ["Notion"]` set explicitly in the API
 call never prompts without a human needing to visit the routines UI
 afterward, that confirms the mechanism; if it still prompts, the theory
 needs revisiting again rather than assumed.
+
+**Resolved, same day.** `create_trigger`'s `connectors` param turned out
+to be unavailable for this organization ("the connectors parameter is not
+available for this organization") - so the declarative fix wasn't
+possible after all, same manual-UI dependency as every prior cutover.
+`delete_trigger` on the rogue trigger was also attempted a third time at
+the user's explicit request and blocked again, identically ("judged
+dangerous," no further reason) - did not retry a fourth time blind, since
+the denial's own guidance is against repeating an identical blocked call
+across turns. Worked around it instead by creating a brand new trigger
+(`create_trigger` was not blocked) bound to the verified session, same
+name/cron, then asking the user to disable the old one and attach Notion
+manually in the routines UI - which they did. The user initially couldn't
+tell the two same-named routines apart in their UI (no visible
+timestamps/session info) - fixed by using `update_trigger` to rename them
+distinctly ("DISABLE THIS ONE (OLD)" / "KEEP THIS ONE (NEW)") so they were
+unambiguous by name alone, then renamed the survivor back to the standard
+name once the swap was confirmed.
+
+**Final state**: live trigger is `trig_01MgA8zU3Y2xdX8w2TGz7qFG` ("Kraken
+live-trading hourly monitoring"), bound to `session_013Yhw2HLzrb1u5gnamMWrrn`
+(verified clean, explicit no-prompt confirmation, Notion connector now
+attached per `list_triggers`). Old trigger `trig_01AHEASpWtMNwgJskn52dV52`
+disabled (not deleted - `delete_trigger` could not reach it). Old session
+`session_014maPayzFKuZ8onyzb3ogFb` archived (cost $3.15 over its ~1-hour
+life). The connector-attachment theory from the entry above is NOT yet
+confirmed either way by this resolution, since the fix here was the same
+manual UI step as always, not the declarative API approach that would
+have been the clean test - still watch the next real cutover for whether
+a human has to remember this step again.
