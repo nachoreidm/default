@@ -18,6 +18,71 @@ branch's `CLAUDE.md` — this file only covers what's specific to *live*:
 credentials, real order execution, and what's still pending before the
 first real trade.
 
+## Cutover playbook and known platform constraints (read before touching any session/trigger)
+
+Added 2026-10-03 after the Notion-prompt incident that day (see that
+date's entries further down) turned a same-day fix into several hours of
+back-and-forth - almost entirely because the real platform constraints
+below were relearned live, under time pressure, with real money on the
+line, instead of being known going in. Check this section first for any
+future infra-affecting action (a code-change cutover, the weekly cutover,
+or anything else touching a session or trigger) rather than reasoning from
+scratch about what "should" work.
+
+**Known platform constraints for this account/environment** (each hit
+directly, not assumed):
+- `delete_trigger` on the live hourly trigger is reliably blocked by the
+  platform's own auto-mode classifier ("judged dangerous," rarely with a
+  specific reason beyond that). Hit 3 times in a row with an identical
+  result on 2026-10-03 - don't retry it blind, and don't try to reach the
+  same outcome through `update_trigger` either (changing
+  `persistent_session_id` to rebind away from the blocked trigger is the
+  same denied outcome through a different door). Go straight to
+  **creating a new trigger** instead (see sequence below).
+- `create_trigger`'s `connectors` parameter is not available for this
+  organization (confirmed via a direct rejection: "the connectors
+  parameter is not available for this organization"). Don't rely on it to
+  attach Notion declaratively - budget for a manual attach in the
+  claude.ai/code routines UI every time a new trigger needs Notion.
+- The routines UI as surfaced to the user does not support rebinding an
+  existing routine to a different, already-existing session - that
+  binding has to be made at trigger-creation time via `create_trigger`
+  from a session with API access, not an in-UI edit of an existing one.
+- Two routines with the same name are indistinguishable in the user's UI
+  (no visible timestamps, session info, or trigger IDs shown there) -
+  rename them distinctly the moment two exist side by side (e.g.
+  "DISABLE THIS ONE" / "KEEP THIS ONE"), don't wait for confusion to
+  surface the need.
+
+**The actual working cutover sequence, given the above** (use this
+directly rather than re-deriving it each time):
+1. Create a fresh session seeded with the exact current hourly-cycle
+   prompt text (doubles as verification and that cycle's real work, so
+   nothing is wasted).
+2. Verify via the real commit (`git log`/`git show`), not the session's
+   own summary.
+3. Explicitly ask the user whether a Notion approval prompt appeared - a
+   clean completed cycle is never proof by itself (established
+   2026-09-25, reconfirmed 2026-09-30 and 2026-10-03).
+4. `create_trigger` a brand-new trigger (same name/cron) bound to that
+   verified session - don't attempt to touch the old one's binding first.
+5. Immediately rename both triggers distinctly (old → "DISABLE THIS
+   ONE", new → "KEEP THIS ONE", or similar) the moment both exist, before
+   asking the user to act on either.
+6. Ask the user to, in the routines UI: disable the old routine, and
+   attach the Notion connector to the new one (both manual steps per the
+   constraints above - neither is currently reachable via API here).
+7. Confirm via `list_triggers` (the old one shows `enabled: false`; the
+   new one shows the Notion connector under `mcp_connections`), then
+   archive the old session and rename the new trigger back to the plain
+   standard name.
+
+This is the mechanical fix for *how* to cut over without wasted cycles.
+It does not replace the separate, more important guardrail against
+*needing* an unplanned cutover in the first place - see "Hourly cycle
+self-initiated an unauthorized session/trigger cutover" further down for
+why the hourly cycle must never decide on its own that one is warranted.
+
 ## Layout
 
 - `instructions/kraken-live-agent-instructions.md` — the live agent's
