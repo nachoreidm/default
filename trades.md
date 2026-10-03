@@ -39725,3 +39725,195 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-10-03T12:51:38.627Z — BTC/EUR — NO TRADE
+
+**Reasoning:** No entry signal: SMA fast_above_slow but no crossover this candle (established trend, not fresh), momentum_trigger not flagged (1.52%/0.58%, well below 6% threshold), RSI neutral at 55.4, order book roughly balanced (-0.049). Volume ratio is elevated at 2.13x (above the 2x flag) but elevated volume alone without a fresh crossover or momentum trigger isn't a qualifying entry signal. News: search results returned stale/inconsistent BTC price figures (mentioning ~$124k "Upctober" rally) that don't match the live Kraken price (€75,460) - treated as unreliable/non-fresh, not a catalyst. No open position currently.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 55.44,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 1.52,
+    "pct_change_4h_48h": 0.58
+  },
+  "volume_ratio": 2.129,
+  "order_book_imbalance": -0.049,
+  "news_context": "Search results returned stale/mismatched BTC price data (~$124k 'Upctober' rally narrative) inconsistent with live Kraken price - not treated as a fresh catalyst"
+}
+```
+
+---
+### 2026-10-03T12:51:38.661Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No entry signal: SMA fast_above_slow, no crossover this candle, momentum_trigger not flagged (0.12%/0.03%, far below 6% threshold), RSI neutral at 51.2, volume ratio 1.95x (just under the 2x flag), order book roughly balanced (-0.031). News: search results quoted an ETH price (~$4,480) wildly inconsistent with live Kraken price (€2,385.36) - stale/unreliable data, no fresh catalyst identified. No open position currently.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 51.24,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 0.12,
+    "pct_change_4h_48h": 0.03
+  },
+  "volume_ratio": 1.954,
+  "order_book_imbalance": -0.031,
+  "news_context": "Search results quoted a stale/mismatched ETH price (~$4,480) inconsistent with live data - no fresh catalyst found"
+}
+```
+
+---
+### 2026-10-03T12:51:38.676Z — SOL/EUR — NO TRADE
+
+**Reasoning:** No entry signal: SMA fast_below_slow (bearish state), no crossover this candle, momentum_trigger not flagged (2.11%/1.69%, below 6% threshold), RSI neutral at 53.0, volume ratio 1.48x (below average-confirmation bar), order book mildly bid-skewed (0.069). News: search results returned inconsistent/outdated SOL price figures (ranging $83-$240) that don't match live Kraken price (€106.24) - no reliable fresh catalyst. No open position currently.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 52.98,
+  "sma_crossover_4h": {
+    "state": "fast_below_slow",
+    "crossed_this_candle": false
+  },
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 2.11,
+    "pct_change_4h_48h": 1.69
+  },
+  "volume_ratio": 1.485,
+  "order_book_imbalance": 0.069,
+  "news_context": "Search results returned stale/inconsistent SOL price data - no reliable fresh catalyst identified"
+}
+```
+
+---
+### 2026-10-03T12:51:38.690Z — XRP/EUR — NO TRADE
+
+**Reasoning:** No entry signal: SMA fast_below_slow, no crossover this candle, momentum_trigger not flagged (0.31%/-0.12%), RSI neutral-bearish at 47.9, volume ratio 1.57x (below 2x confirmation), order book heavily ask-skewed (-0.484, real near-term selling pressure). News: search surfaced Ripple's Luxembourg CASP (MiCA) authorization, but this is dated/not fresh for this cycle, not a new catalyst. No open position currently.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 47.94,
+  "sma_crossover_4h": {
+    "state": "fast_below_slow",
+    "crossed_this_candle": false
+  },
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 0.31,
+    "pct_change_4h_48h": -0.12
+  },
+  "volume_ratio": 1.57,
+  "order_book_imbalance": -0.484,
+  "news_context": "Ripple's Luxembourg CASP/MiCA authorization reported previously - not a fresh catalyst this cycle; order book heavily ask-skewed"
+}
+```
+
+---
+### 2026-10-03T12:51:38.704Z — ADA/EUR — NO TRADE
+
+**Reasoning:** No entry signal: SMA fast_below_slow, no crossover this candle, momentum_trigger not flagged (-0.47%/-0.55%), RSI neutral at 48.7, volume ratio 1.51x (below 2x confirmation), order book mildly ask-skewed (-0.051). News: search results returned a stale/mismatched ADA price figure and generic 2026 price-prediction content, no concrete fresh catalyst. No open position currently.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 48.73,
+  "sma_crossover_4h": {
+    "state": "fast_below_slow",
+    "crossed_this_candle": false
+  },
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -0.47,
+    "pct_change_4h_48h": -0.55
+  },
+  "volume_ratio": 1.51,
+  "order_book_imbalance": -0.051,
+  "news_context": "Stale/mismatched price data and generic price-prediction content only - no fresh catalyst identified"
+}
+```
+
+---
+### 2026-10-03T12:51:38.718Z — LINK/EUR — NO TRADE
+
+**Reasoning:** No entry signal: SMA fast_above_slow, no crossover this candle, momentum_trigger not flagged (-2.44%/-2.61%), RSI neutral at 45.2, volume ratio 0.66x (well below average), order book bid-skewed (0.312) but unconfirmed by volume. News: search results gave conflicting/stale LINK prices; the previously-noted DTCC Collateral AppChain integration remains a longer-horizon item, not a fresh immediate catalyst. No open position currently.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 45.16,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -2.44,
+    "pct_change_4h_48h": -2.61
+  },
+  "volume_ratio": 0.656,
+  "order_book_imbalance": 0.312,
+  "news_context": "Conflicting/stale price data across sources; DTCC Collateral AppChain integration remains a longer-horizon item, not fresh this cycle"
+}
+```
+
+---
+### 2026-10-03T12:51:38.732Z — SUI/EUR — NO TRADE
+
+**Reasoning:** No entry signal: SMA fast_above_slow, no crossover this candle, momentum_trigger not flagged (2.99%/3.24%, below 6% threshold), RSI neutral at 55.6, volume ratio 0.75x (below average, unconfirmed), order book bid-skewed (0.227). News: several DeFi products launched on Sui mainnet (AftermathFi Perpetuals v2, NAVI Prime institutional lending, SuiPump launchpad) - general ecosystem growth, not a specific proportionate price catalyst for this cycle; price in search results also didn't match live Kraken price. No open position currently.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 55.62,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 2.99,
+    "pct_change_4h_48h": 3.24
+  },
+  "volume_ratio": 0.748,
+  "order_book_imbalance": 0.227,
+  "news_context": "New DeFi products launched on Sui mainnet (AftermathFi Perpetuals v2, NAVI Prime, SuiPump) - general ecosystem news, not a specific immediate price catalyst; volume unconfirmed"
+}
+```
+
+---
+### 2026-10-03T12:51:38.746Z — LTC/EUR — NO TRADE
+
+**Reasoning:** No entry signal: SMA fast_below_slow (bearish state) despite recent price strength, no crossover this candle, momentum_trigger not flagged (4.21%/3.84%, below 6% threshold), RSI neutral at 55.8, volume ratio 1.06x (roughly average). News: search results described bearish technical sentiment (63% bearish signals, fear index 30) alongside a stale/mismatched LTC price figure - no concrete fresh catalyst either direction. No open position currently.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 55.8,
+  "sma_crossover_4h": {
+    "state": "fast_below_slow",
+    "crossed_this_candle": false
+  },
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 4.21,
+    "pct_change_4h_48h": 3.84
+  },
+  "volume_ratio": 1.059,
+  "order_book_imbalance": 0.116,
+  "news_context": "Search describes bearish technical sentiment on LTC (fear index 30) and quotes a stale/mismatched price - no concrete fresh catalyst"
+}
+```
+
+---
