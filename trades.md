@@ -40109,3 +40109,179 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-10-03T13:49:14.701Z — BTC/EUR — NO TRADE
+
+**Reasoning:** No fresh entry signal: price action mild (+1.59% 1h/48h, +0.58% 4h/48h), RSI neutral at 55.4, SMA structure fast-above-slow but no crossover this candle (established trend, not a fresh trigger), order book flat (-0.01 imbalance). Volume is elevated (2.13x, above the 2x flag) but with no crossover or momentum trigger to confirm, elevated volume alone isn't a basis for entry. momentum_trigger not flagged (1.59%/0.58% vs 6% threshold). News search returned general bullish institutional themes (ETF inflows, dominance at 4-year high) but nothing specific or time-proportionate to today that would justify a momentum-only entry. No trade.
+
+**Signals considered:**
+```json
+{
+  "current_price": 75476.4,
+  "pct_change_1h_48h": 1.586120503715708,
+  "pct_change_4h_48h": 0.5808168830873898,
+  "rsi_14_4h": 55.43606119104316,
+  "sma_state": "fast_above_slow",
+  "crossed_this_candle": false,
+  "volume_ratio": 2.128694940696519,
+  "flag_above_2x": true,
+  "order_book_imbalance": -0.011848341232227586,
+  "momentum_trigger_flagged": false,
+  "news_context": "General bullish institutional themes (ETF inflows, dominance highs) - no specific actionable catalyst today"
+}
+```
+
+---
+### 2026-10-03T13:49:14.724Z — ETH/EUR — NO TRADE
+
+**Reasoning:** Flat across the board: price action essentially zero (-0.02% 1h/48h, +0.03% 4h/48h), RSI neutral at 51.2, SMA fast-above-slow but no crossover this candle, volume just under the 2x flag (1.95x), order book skewed toward asks (-0.11, mildly bearish). momentum_trigger not flagged. News search returned stale/non-current items (old Pectra-upgrade and price-rout commentary not matching today's flat price action) - no actionable catalyst. No trade.
+
+**Signals considered:**
+```json
+{
+  "current_price": 2385.02,
+  "pct_change_1h_48h": -0.02262595112794404,
+  "pct_change_4h_48h": 0.029744947548347538,
+  "rsi_14_4h": 51.23606176726207,
+  "sma_state": "fast_above_slow",
+  "crossed_this_candle": false,
+  "volume_ratio": 1.954219890790018,
+  "flag_above_2x": false,
+  "order_book_imbalance": -0.11392127788636516,
+  "momentum_trigger_flagged": false,
+  "news_context": "Stale/non-current items only (old Pectra upgrade, foundation funding) - no actionable catalyst today"
+}
+```
+
+---
+### 2026-10-03T13:49:14.737Z — SOL/EUR — NO TRADE
+
+**Reasoning:** Mixed signals, no confluence: price up (+1.80% 1h/48h, +1.69% 4h/48h) with bullish order-book skew (+0.34), but the SMA structure is bearish (fast below slow, no crossover this candle) and volume is unconfirmed (1.48x, under the 2x flag). A short-term bounce against a bearish SMA trend with unconfirmed volume isn't a basis for entry. momentum_trigger not flagged (1.8% vs 6% threshold). News search returned generic/stale network-activity commentary, nothing specific to today. No trade.
+
+**Signals considered:**
+```json
+{
+  "current_price": 106.23,
+  "pct_change_1h_48h": 1.8007662835248999,
+  "pct_change_4h_48h": 1.6863083261473517,
+  "rsi_14_4h": 52.98456635985817,
+  "sma_state": "fast_below_slow",
+  "crossed_this_candle": false,
+  "volume_ratio": 1.4848317365891543,
+  "flag_above_2x": false,
+  "order_book_imbalance": 0.34002874922668225,
+  "momentum_trigger_flagged": false,
+  "news_context": "Generic network-activity commentary (active addresses, uptime) - no specific actionable catalyst today"
+}
+```
+
+---
+### 2026-10-03T13:49:14.750Z — XRP/EUR — NO TRADE
+
+**Reasoning:** No basis for entry: price essentially flat (+0.23% 1h/48h, -0.12% 4h/48h), RSI neutral-to-soft at 47.9, SMA bearish (fast below slow, no crossover), volume unconfirmed (1.57x), order book close to neutral (+0.05). momentum_trigger not flagged. News search surfaced only long-running SEC-litigation background, nothing new or time-proportionate today. No trade.
+
+**Signals considered:**
+```json
+{
+  "current_price": 1.32015,
+  "pct_change_1h_48h": 0.2297996268600017,
+  "pct_change_4h_48h": -0.12166093626025702,
+  "rsi_14_4h": 47.94437704278045,
+  "sma_state": "fast_below_slow",
+  "crossed_this_candle": false,
+  "volume_ratio": 1.5696235879873366,
+  "flag_above_2x": false,
+  "order_book_imbalance": 0.05307891956416766,
+  "momentum_trigger_flagged": false,
+  "news_context": "Long-running SEC litigation background only - no new catalyst today"
+}
+```
+
+---
+### 2026-10-03T13:49:14.764Z — ADA/EUR — NO TRADE
+
+**Reasoning:** Bearish across computed signals: price down (-0.59% 1h/48h, -0.55% 4h/48h), RSI soft at 48.7, SMA bearish (fast below slow, no crossover), volume unconfirmed (1.51x). Order book shows strong bid skew (+0.48) but that alone doesn't offset the bearish price/SMA picture. momentum_trigger not flagged. News search returned content describing ADA near $0.935 and a "god candle" - clearly stale/mismatched against the real current price (€0.2177) and today's actual computed signals, so treated as noise, not a catalyst. No trade.
+
+**Signals considered:**
+```json
+{
+  "current_price": 0.217692,
+  "pct_change_1h_48h": -0.5862692455207967,
+  "pct_change_4h_48h": -0.5490750022783122,
+  "rsi_14_4h": 48.73419199921057,
+  "sma_state": "fast_below_slow",
+  "crossed_this_candle": false,
+  "volume_ratio": 1.5095414465980777,
+  "flag_above_2x": false,
+  "order_book_imbalance": 0.4777773124437677,
+  "momentum_trigger_flagged": false,
+  "news_context": "Search results referenced a stale/mismatched price ($0.935) inconsistent with current price - disregarded as noise, no real catalyst found"
+}
+```
+
+---
+### 2026-10-03T13:49:14.775Z — LINK/EUR — NO TRADE
+
+**Reasoning:** Bearish/weak: price down (-2.94% 1h/48h, -2.61% 4h/48h), RSI soft at 45.2, volume well below average (0.66x, declining participation on a down move), order book only mildly bid-skewed (+0.09). SMA shows fast-above-slow (lagging legacy trend, not a fresh signal given current price decline and no crossover this candle). momentum_trigger not flagged. News search referenced a stale price ($9.24) inconsistent with the real current price (€12.34) alongside generic institutional-accumulation chatter - disregarded as noise. No trade.
+
+**Signals considered:**
+```json
+{
+  "current_price": 12.33761,
+  "pct_change_1h_48h": -2.940218238135477,
+  "pct_change_4h_48h": -2.607010592725478,
+  "rsi_14_4h": 45.15672095965228,
+  "sma_state": "fast_above_slow",
+  "crossed_this_candle": false,
+  "volume_ratio": 0.6561039197633093,
+  "flag_above_2x": false,
+  "order_book_imbalance": 0.08938658137905228,
+  "momentum_trigger_flagged": false,
+  "news_context": "Stale/mismatched price reference ($9.24 vs real €12.34) plus generic institutional-accumulation chatter - disregarded as noise, no real catalyst found"
+}
+```
+
+---
+### 2026-10-03T13:49:14.785Z — SUI/EUR — NO TRADE
+
+**Reasoning:** Price up but unconfirmed: +2.71% 1h/48h, +3.24% 4h/48h, RSI mild at 55.6, SMA fast-above-slow (no crossover this candle), but volume is below average (0.75x) - the move isn't confirmed by participation. Order book only mildly bullish (+0.08). momentum_trigger not flagged (3.24% vs 6% threshold). News search returned a stale/mismatched item referencing SUI around $3.20-3.30 - inconsistent with the real current price (€1.04) - disregarded as noise, no proportionate real catalyst found for today. No trade.
+
+**Signals considered:**
+```json
+{
+  "current_price": 1.0447,
+  "pct_change_1h_48h": 2.7095516569200826,
+  "pct_change_4h_48h": 3.2384306819293522,
+  "rsi_14_4h": 55.61965986210467,
+  "sma_state": "fast_above_slow",
+  "crossed_this_candle": false,
+  "volume_ratio": 0.748488990458404,
+  "flag_above_2x": false,
+  "order_book_imbalance": 0.08036485865159089,
+  "momentum_trigger_flagged": false,
+  "news_context": "Stale/mismatched price reference ($3.20-3.30 vs real €1.04) - disregarded as noise, no real catalyst found"
+}
+```
+
+---
+### 2026-10-03T13:49:14.798Z — LTC/EUR — NO TRADE
+
+**Reasoning:** Strongest price move of the eight (+4.18% 1h/48h, +3.84% 4h/48h) but still under the 6% momentum_trigger threshold, and not confirmed by trend or volume: SMA structure is bearish (fast below slow, no crossover this candle - rally hasn't flipped the trend yet), volume roughly average (1.06x, not elevated). RSI mild at 55.8, order book mildly bullish (+0.09). News search surfaced only a stale item (Feb 2025 domain-extension launch) with no proportionate current catalyst. No trade.
+
+**Signals considered:**
+```json
+{
+  "current_price": 61.96,
+  "pct_change_1h_48h": 4.175084175084182,
+  "pct_change_4h_48h": 3.840348817709205,
+  "rsi_14_4h": 55.80191067597653,
+  "sma_state": "fast_below_slow",
+  "crossed_this_candle": false,
+  "volume_ratio": 1.0593659229020795,
+  "flag_above_2x": false,
+  "order_book_imbalance": 0.09420160055470476,
+  "momentum_trigger_flagged": false,
+  "news_context": "Stale item only (Feb 2025 domain-extension launch) - no proportionate current catalyst"
+}
+```
+
+---
