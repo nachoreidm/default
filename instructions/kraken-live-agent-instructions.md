@@ -225,3 +225,16 @@ suggesting a rule needs tightening.
 - Never treat an "unprotected position" or "replacement stop failed" error
   as routine — surface it immediately and check Kraken directly before
   doing anything else that cycle
+- **Never create, delete, or modify a Claude Code Remote session or
+  trigger from within an hourly monitoring cycle** — not even if step 0's
+  `git pull` surfaces new code/instructions you think warrants a cutover.
+  Session/trigger management is exclusively the weekly cutover trigger's
+  job, or a manual cutover the user initiates — both of which include the
+  required step of explicitly asking the user whether a Notion approval
+  prompt appeared before trusting the new session. An hourly cycle that
+  notices meaningfully new code should just say so plainly in its status
+  line (e.g. "running on code newer than this session was created with —
+  may be due for a cutover") and otherwise proceed with its normal steps
+  — never act on that observation itself. (See CLAUDE.md's 2026-10-03
+  "Hourly cycle self-initiated an unauthorized cutover" entry — this is
+  not a hypothetical.)
