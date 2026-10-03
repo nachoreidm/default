@@ -39397,3 +39397,139 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-10-03T12:43:50.277Z — BTC/EUR — NO TRADE
+
+**Reasoning:** No fresh entry signal: SMA already fast_above_slow with no crossover this candle (trend continuation, not a new trigger), momentum_trigger not flagged (1.5%/0.58% vs 6% threshold). Volume confirmed (2.13x) and order book mildly positive (+0.10), but without a crossover or momentum trigger there's no qualifying entry event. News: institutional adoption headlines (ETF launches, corporate BTC buys) - generally positive background but no proportionate near-term catalyst for a new entry.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 55.44,
+  "sma_state": "fast_above_slow,no_cross",
+  "volume_ratio": 2.13,
+  "momentum_trigger": false,
+  "order_book_imbalance": 0.104,
+  "news_context": "Institutional adoption headlines (ETF launches, corporate treasury buys) - no proportionate near-term catalyst"
+}
+```
+
+---
+### 2026-10-03T12:43:50.299Z — ETH/EUR — NO TRADE
+
+**Reasoning:** Flat price action (+0.12%/+0.03%), no SMA crossover this candle, momentum_trigger not flagged, volume ratio 1.95x just under the 2x confirmation bar. No qualifying entry signal. News: Ethereum Foundation quantum-resistance funding and ETH surpassing BTC in spot volume - interesting but not a proportionate catalyst for a new entry given flat price action.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 51.24,
+  "sma_state": "fast_above_slow,no_cross",
+  "volume_ratio": 1.95,
+  "momentum_trigger": false,
+  "order_book_imbalance": 0.016,
+  "news_context": "EF quantum-resistance funding, ETH spot volume overtaking BTC - not a proportionate catalyst"
+}
+```
+
+---
+### 2026-10-03T12:43:50.342Z — SOL/EUR — NO TRADE
+
+**Reasoning:** SMA state is fast_below_slow (bearish structure) despite recent positive price action (+2.1%/+1.69%), no crossover this candle, momentum_trigger not flagged, volume unconfirmed (1.48x). No qualifying entry signal given the bearish SMA state. News: daily-active-address highs and network activity, generally constructive but not a trade trigger against a bearish SMA structure.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 52.98,
+  "sma_state": "fast_below_slow,no_cross",
+  "volume_ratio": 1.48,
+  "momentum_trigger": false,
+  "order_book_imbalance": 0.124,
+  "news_context": "Daily active addresses at 3-month high, no congestion - constructive but not a trigger"
+}
+```
+
+---
+### 2026-10-03T12:43:50.361Z — XRP/EUR — NO TRADE
+
+**Reasoning:** SMA fast_below_slow, slightly negative 4h price action (-0.12%), no crossover, momentum_trigger not flagged, volume unconfirmed (1.57x). No qualifying entry signal. News: ongoing SEC/Ripple legal narrative, long-running and already priced in, not a fresh proportionate catalyst.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 47.94,
+  "sma_state": "fast_below_slow,no_cross",
+  "volume_ratio": 1.57,
+  "momentum_trigger": false,
+  "order_book_imbalance": 0.429,
+  "news_context": "Ongoing SEC/Ripple legal narrative - long-running, not a fresh catalyst"
+}
+```
+
+---
+### 2026-10-03T12:43:50.380Z — ADA/EUR — NO TRADE
+
+**Reasoning:** Negative price action (-0.47%/-0.55%), SMA fast_below_slow, no crossover, momentum_trigger not flagged, volume unconfirmed (1.51x). No qualifying entry signal - price and trend both pointing the wrong direction for a long. News found (price highs, ecosystem growth) appears to reference an earlier/different period than current price action and isn't consistent with the live negative price action, so not treated as an actionable catalyst.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 48.73,
+  "sma_state": "fast_below_slow,no_cross",
+  "volume_ratio": 1.51,
+  "momentum_trigger": false,
+  "order_book_imbalance": 0.028,
+  "news_context": "Search results referenced stale/inconsistent price levels vs current data - not treated as an actionable catalyst"
+}
+```
+
+---
+### 2026-10-03T12:43:50.400Z — LINK/EUR — NO TRADE
+
+**Reasoning:** Negative price action (-2.44%/-2.61%), volume ratio notably low (0.66x, well below confirmation), no crossover this candle despite fast_above_slow state, momentum_trigger not flagged. Weakening trend with unconfirmed/declining volume - no qualifying entry signal. News: oracle integration items are old/recurring, not a fresh catalyst.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 45.16,
+  "sma_state": "fast_above_slow,no_cross",
+  "volume_ratio": 0.656,
+  "momentum_trigger": false,
+  "order_book_imbalance": -0.121,
+  "news_context": "Recurring oracle-integration headlines - not a fresh catalyst"
+}
+```
+
+---
+### 2026-10-03T12:43:50.419Z — SUI/EUR — NO TRADE
+
+**Reasoning:** Positive price action (+2.99%/+3.24%) but below the 6% momentum_trigger threshold, and volume unconfirmed (0.75x, below the 7-day average rather than elevated) - a momentum-only entry requires both the trigger and confirming volume/catalyst, neither of which is met here. News found doesn't clearly correspond to current conditions (price figures in results don't match live price) so not treated as a confirmed catalyst. No trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 55.62,
+  "sma_state": "fast_above_slow,no_cross",
+  "volume_ratio": 0.748,
+  "momentum_trigger": false,
+  "order_book_imbalance": 0.293,
+  "news_context": "Search results inconsistent with live price data - not treated as a confirmed catalyst; volume unconfirmed"
+}
+```
+
+---
+### 2026-10-03T12:43:50.437Z — LTC/EUR — NO TRADE
+
+**Reasoning:** Positive price action (+4.21%/+3.84%) but SMA state still fast_below_slow (trend not yet confirmed), momentum_trigger not flagged (needs 6%), volume unconfirmed (1.06x, roughly at the 7-day average, not elevated). No qualifying entry signal - price is moving but trend/volume confirmation isn't there yet. News found was largely stale/non-dated (domain launch, UFC partnership from prior periods), no fresh proportionate catalyst.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 55.8,
+  "sma_state": "fast_below_slow,no_cross",
+  "volume_ratio": 1.059,
+  "momentum_trigger": false,
+  "order_book_imbalance": 0.043,
+  "news_context": "Stale/non-dated news items (domain launch, UFC partnership) - no fresh catalyst"
+}
+```
+
+---
