@@ -39397,3 +39397,195 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-10-03T12:44:58.124Z — BTC/EUR — NO TRADE
+
+**Reasoning:** No entry signal: SMA stays fast_above_slow but no crossover this candle (ongoing trend, not fresh), momentum_trigger not flagged (1.52%/0.58%, well under 6%), RSI neutral at 55.4. Volume flagged above 2x (2.13x) but volume confirmation alone is not an entry trigger. News: "Upctober" bullish sentiment continues, BTC approached ~€124k intraday - broad optimism, no pair-specific catalyst or fresh signal. No open position currently.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 55.44,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 1.52,
+    "pct_change_4h_48h": 0.58
+  },
+  "volume_ratio": 2.13,
+  "order_book_imbalance": -0.136,
+  "news_context": "Upctober bullish sentiment continues; BTC near ~$124k highs - broad market optimism, no pair-specific catalyst"
+}
+```
+
+---
+### 2026-10-03T12:44:58.145Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No entry signal: SMA fast_above_slow, no crossover this candle, momentum_trigger not flagged (0.12%/0.03%, negligible), RSI neutral at 51.2, volume unconfirmed at 1.95x (just under 2x bar). News: Glamsterdam upgrade testnet fork Oct 6/mainnet Q4, BitMine accumulation ($300M, 4M ETH treasury), ETF inflows ($834M) amid resistance near $2,800 - supportive institutional backdrop but no immediate, dated catalyst for a fresh entry signal today. No open position currently.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 51.24,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 0.12,
+    "pct_change_4h_48h": 0.03
+  },
+  "volume_ratio": 1.954,
+  "order_book_imbalance": -0.23,
+  "news_context": "Glamsterdam upgrade testnet fork Oct 6, mainnet Q4; BitMine $300M ETH purchase crossing 4M ETH treasury; ETF inflows $834M amid $2,800 resistance - institutional accumulation but no immediate catalyst"
+}
+```
+
+---
+### 2026-10-03T12:44:58.159Z — SOL/EUR — NO TRADE
+
+**Reasoning:** No entry signal: SMA fast_below_slow (bearish state), no crossover this candle, momentum_trigger not flagged (2.11%/1.69%), RSI neutral at 53, volume unconfirmed at 1.48x. News: Firedancer validator client live on mainnet (600k+ TPS), Alpenglow consensus upgrade cut finality to 150ms, SEC classified SOL as digital commodity in March - longer-horizon positives, no fresh near-term catalyst and doesn't override the bearish SMA state. No open position currently.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 52.98,
+  "sma_crossover_4h": {
+    "state": "fast_below_slow",
+    "crossed_this_candle": false
+  },
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 2.11,
+    "pct_change_4h_48h": 1.69
+  },
+  "volume_ratio": 1.485,
+  "order_book_imbalance": -0.261,
+  "news_context": "Firedancer validator client live on mainnet (600k+ TPS); Alpenglow consensus upgrade cut finality to 150ms; SEC classified SOL as digital commodity - longer-horizon positives, no fresh near-term catalyst"
+}
+```
+
+---
+### 2026-10-03T12:44:58.170Z — XRP/EUR — NO TRADE
+
+**Reasoning:** No entry signal: SMA fast_below_slow, no crossover this candle, momentum_trigger not flagged (0.31%/-0.12%), RSI neutral-slightly-bearish at 47.9, volume unconfirmed at 1.57x. News: Ripple OCC national trust bank status, Luxembourg e-money license, European expansion - positive long-term regulatory progress but not a near-term price-moving catalyst. No open position currently.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 47.94,
+  "sma_crossover_4h": {
+    "state": "fast_below_slow",
+    "crossed_this_candle": false
+  },
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 0.31,
+    "pct_change_4h_48h": -0.12
+  },
+  "volume_ratio": 1.57,
+  "order_book_imbalance": 0.045,
+  "news_context": "Ripple granted OCC national trust bank status; Luxembourg e-money license; European expansion - positive regulatory progress, not an immediate price catalyst"
+}
+```
+
+---
+### 2026-10-03T12:44:58.182Z — ADA/EUR — NO TRADE
+
+**Reasoning:** No entry signal: SMA fast_below_slow, no crossover this candle, momentum_trigger not flagged (-0.47%/-0.55%, mildly negative), RSI neutral at 48.7, volume unconfirmed at 1.51x. News: SPAR supermarket payment integration (Switzerland), Leios consensus upgrade targeting 10-65x throughput, Midnight privacy sidechain mainnet live - longer-term roadmap items, no near-term catalyst. No open position currently.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 48.73,
+  "sma_crossover_4h": {
+    "state": "fast_below_slow",
+    "crossed_this_candle": false
+  },
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -0.47,
+    "pct_change_4h_48h": -0.55
+  },
+  "volume_ratio": 1.51,
+  "order_book_imbalance": 0.153,
+  "news_context": "SPAR supermarket ADA payments integration; Leios consensus upgrade (10-65x throughput target); Midnight privacy sidechain mainnet live - longer-term roadmap, no near-term catalyst"
+}
+```
+
+---
+### 2026-10-03T12:44:58.194Z — LINK/EUR — NO TRADE
+
+**Reasoning:** No entry signal: SMA fast_above_slow but no crossover this candle, momentum_trigger not flagged (-2.44%/-2.61%, negative), RSI mildly bearish at 45.2, volume well below average (0.66x, no confirmation). News: DTCC Collateral AppChain integration still targeted Q4 2026, Fortune Crypto 100 ranking - notable but not a dated near-term catalyst, and doesn't offset weak momentum/volume. No open position currently.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 45.16,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -2.44,
+    "pct_change_4h_48h": -2.61
+  },
+  "volume_ratio": 0.656,
+  "order_book_imbalance": 0.179,
+  "news_context": "DTCC planning Chainlink integration into Collateral AppChain by Q4 2026; ranked 4th in Fortune Crypto 100 - longer-horizon catalyst, not immediate"
+}
+```
+
+---
+### 2026-10-03T12:44:58.207Z — SUI/EUR — NO TRADE
+
+**Reasoning:** No entry signal: SMA fast_above_slow, no crossover this candle, momentum_trigger not flagged (2.99%/3.24%, below 6% threshold), RSI neutral at 55.6, volume unconfirmed at 0.75x (below average), order book heavily ask-skewed (-0.20) indicating near-term selling pressure. News: "AI DeFi Breakthrough" event upcoming Oct 7-8 (not yet occurred), Grayscale/Mubadala institutional moves reported back in August - not fresh for this cycle. No open position currently.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 55.62,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 2.99,
+    "pct_change_4h_48h": 3.24
+  },
+  "volume_ratio": 0.748,
+  "order_book_imbalance": -0.203,
+  "news_context": "Upcoming AI DeFi Breakthrough event Oct 7-8 (not yet occurred); Grayscale AI Fund addition and Mubadala $75M onchain move from August - not fresh catalysts this cycle"
+}
+```
+
+---
+### 2026-10-03T12:44:58.217Z — LTC/EUR — NO TRADE
+
+**Reasoning:** No entry signal: SMA fast_below_slow (bearish state) despite recent price strength, no crossover this candle, momentum_trigger not flagged (4.21%/3.84%, below 6% threshold), RSI neutral at 55.8, volume unconfirmed at 1.06x (roughly average). News: 15th-anniversary milestone coverage, continued payments-use narrative - no concrete price catalyst. No open position currently.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 55.8,
+  "sma_crossover_4h": {
+    "state": "fast_below_slow",
+    "crossed_this_candle": false
+  },
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 4.21,
+    "pct_change_4h_48h": 3.84
+  },
+  "volume_ratio": 1.059,
+  "order_book_imbalance": 0.113,
+  "news_context": "Litecoin 15th anniversary coverage, continued payments-use narrative - no concrete price catalyst this cycle"
+}
+```
+
+---
