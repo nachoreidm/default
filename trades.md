@@ -39917,3 +39917,195 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-10-03T13:43:22.704Z — BTC/EUR — NO TRADE
+
+**Reasoning:** No entry signal: SMA stays fast_above_slow, no crossover this candle, momentum_trigger not flagged (1.59%/0.58%), RSI neutral at 55.4. Volume flagged above 2x (2.13x) but that alone isn't an entry trigger. News: "Upctober" sentiment continues, BTC near ~$124k highs - same backdrop as prior cycles, no fresh pair-specific catalyst. No open position currently.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 55.44,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 1.59,
+    "pct_change_4h_48h": 0.58
+  },
+  "volume_ratio": 2.13,
+  "order_book_imbalance": -0.102,
+  "news_context": "Upctober sentiment continues, BTC near ~$124k highs - unchanged backdrop, no fresh catalyst"
+}
+```
+
+---
+### 2026-10-03T13:43:22.718Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No entry signal: SMA fast_above_slow, no crossover this candle, momentum_trigger not flagged (-0.02%/0.03%, flat), RSI neutral at 51.2, volume unconfirmed at 1.95x. News: Glamsterdam testnet fork Oct 6 still pending, $2,800 resistance unchanged, limited analyst odds of further upside this year - no fresh catalyst. No open position currently.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 51.24,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -0.02,
+    "pct_change_4h_48h": 0.03
+  },
+  "volume_ratio": 1.954,
+  "order_book_imbalance": 0.06,
+  "news_context": "Glamsterdam testnet fork pending Oct 6; resistance near $2,800 unchanged; no fresh catalyst"
+}
+```
+
+---
+### 2026-10-03T13:43:22.746Z — SOL/EUR — NO TRADE
+
+**Reasoning:** No entry signal: SMA fast_below_slow (bearish state), no crossover this candle, momentum_trigger not flagged (1.80%/1.69%), RSI neutral at 53, volume unconfirmed at 1.48x, order book notably ask-skewed (-0.47). News: mixed/stale price-prediction commentary, no concrete near-term catalyst, doesn't override the bearish SMA state. No open position currently.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 52.98,
+  "sma_crossover_4h": {
+    "state": "fast_below_slow",
+    "crossed_this_candle": false
+  },
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 1.8,
+    "pct_change_4h_48h": 1.69
+  },
+  "volume_ratio": 1.485,
+  "order_book_imbalance": -0.467,
+  "news_context": "Mixed/stale price-prediction commentary, no concrete near-term catalyst"
+}
+```
+
+---
+### 2026-10-03T13:43:22.757Z — XRP/EUR — NO TRADE
+
+**Reasoning:** No entry signal: SMA fast_below_slow, no crossover this candle, momentum_trigger not flagged (0.23%/-0.12%), RSI neutral-slightly-bearish at 47.9, volume unconfirmed at 1.57x. News: sentiment reported as turning negative (FUD at 3-week high), monthly decline - not a bullish catalyst and doesn't support a long entry. No open position currently.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 47.94,
+  "sma_crossover_4h": {
+    "state": "fast_below_slow",
+    "crossed_this_candle": false
+  },
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 0.23,
+    "pct_change_4h_48h": -0.12
+  },
+  "volume_ratio": 1.57,
+  "order_book_imbalance": 0.351,
+  "news_context": "Sentiment reported turning negative (FUD at 3-week high), ~5% monthly decline - not supportive of a long entry"
+}
+```
+
+---
+### 2026-10-03T13:43:22.768Z — ADA/EUR — NO TRADE
+
+**Reasoning:** No entry signal: SMA fast_below_slow, no crossover this candle, momentum_trigger not flagged (-0.59%/-0.55%, mildly negative), RSI neutral at 48.7, volume unconfirmed at 1.51x. News: general stability narrative, no fresh near-term catalyst. No open position currently.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 48.73,
+  "sma_crossover_4h": {
+    "state": "fast_below_slow",
+    "crossed_this_candle": false
+  },
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -0.59,
+    "pct_change_4h_48h": -0.55
+  },
+  "volume_ratio": 1.51,
+  "order_book_imbalance": 0.228,
+  "news_context": "General stability/consolidation narrative, no fresh near-term catalyst"
+}
+```
+
+---
+### 2026-10-03T13:43:22.779Z — LINK/EUR — NO TRADE
+
+**Reasoning:** No entry signal: SMA fast_above_slow but no crossover this candle, momentum_trigger not flagged (-2.94%/-2.61%, negative), RSI mildly bearish at 45.2, volume well below average (0.66x). News: mixed price commentary, no fresh dated catalyst, doesn't offset weak momentum/volume. No open position currently.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 45.16,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -2.94,
+    "pct_change_4h_48h": -2.61
+  },
+  "volume_ratio": 0.656,
+  "order_book_imbalance": 0.181,
+  "news_context": "Mixed price commentary, no fresh dated catalyst"
+}
+```
+
+---
+### 2026-10-03T13:43:22.789Z — SUI/EUR — NO TRADE
+
+**Reasoning:** No entry signal: SMA fast_above_slow, no crossover this candle, momentum_trigger not flagged (2.71%/3.24%, below 6% threshold), RSI neutral at 55.6, volume unconfirmed at 0.75x (below average). News: only stale/speculative price-prediction content, no fresh catalyst this cycle. No open position currently.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 55.62,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 2.71,
+    "pct_change_4h_48h": 3.24
+  },
+  "volume_ratio": 0.748,
+  "order_book_imbalance": -0.06,
+  "news_context": "Only stale/speculative price-prediction content found, no fresh catalyst"
+}
+```
+
+---
+### 2026-10-03T13:43:22.806Z — LTC/EUR — NO TRADE
+
+**Reasoning:** No entry signal: SMA fast_below_slow (bearish state) despite recent price strength, no crossover this candle, momentum_trigger not flagged (4.18%/3.84%, below 6% threshold), RSI neutral at 55.8, volume unconfirmed at 1.06x. News: bearish technical commentary ("Strong Sell" signal count, fear-zone sentiment index) - not supportive of a long entry. No open position currently.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 55.8,
+  "sma_crossover_4h": {
+    "state": "fast_below_slow",
+    "crossed_this_candle": false
+  },
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 4.18,
+    "pct_change_4h_48h": 3.84
+  },
+  "volume_ratio": 1.059,
+  "order_book_imbalance": 0.152,
+  "news_context": "Bearish technical commentary (Strong Sell signal count, fear-zone sentiment index) - not supportive of a long entry"
+}
+```
+
+---
