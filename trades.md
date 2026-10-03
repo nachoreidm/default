@@ -39205,3 +39205,195 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-10-03T12:22:11.023Z — BTC/EUR — NO TRADE
+
+**Reasoning:** No entry signal: SMA stays fast_above_slow but no crossover this candle (ongoing trend, not a fresh signal), momentum_trigger not flagged (1.5%/0.58% well under 6% threshold), RSI neutral at 55.4. Volume flagged above 2x but that alone isn't an entry trigger. News: "Upctober" bullish sentiment, BTC approached €124k intraday - supportive backdrop but not a catalyst for a specific entry signal today. No open position on this pair currently.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 55.44,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 1.52,
+    "pct_change_4h_48h": 0.58
+  },
+  "volume_ratio": 2.13,
+  "order_book_imbalance": -0.0093,
+  "news_context": "Bullish \"Upctober\" sentiment; BTC briefly touched ~€/$124k before settling below $122k - broad market optimism, no pair-specific catalyst"
+}
+```
+
+---
+### 2026-10-03T12:22:11.041Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No entry signal: SMA fast_above_slow, no crossover this candle, momentum_trigger not flagged (0.12%/0.03%, negligible), RSI neutral at 51.2, volume ratio 1.95x just under the 2x flag. News: facing resistance near $2,800 after a monthly gain, Glamsterdam upgrade testnet fork due Oct 6 - informational, not an actionable catalyst. No open position on this pair currently.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 51.24,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 0.12,
+    "pct_change_4h_48h": 0.03
+  },
+  "volume_ratio": 1.95,
+  "order_book_imbalance": 0.301,
+  "news_context": "ETH facing resistance near $2,800 after 7% monthly gain; Glamsterdam upgrade testnet fork scheduled Oct 6, mainnet Q4 2026 - no immediate catalyst"
+}
+```
+
+---
+### 2026-10-03T12:22:11.051Z — SOL/EUR — NO TRADE
+
+**Reasoning:** No entry signal: SMA fast_below_slow (bearish state), no crossover this candle, momentum_trigger not flagged (2.1%/1.7%), RSI neutral at 53, volume unconfirmed at 1.48x. News: technical commentary about breaking a falling wedge toward $82, general 2026 optimism - not a concrete near-term catalyst and doesn't override the bearish SMA state. No open position on this pair currently.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 52.98,
+  "sma_crossover_4h": {
+    "state": "fast_below_slow",
+    "crossed_this_candle": false
+  },
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 2.11,
+    "pct_change_4h_48h": 1.69
+  },
+  "volume_ratio": 1.48,
+  "order_book_imbalance": 0.043,
+  "news_context": "Technical commentary on falling-wedge breakout targeting ~$82; general institutional/ETF optimism for 2026 - no specific near-term catalyst"
+}
+```
+
+---
+### 2026-10-03T12:22:11.061Z — XRP/EUR — NO TRADE
+
+**Reasoning:** No entry signal: SMA fast_below_slow, no crossover this candle, momentum_trigger not flagged (0.31%/-0.12%), RSI neutral-slightly-bearish at 47.9, volume unconfirmed at 1.57x, order book skewed ask-heavy (-0.275). News: Ripple corporate/regulatory progress (Luxembourg e-money license, FCA approval, AI payments push) - positive long-term but not a price-moving catalyst for this cycle. No open position on this pair currently.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 47.94,
+  "sma_crossover_4h": {
+    "state": "fast_below_slow",
+    "crossed_this_candle": false
+  },
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 0.31,
+    "pct_change_4h_48h": -0.12
+  },
+  "volume_ratio": 1.57,
+  "order_book_imbalance": -0.275,
+  "news_context": "Ripple 2026 strategy progress - Luxembourg e-money license, FCA approval, AI-driven payments expansion - positive but not an immediate price catalyst"
+}
+```
+
+---
+### 2026-10-03T12:22:11.069Z — ADA/EUR — NO TRADE
+
+**Reasoning:** No entry signal: SMA fast_below_slow, no crossover this candle, momentum_trigger not flagged (-0.47%/-0.55%, mildly negative), RSI neutral at 48.7, volume unconfirmed at 1.51x. News: ADA near a technical support zone, Hoskinson's 2026 strategic goals and pending ETF applications - longer-term narrative, no near-term catalyst. No open position on this pair currently.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 48.73,
+  "sma_crossover_4h": {
+    "state": "fast_below_slow",
+    "crossed_this_candle": false
+  },
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -0.47,
+    "pct_change_4h_48h": -0.55
+  },
+  "volume_ratio": 1.51,
+  "order_book_imbalance": 0.153,
+  "news_context": "ADA near support ~$0.37-0.39; Hoskinson 2026 strategic goals, pending spot ETF applications - no immediate catalyst"
+}
+```
+
+---
+### 2026-10-03T12:22:11.087Z — LINK/EUR — NO TRADE
+
+**Reasoning:** No entry signal: SMA fast_above_slow but no crossover this candle, momentum_trigger not flagged (-2.4%/-2.6%, negative), RSI mildly bearish at 45.2, volume well below average (0.66x - no confirmation). News: DTCC integration for Collateral AppChain targeted Q4 2026 - notable but not an immediate, dated catalyst for this cycle, and doesn't offset the weak momentum/volume picture. No open position on this pair currently.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 45.16,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -2.44,
+    "pct_change_4h_48h": -2.61
+  },
+  "volume_ratio": 0.656,
+  "order_book_imbalance": 0.222,
+  "news_context": "DTCC planning Chainlink integration into Collateral AppChain by Q4 2026 for institutional collateral settlement - longer-horizon catalyst, not immediate"
+}
+```
+
+---
+### 2026-10-03T12:22:11.096Z — SUI/EUR — NO TRADE
+
+**Reasoning:** No entry signal: SMA fast_above_slow, no crossover this candle, momentum_trigger not flagged (3.0%/3.2%, below the 6% threshold), RSI neutral at 55.6, volume unconfirmed at 0.75x (below average), and order book heavily ask-skewed (-0.61) indicating near-term selling pressure. News: an "AI DeFi Breakthrough" event is upcoming Oct 7-8 (not yet here) and institutional inflows (Grayscale/Mubadala) are from earlier in the year, not fresh for this cycle. No open position on this pair currently.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 55.62,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 2.99,
+    "pct_change_4h_48h": 3.24
+  },
+  "volume_ratio": 0.748,
+  "order_book_imbalance": -0.61,
+  "news_context": "Upcoming AI DeFi Breakthrough event Oct 7-8 (not yet occurred); institutional inflows (Grayscale, Mubadala) reported earlier in the year, not a fresh catalyst this cycle"
+}
+```
+
+---
+### 2026-10-03T12:22:11.105Z — LTC/EUR — NO TRADE
+
+**Reasoning:** No entry signal: SMA fast_below_slow (bearish state) despite recent price strength, no crossover this candle, momentum_trigger not flagged (4.2%/3.8%, below the 6% threshold), RSI neutral at 55.8, volume unconfirmed at 1.06x (roughly average). News: 15th-anniversary milestone coverage and general payments-use narrative - no concrete price catalyst. No open position on this pair currently.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 55.8,
+  "sma_crossover_4h": {
+    "state": "fast_below_slow",
+    "crossed_this_candle": false
+  },
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": 4.21,
+    "pct_change_4h_48h": 3.84
+  },
+  "volume_ratio": 1.059,
+  "order_book_imbalance": 0.367,
+  "news_context": "Litecoin 15th anniversary coverage, continued payments-use narrative - no concrete price catalyst this cycle"
+}
+```
+
+---
