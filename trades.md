@@ -37765,3 +37765,147 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-10-03T02:44:49.019Z — BTC/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger (1h/4h 48h change +2.10%/+1.70%, below threshold). RSI 54.1 neutral-bullish, SMA fast_above_slow. Volume 2.13x (flag_above_2x) but price change stays well under 6%. News searches returned only stale/generic items, nothing dated today. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": 2.096,
+  "pct_change_4h_48h": 1.7,
+  "rsi_14_4h": 54.15,
+  "sma_state": "fast_above_slow",
+  "volume_ratio": 2.13,
+  "order_book_imbalance": -0.087
+}
+```
+
+---
+### 2026-10-03T02:44:49.038Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger (1h/4h 48h change +0.42%/-0.24%). RSI 47.6 neutral, SMA fast_above_slow. Volume 1.95x, just below confirmation. News searches returned only stale/generic items, nothing dated today. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": 0.417,
+  "pct_change_4h_48h": -0.236,
+  "rsi_14_4h": 47.58,
+  "sma_state": "fast_above_slow",
+  "volume_ratio": 1.95,
+  "order_book_imbalance": 0.002
+}
+```
+
+---
+### 2026-10-03T02:44:49.059Z — SOL/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger (1h/4h 48h change +1.48%/+0.76%). RSI 50.2 neutral. SMA still fast_below_slow (bearish structure persists). Volume 1.48x, unconfirmed. Order book now ask-skewed (-0.34). News searches returned only stale/generic items, nothing dated today. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": 1.476,
+  "pct_change_4h_48h": 0.764,
+  "rsi_14_4h": 50.22,
+  "sma_state": "fast_below_slow",
+  "volume_ratio": 1.48,
+  "order_book_imbalance": -0.342
+}
+```
+
+---
+### 2026-10-03T02:44:49.071Z — XRP/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger (1h/4h 48h change +0.51%/-0.32%). RSI 47.2, SMA fast_below_slow (bearish). Volume 1.57x, unconfirmed. News searches returned only stale/generic legal-history items, nothing dated today. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": 0.507,
+  "pct_change_4h_48h": -0.322,
+  "rsi_14_4h": 47.17,
+  "sma_state": "fast_below_slow",
+  "volume_ratio": 1.57,
+  "order_book_imbalance": 0.205
+}
+```
+
+---
+### 2026-10-03T02:44:49.084Z — ADA/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger (1h/4h 48h change -0.06%/-1.85%). RSI 47.5, SMA still fast_below_slow (bearish). Volume 1.51x, unconfirmed. Order book now sharply ask-skewed (-0.61). News searches returned only stale/generic items, nothing fresh for today beyond the already-known forward-dated SEC ETF deadline (Oct 23). No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -0.063,
+  "pct_change_4h_48h": -1.854,
+  "rsi_14_4h": 47.48,
+  "sma_state": "fast_below_slow",
+  "volume_ratio": 1.51,
+  "order_book_imbalance": -0.607
+}
+```
+
+---
+### 2026-10-03T02:44:49.098Z — LINK/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger (1h/4h 48h change -2.72%/-4.23%). RSI 42.1 approaching oversold. SMA still fast_above_slow but price below it. Volume weak at 0.66x. News searches returned only stale/mismatched price levels, nothing fresh. No qualifying setup; continuing to hold off re-entry.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -2.716,
+  "pct_change_4h_48h": -4.233,
+  "rsi_14_4h": 42.07,
+  "sma_state": "fast_above_slow",
+  "volume_ratio": 0.66,
+  "order_book_imbalance": -0.079
+}
+```
+
+---
+### 2026-10-03T02:44:49.110Z — SUI/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger (1h/4h 48h change -0.26%/-1.66%). RSI 48.8 neutral, SMA fast_above_slow. Volume 0.75x, unconfirmed. News searches returned only stale/generic items, nothing fresh beyond the already-known forward-dated AI DeFi event (Oct 7-8). No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -0.259,
+  "pct_change_4h_48h": -1.658,
+  "rsi_14_4h": 48.84,
+  "sma_state": "fast_above_slow",
+  "volume_ratio": 0.75,
+  "order_book_imbalance": 0.113
+}
+```
+
+---
+### 2026-10-03T02:44:49.121Z — LTC/EUR — NO TRADE
+
+**Reasoning:** momentum_trigger receded back below threshold (1h/48h change +4.99%, down from last cycle's +6.81%). RSI 57.5, SMA still fast_below_slow (bearish). Volume 1.06x, still unconfirmed. News searches returned only stale/generic items (old UFC partnership, old domain-extension news), nothing fresh. No qualifying setup - consistent with the pattern of declining this pair all week.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": 4.994,
+  "pct_change_4h_48h": 4.26,
+  "rsi_14_4h": 57.52,
+  "sma_state": "fast_below_slow",
+  "volume_ratio": 1.06,
+  "order_book_imbalance": 0.048
+}
+```
+
+---
