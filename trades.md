@@ -43669,3 +43669,139 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-10-04T10:14:23.912Z — BTC/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/4h moves -1.3%/-1.65%, well under 6% threshold). Volume ratio 0.42x, far below 2x confirmation bar. RSI neutral (58.6), SMA fast above slow but no fresh crossover. News: broader bullish ETF-inflow narrative but nothing pair-specific or time-sensitive enough to justify a momentum-only entry on its own. No existing position to manage.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "volume_ratio": 0.42,
+  "rsi_14_4h": 58.6,
+  "sma_state": "fast_above_slow_no_fresh_cross",
+  "order_book_imbalance": 0.066,
+  "news_context": "ETF inflow strength, Fed meeting risk Oct 27-28 - not a specific catalyst"
+}
+```
+
+---
+### 2026-10-04T10:14:23.930Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (-1.6%/-1.54%, under threshold). Volume ratio 0.26x, weak. RSI neutral (57.2). SMA fast above slow, no fresh cross. News: Glamsterdam upgrade testing/Vitalik roadmap are longer-horizon narrative items, not an immediate, proportionate catalyst; price recently rejected near resistance. No existing position.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "volume_ratio": 0.26,
+  "rsi_14_4h": 57.2,
+  "sma_state": "fast_above_slow_no_fresh_cross",
+  "order_book_imbalance": 0.187,
+  "news_context": "Glamsterdam upgrade (mainnet Q4), resistance near 2800 EUR-equiv - not an immediate catalyst"
+}
+```
+
+---
+### 2026-10-04T10:14:23.940Z — SOL/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (-0.55%/-0.68%, flat). Volume ratio 0.32x, unconfirmed. RSI neutral (60.3). SMA fast above slow, no fresh cross. News: general "Q4 seasonality favors SOL" commentary, nothing pair-specific or time-sensitive. No existing position.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "volume_ratio": 0.32,
+  "rsi_14_4h": 60.3,
+  "sma_state": "fast_above_slow_no_fresh_cross",
+  "order_book_imbalance": 0.312,
+  "news_context": "general Q4 seasonality narrative - not a specific catalyst"
+}
+```
+
+---
+### 2026-10-04T10:14:23.949Z — XRP/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (-2.65%/-2.27%). Volume ratio 0.15x, very weak. RSI neutral (52.6). SMA fast below slow (bearish structure). News: Ripple's AI/fintech acquisitions are strategic/longer-term, not an immediate price catalyst. No existing position.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "volume_ratio": 0.15,
+  "rsi_14_4h": 52.6,
+  "sma_state": "fast_below_slow",
+  "order_book_imbalance": 0.016,
+  "news_context": "Ripple fintech acquisitions/AI strategy - not an immediate catalyst"
+}
+```
+
+---
+### 2026-10-04T10:14:23.958Z — ADA/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger despite the largest move of the pool (-4.32%/-3.76%, still under 6% threshold). Volume ratio 0.42x, unconfirmed. RSI neutral (49.9). SMA fast below slow, order book skewed negative (-0.21, more asks than bids) - bearish near-term pressure. News: Treasury funding request and longer-term roadmap items, no specific near-term catalyst. No existing position.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "volume_ratio": 0.42,
+  "rsi_14_4h": 49.9,
+  "sma_state": "fast_below_slow",
+  "order_book_imbalance": -0.212,
+  "news_context": "Cardano Vision 2026 treasury funding ask - not an immediate catalyst; order book skew argues against entry"
+}
+```
+
+---
+### 2026-10-04T10:14:23.967Z — LINK/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (-1.97%/-2.36%). Volume ratio 0.24x, weak. RSI neutral (49.4). SMA fast below slow. News: BitGo CCIP integration is a real institutional development but not fresh/time-sensitive enough today to justify a momentum-only entry, and no momentum trigger fired anyway. No existing position.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "volume_ratio": 0.24,
+  "rsi_14_4h": 49.4,
+  "sma_state": "fast_below_slow",
+  "order_book_imbalance": -0.052,
+  "news_context": "BitGo CCIP/WBTC integration - real but not an immediate price-moving catalyst today"
+}
+```
+
+---
+### 2026-10-04T10:14:23.977Z — SUI/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (+0.09%/+0.36%, flat). Volume ratio 0.50x, unconfirmed. RSI neutral (53.9). SMA just crossed bullish this candle but no momentum/volume confirmation behind it, and no fresh news catalyst (most recent institutional items are from August). No existing position.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "volume_ratio": 0.5,
+  "rsi_14_4h": 53.9,
+  "sma_state": "fast_above_slow_fresh_bullish_cross_unconfirmed_by_volume",
+  "order_book_imbalance": -0.013,
+  "news_context": "nothing dated close to today; prior institutional items (Grayscale, Mubadala) from August"
+}
+```
+
+---
+### 2026-10-04T10:14:23.985Z — LTC/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (+0.89%/+1.0%, flat). Volume ratio 0.37x, unconfirmed. RSI neutral (59.3). SMA fast below slow. News: 15th-anniversary/payments-adoption commentary is background narrative, not a specific near-term catalyst. No existing position.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "volume_ratio": 0.37,
+  "rsi_14_4h": 59.3,
+  "sma_state": "fast_below_slow",
+  "order_book_imbalance": 0.076,
+  "news_context": "15th anniversary/payment-adoption narrative - not an immediate catalyst"
+}
+```
+
+---
