@@ -59,6 +59,25 @@ the required catalyst check for a momentum-only entry; always log what you
 found, including "nothing notable"; never estimate a signal
 `compute_signals` didn't return.
 
+**Hyperliquid positioning context (BTC/EUR, ETH/EUR, SOL/EUR, XRP/EUR
+only — added 2026-10-04)**: if `mcp__Coinversa_Pulse__*` tools are
+available this cycle, for these four pairs only call
+`live_coin_risk_snapshot(coin, include: ["longShort"])` and note the
+"smart money" tier's net bias (long/short/neutral) in your reasoning or
+`confidence_reason` as one more piece of context — purely informational,
+never a trade trigger or filter by itself, and never required for a
+no-trade log. **Caveat**: the same handful of wallet addresses often show
+up as the top short across BTC/ETH/SOL/XRP/SUI/LINK simultaneously — a
+cross-asset hedging/market-maker book, not directional conviction. Don't
+read "smart money is short X" as a clean bearish signal without that in
+mind. **Do NOT call this for ADA/EUR, LINK/EUR, SUI/EUR, or LTC/EUR** —
+confirmed by direct research 2026-10-04 that Hyperliquid's market for
+these four is too thin (11-32 near-liquidation positions total, vs.
+thousands for the first four) for the data to represent anything beyond
+noise. If the connector isn't available this cycle, skip this step
+silently — same as the Notion-unavailable handling elsewhere in this
+doc, don't fail the cycle over it.
+
 ## Risk rules (hard limits)
 
 Enforced **in code** by `portfolio_open_position` / `portfolio_check_stops`

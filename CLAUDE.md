@@ -1139,3 +1139,59 @@ confirmed either way by this resolution, since the fix here was the same
 manual UI step as always, not the declarative API approach that would
 have been the clean test - still watch the next real cutover for whether
 a human has to remember this step again.
+
+## Coinversa Pulse connector evaluated, added as informational-only context for 4 of 8 pairs (2026-10-04)
+
+**Prompted by**: the user connected a new tool, "Coinversa Pulse"
+(Hyperliquid derivatives intelligence - wallet cohort PnL tiers,
+long/short positioning, liquidation heatmaps, open interest), and asked
+whether it could be useful for the live strategy. Researched before
+building anything, per the user's explicit "think thoroughly first"
+feedback from the cutover incident the day before.
+
+**What was checked**: `live_coin_risk_snapshot` (market + longShort) and
+`live_cohort_bias` across all 8 pairs, plus a liquidation heatmap for BTC.
+Two findings, both from real data, not assumption:
+
+1. **Market depth splits cleanly in two, by market cap - exactly where it
+   matters most.** BTC/ETH/SOL/XRP each have 567-7,143 near-liquidation
+   positions on Hyperliquid (a real, dense signal). ADA/LINK/SUI/LTC have
+   **11 to 32** near-liquidation positions total - a handful of wallets,
+   not a market. Cohort bias for ADA specifically showed its "smart
+   money" tier as Strong Short (-0.78) off only 65 wallets, while LTC's
+   showed Long (+0.23) - internally inconsistent, consistent with sample
+   noise rather than signal. These are precisely the 4 thinner pairs
+   where a new confirmation signal would have been most tempting to lean
+   on to catch known momentum-only losers (ADA, LTC - see the 2026-09-30
+   closed-trade review) - but the data that would be needed to do that
+   doesn't meaningfully exist for them on Hyperliquid.
+2. **The "net bias" figure is partly an artifact of cross-asset hedging,
+   not pure directional conviction.** The same 1-2 wallet addresses
+   (`0x5b5d5120...`, `0xb83de012...`) appear as the top short position on
+   BTC, ETH, SOL, XRP, SUI, AND LINK simultaneously - almost certainly a
+   market-maker or hedging book running short exposure across everything
+   it quotes, not a bearish call on any one of them. Worth knowing before
+   ever reading "smart money is short X" as sentiment.
+
+**Decision**: added as **informational-only** context, **BTC/EUR,
+ETH/EUR, SOL/EUR, XRP/EUR only** - `instructions/kraken-live-agent-
+instructions.md`'s "What to look at (signals)" section now says to note
+the smart-money cohort's net bias in `confidence_reason` for these four
+pairs when the connector is available, explicitly never as a trade
+trigger or filter, with the hedging-wallet caveat spelled out. Explicitly
+excluded ADA/EUR, LINK/EUR, SUI/EUR, LTC/EUR given finding 1 above - not
+a placeholder, a deliberate exclusion based on direct measurement.
+
+**Not yet deployed to the live cycle** - this is a documentation-only
+change (no code, no risk-limit change, nothing `portfolio_open_position`
+enforces), so it doesn't strictly need the full cutover-and-verify
+treatment the way a code change does, but it still needs to go live via
+the next cutover (manual or the weekly one) for the running session to
+pick up the updated instructions file. **One thing to watch when it
+does**: Coinversa Pulse is an account-level connector like Notion, not a
+repo-level MCP server from `.mcp.json` - the same connector-attachment
+question from this week's Notion incidents applies here too. Check
+whether the live session actually has `mcp__Coinversa_Pulse__*` tools
+available on the next cutover, and if not, that's expected per the
+instructions' "if the connector isn't available, skip silently" fallback
+- not a bug to chase, just confirm it degrades gracefully as written.
