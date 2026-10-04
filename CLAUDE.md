@@ -7,6 +7,20 @@
 > doing any trading research, recommendation, or portfolio action in this
 > repo — it's the operating spec and takes precedence over improvising.
 
+## Note on dollar figures throughout this file (added 2026-10-04)
+
+Every "$X over Y hours" figure cited for an archived session elsewhere in
+this document is the platform's internal **API-cost-equivalent** usage
+metric (what that session's token usage would cost at standard API
+rates) - **not an actual charge against the user's account**, which runs
+on a flat subscription (~€20/month), not pay-per-token billing. Read
+these figures as a relative usage-intensity indicator (useful for
+comparing "this session got heavier than that one," which is what
+motivated the cutover architecture in the first place) rather than real
+money spent. Existing historical entries are left as-is rather than
+rewritten; any new entry should keep this framing in mind rather than
+imply real spend.
+
 ## How this branch came to exist
 
 Built 2026-09-21 off the paper-trading branch, after ~2 weeks of paper
