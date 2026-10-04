@@ -43365,3 +43365,155 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-10-04T08:43:07.787Z — BTC/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/4h moves both under 1.7%, negative). SMA fast-above-slow, no fresh cross. Volume ratio 0.42x, well under the 2x bar. Order book near-balanced (-0.05). News search returned the same stale/mismatched price data and recycled ETF-inflow/Fed-meeting commentary as recent cycles. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -1.24,
+  "pct_change_4h_48h": -1.65,
+  "rsi_14_4h": 58.61,
+  "sma_crossover_4h": "fast_above_slow, no fresh cross",
+  "volume_ratio": 0.42,
+  "order_book_imbalance": -0.05,
+  "news": "stale/mismatched price data, no new catalyst"
+}
+```
+
+---
+### 2026-10-04T08:43:07.807Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger. SMA fast-above-slow, no fresh cross. Volume ratio 0.26x, unconfirmed. Order book mildly bid-heavy (+0.11). News still centered on the Glamsterdam testnet fork (Oct 6), unchanged from recent cycles. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -1.63,
+  "pct_change_4h_48h": -1.54,
+  "rsi_14_4h": 57.23,
+  "sma_crossover_4h": "fast_above_slow, no fresh cross",
+  "volume_ratio": 0.26,
+  "order_book_imbalance": 0.114,
+  "news": "Glamsterdam testnet fork Oct 6 - unchanged, not fresh"
+}
+```
+
+---
+### 2026-10-04T08:43:07.827Z — SOL/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger. The bullish 4h crossover from prior cycles has now settled - SMA is fast_above_slow but crossed_this_candle is false, so no fresh signal to evaluate. Volume ratio 0.32x, still unconfirmed. Order book mildly bid-heavy (+0.10). News generic/stale, no concrete catalyst. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -0.72,
+  "pct_change_4h_48h": -0.68,
+  "rsi_14_4h": 60.26,
+  "sma_crossover_4h": "fast_above_slow, no fresh cross (prior crossover now settled)",
+  "volume_ratio": 0.32,
+  "order_book_imbalance": 0.103,
+  "news": "generic/stale, no concrete catalyst"
+}
+```
+
+---
+### 2026-10-04T08:43:07.838Z — XRP/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger. SMA fast-below-slow, bearish, no fresh cross - not actionable for a long-only system. Volume ratio very low at 0.15x. Order book notably ask-heavy (-0.22). News covered Ripple's ongoing 2026 strategy (acquisitions, regulatory approvals) - real but unchanged from prior cycles, not a fresh catalyst. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -2.38,
+  "pct_change_4h_48h": -2.27,
+  "rsi_14_4h": 52.56,
+  "sma_crossover_4h": "fast_below_slow, no fresh cross",
+  "volume_ratio": 0.15,
+  "order_book_imbalance": -0.22,
+  "news": "Ripple 2026 strategy - unchanged, not fresh"
+}
+```
+
+---
+### 2026-10-04T08:43:07.852Z — ADA/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger despite still the largest move of the set (-3.43% 1h/48h), under the 6% threshold. SMA fast-below-slow, bearish, no fresh cross. Volume ratio 0.42x, unconfirmed. Order book mildly ask-heavy (-0.07), less extreme than last cycle. News covered SEC digital-commodity classification and pending ETF applications - unchanged from prior cycles, not a fresh catalyst. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -3.43,
+  "pct_change_4h_48h": -3.76,
+  "rsi_14_4h": 49.87,
+  "sma_crossover_4h": "fast_below_slow, no fresh cross",
+  "volume_ratio": 0.42,
+  "order_book_imbalance": -0.07,
+  "news": "SEC classification/ETF applications - unchanged, not fresh"
+}
+```
+
+---
+### 2026-10-04T08:43:07.863Z — LINK/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger. SMA fast-below-slow, bearish, no fresh cross. Volume ratio 0.24x, unconfirmed. Order book now ask-heavy (-0.23). News surfaced the same stale/mismatched price data and DTCC AppChain/BitGo CCIP stories as prior cycles - nothing new. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -2.15,
+  "pct_change_4h_48h": -2.36,
+  "rsi_14_4h": 49.43,
+  "sma_crossover_4h": "fast_below_slow, no fresh cross",
+  "volume_ratio": 0.24,
+  "order_book_imbalance": -0.227,
+  "news": "stale/mismatched price data, same stories as prior cycles"
+}
+```
+
+---
+### 2026-10-04T08:43:07.874Z — SUI/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger. 4h SMA just crossed bullish this candle, but volume remains unconfirmed at 0.50x (still below the 2x bar) and order book is only barely bid-heavy (+0.03) - not a confluence strong enough to act on. News search found nothing newer than August 2026 institutional items. Logging no-trade on the unconfirmed fresh crossover; will watch for volume confirmation next cycle.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -0.29,
+  "pct_change_4h_48h": 0.36,
+  "rsi_14_4h": 53.94,
+  "sma_crossover_4h": "bullish cross this candle, unconfirmed by volume",
+  "volume_ratio": 0.5,
+  "order_book_imbalance": 0.029,
+  "news": "no news newer than August 2026, no current catalyst"
+}
+```
+
+---
+### 2026-10-04T08:43:07.884Z — LTC/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger - small positive move (+0.29%/+1.00%). SMA still fast-below-slow despite the uptick, no fresh cross. Volume ratio 0.37x, unconfirmed. Order book bid-heavy (+0.10). News surfaced a genuine new catalyst - a Nasdaq-listed drugmaker reportedly planning a $100M Litecoin treasury investment and appointing Charlie Lee to its board - but this is not confirmed by any technical signal (no momentum trigger, no volume spike, SMA still bearish), so it doesn't meet the bar for a momentum-only or any other entry per the instructions (news is advisory, never a standalone trigger). No qualifying setup; will watch next cycle for technical confirmation if the news proves real and price reacts.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": 0.29,
+  "pct_change_4h_48h": 1,
+  "rsi_14_4h": 59.26,
+  "sma_crossover_4h": "fast_below_slow, no fresh cross",
+  "volume_ratio": 0.37,
+  "order_book_imbalance": 0.1,
+  "news": "reported $100M Nasdaq-listed treasury investment in LTC, Charlie Lee to board - real but not technically confirmed, not a standalone trigger"
+}
+```
+
+---
