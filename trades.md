@@ -43517,3 +43517,155 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-10-04T09:42:57.194Z — BTC/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/4h moves both under 1.7%, negative). SMA fast-above-slow, no fresh cross. Volume ratio 0.42x, well under the 2x bar. Order book now mildly bid-heavy (+0.15). News search returned the same stale/mismatched price data and recycled ETF-inflow/Fed-meeting commentary as recent cycles. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -1.41,
+  "pct_change_4h_48h": -1.65,
+  "rsi_14_4h": 58.61,
+  "sma_crossover_4h": "fast_above_slow, no fresh cross",
+  "volume_ratio": 0.42,
+  "order_book_imbalance": 0.152,
+  "news": "stale/mismatched price data, no new catalyst"
+}
+```
+
+---
+### 2026-10-04T09:42:57.221Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger. SMA fast-above-slow, no fresh cross. Volume ratio 0.26x, unconfirmed. Order book mildly bid-heavy (+0.07). News still centered on the Glamsterdam testnet fork (Oct 6), unchanged from recent cycles. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -1.66,
+  "pct_change_4h_48h": -1.54,
+  "rsi_14_4h": 57.23,
+  "sma_crossover_4h": "fast_above_slow, no fresh cross",
+  "volume_ratio": 0.26,
+  "order_book_imbalance": 0.072,
+  "news": "Glamsterdam testnet fork Oct 6 - unchanged, not fresh"
+}
+```
+
+---
+### 2026-10-04T09:42:57.241Z — SOL/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger. SMA fast-above-slow, no fresh cross (settled since prior cycles' crossover). Volume ratio 0.32x, unconfirmed. Order book now mildly ask-heavy (-0.06). News generic/stale, no concrete catalyst. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -0.64,
+  "pct_change_4h_48h": -0.68,
+  "rsi_14_4h": 60.26,
+  "sma_crossover_4h": "fast_above_slow, no fresh cross",
+  "volume_ratio": 0.32,
+  "order_book_imbalance": -0.059,
+  "news": "generic/stale, no concrete catalyst"
+}
+```
+
+---
+### 2026-10-04T09:42:57.258Z — XRP/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger. SMA fast-below-slow, bearish, no fresh cross - not actionable for a long-only system. Volume ratio very low at 0.15x. Order book notably ask-heavy (-0.31). News covered Ripple's ongoing 2026 strategy and Glassnode unrealized-loss data - unchanged from prior cycles, not a fresh catalyst. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -2.73,
+  "pct_change_4h_48h": -2.27,
+  "rsi_14_4h": 52.56,
+  "sma_crossover_4h": "fast_below_slow, no fresh cross",
+  "volume_ratio": 0.15,
+  "order_book_imbalance": -0.311,
+  "news": "Ripple 2026 strategy - unchanged, not fresh"
+}
+```
+
+---
+### 2026-10-04T09:42:57.271Z — ADA/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger despite still the largest move of the set (-4.69% 1h/48h), under the 6% threshold. SMA fast-below-slow, bearish, no fresh cross. Volume ratio 0.42x, unconfirmed. Order book now near-balanced (-0.02). News covered SEC digital-commodity classification and pending ETF applications - unchanged, not a fresh catalyst. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -4.69,
+  "pct_change_4h_48h": -3.76,
+  "rsi_14_4h": 49.87,
+  "sma_crossover_4h": "fast_below_slow, no fresh cross",
+  "volume_ratio": 0.42,
+  "order_book_imbalance": -0.017,
+  "news": "SEC classification/ETF applications - unchanged, not fresh"
+}
+```
+
+---
+### 2026-10-04T09:42:57.283Z — LINK/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger. SMA fast-below-slow, bearish, no fresh cross. Volume ratio 0.24x, unconfirmed. Order book mildly bid-heavy (+0.10). News surfaced the same stale/mismatched price data and DTCC AppChain story as prior cycles - nothing new. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -2.13,
+  "pct_change_4h_48h": -2.36,
+  "rsi_14_4h": 49.43,
+  "sma_crossover_4h": "fast_below_slow, no fresh cross",
+  "volume_ratio": 0.24,
+  "order_book_imbalance": 0.098,
+  "news": "stale/mismatched price data, same DTCC story as prior cycles"
+}
+```
+
+---
+### 2026-10-04T09:42:57.294Z — SUI/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger. The bullish 4h crossover persists from last cycle (fast still above slow, crossed_this_candle still true) but volume remains unconfirmed at 0.50x, still below the 2x bar - and the order book has turned notably ask-heavy (-0.40), the opposite of what a bullish entry would want. News search found nothing newer than August 2026. No qualifying setup; the crossover's lack of order-book/volume support argues against treating it as actionable.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -0.96,
+  "pct_change_4h_48h": 0.36,
+  "rsi_14_4h": 53.94,
+  "sma_crossover_4h": "bullish cross persisting, unconfirmed by volume, order book now against it",
+  "volume_ratio": 0.5,
+  "order_book_imbalance": -0.4,
+  "news": "no news newer than August 2026, no current catalyst"
+}
+```
+
+---
+### 2026-10-04T09:42:57.305Z — LTC/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger - small positive move (+0.50%/+1.00%). SMA still fast-below-slow, no fresh cross. Volume ratio 0.37x, unconfirmed. Order book near-balanced (+0.04). Followed up on last cycle's "Nasdaq treasury" news item specifically - confirmed it is a stale story (MEI Pharma/"Lite Strategy" $100M Litecoin treasury with Charlie Lee and GSR, actually dated July 30-Aug 4 2025, not new to this cycle). No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": 0.5,
+  "pct_change_4h_48h": 1,
+  "rsi_14_4h": 59.26,
+  "sma_crossover_4h": "fast_below_slow, no fresh cross",
+  "volume_ratio": 0.37,
+  "order_book_imbalance": 0.036,
+  "news": "MEI Pharma/Lite Strategy $100M LTC treasury confirmed stale (dated Jul-Aug 2025), not a fresh catalyst"
+}
+```
+
+---
