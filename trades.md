@@ -43061,3 +43061,155 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-10-04T06:42:56.384Z — BTC/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/4h moves both under 1.4%, negative). SMA fast-above-slow, no fresh cross. Volume ratio 0.42x, well under the 2x bar. Order book now roughly balanced (+0.04). News search returned stale/mismatched price data ($84,692 vs real ~€75,580) and recycled ETF-inflow/Fed-meeting commentary - no new catalyst. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -1.07,
+  "pct_change_4h_48h": -1.33,
+  "rsi_14_4h": 56.09,
+  "sma_crossover_4h": "fast_above_slow, no fresh cross",
+  "volume_ratio": 0.42,
+  "order_book_imbalance": 0.037,
+  "news": "stale/mismatched price data, no new catalyst"
+}
+```
+
+---
+### 2026-10-04T06:42:56.401Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger. SMA fast-above-slow, no fresh cross. Volume ratio 0.26x, unconfirmed. Order book ask-heavy (-0.14). News search returned only speculative prediction-market odds (no spot price data), not an actionable catalyst. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -1.07,
+  "pct_change_4h_48h": -1.38,
+  "rsi_14_4h": 53.79,
+  "sma_crossover_4h": "fast_above_slow, no fresh cross",
+  "volume_ratio": 0.26,
+  "order_book_imbalance": -0.137,
+  "news": "speculative prediction-market odds only, no catalyst"
+}
+```
+
+---
+### 2026-10-04T06:42:56.422Z — SOL/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger. 4h SMA still shows the bullish crossover as "this candle" but volume remains unconfirmed at 0.32x, same as the last two cycles - still below the 2x bar required to act on it. Order book now only mildly bid-heavy (+0.09), weaker than prior cycles. News results were generic/mismatched (SOL quoted ~$126-240, far from real ~€107) with no concrete catalyst. Continuing to log no-trade on the unconfirmed crossover.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -0.61,
+  "pct_change_4h_48h": -0.6,
+  "rsi_14_4h": 58.7,
+  "sma_crossover_4h": "bullish cross, still unconfirmed by volume",
+  "volume_ratio": 0.32,
+  "order_book_imbalance": 0.089,
+  "news": "generic/mismatched price data, no concrete catalyst"
+}
+```
+
+---
+### 2026-10-04T06:42:56.434Z — XRP/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger. SMA fast-below-slow, bearish, no fresh cross - not actionable for a long-only system. Volume ratio very low at 0.15x. Order book now notably ask-heavy (-0.37). News surfaced only speculative year-end price predictions and old CLARITY Act legislative context, no current catalyst. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -1.86,
+  "pct_change_4h_48h": -2.59,
+  "rsi_14_4h": 49.14,
+  "sma_crossover_4h": "fast_below_slow, no fresh cross",
+  "volume_ratio": 0.15,
+  "order_book_imbalance": -0.373,
+  "news": "speculative predictions, old legislative context, no catalyst"
+}
+```
+
+---
+### 2026-10-04T06:42:56.446Z — ADA/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger despite still the largest move of the set (-3.98% 1h/48h), under the 6% threshold. SMA fast-below-slow, bearish, no fresh cross. Volume ratio 0.42x, unconfirmed. Order book ask-heavy again (-0.33). News results were only speculative price-prediction ranges, no current catalyst. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -3.98,
+  "pct_change_4h_48h": -4.69,
+  "rsi_14_4h": 46.06,
+  "sma_crossover_4h": "fast_below_slow, no fresh cross",
+  "volume_ratio": 0.42,
+  "order_book_imbalance": -0.328,
+  "news": "speculative price-prediction ranges only, no catalyst"
+}
+```
+
+---
+### 2026-10-04T06:42:56.458Z — LINK/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger. SMA fast-below-slow, bearish, no fresh cross. Volume ratio 0.24x, unconfirmed. Order book mildly bid-heavy (+0.10). News surfaced stale/mismatched price data ($11.39 vs real ~€12.47) and generic 2026 outlook figures, not dated to this cycle. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -2.47,
+  "pct_change_4h_48h": -2.3,
+  "rsi_14_4h": 47.91,
+  "sma_crossover_4h": "fast_below_slow, no fresh cross",
+  "volume_ratio": 0.24,
+  "order_book_imbalance": 0.102,
+  "news": "stale/mismatched price data, no fresh catalyst"
+}
+```
+
+---
+### 2026-10-04T06:42:56.469Z — SUI/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger - price essentially flat this window (-0.30% 1h/48h). SMA fast-below-slow, no fresh cross. Volume ratio 0.50x, still the highest of the set but under the 2x bar. Order book now nearly balanced (-0.02). News surfaced conflicting/stale price-prediction figures (quoting $1.02-$2.04 vs real ~€1.05), no concrete catalyst. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -0.3,
+  "pct_change_4h_48h": -0.46,
+  "rsi_14_4h": 53.19,
+  "sma_crossover_4h": "fast_below_slow, no fresh cross",
+  "volume_ratio": 0.5,
+  "order_book_imbalance": -0.016,
+  "news": "conflicting/stale price predictions, no catalyst"
+}
+```
+
+---
+### 2026-10-04T06:42:56.480Z — LTC/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger - smallest move of the set again (+1.06% 1h/48h), still the only pair positive. SMA fast-below-slow despite the uptick, no fresh cross. Volume ratio 0.37x, unconfirmed. Order book now essentially flat (-0.003). News surfaced stale/mismatched price data ($44.99 vs real ~€62.59) and generic LitVM/ETF outlook commentary, nothing dated to this cycle. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": 1.06,
+  "pct_change_4h_48h": 0.59,
+  "rsi_14_4h": 58.71,
+  "sma_crossover_4h": "fast_below_slow, no fresh cross",
+  "volume_ratio": 0.37,
+  "order_book_imbalance": -0.003,
+  "news": "stale/mismatched price data, no fresh catalyst"
+}
+```
+
+---
