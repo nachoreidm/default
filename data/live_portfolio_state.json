@@ -43,6 +43,51 @@
       "status": "open",
       "entry_order_txid": "OYNHF6-4HFC3-KOT6AT",
       "stop_order_txid": "OZ4MVO-HSLLE-DTNJZ5"
+    },
+    {
+      "id": "0dd8e6d4-b995-4ce9-b05c-c853fe87f238",
+      "pair": "ADA/EUR",
+      "direction": "long",
+      "entry_price": 0.230497,
+      "stop_loss": 0.216,
+      "initial_stop_loss": 0.216,
+      "take_profit": 0.259491,
+      "trailing_active": false,
+      "peak_price": 0.230497,
+      "size_pct": 3.9764509005589663,
+      "size_eur": 197.35375336002306,
+      "quantity": 856.23192818,
+      "entry_fee": 1.184153,
+      "opened_at": "2026-10-04T23:44:09.404Z",
+      "signals_at_entry": {
+        "current_price": 0.230692,
+        "live_ask": 0.230492,
+        "live_bid": 0.230288,
+        "pct_change_1h_48h": 7.087588554604841,
+        "pct_change_4h_48h": 3.3834759407489194,
+        "momentum_trigger_flagged": true,
+        "rsi_14_4h": 58.508745179216334,
+        "sma_crossover_4h": {
+          "fast_value": 0.21977800000000003,
+          "slow_value": 0.21950869999999992,
+          "state": "fast_above_slow",
+          "crossed_this_candle": false
+        },
+        "volume_ratio_24h_vs_7d": 0.41518229122368067,
+        "order_book_imbalance_top10": 0.4862505824840673,
+        "breakout_candle_volume_1h": 4765357.37165832,
+        "typical_prior_candle_volume_1h_range": "200000-900000",
+        "high24h": 0.238504,
+        "low24h": 0.215488,
+        "news_context": "Cardano Foundation R&D collaboration with Petrobras/PUC-Rio (sustainable aviation fuel, diesel renewable-fuel data tracking); Mastercard partnership announced 2026-09-15 for cross-border/B2B settlement exploration; Pacific Meta partnership for Japan enterprise blockchain adoption; new RealFi platform launch (up to 9% stablecoin yields); reclaimed 200-day EMA in late September per crypto press coverage"
+      },
+      "invalidation": "Close back below the rising 4h 20-period SMA (currently ~€0.2198), which also sits just below the pre-breakout consolidation low (4h candle immediately before the breakout had low €0.216985, close €0.220664; 1h pre-breakout consolidation held €0.2174-0.2224 over the preceding ~8 hourly candles).",
+      "confidence": "medium",
+      "confidence_reason": "momentum_trigger flagged true (1h/48h +7.09%, over the 6% threshold). compute_signals' diluted 24h/7d volume_ratio reads only 0.42x (unconfirmed), but verified real participation directly via 1h OHLC, same discipline as the account's successful SUI entry: the breakout candle (14:00-15:00 UTC, time 1791140400) alone did 4.77M ADA volume versus a typical 200K-900K per hour in the preceding consolidation - roughly 5-10x normal and ~68% of the entire 24h total volume concentrated in that single hour, confirming this is a real, volume-backed move the diluted ratio metric smooths over. Price has already pulled back from that breakout candle's high (€0.2385, confirmed via kraken_get_ticker high24h) to the current ask €0.2305 - entering on the pullback rather than chasing the breakout candle itself, directly addressing the entry-timing weakness this project's 2026-09-30 closed-trade review identified in the prior ADA/LTC losses (which entered mid-extension at RSI 65-67 with no pullback). Here RSI is 58.5 - notably less extended. Order book is bullish-confirming (imbalance +0.49, bid-heavy) rather than neutral or adverse as in those prior losses. Multiple genuine, dated catalysts found via news search (not stale/speculative content, unlike most other pairs' searches this cycle): Cardano Foundation R&D collaboration with Petrobras and PUC-Rio (sustainable-aviation-fuel and diesel renewable-fuel data tracking on Cardano); a Mastercard partnership announced 2026-09-15 to explore cross-border/B2B settlements; a Cardano Foundation partnership with Pacific Meta for enterprise blockchain adoption in Japan; and a new RealFi platform launch targeting up to 9% stablecoin yields via real-world loans/bonds. Coverage also notes ADA reclaimed its 200-day EMA in late September. Explicitly flagged risk, not ignored: this is still a momentum_only setup sharing surface similarity with this account's two prior ADA/LTC losses (unconfirmed-by-ratio volume) - mitigated here by the real breakout-candle volume evidence, the pullback entry, the less-extended RSI, and the favorable order book, none of which the prior losing trades had. Capped at medium per the momentum_only rule.",
+      "momentum_only": true,
+      "status": "open",
+      "entry_order_txid": "O253ER-COOC4-GCH7J5",
+      "stop_order_txid": "O72J75-XRCM2-IGNJ3T"
     }
   ],
   "closed_positions": [
@@ -482,5 +527,5 @@
     }
   ],
   "created_at": "2026-09-22T14:26:40.467Z",
-  "updated_at": "2026-10-04T19:41:58.498Z"
+  "updated_at": "2026-10-04T23:44:09.404Z"
 }

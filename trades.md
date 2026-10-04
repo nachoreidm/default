@@ -45970,3 +45970,176 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-10-04T23:44:09.404Z — ADA/EUR — LONG — OPENED (LIVE)
+
+- Entry price: €0.23 (real fill, Kraken order O253ER-COOC4-GCH7J5)
+- Stop-loss: €0.22 (real resting order O72J75-XRCM2-IGNJ3T)
+- Take-profit target: €0.26 (2:1 risk/reward, polled - not a resting order, see checkStops)
+- Position size: 3.9764509005589663% of portfolio (€197.35, qty 856.23192818)
+- Entry fee (real): €1.18
+- Confidence: medium — momentum_trigger flagged true (1h/48h +7.09%, over the 6% threshold). compute_signals' diluted 24h/7d volume_ratio reads only 0.42x (unconfirmed), but verified real participation directly via 1h OHLC, same discipline as the account's successful SUI entry: the breakout candle (14:00-15:00 UTC, time 1791140400) alone did 4.77M ADA volume versus a typical 200K-900K per hour in the preceding consolidation - roughly 5-10x normal and ~68% of the entire 24h total volume concentrated in that single hour, confirming this is a real, volume-backed move the diluted ratio metric smooths over. Price has already pulled back from that breakout candle's high (€0.2385, confirmed via kraken_get_ticker high24h) to the current ask €0.2305 - entering on the pullback rather than chasing the breakout candle itself, directly addressing the entry-timing weakness this project's 2026-09-30 closed-trade review identified in the prior ADA/LTC losses (which entered mid-extension at RSI 65-67 with no pullback). Here RSI is 58.5 - notably less extended. Order book is bullish-confirming (imbalance +0.49, bid-heavy) rather than neutral or adverse as in those prior losses. Multiple genuine, dated catalysts found via news search (not stale/speculative content, unlike most other pairs' searches this cycle): Cardano Foundation R&D collaboration with Petrobras and PUC-Rio (sustainable-aviation-fuel and diesel renewable-fuel data tracking on Cardano); a Mastercard partnership announced 2026-09-15 to explore cross-border/B2B settlements; a Cardano Foundation partnership with Pacific Meta for enterprise blockchain adoption in Japan; and a new RealFi platform launch targeting up to 9% stablecoin yields via real-world loans/bonds. Coverage also notes ADA reclaimed its 200-day EMA in late September. Explicitly flagged risk, not ignored: this is still a momentum_only setup sharing surface similarity with this account's two prior ADA/LTC losses (unconfirmed-by-ratio volume) - mitigated here by the real breakout-candle volume evidence, the pullback entry, the less-extended RSI, and the favorable order book, none of which the prior losing trades had. Capped at medium per the momentum_only rule.
+- Momentum-only trigger: yes
+- Invalidation: Close back below the rising 4h 20-period SMA (currently ~€0.2198), which also sits just below the pre-breakout consolidation low (4h candle immediately before the breakout had low €0.216985, close €0.220664; 1h pre-breakout consolidation held €0.2174-0.2224 over the preceding ~8 hourly candles).
+- Signals supporting this trade:
+```json
+{
+  "current_price": 0.230692,
+  "live_ask": 0.230492,
+  "live_bid": 0.230288,
+  "pct_change_1h_48h": 7.087588554604841,
+  "pct_change_4h_48h": 3.3834759407489194,
+  "momentum_trigger_flagged": true,
+  "rsi_14_4h": 58.508745179216334,
+  "sma_crossover_4h": {
+    "fast_value": 0.21977800000000003,
+    "slow_value": 0.21950869999999992,
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "volume_ratio_24h_vs_7d": 0.41518229122368067,
+  "order_book_imbalance_top10": 0.4862505824840673,
+  "breakout_candle_volume_1h": 4765357.37165832,
+  "typical_prior_candle_volume_1h_range": "200000-900000",
+  "high24h": 0.238504,
+  "low24h": 0.215488,
+  "news_context": "Cardano Foundation R&D collaboration with Petrobras/PUC-Rio (sustainable aviation fuel, diesel renewable-fuel data tracking); Mastercard partnership announced 2026-09-15 for cross-border/B2B settlement exploration; Pacific Meta partnership for Japan enterprise blockchain adoption; new RealFi platform launch (up to 9% stablecoin yields); reclaimed 200-day EMA in late September per crypto press coverage"
+}
+```
+- Position id: 0dd8e6d4-b995-4ce9-b05c-c853fe87f238
+
+---
+### 2026-10-04T23:44:34.374Z — BTC/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/48h +2.16%, 4h/48h +1.04%). Volume unconfirmed (0.42x). RSI 61.1, order book mildly bid-heavy (+0.07). Coinversa: netBias +0.33, same recurring hedging-wallet shorts across BTC/ETH/SOL/XRP/SUI/LINK - informational only. News search returned only stale/speculative content inconsistent with the real Kraken quote - nothing notable. No qualifying signal confluence - no trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": 2.1553,
+  "pct_change_4h_48h": 1.0406,
+  "volume_ratio_24h_vs_7d": 0.4178,
+  "rsi_14_4h": 61.13,
+  "sma_crossover_4h_state": "fast_above_slow",
+  "order_book_imbalance_top10": 0.0719,
+  "coinversa_netBias": 0.3328,
+  "news_context": "nothing notable - stale/speculative, inconsistent with real price"
+}
+```
+
+---
+### 2026-10-04T23:44:34.389Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/48h +2.22%, 4h/48h +1.18%). Volume unconfirmed (0.26x). RSI neutral (54.9), order book bid-heavy (+0.26). Coinversa netBias +0.46, informational only. News search returned only speculative prediction content, nothing notable. No qualifying signal confluence - no trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": 2.2182,
+  "pct_change_4h_48h": 1.1845,
+  "volume_ratio_24h_vs_7d": 0.2625,
+  "rsi_14_4h": 54.87,
+  "sma_crossover_4h_state": "fast_above_slow",
+  "order_book_imbalance_top10": 0.2601,
+  "coinversa_netBias": 0.4632,
+  "news_context": "nothing notable - speculative prediction content only"
+}
+```
+
+---
+### 2026-10-04T23:44:34.412Z — SOL/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/48h +2.47%, 4h/48h +2.05%). Volume unconfirmed (0.32x). RSI 58.5, order book notably bid-heavy (+0.55) but no momentum/volume confirmation to pair with it. Coinversa netBias +0.54, informational only. News search returned only speculative prediction-market content, nothing notable. No qualifying signal confluence - no trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": 2.4749,
+  "pct_change_4h_48h": 2.0482,
+  "volume_ratio_24h_vs_7d": 0.3242,
+  "rsi_14_4h": 58.49,
+  "sma_crossover_4h_state": "fast_above_slow",
+  "order_book_imbalance_top10": 0.5541,
+  "coinversa_netBias": 0.5442,
+  "news_context": "nothing notable - speculative prediction content only"
+}
+```
+
+---
+### 2026-10-04T23:44:34.425Z — XRP/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/48h +2.18%, 4h/48h +1.47%). Volume thin and unconfirmed (0.15x). RSI neutral (55.3), order book roughly balanced (+0.07). Coinversa netBias +0.60, informational only. News search surfaced only mixed/stale commentary, no proportionate dated catalyst - nothing notable. No qualifying signal confluence - no trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": 2.1796,
+  "pct_change_4h_48h": 1.4682,
+  "volume_ratio_24h_vs_7d": 0.1519,
+  "rsi_14_4h": 55.27,
+  "sma_crossover_4h_state": "fast_above_slow",
+  "order_book_imbalance_top10": 0.0724,
+  "coinversa_netBias": 0.6032,
+  "news_context": "mixed/stale, no proportionate catalyst"
+}
+```
+
+---
+### 2026-10-04T23:44:34.437Z — LINK/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/48h +3.20%, 4h/48h +2.43%). 4h SMA state remains fast_below_slow (bearish crossover state), ruling out a trend-following long. Order book now ask-heavy (-0.43). Volume unconfirmed (0.24x). News search returned only stale/inconsistent price data, nothing notable. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": 3.2001,
+  "pct_change_4h_48h": 2.4306,
+  "volume_ratio_24h_vs_7d": 0.2391,
+  "rsi_14_4h": 50.84,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "order_book_imbalance_top10": -0.4295,
+  "news_context": "nothing notable - stale/inconsistent price data only"
+}
+```
+
+---
+### 2026-10-04T23:44:34.450Z — SUI/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger this cycle (1h/48h +5.83%, 4h/48h +5.83%, just under the 6% threshold - the earlier cycles' trigger has cooled). An open SUI/EUR position already exists regardless (opened 2026-10-04T16:43:34Z); one-position-per-pair rule is code-enforced either way. Existing position now -1.67% unrealized (current €1.0779 vs entry €1.0962), still pre-+1R, not trailing. portfolio_check_stops ran first this cycle and found nothing to reconcile - position remains underwater so invalidation checks correctly don't apply; left to the original hard stop at €1.04.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": 5.8339,
+  "pct_change_4h_48h": 5.8339,
+  "existing_open_position": true,
+  "reason_for_skip": "one_per_pair_rule",
+  "position_unrealized_pnl_pct": -1.6694
+}
+```
+
+---
+### 2026-10-04T23:44:34.465Z — LTC/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/48h +0.95%, 4h/48h +1.85%). Volume unconfirmed (0.37x). RSI 60.3, order book bid-heavy (+0.41). News search returned only stale/inconsistent speculative price content, nothing notable. No qualifying signal confluence - no trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": 0.9492,
+  "pct_change_4h_48h": 1.8501,
+  "volume_ratio_24h_vs_7d": 0.3711,
+  "rsi_14_4h": 60.29,
+  "sma_crossover_4h_state": "fast_above_slow",
+  "order_book_imbalance_top10": 0.4142,
+  "news_context": "nothing notable - stale/inconsistent price data only"
+}
+```
+
+---
