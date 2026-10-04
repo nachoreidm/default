@@ -44261,3 +44261,155 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-10-04T13:42:45.008Z — BTC/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger. SMA fast-above-slow, no fresh cross. Volume ratio 0.42x, well under the 2x bar. Order book near-balanced (-0.04). News search returned the same stale/mismatched price data and recycled ETF-inflow/Fed-meeting commentary as recent cycles. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -1.44,
+  "pct_change_4h_48h": 0.08,
+  "rsi_14_4h": 60.45,
+  "sma_crossover_4h": "fast_above_slow, no fresh cross",
+  "volume_ratio": 0.42,
+  "order_book_imbalance": -0.035,
+  "news": "stale/mismatched price data, no new catalyst"
+}
+```
+
+---
+### 2026-10-04T13:42:45.025Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger. SMA fast-above-slow, no fresh cross. Volume ratio 0.26x, unconfirmed. Order book ask-heavy (-0.17). News still centered on the Glamsterdam testnet fork (Oct 6), unchanged from recent cycles. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -1.57,
+  "pct_change_4h_48h": 0.24,
+  "rsi_14_4h": 54.74,
+  "sma_crossover_4h": "fast_above_slow, no fresh cross",
+  "volume_ratio": 0.26,
+  "order_book_imbalance": -0.172,
+  "news": "Glamsterdam testnet fork Oct 6 - unchanged, not fresh"
+}
+```
+
+---
+### 2026-10-04T13:42:45.047Z — SOL/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger. SMA fast-above-slow, no fresh cross. Volume ratio 0.32x, unconfirmed. Order book mildly bid-heavy (+0.14). News generic/stale, no concrete catalyst. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -0.47,
+  "pct_change_4h_48h": 1.23,
+  "rsi_14_4h": 60.77,
+  "sma_crossover_4h": "fast_above_slow, no fresh cross",
+  "volume_ratio": 0.32,
+  "order_book_imbalance": 0.136,
+  "news": "generic/stale, no concrete catalyst"
+}
+```
+
+---
+### 2026-10-04T13:42:45.062Z — XRP/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger. The bullish 4h crossover persists for a second cycle but volume is still extremely low at 0.15x - nowhere near the 2x confirmation bar. Order book now mildly bid-heavy (+0.10) but not enough alone. News covered the same Ripple 2026 strategy items as prior cycles - unchanged, not a fresh catalyst. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -2.01,
+  "pct_change_4h_48h": -0.46,
+  "rsi_14_4h": 52.44,
+  "sma_crossover_4h": "bullish cross persisting (2nd cycle), unconfirmed by volume (0.15x)",
+  "volume_ratio": 0.15,
+  "order_book_imbalance": 0.103,
+  "news": "Ripple 2026 strategy - unchanged, not fresh"
+}
+```
+
+---
+### 2026-10-04T13:42:45.076Z — ADA/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger despite still a large move (-3.87% 1h/48h), under the 6% threshold. SMA fast-below-slow, bearish, no fresh cross. Volume ratio 0.42x, unconfirmed. Order book mildly bid-heavy (+0.07). News unchanged from prior cycles - SEC classification/ETF applications, not dated to this cycle. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -3.87,
+  "pct_change_4h_48h": -2.55,
+  "rsi_14_4h": 48.9,
+  "sma_crossover_4h": "fast_below_slow, no fresh cross",
+  "volume_ratio": 0.42,
+  "order_book_imbalance": 0.07,
+  "news": "SEC classification/ETF applications - unchanged, not fresh"
+}
+```
+
+---
+### 2026-10-04T13:42:45.093Z — LINK/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger. SMA fast-below-slow, bearish, no fresh cross. Volume ratio 0.24x, unconfirmed. Order book bid-heavy (+0.28). News surfaced the same stale/mismatched price data and DTCC AppChain story as prior cycles - nothing new. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -1.45,
+  "pct_change_4h_48h": -0.91,
+  "rsi_14_4h": 49.8,
+  "sma_crossover_4h": "fast_below_slow, no fresh cross",
+  "volume_ratio": 0.24,
+  "order_book_imbalance": 0.282,
+  "news": "stale/mismatched price data, same DTCC story as prior cycles"
+}
+```
+
+---
+### 2026-10-04T13:42:45.105Z — SUI/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger. SMA fast-above-slow, no fresh cross (prior crossover remains settled). Volume ratio 0.50x, still highest of the set but unconfirmed. Order book now notably ask-heavy (-0.29). News search found nothing newer than August 2026. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -1.07,
+  "pct_change_4h_48h": 1.35,
+  "rsi_14_4h": 54.21,
+  "sma_crossover_4h": "fast_above_slow, no fresh cross",
+  "volume_ratio": 0.5,
+  "order_book_imbalance": -0.288,
+  "news": "no news newer than August 2026, no current catalyst"
+}
+```
+
+---
+### 2026-10-04T13:42:45.118Z — LTC/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger - small positive move (+0.32%/+0.41%). The bullish 4h crossover persists for a second cycle but volume remains unconfirmed at 0.37x and the order book has now turned ask-heavy (-0.12), against a bullish read. News repeated the 15-year-anniversary/payment-leadership story from prior cycles - nothing new. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": 0.32,
+  "pct_change_4h_48h": 0.41,
+  "rsi_14_4h": 61.84,
+  "sma_crossover_4h": "bullish cross persisting (2nd cycle), unconfirmed by volume, order book turned against it",
+  "volume_ratio": 0.37,
+  "order_book_imbalance": -0.118,
+  "news": "repeated anniversary/payment-leadership story, no fresh catalyst"
+}
+```
+
+---
