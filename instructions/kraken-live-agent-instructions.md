@@ -70,13 +70,24 @@ no-trade log. **Caveat**: the same handful of wallet addresses often show
 up as the top short across BTC/ETH/SOL/XRP/SUI/LINK simultaneously — a
 cross-asset hedging/market-maker book, not directional conviction. Don't
 read "smart money is short X" as a clean bearish signal without that in
-mind. **Do NOT call this for ADA/EUR, LINK/EUR, SUI/EUR, or LTC/EUR** —
+mind. **Second caveat**: Hyperliquid's markets (and this connector's
+data) are USD-denominated, not EUR — fine for the qualitative long/short
+bias read described here (an asset's positioning is the same regardless
+of quote currency), but never compare this connector's absolute price
+levels (e.g. a liquidation-cluster price) directly against a Kraken
+EUR-quoted price without converting - this system does no such
+conversion today, so don't start treating a USD figure as a EUR one.
+**Do NOT call this for ADA/EUR, LINK/EUR, SUI/EUR, or LTC/EUR** —
 confirmed by direct research 2026-10-04 that Hyperliquid's market for
 these four is too thin (11-32 near-liquidation positions total, vs.
 thousands for the first four) for the data to represent anything beyond
-noise. If the connector isn't available this cycle, skip this step
-silently — same as the Notion-unavailable handling elsewhere in this
-doc, don't fail the cycle over it.
+noise. **Fail-safe, no exceptions**: if the connector isn't listed as
+available, OR any call to it errors or times out, skip this step
+silently and move on immediately — no retries, and never let this delay
+or block a trade decision. Unlike the Notion sync (step 5, after all
+trading-critical work is already done), this step sits before the trade
+decision, so a hang here is a real risk this instruction exists to rule
+out, not just a nice-to-have.
 
 ## Risk rules (hard limits)
 

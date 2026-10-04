@@ -1195,3 +1195,30 @@ whether the live session actually has `mcp__Coinversa_Pulse__*` tools
 available on the next cutover, and if not, that's expected per the
 instructions' "if the connector isn't available, skip silently" fallback
 - not a bug to chase, just confirm it degrades gracefully as written.
+
+**Two follow-up questions from the user, checked rather than assumed,
+same day**:
+
+1. **"If the connector goes down, won't that cause an issue?"** The
+   original instructions wording only covered the connector being absent
+   ("not available"), not a call that errors or hangs mid-cycle. That
+   gap mattered more here than it does for Notion - Notion's sync is
+   step 5, after all trading-critical work is done, but this new step
+   sits in the signals section, *before* the trade decision, so a hang
+   here could have actually delayed or blocked real trading. Tightened
+   the instructions to be explicit: unavailable OR erroring OR timing
+   out all mean skip immediately, no retries, never block a trade
+   decision on it.
+2. **"Does Coinversa provide EUR liquidity, not only USD?"** Checked via
+   `list_markets(search: "EUR")` rather than assuming: Hyperliquid's
+   actual crypto markets (BTC, ETH, SOL, XRP, etc.) are all
+   USD-denominated (it's a USDC-collateralized perps exchange). There is
+   an `xyz:EUR` market, but it's a synthetic EUR/USD FX perpetual
+   (~1.1258 at check time) - unrelated to the crypto coins, not a
+   EUR-quoted version of them. Conclusion: fine for the qualitative
+   long/short bias use case already decided above (an asset's
+   positioning doesn't change with quote currency), but explicitly
+   flagged in the instructions that this system does no USD→EUR
+   conversion today, so Coinversa's absolute price levels (e.g. a
+   liquidation-cluster price) must never be compared directly against a
+   Kraken EUR-quoted price.
