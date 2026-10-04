@@ -44717,3 +44717,171 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-10-04T16:43:34.802Z — SUI/EUR — LONG — OPENED (LIVE)
+
+- Entry price: €1.10 (real fill, Kraken order OYNHF6-4HFC3-KOT6AT)
+- Stop-loss: €1.04 (real resting order OZ4MVO-HSLLE-DTNJZ5)
+- Take-profit target: €1.21 (2:1 risk/reward, polled - not a resting order, see checkStops)
+- Position size: 4.876334519572953% of portfolio (€242.29, qty 221.03115000)
+- Entry fee (real): €1.45
+- Confidence: medium — momentum_trigger flagged true (1h/48h +7.37%, 4h/48h +11.99%, both over the 6% threshold) backed by a real, dated, proportionate catalyst: Sui's Basecamp 2026 conference (Singapore, Oct 7-8) announcement of a major new financial product, DeepBook App ecosystem growth (processed $20B+ in trading volume), and a short squeeze (~$200K of shorts liquidated in the rally) - not noise or a stale/mismatched-price story like most of today's other searches. Verified the move's real participation directly via 1h OHLC: the breakout candle (15:00-16:00 UTC) alone did ~2.80M SUI volume and the prior candle ~0.91M SUI - together close to half of the entire 24h volume concentrated in two hours - confirming genuine volume despite compute_signals' diluted 24h/7-day-average volume_ratio metric reading only 0.50x (that metric smooths over the intraday spike). Capped at medium per the momentum_only rule, and further justified by two caution flags noted explicitly rather than ignored: RSI 66.7 (elevated, real extension risk after a fast move) and the order book sitting ask-heavy (imbalance -0.32, resistance/profit-taking supply just above current price) - mirrors the precedent set by the account's first SUI entry (2026-09-22), which also opened into an adverse order book once a proportionate catalyst existed.
+- Momentum-only trigger: yes
+- Invalidation: Close back below the rising 4h 20-period SMA (currently ~€1.0444), which also sits at the pre-breakout consolidation low (~€1.0414-1.0456 over the preceding ~6 hourly candles).
+- Signals supporting this trade:
+```json
+{
+  "current_price": 1.0982,
+  "live_ask": 1.0952,
+  "pct_change_1h_48h": 7.371054657428792,
+  "pct_change_4h_48h": 11.994379203051283,
+  "momentum_trigger_flagged": true,
+  "rsi_14_4h": 66.7338235216745,
+  "sma_crossover_4h": {
+    "fast_value": 1.0443649999999998,
+    "slow_value": 1.0402359999999997,
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "volume_ratio_24h_vs_7d": 0.5023435231894628,
+  "order_book_imbalance_top10": -0.31749616274503367,
+  "breakout_candle_volume_1h": 2802689.4053,
+  "prior_candle_volume_1h": 911419.64946,
+  "news_context": "Basecamp 2026 conference (Singapore, Oct 7-8) major financial product announcement; DeepBook App ecosystem growth ($20B+ processed); short squeeze (~$200K shorts liquidated)"
+}
+```
+- Position id: 63390086-ab27-414a-9590-970a80c05516
+
+---
+### 2026-10-04T16:44:01.906Z — BTC/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/4h moves +0.22%/+1.19%, well under the 6% threshold). SMA fast-above-slow, no fresh cross. Volume ratio 0.42x, well under the 2x bar. Order book mildly bid-heavy (+0.08). News search returned the same stale/mismatched price data and recycled ETF-inflow/Fed-meeting commentary as recent cycles. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": 0.22,
+  "pct_change_4h_48h": 1.19,
+  "rsi_14_4h": 59.77,
+  "sma_crossover_4h": "fast_above_slow, no fresh cross",
+  "volume_ratio": 0.42,
+  "order_book_imbalance": 0.078,
+  "news": "stale/mismatched price data, no new catalyst"
+}
+```
+
+---
+### 2026-10-04T16:44:01.941Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/4h +0.46%/+1.25%, well under threshold). SMA fast-above-slow, no fresh cross. Volume ratio 0.26x, unconfirmed. Order book bid-heavy (+0.19). News still centered on the Glamsterdam testnet fork (Oct 6), unchanged from recent cycles. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": 0.46,
+  "pct_change_4h_48h": 1.25,
+  "rsi_14_4h": 54.35,
+  "sma_crossover_4h": "fast_above_slow, no fresh cross",
+  "volume_ratio": 0.26,
+  "order_book_imbalance": 0.187,
+  "news": "Glamsterdam testnet fork Oct 6 - unchanged, not fresh"
+}
+```
+
+---
+### 2026-10-04T16:44:01.957Z — SOL/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger despite a real pickup (1h +1.43%, 4h +3.10%), still under the 6% threshold. SMA fast-above-slow, no fresh cross. Volume ratio 0.32x, unconfirmed. Order book notably ask-heavy (-0.31). News generic/stale, no concrete catalyst distinct from the broader altcoin rally context. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": 1.43,
+  "pct_change_4h_48h": 3.1,
+  "rsi_14_4h": 62.12,
+  "sma_crossover_4h": "fast_above_slow, no fresh cross",
+  "volume_ratio": 0.32,
+  "order_book_imbalance": -0.309,
+  "news": "generic/stale, no concrete catalyst"
+}
+```
+
+---
+### 2026-10-04T16:44:01.974Z — XRP/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h +0.19%, 4h +2.44% - a pickup but well under threshold). SMA fast-above-slow, no fresh cross (prior persisting crossover now settled). Volume ratio still very low at 0.15x. Order book strongly bid-heavy (+0.51) but with no momentum trigger or fresh crossover to pair it with, and no proportionate news catalyst - Ripple coverage unchanged from recent cycles (acquisitions, AI integration, regulatory items), nothing dated or sized to match a move. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": 0.19,
+  "pct_change_4h_48h": 2.44,
+  "rsi_14_4h": 54.74,
+  "sma_crossover_4h": "fast_above_slow, no fresh cross",
+  "volume_ratio": 0.15,
+  "order_book_imbalance": 0.512,
+  "news": "Ripple 2026 strategy - unchanged, no proportionate catalyst"
+}
+```
+
+---
+### 2026-10-04T16:44:01.988Z — ADA/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger - 4h move picked up to +3.70% but still under the 6% threshold (1h move only +1.56%... actually -1.56%, so the 4h/1h windows disagree, consistent with a bounce rather than a clean breakout). A fresh bullish 4h SMA crossover appeared this candle, but volume remains unconfirmed at 0.42x and order book is only mildly bid-heavy (+0.05) - not a strong confluence. News unchanged from prior cycles (SEC classification, Hoskinson's "Cardano 2026 Proposals" event, treasury vote) - nothing dated or sized to explain a move today. No qualifying setup; will watch next cycle for volume confirmation of the new crossover.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -1.56,
+  "pct_change_4h_48h": 3.7,
+  "rsi_14_4h": 52.99,
+  "sma_crossover_4h": "bullish cross this candle, unconfirmed by volume",
+  "volume_ratio": 0.42,
+  "order_book_imbalance": 0.051,
+  "news": "SEC classification/Hoskinson event - unchanged, not dated to today"
+}
+```
+
+---
+### 2026-10-04T16:44:02.009Z — LINK/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger - 4h move picked up to +4.22% (part of the broader altcoin rally alongside SUI/ADA/LTC) but still under the 6% threshold; 1h move flat (-0.05%). SMA fast-below-slow, bearish, no fresh cross. Volume ratio 0.24x, unconfirmed. Order book bid-heavy (+0.29). News surfaced the same stale/mismatched price data and BitGo CCIP/DTCC AppChain stories as prior cycles - nothing new or dated to today. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -0.05,
+  "pct_change_4h_48h": 4.22,
+  "rsi_14_4h": 51.69,
+  "sma_crossover_4h": "fast_below_slow, no fresh cross",
+  "volume_ratio": 0.24,
+  "order_book_imbalance": 0.29,
+  "news": "stale/mismatched price data, same BitGo/DTCC story as prior cycles"
+}
+```
+
+---
+### 2026-10-04T16:44:02.024Z — LTC/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger despite a real pickup (1h +2.80%, 4h +4.62% - part of the same broad altcoin rally as SUI/ADA/LINK today), still under the 6% threshold. SMA fast-above-slow, no fresh cross (prior persisting crossover now settled). Volume ratio 0.37x, unconfirmed. Order book mildly bid-heavy (+0.14). News repeated the 15-year-anniversary/LitVM story from prior cycles - nothing new or dated to today specifically for LTC. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": 2.8,
+  "pct_change_4h_48h": 4.62,
+  "rsi_14_4h": 64.51,
+  "sma_crossover_4h": "fast_above_slow, no fresh cross",
+  "volume_ratio": 0.37,
+  "order_book_imbalance": 0.14,
+  "news": "repeated anniversary/LitVM story, no fresh catalyst dated to today"
+}
+```
+
+---
