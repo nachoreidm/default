@@ -44885,3 +44885,158 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-10-04T16:51:10.422Z — BTC/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/48h +0.22%, 4h/48h +1.19%, both well under the 6% threshold). Volume unconfirmed (0.42x prior 7d avg). RSI neutral (59.8), order book roughly balanced (+0.09). Coinversa Hyperliquid positioning: netBias +0.34 (longs modestly favored, longAccounts 25,794 vs shortAccounts 12,708), but top shorts include the recurring cross-asset hedging wallets (0x5b5d5120..., 0xb83de012...) seen across BTC/ETH/SOL/XRP/SUI/LINK - informational only, not a trigger. News search returned only stale/speculative prediction-market content with prices inconsistent with the real Kraken quote (searched content cited $84.7k vs real €75.9k) - no genuine dated catalyst, treated as nothing notable. No qualifying signal confluence - no trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": 0.2205,
+  "pct_change_4h_48h": 1.1897,
+  "volume_ratio_24h_vs_7d": 0.4178,
+  "rsi_14_4h": 59.77,
+  "sma_crossover_4h_state": "fast_above_slow",
+  "order_book_imbalance_top10": 0.0853,
+  "coinversa_netBias": 0.3399,
+  "news_context": "nothing notable - search results were stale/speculative, inconsistent with real price"
+}
+```
+
+---
+### 2026-10-04T16:51:10.463Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/48h +0.46%, 4h/48h +1.25%). Volume unconfirmed (0.26x). RSI neutral (54.4), order book mildly bid-skewed (+0.14) but not enough on its own. Coinversa: netBias +0.47 (longs favored, 14,685 long accounts vs 5,304 short), same recurring hedging-wallet shorts (0x5b5d5120..., 0xb83de012...) as BTC - informational only. News search returned only speculative price-prediction content, no genuine catalyst - nothing notable. No qualifying signal confluence - no trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": 0.4626,
+  "pct_change_4h_48h": 1.245,
+  "volume_ratio_24h_vs_7d": 0.2625,
+  "rsi_14_4h": 54.35,
+  "sma_crossover_4h_state": "fast_above_slow",
+  "order_book_imbalance_top10": 0.1393,
+  "coinversa_netBias": 0.4693,
+  "news_context": "nothing notable - speculative prediction content only"
+}
+```
+
+---
+### 2026-10-04T16:51:10.478Z — SOL/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/48h +1.43%, 4h/48h +3.10%). Volume unconfirmed (0.32x). RSI 62.1 (approaching elevated), and order book sharply ask-heavy (-0.61, real near-term resistance) - a negative signal, not a confirming one. Coinversa: netBias +0.55 (longs favored structurally) but that's a standing futures-market statistic, not predictive of this pair's next move, and doesn't offset the adverse spot order book. News search returned only speculative prediction-market noise - nothing notable. No qualifying signal confluence - no trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": 1.4263,
+  "pct_change_4h_48h": 3.1,
+  "volume_ratio_24h_vs_7d": 0.3242,
+  "rsi_14_4h": 62.12,
+  "sma_crossover_4h_state": "fast_above_slow",
+  "order_book_imbalance_top10": -0.613,
+  "coinversa_netBias": 0.5468,
+  "news_context": "nothing notable - speculative prediction content only"
+}
+```
+
+---
+### 2026-10-04T16:51:10.494Z — XRP/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/48h +0.19%, 4h/48h +2.44%). Volume unconfirmed and notably thin (0.15x). RSI neutral (54.7), order book mildly bid-skewed (+0.18). Coinversa: netBias +0.60 (longs favored, 5,938 vs 1,494 accounts) - informational only, same hedging-wallet caveat applies to its top shorts. News search surfaced only mixed/speculative commentary (some bullish forecasts, some bearish liquidity concerns) with no single proportionate, dated catalyst - treated as nothing notable. No qualifying signal confluence - no trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": 0.1932,
+  "pct_change_4h_48h": 2.4359,
+  "volume_ratio_24h_vs_7d": 0.1519,
+  "rsi_14_4h": 54.74,
+  "sma_crossover_4h_state": "fast_above_slow",
+  "order_book_imbalance_top10": 0.1842,
+  "coinversa_netBias": 0.598,
+  "news_context": "mixed/speculative, no proportionate catalyst"
+}
+```
+
+---
+### 2026-10-04T16:51:10.508Z — ADA/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/48h -1.56%, 4h/48h +3.70%). Bullish 4h SMA crossover just occurred this candle, and order book is bid-heavy (+0.44) - the most constructive signal set of the cycle - but volume is unconfirmed and weak (0.42x, well under the 2x/1.5x confirmation bar this system requires), consistent with the pattern already seen in this account's prior ADA loss (momentum-only, unconfirmed volume, mid-extension entry). Not treating a bare SMA cross as sufficient without volume confirmation. News search returned only speculative price-prediction content, nothing notable. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": -1.5552,
+  "pct_change_4h_48h": 3.7033,
+  "volume_ratio_24h_vs_7d": 0.4152,
+  "rsi_14_4h": 52.99,
+  "sma_crossover_4h_state": "fast_above_slow",
+  "sma_crossed_this_candle": true,
+  "sma_crossover_direction": "bullish",
+  "order_book_imbalance_top10": 0.436,
+  "news_context": "nothing notable - speculative prediction content only"
+}
+```
+
+---
+### 2026-10-04T16:51:10.527Z — LINK/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/48h -0.05%, 4h/48h +4.22%). 4h SMA state is fast_below_slow (bearish crossover state), ruling out a trend-following long despite a bid-heavy order book (+0.49). Volume unconfirmed (0.24x). News search returned only stale/inconsistent price data (sources disagreeing by 30%+), nothing notable as a catalyst. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": -0.0509,
+  "pct_change_4h_48h": 4.216,
+  "volume_ratio_24h_vs_7d": 0.2391,
+  "rsi_14_4h": 51.69,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "order_book_imbalance_top10": 0.4905,
+  "news_context": "nothing notable - stale/inconsistent price data only"
+}
+```
+
+---
+### 2026-10-04T16:51:10.545Z — SUI/EUR — NO TRADE
+
+**Reasoning:** momentum_trigger IS flagged (1h/48h +7.37%, 4h/48h +11.99%, both over threshold) with the position's own entry signals - but an open SUI/EUR position already exists (opened 2026-10-04T16:43:34Z, this same cycle's prior turn), and the one-position-per-pair rule is code-enforced. Logging no-trade rather than attempting a second entry. Existing position currently -0.22% unrealized, pre-+1R, not yet trailing; portfolio_check_stops already ran this cycle and found nothing to reconcile.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger_flagged": true,
+  "pct_change_1h_48h": 7.3711,
+  "pct_change_4h_48h": 11.9944,
+  "existing_open_position": true,
+  "reason_for_skip": "one_per_pair_rule"
+}
+```
+
+---
+### 2026-10-04T16:51:10.559Z — LTC/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/48h +2.80%, 4h/48h +4.62%). Volume unconfirmed (0.37x). RSI 64.5 (approaching elevated), order book roughly balanced (-0.06). News search returned only stale/inconsistent speculative price content (sources disagreeing on current price by 30%+), nothing notable. No qualifying signal confluence - no trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": 2.8019,
+  "pct_change_4h_48h": 4.6214,
+  "volume_ratio_24h_vs_7d": 0.3711,
+  "rsi_14_4h": 64.51,
+  "sma_crossover_4h_state": "fast_above_slow",
+  "order_book_imbalance_top10": -0.0578,
+  "news_context": "nothing notable - stale/inconsistent price data only"
+}
+```
+
+---
