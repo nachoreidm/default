@@ -1222,3 +1222,32 @@ same day**:
    conversion today, so Coinversa's absolute price levels (e.g. a
    liquidation-cluster price) must never be compared directly against a
    Kraken EUR-quoted price.
+
+**Confirmed live, same day**: the user reported Coinversa Pulse was NOT
+available to the live hourly trigger's session on its 15:41 UTC cycle
+(commit `9050d3c` - clean, no trades, no errors) - exactly the connector-
+attachment gap flagged above, since `mcp_connections` is per-trigger and
+nobody had attached Coinversa to this specific trigger yet. **This also
+confirmed the fail-safe wording works as designed**: the cycle completed
+normally with the step simply skipped, no hang, no error, no delayed
+trading decision. User then manually attached the Coinversa-Pulse
+connector to the live trigger (`trig_01MgA8zU3Y2xdX8w2TGz7qFG`) in the
+routines UI - confirmed via `list_triggers`, `mcp_connections` now lists
+both Notion and Coinversa-Pulse. Future cycles should have access; watch
+the next one's `confidence_reason` entries for BTC/ETH/SOL/XRP to confirm
+it's actually being used, not just available.
+
+**Dangling weekly-cutover task resolved**: this same day's 10:11 UTC
+weekly cutover had created a verification session
+(`session_012XoCVwECeen4KiWDzaesjY`) and run one clean cycle on it
+(commit `29acc84`, no trades, no errors) before the orchestrating session
+got pulled into the Coinversa research thread and never finished the
+swap - the live trigger stayed on its existing session
+(`session_013Yhw2HLzrb1u5gnamMWrrn`) the whole time, never at risk.
+**Decided to leave it there rather than force the swap through now**:
+completing it would have required the user to immediately redo the
+Notion + Coinversa connector attachment they'd just finished, on a brand
+new trigger, for a session that wasn't yet old enough (~1.5 days) to be
+near the cost-climb problem this weekly cutover exists to prevent. The
+unused verification session was archived; the next weekly cutover (next
+Sunday) will pick this up normally.
