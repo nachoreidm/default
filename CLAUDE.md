@@ -1251,3 +1251,49 @@ new trigger, for a session that wasn't yet old enough (~1.5 days) to be
 near the cost-climb problem this weekly cutover exists to prevent. The
 unused verification session was archived; the next weekly cutover (next
 Sunday) will pick this up normally.
+
+## Coinversa connector not seen by a session created before its attachment - cutover, and the pattern generalized beyond Notion (2026-10-04)
+
+A few hours after the connector attachment above, checked the 16:41 UTC
+cycle's `trades.md` entries directly (not the session's own summary):
+BTC/ETH/SOL/XRP's `signals_considered` had zero mention of Coinversa or
+smart-money positioning, despite `list_triggers` showing the connector
+attached. Root cause, confirmed by the session's creation timestamp: the
+live session (`session_013Yhw2HLzrb1u5gnamMWrrn`) was created 2026-10-03
+at 14:10 - a full day *before* Coinversa was attached to its trigger at
+15:43 on 10-04. **This is the same mechanism behind every Notion
+approval-prompt recurrence this project has hit (paper 09-11, live 09-25,
+09-30, 10-03 x2) - a running session does not dynamically pick up a
+connector attached to its trigger after the session already started.**
+Generalizing it beyond Notion specifically: any MCP connector attachment
+only takes effect for a session created *after* that attachment, same as
+the "always-allow" setting precedent. Worth remembering as a standing
+rule, not a Notion-specific quirk.
+
+**Fixed via cutover, same day, at the user's explicit request** ("cut
+over now") after weighing the tradeoff plainly: this meant redoing the
+connector-reattachment dance (both Notion and Coinversa) on a brand-new
+trigger, right after doing it once already that day - accepted knowingly
+rather than waiting for Sunday's weekly cutover, which would have hit the
+identical problem anyway. Created session
+`session_01JYWPLtUE9MbqgXvFAFQN1w`, verified via real commit (`1405d70` -
+clean, SUI position correctly reconciled, no errors) and explicit user
+confirmation of **no** Notion prompt. Followed the cutover playbook
+exactly: new trigger (`trig_01PQh5MHdVxrH4UFpykbYkmL`, `create_trigger`
+not blocked this time), both old and new renamed distinctly the moment
+both existed, user disabled the old routine and attached both connectors
+to the new one, confirmed via `list_triggers` (`mcp_connections` lists
+both Notion and Coinversa-Pulse), then archived the old session and
+renamed the survivor back to the standard name.
+
+**Final state**: live trigger is `trig_01PQh5MHdVxrH4UFpykbYkmL` ("Kraken
+live-trading hourly monitoring"), bound to
+`session_01JYWPLtUE9MbqgXvFAFQN1w`, both connectors attached and
+confirmed. Old session `session_013Yhw2HLzrb1u5gnamMWrrn` archived - cost
+**$42.99 over its ~27-hour life**, its highest yet among live-trading
+sessions, consistent with the already-documented pattern that cost climbs
+with session duration (this one absorbed essentially every code and
+infra change from both 10-03 and 10-04 as additional same-day cutovers on
+top of its base lifetime). Watch the next cycle's `confidence_reason`
+entries for BTC/ETH/SOL/XRP to confirm Coinversa context is now actually
+appearing, not just available.
