@@ -1311,3 +1311,38 @@ infra change from both 10-03 and 10-04 as additional same-day cutovers on
 top of its base lifetime). Watch the next cycle's `confidence_reason`
 entries for BTC/ETH/SOL/XRP to confirm Coinversa context is now actually
 appearing, not just available.
+
+## Session-aging latency measured concretely on the Notion step (2026-10-04)
+
+User noticed the 19:41 UTC cycle "took ages" on the commit and Notion
+steps specifically and asked for a review - checked real timestamps
+rather than guessing. Git commit+push (steps 0-4) was fast: trigger fired
+19:41:33, commit landed 19:43:26 (1m53s) for pulling, checking stops,
+computing signals on all 8 pairs, 8 news searches, and pushing - no
+problem there. Notion sync (step 5) was the real story: commit at
+19:43:26, but the summary page's actual `page_last_edited_at` was
+19:48:33 - **~5 minutes** for one page rewrite + 8 trade-log row creates
++ 1 verification query (10 sequential Notion calls). Checked for the
+obvious failure mode (duplicate/retried rows from an error loop) - found
+exactly 8 rows for the cycle, no duplicates, so this isn't broken, just
+slow.
+
+**Why**: the same session-duration cost-climb pattern documented
+repeatedly elsewhere in this file, now measured concretely in wall-clock
+terms rather than just dollars. `session_01JYWPLtUE9MbqgXvFAFQN1w` was
+created 16:49 UTC that day (the Coinversa-access cutover) and had already
+run 4 cycles by 19:43, with context usage at 382K tokens and climbing
+roughly ~100K/cycle. Step 5 feels it most because it's the most
+tool-call-dense part of the cycle (10 sequential Notion calls vs. roughly
+10 for the entire first half of the cycle combined), so the per-call
+slowdown from growing context compounds visibly there specifically.
+
+**Decision**: explicitly chose not to force a third same-day cutover
+("let it ride") rather than make the user redo the Notion+Coinversa
+connector attachment a third time in one day - accepted knowingly, not
+overlooked. **Flagged but not yet hit**: at the observed growth rate,
+this session could plausibly reach real context-window pressure within a
+handful more cycles, well before Sunday's scheduled weekly cutover -
+worth checking `get_session`'s `context_usage.used_tokens` on this
+session again before then rather than assuming the weekly cutover alone
+will catch it in time.
