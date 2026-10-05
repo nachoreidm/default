@@ -46605,3 +46605,153 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-10-05T04:22:43.077Z — BTC/EUR — NO TRADE
+
+**Reasoning:** Momentum trigger not flagged (1h/48h +2.49%, 4h/48h +2.48%, both well under the 6% threshold). RSI 71.0 is extended but no breakout to act on. No qualifying setup this cycle.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": 2.488757297282187,
+  "pct_change_4h_48h": 2.480306111456163,
+  "rsi_14_4h": 71.03298286837682,
+  "volume_ratio_24h_vs_7d": 0.5936578770853185,
+  "sma_crossover_4h_state": "fast_above_slow",
+  "order_book_imbalance_top10": -0.208976157082749,
+  "existing_open_position": false
+}
+```
+
+---
+### 2026-10-05T04:22:43.103Z — ETH/EUR — NO TRADE
+
+**Reasoning:** Momentum trigger not flagged (1h/48h +2.21%, 4h/48h +1.97%, both well under the 6% threshold). No qualifying setup this cycle.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": 2.2111131666134165,
+  "pct_change_4h_48h": 1.9663192332697235,
+  "rsi_14_4h": 63.9611543217251,
+  "volume_ratio_24h_vs_7d": 0.44356742811948124,
+  "sma_crossover_4h_state": "fast_above_slow",
+  "order_book_imbalance_top10": 0.08829637945551502,
+  "existing_open_position": false
+}
+```
+
+---
+### 2026-10-05T04:22:43.122Z — SOL/EUR — NO TRADE
+
+**Reasoning:** Momentum trigger not flagged (1h/48h +1.76%, 4h/48h +1.56%, both well under the 6% threshold). No qualifying setup this cycle.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": 1.7558765222316617,
+  "pct_change_4h_48h": 1.5641194761142099,
+  "rsi_14_4h": 58.83399913590084,
+  "volume_ratio_24h_vs_7d": 0.47015581121912725,
+  "sma_crossover_4h_state": "fast_above_slow",
+  "order_book_imbalance_top10": 0.3216479061457426,
+  "existing_open_position": false
+}
+```
+
+---
+### 2026-10-05T04:22:43.138Z — XRP/EUR — NO TRADE
+
+**Reasoning:** Momentum trigger not flagged (1h/48h +2.34%, 4h/48h +2.52%, both well under the 6% threshold). No qualifying setup this cycle.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": 2.342578426768855,
+  "pct_change_4h_48h": 2.5203899700314882,
+  "rsi_14_4h": 60.13587636688507,
+  "volume_ratio_24h_vs_7d": 0.3910428066667086,
+  "sma_crossover_4h_state": "fast_above_slow",
+  "order_book_imbalance_top10": -0.38123083946039027,
+  "existing_open_position": false
+}
+```
+
+---
+### 2026-10-05T04:22:43.154Z — ADA/EUR — NO TRADE
+
+**Reasoning:** Momentum trigger flagged (1h/48h +10.25%, 4h/48h +10.92%), but an open ADA/EUR position already exists (opened 2026-10-04 23:44, entry €0.230497, now +3.12% unrealized). One-position-per-pair rule, code-enforced - skipping regardless of signal strength.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger_flagged": true,
+  "pct_change_1h_48h": 10.254201170416065,
+  "pct_change_4h_48h": 10.915486464557057,
+  "rsi_14_4h": 72.63320995518163,
+  "volume_ratio_24h_vs_7d": 1.181996967366422,
+  "existing_open_position": true,
+  "reason_for_skip": "one_per_pair_rule"
+}
+```
+
+---
+### 2026-10-05T04:22:43.171Z — LINK/EUR — NO TRADE
+
+**Reasoning:** Momentum trigger not flagged (1h/48h +2.17%, 4h/48h +1.89%, both well under the 6% threshold). SMA state fast_below_slow. No qualifying setup this cycle.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": 2.169518726074755,
+  "pct_change_4h_48h": 1.8930614315099605,
+  "rsi_14_4h": 53.62197680335364,
+  "volume_ratio_24h_vs_7d": 0.2639905292466181,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "order_book_imbalance_top10": -0.01815590037130422,
+  "existing_open_position": false
+}
+```
+
+---
+### 2026-10-05T04:22:43.187Z — SUI/EUR — NO TRADE
+
+**Reasoning:** Momentum trigger flagged (1h/48h +7.42%, 4h/48h +7.14%, volume confirmed 2.16x), but an open SUI/EUR position already exists (opened 2026-10-04 16:43, entry €1.0962, now +0.12% unrealized, pre-+1R). One-position-per-pair rule, code-enforced - skipping regardless of signal strength.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger_flagged": true,
+  "pct_change_1h_48h": 7.420770355923922,
+  "pct_change_4h_48h": 7.138688971017302,
+  "volume_ratio_24h_vs_7d": 2.158847959084388,
+  "flag_above_2x": true,
+  "existing_open_position": true,
+  "reason_for_skip": "one_per_pair_rule"
+}
+```
+
+---
+### 2026-10-05T04:22:43.204Z — LTC/EUR — NO TRADE
+
+**Reasoning:** Momentum trigger not flagged (1h/48h +2.60%, 4h/48h +2.10%, both well under the 6% threshold). No qualifying setup this cycle.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": 2.5980392156862684,
+  "pct_change_4h_48h": 2.097560975609755,
+  "rsi_14_4h": 56.38204317944555,
+  "volume_ratio_24h_vs_7d": 0.614020167946473,
+  "sma_crossover_4h_state": "fast_above_slow",
+  "order_book_imbalance_top10": 0.04552807888589108,
+  "existing_open_position": false
+}
+```
+
+---
