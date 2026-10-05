@@ -1346,3 +1346,60 @@ handful more cycles, well before Sunday's scheduled weekly cutover -
 worth checking `get_session`'s `context_usage.used_tokens` on this
 session again before then rather than assuming the weekly cutover alone
 will catch it in time.
+
+## Notion Trade Log: skip no-trade rows, keep summary page as-is (2026-10-05)
+
+**Prompted by** the latency entry immediately above - once the ~5-minute,
+10-Notion-call-per-cycle sync was diagnosed as cost-climb-driven latency
+rather than a bug, the user asked whether cutting Notion write volume
+would help, proposing two changes: (a) only write Trade Log rows for
+actual open/close trades, dropping the per-pair no-trade rows; (b) leave
+the "Kraken Live Trading Agent" summary page untouched entirely (stop
+rewriting it every cycle).
+
+Reviewed both before building either, rather than doing both reflexively:
+- **(a) accepted**: every no-trade decision is already fully logged in
+  `trades.md`/git every cycle (step 4, before Notion even runs), so a
+  no-trade row in the Trade Log carries no information the git history
+  doesn't already have - pure duplication. On the far more common
+  all-pairs-no-trade cycle this drops 8 `notion-create-pages` calls
+  straight to zero, the single biggest line item in the 10-call sync
+  measured in the latency entry above.
+- **(b) rejected**: the summary page rewrite is one call
+  (`notion-update-page` `replace_content`), a small fraction of the
+  10-call total - and it's the one piece that gives the user a live
+  account view (cash, exposure, open positions, max-risk/profit-locked
+  per position) without opening a terminal or reading git. Dropping it
+  would trade a large, real cost cut (option a) for a negligible one
+  (option b) while removing the only reason a human would check Notion
+  at all.
+
+User confirmed: implement (a) only, leave (b) untouched -
+**"Let's do first change, keep summary page untouched."**
+
+**Mechanics**: the Notion sync step's exact mechanics live in the hourly
+trigger's own prompt text, not `instructions/kraken-live-agent-
+instructions.md` (which only references "step 5" by number, with no
+Trade Log schema detail to edit there). Edited step 5c of the trigger
+prompt: a Trade Log row is now written only for a pair where a position
+was actually OPENED or CLOSED that cycle - never for a no-trade decision.
+The old no-trade-row carve-out (leave Confidence/Direction/Entry-Exit-
+Price/Stop-Loss blank, only RSI 4h/Volume Ratio populated) is removed
+entirely, since no-trade rows aren't written at all now. Step 5d's
+verification query is now conditional: skipped outright on a cycle with
+zero opens/closes (the common case, since there's nothing to write or
+verify), run as before only when 5c actually wrote something. Step 5b
+(the summary page rewrite) is untouched, word-for-word, per the user's
+explicit instruction.
+
+**Expected effect**: on an all-pairs-no-trade cycle, step 5 drops from 10
+Notion calls to 1 (the summary page rewrite only) - should recover most
+of the ~5-minute step-5 latency documented in the entry above on exactly
+those cycles, without losing any information (no-trade reasoning stays
+fully logged in `trades.md`/git, same as always, just no longer mirrored
+into Notion).
+
+**Deployed via the standard cutover pattern**: created a fresh session
+(`session_01WyMJTKBUTavwc9tNDfhs2k`) seeded with the exact updated
+hourly-cycle prompt (containing the new step 5c/5d above), so the
+verification run doubles as that hour's real cycle.
