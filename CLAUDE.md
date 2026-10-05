@@ -1402,4 +1402,34 @@ into Notion).
 **Deployed via the standard cutover pattern**: created a fresh session
 (`session_01WyMJTKBUTavwc9tNDfhs2k`) seeded with the exact updated
 hourly-cycle prompt (containing the new step 5c/5d above), so the
-verification run doubles as that hour's real cycle.
+verification run doubles as that hour's real cycle. Verified against the
+actual commit (`c23f8d6`), not the session's self-summary: all 8 pairs
+logged no-trade to `trades.md`/git as normal, but a direct
+`notion-query-data-sources` check confirmed **zero** Trade Log rows were
+written for this cycle's timestamp (the most recent rows present were
+from the still-running old session's prior regular firing) - the skip
+behaved exactly as intended on its first real run. The summary page
+continued to be rewritten normally (confirmed via `notion-fetch`) by the
+old session's subsequent regular cycles while the cutover was in
+progress - option (b) working as expected, unaffected by this change.
+User confirmed no Notion prompt appeared during the verification cycle.
+
+Followed the cutover playbook exactly: new trigger
+(`trig_01GWyXJnwbiAdWHn4iDN8fNR`, `create_trigger` not blocked), both old
+and new renamed distinctly the moment both existed, user disabled the old
+routine and attached both connectors to the new one, confirmed via
+`list_triggers` (`mcp_connections` lists both Notion and Coinversa-Pulse
+on the new trigger), then archived the old session and renamed the
+survivor back to the standard name.
+
+**Final state**: live trigger is `trig_01GWyXJnwbiAdWHn4iDN8fNR` ("Kraken
+live-trading hourly monitoring"), bound to
+`session_01WyMJTKBUTavwc9tNDfhs2k`, both connectors attached and
+confirmed. Old trigger `trig_01PQh5MHdVxrH4UFpykbYkmL` disabled (not
+deleted). Old session `session_01JYWPLtUE9MbqgXvFAFQN1w` archived - cost
+$32.96 over its ~22-hour life, in line with the established
+session-duration cost-climb pattern. Watch the next few cycles'
+`trades.md` entries and the Trade Log to confirm an actual open/close
+(when one next occurs) still produces exactly one row as before - this
+cutover only had no-trade cycles to verify against, not yet a real
+open/close under the new logic.
