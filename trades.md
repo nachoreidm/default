@@ -49064,3 +49064,163 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-10-05T18:43:08.962Z — BTC/EUR — NO TRADE
+
+**Reasoning:** momentum_trigger not flagged (1h/48h +0.84%, 4h/48h +0.76%). RSI 54.8, neutral. Volume ratio 0.59x, unconfirmed. Order book roughly flat (+0.08). News search repeated the same general market color - no fresh dated catalyst. No open BTC/EUR position.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": 0.8445814075651139,
+  "pct_change_4h_48h": 0.757695196935844,
+  "rsi_14_4h": 54.83017597567704,
+  "volume_ratio_24h_vs_7d": 0.5936578770853185,
+  "sma_crossover_4h_state": "fast_above_slow",
+  "order_book_imbalance_top10": 0.07926341072858278,
+  "coinversa_smart_money_net_bias": 0.3488971346114203,
+  "news_context": "Repeat of prior cycles' general market color; no dated catalyst for today"
+}
+```
+
+---
+### 2026-10-05T18:43:08.986Z — ETH/EUR — NO TRADE
+
+**Reasoning:** momentum_trigger not flagged (1h/48h +1.03%, 4h/48h +0.70%). Volume ratio 0.44x, unconfirmed. No open ETH/EUR position. News search again surfaced the Glamsterdam Sepolia testnet fork (Oct 6) - real but no proportionate catalyst for an entry absent a qualifying price/volume signal.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": 1.0309019450269385,
+  "pct_change_4h_48h": 0.6981591702453726,
+  "rsi_14_4h": 52.285308839207254,
+  "volume_ratio_24h_vs_7d": 0.44356742811948124,
+  "sma_crossover_4h_state": "fast_above_slow",
+  "order_book_imbalance_top10": 0.23081291885956612,
+  "coinversa_smart_money_net_bias": 0.46880534331832213,
+  "news_context": "Glamsterdam Sepolia testnet fork dated Oct 6; no catalyst proportionate to a new entry today"
+}
+```
+
+---
+### 2026-10-05T18:43:08.999Z — SOL/EUR — NO TRADE
+
+**Reasoning:** momentum_trigger not flagged (1h/48h +0.34%, 4h/48h -0.11%). Volume ratio 0.47x, unconfirmed. No open SOL/EUR position. News search returned only generic price-range/prediction-market commentary, nothing dated or catalyst-grade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": 0.337331334332833,
+  "pct_change_4h_48h": -0.11260204560381941,
+  "rsi_14_4h": 48.08533245312647,
+  "volume_ratio_24h_vs_7d": 0.47015581121912725,
+  "sma_crossover_4h_state": "fast_above_slow",
+  "order_book_imbalance_top10": 0.017240980127339395,
+  "coinversa_smart_money_net_bias": 0.5738874031406432,
+  "news_context": "Generic $230-240 zone / prediction-market commentary; no dated catalyst found"
+}
+```
+
+---
+### 2026-10-05T18:43:09.008Z — XRP/EUR — NO TRADE
+
+**Reasoning:** momentum_trigger not flagged (1h/48h +0.67%, 4h/48h +0.51%). Volume ratio 0.39x, unconfirmed. No open XRP/EUR position. News search surfaced the same longer-horizon items (Swell conference Oct 27-29) plus a note that XRP has historically been weak in October - no fresh dated catalyst for today's entry.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": 0.6741064696124226,
+  "pct_change_4h_48h": 0.5088021257964163,
+  "rsi_14_4h": 48.2079689044723,
+  "volume_ratio_24h_vs_7d": 0.3910428066667086,
+  "sma_crossover_4h_state": "fast_above_slow",
+  "order_book_imbalance_top10": 0.33331039135307877,
+  "coinversa_smart_money_net_bias": 0.609489537518326,
+  "news_context": "Ripple Swell conference Oct 27-29; historically weak October seasonality noted; no dated catalyst for today"
+}
+```
+
+---
+### 2026-10-05T18:43:09.018Z — ADA/EUR — NO TRADE
+
+**Reasoning:** No open ADA/EUR position. compute_signals' 48h-window momentum_trigger remains flagged (1h/48h +8.09%, 4h/48h +7.69%), unchanged from the last two cycles. Checked the latest closed 1h candle via kraken_get_ohlc: price has gone fully quiet (range €0.2355-€0.2368, closed almost flat) on volume of just 383K - a sharp drop from the 1.3-2.2M seen during the prior reversal candles. This reads as low-volume consolidation after the reversal, not a resumption of the uptrend - there's nothing here to confirm a fresh entry. This cycle's news search again returned the same stale/mismatched USD price point ($0.39) unrelated to the real €0.236 market. Continuing to decline.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger_flagged": true,
+  "pct_change_1h_48h": 8.094681606745942,
+  "pct_change_4h_48h": 7.6860756249055955,
+  "rsi_14_4h": 61.428268747803536,
+  "volume_ratio_24h_vs_7d": 1.181996967366422,
+  "sma_crossover_4h_state": "fast_above_slow",
+  "order_book_imbalance_top10": -0.08732536565010018,
+  "recent_1h_candle_volume": 383116.79608084,
+  "recent_1h_candle_note": "low-volume consolidation after the prior reversal, not a resumption",
+  "news_context": "Search again returned a stale/mismatched USD price point ($0.39); no verifiable fresh catalyst"
+}
+```
+
+---
+### 2026-10-05T18:43:09.029Z — LINK/EUR — NO TRADE
+
+**Reasoning:** momentum_trigger not flagged, price flat to slightly negative (1h/48h -0.01%, 4h/48h -1.10%). 4h SMA state remains bearish (fast_below_slow). RSI 41.5. Volume ratio 0.26x, unconfirmed. No open LINK/EUR position. News search repeated the same DTCC item (Q4 2026, long-horizon) - no immediate catalyst, bearish technical picture unchanged.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": -0.009051558322748118,
+  "pct_change_4h_48h": -1.0997502504732077,
+  "rsi_14_4h": 41.52997623486773,
+  "volume_ratio_24h_vs_7d": 0.2639905292466181,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "order_book_imbalance_top10": -0.01696134517525845,
+  "news_context": "DTCC Collateral AppChain integration (repeat item); no immediate dated catalyst; bearish 4h SMA state unchanged"
+}
+```
+
+---
+### 2026-10-05T18:43:09.041Z — SUI/EUR — NO TRADE
+
+**Reasoning:** Existing open position (opened 2026-10-04, not trailing) - one-per-pair rule blocks a second entry. momentum_trigger not flagged this cycle (1h/48h +1.81%, 4h/48h +1.27%). Position remains governed by its original hard stop (€1.04) and the standing invalidation/fast-invalidation checks.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": 1.8106917033914463,
+  "pct_change_4h_48h": 1.272483735170311,
+  "rsi_14_4h": 50.052447548267494,
+  "volume_ratio_24h_vs_7d": 2.158847959084388,
+  "volume_flag_above_2x": true,
+  "sma_crossover_4h_state": "fast_above_slow",
+  "order_book_imbalance_top10": 0.3109607630196977,
+  "existing_position": true,
+  "news_context": "No October 5-specific news surfaced this cycle; position already open and managed by standing checks"
+}
+```
+
+---
+### 2026-10-05T18:43:09.052Z — LTC/EUR — NO TRADE
+
+**Reasoning:** momentum_trigger not flagged (1h/48h +2.75%, 4h/48h +1.98%, still under the 6% threshold). Volume ratio 0.61x, unconfirmed. No open LTC/EUR position. News search returned the same background/anniversary coverage as prior cycles - no dated catalyst and no price/volume trigger to pair it with.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": 2.75423728813559,
+  "pct_change_4h_48h": 1.975510204081634,
+  "rsi_14_4h": 52.721035248563666,
+  "volume_ratio_24h_vs_7d": 0.614020167946473,
+  "sma_crossover_4h_state": "fast_above_slow",
+  "order_book_imbalance_top10": -0.16413070330580654,
+  "news_context": "Litecoin 15-year anniversary coverage; spot ETF AUM ~$163M; LitVM development; MWEB all-time-high balance; no dated catalyst proportionate to a fresh entry"
+}
+```
+
+---
