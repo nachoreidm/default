@@ -49388,3 +49388,167 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-10-05T20:42:51.428Z — BTC/EUR — NO TRADE
+
+**Reasoning:** momentum_trigger not flagged (1h/48h +1.33%, 4h/48h +1.40%). RSI 58.5, neutral-to-firm. Volume ratio 0.59x, unconfirmed. Order book roughly flat (+0.06). News search surfaced an "Uptober" price-target forecast ($90K-98K by Oct 31, ChatGPT-sourced speculation) and a note on rising Treasury yields constraining gains - speculative, not a dated catalyst. No open BTC/EUR position.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": 1.3323713451300752,
+  "pct_change_4h_48h": 1.4019007879470813,
+  "rsi_14_4h": 58.48182555976476,
+  "volume_ratio_24h_vs_7d": 0.5936578770853185,
+  "sma_crossover_4h_state": "fast_above_slow",
+  "order_book_imbalance_top10": 0.06293063849333937,
+  "coinversa_smart_money_net_bias": 0.34235787631572173,
+  "news_context": "Speculative Uptober price-target forecast ($90-98K by Oct 31); rising real yields cited as a headwind; no dated catalyst for today"
+}
+```
+
+---
+### 2026-10-05T20:42:51.445Z — ETH/EUR — NO TRADE
+
+**Reasoning:** momentum_trigger not flagged (1h/48h +1.05%, 4h/48h +1.09%). Volume ratio 0.44x, unconfirmed. No open ETH/EUR position. News search again surfaced the Glamsterdam Sepolia testnet fork (Oct 6) - real but no proportionate catalyst for an entry absent a qualifying price/volume signal.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": 1.0467436733088724,
+  "pct_change_4h_48h": 1.094112969047564,
+  "rsi_14_4h": 55.51517644549273,
+  "volume_ratio_24h_vs_7d": 0.44356742811948124,
+  "sma_crossover_4h_state": "fast_above_slow",
+  "order_book_imbalance_top10": -0.026299375331651442,
+  "coinversa_smart_money_net_bias": 0.4683364599705927,
+  "news_context": "Glamsterdam Sepolia testnet fork dated Oct 6; no catalyst proportionate to a new entry today"
+}
+```
+
+---
+### 2026-10-05T20:42:51.471Z — SOL/EUR — NO TRADE
+
+**Reasoning:** momentum_trigger not flagged (1h/48h +0.57%, 4h/48h +0.82%). Volume ratio 0.47x, unconfirmed. No open SOL/EUR position. News search returned only generic price-range/prediction-market commentary, nothing dated or catalyst-grade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": 0.5722863308002621,
+  "pct_change_4h_48h": 0.818207467318729,
+  "rsi_14_4h": 52.47297745804102,
+  "volume_ratio_24h_vs_7d": 0.47015581121912725,
+  "sma_crossover_4h_state": "fast_above_slow",
+  "order_book_imbalance_top10": -0.12964413166760383,
+  "coinversa_smart_money_net_bias": 0.5668094514301506,
+  "news_context": "Generic $230-240 zone / prediction-market commentary; no dated catalyst found"
+}
+```
+
+---
+### 2026-10-05T20:42:51.483Z — XRP/EUR — NO TRADE
+
+**Reasoning:** momentum_trigger not flagged (1h/48h +1.03%, 4h/48h +1.38%). Volume ratio 0.39x, unconfirmed. No open XRP/EUR position. News search repeated the same longer-horizon items (Swell conference Oct 27-29, historically weak October seasonality) - no fresh dated catalyst for today's entry.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": 1.02501055934351,
+  "pct_change_4h_48h": 1.3782715974629385,
+  "rsi_14_4h": 51.83881974298558,
+  "volume_ratio_24h_vs_7d": 0.3910428066667086,
+  "sma_crossover_4h_state": "fast_above_slow",
+  "order_book_imbalance_top10": 0.07822010162373295,
+  "coinversa_smart_money_net_bias": 0.6122530168412678,
+  "news_context": "Ripple Swell conference Oct 27-29; historically weak October seasonality; no dated catalyst for today"
+}
+```
+
+---
+### 2026-10-05T20:42:51.497Z — ADA/EUR — NO TRADE
+
+**Reasoning:** No open ADA/EUR position. compute_signals' 48h-window momentum_trigger remains flagged (1h/48h +8.64%, 4h/48h +9.34%), unchanged for the sixth straight cycle, now reading higher because the live price (€0.2399) has drifted up intracandle from the last closed candle's €0.2371 close. Checked kraken_get_ohlc again: the last 4 closed 1h candles are all low-volume (383K, 303K, 323K vs the 1.3-2.2M seen during the original breakout/reversal) - this is a slow grind higher on thin participation, not a confirmed fresh breakout. RSI 63.0, mildly elevated but not extreme. This cycle's news search ("Cardano ADA news today") again returned the same stale/mismatched $0.935 USD narrative, unrelated to the real €0.24 market - no verifiable fresh catalyst. Continuing to decline given the lack of volume confirmation and lack of a real catalyst, consistent with every prior cycle's read on this same still-unresolved setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger_flagged": true,
+  "pct_change_1h_48h": 8.639939159874844,
+  "pct_change_4h_48h": 9.341239504419569,
+  "rsi_14_4h": 63.013208943188666,
+  "volume_ratio_24h_vs_7d": 1.181996967366422,
+  "sma_crossover_4h_state": "fast_above_slow",
+  "order_book_imbalance_top10": 0.07736924670795328,
+  "recent_1h_candle_volumes": [
+    383116.8,
+    302728.68,
+    322994.19
+  ],
+  "recent_1h_candle_note": "slow grind higher on thin volume, not a confirmed fresh breakout",
+  "news_context": "Search again returned the stale/mismatched $0.935 USD narrative; no verifiable fresh catalyst"
+}
+```
+
+---
+### 2026-10-05T20:42:51.507Z — LINK/EUR — NO TRADE
+
+**Reasoning:** momentum_trigger not flagged, price negative (1h/48h -0.95%, 4h/48h -1.28%). 4h SMA state remains bearish (fast_below_slow). RSI 45.0. Volume ratio 0.26x, unconfirmed. No open LINK/EUR position. News search surfaced the same DTCC item plus a new Amundi tokenized-fund item and SEC/CFTC digital-commodity classification - real but no immediate dated catalyst, bearish technical picture unchanged.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": -0.9530932979809014,
+  "pct_change_4h_48h": -1.278274118871776,
+  "rsi_14_4h": 44.96812455281905,
+  "volume_ratio_24h_vs_7d": 0.2639905292466181,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "order_book_imbalance_top10": 0.032846093185890934,
+  "news_context": "DTCC Collateral AppChain integration (repeat); Amundi tokenized fund powered by Chainlink ($400M+ AUM); SEC/CFTC classified LINK as digital commodity - real but no immediate dated catalyst; bearish 4h SMA state unchanged"
+}
+```
+
+---
+### 2026-10-05T20:42:51.517Z — SUI/EUR — NO TRADE
+
+**Reasoning:** Existing open position (opened 2026-10-04, not trailing) - one-per-pair rule blocks a second entry. momentum_trigger not flagged this cycle (1h/48h +2.65%, 4h/48h +2.26%) though price has recovered meaningfully toward entry (€1.0948 vs €1.0962 entry, now only -0.13% unrealized). Position remains governed by its original hard stop (€1.04) and the standing invalidation/fast-invalidation checks.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": 2.6506483600305155,
+  "pct_change_4h_48h": 2.2606382978723447,
+  "rsi_14_4h": 53.493165139594765,
+  "volume_ratio_24h_vs_7d": 2.158847959084388,
+  "volume_flag_above_2x": true,
+  "sma_crossover_4h_state": "fast_above_slow",
+  "order_book_imbalance_top10": -0.23179392555192826,
+  "existing_position": true,
+  "news_context": "No October 5-specific news surfaced this cycle; position already open and managed by standing checks"
+}
+```
+
+---
+### 2026-10-05T20:42:51.527Z — LTC/EUR — NO TRADE
+
+**Reasoning:** momentum_trigger not flagged (1h/48h +1.71%, 4h/48h +0.02%). Volume ratio 0.61x, unconfirmed. No open LTC/EUR position. News search returned the same background/anniversary coverage as prior cycles - no dated catalyst and no price/volume trigger to pair it with.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": 1.709819247679538,
+  "pct_change_4h_48h": 0.016012810248195373,
+  "rsi_14_4h": 52.721035248563666,
+  "volume_ratio_24h_vs_7d": 0.614020167946473,
+  "sma_crossover_4h_state": "fast_above_slow",
+  "order_book_imbalance_top10": 0.2667308625387227,
+  "news_context": "Litecoin 15-year anniversary coverage; spot ETF AUM ~$163M; MimbleWimble/DeFi development; no dated catalyst proportionate to a fresh entry"
+}
+```
+
+---
