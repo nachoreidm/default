@@ -48102,3 +48102,166 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-10-05T12:52:35.046Z — BTC/EUR — NO TRADE
+
+**Reasoning:** momentum_trigger not flagged (1h/48h +1.91%, 4h/48h +1.92%, both well under the 6% threshold) - no qualifying momentum-only setup. RSI 68.96 is elevated/extended with no fresh breakout to justify entry. Volume ratio 0.59x (below average, no confirmation). Order book mildly bid-heavy (+0.29) but that alone isn't a trigger. News search returned only general market color (ETF inflow strength, a speculative "October bottom" projection from an anonymous trader call, no dated catalyst proportionate to a new entry) - advisory only, doesn't change the no-trade call. No open BTC/EUR position currently.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": 1.9052034146373693,
+  "pct_change_4h_48h": 1.9214031648042953,
+  "rsi_14_4h": 68.95953779358015,
+  "volume_ratio_24h_vs_7d": 0.5936578770853185,
+  "sma_crossover_4h_state": "fast_above_slow",
+  "order_book_imbalance_top10": 0.28501827040194877,
+  "coinversa_smart_money_net_bias": 0.3227704376548307,
+  "coinversa_note": "net bias positive but top shorts dominated by cross-asset hedging wallets (0x5b5d5120.../0xb83de012...) per standing caveat - not treated as directional signal",
+  "news_context": "Bitcoin spot ETFs saw $2.39B net inflows week ending Sept 25 (best weekly streak of 2026), BlackRock IBIT leading; speculative anonymous-trader projection of an Oct 6 bottom; no dated, proportionate catalyst for a fresh entry"
+}
+```
+
+---
+### 2026-10-05T12:52:35.075Z — ETH/EUR — NO TRADE
+
+**Reasoning:** momentum_trigger not flagged (1h/48h +1.67%, 4h/48h +1.72%, well under the 6% threshold). Volume ratio 0.44x, well below confirmation. No open ETH/EUR position. News search surfaced the Glamsterdam upgrade testnet fork (Oct 6) and ETF inflow commentary - real but not a proportionate catalyst for an entry absent a qualifying price/volume signal, and price action here is modest consolidation, not a breakout.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": 1.6734420183563259,
+  "pct_change_4h_48h": 1.7194824362059948,
+  "rsi_14_4h": 61.07250291705075,
+  "volume_ratio_24h_vs_7d": 0.44356742811948124,
+  "sma_crossover_4h_state": "fast_above_slow",
+  "order_book_imbalance_top10": -0.047990447918149964,
+  "coinversa_smart_money_net_bias": 0.4547385455648832,
+  "coinversa_note": "top shorts list includes the same cross-asset hedging wallets seen on BTC/SOL/XRP - net bias not read as directional conviction",
+  "news_context": "Glamsterdam upgrade approaching Sepolia testnet fork (Oct 6), mainnet expected Q4 2026; ETH facing resistance near $2,800 after a 7% monthly gain, ETF inflows $834M - no catalyst proportionate to a new entry right now"
+}
+```
+
+---
+### 2026-10-05T12:52:35.090Z — SOL/EUR — NO TRADE
+
+**Reasoning:** momentum_trigger not flagged (1h/48h +1.44%, 4h/48h +1.26%). Volume ratio 0.47x, unconfirmed. Order book meaningfully ask-heavy (-0.40, real near-term selling pressure in the book). No open SOL/EUR position. News search returned only generic price-range/prediction-market commentary, nothing dated or catalyst-grade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": 1.4395935265336857,
+  "pct_change_4h_48h": 1.2585704893397232,
+  "rsi_14_4h": 56.93587359174383,
+  "volume_ratio_24h_vs_7d": 0.47015581121912725,
+  "sma_crossover_4h_state": "fast_above_slow",
+  "order_book_imbalance_top10": -0.4014680759946793,
+  "coinversa_smart_money_net_bias": 0.5539747220111886,
+  "coinversa_note": "same cross-asset hedging wallets present among top shorts - not read as directional",
+  "news_context": "General price-range commentary ($230-240 zone discussed, prediction-market chatter); no dated catalyst found"
+}
+```
+
+---
+### 2026-10-05T12:52:35.103Z — XRP/EUR — NO TRADE
+
+**Reasoning:** momentum_trigger not flagged (1h/48h +2.57%, 4h/48h +2.29%). Volume ratio 0.39x, unconfirmed. Order book strongly bid-heavy (+0.68) but without a momentum/volume trigger this isn't enough on its own. No open XRP/EUR position. News search surfaced real but longer-horizon items (Ripple banking charter under OCC review, first XRP ETF decision - Grayscale - due Oct 18) - not an immediate dated catalyst for today's entry.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": 2.5726976247947544,
+  "pct_change_4h_48h": 2.290185780474176,
+  "rsi_14_4h": 61.10493312964386,
+  "volume_ratio_24h_vs_7d": 0.3910428066667086,
+  "sma_crossover_4h_state": "fast_above_slow",
+  "order_book_imbalance_top10": 0.679836620088724,
+  "coinversa_smart_money_net_bias": 0.6007487632036369,
+  "coinversa_note": "highest net long bias of the four checked, but top shorts again include the familiar cross-asset hedging wallets",
+  "news_context": "Ripple's US banking charter application open for OCC public review; first XRP ETF decision (Grayscale) due Oct 18; large investors reportedly holding ~32% of circulating supply - none dated to today as an immediate catalyst"
+}
+```
+
+---
+### 2026-10-05T12:52:35.115Z — ADA/EUR — NO TRADE
+
+**Reasoning:** Existing open position (opened 2026-10-04, trailing active, currently +5.05% unrealized) - one-per-pair rule blocks a second entry regardless of signals. For the record: momentum_trigger IS flagged this cycle (1h/48h +11.65%, 4h/48h +11.61%, RSI 73.69 - extended), which is itself a reason not to add to the existing position even if it were allowed. Trailing stop is already managing this position's risk.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger_flagged": true,
+  "pct_change_1h_48h": 11.647560258671366,
+  "pct_change_4h_48h": 11.605015357351094,
+  "rsi_14_4h": 73.68789517161821,
+  "volume_ratio_24h_vs_7d": 1.181996967366422,
+  "sma_crossover_4h_state": "fast_above_slow",
+  "order_book_imbalance_top10": -0.4936230287862545,
+  "existing_position": true,
+  "news_context": "Cardano governance approved 70M ADA for stablecoin (USDC/USDT) and oracle (Pyth) integrations; Hoskinson declared 2026 a priority year for Ouroboros Leios upgrade; SEC classified ADA as a digital commodity, multiple spot-ETF applications pending; relevant background but position is already open"
+}
+```
+
+---
+### 2026-10-05T12:52:35.126Z — LINK/EUR — NO TRADE
+
+**Reasoning:** momentum_trigger not flagged (1h/48h +2.90%, 4h/48h +3.16%). 4h SMA state is fast_below_slow (bearish crossover state), the only pair showing this. Volume ratio 0.26x, well unconfirmed. No open LINK/EUR position. News search surfaced a real institutional item (DTCC integrating Chainlink into its Collateral AppChain by Q4 2026) but it's a longer-horizon development, not a proportionate catalyst for today given the bearish SMA state and no price/volume trigger.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": 2.8976941039112565,
+  "pct_change_4h_48h": 3.1635156424008803,
+  "rsi_14_4h": 54.564095472318535,
+  "volume_ratio_24h_vs_7d": 0.2639905292466181,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "order_book_imbalance_top10": 0.38916975673650933,
+  "news_context": "DTCC announced plans to integrate Chainlink into its Collateral AppChain infrastructure by Q4 2026 for near real-time institutional collateral settlement; Chainlink ecosystem growth noted (Amundi, Spiko) - real but no immediate dated catalyst, and 4h SMA crossover state is bearish (fast below slow)"
+}
+```
+
+---
+### 2026-10-05T12:52:35.139Z — SUI/EUR — NO TRADE
+
+**Reasoning:** Existing open position (opened 2026-10-04, not yet trailing, currently -0.59% unrealized, governed by its original hard stop and the invalidation checks) - one-per-pair rule blocks a second entry. momentum_trigger not flagged this cycle (1h/48h +5.08%, 4h/48h +5.78%, both just under the 6% threshold) though volume_ratio is flagged above 2x (2.16x) - real activity, but moot given the existing position.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": 5.07686468020496,
+  "pct_change_4h_48h": 5.7795185326709975,
+  "rsi_14_4h": 61.43065842067745,
+  "volume_ratio_24h_vs_7d": 2.158847959084388,
+  "volume_flag_above_2x": true,
+  "sma_crossover_4h_state": "fast_above_slow",
+  "order_book_imbalance_top10": -0.10382836466432661,
+  "existing_position": true,
+  "news_context": "SUI near a key technical juncture - testing support/resistance around token-unlock event (0.2% of supply unlocked Oct 3); Sui Basecamp conference in Singapore (Oct 7-8) cited as a potential near-term sentiment driver; position already open and managed by the standing invalidation/trailing checks"
+}
+```
+
+---
+### 2026-10-05T12:52:35.149Z — LTC/EUR — NO TRADE
+
+**Reasoning:** momentum_trigger not flagged (1h/48h +2.25%, 4h/48h +2.21%). Volume ratio 0.61x, unconfirmed. No open LTC/EUR position. News search returned only background/anniversary coverage (15 years, ETF AUM growth, LitVM rollup) - no dated, proportionate catalyst and no price/volume trigger to pair it with.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": 2.2462831286360707,
+  "pct_change_4h_48h": 2.2132471728594583,
+  "rsi_14_4h": 59.00341653471932,
+  "volume_ratio_24h_vs_7d": 0.614020167946473,
+  "sma_crossover_4h_state": "fast_above_slow",
+  "order_book_imbalance_top10": 0.3183973415194794,
+  "news_context": "Litecoin marking 15 years in October 2026; spot Litecoin ETFs (~$163M AUM across Canary/Grayscale/CoinShares); LitVM EVM-compatible ZK-rollup noted; no dated catalyst proportionate to a fresh entry"
+}
+```
+
+---
