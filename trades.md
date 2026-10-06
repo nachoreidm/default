@@ -52862,3 +52862,146 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-10-06T18:42:53.892Z — BTC/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h +0.34%, 4h +0.28%). RSI 53.1 neutral, volume ratio 1.09x unconfirmed, order book roughly balanced (+0.07). WebSearch returned wildly inconsistent/stale prices ($74,918 / $119,335 / $118,593) none matching real Kraken price (€76,070) - discarded. Coinversa netBias +0.34 informational only, same cross-asset hedging wallets dominate shorts. No trade.
+
+**Signals considered:**
+```json
+{
+  "pct_change_1h_48h": 0.3413,
+  "pct_change_4h_48h": 0.2777,
+  "rsi_14_4h": 53.12,
+  "volume_ratio": 1.0893,
+  "momentum_trigger": false,
+  "order_book_imbalance": 0.0721,
+  "coinversa_net_bias": 0.3416
+}
+```
+
+---
+### 2026-10-06T18:42:53.923Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h -0.17%, 4h -0.07%). RSI 48.5 neutral, volume ratio 1.14x unconfirmed, order book ask-heavy (-0.19). WebSearch cited ETH at $3,633.84 - doesn't match real Kraken price (€2,394.28) - stale/mismatched, discarded. Coinversa netBias +0.47 informational only, hedging-wallet caveat applies. No trade.
+
+**Signals considered:**
+```json
+{
+  "pct_change_1h_48h": -0.172,
+  "pct_change_4h_48h": -0.0691,
+  "rsi_14_4h": 48.48,
+  "volume_ratio": 1.1357,
+  "momentum_trigger": false,
+  "order_book_imbalance": -0.1882,
+  "coinversa_net_bias": 0.4702
+}
+```
+
+---
+### 2026-10-06T18:42:53.942Z — SOL/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h -0.61%, 4h -0.55%). RSI 51.1 neutral, volume ratio 0.81x below average, order book slightly bid-heavy (+0.06). WebSearch cited SOL at $237.16 - doesn't match real Kraken price (€107.38) - stale/mismatched, discarded. Coinversa netBias +0.55 informational only. No trade.
+
+**Signals considered:**
+```json
+{
+  "pct_change_1h_48h": -0.6113,
+  "pct_change_4h_48h": -0.5482,
+  "rsi_14_4h": 51.13,
+  "volume_ratio": 0.8144,
+  "momentum_trigger": false,
+  "order_book_imbalance": 0.065,
+  "coinversa_net_bias": 0.545
+}
+```
+
+---
+### 2026-10-06T18:42:53.959Z — XRP/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h +0.13%, 4h -0.33%). RSI 49.3 neutral, volume ratio 0.98x flat, order book bid-heavy (+0.42). WebSearch cited XRP at $0.5987 - doesn't match real Kraken price (€1.33775) - stale/mismatched, discarded. Coinversa netBias +0.62 (highest concentration top5 of the four at 0.42) informational only. No trade.
+
+**Signals considered:**
+```json
+{
+  "pct_change_1h_48h": 0.1288,
+  "pct_change_4h_48h": -0.3255,
+  "rsi_14_4h": 49.31,
+  "volume_ratio": 0.9761,
+  "momentum_trigger": false,
+  "order_book_imbalance": 0.4198,
+  "coinversa_net_bias": 0.6206
+}
+```
+
+---
+### 2026-10-06T18:42:53.977Z — ADA/EUR — NO TRADE
+
+**Reasoning:** Existing open position (opened 2026-10-06 08:43 UTC) - one-per-pair rule blocks a new entry regardless of signal. Momentum_trigger still flagged true (1h +9.08%, 4h +7.35%) but this is the position's own continuation. Position currently -€2.57 (-1.41% at current price €0.240956 vs entry €0.243529); still above its invalidation 4h SMA (~€0.2305), no invalidation close triggered by portfolio_check_stops. No trade (existing position).
+
+**Signals considered:**
+```json
+{
+  "pct_change_1h_48h": 9.0846,
+  "pct_change_4h_48h": 7.3487,
+  "rsi_14_4h": 60.12,
+  "volume_ratio": 1.2059,
+  "momentum_trigger": true,
+  "order_book_imbalance": 0.184,
+  "existing_position": true
+}
+```
+
+---
+### 2026-10-06T18:42:53.993Z — LINK/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h -1.68%, 4h -1.40%). RSI 46.2 neutral, volume ratio 0.33x well below average, SMA fast_below_slow (bearish structure), order book bid-heavy (+0.12) but no other confirmation. WebSearch cited LINK at $13.50 - doesn't match real Kraken price (€12.39 ≈ ~$14.4) - stale/mismatched, discarded. No trade.
+
+**Signals considered:**
+```json
+{
+  "pct_change_1h_48h": -1.6799,
+  "pct_change_4h_48h": -1.396,
+  "rsi_14_4h": 46.19,
+  "volume_ratio": 0.329,
+  "momentum_trigger": false,
+  "sma_state": "fast_below_slow",
+  "order_book_imbalance": 0.1206
+}
+```
+
+---
+### 2026-10-06T18:42:54.009Z — SUI/EUR — NO TRADE
+
+**Reasoning:** Existing open position (opened 2026-10-04) - one-per-pair rule blocks a new entry. No momentum trigger this cycle (1h -3.02%, 4h -2.38%). Position continuing to retrace from its €1.1189 peak, currently -€9.19 (-3.78%), but still above its invalidation 4h SMA (~€1.0698), no invalidation close triggered. No trade (existing position).
+
+**Signals considered:**
+```json
+{
+  "pct_change_1h_48h": -3.0155,
+  "pct_change_4h_48h": -2.381,
+  "rsi_14_4h": 48.25,
+  "volume_ratio": 1.1445,
+  "momentum_trigger": false,
+  "order_book_imbalance": 0.7257,
+  "existing_position": true
+}
+```
+
+---
+### 2026-10-06T18:42:54.023Z — LTC/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h -2.98%, 4h -1.86%). RSI 50.0 neutral, volume ratio 0.56x well below average, order book bid-heavy (+0.16). WebSearch cited LTC at wildly inconsistent prices ($103.35 / $55.71 / $222.82 / $104.37) none matching real Kraken price (€61.40) - stale/mismatched, discarded. No trade.
+
+**Signals considered:**
+```json
+{
+  "pct_change_1h_48h": -2.9834,
+  "pct_change_4h_48h": -1.8638,
+  "rsi_14_4h": 50.03,
+  "volume_ratio": 0.5583,
+  "momentum_trigger": false,
+  "order_book_imbalance": 0.1608
+}
+```
+
+---
