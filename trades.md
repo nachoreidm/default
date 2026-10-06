@@ -50043,3 +50043,165 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-10-06T00:43:11.068Z — BTC/EUR — NO TRADE
+
+**Reasoning:** momentum_trigger not flagged (1h/48h +1.42%, 4h/48h +1.37%). RSI 59.1. Volume ratio 1.09x (improved from recent cycles but still below the 2x confirmation bar). Order book ask-heavy (-0.36). News search surfaced the Fed's Oct 27-28 meeting as a watch item and noted slowing ETF inflows/rising oil prices as headwinds - relevant background, not a dated catalyst for today. No open BTC/EUR position.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": 1.4211283074327294,
+  "pct_change_4h_48h": 1.3693617732101375,
+  "rsi_14_4h": 59.06901717168333,
+  "volume_ratio_24h_vs_7d": 1.0892573454581123,
+  "sma_crossover_4h_state": "fast_above_slow",
+  "order_book_imbalance_top10": -0.359073359073359,
+  "coinversa_smart_money_net_bias": 0.3280670808088555,
+  "news_context": "Fed meeting Oct 27-28 flagged as a swing factor; slowing ETF inflows and rising oil prices noted as headwinds; no dated catalyst for today"
+}
+```
+
+---
+### 2026-10-06T00:43:11.086Z — ETH/EUR — NO TRADE
+
+**Reasoning:** momentum_trigger not flagged (1h/48h +0.88%, 4h/48h +0.83%). Volume ratio 1.14x, still below confirmation. No open ETH/EUR position. News search again surfaced the Glamsterdam Sepolia testnet fork (today, Oct 6) - real and now live-dated, but this is a testnet milestone, not a direct price catalyst, and there's no qualifying price/volume signal to pair it with.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": 0.8811713314457018,
+  "pct_change_4h_48h": 0.8285367248381498,
+  "rsi_14_4h": 55.63470693746613,
+  "volume_ratio_24h_vs_7d": 1.1356519963752303,
+  "sma_crossover_4h_state": "fast_above_slow",
+  "order_book_imbalance_top10": 0.019296570382748516,
+  "coinversa_smart_money_net_bias": 0.4596194071731034,
+  "news_context": "Glamsterdam Sepolia testnet fork activating today (Oct 6); resistance noted at $2,680-2,770; no price-moving catalyst yet"
+}
+```
+
+---
+### 2026-10-06T00:43:11.112Z — SOL/EUR — NO TRADE
+
+**Reasoning:** momentum_trigger not flagged (1h/48h +0.75%, 4h/48h +0.28%). Volume ratio 0.81x, unconfirmed. No open SOL/EUR position. News search returned prediction-market commentary plus a note that tokenized RWA volume on Solana surpassed $1B and Breakpoint conference is Nov 15-17 - background, not a dated catalyst.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": 0.7486430844095051,
+  "pct_change_4h_48h": 0.2794336810730227,
+  "rsi_14_4h": 54.985856849572826,
+  "volume_ratio_24h_vs_7d": 0.8144283745587346,
+  "sma_crossover_4h_state": "fast_above_slow",
+  "order_book_imbalance_top10": -0.09706997761073753,
+  "coinversa_smart_money_net_bias": 0.5492522642701678,
+  "news_context": "Tokenized RWA volume on Solana surpassed $1B; Breakpoint conference Nov 15-17; no dated catalyst for today"
+}
+```
+
+---
+### 2026-10-06T00:43:11.123Z — XRP/EUR — NO TRADE
+
+**Reasoning:** momentum_trigger not flagged (1h/48h +1.55%, 4h/48h +1.46%). Volume ratio 0.98x, still below confirmation. No open XRP/EUR position. News search repeated the same longer-horizon items (Swell Oct 27-29, XRP Community Day, historically weak October) - no fresh dated catalyst for today's entry.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": 1.549749138608477,
+  "pct_change_4h_48h": 1.456222728851179,
+  "rsi_14_4h": 53.80677122138408,
+  "volume_ratio_24h_vs_7d": 0.9761396984687607,
+  "sma_crossover_4h_state": "fast_above_slow",
+  "order_book_imbalance_top10": 0.21498463825666053,
+  "coinversa_smart_money_net_bias": 0.6035171862509991,
+  "news_context": "Ripple Swell Oct 27-29; XRP Community Day 2026 mentioned; historically weak October seasonality; no dated catalyst for today"
+}
+```
+
+---
+### 2026-10-06T00:43:11.135Z — ADA/EUR — NO TRADE
+
+**Reasoning:** No open ADA/EUR position. compute_signals' 48h-window momentum_trigger remains flagged (1h/48h +11.35%, 4h/48h +11.55%), unchanged for the tenth straight cycle. RSI has climbed further to 66.3 (now genuinely elevated, not just mild). Checked kraken_get_ohlc: the latest closed 1h candle's volume dropped again to 173K (down from 289K), the lowest of the last several candles, and the candle itself closed slightly down from its high (0.2425 → 0.2412) - a pullback on fading volume, not a breakout. Order book flipped to strongly bid-heavy (+0.53) this cycle, but that single-snapshot reading conflicts with the actual declining-volume pullback just observed in the candle data, so it isn't being treated as confirmation by itself. This cycle's news search returned ADA regulatory/ETF background (SEC review timeline, IBC-Injective connection, Treasury funding request) - real items, but none dated as an immediate price catalyst for today. RSI now elevated plus fading volume argues for continued caution, not entry. Continuing to decline.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger_flagged": true,
+  "pct_change_1h_48h": 11.35168574079802,
+  "pct_change_4h_48h": 11.554079678842651,
+  "rsi_14_4h": 66.25658547333643,
+  "volume_ratio_24h_vs_7d": 1.2058691650263003,
+  "sma_crossover_4h_state": "fast_above_slow",
+  "order_book_imbalance_top10": 0.5280567838208617,
+  "recent_1h_candle_volumes": [
+    289001.13,
+    173492.44
+  ],
+  "recent_1h_candle_note": "volume faded further; candle closed down from its high - a pullback, not a breakout",
+  "news_context": "SEC Spot-ETF review timeline, IBC-Injective connection, 32.9M ADA Treasury request for post-quantum/ZK R&D - real but no dated price catalyst for today"
+}
+```
+
+---
+### 2026-10-06T00:43:11.147Z — LINK/EUR — NO TRADE
+
+**Reasoning:** momentum_trigger not flagged, price negative (1h/48h -1.66%, 4h/48h -0.81%). 4h SMA state remains bearish (fast_below_slow). RSI 44.0. Volume ratio 0.33x, unconfirmed. No open LINK/EUR position. News search surfaced a new, mildly bearish item - the US government transferred ~98,590 LINK (~$768K) from seized FTX/Alameda wallets to Coinbase Prime, raising sell-off concerns - alongside the repeat DTCC/Amundi/SEC-CFTC items. Nothing here supports an entry; if anything the FTX-wallet transfer is a reason for added caution given the already-bearish technical picture.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": -1.6630468507601606,
+  "pct_change_4h_48h": -0.8133512865490623,
+  "rsi_14_4h": 43.970153561663324,
+  "volume_ratio_24h_vs_7d": 0.32895007397062087,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "order_book_imbalance_top10": 0.031502255902731674,
+  "news_context": "US government transferred ~98,590 LINK (~$768K) from seized FTX/Alameda wallets to Coinbase Prime, raising sell-off concerns; repeat DTCC/Amundi/SEC-CFTC items; bearish 4h SMA state unchanged"
+}
+```
+
+---
+### 2026-10-06T00:43:11.161Z — SUI/EUR — NO TRADE
+
+**Reasoning:** Existing open position (opened 2026-10-04, not trailing) - one-per-pair rule blocks a second entry. momentum_trigger not flagged this cycle (1h/48h +3.13%, 4h/48h +3.47%). Position remains governed by its original hard stop (€1.04) and the standing invalidation/fast-invalidation checks.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": 3.1252977608384884,
+  "pct_change_4h_48h": 3.470363288718929,
+  "rsi_14_4h": 54.55486838751694,
+  "volume_ratio_24h_vs_7d": 1.1445126187412682,
+  "sma_crossover_4h_state": "fast_above_slow",
+  "order_book_imbalance_top10": 0.6034485872718809,
+  "existing_position": true,
+  "news_context": "No October 6-specific news surfaced this cycle; position already open and managed by standing checks"
+}
+```
+
+---
+### 2026-10-06T00:43:11.173Z — LTC/EUR — NO TRADE
+
+**Reasoning:** momentum_trigger not flagged, price slightly negative (1h/48h -0.46%, 4h/48h -0.21%). Volume ratio 0.56x, unconfirmed. No open LTC/EUR position. News search returned the same background/anniversary coverage as prior cycles - no dated catalyst and no price/volume trigger to pair it with.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": -0.46178343949044454,
+  "pct_change_4h_48h": -0.20753512132822885,
+  "rsi_14_4h": 53.078696222096575,
+  "volume_ratio_24h_vs_7d": 0.5582894828788985,
+  "sma_crossover_4h_state": "fast_above_slow",
+  "order_book_imbalance_top10": 0.03390876365487365,
+  "news_context": "Litecoin 15-year anniversary coverage; spot ETF AUM ~$163M; no dated catalyst proportionate to a fresh entry"
+}
+```
+
+---
