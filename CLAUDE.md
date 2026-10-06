@@ -1433,3 +1433,73 @@ session-duration cost-climb pattern. Watch the next few cycles'
 (when one next occurs) still produces exactly one row as before - this
 cutover only had no-trade cycles to verify against, not yet a real
 open/close under the new logic.
+
+## Trailing-stop profit-lock asymmetry investigated - real-data-backed fix identified, deliberately NOT yet built (2026-10-06)
+
+**Prompted by**: "all trades carry a 12 euro risk (after recent stop loss
+changes). A 1R trail means a gain of around 5-6 eur. Seems the model has
+higher probability of hitting a stop loss than a 2R. Are stop losses too
+wide then?" Investigated with real numbers rather than reasoning from the
+headline "2:1 R:R" label.
+
+**Confirmed both figures are real, not estimates**: medium-confidence
+risk is `TARGET_RISK_PCT` (0.25%) × portfolio value ≈ **€12.50** at the
+current ~€5,000 balance - confirmed exactly against ADA #2's real open
+(risked €12.42). The +1R trailing-lock tier (`PEAK_PROFIT_LOCK_TIERS[0]`,
+fraction 0.4) locks only 0.4 × peak gain the instant trailing activates
+≈ **€5** - confirmed against ADA #2's real trailing-stop close (+€4.44).
+
+**The actual lever is NOT stop width.** Position sizing already targets
+a *constant euro risk* regardless of stop distance
+(`computePositionSizePct` divides target risk by stop distance), so
+widening or tightening the raw stop doesn't change the €12.50 risked at
+all - it would just resize the position inversely. The real asymmetry is
+`PEAK_PROFIT_LOCK_TIERS`'s first tier: 0.4 guarantees less than half the
+account's typical loss the moment a winner reverses right after crossing
++1R, which only matches the nominal "2:1" payoff for trades that run
+deep (+2R or more) before reversing.
+
+**All 9 real closed trades reviewed**: net realized P&L to date is
+**-€14.86** (4 wins / 5 losses, or 3/5 excluding one bug-driven manual
+close). Only one trade (SUI #1, +€26.84) ever captured close to the
+nominal reward - every other "win" was a bare-minimum trailing exit or a
+near-breakeven invalidation save. Only two trades ever actually crossed
++1R and trailed (SUI #1, ADA #2) - the fixed 2R take-profit effectively
+never fires in practice, since price can't reach 2R without passing
+through +1R first, at which point trailing supersedes it.
+
+**Backtested three lock-fraction scenarios against those exact two
+trailing trades**, replaying the real `effectiveTrailingStop` formula
+hour-by-hour against real Kraken 1h/4h OHLC (baseline reproduced the real
+outcomes closely: sim +€26.96 vs real +€26.84 for SUI, +€3.25 vs +€4.44
+for ADA - confirms the model is faithful enough to trust the deltas
+between scenarios):
+
+| Scenario | SUI #1 (real +€26.84) | ADA #2 (real +€4.44) |
+|---|---|---|
+| Baseline (0.4/0.5/0.6) | +€26.96 | +€3.25 |
+| Raise tier-1 only (0.5/0.5/0.6) | +€26.96 (identical) | +€4.66 (better) |
+| Raise tier-1 AND tier-2 (0.6/0.6/0.6) | +€13.17 (cut ~half) | +€6.06 (better still) |
+
+**Finding**: raising only the +1R tier (0.4→0.5) never hurt either real
+trailing trade and helped one of them - SUI's run was strong enough to
+blow straight through the +2R tier regardless of what the +1R fraction
+was, so that tier never mattered to its outcome; ADA's quick
+post-+1R reversal got caught earlier and at a better price. Raising the
++2R tier as well is where the real cost lives - it would have trailed
+SUI out at +1.65R instead of letting it run to +2.95R, roughly halving
+the account's single best trade. This is exactly the tradeoff flagged
+before building anything: a tighter +1R floor looks safe in this sample;
+a tighter +2R floor is not.
+
+**Explicitly NOT built yet, at the user's request**: "I'd like to do it
+but not just yet. Keep it saved for later." n=2 trailing trades is too
+small a sample to treat this as proven - one more SUI-sized run reversing
+right after +1R under the raised fraction would change the picture. The
+concrete, ready-to-execute change when revisited: raise
+`PEAK_PROFIT_LOCK_TIERS[0].fraction` from 0.4 to 0.5 in `types.ts` only
+(leave the +2R/+3R tiers at 0.5/0.6 untouched), update `selftest.ts`'s
+tier-boundary assertions accordingly, and deploy via the standard
+cutover-and-verify pattern. No code changed in this investigation - this
+entry exists purely so the reasoning and backtest don't have to be
+redone from scratch when the user decides to act on it.
