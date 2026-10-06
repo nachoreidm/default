@@ -51790,3 +51790,157 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-10-06T11:42:48.084Z — BTC/EUR — NO TRADE
+
+**Reasoning:** momentum_trigger not flagged (1h/48h +1.02%, 4h/48h +0.35%). RSI 54.0. Volume ratio 1.09x, unconfirmed. Order book roughly flat (-0.05). News search returned stale/mismatched price points ($104,564, $325K prediction) vs real ~€76,600, no dated catalyst. No open BTC/EUR position.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": 1.0206691771357523,
+  "pct_change_4h_48h": 0.3501998881892,
+  "rsi_14_4h": 53.988623578180245,
+  "volume_ratio_24h_vs_7d": 1.0892573454581123,
+  "sma_crossover_4h_state": "fast_above_slow",
+  "order_book_imbalance_top10": -0.053272450532724495,
+  "coinversa_smart_money_net_bias": 0.32399497165140206,
+  "news_context": "Stale/mismatched price points; no dated catalyst"
+}
+```
+
+---
+### 2026-10-06T11:42:48.105Z — ETH/EUR — NO TRADE
+
+**Reasoning:** momentum_trigger not flagged (1h/48h +0.54%, 4h/48h +0.35%). Volume ratio 1.14x, unconfirmed. No open ETH/EUR position. News search returned stale/mismatched price points ($1,975-1,990 vs real ~€2,411), no dated catalyst.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": 0.5415087266214021,
+  "pct_change_4h_48h": 0.347815220560685,
+  "rsi_14_4h": 52.70055885540708,
+  "volume_ratio_24h_vs_7d": 1.1356519963752303,
+  "sma_crossover_4h_state": "fast_above_slow",
+  "order_book_imbalance_top10": -0.06677587955378732,
+  "coinversa_smart_money_net_bias": 0.45723188260126646,
+  "news_context": "Stale/mismatched price points; no dated catalyst"
+}
+```
+
+---
+### 2026-10-06T11:42:48.128Z — SOL/EUR — NO TRADE
+
+**Reasoning:** momentum_trigger not flagged (1h/48h -0.82%, 4h/48h -0.80%). Volume ratio 0.81x, unconfirmed. No open SOL/EUR position. News search returned stale/mismatched price points ($119-128 range vs real ~€107), no dated catalyst.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": -0.8162508116130186,
+  "pct_change_4h_48h": -0.7976996568036354,
+  "rsi_14_4h": 50.546883720588035,
+  "volume_ratio_24h_vs_7d": 0.8144283745587346,
+  "sma_crossover_4h_state": "fast_above_slow",
+  "order_book_imbalance_top10": 0.23379415645639043,
+  "coinversa_smart_money_net_bias": 0.5593825042881647,
+  "news_context": "Stale/mismatched price range; no dated catalyst"
+}
+```
+
+---
+### 2026-10-06T11:42:48.141Z — XRP/EUR — NO TRADE
+
+**Reasoning:** momentum_trigger not flagged (1h/48h +0.63%, 4h/48h +0.14%). Volume ratio 0.98x, unconfirmed. No open XRP/EUR position. News search returned a stale/mismatched price point ($1.8674 vs real ~€1.34), no dated catalyst.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": 0.6333008178884973,
+  "pct_change_4h_48h": 0.14031665040894714,
+  "rsi_14_4h": 49.30192980323332,
+  "volume_ratio_24h_vs_7d": 0.9761396984687607,
+  "sma_crossover_4h_state": "fast_above_slow",
+  "order_book_imbalance_top10": -0.29853854005810293,
+  "coinversa_smart_money_net_bias": 0.5911660312869725,
+  "news_context": "Stale/mismatched price point; no dated catalyst"
+}
+```
+
+---
+### 2026-10-06T11:42:48.155Z — ADA/EUR — NO TRADE
+
+**Reasoning:** Existing open ADA/EUR position (opened 2026-10-06 08:43 UTC) - one-per-pair rule, no new entry regardless of signals. momentum_trigger still flagged (1h/48h +12.69%, 4h/48h +11.53%), RSI 65.3. Position currently pre-+1R, non-trailing; portfolio_check_stops found nothing to act on this cycle. Current price €0.247 continues above entry €0.2435, peak unchanged at €0.251817.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger_flagged": true,
+  "pct_change_1h_48h": 12.689202825428858,
+  "pct_change_4h_48h": 11.534721585175674,
+  "rsi_14_4h": 65.25638779937341,
+  "volume_ratio_24h_vs_7d": 1.2058691650263003,
+  "order_book_imbalance_top10": -0.43404596931185363,
+  "existing_position": true
+}
+```
+
+---
+### 2026-10-06T11:42:48.169Z — LINK/EUR — NO TRADE
+
+**Reasoning:** momentum_trigger not flagged (1h/48h -0.46%, 4h/48h -1.09%). RSI 46.0, SMA crossover fast_below_slow. Volume ratio 0.33x, well below confirmation. No open LINK/EUR position. News search returned stale/mismatched price points ($8.97/$8.74 vs real ~€12.5), no dated catalyst.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": -0.4550055398920151,
+  "pct_change_4h_48h": -1.0944080617402623,
+  "rsi_14_4h": 45.989336650673636,
+  "volume_ratio_24h_vs_7d": 0.32895007397062087,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "order_book_imbalance_top10": 0.010136568491214547,
+  "news_context": "Stale/mismatched price points; no dated catalyst"
+}
+```
+
+---
+### 2026-10-06T11:42:48.184Z — SUI/EUR — NO TRADE
+
+**Reasoning:** Existing open SUI/EUR position (opened 2026-10-04) - one-per-pair rule, no new entry regardless of signals. momentum_trigger not flagged this cycle (1h/48h +1.34%, 4h/48h +1.19%). Position currently pre-+1R, non-trailing; portfolio_check_stops found nothing to act on this cycle.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": 1.3424735789774351,
+  "pct_change_4h_48h": 1.190136151575736,
+  "rsi_14_4h": 50.36897629993855,
+  "volume_ratio_24h_vs_7d": 1.1445126187412682,
+  "order_book_imbalance_top10": 0.8184072168335073,
+  "existing_position": true
+}
+```
+
+---
+### 2026-10-06T11:42:48.198Z — LTC/EUR — NO TRADE
+
+**Reasoning:** momentum_trigger not flagged (1h/48h -1.00%, 4h/48h -2.20%). Volume ratio 0.56x, unconfirmed. No open LTC/EUR position. News search returned stale/mismatched price points ($88.48 vs real ~€62.6), no dated catalyst.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": -0.995732574679947,
+  "pct_change_4h_48h": -2.196933775881145,
+  "rsi_14_4h": 48.20455612245921,
+  "volume_ratio_24h_vs_7d": 0.5582894828788985,
+  "sma_crossover_4h_state": "fast_above_slow",
+  "order_book_imbalance_top10": 0.38863890053268413,
+  "news_context": "Stale/mismatched price point; no dated catalyst"
+}
+```
+
+---
