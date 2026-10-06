@@ -52717,3 +52717,148 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-10-06T17:44:31.483Z — BTC/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h +0.28%, 4h +0.28%, both well under 6%). RSI 53.1 neutral, SMA fast above slow but no fresh cross, volume ratio 1.09x unconfirmed, order book roughly balanced (-0.07). WebSearch returned wildly inconsistent price points ($82,929 / $84,679 / $63,913 / $66k) none matching the real Kraken price (€75,984) - stale/unreliable, not treated as a signal. Coinversa longShort (informational only): netBias +0.33 (more long notional than short), but top-5 shorts include the known cross-asset hedging wallets (0x5b5d5120..., 0xb83de012...) appearing simultaneously short on multiple coins - not read as directional conviction. No trade.
+
+**Signals considered:**
+```json
+{
+  "pct_change_1h_48h": 0.2789,
+  "pct_change_4h_48h": 0.2777,
+  "rsi_14_4h": 53.12,
+  "volume_ratio": 1.0893,
+  "momentum_trigger": false,
+  "order_book_imbalance": -0.0658,
+  "coinversa_net_bias": 0.3336
+}
+```
+
+---
+### 2026-10-06T17:44:31.524Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h -0.27%, 4h -0.07%). RSI 48.5 neutral, volume ratio 1.14x unconfirmed, order book ask-heavy (-0.49). WebSearch cited ETH near $4,578 - doesn't match real Kraken price (€2,392.68 ≈ ~$2,780 at typical EUR/USD) - stale/mismatched, discarded. Coinversa netBias +0.47 (long-leaning), but same cross-asset hedging wallets dominate the short side across multiple coins - not treated as directional signal. No trade.
+
+**Signals considered:**
+```json
+{
+  "pct_change_1h_48h": -0.271,
+  "pct_change_4h_48h": -0.069,
+  "rsi_14_4h": 48.48,
+  "volume_ratio": 1.1357,
+  "momentum_trigger": false,
+  "order_book_imbalance": -0.4891,
+  "coinversa_net_bias": 0.4661
+}
+```
+
+---
+### 2026-10-06T17:44:31.545Z — SOL/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h -1.05%, 4h -0.55%). RSI 51.1 neutral, volume ratio 0.81x (below average, unconfirmed), order book bid-heavy (+0.44) but not enough alone to act on. WebSearch cited SOL near $232-234 - doesn't match real Kraken price (€106.95) - stale/mismatched, discarded. Coinversa netBias +0.55 (long-leaning) informational only, same hedging-wallet caveat applies. No trade.
+
+**Signals considered:**
+```json
+{
+  "pct_change_1h_48h": -1.0464,
+  "pct_change_4h_48h": -0.5482,
+  "rsi_14_4h": 51.13,
+  "volume_ratio": 0.8144,
+  "momentum_trigger": false,
+  "order_book_imbalance": 0.4376,
+  "coinversa_net_bias": 0.5459
+}
+```
+
+---
+### 2026-10-06T17:44:31.565Z — XRP/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h -0.03%, 4h -0.33%). RSI 49.3 neutral, volume ratio 0.98x flat, order book bid-heavy (+0.53) but no other confirmation. WebSearch cited XRP at $1.61/$1.47/$2.21 peak prediction - doesn't convert consistently to real Kraken price (€1.33369) - stale/mismatched, discarded. Coinversa netBias +0.61 (long-leaning, highest concentration top5 of the four at 0.41) informational only. No trade.
+
+**Signals considered:**
+```json
+{
+  "pct_change_1h_48h": -0.0315,
+  "pct_change_4h_48h": -0.3255,
+  "rsi_14_4h": 49.31,
+  "volume_ratio": 0.9761,
+  "momentum_trigger": false,
+  "order_book_imbalance": 0.5279,
+  "coinversa_net_bias": 0.6066
+}
+```
+
+---
+### 2026-10-06T17:44:31.587Z — ADA/EUR — NO TRADE
+
+**Reasoning:** Existing open position (opened 2026-10-06 08:43 UTC) - one-per-pair rule blocks a new entry regardless of signal. Momentum_trigger still flagged true (1h +9.81%, 4h +7.35%) but this is the position's own continuation, not a fresh entry opportunity. Position now slightly underwater (-€1.12, -0.61%) after retracing from its +3.4% peak; still above its invalidation 4h SMA (~€0.2305) and 1h SMA, so no invalidation close triggered by portfolio_check_stops this cycle. No trade (existing position).
+
+**Signals considered:**
+```json
+{
+  "pct_change_1h_48h": 9.8132,
+  "pct_change_4h_48h": 7.3487,
+  "rsi_14_4h": 60.12,
+  "volume_ratio": 1.2059,
+  "momentum_trigger": true,
+  "order_book_imbalance": -0.3503,
+  "existing_position": true,
+  "unrealized_pnl_pct": -0.6127
+}
+```
+
+---
+### 2026-10-06T17:44:31.607Z — LINK/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h -2.20%, 4h -1.40%). RSI 46.2 neutral, volume ratio 0.33x well below average (unconfirmed), SMA state fast_below_slow (bearish structure), order book ask-heavy (-0.16). WebSearch cited LINK at $8.38/$10-13 range - doesn't match real Kraken price (€12.38 ≈ ~$14.4) - stale/mismatched, discarded; the DTCC integration note is a real-sounding catalyst but not time-correlated with a price move this cycle. No trade.
+
+**Signals considered:**
+```json
+{
+  "pct_change_1h_48h": -2.2039,
+  "pct_change_4h_48h": -1.396,
+  "rsi_14_4h": 46.19,
+  "volume_ratio": 0.329,
+  "momentum_trigger": false,
+  "sma_state": "fast_below_slow",
+  "order_book_imbalance": -0.1629
+}
+```
+
+---
+### 2026-10-06T17:44:31.623Z — SUI/EUR — NO TRADE
+
+**Reasoning:** Existing open position (opened 2026-10-04) - one-per-pair rule blocks a new entry. No momentum trigger this cycle (1h -3.24%, 4h -2.38%, both negative/below threshold). Position continuing to retrace from its €1.1189 peak, currently -€9.26 (-3.82%), but still above its invalidation 4h SMA (~€1.0698), so no invalidation close triggered. No trade (existing position).
+
+**Signals considered:**
+```json
+{
+  "pct_change_1h_48h": -3.2389,
+  "pct_change_4h_48h": -2.381,
+  "rsi_14_4h": 48.25,
+  "volume_ratio": 1.1445,
+  "momentum_trigger": false,
+  "order_book_imbalance": -0.0309,
+  "existing_position": true,
+  "unrealized_pnl_pct": -3.8223
+}
+```
+
+---
+### 2026-10-06T17:44:31.643Z — LTC/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h -2.25%, 4h -1.86%). RSI 50.0 neutral, volume ratio 0.56x well below average (unconfirmed), order book roughly balanced (-0.03). WebSearch cited LTC at $45.55 with bearish Fear&Greed(30) - doesn't match real Kraken price (€61.57 ≈ ~$71.7) - stale/mismatched, discarded. No trade.
+
+**Signals considered:**
+```json
+{
+  "pct_change_1h_48h": -2.2475,
+  "pct_change_4h_48h": -1.8638,
+  "rsi_14_4h": 50.03,
+  "volume_ratio": 0.5583,
+  "momentum_trigger": false,
+  "order_book_imbalance": -0.034
+}
+```
+
+---
