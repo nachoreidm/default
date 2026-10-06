@@ -50205,3 +50205,165 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-10-06T01:43:34.550Z — BTC/EUR — NO TRADE
+
+**Reasoning:** momentum_trigger not flagged (1h/48h +1.50%, 4h/48h +1.37%). RSI 59.1. Volume ratio 1.09x, still below confirmation. Order book roughly flat (+0.11). News search repeated the same general market color (Fed meeting Oct 27-28, rising oil prices, slowing ETF inflows) - no fresh dated catalyst. No open BTC/EUR position.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": 1.4953496574897394,
+  "pct_change_4h_48h": 1.3693617732101375,
+  "rsi_14_4h": 59.06901717168333,
+  "volume_ratio_24h_vs_7d": 1.0892573454581123,
+  "sma_crossover_4h_state": "fast_above_slow",
+  "order_book_imbalance_top10": 0.10804020100502514,
+  "coinversa_smart_money_net_bias": 0.3262250337984338,
+  "news_context": "Repeat of prior cycles' general market color; no dated catalyst for today"
+}
+```
+
+---
+### 2026-10-06T01:43:34.569Z — ETH/EUR — NO TRADE
+
+**Reasoning:** momentum_trigger not flagged (1h/48h +1.04%, 4h/48h +0.83%). Volume ratio 1.14x, still below confirmation. No open ETH/EUR position. News search again surfaced the Glamsterdam Sepolia testnet fork, now live today - a real technical milestone but not itself a price-moving catalyst, and there's no qualifying price/volume signal to pair it with.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": 1.0373937464269225,
+  "pct_change_4h_48h": 0.8285367248381498,
+  "rsi_14_4h": 55.63470693746613,
+  "volume_ratio_24h_vs_7d": 1.1356519963752303,
+  "sma_crossover_4h_state": "fast_above_slow",
+  "order_book_imbalance_top10": -0.1605273007027903,
+  "coinversa_smart_money_net_bias": 0.46058133605303414,
+  "news_context": "Glamsterdam Sepolia testnet fork activating today; resistance at $2,680-2,770 noted; no price-moving catalyst"
+}
+```
+
+---
+### 2026-10-06T01:43:34.594Z — SOL/EUR — NO TRADE
+
+**Reasoning:** momentum_trigger not flagged (1h/48h +0.89%, 4h/48h +0.28%). Volume ratio 0.81x, unconfirmed. No open SOL/EUR position. News search returned prediction-market commentary and repeat background items - no dated catalyst.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": 0.8892633155480697,
+  "pct_change_4h_48h": 0.2794336810730227,
+  "rsi_14_4h": 54.985856849572826,
+  "volume_ratio_24h_vs_7d": 0.8144283745587346,
+  "sma_crossover_4h_state": "fast_above_slow",
+  "order_book_imbalance_top10": 0.057095527005402755,
+  "coinversa_smart_money_net_bias": 0.5522388059701493,
+  "news_context": "Prediction-market commentary; tokenized RWA volume milestone (repeat); no dated catalyst for today"
+}
+```
+
+---
+### 2026-10-06T01:43:34.607Z — XRP/EUR — NO TRADE
+
+**Reasoning:** momentum_trigger not flagged (1h/48h +1.59%, 4h/48h +1.46%). Volume ratio 0.98x, still below confirmation. No open XRP/EUR position. News search repeated the same longer-horizon items (Swell/Apex merger event Oct 27-29, Luxembourg e-money license) - no fresh dated catalyst for today's entry.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": 1.5874694935360276,
+  "pct_change_4h_48h": 1.456222728851179,
+  "rsi_14_4h": 53.80677122138408,
+  "volume_ratio_24h_vs_7d": 0.9761396984687607,
+  "sma_crossover_4h_state": "fast_above_slow",
+  "order_book_imbalance_top10": -0.5606706773112489,
+  "coinversa_smart_money_net_bias": 0.6040447046301224,
+  "news_context": "Swell/Apex merger event Oct 27-29; Luxembourg e-money license; no dated catalyst for today"
+}
+```
+
+---
+### 2026-10-06T01:43:34.619Z — ADA/EUR — NO TRADE
+
+**Reasoning:** No open ADA/EUR position. compute_signals' 48h-window momentum_trigger remains flagged (1h/48h +11.38%, 4h/48h +11.55%), unchanged for the eleventh straight cycle. Checked kraken_get_ohlc: the latest closed 1h candle finally showed a real volume jump (542K, ~3x the prior candle) - but the candle itself was indecisive (wide range €0.2394-€0.2426, closed near the middle at €0.2414, not near its high), and the live price has since dropped further to €0.2392, below that candle's close and near its low. That reads as a failed breakout attempt on real volume - a bearish signal, not confirmation - rather than the clean volume-backed breakout this system looks for. This cycle's news search again returned a mismatched price point (~$0.77, unrelated to the real €0.239 market). Declining to enter given the failed-breakout read.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger_flagged": true,
+  "pct_change_1h_48h": 11.38465372120496,
+  "pct_change_4h_48h": 11.554079678842651,
+  "rsi_14_4h": 66.25658547333643,
+  "volume_ratio_24h_vs_7d": 1.2058691650263003,
+  "sma_crossover_4h_state": "fast_above_slow",
+  "order_book_imbalance_top10": 0.06113316476230201,
+  "recent_1h_candle_volumes": [
+    173492.44,
+    542495.6
+  ],
+  "recent_1h_candle_note": "volume jumped 3x but candle was indecisive (wide range, closed mid-range); live price has since dropped below that candle's close and near its low - reads as a failed breakout, not confirmation",
+  "news_context": "Search again returned a mismatched price point (~$0.77); no verifiable fresh catalyst across 11 consecutive cycles"
+}
+```
+
+---
+### 2026-10-06T01:43:34.636Z — LINK/EUR — NO TRADE
+
+**Reasoning:** momentum_trigger not flagged, price negative (1h/48h -1.30%, 4h/48h -0.81%). 4h SMA state remains bearish (fast_below_slow). RSI 44.0. Volume ratio 0.33x, unconfirmed. No open LINK/EUR position. News search repeated the same DTCC/SEC-CFTC items - no immediate dated catalyst, bearish technical picture unchanged.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": -1.3047100063174852,
+  "pct_change_4h_48h": -0.8133512865490623,
+  "rsi_14_4h": 43.970153561663324,
+  "volume_ratio_24h_vs_7d": 0.32895007397062087,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "order_book_imbalance_top10": 0.07166117247183473,
+  "news_context": "DTCC integration and SEC/CFTC digital-commodity classification (repeat items); no immediate dated catalyst; bearish 4h SMA state unchanged"
+}
+```
+
+---
+### 2026-10-06T01:43:34.648Z — SUI/EUR — NO TRADE
+
+**Reasoning:** Existing open position (opened 2026-10-04, not trailing) - one-per-pair rule blocks a second entry. momentum_trigger not flagged this cycle (1h/48h +2.74%, 4h/48h +3.47%), both still under the 6% threshold on compute_signals' window, though this cycle's news search surfaced a genuinely notable item for the record: SUI reportedly broke above its 30-day SMA and a key Fibonacci resistance with RSI readings above 80 on some sources, a 250% activity jump, and an upcoming "AI DeFi Breakthrough" event Oct 7-8 - a real bullish setup, but moot since a second entry isn't possible regardless. Position remains governed by its original hard stop (€1.04) and the standing invalidation/fast-invalidation checks.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": 2.741165234001927,
+  "pct_change_4h_48h": 3.470363288718929,
+  "rsi_14_4h": 54.55486838751694,
+  "volume_ratio_24h_vs_7d": 1.1445126187412682,
+  "sma_crossover_4h_state": "fast_above_slow",
+  "order_book_imbalance_top10": 0.8102655204947975,
+  "existing_position": true,
+  "news_context": "SUI reportedly broke 30-day SMA and Fibonacci resistance, RSI >80 on some sources, 250% activity jump; AI DeFi Breakthrough event Oct 7-8; position already open and managed by standing checks"
+}
+```
+
+---
+### 2026-10-06T01:43:34.661Z — LTC/EUR — NO TRADE
+
+**Reasoning:** momentum_trigger not flagged, essentially flat (1h/48h +0.14%, 4h/48h -0.21%). Volume ratio 0.56x, unconfirmed. No open LTC/EUR position. News search returned the same background/anniversary coverage as prior cycles - no dated catalyst and no price/volume trigger to pair it with.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": 0.14483424525264935,
+  "pct_change_4h_48h": -0.20753512132822885,
+  "rsi_14_4h": 53.078696222096575,
+  "volume_ratio_24h_vs_7d": 0.5582894828788985,
+  "sma_crossover_4h_state": "fast_above_slow",
+  "order_book_imbalance_top10": 0.067792537833767,
+  "news_context": "Litecoin 15-year anniversary coverage; SEC classified LTC as a digital commodity (March 2026); no dated catalyst proportionate to a fresh entry"
+}
+```
+
+---
