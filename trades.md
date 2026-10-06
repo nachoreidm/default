@@ -53622,3 +53622,161 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-10-06T22:42:42.000Z — BTC/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/48h -0.95%, 4h/48h -1.09%). RSI 14 4h neutral at 52.0, SMA fast-above-slow with no fresh cross, order book roughly flat (-0.03). News search returned only generic price-prediction content, no dated proportionate catalyst. Coinversa smart_money tier net Strong Long (+0.35 by notional) - informational only. No open position on this pair. No trade this cycle.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": -0.9452864650507242,
+  "pct_change_4h_48h": -1.0917249227767767,
+  "rsi_14_4h": 51.98096095102898,
+  "sma_crossover_4h_state": "fast_above_slow",
+  "volume_ratio_24h_vs_7d": 1.0892573454581123,
+  "order_book_imbalance_top10": -0.02754356379988754,
+  "coinversa_smart_money_net_bias": "Strong Long (+0.35 by notional) - informational only",
+  "news_context": "No dated proportionate catalyst; generic price-prediction content only"
+}
+```
+
+---
+### 2026-10-06T22:42:42.028Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/48h -1.21%, 4h/48h -1.30%). RSI 14 4h 45.2, SMA fast-above-slow with no fresh cross, order book roughly flat (+0.01). News repeats the same Grayscale ETF-staking/Glamsterdam items from prior cycles, no new catalyst, no momentum trigger. Coinversa smart_money tier net Long (+0.29 by notional) - informational only. No open position on this pair. No trade this cycle.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": -1.2099450474702422,
+  "pct_change_4h_48h": -1.2975703572858164,
+  "rsi_14_4h": 45.214762608010815,
+  "sma_crossover_4h_state": "fast_above_slow",
+  "volume_ratio_24h_vs_7d": 1.1356519963752303,
+  "order_book_imbalance_top10": 0.010332492482220906,
+  "coinversa_smart_money_net_bias": "Long (+0.29 by notional) - informational only",
+  "news_context": "Repeat of Grayscale ETF staking / Glamsterdam upgrade items - no new catalyst, no momentum trigger"
+}
+```
+
+---
+### 2026-10-06T22:42:42.044Z — SOL/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/48h -0.56%, 4h/48h -0.63%). RSI 14 4h 53.0, SMA fast-above-slow with no fresh cross, volume below average (0.81x), order book mildly ask-heavy (-0.10). News search returned only prediction-market odds data, no real catalyst. Coinversa smart_money tier net Strong Long (+0.60 by notional) - informational only. No open position on this pair. No trade this cycle.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": -0.5551957064865313,
+  "pct_change_4h_48h": -0.6296879340679624,
+  "rsi_14_4h": 53.03261187143951,
+  "sma_crossover_4h_state": "fast_above_slow",
+  "volume_ratio_24h_vs_7d": 0.8144283745587346,
+  "order_book_imbalance_top10": -0.09745138351191422,
+  "coinversa_smart_money_net_bias": "Strong Long (+0.60 by notional) - informational only",
+  "news_context": "No dated proportionate catalyst; only prediction-market odds data"
+}
+```
+
+---
+### 2026-10-06T22:42:42.059Z — XRP/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/48h -1.24%, 4h/48h -1.19%). RSI 14 4h 49.4 (neutral), SMA fast-above-slow with no fresh cross, order book bid-heavy (+0.47). News search returned only generic/stale price-prediction content, no dated catalyst. Coinversa smart_money tier net Long (+0.18 by notional) - informational only. No open position on this pair. No trade this cycle.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": -1.2433734939759002,
+  "pct_change_4h_48h": -1.186405553828618,
+  "rsi_14_4h": 49.362572317676694,
+  "sma_crossover_4h_state": "fast_above_slow",
+  "volume_ratio_24h_vs_7d": 0.9761396984687607,
+  "order_book_imbalance_top10": 0.47435122267554025,
+  "coinversa_smart_money_net_bias": "Long (+0.18 by notional) - informational only",
+  "news_context": "No dated proportionate catalyst; generic/stale price content only"
+}
+```
+
+---
+### 2026-10-06T22:42:42.073Z — ADA/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger this cycle (1h/48h +2.51%, 4h/48h +4.38% - both now under the 6% threshold, cooled from last cycle's +7.00%/+4.38%). Already has an open position regardless (opened 2026-10-06T08:43:10Z, currently -2.34% unrealized) - one-per-pair rule would block a new entry even if signals qualified. Logging no-trade; existing position continues to be managed by portfolio_check_stops each cycle.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": 2.5070128486556413,
+  "pct_change_4h_48h": 4.382216012877652,
+  "rsi_14_4h": 59.324774150182584,
+  "sma_crossover_4h_state": "fast_above_slow",
+  "volume_ratio_24h_vs_7d": 1.2058691650263003,
+  "order_book_imbalance_top10": -0.749449886758793,
+  "existing_open_position": true,
+  "reason_skipped": "momentum trigger no longer flagged; also one-per-pair rule - already open since 2026-10-06T08:43:10Z"
+}
+```
+
+---
+### 2026-10-06T22:42:42.089Z — LINK/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/48h -2.20%, 4h/48h -2.11%). RSI 14 4h 47.2, SMA fast-below-slow (bearish), volume well below average (0.33x), order book roughly flat (-0.003). News repeats the same DTCC Collateral AppChain item from prior cycles - no new catalyst, no momentum trigger. No open position on this pair. No trade this cycle.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": -2.200544625907407,
+  "pct_change_4h_48h": -2.110632566838924,
+  "rsi_14_4h": 47.16787384965199,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "volume_ratio_24h_vs_7d": 0.32895007397062087,
+  "order_book_imbalance_top10": -0.0027834200129461077,
+  "news_context": "Repeat of DTCC Collateral AppChain integration item - no new catalyst, no momentum trigger"
+}
+```
+
+---
+### 2026-10-06T22:42:42.102Z — SUI/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/48h -2.83%, 4h/48h -1.81%). This pair already has an open position (opened 2026-10-04T16:43:34Z, currently -4.31% unrealized, non-trailing) - one-per-pair rule blocks a second position regardless. Logging no-trade; existing position continues to be managed by portfolio_check_stops (4h/1h invalidation checks didn't fire this cycle since it's currently underwater, correctly excluded from that gate).
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": -2.8256438762275313,
+  "pct_change_4h_48h": -1.8064996740851178,
+  "rsi_14_4h": 48.44025997246565,
+  "sma_crossover_4h_state": "fast_above_slow",
+  "volume_ratio_24h_vs_7d": 1.1445126187412682,
+  "order_book_imbalance_top10": -0.2641119053689177,
+  "existing_open_position": true,
+  "reason_skipped": "one-per-pair rule - already open since 2026-10-04T16:43:34Z"
+}
+```
+
+---
+### 2026-10-06T22:42:42.117Z — LTC/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/48h -2.29%, 4h/48h -2.18%). RSI 14 4h 45.1, SMA fast-above-slow with no fresh cross, volume well below average (0.56x), order book roughly flat (+0.01). News repeats the same bearish sentiment (Fear & Greed zone) from prior cycles, no bullish catalyst. No open position on this pair. No trade this cycle.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": -2.2948207171314703,
+  "pct_change_4h_48h": -2.180487028489571,
+  "rsi_14_4h": 45.07301730029203,
+  "sma_crossover_4h_state": "fast_above_slow",
+  "volume_ratio_24h_vs_7d": 0.5582894828788985,
+  "order_book_imbalance_top10": 0.01419557703585701,
+  "news_context": "Bearish market sentiment repeated from prior cycles - no bullish catalyst"
+}
+```
+
+---
