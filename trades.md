@@ -51313,3 +51313,171 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-10-06T08:43:10.862Z — ADA/EUR — LONG — OPENED (LIVE)
+
+- Entry price: €0.24 (real fill, Kraken order OYNN3P-CAMD5-34VKIL)
+- Stop-loss: €0.23 (real resting order OJ2LUQ-QEBTT-R47QIO)
+- Take-profit target: €0.28 (2:1 risk/reward, polled - not a resting order, see checkStops)
+- Position size: 3.683151845130069% of portfolio (€182.88, qty 750.95835019)
+- Entry fee (real): €1.10
+- Confidence: medium — momentum_trigger flagged true for the 18th consecutive cycle (1h/48h +11.70%, 4h/48h +11.53%, both well over the 6% threshold) - but unlike every prior cycle, this one has real confirming evidence across three independent checks: (1) kraken_get_ohlc shows the latest closed 1h candle broke decisively above the multi-candle consolidation ceiling (~€0.2428), closing near its high at €0.243168 on volume of 417,694 - the second-highest volume candle of the entire multi-day sequence, confirming real participation rather than a thin move; (2) this cycle's news search, for the first time in 18 cycles, returned a dated catalyst whose price is actually consistent with the real market (ADA quoted at $0.27223 as of Oct 5 2026, which converts to ~€0.243 at current EUR/USD - an exact match to the real Kraken price, unlike every prior cycle's wildly mismatched search results) - T. Rowe Price added ADA to an active crypto ETF (real institutional inclusion), reinforced by Charles Hoskinson's "#LeiosIsComing" teaser (Linear Leios capacity upgrade) and RealFi's Oct 1 mainnet launch adding fresh DeFi/RWA activity; (3) RSI 65.3 is elevated but still below 70, leaving room before classic overbought territory. Capped at medium per the momentum_only rule since the trigger itself is still the primary basis. Two caution flags noted explicitly rather than ignored: the order book is heavily ask-heavy (imbalance -0.57, real resistance supply just above current price) and RSI is already elevated from the broader 48h move - mirrors the precedent set by SUI's two entries (2026-09-22, 2026-10-04), which also opened into adverse order books once a proportionate, volume-confirmed catalyst existed. This reverses 17 consecutive cycles of decline on this pair, each of which lacked at least one of these three confirmations (prior cycles showed thin/declining volume, failed-breakout candles closing at their lows, and/or stale or price-mismatched news).
+- Momentum-only trigger: yes
+- Invalidation: Close back below the rising 4h 20-period SMA (currently ~€0.2279), which also sits beneath the entire pre-breakout consolidation range (~€0.2367-0.2428 over the preceding ~4 hourly candles).
+- Signals supporting this trade:
+```json
+{
+  "current_price": 0.243077,
+  "pct_change_1h_48h": 11.696615588138016,
+  "pct_change_4h_48h": 11.534721585175674,
+  "momentum_trigger_flagged": true,
+  "rsi_14_4h": 65.25638779937341,
+  "sma_crossover_4h": {
+    "fast_value": 0.22790779999999997,
+    "slow_value": 0.22212816,
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "volume_ratio_24h_vs_7d": 1.2058691650263003,
+  "order_book_imbalance_top10": -0.5692889879147569,
+  "breakout_candle_close": 0.243168,
+  "breakout_candle_high": 0.244159,
+  "breakout_candle_volume_1h": 417694.17293623,
+  "prior_candle_volume_1h": 275165.50246469,
+  "news_context": "T. Rowe Price added ADA to an active crypto ETF (institutional inclusion); Hoskinson #LeiosIsComing teaser (Linear Leios capacity upgrade); RealFi Oct 1 mainnet launch (RWA/DeFi activity); price quote ($0.27223) converts consistently to real EUR price for the first time in 18 cycles"
+}
+```
+- Position id: eb80f627-92b6-4412-afc0-af97168a7824
+
+---
+### 2026-10-06T08:43:36.947Z — BTC/EUR — NO TRADE
+
+**Reasoning:** momentum_trigger not flagged (1h/48h +0.57%, 4h/48h +0.35%). RSI 54.0. Volume ratio 1.09x, unconfirmed. Order book roughly flat (-0.06). News search returned stale/mismatched flash items (Christmas flash-crash, $900M liquidation event) with no fresh dated catalyst. No open BTC/EUR position.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": 0.5745759396986027,
+  "pct_change_4h_48h": 0.3501998881892,
+  "rsi_14_4h": 53.988623578180245,
+  "volume_ratio_24h_vs_7d": 1.0892573454581123,
+  "sma_crossover_4h_state": "fast_above_slow",
+  "order_book_imbalance_top10": -0.06028531983433042,
+  "news_context": "Stale flash-crash/liquidation items; no dated catalyst"
+}
+```
+
+---
+### 2026-10-06T08:43:36.962Z — ETH/EUR — NO TRADE
+
+**Reasoning:** momentum_trigger not flagged (1h/48h +0.34%, 4h/48h +0.35%). Volume ratio 1.14x, unconfirmed. No open ETH/EUR position. News search returned stale/mismatched items ($3,100 breakout, $4,458 whale sale) vs real ~€2,415, no dated catalyst.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": 0.3448893480008581,
+  "pct_change_4h_48h": 0.347815220560685,
+  "rsi_14_4h": 52.70055885540708,
+  "volume_ratio_24h_vs_7d": 1.1356519963752303,
+  "sma_crossover_4h_state": "fast_above_slow",
+  "order_book_imbalance_top10": -0.1541949961483069,
+  "news_context": "Stale/mismatched price points; no dated catalyst"
+}
+```
+
+---
+### 2026-10-06T08:43:36.987Z — SOL/EUR — NO TRADE
+
+**Reasoning:** momentum_trigger not flagged (1h/48h -0.56%, 4h/48h -0.80%). Volume ratio 0.81x, unconfirmed. No open SOL/EUR position. News search returned stale items (Breakpoint conference, 2030 price prediction) with no dated catalyst for today.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": -0.5578800557880003,
+  "pct_change_4h_48h": -0.7976996568036354,
+  "rsi_14_4h": 50.546883720588035,
+  "volume_ratio_24h_vs_7d": 0.8144283745587346,
+  "sma_crossover_4h_state": "fast_above_slow",
+  "order_book_imbalance_top10": 0.35438832552280913,
+  "news_context": "Stale items; no dated catalyst"
+}
+```
+
+---
+### 2026-10-06T08:43:37.002Z — XRP/EUR — NO TRADE
+
+**Reasoning:** momentum_trigger not flagged (1h/48h +0.34%, 4h/48h +0.14%). Volume ratio 0.98x, unconfirmed. No open XRP/EUR position. News search returned a stale/mismatched price point ($1.11 vs real ~€1.34) and background partnership items, no dated catalyst.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": 0.3436090225563882,
+  "pct_change_4h_48h": 0.14031665040894714,
+  "rsi_14_4h": 49.30192980323332,
+  "volume_ratio_24h_vs_7d": 0.9761396984687607,
+  "sma_crossover_4h_state": "fast_above_slow",
+  "order_book_imbalance_top10": 0.20346085643153666,
+  "news_context": "Stale/mismatched price point; background partnership items; no dated catalyst"
+}
+```
+
+---
+### 2026-10-06T08:43:37.016Z — LINK/EUR — NO TRADE
+
+**Reasoning:** momentum_trigger not flagged (1h/48h -0.91%, 4h/48h -1.09%). RSI 46.0, SMA crossover fast_below_slow. Volume ratio 0.33x, well below confirmation. No open LINK/EUR position. News search returned stale/mismatched flash-crash and whale-withdrawal items, no fresh dated catalyst.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": -0.9080468595046643,
+  "pct_change_4h_48h": -1.0944080617402623,
+  "rsi_14_4h": 45.989336650673636,
+  "volume_ratio_24h_vs_7d": 0.32895007397062087,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "order_book_imbalance_top10": 0.4036679751356864,
+  "news_context": "Stale flash-crash/whale items; no dated catalyst"
+}
+```
+
+---
+### 2026-10-06T08:43:37.032Z — SUI/EUR — NO TRADE
+
+**Reasoning:** Existing open SUI/EUR position (opened 2026-10-04) - one-per-pair rule, no new entry regardless of signals. momentum_trigger not flagged this cycle (1h/48h +1.73%, 4h/48h +1.19%). Position currently pre-+1R, non-trailing; portfolio_check_stops found nothing to act on this cycle.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": 1.7325548004211742,
+  "pct_change_4h_48h": 1.190136151575736,
+  "rsi_14_4h": 50.36897629993855,
+  "volume_ratio_24h_vs_7d": 1.1445126187412682,
+  "order_book_imbalance_top10": 0.5358151061374953,
+  "existing_position": true
+}
+```
+
+---
+### 2026-10-06T08:43:37.047Z — LTC/EUR — NO TRADE
+
+**Reasoning:** momentum_trigger not flagged (1h/48h -1.18%, 4h/48h -2.20%). Volume ratio 0.56x, unconfirmed. No open LTC/EUR position. News search returned stale items (fake Walmart-partnership rumor, old UFC deal), no dated catalyst.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": -1.1817310763334317,
+  "pct_change_4h_48h": -2.196933775881145,
+  "rsi_14_4h": 48.20455612245921,
+  "volume_ratio_24h_vs_7d": 0.5582894828788985,
+  "sma_crossover_4h_state": "fast_above_slow",
+  "order_book_imbalance_top10": 0.5456808427092893,
+  "news_context": "Stale fake-rumor/old partnership items; no dated catalyst"
+}
+```
+
+---

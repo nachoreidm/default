@@ -43,6 +43,49 @@
       "status": "open",
       "entry_order_txid": "OYNHF6-4HFC3-KOT6AT",
       "stop_order_txid": "OZ4MVO-HSLLE-DTNJZ5"
+    },
+    {
+      "id": "eb80f627-92b6-4412-afc0-af97168a7824",
+      "pair": "ADA/EUR",
+      "direction": "long",
+      "entry_price": 0.243529,
+      "stop_loss": 0.227,
+      "initial_stop_loss": 0.227,
+      "take_profit": 0.27658699999999997,
+      "trailing_active": false,
+      "peak_price": 0.243529,
+      "size_pct": 3.683151845130069,
+      "size_eur": 182.8808870230128,
+      "quantity": 750.95835019,
+      "entry_fee": 1.097285,
+      "opened_at": "2026-10-06T08:43:10.862Z",
+      "signals_at_entry": {
+        "current_price": 0.243077,
+        "pct_change_1h_48h": 11.696615588138016,
+        "pct_change_4h_48h": 11.534721585175674,
+        "momentum_trigger_flagged": true,
+        "rsi_14_4h": 65.25638779937341,
+        "sma_crossover_4h": {
+          "fast_value": 0.22790779999999997,
+          "slow_value": 0.22212816,
+          "state": "fast_above_slow",
+          "crossed_this_candle": false
+        },
+        "volume_ratio_24h_vs_7d": 1.2058691650263003,
+        "order_book_imbalance_top10": -0.5692889879147569,
+        "breakout_candle_close": 0.243168,
+        "breakout_candle_high": 0.244159,
+        "breakout_candle_volume_1h": 417694.17293623,
+        "prior_candle_volume_1h": 275165.50246469,
+        "news_context": "T. Rowe Price added ADA to an active crypto ETF (institutional inclusion); Hoskinson #LeiosIsComing teaser (Linear Leios capacity upgrade); RealFi Oct 1 mainnet launch (RWA/DeFi activity); price quote ($0.27223) converts consistently to real EUR price for the first time in 18 cycles"
+      },
+      "invalidation": "Close back below the rising 4h 20-period SMA (currently ~€0.2279), which also sits beneath the entire pre-breakout consolidation range (~€0.2367-0.2428 over the preceding ~4 hourly candles).",
+      "confidence": "medium",
+      "confidence_reason": "momentum_trigger flagged true for the 18th consecutive cycle (1h/48h +11.70%, 4h/48h +11.53%, both well over the 6% threshold) - but unlike every prior cycle, this one has real confirming evidence across three independent checks: (1) kraken_get_ohlc shows the latest closed 1h candle broke decisively above the multi-candle consolidation ceiling (~€0.2428), closing near its high at €0.243168 on volume of 417,694 - the second-highest volume candle of the entire multi-day sequence, confirming real participation rather than a thin move; (2) this cycle's news search, for the first time in 18 cycles, returned a dated catalyst whose price is actually consistent with the real market (ADA quoted at $0.27223 as of Oct 5 2026, which converts to ~€0.243 at current EUR/USD - an exact match to the real Kraken price, unlike every prior cycle's wildly mismatched search results) - T. Rowe Price added ADA to an active crypto ETF (real institutional inclusion), reinforced by Charles Hoskinson's \"#LeiosIsComing\" teaser (Linear Leios capacity upgrade) and RealFi's Oct 1 mainnet launch adding fresh DeFi/RWA activity; (3) RSI 65.3 is elevated but still below 70, leaving room before classic overbought territory. Capped at medium per the momentum_only rule since the trigger itself is still the primary basis. Two caution flags noted explicitly rather than ignored: the order book is heavily ask-heavy (imbalance -0.57, real resistance supply just above current price) and RSI is already elevated from the broader 48h move - mirrors the precedent set by SUI's two entries (2026-09-22, 2026-10-04), which also opened into adverse order books once a proportionate, volume-confirmed catalyst existed. This reverses 17 consecutive cycles of decline on this pair, each of which lacked at least one of these three confirmations (prior cycles showed thin/declining volume, failed-breakout candles closing at their lows, and/or stale or price-mismatched news).",
+      "momentum_only": true,
+      "status": "open",
+      "entry_order_txid": "OYNN3P-CAMD5-34VKIL",
+      "stop_order_txid": "OJ2LUQ-QEBTT-R47QIO"
     }
   ],
   "closed_positions": [
@@ -535,8 +578,13 @@
       "date": "2026-10-05",
       "realized_pnl_eur": 4.43565441988585,
       "halted": false
+    },
+    {
+      "date": "2026-10-06",
+      "realized_pnl_eur": 0,
+      "halted": false
     }
   ],
   "created_at": "2026-09-22T14:26:40.467Z",
-  "updated_at": "2026-10-05T15:42:03.252Z"
+  "updated_at": "2026-10-06T08:43:10.862Z"
 }
