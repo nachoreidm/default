@@ -51157,3 +51157,159 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-10-06T07:42:37.034Z — BTC/EUR — NO TRADE
+
+**Reasoning:** momentum_trigger not flagged (1h/48h +0.57%, 4h/48h +0.68%). RSI 55.0. Volume ratio 1.09x, unconfirmed. Order book flat (-0.003). News search returned stale/mismatched price points ($125K ATH, old Fed-rate volatility story) vs real ~€76,100, no dated catalyst. No open BTC/EUR position.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": 0.568694698306343,
+  "pct_change_4h_48h": 0.6785216316766702,
+  "rsi_14_4h": 54.97854542203518,
+  "volume_ratio_24h_vs_7d": 1.0892573454581123,
+  "sma_crossover_4h_state": "fast_above_slow",
+  "order_book_imbalance_top10": -0.003018867924528389,
+  "coinversa_smart_money_net_bias": 0.3402145726343621,
+  "news_context": "Stale/mismatched price points; no dated catalyst"
+}
+```
+
+---
+### 2026-10-06T07:42:37.054Z — ETH/EUR — NO TRADE
+
+**Reasoning:** momentum_trigger not flagged (1h/48h -0.05%, 4h/48h -0.10%). Volume ratio 1.14x, unconfirmed. No open ETH/EUR position. News search returned stale/mismatched price points ($2,420/$2,292 vs real ~€2,408) and old Israel-Iran ceasefire story, no fresh dated catalyst.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": -0.047359106657688076,
+  "pct_change_4h_48h": -0.09970338243725296,
+  "rsi_14_4h": 51.03550587843924,
+  "volume_ratio_24h_vs_7d": 1.1356519963752303,
+  "sma_crossover_4h_state": "fast_above_slow",
+  "order_book_imbalance_top10": 0.26013509930965734,
+  "coinversa_smart_money_net_bias": 0.46297993685711375,
+  "news_context": "Stale/mismatched price points; old geopolitical story; no dated catalyst"
+}
+```
+
+---
+### 2026-10-06T07:42:37.075Z — SOL/EUR — NO TRADE
+
+**Reasoning:** momentum_trigger not flagged (1h/48h -0.77%, 4h/48h -0.71%). Volume ratio 0.81x, unconfirmed. No open SOL/EUR position. News search returned internally inconsistent/stale items (one claiming -8%, another claiming +160% monthly), no reliable dated catalyst.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": -0.7706592386258109,
+  "pct_change_4h_48h": -0.705663881151351,
+  "rsi_14_4h": 50.48635531163364,
+  "volume_ratio_24h_vs_7d": 0.8144283745587346,
+  "sma_crossover_4h_state": "fast_above_slow",
+  "order_book_imbalance_top10": -0.01545381673636085,
+  "coinversa_smart_money_net_bias": 0.5619675735092058,
+  "news_context": "Internally inconsistent stale items; no reliable dated catalyst"
+}
+```
+
+---
+### 2026-10-06T07:42:37.093Z — XRP/EUR — NO TRADE
+
+**Reasoning:** momentum_trigger not flagged (1h/48h +0.24%, 4h/48h +0.13%). Volume ratio 0.98x, unconfirmed. No open XRP/EUR position. News search returned only generic SEC-lawsuit/adoption background, no dated catalyst.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": 0.24231603111848476,
+  "pct_change_4h_48h": 0.12528413992813495,
+  "rsi_14_4h": 49.33510620572523,
+  "volume_ratio_24h_vs_7d": 0.9761396984687607,
+  "sma_crossover_4h_state": "fast_above_slow",
+  "order_book_imbalance_top10": 0.07734453165717511,
+  "coinversa_smart_money_net_bias": 0.6041390289201379,
+  "news_context": "Generic SEC-lawsuit/adoption background; no dated catalyst"
+}
+```
+
+---
+### 2026-10-06T07:42:37.110Z — ADA/EUR — NO TRADE
+
+**Reasoning:** No open ADA/EUR position. momentum_trigger remains flagged (1h/48h +10.07%, 4h/48h +8.39%), 17th consecutive cycle. Checked kraken_get_ohlc: the latest closed candle recovered to close at €0.240685 (up from the failed-breakout candle's €0.239289), on volume of 275,166 - still elevated but below the prior candle's 310,918. Price action over the last 3 candles is now choppy/consolidating between roughly €0.238-0.243 rather than cleanly trending either way. Order book is ask-heavy again (-0.25), real resistance still present. RSI 60.4 remains elevated from the broader 48h move. News search surfaced an undated/non-specific ADA breakout story (intraday high $0.825, Hoskinson's $100M BTC-swap plan) that doesn't match the real EUR price level at all and reads as stale/aggregated rather than a fresh dated event. No clean, proportionate, dated catalyst and no decisive breakout - continuing to decline.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger_flagged": true,
+  "pct_change_1h_48h": 10.073722434120874,
+  "pct_change_4h_48h": 8.39255824163763,
+  "rsi_14_4h": 60.37670165565732,
+  "volume_ratio_24h_vs_7d": 1.2058691650263003,
+  "order_book_imbalance_top10": -0.25023089180230396,
+  "latest_1h_candle_close": 0.240685,
+  "latest_1h_candle_volume": 275165.50246469,
+  "news_context": "Stale/mismatched price ($0.825 vs real ~€0.24); choppy consolidation, no clean catalyst"
+}
+```
+
+---
+### 2026-10-06T07:42:37.126Z — LINK/EUR — NO TRADE
+
+**Reasoning:** momentum_trigger not flagged (1h/48h -1.38%, 4h/48h -1.99%). RSI 41.2, SMA crossover fast_below_slow. Volume ratio 0.33x, well below confirmation. No open LINK/EUR position. News search returned background institutional/partnership items (DTCC, Swift, 21Shares newsletter), none dated to today.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": -1.381003786713511,
+  "pct_change_4h_48h": -1.991800115223491,
+  "rsi_14_4h": 41.2189546137555,
+  "volume_ratio_24h_vs_7d": 0.32895007397062087,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "order_book_imbalance_top10": 0.09714585063520398,
+  "news_context": "Institutional/partnership background; no dated catalyst"
+}
+```
+
+---
+### 2026-10-06T07:42:37.142Z — SUI/EUR — NO TRADE
+
+**Reasoning:** Existing open SUI/EUR position (opened 2026-10-04) - one-per-pair rule, no new entry regardless of signals. momentum_trigger not flagged this cycle (1h/48h +1.13%, 4h/48h +0.93%). Position currently pre-+1R, non-trailing; portfolio_check_stops found nothing to act on this cycle.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": 1.1341974837971809,
+  "pct_change_4h_48h": 0.9340449866565033,
+  "rsi_14_4h": 49.572947225512756,
+  "volume_ratio_24h_vs_7d": 1.1445126187412682,
+  "order_book_imbalance_top10": 0.28348840973463396,
+  "existing_position": true
+}
+```
+
+---
+### 2026-10-06T07:42:37.159Z — LTC/EUR — NO TRADE
+
+**Reasoning:** momentum_trigger not flagged (1h/48h -1.16%, 4h/48h -1.48%). Volume ratio 0.56x, unconfirmed. No open LTC/EUR position. News search returned stale/mismatched items ($112.53, $145 references) vs real ~€62, no dated catalyst.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": -1.1633466135458117,
+  "pct_change_4h_48h": -1.48207171314741,
+  "rsi_14_4h": 47.71435469013741,
+  "volume_ratio_24h_vs_7d": 0.5582894828788985,
+  "sma_crossover_4h_state": "fast_above_slow",
+  "order_book_imbalance_top10": 0.3315756969262413,
+  "news_context": "Stale/mismatched price points; no dated catalyst"
+}
+```
+
+---
