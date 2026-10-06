@@ -1503,3 +1503,97 @@ tier-boundary assertions accordingly, and deploy via the standard
 cutover-and-verify pattern. No code changed in this investigation - this
 entry exists purely so the reasoning and backtest don't have to be
 redone from scratch when the user decides to act on it.
+
+**Deployed 2026-10-06** - user asked to proceed ("go back to the last
+decision we hold off"). Raised `PEAK_PROFIT_LOCK_TIERS[0].fraction` 0.4
+→ 0.5 in `types.ts` (commit `1d36417`), updated `selftest.ts`'s
+tier-boundary assertions to match, full suite (incl. live Kraken smoke
+tests) and pruned-build startup both passed before pushing. Deployed via
+the standard cutover: fresh session (`session_01REEfuy4wJiNDLybeR8CXEB`)
+verified via real commit (`b6b2342` - clean cycle, both open positions
+correctly left on their hard stops since neither has reached +1R), no
+Notion prompt confirmed. New trigger `trig_013tx6XHuq3pGmjFGvAiohwn`
+("Kraken live-trading hourly monitoring"), both Notion and
+Coinversa-Pulse connectors attached and confirmed via `list_triggers`.
+Old trigger `trig_01GWyXJnwbiAdWHn4iDN8fNR` disabled, old session
+`session_01WyMJTKBUTavwc9tNDfhs2k` archived (cost $48.35 over its
+~31-hour life).
+
+## Peak-giveback exit guard investigated and rejected - no viable threshold exists (2026-10-06)
+
+**Prompted by** the same conversation as the lock-tier deployment above -
+user pushed back ("Not convinced we got a good [strategy] here... current
+trades are underwater... think harder on what's wrong"), pointing at the
+two then-open positions (SUI/EUR entry €1.0962, ADA/EUR entry €0.243529),
+both of which had peaked modestly (+2.07%, +3.40%) then reversed into
+losses without ever reaching +1R - meaning neither the lock-tier change
+just deployed nor the existing invalidation checks (which require
+"currently profitable") offer any protection once a position goes red
+pre-+1R. This is the exact pattern the paper-trading branch's "Entry-timing
+review" item already named for ADA#1/LTC's historical losses
+("unavoidable by any moving-average exit, at any speed... fell from a
+tiny peak straight through breakeven") - now recurring live on both open
+positions simultaneously.
+
+**Candidate fix tested**: a new soft check - close a pre-+1R position
+early once price has given back a large fraction of its peak gain, even
+after turning red (directly plugging the "currently profitable" gate gap
+above). Backtested at several threshold combinations (min peak gain 1.5%
+or 2.0% before the guard engages; giveback fraction 0.5-0.7) against real
+1h Kraken OHLC for all four relevant trades, replaying price hour-by-hour
+exactly like the existing invalidation checks would:
+
+| Trade | Max peak gain before reversing | Real outcome |
+|---|---|---|
+| ADA#1 (loss) | 1.3% | -€10.67, stop-loss |
+| LTC (loss) | 0.85% | -€14.11, stop-loss |
+| SUI#1 (winner) | 2.05% early, ran to +2R later | +€26.84, trailing |
+| ADA#2 (winner) | crossed +1R before any real pullback | +€4.44, trailing |
+
+**Result: no threshold works.** ADA#1 and LTC's peaks (0.85-1.3%) are
+smaller than any sane trigger floor - a guard loose enough to reach them
+is loose enough to fire on ordinary entry-noise. At the threshold that
+*would* reach that low (1.5-2% peak, 50-60% giveback), it fires on SUI#1
+two hours after entry, during an early dip that fully recovered and went
+on to become the account's best trade - turning +€26.84 into -€1.07.
+There is no gap between "catches the real losers" and "kills the real
+winner" at this resolution using price action alone - rejected, not
+deferred. Simulation and raw data in this conversation's history if
+revisited later; the real fix for this pattern is on the entry side, not
+the exit side - see the next entry.
+
+## Pullback-confirmation entry filter proposed, not yet built (2026-10-06)
+
+Follow-up to the peak-giveback rejection above: ADA#1, LTC, and both of
+the then-currently-open positions (SUI/EUR, ADA/EUR#3) share an identical
+entry profile - `momentum_only`, RSI already elevated (65-67) at entry,
+weak-to-adverse order book at entry, entered on the breakout candle
+itself rather than any confirmation that the move would hold. That's 4 of
+4 momentum_only entries with this exact signature, two already realized
+as losses, two live showing the same early "peak then fade" shape at the
+time of writing. This is the same not-yet-built "Entry-timing review"
+item from the paper-trading branch's decision log, now with live
+real-money confirmation.
+
+**Proposed mechanism** (explained to the user, not yet designed in
+detail or built): instead of entering the instant the momentum trigger
+fires (on the breakout candle, buying directly into a move that already
+happened), require the market to demonstrate the breakout actually holds
+first - either a breakout-and-retest (price pulls back toward the broken
+level and bounces, rather than entering on the original breakout candle),
+or an N-candle consolidation requirement (price must hold above a
+reference level, e.g. the breakout candle's low or a rising short SMA,
+for 1-2 more candles before entry is allowed). Rationale: a breakout
+that's genuinely starting a trend usually survives a retest; one that's
+about to round-trip (ADA#1, LTC, and arguably both live positions at the
+time) typically fails to hold any pullback at all.
+
+**Known cost, flagged before building anything**: this would also miss
+genuine breakouts that run immediately without ever offering a clean
+retest - both of the account's SUI entries opened into fast, continuous
+moves rather than consolidating first, and SUI#1 is the account's best
+trade to date. Whether a pullback rule would have screened out ADA#1/LTC
+while still letting SUI's entries through is an open, not-yet-backtested
+question - proposed as the next concrete backtest if the user wants to
+pursue this, using the same real-OHLC methodology as the lock-tier and
+giveback-guard investigations above, before writing any new signal logic.
