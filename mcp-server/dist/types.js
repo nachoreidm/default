@@ -117,7 +117,7 @@ export const MOMENTUM_ONLY_MAX_CONFIDENCE = "medium";
 // SMA, reused here rather than adding a new indicator.
 export const TRAIL_SMA_PERIOD = 20;
 export const PEAK_PROFIT_LOCK_TIERS = [
-    { minRMultiple: 1, fraction: 0.4 },
+    { minRMultiple: 1, fraction: 0.5 },
     { minRMultiple: TAKE_PROFIT_RR_MULTIPLE, fraction: 0.5 },
     { minRMultiple: 3, fraction: 0.6 },
 ];

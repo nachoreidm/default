@@ -260,24 +260,35 @@ export const TRAIL_SMA_PERIOD = 20;
 // 30% of that peak gain - a deep winner deserves a bigger fraction locked,
 // not just a bigger absolute number at the same 30%. Tiers, keyed by how
 // many multiples of the position's own entry-to-stop risk the peak has
-// reached: 0.4 from +1R (the moment trailing activates - up from the
-// original flat 0.3, a deliberate small tightening of the baseline
-// guarantee), 0.5 from +2R (reuses TAKE_PROFIT_RR_MULTIPLE as the
-// threshold - once a trade has run as far as its own take-profit target
-// would have taken it, lock more), 0.6 from +3R (a genuinely extended,
-// often fast/parabolic move - see effectiveTrailingStop in
-// trailing-math.ts for how peakRMultiple is computed and which tier
-// applies). Sorted ascending by minRMultiple - trailing-math.ts picks the
-// highest tier whose threshold the peak has cleared. At exactly +1R this
-// still produces the same behavior the original design intended (lock a
-// fraction of the peak gain, floored by round-trip costs) - only the
-// fraction used, and how it grows with the rally, has changed.
+// reached: 0.5 from +1R (the moment trailing activates - raised from 0.4
+// on 2026-10-06, see CLAUDE.md's "Trailing-stop profit-lock asymmetry"
+// entry: against a ~0.25%-of-portfolio target risk per trade, 0.4 locked
+// less than half that risk the instant a winner reversed right after
+// crossing +1R. Backtested raising just this tier against the account's
+// only two real trailing exits at the time - it never hurt either trade
+// and improved one of them, because a deep winner (SUI) blows straight
+// through the +2R tier regardless of what this tier is set to, while a
+// quick post-+1R reversal (ADA) gets caught earlier and at a better
+// price. Deliberately did NOT raise the +2R tier too - that one DID cut
+// the deep winner's outcome nearly in half in the same backtest, so it's
+// the lever that actually protects a proven runner and was left alone),
+// 0.5 from +2R (reuses TAKE_PROFIT_RR_MULTIPLE as the threshold - once a
+// trade has run as far as its own take-profit target would have taken
+// it, lock more - now the same 0.5 as the +1R tier, so the ratchet's
+// next real step up is +3R), 0.6 from +3R (a genuinely extended, often
+// fast/parabolic move - see effectiveTrailingStop in trailing-math.ts for
+// how peakRMultiple is computed and which tier applies). Sorted ascending
+// by minRMultiple - trailing-math.ts picks the highest tier whose
+// threshold the peak has cleared. At exactly +1R this still produces the
+// same behavior the original design intended (lock a fraction of the
+// peak gain, floored by round-trip costs) - only the fraction used, and
+// how it grows with the rally, has changed.
 export interface PeakLockTier {
   minRMultiple: number;
   fraction: number;
 }
 export const PEAK_PROFIT_LOCK_TIERS: PeakLockTier[] = [
-  { minRMultiple: 1, fraction: 0.4 },
+  { minRMultiple: 1, fraction: 0.5 },
   { minRMultiple: TAKE_PROFIT_RR_MULTIPLE, fraction: 0.5 },
   { minRMultiple: 3, fraction: 0.6 },
 ];
