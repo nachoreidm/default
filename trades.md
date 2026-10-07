@@ -55870,3 +55870,163 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-10-07T10:03:03.232Z — BTC/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger. SMA fast_above_slow, no fresh cross. RSI 43.1, neutral. Volume ratio 1.04x, not confirming. Order book mildly tilted to asks (-0.19). News search returned stale historical data (price points from $37k to prior rallies), non-actionable. Continuing broad pullback, no qualifying entry signal.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 43.12,
+  "sma_state": "fast_above_slow",
+  "sma_crossed_this_candle": false,
+  "volume_ratio": 1.04,
+  "order_book_imbalance": -0.19,
+  "pct_change_1h_48h": -2.65,
+  "pct_change_4h_48h": -2.25,
+  "news_context": "Stale historical search results, non-actionable"
+}
+```
+
+---
+### 2026-10-07T10:03:03.252Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger. SMA fast_above_slow, no fresh cross. RSI 34.2, weak but unconfirmed. Volume ratio 0.67x, below average. Order book roughly flat (+0.06). News search returned stale historical data, non-actionable. No qualifying setup; decline deepening slightly (-4.4%/-3.6%).
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 34.2,
+  "sma_state": "fast_above_slow",
+  "sma_crossed_this_candle": false,
+  "volume_ratio": 0.67,
+  "order_book_imbalance": 0.065,
+  "pct_change_1h_48h": -4.38,
+  "pct_change_4h_48h": -3.62,
+  "news_context": "Stale historical search results, non-actionable"
+}
+```
+
+---
+### 2026-10-07T10:03:03.284Z — SOL/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger. SMA fast_above_slow, no fresh cross. RSI 45.2, neutral. Volume ratio 0.74x, below average. Order book roughly flat (+0.01). News search returned stale historical data (old ETF-approval-odds narrative), non-actionable. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 45.23,
+  "sma_state": "fast_above_slow",
+  "sma_crossed_this_candle": false,
+  "volume_ratio": 0.74,
+  "order_book_imbalance": 0.013,
+  "pct_change_1h_48h": -2.37,
+  "pct_change_4h_48h": -1.68,
+  "news_context": "Stale historical search results, non-actionable"
+}
+```
+
+---
+### 2026-10-07T10:03:03.300Z — XRP/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger. SMA fast_above_slow, no fresh cross. RSI 42.5, neutral. Volume ratio 0.61x, below average. Order book now strongly tilted to bids (+0.67) - notable but not itself sufficient without a crossover/volume/momentum confirmation. News search returned stale historical data, non-actionable. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 42.52,
+  "sma_state": "fast_above_slow",
+  "sma_crossed_this_candle": false,
+  "volume_ratio": 0.61,
+  "order_book_imbalance": 0.665,
+  "pct_change_1h_48h": -4.26,
+  "pct_change_4h_48h": -2.95,
+  "news_context": "Stale historical search results, non-actionable; strong bid-side order book skew noted but insufficient alone"
+}
+```
+
+---
+### 2026-10-07T10:03:03.314Z — ADA/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger. SMA fast_above_slow, no fresh cross. RSI 49.0, neutral. Volume ratio 0.71x, below average, not confirming. Order book tilted to asks (-0.11). News search returned stale historical data, non-actionable. 1h decline has deepened to -7.0% but no qualifying entry signal.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 48.99,
+  "sma_state": "fast_above_slow",
+  "sma_crossed_this_candle": false,
+  "volume_ratio": 0.71,
+  "order_book_imbalance": -0.115,
+  "pct_change_1h_48h": -6.99,
+  "pct_change_4h_48h": -5.11,
+  "news_context": "Stale historical search results, non-actionable"
+}
+```
+
+---
+### 2026-10-07T10:03:03.328Z — LINK/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger. SMA state remains fast_below_slow (bearish structure), no fresh cross. RSI 44.0, neutral. Volume ratio 0.47x, well below average. Order book tilted to bids (+0.17). News search returned stale historical data, non-actionable. Bearish SMA structure plus no confirming signals - no trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 43.98,
+  "sma_state": "fast_below_slow",
+  "sma_crossed_this_candle": false,
+  "volume_ratio": 0.47,
+  "order_book_imbalance": 0.172,
+  "pct_change_1h_48h": -3.96,
+  "pct_change_4h_48h": -3.32,
+  "news_context": "Stale historical search results, non-actionable; SMA structure still bearish"
+}
+```
+
+---
+### 2026-10-07T10:03:03.343Z — SUI/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger. SMA fast_above_slow, no fresh cross. RSI 40.8, neutral. Volume ratio 0.38x, well below average. Order book now notably tilted to asks (-0.25), a negative. News search returned stale/inconsistent historical data, non-actionable. 48h decline has deepened further to -9.0%/-8.0%, now the deepest among all 8 pairs for a fourth consecutive cycle, with no reversal signal. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 40.81,
+  "sma_state": "fast_above_slow",
+  "sma_crossed_this_candle": false,
+  "volume_ratio": 0.376,
+  "order_book_imbalance": -0.247,
+  "pct_change_1h_48h": -8.96,
+  "pct_change_4h_48h": -7.98,
+  "news_context": "Stale/inconsistent search results, non-actionable; deepening pullback continues, no reversal signal"
+}
+```
+
+---
+### 2026-10-07T10:03:03.358Z — LTC/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger. SMA fast_above_slow, no fresh cross. RSI 39.8, neutral-weak. Volume ratio 0.52x, below average. Order book tilted to bids (+0.20). News search returned stale historical data, non-actionable. No confirming signal combination - no trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 39.79,
+  "sma_state": "fast_above_slow",
+  "sma_crossed_this_candle": false,
+  "volume_ratio": 0.518,
+  "order_book_imbalance": 0.198,
+  "pct_change_1h_48h": -4.65,
+  "pct_change_4h_48h": -4.22,
+  "news_context": "Stale historical search results, non-actionable"
+}
+```
+
+---
