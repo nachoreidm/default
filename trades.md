@@ -56670,3 +56670,163 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-10-07T15:03:15.168Z — BTC/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger. SMA fast_above_slow, no fresh cross. RSI 40.0, neutral. Volume ratio 1.04x, not confirming. Order book tilted to asks (-0.22). News search returned stale data ($125k ATH claim, far above live €74.1k) - non-actionable. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 40.04,
+  "sma_state": "fast_above_slow",
+  "sma_crossed_this_candle": false,
+  "volume_ratio": 1.04,
+  "order_book_imbalance": -0.22,
+  "pct_change_1h_48h": -2.5,
+  "pct_change_4h_48h": -1.55,
+  "news_context": "Stale cached search results (ATH claim inconsistent with live data), non-actionable"
+}
+```
+
+---
+### 2026-10-07T15:03:15.182Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger. SMA fast_above_slow, no fresh cross. RSI 28.7, weak but unconfirmed (4th consecutive cycle in this range). Volume ratio 0.67x, below average. Order book mildly tilted to bids (+0.21). News search returned generic Foundation/staking content and stale price claims ($2,800), non-actionable. No qualifying setup; decline persists.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 28.73,
+  "sma_state": "fast_above_slow",
+  "sma_crossed_this_candle": false,
+  "volume_ratio": 0.67,
+  "order_book_imbalance": 0.213,
+  "pct_change_1h_48h": -4.82,
+  "pct_change_4h_48h": -4.15,
+  "news_context": "Generic/stale content, non-actionable"
+}
+```
+
+---
+### 2026-10-07T15:03:15.206Z — SOL/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger. SMA fast_above_slow, no fresh cross. RSI 39.7, neutral. Volume ratio 0.74x, below average. Order book now strongly tilted to bids (+0.45), a positive but insufficient alone. News search returned stale/generic content, non-actionable. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 39.68,
+  "sma_state": "fast_above_slow",
+  "sma_crossed_this_candle": false,
+  "volume_ratio": 0.74,
+  "order_book_imbalance": 0.454,
+  "pct_change_1h_48h": -2.79,
+  "pct_change_4h_48h": -1.46,
+  "news_context": "Stale/generic search results, non-actionable"
+}
+```
+
+---
+### 2026-10-07T15:03:15.217Z — XRP/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger. SMA fast_above_slow, no fresh cross. RSI 35.7, weak but unconfirmed. Volume ratio 0.61x, below average. Order book tilted to asks (-0.26). News search returned generic/stale legal and partnership content, non-actionable. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 35.69,
+  "sma_state": "fast_above_slow",
+  "sma_crossed_this_candle": false,
+  "volume_ratio": 0.61,
+  "order_book_imbalance": -0.262,
+  "pct_change_1h_48h": -4.25,
+  "pct_change_4h_48h": -2.8,
+  "news_context": "Generic/stale legal and partnership content, non-actionable"
+}
+```
+
+---
+### 2026-10-07T15:03:15.228Z — ADA/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger. SMA fast_above_slow, no fresh cross. RSI 45.7, neutral. Volume ratio 0.71x, below average, not confirming. Order book tilted to asks (-0.09). News search returned stale content (2022-2024 Vasil/Alonzo hard fork references), non-actionable. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 45.71,
+  "sma_state": "fast_above_slow",
+  "sma_crossed_this_candle": false,
+  "volume_ratio": 0.71,
+  "order_book_imbalance": -0.087,
+  "pct_change_1h_48h": -3.86,
+  "pct_change_4h_48h": -3.57,
+  "news_context": "Stale content (2022-2024 references), non-actionable"
+}
+```
+
+---
+### 2026-10-07T15:03:15.248Z — LINK/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger. SMA state remains fast_below_slow (bearish structure), no fresh cross. RSI 36.4, weak but unconfirmed. Volume ratio 0.47x, well below average. Order book mildly tilted to bids (+0.13). News search returned stale data ($29.45 price point far above live €11.92) - non-actionable. Bearish SMA structure persists. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 36.36,
+  "sma_state": "fast_below_slow",
+  "sma_crossed_this_candle": false,
+  "volume_ratio": 0.47,
+  "order_book_imbalance": 0.134,
+  "pct_change_1h_48h": -2.8,
+  "pct_change_4h_48h": -2.7,
+  "news_context": "Stale price data inconsistent with live data, non-actionable; SMA structure still bearish"
+}
+```
+
+---
+### 2026-10-07T15:03:15.261Z — SUI/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger. SMA fast_above_slow, no fresh cross. RSI 37.7, weak but unconfirmed. Volume ratio 0.38x, well below average. Order book tilted to asks (-0.16). News search returned mostly corporate/treasury content about SUI Group Holdings (ticker SUIG, a separate company), not the token itself - non-actionable. 48h decline persists (-5.6%/-5.2%), still the weakest pair for a 9th consecutive cycle. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 37.72,
+  "sma_state": "fast_above_slow",
+  "sma_crossed_this_candle": false,
+  "volume_ratio": 0.376,
+  "order_book_imbalance": -0.16,
+  "pct_change_1h_48h": -5.63,
+  "pct_change_4h_48h": -5.22,
+  "news_context": "Mostly SUIG corporate/treasury news, not the token itself - non-actionable"
+}
+```
+
+---
+### 2026-10-07T15:03:15.275Z — LTC/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger. SMA fast_above_slow, no fresh cross. RSI 35.5, weak but unconfirmed. Volume ratio 0.52x, below average. Order book tilted to bids (+0.33). News mentions an upcoming mining-reward halving and Grayscale accumulation (real but longer-term themes, not a near-term trigger). No confirming signal combination - no trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 35.46,
+  "sma_state": "fast_above_slow",
+  "sma_crossed_this_candle": false,
+  "volume_ratio": 0.518,
+  "order_book_imbalance": 0.333,
+  "pct_change_1h_48h": -5.41,
+  "pct_change_4h_48h": -4.15,
+  "news_context": "Upcoming halving, Grayscale accumulation - longer-term themes, not a near-term trigger"
+}
+```
+
+---
