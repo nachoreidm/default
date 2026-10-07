@@ -55710,3 +55710,163 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-10-07T09:03:19.936Z — BTC/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger. SMA fast_above_slow, no fresh cross. RSI 43.1, neutral. Volume ratio 1.04x, not confirming. Order book now skewed to asks (-0.59). News: Fed meeting Oct 27-28 remains the key macro catalyst flagged across sources, but it's weeks out and not actionable today. No qualifying entry signal.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 43.12,
+  "sma_state": "fast_above_slow",
+  "sma_crossed_this_candle": false,
+  "volume_ratio": 1.04,
+  "order_book_imbalance": -0.591,
+  "pct_change_1h_48h": -2.27,
+  "pct_change_4h_48h": -2.25,
+  "news_context": "Fed meeting Oct 27-28 flagged as key catalyst, weeks out, not actionable today"
+}
+```
+
+---
+### 2026-10-07T09:03:19.958Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger. SMA fast_above_slow, no fresh cross. RSI 34.2, weak but unconfirmed. Volume ratio 0.67x, below average. Order book mildly tilted to asks (-0.08). News: Glamsterdam upgrade progressing (testnet work, Q3/Q4 2026 target) - longer-term constructive, no near-term price catalyst. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 34.2,
+  "sma_state": "fast_above_slow",
+  "sma_crossed_this_candle": false,
+  "volume_ratio": 0.67,
+  "order_book_imbalance": -0.08,
+  "pct_change_1h_48h": -3.86,
+  "pct_change_4h_48h": -3.62,
+  "news_context": "Glamsterdam upgrade progressing, longer-term constructive, no near-term catalyst"
+}
+```
+
+---
+### 2026-10-07T09:03:19.987Z — SOL/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger. SMA fast_above_slow, no fresh cross. RSI 45.2, neutral. Volume ratio 0.74x, below average. Order book mildly tilted to bids (+0.10). News: spot Solana ETFs now live with strong inflows ($199M debut week, $2B+ total) - a genuine structural positive, but no fresh price-moving event today and no live signal confirmation. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 45.23,
+  "sma_state": "fast_above_slow",
+  "sma_crossed_this_candle": false,
+  "volume_ratio": 0.74,
+  "order_book_imbalance": 0.1,
+  "pct_change_1h_48h": -1.9,
+  "pct_change_4h_48h": -1.68,
+  "news_context": "Spot Solana ETFs live with strong inflows - structurally positive but no fresh catalyst today, no signal confirmation"
+}
+```
+
+---
+### 2026-10-07T09:03:20.003Z — XRP/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger. SMA fast_above_slow, no fresh cross. RSI 42.5, neutral. Volume ratio 0.61x, below average. Order book tilted to bids (+0.20). News: Ripple Swell conference is weeks out (Nov 4-5), and per the search XRP has actually dropped this week despite the usual pre-conference pattern - no bullish catalyst today. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 42.52,
+  "sma_state": "fast_above_slow",
+  "sma_crossed_this_candle": false,
+  "volume_ratio": 0.61,
+  "order_book_imbalance": 0.197,
+  "pct_change_1h_48h": -3.18,
+  "pct_change_4h_48h": -2.95,
+  "news_context": "Ripple Swell conference weeks out (Nov 4-5); XRP reportedly weak this week despite usual pre-event pattern - no bullish catalyst today"
+}
+```
+
+---
+### 2026-10-07T09:03:20.019Z — ADA/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger. SMA fast_above_slow, no fresh cross. RSI 49.0, neutral. Volume ratio 0.71x, below average. Order book roughly flat (+0.03). News: spot-ETF decisions from Grayscale/Tuttle pending by end of October - a real but not-yet-resolved catalyst, and sources flag the SEC review as effectively frozen amid a shutdown. No actionable signal today. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 48.99,
+  "sma_state": "fast_above_slow",
+  "sma_crossed_this_candle": false,
+  "volume_ratio": 0.71,
+  "order_book_imbalance": 0.03,
+  "pct_change_1h_48h": -5.56,
+  "pct_change_4h_48h": -5.11,
+  "news_context": "ADA ETF decisions pending end of October, SEC review reportedly frozen amid shutdown - not actionable today"
+}
+```
+
+---
+### 2026-10-07T09:03:20.034Z — LINK/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger. SMA state remains fast_below_slow (bearish structure), no fresh cross. RSI 44.0, neutral. Volume ratio 0.47x, well below average. Order book tilted to bids (+0.18). News: DTCC collateral-management integration confirmed for Q4 2026 launch - genuine institutional positive but not a near-term price trigger, and this search result appears to be from an earlier period (LINK price cited as $10.30, inconsistent with current €12.2/~$13 level) - treated cautiously. No qualifying setup; bearish SMA structure persists.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 43.98,
+  "sma_state": "fast_below_slow",
+  "sma_crossed_this_candle": false,
+  "volume_ratio": 0.47,
+  "order_book_imbalance": 0.184,
+  "pct_change_1h_48h": -3.28,
+  "pct_change_4h_48h": -3.32,
+  "news_context": "DTCC Q4 2026 integration confirmed, longer-term institutional positive but not a near-term trigger; cited price inconsistent with live data, treated cautiously"
+}
+```
+
+---
+### 2026-10-07T09:03:20.049Z — SUI/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger. SMA fast_above_slow, no fresh cross. RSI 40.8, neutral. Volume ratio 0.38x, well below average. Order book roughly flat (+0.07). News search returned no relevant results for Sui/Basecamp specifically this query. Continuing steep 48h decline (-8.1%/-8.0%, now the deepest among the 8 pairs for a third consecutive cycle) with no reversal signal. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 40.81,
+  "sma_state": "fast_above_slow",
+  "sma_crossed_this_candle": false,
+  "volume_ratio": 0.376,
+  "order_book_imbalance": 0.068,
+  "pct_change_1h_48h": -8.13,
+  "pct_change_4h_48h": -7.98,
+  "news_context": "No relevant news surfaced this cycle; deepening pullback continues, no reversal signal"
+}
+```
+
+---
+### 2026-10-07T09:03:20.062Z — LTC/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger. SMA fast_above_slow, no fresh cross. RSI 39.8, neutral-weak. Volume ratio 0.52x, below average. Order book roughly flat (+0.01). News: LTC ETF approval anticipation (Polymarket odds high, CanaryFunds filing) is a genuine pending catalyst, but not yet resolved and inconsistent with the live price action showing a continuing decline (-4.3%/-4.2%). No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 39.79,
+  "sma_state": "fast_above_slow",
+  "sma_crossed_this_candle": false,
+  "volume_ratio": 0.518,
+  "order_book_imbalance": 0.009,
+  "pct_change_1h_48h": -4.28,
+  "pct_change_4h_48h": -4.22,
+  "news_context": "LTC ETF approval anticipation (pending, high odds per prediction markets) but not yet resolved; inconsistent with ongoing price decline"
+}
+```
+
+---
