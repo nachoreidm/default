@@ -95,12 +95,13 @@ Enforced **in code** by `portfolio_open_position` / `portfolio_check_stops`
 / `portfolio_close_position` — a rejection is final, not something to work
 around by resizing and retrying:
 
-- **Position size is not something you choose (changed 2026-10-03)** —
-  `portfolio_open_position` computes it automatically from a target risk %
-  (by confidence: `medium` 0.25%, `high` 0.4% of portfolio value) divided
-  by this trade's own stop distance (entry-to-stop as a % of the current
-  ask), so every trade's real euro loss-if-stopped stays roughly constant
-  no matter how close or far a pair's technical stop level happens to sit.
+- **Position size is not something you choose (changed 2026-10-03, risk
+  targets halved 2026-10-07)** — `portfolio_open_position` computes it
+  automatically from a target risk % (by confidence: `medium` 0.125%,
+  `high` 0.2% of portfolio value) divided by this trade's own stop
+  distance (entry-to-stop as a % of the current ask), so every trade's
+  real euro loss-if-stopped stays roughly constant no matter how close or
+  far a pair's technical stop level happens to sit.
   A wide stop gets a smaller position; a tight stop gets a larger one. Do
   not pass a size — just pass `stop_loss` and `confidence` and the tool
   derives the rest. (See CLAUDE.md's 2026-10-03 entry for the full

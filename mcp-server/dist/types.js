@@ -75,16 +75,29 @@ export const CONFIDENCE_MAX_SIZE_PCT = {
 // stop gets a smaller position and a tight stop gets a larger one, and
 // every trade's real euro loss-if-stopped stays roughly constant instead
 // of varying with wherever a pair's technical stop level happens to sit.
-// Same 0.4/0.25 = 1.6x ratio between high and medium that the old flat
-// caps used (8/5 = 1.6x), so high-confidence trades still target
-// proportionally more risk than medium ones. Calibrated against this
-// account's own actual historical risk (closed trades realized
-// 0.18%-0.35% of portfolio value per stop-hit before this change existed)
-// rather than picked arbitrarily.
+// Ratio between high and medium kept at 0.2/0.125 = 1.6x, same as the
+// original 0.4/0.25 and the flat caps before that (8/5 = 1.6x), so
+// high-confidence trades still target proportionally more risk than
+// medium ones. **Halved 2026-10-07** (0.25->0.125 medium, 0.4->0.2 high)
+// after a string of real stop-outs (ADA#1, LTC, SUI#2, ADA#3) landed
+// right on the old 0.25% target (€10-14 each on a ~€5,000 account) - not
+// a sizing bug, every one hit its intended risk exactly, but the user
+// asked to cut the EUR loss-per-trade in half going forward. This changes
+// the euro amount at risk directly without moving where any stop sits -
+// stops stay exactly where each trade's own technical thesis places them
+// (see effectiveTrailingStop/invalidationCheck in trailing-math.ts, both
+// keyed off real technical levels, not this constant); only the position
+// size scales down to match the smaller risk budget. Originally
+// calibrated against this account's own actual historical risk (closed
+// trades realized 0.18%-0.35% of portfolio value per stop-hit before the
+// 2026-10-03 change existed) - this halving is a deliberate choice to
+// trade smaller losses for smaller wins too (the trailing-lock floor and
+// nominal 2R target both scale down proportionally with position size),
+// not a response to the sizing formula itself being wrong.
 export const TARGET_RISK_PCT = {
     low: 0,
-    medium: 0.25,
-    high: 0.4,
+    medium: 0.125,
+    high: 0.2,
 };
 // Below this computed size, a position isn't worth opening - too small
 // relative to the real ~1.3% round-trip fee cost (ROUND_TRIP_COST_PCT

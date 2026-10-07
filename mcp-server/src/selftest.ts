@@ -127,13 +127,14 @@ async function main() {
   const tooShort = fastInvalidationFromCloses([1, 2, 3]);
   assert(tooShort.breached === false && tooShort.lastCloses === null, `fastInvalidationFromCloses fails safe with too little history (got ${JSON.stringify(tooShort)})`);
 
-  // computePositionSizePct (2026-10-03 risk-based sizing) - pure, no network.
-  // medium targetRisk=0.25%, high targetRisk=0.4%; caps: medium<=5%, high<=8%
-  // (also the global RISK_LIMITS.MAX_POSITION_PCT=8%).
-  assert(computePositionSizePct("medium", 5) === 5, `computePositionSizePct medium at 5% stop distance hits the 5% cap exactly (got ${computePositionSizePct("medium", 5)})`);
-  assert(computePositionSizePct("medium", 10) === 2.5, `computePositionSizePct medium at 10% stop distance -> 2.5% (got ${computePositionSizePct("medium", 10)})`);
-  assert(computePositionSizePct("high", 5) === 8, `computePositionSizePct high at 5% stop distance hits the 8% cap exactly (got ${computePositionSizePct("high", 5)})`);
-  assert(computePositionSizePct("high", 40) === 1, `computePositionSizePct high at 40% stop distance -> 1% (got ${computePositionSizePct("high", 40)})`);
+  // computePositionSizePct (2026-10-03 risk-based sizing, targets halved
+  // 2026-10-07: medium 0.25%->0.125%, high 0.4%->0.2%, see CLAUDE.md) -
+  // pure, no network. Caps unchanged: medium<=5%, high<=8% (also the
+  // global RISK_LIMITS.MAX_POSITION_PCT=8%).
+  assert(computePositionSizePct("medium", 2.5) === 5, `computePositionSizePct medium at 2.5% stop distance hits the 5% cap exactly (got ${computePositionSizePct("medium", 2.5)})`);
+  assert(computePositionSizePct("medium", 10) === 1.25, `computePositionSizePct medium at 10% stop distance -> 1.25% (got ${computePositionSizePct("medium", 10)})`);
+  assert(computePositionSizePct("high", 2.5) === 8, `computePositionSizePct high at 2.5% stop distance hits the 8% cap exactly (got ${computePositionSizePct("high", 2.5)})`);
+  assert(computePositionSizePct("high", 40) === 0.5, `computePositionSizePct high at 40% stop distance -> 0.5% (got ${computePositionSizePct("high", 40)}) - below MIN_POSITION_PCT, would be rejected by openPosition's separate check, but the pure sizing function itself doesn't clamp to that floor`);
   assert(computePositionSizePct("low", 5) === 0, `computePositionSizePct returns 0 for "low" confidence regardless of stop distance (got ${computePositionSizePct("low", 5)})`);
   assert(computePositionSizePct("medium", 0) === 0, "computePositionSizePct fails safe (0) for a zero/invalid stop distance");
 
