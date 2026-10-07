@@ -56830,3 +56830,163 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-10-07T16:03:27.258Z — BTC/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger. SMA fast_above_slow, no fresh cross. RSI 37.6, neutral-weak. Volume ratio 1.04x, not confirming. Order book mildly tilted to bids (+0.12). News: Fed Oct 27-28 meeting and Oct 2/14 macro data flagged as key catalysts, but weeks/days out, not actionable today. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 37.62,
+  "sma_state": "fast_above_slow",
+  "sma_crossed_this_candle": false,
+  "volume_ratio": 1.04,
+  "order_book_imbalance": 0.12,
+  "pct_change_1h_48h": -2.02,
+  "pct_change_4h_48h": -2.36,
+  "news_context": "Fed meeting and macro data flagged as catalysts but not immediate; price figures cited ($82-85k) still above live €74.5k - likely stale"
+}
+```
+
+---
+### 2026-10-07T16:03:27.271Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger. SMA fast_above_slow, no fresh cross. RSI 27.5, weak but unconfirmed (5th consecutive cycle in this oversold-adjacent range with no confirming crossover/volume/momentum). Volume ratio 0.67x, below average. Order book roughly flat (-0.04). News: Glamsterdam upgrade progressing toward Q4 mainnet - longer-term constructive, no near-term catalyst. No qualifying setup; decline persists (-4.6%/-4.9%).
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 27.48,
+  "sma_state": "fast_above_slow",
+  "sma_crossed_this_candle": false,
+  "volume_ratio": 0.67,
+  "order_book_imbalance": -0.044,
+  "pct_change_1h_48h": -4.6,
+  "pct_change_4h_48h": -4.88,
+  "news_context": "Glamsterdam upgrade progressing, no near-term catalyst"
+}
+```
+
+---
+### 2026-10-07T16:03:27.281Z — SOL/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger. SMA fast_above_slow, no fresh cross. RSI 37.3, neutral-weak. Volume ratio 0.74x, below average. Order book mildly tilted to bids (+0.09). News: RWA tokenization growth and Alpenglow upgrade anticipation are real but longer-term, no near-term catalyst. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 37.3,
+  "sma_state": "fast_above_slow",
+  "sma_crossed_this_candle": false,
+  "volume_ratio": 0.74,
+  "order_book_imbalance": 0.089,
+  "pct_change_1h_48h": -2.27,
+  "pct_change_4h_48h": -2.64,
+  "news_context": "RWA growth, Alpenglow upgrade anticipation - longer-term, no near-term catalyst"
+}
+```
+
+---
+### 2026-10-07T16:03:27.306Z — XRP/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger. SMA fast_above_slow, no fresh cross. RSI 32.6, weak but unconfirmed. Volume ratio 0.61x, below average. Order book tilted to asks (-0.24). News this cycle actually matches live price (~$1.28/€1.28) - confirms broader market weakness (bearish analyst revisions, Iran peace deal triggering a risk-off selloff across majors) rather than any XRP-specific catalyst. Consistent with the ongoing decline, no reversal signal. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 32.62,
+  "sma_state": "fast_above_slow",
+  "sma_crossed_this_candle": false,
+  "volume_ratio": 0.61,
+  "order_book_imbalance": -0.241,
+  "pct_change_1h_48h": -3.67,
+  "pct_change_4h_48h": -4.25,
+  "news_context": "News consistent with live price for once - broader risk-off (Iran peace deal selloff), bearish analyst forecast revisions, no reversal catalyst"
+}
+```
+
+---
+### 2026-10-07T16:03:27.321Z — ADA/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger. SMA fast_above_slow, no fresh cross. RSI 47.8, neutral. Volume ratio 0.71x, below average, not confirming. Order book tilted to asks (-0.32). News: ADA spot-ETF SEC decision deadline Oct 23 is a real pending catalyst but 2+ weeks out - not actionable today. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 47.82,
+  "sma_state": "fast_above_slow",
+  "sma_crossed_this_candle": false,
+  "volume_ratio": 0.71,
+  "order_book_imbalance": -0.319,
+  "pct_change_1h_48h": -3.13,
+  "pct_change_4h_48h": -3.43,
+  "news_context": "ADA spot-ETF SEC deadline Oct 23 - real but not near-term, not actionable today"
+}
+```
+
+---
+### 2026-10-07T16:03:27.334Z — LINK/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger. SMA state remains fast_below_slow (bearish structure), no fresh cross. RSI 37.7, weak but unconfirmed. Volume ratio 0.47x, well below average. Order book strongly tilted to bids (+0.42), a positive but insufficient alone. News: Fulcrum launch (Sep 30) and BitGo CCIP adoption are real institutional positives, but price target ($13.25+ needed to hold August breakout) is well above live €11.97 - breakout has not held. Bearish SMA structure persists. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 37.7,
+  "sma_state": "fast_below_slow",
+  "sma_crossed_this_candle": false,
+  "volume_ratio": 0.47,
+  "order_book_imbalance": 0.418,
+  "pct_change_1h_48h": -2.81,
+  "pct_change_4h_48h": -3.16,
+  "news_context": "Fulcrum launch, BitGo CCIP adoption real positives, but cited breakout-hold level ($13.25) well above live price - breakout failed; SMA structure still bearish"
+}
+```
+
+---
+### 2026-10-07T16:03:27.347Z — SUI/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger. SMA fast_above_slow, no fresh cross. RSI 38.6, neutral-weak. Volume ratio 0.38x, well below average. Order book now heavily skewed to asks (-0.47), a clear negative. News: Sui Basecamp 2026 (Oct 7-8, Singapore) is today/tomorrow - a real, specific catalyst - but the news describes a rally from days ago that has since fully reversed per live Kraken data (48h decline -5.0%/-6.5%, deepening again this cycle). No confirming signal for a fresh long; treating as a catalyst that already played out and reversed, not a reason to buy into the ongoing decline. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 38.64,
+  "sma_state": "fast_above_slow",
+  "sma_crossed_this_candle": false,
+  "volume_ratio": 0.376,
+  "order_book_imbalance": -0.47,
+  "pct_change_1h_48h": -4.99,
+  "pct_change_4h_48h": -6.55,
+  "news_context": "Sui Basecamp 2026 (Oct 7-8) is a real catalyst, but the referenced rally has already reversed per live price data; no confirming signal"
+}
+```
+
+---
+### 2026-10-07T16:03:27.357Z — LTC/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger. SMA fast_above_slow, no fresh cross. RSI 31.6, weak but unconfirmed. Volume ratio 0.52x, below average. Order book roughly flat (-0.07). News this cycle matches live price closely (~$60, resistance at $64) - confirms the pair is testing resistance from below after a decline, consistent with the ongoing weakness, not a breakout. No confirming signal combination - no trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 31.6,
+  "sma_state": "fast_above_slow",
+  "sma_crossed_this_candle": false,
+  "volume_ratio": 0.518,
+  "order_book_imbalance": -0.066,
+  "pct_change_1h_48h": -6.09,
+  "pct_change_4h_48h": -5.36,
+  "news_context": "News matches live price (~$60, resistance $64) - confirms ongoing weakness testing resistance from below, not a breakout"
+}
+```
+
+---
