@@ -57630,3 +57630,163 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-10-07T21:03:05.241Z — BTC/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger. SMA fast_above_slow, no fresh cross. RSI 36.7, neutral-weak. Volume ratio 1.04x, not confirming. Order book tilted to asks (-0.23). News search returned entirely stale/conflicting historical data, non-actionable. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 36.69,
+  "sma_state": "fast_above_slow",
+  "sma_crossed_this_candle": false,
+  "volume_ratio": 1.04,
+  "order_book_imbalance": -0.23,
+  "pct_change_1h_48h": -2.73,
+  "pct_change_4h_48h": -2.58,
+  "news_context": "Stale/conflicting historical data, non-actionable"
+}
+```
+
+---
+### 2026-10-07T21:03:05.255Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger. SMA fast_above_slow, no fresh cross. RSI 27.2, weak but unconfirmed (10th consecutive cycle in this range, no confirming signal). Volume ratio 0.67x, below average. Order book tilted to asks (-0.45). News search returned entirely stale/conflicting historical data, non-actionable. No qualifying setup; decline persists (-5.1%/-5.0%).
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 27.19,
+  "sma_state": "fast_above_slow",
+  "sma_crossed_this_candle": false,
+  "volume_ratio": 0.67,
+  "order_book_imbalance": -0.447,
+  "pct_change_1h_48h": -5.12,
+  "pct_change_4h_48h": -4.97,
+  "news_context": "Stale/conflicting historical data, non-actionable"
+}
+```
+
+---
+### 2026-10-07T21:03:05.279Z — SOL/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger. SMA fast_above_slow, no fresh cross. RSI 33.4, weak but unconfirmed. Volume ratio 0.74x, below average. Order book roughly flat (-0.03). News search returned stale data (Sept report at ~$106, inconsistent with live €103.69), non-actionable. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 33.4,
+  "sma_state": "fast_above_slow",
+  "sma_crossed_this_candle": false,
+  "volume_ratio": 0.74,
+  "order_book_imbalance": -0.033,
+  "pct_change_1h_48h": -3.6,
+  "pct_change_4h_48h": -3.95,
+  "news_context": "Stale data, non-actionable"
+}
+```
+
+---
+### 2026-10-07T21:03:05.292Z — XRP/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger. SMA fast_above_slow, no fresh cross. RSI 28.8, weak but unconfirmed - deep in weak territory for a 2nd cycle. Volume ratio 0.61x, below average. Order book tilted to asks (-0.36). News search returned entirely stale/historical data, non-actionable. No qualifying setup; decline persists (-5.5%/-5.8%).
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 28.79,
+  "sma_state": "fast_above_slow",
+  "sma_crossed_this_candle": false,
+  "volume_ratio": 0.61,
+  "order_book_imbalance": -0.359,
+  "pct_change_1h_48h": -5.54,
+  "pct_change_4h_48h": -5.82,
+  "news_context": "Stale/historical data, non-actionable"
+}
+```
+
+---
+### 2026-10-07T21:03:05.304Z — ADA/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger. SMA fast_above_slow, no fresh cross. RSI 46.6, neutral. Volume ratio 0.71x, below average, not confirming. Order book heavily tilted to asks (-0.53). News search returned entirely stale historical data, non-actionable. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 46.56,
+  "sma_state": "fast_above_slow",
+  "sma_crossed_this_candle": false,
+  "volume_ratio": 0.71,
+  "order_book_imbalance": -0.528,
+  "pct_change_1h_48h": -5.26,
+  "pct_change_4h_48h": -5.63,
+  "news_context": "Stale historical data, non-actionable; heavy ask-side order book skew"
+}
+```
+
+---
+### 2026-10-07T21:03:05.315Z — LINK/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger. SMA state remains fast_below_slow (bearish structure), no fresh cross. RSI 36.4, weak but unconfirmed. Volume ratio 0.47x, well below average. Order book tilted to asks (-0.47). News search returned entirely stale (2018-2021) historical data, non-actionable. Bearish SMA structure persists. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 36.42,
+  "sma_state": "fast_below_slow",
+  "sma_crossed_this_candle": false,
+  "volume_ratio": 0.47,
+  "order_book_imbalance": -0.47,
+  "pct_change_1h_48h": -3.88,
+  "pct_change_4h_48h": -3.33,
+  "news_context": "Stale historical data (2018-2021), non-actionable; SMA structure still bearish"
+}
+```
+
+---
+### 2026-10-07T21:03:05.326Z — SUI/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger. SMA fast_above_slow, no fresh cross. RSI 36.8, weak but unconfirmed. Volume ratio 0.38x, well below average. Order book roughly flat (+0.06). News search returned conflicting stale data from different 2026 dates, none matching live Kraken price (€1.0036) - non-actionable. One dated source did note bearish sentiment/RSI earlier in the year, broadly consistent with the ongoing weakness. 48h decline remains the steepest among the 8 pairs for an 11th consecutive cycle (-7.9%/-7.9%). No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 36.83,
+  "sma_state": "fast_above_slow",
+  "sma_crossed_this_candle": false,
+  "volume_ratio": 0.376,
+  "order_book_imbalance": 0.063,
+  "pct_change_1h_48h": -7.92,
+  "pct_change_4h_48h": -7.86,
+  "news_context": "Conflicting stale data; one source's bearish sentiment broadly consistent with ongoing weakness; deepest decline for an 11th consecutive cycle"
+}
+```
+
+---
+### 2026-10-07T21:03:05.337Z — LTC/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger. SMA fast_above_slow, no fresh cross. RSI 30.9, weak but unconfirmed. Volume ratio 0.52x, below average. Order book roughly flat (-0.01). News search returned entirely stale (2018-2020) historical data, non-actionable. No confirming signal combination - no trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 30.93,
+  "sma_state": "fast_above_slow",
+  "sma_crossed_this_candle": false,
+  "volume_ratio": 0.518,
+  "order_book_imbalance": -0.014,
+  "pct_change_1h_48h": -5.73,
+  "pct_change_4h_48h": -5.66,
+  "news_context": "Stale historical data (2018-2020), non-actionable"
+}
+```
+
+---
