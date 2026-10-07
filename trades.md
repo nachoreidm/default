@@ -56030,3 +56030,163 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-10-07T11:03:18.320Z — BTC/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger. SMA fast_above_slow, no fresh cross. RSI 43.1, neutral. Volume ratio 1.04x, not confirming. Order book now heavily skewed to asks (-0.80). News search returned stale historical data (2024 articles), non-actionable. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 43.12,
+  "sma_state": "fast_above_slow",
+  "sma_crossed_this_candle": false,
+  "volume_ratio": 1.04,
+  "order_book_imbalance": -0.798,
+  "pct_change_1h_48h": -2.73,
+  "pct_change_4h_48h": -2.25,
+  "news_context": "Stale historical search results (2024), non-actionable"
+}
+```
+
+---
+### 2026-10-07T11:03:18.338Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger. SMA fast_above_slow, no fresh cross. RSI 34.2, weak but unconfirmed. Volume ratio 0.67x, below average. Order book tilted to asks (-0.46). News search surfaced speculative price-target content ($10k ETH, BTC "$126k ATH") wildly inconsistent with live Kraken data (ETH €2,306, clear downtrend) - treated as unreliable, non-actionable. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 34.2,
+  "sma_state": "fast_above_slow",
+  "sma_crossed_this_candle": false,
+  "volume_ratio": 0.67,
+  "order_book_imbalance": -0.461,
+  "pct_change_1h_48h": -4.99,
+  "pct_change_4h_48h": -3.62,
+  "news_context": "Speculative price-target content inconsistent with live data, treated as unreliable"
+}
+```
+
+---
+### 2026-10-07T11:03:18.367Z — SOL/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger. SMA fast_above_slow, no fresh cross. RSI 45.2, neutral. Volume ratio 0.74x, below average. Order book now notably tilted to bids (+0.44), a positive but insufficient alone. News: genuine pending catalysts (CME SOL futures options, multiple spot-ETF filings, Firedancer upgrade) - longer-term constructive but no fresh near-term trigger confirmed by live signals. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 45.23,
+  "sma_state": "fast_above_slow",
+  "sma_crossed_this_candle": false,
+  "volume_ratio": 0.74,
+  "order_book_imbalance": 0.439,
+  "pct_change_1h_48h": -2.47,
+  "pct_change_4h_48h": -1.68,
+  "news_context": "CME SOL futures options, pending spot-ETF filings, Firedancer upgrade - longer-term positive, no fresh near-term trigger"
+}
+```
+
+---
+### 2026-10-07T11:03:18.380Z — XRP/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger. SMA fast_above_slow, no fresh cross. RSI 42.5, neutral. Volume ratio 0.61x, below average. Order book tilted to bids (+0.21). News search returned stale historical data (2024 SEC appeal context), non-actionable. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 42.52,
+  "sma_state": "fast_above_slow",
+  "sma_crossed_this_candle": false,
+  "volume_ratio": 0.61,
+  "order_book_imbalance": 0.21,
+  "pct_change_1h_48h": -4.38,
+  "pct_change_4h_48h": -2.95,
+  "news_context": "Stale historical search results (2024), non-actionable"
+}
+```
+
+---
+### 2026-10-07T11:03:18.393Z — ADA/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger. SMA fast_above_slow, no fresh cross. RSI 49.0, neutral. Volume ratio 0.71x, below average, not confirming. Order book notably tilted to asks (-0.45). News mentions a 7th-anniversary narrative and a governance treasury vote - not a fresh price catalyst, and price figures cited are inconsistent with live data. 1h decline deepened to -6.1%. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 48.99,
+  "sma_state": "fast_above_slow",
+  "sma_crossed_this_candle": false,
+  "volume_ratio": 0.71,
+  "order_book_imbalance": -0.449,
+  "pct_change_1h_48h": -6.12,
+  "pct_change_4h_48h": -5.11,
+  "news_context": "7th-anniversary narrative, governance vote - not a fresh price catalyst, figures inconsistent with live data"
+}
+```
+
+---
+### 2026-10-07T11:03:18.405Z — LINK/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger. SMA state remains fast_below_slow (bearish structure), no fresh cross. RSI 44.0, neutral. Volume ratio 0.47x, well below average. Order book roughly flat (+0.06). News: whale accumulation and CCIP/Ronin adoption flagged as longer-term positives but price figures cited ($10.60-$11.13) are inconsistent with live data and dated - non-actionable. Bearish SMA structure persists, 1h decline deepening to -5.1%. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 43.98,
+  "sma_state": "fast_below_slow",
+  "sma_crossed_this_candle": false,
+  "volume_ratio": 0.47,
+  "order_book_imbalance": 0.061,
+  "pct_change_1h_48h": -5.08,
+  "pct_change_4h_48h": -3.32,
+  "news_context": "Whale accumulation, CCIP adoption flagged but figures inconsistent/dated; SMA structure still bearish"
+}
+```
+
+---
+### 2026-10-07T11:03:18.418Z — SUI/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger. SMA fast_above_slow, no fresh cross. RSI 40.8, neutral. Volume ratio 0.38x, well below average. Order book tilted to bids (+0.43), a positive but insufficient alone. News search returned irrelevant/unrelated results (SUIG stock, non-crypto matches), non-actionable. 48h decline persists at -8.9%/-8.0%, deepest among all 8 pairs for a fifth consecutive cycle, with no reversal signal. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 40.81,
+  "sma_state": "fast_above_slow",
+  "sma_crossed_this_candle": false,
+  "volume_ratio": 0.376,
+  "order_book_imbalance": 0.434,
+  "pct_change_1h_48h": -8.93,
+  "pct_change_4h_48h": -7.98,
+  "news_context": "No relevant news surfaced; deepening pullback continues for a 5th cycle, no reversal signal"
+}
+```
+
+---
+### 2026-10-07T11:03:18.431Z — LTC/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger. SMA fast_above_slow, no fresh cross. RSI 39.8, neutral-weak. Volume ratio 0.52x, below average. Order book roughly flat (+0.01). News: LTC ETF decision still pending/delayed (SEC missed its Oct 2 deadline) - a real but unresolved catalyst, not yet actionable. No confirming signal combination - no trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 39.79,
+  "sma_state": "fast_above_slow",
+  "sma_crossed_this_candle": false,
+  "volume_ratio": 0.518,
+  "order_book_imbalance": 0.008,
+  "pct_change_1h_48h": -4.8,
+  "pct_change_4h_48h": -4.22,
+  "news_context": "LTC ETF decision pending/delayed (SEC missed Oct 2 deadline), unresolved catalyst, not yet actionable"
+}
+```
+
+---
