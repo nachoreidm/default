@@ -55230,3 +55230,163 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-10-07T06:08:37.079Z — BTC/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger (abs move well under 6% threshold). SMA state fast_above_slow but no fresh cross this candle - not a new breakout signal. RSI 38.7 (neutral-weak, not an oversold-reversal trigger this system codes for). Volume ratio 1.04x, not confirming. Order book skewed to asks (-0.25 imbalance). News: broad macro overhang - Fed meeting Oct 27-28 flagged as a risk to the recent rally; ETF inflows still positive but slowing. No actionable catalyst for a new long today - broad 48h pullback (-2.5%/-2.7%) across the whole pair list, consistent with risk-off rather than a BTC-specific signal.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 38.65,
+  "sma_state": "fast_above_slow",
+  "sma_crossed_this_candle": false,
+  "volume_ratio": 1.04,
+  "order_book_imbalance": -0.251,
+  "pct_change_1h_48h": -2.54,
+  "pct_change_4h_48h": -2.69,
+  "news_context": "Fed meeting Oct 27-28 flagged as risk to summer rally; ETF inflows still positive but slowing; no fresh BTC-specific catalyst"
+}
+```
+
+---
+### 2026-10-07T06:08:37.105Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger. SMA fast_above_slow but no fresh cross. RSI 28.45 (weak/oversold territory but this system doesn't have a standalone oversold-bounce rule - needs confirming volume/crossover/momentum, none present). Volume ratio 0.67x (below average, not confirming). Order book skewed to asks (-0.19). News: Glamsterdam upgrade testing progressing, generally constructive long-term, but no near-term price catalyst; some reports of ETF inflows but conflicting with the live price data showing a 4h/48h decline of -4.5%. No qualifying signal combination - no trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 28.45,
+  "sma_state": "fast_above_slow",
+  "sma_crossed_this_candle": false,
+  "volume_ratio": 0.67,
+  "order_book_imbalance": -0.187,
+  "pct_change_1h_48h": -4.1,
+  "pct_change_4h_48h": -4.49,
+  "news_context": "Glamsterdam upgrade testing (Sepolia fork) progressing toward Q4 mainnet; long-term constructive but no near-term catalyst; broad pullback dominates"
+}
+```
+
+---
+### 2026-10-07T06:08:37.122Z — SOL/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger. SMA fast_above_slow, no fresh cross. RSI 39.7, neutral. Volume ratio 0.74x, below average - no confirmation. Order book actually tilted toward bids (+0.15), a mild positive, but insufficient alone without a crossover/momentum/volume confirmation. News: mixed/contradictory reports on SOL price levels (breakout vs pullback narratives), Breakpoint conference in November is the next real catalyst, nothing actionable today. No qualifying setup - no trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 39.75,
+  "sma_state": "fast_above_slow",
+  "sma_crossed_this_candle": false,
+  "volume_ratio": 0.74,
+  "order_book_imbalance": 0.153,
+  "pct_change_1h_48h": -2.52,
+  "pct_change_4h_48h": -3.09,
+  "news_context": "Mixed technical narratives (wedge breakout vs. pullback); Breakpoint conference not until mid-Nov; no near-term catalyst"
+}
+```
+
+---
+### 2026-10-07T06:08:37.137Z — XRP/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger. SMA fast_above_slow, no fresh cross. RSI 36.3, neutral-weak. Volume ratio 0.61x, below average. Order book skewed to asks (-0.10). News: generally constructive (Ripple institutional/ETF momentum, Swell conference late Oct) but the live price action shows a clear 48h decline (-3.3%/-4.0%) with Fed meeting Oct 28 flagged as a near-term risk - no fresh bullish trigger today. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 36.26,
+  "sma_state": "fast_above_slow",
+  "sma_crossed_this_candle": false,
+  "volume_ratio": 0.61,
+  "order_book_imbalance": -0.103,
+  "pct_change_1h_48h": -3.28,
+  "pct_change_4h_48h": -4.02,
+  "news_context": "Ripple institutional/ETF inflows strong longer-term, Swell conference Oct 27-29, but Fed meeting flagged as near-term risk; no fresh catalyst today"
+}
+```
+
+---
+### 2026-10-07T06:08:37.152Z — ADA/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger. SMA fast_above_slow, no fresh cross. RSI 45.3, neutral. Volume ratio 0.71x, below average, not confirming. Order book tilted to bids (+0.31), a mild positive but insufficient alone. News: potential spot-ETF decision window and reported whale accumulation are longer-term constructive, but live price shows the steepest decline of the EUR-pair list on the 4h window (-6.8%) with no reversal signal yet. No qualifying setup - no trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 45.29,
+  "sma_state": "fast_above_slow",
+  "sma_crossed_this_candle": false,
+  "volume_ratio": 0.71,
+  "order_book_imbalance": 0.312,
+  "pct_change_1h_48h": -5.1,
+  "pct_change_4h_48h": -6.85,
+  "news_context": "Potential spot-ETF decision window late Oct, reported whale accumulation - longer-term constructive but no near-term reversal signal; steep ongoing pullback"
+}
+```
+
+---
+### 2026-10-07T06:08:37.170Z — LINK/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger. SMA state is fast_below_slow (bearish structure, no fresh cross this candle - not a new signal either way). RSI 38.1, neutral-weak. Volume ratio 0.47x, well below average. Order book roughly flat (+0.01). News: DTCC Collateral AppChain integration by Q4 2026 is a longer-term institutional positive, no near-term catalyst. Bearish SMA structure plus no confirming signals - no trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 38.14,
+  "sma_state": "fast_below_slow",
+  "sma_crossed_this_candle": false,
+  "volume_ratio": 0.47,
+  "order_book_imbalance": 0.014,
+  "pct_change_1h_48h": -3.72,
+  "pct_change_4h_48h": -4.64,
+  "news_context": "DTCC Collateral AppChain integration planned Q4 2026 - longer-term institutional positive, no near-term catalyst; SMA structure currently bearish (fast below slow)"
+}
+```
+
+---
+### 2026-10-07T06:08:37.191Z — SUI/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger (move is negative, below threshold magnitude for the system's breakout logic). SMA fast_above_slow but no fresh cross. RSI 40.6, neutral. Volume ratio 0.38x, well below average - no confirmation. Order book tilted to bids (+0.32). News: Sui Basecamp 2026 (Oct 7-8, Singapore, alongside TOKEN2049) is a real, specific catalyst and news reports referenced a recent rally to ~$1.27 - but the live Kraken EUR price (€1.0122) shows SUI has pulled back sharply since then (-7.9%/-8.3% over 48h), meaning the rally the news describes has already reversed by the time of this cycle. No fresh bullish trigger confirms a long today; the news is stale relative to current price action, not a reason to buy into a falling knife. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 40.55,
+  "sma_state": "fast_above_slow",
+  "sma_crossed_this_candle": false,
+  "volume_ratio": 0.376,
+  "order_book_imbalance": 0.323,
+  "pct_change_1h_48h": -7.92,
+  "pct_change_4h_48h": -8.29,
+  "news_context": "Sui Basecamp 2026 (Oct 7-8, Singapore) is a real catalyst, but news references an already-past rally to ~$1.27 that has since reversed per live Kraken price action - no confirming signal for a fresh long"
+}
+```
+
+---
+### 2026-10-07T06:08:37.209Z — LTC/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger. SMA fast_above_slow, no fresh cross. RSI 38.6, neutral-weak. Volume ratio 0.52x, below average, not confirming. Order book roughly flat (+0.03). News: 15-year anniversary milestone, generally positive sentiment on continued relevance, but nothing that qualifies as a near-term price catalyst. No confirming signal combination - no trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 38.65,
+  "sma_state": "fast_above_slow",
+  "sma_crossed_this_candle": false,
+  "volume_ratio": 0.518,
+  "order_book_imbalance": 0.03,
+  "pct_change_1h_48h": -3.71,
+  "pct_change_4h_48h": -3.37,
+  "news_context": "15-year anniversary milestone, continued payments-niche relevance - no near-term price catalyst"
+}
+```
+
+---
