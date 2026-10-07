@@ -54742,3 +54742,159 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-10-07T05:43:05.239Z — BTC/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (downward move, 1h/48h -2.26%, 4h/48h -2.69%, broad risk-off continuing). RSI 14 4h 38.7, SMA still fast-above-slow, order book notably ask-heavy (-0.64). News search returned only generic October-outlook content ("Uptober" seasonality, Fed meeting Oct 27-28 risk), no dated catalyst for today. Coinversa smart_money tier net Strong Long (+0.37 by notional) - informational only. No open position. No trade this cycle.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": -2.2620323438383263,
+  "pct_change_4h_48h": -2.6902076079143975,
+  "rsi_14_4h": 38.65087212597187,
+  "sma_crossover_4h_state": "fast_above_slow",
+  "volume_ratio_24h_vs_7d": 1.0407312440151566,
+  "order_book_imbalance_top10": -0.6363962027583737,
+  "coinversa_smart_money_net_bias": "Strong Long (+0.37 by notional) - informational only",
+  "news_context": "No dated catalyst for today; generic October-outlook/Fed-meeting content"
+}
+```
+
+---
+### 2026-10-07T05:43:05.259Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (downward move, 1h/48h -3.85%, 4h/48h -4.49%, broad risk-off continuing). RSI 14 4h still oversold at 28.5, order book bid-heavy (+0.16), SMA still fast-above-slow. News search returned only prediction-market noise, no dated catalyst. Coinversa smart_money tier net Strong Long (+0.31 by notional) - informational only; oversold RSI alone is not an entry signal in this system. No open position. No trade this cycle.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": -3.8520246708281065,
+  "pct_change_4h_48h": -4.489047644493406,
+  "rsi_14_4h": 28.450573267010782,
+  "sma_crossover_4h_state": "fast_above_slow",
+  "volume_ratio_24h_vs_7d": 0.669548526534546,
+  "order_book_imbalance_top10": 0.1635910002227668,
+  "coinversa_smart_money_net_bias": "Strong Long (+0.31 by notional) - informational only",
+  "news_context": "No dated catalyst for today; only prediction-market odds data"
+}
+```
+
+---
+### 2026-10-07T05:43:05.300Z — SOL/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (downward move, 1h/48h -2.30%, 4h/48h -3.09%, broad risk-off continuing). RSI 14 4h 39.7, order book roughly flat (+0.01), SMA still fast-above-slow. News search returned only prediction-market noise, no dated catalyst. Coinversa smart_money tier net Strong Long (+0.62 by notional) - informational only. No open position. No trade this cycle.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": -2.295539033457248,
+  "pct_change_4h_48h": -3.0852827408362447,
+  "rsi_14_4h": 39.74867141786796,
+  "sma_crossover_4h_state": "fast_above_slow",
+  "volume_ratio_24h_vs_7d": 0.7401224584878032,
+  "order_book_imbalance_top10": 0.007972403607358335,
+  "coinversa_smart_money_net_bias": "Strong Long (+0.62 by notional) - informational only",
+  "news_context": "No dated catalyst; only prediction-market odds data"
+}
+```
+
+---
+### 2026-10-07T05:43:05.319Z — XRP/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (downward move, 1h/48h -3.18%, 4h/48h -4.02%, broad risk-off continuing). RSI 14 4h 36.3, order book roughly flat (-0.02), SMA still fast-above-slow. News search returned a mismatched price quote ($1.08, inconsistent with the real Kraken EUR price trend) and generic 2026-outlook content, no dated catalyst for today. Coinversa smart_money tier net Long (+0.22 by notional) - informational only. No open position. No trade this cycle.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": -3.175523493075849,
+  "pct_change_4h_48h": -4.024647005992432,
+  "rsi_14_4h": 36.264443598137845,
+  "sma_crossover_4h_state": "fast_above_slow",
+  "volume_ratio_24h_vs_7d": 0.6092109736636522,
+  "order_book_imbalance_top10": -0.023367095050987878,
+  "coinversa_smart_money_net_bias": "Long (+0.22 by notional) - informational only",
+  "news_context": "No dated catalyst for today; mismatched price quote, generic 2026-outlook content"
+}
+```
+
+---
+### 2026-10-07T05:43:05.338Z — ADA/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (downward move, 1h/48h -5.83%, 4h/48h -6.85% - exceeds threshold magnitude but system only flags upward breakouts). No open position. RSI 14 4h 45.3, SMA still fast-above-slow, order book ask-heavy (-0.26), volume below average (0.71x). News search this cycle returned generic/stale content without the Hoskinson item resurfacing, but the underlying bearish fundamental backdrop from prior cycles stands; no basis for a long entry regardless. No trade this cycle.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": -5.834142938993092,
+  "pct_change_4h_48h": -6.84915191588978,
+  "rsi_14_4h": 45.2899690180828,
+  "sma_crossover_4h_state": "fast_above_slow",
+  "volume_ratio_24h_vs_7d": 0.7110288010708569,
+  "order_book_imbalance_top10": -0.26106154695738487,
+  "news_context": "Generic/stale content this cycle; no new catalyst, underlying bearish Hoskinson-related backdrop from prior cycles unresolved"
+}
+```
+
+---
+### 2026-10-07T05:43:05.358Z — LINK/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (downward move, 1h/48h -4.00%, 4h/48h -4.64%, broad risk-off continuing). RSI 14 4h 38.1, SMA fast-below-slow (bearish), volume well below average (0.47x), order book bid-heavy (+0.14). News repeats the same DTCC Collateral AppChain item from prior cycles - no new catalyst. No open position. No trade this cycle.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": -3.9967034882799504,
+  "pct_change_4h_48h": -4.635357342881765,
+  "rsi_14_4h": 38.14350724615903,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "volume_ratio_24h_vs_7d": 0.4710631747551412,
+  "order_book_imbalance_top10": 0.13961412969354892,
+  "news_context": "Repeat of DTCC Collateral AppChain integration item - no new catalyst, no momentum trigger"
+}
+```
+
+---
+### 2026-10-07T05:43:05.379Z — SUI/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (downward move, 1h/48h -6.90%, 4h/48h -8.29% - again the sharpest of all 8 pairs; system only flags upward breakouts). RSI 14 4h 40.6, SMA still fast-above-slow, volume well below average (0.38x) - still not confirmed by participation. Order book bid-heavy (+0.18). News search returned only stale (July 2026) price data and conflicting October forecasts, no dated catalyst for today. No open position (closed via hard stop earlier this week). No trade this cycle - continued thin-volume decline remains no basis for any new position.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": -6.898454746136862,
+  "pct_change_4h_48h": -8.288288288288296,
+  "rsi_14_4h": 40.55373884814164,
+  "sma_crossover_4h_state": "fast_above_slow",
+  "volume_ratio_24h_vs_7d": 0.37640281918410007,
+  "order_book_imbalance_top10": 0.18267054813213413,
+  "news_context": "Stale July 2026 price data, conflicting October forecasts - no dated catalyst for today"
+}
+```
+
+---
+### 2026-10-07T05:43:05.399Z — LTC/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (downward move, 1h/48h -3.59%, 4h/48h -3.37%, broad risk-off continuing). RSI 14 4h 38.6, SMA still fast-above-slow, volume well below average (0.52x), order book roughly flat (+0.004). News repeats the same bearish sentiment (Fear & Greed 30) from prior cycles, no bullish catalyst. No open position. No trade this cycle.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": -3.5949285828919946,
+  "pct_change_4h_48h": -3.3711455504074235,
+  "rsi_14_4h": 38.647736256774145,
+  "sma_crossover_4h_state": "fast_above_slow",
+  "volume_ratio_24h_vs_7d": 0.5181917000884667,
+  "order_book_imbalance_top10": 0.004367954945111903,
+  "news_context": "Bearish market sentiment repeated from prior cycles (Fear & Greed 30) - no bullish catalyst"
+}
+```
+
+---
