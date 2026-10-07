@@ -53938,3 +53938,171 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-10-07T00:42:05.337Z — SUI/EUR — LONG — CLOSED (LIVE)
+
+- Exit price: €1.04 (real fill)
+- Exit fee (real): €1.38
+- Reason: Stop-loss filled on Kraken (order OZ4MVO-HSLLE-DTNJZ5).
+- Realized P&L: €-13.82 (-0.27% of portfolio)
+- Position id: 63390086-ab27-414a-9590-970a80c05516
+
+---
+### 2026-10-07T00:43:20.124Z — BTC/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/48h -1.33%, 4h/48h -1.33%). RSI 14 4h neutral at 51.7, SMA fast-above-slow with no fresh cross, order book roughly flat (-0.01). News search returned only generic price-prediction content, no dated proportionate catalyst. Coinversa smart_money tier net Strong Long (+0.35 by notional) - informational only. No open position on this pair. No trade this cycle.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": -1.3272090841011246,
+  "pct_change_4h_48h": -1.3327155783276934,
+  "rsi_14_4h": 51.674720467816975,
+  "sma_crossover_4h_state": "fast_above_slow",
+  "volume_ratio_24h_vs_7d": 1.0407312440151566,
+  "order_book_imbalance_top10": -0.014579759862778745,
+  "coinversa_smart_money_net_bias": "Strong Long (+0.35 by notional) - informational only",
+  "news_context": "No dated proportionate catalyst; generic price-prediction content only"
+}
+```
+
+---
+### 2026-10-07T00:43:20.157Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/48h -1.24%, 4h/48h -1.39%). RSI 14 4h 47.9, SMA fast-above-slow with no fresh cross, volume below average (0.67x), order book bid-heavy (+0.45). News search returned only prediction-market odds data, no new catalyst. Coinversa smart_money tier net Long (+0.29 by notional) - informational only. No open position on this pair. No trade this cycle.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": -1.2400047787559543,
+  "pct_change_4h_48h": -1.3870663874983136,
+  "rsi_14_4h": 47.937656772745186,
+  "sma_crossover_4h_state": "fast_above_slow",
+  "volume_ratio_24h_vs_7d": 0.669548526534546,
+  "order_book_imbalance_top10": 0.4495388959536994,
+  "coinversa_smart_money_net_bias": "Long (+0.29 by notional) - informational only",
+  "news_context": "No dated proportionate catalyst; only prediction-market odds data"
+}
+```
+
+---
+### 2026-10-07T00:43:20.174Z — SOL/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/48h -0.57%, 4h/48h -0.48%). RSI 14 4h 52.7, SMA fast-above-slow with no fresh cross, volume below average (0.74x), order book bid-heavy (+0.20). News search returned only generic price-level context, no dated proportionate catalyst. Coinversa smart_money tier net Strong Long (+0.60 by notional) - informational only. No open position on this pair. No trade this cycle.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": -0.5746593752896512,
+  "pct_change_4h_48h": -0.48241951943594974,
+  "rsi_14_4h": 52.71756974817146,
+  "sma_crossover_4h_state": "fast_above_slow",
+  "volume_ratio_24h_vs_7d": 0.7401224584878032,
+  "order_book_imbalance_top10": 0.19993333350969977,
+  "coinversa_smart_money_net_bias": "Strong Long (+0.60 by notional) - informational only",
+  "news_context": "No dated proportionate catalyst; generic price-level content only"
+}
+```
+
+---
+### 2026-10-07T00:43:20.190Z — XRP/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/48h -1.74%, 4h/48h -1.56%). RSI 14 4h 46.9, SMA fast-above-slow with no fresh cross, volume below average (0.61x), order book bid-heavy (+0.22). News search returned only generic/stale price content, no dated catalyst. Coinversa smart_money tier net Long (+0.20 by notional) - informational only. No open position on this pair. No trade this cycle.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": -1.7402866006795543,
+  "pct_change_4h_48h": -1.5563136900841343,
+  "rsi_14_4h": 46.89587651172532,
+  "sma_crossover_4h_state": "fast_above_slow",
+  "volume_ratio_24h_vs_7d": 0.6092109736636522,
+  "order_book_imbalance_top10": 0.22033762313692778,
+  "coinversa_smart_money_net_bias": "Long (+0.20 by notional) - informational only",
+  "news_context": "No dated proportionate catalyst; generic/stale price content only"
+}
+```
+
+---
+### 2026-10-07T00:43:20.207Z — ADA/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/48h +1.40%, 4h/48h -1.23%). Already has an open position regardless (opened 2026-10-06T08:43:10Z, currently -2.51% unrealized) - one-per-pair rule would block a new entry even if signals qualified. Logging no-trade; existing position continues to be managed by portfolio_check_stops each cycle.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": 1.404880380324842,
+  "pct_change_4h_48h": -1.2348860504844368,
+  "rsi_14_4h": 55.817945859690894,
+  "sma_crossover_4h_state": "fast_above_slow",
+  "volume_ratio_24h_vs_7d": 0.7110288010708569,
+  "order_book_imbalance_top10": -0.2522112959356268,
+  "existing_open_position": true,
+  "reason_skipped": "momentum trigger not flagged; also one-per-pair rule - already open since 2026-10-06T08:43:10Z"
+}
+```
+
+---
+### 2026-10-07T00:43:20.222Z — LINK/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/48h -2.11%, 4h/48h -2.00%). RSI 14 4h 46.8, SMA fast-below-slow (bearish), volume well below average (0.47x), order book bid-heavy (+0.45). News repeats the same generic price/prediction content from prior cycles, no new catalyst. No open position on this pair. No trade this cycle.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": -2.109217764658521,
+  "pct_change_4h_48h": -2.0024035479591555,
+  "rsi_14_4h": 46.762330782969016,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "volume_ratio_24h_vs_7d": 0.4710631747551412,
+  "order_book_imbalance_top10": 0.45168143353488277,
+  "news_context": "Generic price-prediction content repeated from prior cycles - no new catalyst, no momentum trigger"
+}
+```
+
+---
+### 2026-10-07T00:43:20.237Z — SUI/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/48h -3.82%, 4h/48h -4.95%). No open position on this pair now - the resting stop-loss filled this cycle (portfolio_check_stops reconciliation, real Kraken fill at €1.0399, -€13.82 realized), so this is a fresh evaluation. RSI 14 4h 46.7 (neutral), SMA still fast-above-slow, order book roughly flat (+0.03), volume well below average (0.38x). Price action is negative, not a fresh breakout - no basis for a new entry so soon after being stopped out of the same direction. No trade this cycle.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": -3.8210710021126184,
+  "pct_change_4h_48h": -4.947349310094408,
+  "rsi_14_4h": 46.705220543724636,
+  "sma_crossover_4h_state": "fast_above_slow",
+  "volume_ratio_24h_vs_7d": 0.37640281918410007,
+  "order_book_imbalance_top10": 0.029136246659722954,
+  "just_stopped_out": true,
+  "stop_loss_fill_price": 1.0399,
+  "stop_loss_realized_pnl_eur": -13.823290465640554
+}
+```
+
+---
+### 2026-10-07T00:43:20.253Z — LTC/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/48h -2.65%, 4h/48h -2.36%). RSI 14 4h 44.0, SMA fast-above-slow with no fresh cross, volume well below average (0.52x), order book mildly ask-heavy (-0.09). News repeats the same bearish sentiment (Fear & Greed zone) from prior cycles, no bullish catalyst. No open position on this pair. No trade this cycle.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": -2.651635439822157,
+  "pct_change_4h_48h": -2.3570632266284393,
+  "rsi_14_4h": 44.02133151004465,
+  "sma_crossover_4h_state": "fast_above_slow",
+  "volume_ratio_24h_vs_7d": 0.5181917000884667,
+  "order_book_imbalance_top10": -0.09133481453378428,
+  "news_context": "Bearish market sentiment repeated from prior cycles - no bullish catalyst"
+}
+```
+
+---
