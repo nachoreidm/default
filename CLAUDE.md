@@ -1597,3 +1597,107 @@ while still letting SUI's entries through is an open, not-yet-backtested
 question - proposed as the next concrete backtest if the user wants to
 pursue this, using the same real-OHLC methodology as the lock-tier and
 giveback-guard investigations above, before writing any new signal logic.
+
+## TARGET_RISK_PCT halved; K=3 pullback-confirmation filter backtested and built; cron moved to :01 (2026-10-07)
+
+**Risk-per-trade halved, at the user's explicit request** ("Simply
+shocking how I keep loosing money... I want to cut stop los by 1/2" -
+clarified afterward to mean euro risk per trade, not stop distance or
+position size directly: "When I say lose half don't mean half the size
+of the trade"). Correctly diagnosed before building anything: stop
+distance and position size are inversely coupled
+(`computePositionSizePct` divides target risk by stop distance), so
+halving the raw stop distance would have roughly DOUBLED position size
+at the same euro risk, not halved the loss - the right lever is
+`TARGET_RISK_PCT` itself. Halved both tiers in `types.ts`: medium
+0.25%->0.125%, high 0.4%->0.2% (commit `2caedd7`). Every real stop-hit
+to date had landed almost exactly on the old 0.25% target (€10-14 each on
+a ~€5,000 account) - not a sizing bug, every one hit its intended risk
+exactly - this is a deliberate choice to halve both the loss and the
+eventual win size together (the trailing-lock floor and nominal 2R
+target both scale down proportionally with position size), not a
+response to the formula being wrong. `selftest.ts`'s
+`computePositionSizePct` assertions updated to match; full suite and a
+pruned-build smoke test passed before pushing.
+
+**Pullback-confirmation entry filter: backtested, then built.** Picking
+back up the idea proposed 2026-10-06 (see the entry above) after the
+user asked to revisit it ("Maybe but first explain the pullback-
+confirmation filter" -> answered via AskUserQuestion: "Backtest first,
+then decide"). Backtested a "hold above the breakout candle's own low
+for K consecutive closed 1h candles" rule against real Kraken OHLC for
+all 8 historical `momentum_only` trades, varying K from 1 to 10:
+
+| K | Real losers rejected | Real winners touched |
+|---|---|---|
+| 3 | ADA#1 (-€10.67), LTC (-€14.11), SUI#2 (-€13.82) - 3 of 6 | none |
+| 7-9 | adds LINK#3 (-€17.49), ADA#3 (-€13.70) | entry-price drift too large for this backtest's fixed-exit methodology to stay trustworthy (would need a full re-simulation with stop/target recomputed from the delayed entry - not done) |
+
+K=3 was the clear choice: it cleanly rejects half the real losers
+(€38.60 of avoidable loss) while never once rejecting either real winner
+(SUI#1 +€26.84, ADA#2 +€4.44), with minimal entry-price drift (~0.5-2%).
+User approved: "I want to proceed with k=3."
+
+**Built as real, code-enforced logic** (commit `0179b2a`), not left to
+agent judgment - consistent with this project's standing philosophy of
+turning ad hoc judgment into fixed rules once a pattern is confirmed (see
+`CONFIDENCE_MAX_SIZE_PCT`'s and `computePositionSizePct`'s own history).
+New pure `evaluateBreakoutConfirmation` (`breakout-confirmation.ts`)
+tracks each pair's candidate breakout - keyed by pair, not position id,
+since it tracks a pre-trade candidate - in a new
+`PortfolioState.pending_breakouts` field (`types.ts`, defaulted to `{}`
+for pre-existing state files). New MCP tool
+`portfolio_check_breakout_confirmation(pair, momentum_flagged)` advances
+this tracking against real 1h candles each cycle; `portfolio_open_position`
+now rejects any `momentum_only: true` call outright unless that pair's
+tracking has reached `confirmed_count >= BREAKOUT_CONFIRM_CANDLES` (3),
+consuming (deleting) the record on a successful entry so it can't be
+reused for a later trade. A breakout that closes below its own level on
+any held candle is rejected outright, no second chance at the same level.
+Unit-tested with synthetic candles (started/pending/confirmed/rejected/
+re-confirm-without-recounting cases), full existing suite and a
+pruned-build smoke test both passed.
+`instructions/kraken-live-agent-instructions.md` got a new dedicated
+section plus updates to the required-output-format section.
+
+**Cron moved from :41 to :01** (`41 * * * *` -> `1 * * * *`), at the
+user's suggestion ("shall we also run the cycle 1min past the hour
+instead of 41? Will we gain reaction time by doing so?") - confirmed yes:
+this cuts the lag between an hourly candle closing (on the hour) and the
+system reacting to it from ~41 minutes down to ~1 minute, benefiting
+every hourly-candle-dependent check (stops, both invalidation checks,
+trailing, and now this pullback-confirmation window), not just the new
+filter. Pure trigger metadata, no cutover needed for this part alone.
+
+**Deployed via the standard cutover pattern, combining both changes into
+one swap** rather than cutting over twice same-day: created a fresh
+session (`session_01QDsxt5L6k5FMnqtT1PaMbm`) seeded with an hourly-cycle
+prompt updated for both the halved risk targets and the new
+pullback-confirmation step, so the verification run doubled as that
+hour's real cycle. Verified against the actual commit (`87ae013`, sitting
+directly on top of the pullback-confirmation commit), not the session's
+own summary: broad 48h pullback across all 8 pairs, no momentum trigger
+flagged on any pair (so the new filter wasn't exercised this cycle, but
+the deployed code ran without error), no open positions, account flat at
+€4,941.95. User explicitly confirmed no Notion prompt appeared. New
+trigger `trig_01LzLfsXdfBp8m32zunsXVke` ("Kraken live-trading hourly
+monitoring"), both Notion and Coinversa-Pulse connectors attached and
+confirmed via `list_triggers`. Old trigger `trig_013tx6XHuq3pGmjFGvAiohwn`
+disabled (not deleted). Old session `session_01REEfuy4wJiNDLybeR8CXEB`
+archived ($23.36 over its ~10-hour life). Also archived a redundant
+TARGET_RISK_PCT-only verification session from earlier the same day
+(`session_01DLEFaCjknpQLpkkfYbzCnz`, $1.96 over ~5 minutes) that would
+otherwise have gone unused once the combined verification session above
+covered the same ground plus the pullback filter.
+
+**Not yet confirmed to have fired for real** - same caveat as every new
+check built on this branch: the pullback-confirmation mechanism is
+deployed and will run every cycle a momentum trigger flags, but hasn't
+yet had a real breakout to confirm or reject since deploying (this
+cycle's broad pullback across all 8 pairs meant no pair flagged
+momentum_trigger at all). Watch the next real momentum-flagged pair for
+a `portfolio_check_breakout_confirmation` call and verify its
+`started`/`pending`/`confirmed`/`rejected` progression matches real price
+action, the same discipline applied to every other new check on this
+branch (4h/fast invalidation, tiered lock fractions) before trusting it
+blind.
