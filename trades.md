@@ -57150,3 +57150,163 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-10-07T18:02:56.486Z — BTC/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger. SMA fast_above_slow, no fresh cross. RSI 37.6, neutral-weak. Volume ratio 1.04x, not confirming. Order book roughly flat (+0.07). News search returned stale historical data ($125k ATH claim far above live €74.3k), non-actionable. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 37.62,
+  "sma_state": "fast_above_slow",
+  "sma_crossed_this_candle": false,
+  "volume_ratio": 1.04,
+  "order_book_imbalance": 0.065,
+  "pct_change_1h_48h": -2.81,
+  "pct_change_4h_48h": -2.36,
+  "news_context": "Stale historical search results, non-actionable"
+}
+```
+
+---
+### 2026-10-07T18:02:56.504Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger. SMA fast_above_slow, no fresh cross. RSI 27.5, weak but unconfirmed (7th consecutive cycle in this range with no confirming signal). Volume ratio 0.67x, below average. Order book tilted to asks (-0.13). News search returned generic institutional content, non-actionable. No qualifying setup; decline deepening further (-5.8%/-4.9%).
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 27.48,
+  "sma_state": "fast_above_slow",
+  "sma_crossed_this_candle": false,
+  "volume_ratio": 0.67,
+  "order_book_imbalance": -0.134,
+  "pct_change_1h_48h": -5.77,
+  "pct_change_4h_48h": -4.88,
+  "news_context": "Generic institutional content, non-actionable"
+}
+```
+
+---
+### 2026-10-07T18:02:56.527Z — SOL/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger. SMA fast_above_slow, no fresh cross. RSI 37.3, neutral-weak. Volume ratio 0.74x, below average. Order book notably tilted to asks (-0.32). News search returned stale/speculative price-target content, non-actionable. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 37.3,
+  "sma_state": "fast_above_slow",
+  "sma_crossed_this_candle": false,
+  "volume_ratio": 0.74,
+  "order_book_imbalance": -0.316,
+  "pct_change_1h_48h": -3.02,
+  "pct_change_4h_48h": -2.64,
+  "news_context": "Stale/speculative content, non-actionable"
+}
+```
+
+---
+### 2026-10-07T18:02:56.539Z — XRP/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger. SMA fast_above_slow, no fresh cross. RSI 32.6, weak but unconfirmed. Volume ratio 0.61x, below average. Order book tilted to asks (-0.30). News search returned stale historical data ("surged 40%" claim inconsistent with the ongoing live decline), non-actionable. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 32.62,
+  "sma_state": "fast_above_slow",
+  "sma_crossed_this_candle": false,
+  "volume_ratio": 0.61,
+  "order_book_imbalance": -0.297,
+  "pct_change_1h_48h": -5.27,
+  "pct_change_4h_48h": -4.25,
+  "news_context": "Stale historical search results inconsistent with ongoing decline, non-actionable"
+}
+```
+
+---
+### 2026-10-07T18:02:56.552Z — ADA/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger. SMA fast_above_slow, no fresh cross. RSI 47.8, neutral. Volume ratio 0.71x, below average, not confirming. Order book heavily tilted to asks (-0.34). News search returned stale/mixed historical content (old price crash and old rally references), non-actionable. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 47.82,
+  "sma_state": "fast_above_slow",
+  "sma_crossed_this_candle": false,
+  "volume_ratio": 0.71,
+  "order_book_imbalance": -0.336,
+  "pct_change_1h_48h": -3.85,
+  "pct_change_4h_48h": -3.43,
+  "news_context": "Stale/mixed historical content, non-actionable"
+}
+```
+
+---
+### 2026-10-07T18:02:56.566Z — LINK/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger. SMA state remains fast_below_slow (bearish structure), no fresh cross. RSI 37.7, weak but unconfirmed. Volume ratio 0.47x, well below average. Order book notably tilted to bids (+0.40), a positive but insufficient alone. News search returned stale/historical institutional content, non-actionable. Bearish SMA structure persists. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 37.7,
+  "sma_state": "fast_below_slow",
+  "sma_crossed_this_candle": false,
+  "volume_ratio": 0.47,
+  "order_book_imbalance": 0.399,
+  "pct_change_1h_48h": -3.65,
+  "pct_change_4h_48h": -3.16,
+  "news_context": "Stale/historical institutional content, non-actionable; SMA structure still bearish"
+}
+```
+
+---
+### 2026-10-07T18:02:56.581Z — SUI/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger. SMA fast_above_slow, no fresh cross. RSI 38.6, neutral-weak. Volume ratio 0.38x, well below average. Order book now very heavily skewed to asks (-0.61), a clear negative. News search returned a stale "nearly 20% jump" claim from an earlier period, directly contradicted by the ongoing live decline (-6.0%/-6.5%). Non-actionable. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 38.64,
+  "sma_state": "fast_above_slow",
+  "sma_crossed_this_candle": false,
+  "volume_ratio": 0.376,
+  "order_book_imbalance": -0.612,
+  "pct_change_1h_48h": -5.97,
+  "pct_change_4h_48h": -6.55,
+  "news_context": "Stale rally claim contradicted by ongoing live decline, non-actionable"
+}
+```
+
+---
+### 2026-10-07T18:02:56.597Z — LTC/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger. SMA fast_above_slow, no fresh cross. RSI 31.6, weak but unconfirmed. Volume ratio 0.52x, below average. Order book tilted to asks (-0.21). News search returned stale historical content (halving, fake Walmart press release hoax), non-actionable. No confirming signal combination - no trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 31.6,
+  "sma_state": "fast_above_slow",
+  "sma_crossed_this_candle": false,
+  "volume_ratio": 0.518,
+  "order_book_imbalance": -0.207,
+  "pct_change_1h_48h": -5.87,
+  "pct_change_4h_48h": -5.36,
+  "news_context": "Stale historical content, non-actionable"
+}
+```
+
+---
