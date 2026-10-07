@@ -89,6 +89,43 @@ trading-critical work is already done), this step sits before the trade
 decision, so a hang here is a real risk this instruction exists to rule
 out, not just a nice-to-have.
 
+## Pullback confirmation required for momentum-only entries (added 2026-10-07)
+
+A real-OHLC backtest against all 8 historical `momentum_only` trades (see
+CLAUDE.md's 2026-10-06/10-07 entries) found the account's real losers share
+one pattern: entering directly on the breakout candle, buying into a move
+that had already happened, with no confirmation the breakout would hold.
+At K=3 consecutive holding candles, this filter cleanly rejected 3 of the
+6 real losers while never once rejecting either real winner — enforced
+**in code**, not left to judgment:
+
+1. Whenever `compute_signals(pair)` flags `momentum_trigger.flagged` for a
+   pair, call `portfolio_check_breakout_confirmation(pair,
+   momentum_flagged: true)` **before** considering `portfolio_open_position`
+   with `momentum_only: true` for that pair. This advances (or starts) that
+   pair's pullback tracking against real 1h candles and returns one of:
+   - `"started"` / `"pending"` (with `candles_remaining`) — not ready yet.
+     Log a no-trade for this pair this cycle; this is NOT a rejection of the
+     setup, just not confirmed yet. Keep calling it every cycle while the
+     breakout is still being tracked.
+   - `"rejected"` — the breakout failed to hold above its own level on a
+     closed candle. Log a no-trade; do not retry the same breakout.
+   - `"confirmed"` — `portfolio_open_position` will now accept a
+     `momentum_only: true` entry for this pair.
+2. `portfolio_open_position` enforces this itself — it rejects any
+   `momentum_only: true` call outright unless the pair's tracking has
+   already reached `"confirmed"`, and consumes (clears) that tracking on a
+   successful entry so it can't be reused for a later trade.
+3. This gate only applies to `momentum_only: true` entries — a trade
+   confirmed by RSI, SMA crossover, or volume alongside momentum doesn't
+   need pullback confirmation, since momentum isn't the only thing
+   supporting it.
+4. Not retroactive to a breakout that happened before this feature
+   deployed — if `compute_signals` flags momentum on a pair with no
+   existing tracking, `portfolio_check_breakout_confirmation` just starts
+   fresh from this cycle's most recently closed candle, same as any new
+   breakout.
+
 ## Risk rules (hard limits)
 
 Enforced **in code** by `portfolio_open_position` / `portfolio_check_stops`
@@ -225,7 +262,11 @@ Before discussing a trade idea further, call `portfolio_open_position` with
 pair, stop-loss, `signals_at_entry` (including `news_context`),
 `invalidation`, `confidence` + `confidence_reason`, and `momentum_only` —
 **no position size** (computed automatically from confidence and stop
-distance, see "Risk rules" above). If the tool call is rejected by a risk
+distance, see "Risk rules" above). For a `momentum_only: true` candidate,
+first call `portfolio_check_breakout_confirmation` and only proceed to
+`portfolio_open_position` once it reports `"confirmed"` (see "Pullback
+confirmation required for momentum-only entries" above) — otherwise log a
+no-trade instead. If the tool call is rejected by a risk
 limit, report the rejection — don't retry with a different stop just to
 force a larger or smaller size through. If it fails with an order-placement
 or stop-placement error, treat that as urgent (see "Order execution"

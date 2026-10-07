@@ -23,6 +23,17 @@ export const ALLOWED_PAIRS = [
 export function isAllowedPair(pair) {
     return ALLOWED_PAIRS.includes(pair);
 }
+// K=3: the number of consecutive closed 1h candles a momentum_only
+// breakout must hold above its own breakout-candle low before
+// portfolio_open_position will allow the entry. See PendingBreakout's
+// comment above for the backtest that picked this value - K=3 was the
+// smallest window that rejected real losers without ever rejecting a real
+// winner; K=7-9 would also catch two slower-fading losers (LINK#3, ADA#3)
+// but at that length the entry-price drift gets large enough that a
+// simple fixed-exit backtest is no longer trustworthy (would need a full
+// re-simulation with the stop/target recomputed from the delayed entry,
+// not done here) - left for a future revisit, not built blind.
+export const BREAKOUT_CONFIRM_CANDLES = 3;
 // LIVE TRADING limits. Raised from paper trading's 5%/25% (see CLAUDE.md's
 // live-build decision log, 2026-09-20): since every position always carries
 // a stop-loss, real per-trade risk is size_pct x stop_distance_pct, not

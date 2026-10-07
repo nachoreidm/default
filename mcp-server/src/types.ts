@@ -124,6 +124,46 @@ export interface DailyLoss {
   halted: boolean;
 }
 
+// Pullback-confirmation state for a momentum_only candidate that hasn't yet
+// been allowed to enter - added 2026-10-07, see CLAUDE.md's "Pullback-
+// confirmation entry filter" entries. Backtested against all 8 real
+// momentum_only trades to date using real Kraken 1h OHLC: at K=3 this
+// cleanly rejected 3 of 6 real losers (ADA#1, LTC, SUI#2 - total ~€38.60)
+// while never touching either real winner (SUI#1, ADA#2), with minimal
+// entry-price drift (~0.5-2%). Keyed by pair (not position id) since this
+// tracks a CANDIDATE, before any position exists.
+export interface PendingBreakout {
+  // Open time (unix seconds) of the candle whose close first flagged
+  // momentum_trigger - the breakout candle itself, never re-entered on.
+  breakout_time: number;
+  // The breakout candle's LOW - the level price must hold above (on each
+  // subsequent closed candle's close) for the breakout to stay "confirmed
+  // so far". Fixed once set; never moves.
+  breakout_level: number;
+  // How many consecutive closed candles after the breakout candle have
+  // closed at or above breakout_level. Caps at BREAKOUT_CONFIRM_CANDLES -
+  // portfolio_open_position is responsible for consuming (deleting) the
+  // record once it reads a count that has reached the cap, not this
+  // tracking step itself, so advancing state and spending it never race
+  // within the same cycle.
+  confirmed_count: number;
+  // Open time of the most recent closed candle already folded into
+  // confirmed_count, so the next check only looks at genuinely new candles.
+  last_checked_time: number;
+}
+
+// K=3: the number of consecutive closed 1h candles a momentum_only
+// breakout must hold above its own breakout-candle low before
+// portfolio_open_position will allow the entry. See PendingBreakout's
+// comment above for the backtest that picked this value - K=3 was the
+// smallest window that rejected real losers without ever rejecting a real
+// winner; K=7-9 would also catch two slower-fading losers (LINK#3, ADA#3)
+// but at that length the entry-price drift gets large enough that a
+// simple fixed-exit backtest is no longer trustworthy (would need a full
+// re-simulation with the stop/target recomputed from the delayed entry,
+// not done here) - left for a future revisit, not built blind.
+export const BREAKOUT_CONFIRM_CANDLES = 3;
+
 export interface PortfolioState {
   starting_balance: number;
   cash: number;
@@ -132,6 +172,10 @@ export interface PortfolioState {
   daily_loss: DailyLoss[];
   created_at: string;
   updated_at: string;
+  // Candidate momentum_only breakouts awaiting pullback confirmation,
+  // keyed by pair. Absent/undefined on state files written before
+  // 2026-10-07 - loadState defaults it to {} for backward compatibility.
+  pending_breakouts?: Record<string, PendingBreakout>;
 }
 
 // LIVE TRADING limits. Raised from paper trading's 5%/25% (see CLAUDE.md's

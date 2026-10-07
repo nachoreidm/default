@@ -2,7 +2,7 @@ import { promises as fs } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { randomUUID } from "node:crypto";
-import { fetchTicker, fetchPairPrecision, pairCode, KrakenApiError } from "./kraken.js";
+import { fetchTicker, fetchPairPrecision, fetchOHLC, closedCandles, pairCode, KrakenApiError } from "./kraken.js";
 import { addOrder, cancelOrder, queryBalance, queryOrdersInfo, type KrakenOrderInfo } from "./kraken-private.js";
 import {
   hasReachedOneR,
@@ -14,6 +14,7 @@ import {
   FAST_INVALIDATION_SMA_PERIOD,
   FAST_INVALIDATION_CONFIRM_CANDLES,
 } from "./trailing-math.js";
+import { evaluateBreakoutConfirmation, type BreakoutConfirmationStatus } from "./breakout-confirmation.js";
 import {
   ALLOWED_PAIRS,
   RISK_LIMITS,
@@ -23,6 +24,7 @@ import {
   TAKE_PROFIT_RR_MULTIPLE,
   MOMENTUM_ONLY_MAX_CONFIDENCE,
   TRAIL_SMA_PERIOD,
+  BREAKOUT_CONFIRM_CANDLES,
   isAllowedPair,
   type AllowedPair,
   type ClosedPosition,
@@ -49,7 +51,11 @@ function todayUtc(): string {
 export async function loadState(): Promise<PortfolioState> {
   try {
     const raw = await fs.readFile(STATE_PATH, "utf-8");
-    return JSON.parse(raw) as PortfolioState;
+    const state = JSON.parse(raw) as PortfolioState;
+    // Backward compatibility - state files written before 2026-10-07 don't
+    // have this field at all.
+    if (!state.pending_breakouts) state.pending_breakouts = {};
+    return state;
   } catch (err: any) {
     if (err.code === "ENOENT") {
       const fresh: PortfolioState = {
@@ -60,6 +66,7 @@ export async function loadState(): Promise<PortfolioState> {
         daily_loss: [],
         created_at: new Date().toISOString(),
         updated_at: new Date().toISOString(),
+        pending_breakouts: {},
       };
       await saveState(fresh);
       return fresh;
@@ -231,6 +238,50 @@ export function computePositionSizePct(confidence: Confidence, stopDistancePct: 
   return Math.min(raw, CONFIDENCE_MAX_SIZE_PCT[confidence], RISK_LIMITS.MAX_POSITION_PCT);
 }
 
+export interface BreakoutConfirmationOutcome {
+  pair: AllowedPair;
+  status: BreakoutConfirmationStatus;
+}
+
+// Advances (or starts, or rejects) a momentum_only candidate's pullback-
+// confirmation tracking for one pair - call this once per pair per cycle
+// BEFORE deciding whether to call portfolio_open_position for a
+// momentum_only setup. Pure evaluation logic lives in
+// evaluateBreakoutConfirmation (breakout-confirmation.ts); this wrapper
+// only does the state I/O and the real 1h-candle fetch. Fails safe: if
+// candles can't be fetched this cycle, existing tracking is left
+// untouched rather than guessed at (same discipline as
+// invalidationCheck/fastInvalidationCheck in trailing-math.ts).
+export async function checkBreakoutConfirmation(pair: string, momentumFlagged: boolean): Promise<BreakoutConfirmationOutcome> {
+  if (!isAllowedPair(pair)) {
+    throw new Error(`Pair "${pair}" is out of scope. Allowed: ${ALLOWED_PAIRS.join(", ")}.`);
+  }
+  const state = await loadState();
+  const pendingBreakouts = state.pending_breakouts ?? (state.pending_breakouts = {});
+  const existing = pendingBreakouts[pair] ?? null;
+
+  let closedCandles1h;
+  try {
+    closedCandles1h = closedCandles(await fetchOHLC(pair, "1h"));
+  } catch {
+    return {
+      pair,
+      status: existing
+        ? { status: "pending", candles_remaining: BREAKOUT_CONFIRM_CANDLES - existing.confirmed_count }
+        : { status: "none" },
+    };
+  }
+
+  const { next, result } = evaluateBreakoutConfirmation(existing, momentumFlagged, closedCandles1h);
+  if (next) {
+    pendingBreakouts[pair] = next;
+  } else {
+    delete pendingBreakouts[pair];
+  }
+  await saveState(state);
+  return { pair, status: result };
+}
+
 async function pollForFill(txid: string, maxAttempts = 12, delayMs = 1500): Promise<KrakenOrderInfo> {
   for (let i = 0; i < maxAttempts; i++) {
     const info = await queryOrdersInfo([txid]);
@@ -275,6 +326,30 @@ export async function openPosition(input: OpenPositionInput): Promise<OpenPositi
   }
   if (state.open_positions.some((p) => p.pair === input.pair)) {
     return { ok: false, reason: `A position on ${input.pair} is already open - only one open position per pair is allowed.` };
+  }
+
+  // Pullback-confirmation gate for momentum_only entries (2026-10-07) - see
+  // CLAUDE.md and PendingBreakout's comment in types.ts for the backtest
+  // that motivated this. A momentum trigger alone can't enter; it must
+  // first have been confirmed via portfolio_check_breakout_confirmation
+  // (BREAKOUT_CONFIRM_CANDLES consecutive closed 1h candles holding above
+  // the breakout candle's low). Not re-derived here - deliberately reads
+  // only the tracking state that tool already advanced, so this stays a
+  // pure gate rather than re-running candle logic inline.
+  if (input.momentum_only) {
+    const pendingBreakouts = state.pending_breakouts ?? (state.pending_breakouts = {});
+    const pending = pendingBreakouts[input.pair as AllowedPair];
+    if (!pending || pending.confirmed_count < BREAKOUT_CONFIRM_CANDLES) {
+      return {
+        ok: false,
+        reason: `Momentum-only entries require ${BREAKOUT_CONFIRM_CANDLES} consecutive closed 1h candles holding above the breakout candle's low before entry is allowed (pullback-confirmation filter - see CLAUDE.md 2026-10-07). Call portfolio_check_breakout_confirmation for ${input.pair} first and only open once it reports "confirmed". Current status: ${pending ? `${pending.confirmed_count}/${BREAKOUT_CONFIRM_CANDLES} confirmed, not yet enough` : "not yet tracked - no breakout confirmation started for this pair"}.`,
+      };
+    }
+    // Confirmed - consume the record now so it can't be reused for a future
+    // entry. Only persisted if the rest of this call succeeds (saveState
+    // below) - a later rejection (sizing, exposure, cash) leaves the real
+    // "confirmed" record on disk untouched for a retry.
+    delete pendingBreakouts[input.pair as AllowedPair];
   }
 
   const { value: portfolioVal, cash, positionValues } = await portfolioValue(state);

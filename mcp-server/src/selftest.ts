@@ -3,6 +3,7 @@ import { rsi, sma, smaCrossover, volumeVs7dAvg, orderBookImbalance, priceAction 
 import { computeSignals } from "./signals.js";
 import { hasReachedOneR, effectiveTrailingStop, peakFromCandles, invalidationCheck, fastInvalidationFromCloses, fastInvalidationCheck } from "./trailing-math.js";
 import { computePositionSizePct } from "./portfolio-live.js";
+import { evaluateBreakoutConfirmation } from "./breakout-confirmation.js";
 import { ALLOWED_PAIRS } from "./types.js";
 import type { Candle } from "./types.js";
 
@@ -137,6 +138,89 @@ async function main() {
   assert(computePositionSizePct("high", 40) === 0.5, `computePositionSizePct high at 40% stop distance -> 0.5% (got ${computePositionSizePct("high", 40)}) - below MIN_POSITION_PCT, would be rejected by openPosition's separate check, but the pure sizing function itself doesn't clamp to that floor`);
   assert(computePositionSizePct("low", 5) === 0, `computePositionSizePct returns 0 for "low" confidence regardless of stop distance (got ${computePositionSizePct("low", 5)})`);
   assert(computePositionSizePct("medium", 0) === 0, "computePositionSizePct fails safe (0) for a zero/invalid stop distance");
+
+  // evaluateBreakoutConfirmation (2026-10-07 pullback-confirmation filter,
+  // K=BREAKOUT_CONFIRM_CANDLES=3 - see CLAUDE.md for the real-OHLC backtest
+  // that picked K=3). Pure, synthetic candles - mirrors how
+  // peakFromCandles/fastInvalidationFromCloses above are tested.
+  const bcCandle = (time: number, low: number, close: number): Candle => ({
+    time,
+    open: close,
+    high: Math.max(low, close),
+    low,
+    close,
+    vwap: close,
+    volume: 0,
+    count: 0,
+  });
+
+  // No breakout flagged and nothing tracked yet -> pure no-op.
+  const bcNone = evaluateBreakoutConfirmation(null, false, [bcCandle(1000, 95, 100)]);
+  assert(
+    bcNone.result.status === "none" && bcNone.next === null,
+    `evaluateBreakoutConfirmation is a no-op when nothing is tracked and momentum isn't flagged (got ${JSON.stringify(bcNone.result)})`
+  );
+
+  // Breakout flagged, nothing tracked yet -> starts tracking, breakout_level = the breakout candle's own LOW.
+  const bcStarted = evaluateBreakoutConfirmation(null, true, [bcCandle(1000, 95, 100)]);
+  assert(
+    bcStarted.result.status === "started" && bcStarted.next?.breakout_level === 95,
+    `evaluateBreakoutConfirmation starts tracking at the breakout candle's low (got ${JSON.stringify(bcStarted)})`
+  );
+
+  // Holds for 2 more candles -> pending, counting down candles_remaining.
+  const bcHold1 = evaluateBreakoutConfirmation(bcStarted.next, true, [bcCandle(1000, 95, 100), bcCandle(2000, 96, 101)]);
+  assert(
+    bcHold1.result.status === "pending" && (bcHold1.result as any).candles_remaining === 2,
+    `evaluateBreakoutConfirmation at 1/3 confirmed reports pending with 2 remaining (got ${JSON.stringify(bcHold1.result)})`
+  );
+  const bcHold2 = evaluateBreakoutConfirmation(bcHold1.next, true, [
+    bcCandle(1000, 95, 100),
+    bcCandle(2000, 96, 101),
+    bcCandle(3000, 97, 102),
+  ]);
+  assert(
+    bcHold2.result.status === "pending" && (bcHold2.result as any).candles_remaining === 1,
+    `evaluateBreakoutConfirmation at 2/3 confirmed reports pending with 1 remaining (got ${JSON.stringify(bcHold2.result)})`
+  );
+
+  // The 3rd consecutive holding candle confirms it.
+  const bcHold3 = evaluateBreakoutConfirmation(bcHold2.next, true, [
+    bcCandle(1000, 95, 100),
+    bcCandle(2000, 96, 101),
+    bcCandle(3000, 97, 102),
+    bcCandle(4000, 98, 103),
+  ]);
+  assert(
+    bcHold3.result.status === "confirmed" && (bcHold3.result as any).confirmed_count === 3,
+    `evaluateBreakoutConfirmation confirms after 3 consecutive holding candles (got ${JSON.stringify(bcHold3.result)})`
+  );
+
+  // Re-evaluating an already-confirmed record (before the caller consumes
+  // it via portfolio_open_position) keeps reporting confirmed rather than
+  // re-counting or losing the state.
+  const bcReconfirmed = evaluateBreakoutConfirmation(bcHold3.next, true, [
+    bcCandle(1000, 95, 100),
+    bcCandle(2000, 96, 101),
+    bcCandle(3000, 97, 102),
+    bcCandle(4000, 98, 103),
+  ]);
+  assert(
+    bcReconfirmed.result.status === "confirmed",
+    `evaluateBreakoutConfirmation keeps reporting confirmed until the caller consumes it (got ${JSON.stringify(bcReconfirmed.result)})`
+  );
+
+  // A close below the breakout level rejects the setup outright, even
+  // mid-count - no second chance at the same level.
+  const bcRejected = evaluateBreakoutConfirmation(bcHold1.next, true, [
+    bcCandle(1000, 95, 100),
+    bcCandle(2000, 96, 101),
+    bcCandle(3000, 90, 90),
+  ]);
+  assert(
+    bcRejected.result.status === "rejected" && bcRejected.next === null,
+    `evaluateBreakoutConfirmation rejects outright on a close below the breakout level (got ${JSON.stringify(bcRejected.result)})`
+  );
 
   // --- Live Kraken API smoke test (public endpoints, no auth) ---
   const ticker = await fetchTicker("BTC/EUR");
