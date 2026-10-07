@@ -55550,3 +55550,163 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-10-07T08:03:06.212Z — BTC/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger. SMA fast_above_slow, no fresh cross. RSI 43.1, neutral, ticking up slightly from last cycle. Volume ratio 1.04x, not confirming. Order book now mildly tilted to bids (+0.40), a positive but insufficient alone without a crossover/volume/momentum confirmation. News search returned stale historical articles (BTC crossing $100k, CZ legal news) - not current, non-actionable. Pullback has moderated slightly (-2.2%/-2.3% vs -2.5%/-2.7% last cycle) but no qualifying entry signal yet.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 43.12,
+  "sma_state": "fast_above_slow",
+  "sma_crossed_this_candle": false,
+  "volume_ratio": 1.04,
+  "order_book_imbalance": 0.403,
+  "pct_change_1h_48h": -2.21,
+  "pct_change_4h_48h": -2.25,
+  "news_context": "Stale historical search results, non-actionable; pullback moderating slightly"
+}
+```
+
+---
+### 2026-10-07T08:03:06.247Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger. SMA fast_above_slow, no fresh cross. RSI 34.2, weak but no confirming crossover/volume/momentum. Volume ratio 0.67x, below average. Order book roughly flat (-0.03). News search results are old/stale (mentions of $3,039 and $4,362 ATH context inconsistent with current levels) - non-actionable. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 34.2,
+  "sma_state": "fast_above_slow",
+  "sma_crossed_this_candle": false,
+  "volume_ratio": 0.67,
+  "order_book_imbalance": -0.034,
+  "pct_change_1h_48h": -3.65,
+  "pct_change_4h_48h": -3.62,
+  "news_context": "Stale search results, non-actionable"
+}
+```
+
+---
+### 2026-10-07T08:03:06.261Z — SOL/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger. SMA fast_above_slow, no fresh cross. RSI 45.2, neutral. Volume ratio 0.74x, below average. Order book now notably skewed to asks (-0.53), a negative tilt. News search returned old historical rally articles (GENIUS Act, $100B market cap), not current - non-actionable. Pullback has moderated (-1.7%/-1.9% vs -2.5%/-3.1% last cycle) but still no qualifying entry signal.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 45.23,
+  "sma_state": "fast_above_slow",
+  "sma_crossed_this_candle": false,
+  "volume_ratio": 0.74,
+  "order_book_imbalance": -0.529,
+  "pct_change_1h_48h": -1.85,
+  "pct_change_4h_48h": -1.68,
+  "news_context": "Stale historical search results, non-actionable"
+}
+```
+
+---
+### 2026-10-07T08:03:06.275Z — XRP/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger. SMA fast_above_slow, no fresh cross. RSI 42.5, neutral. Volume ratio 0.61x, below average. Order book roughly flat (-0.01). News search returned stale historical articles ($2.80 price, SEC resignation news from a past cycle) - non-actionable. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 42.52,
+  "sma_state": "fast_above_slow",
+  "sma_crossed_this_candle": false,
+  "volume_ratio": 0.61,
+  "order_book_imbalance": -0.008,
+  "pct_change_1h_48h": -2.64,
+  "pct_change_4h_48h": -2.95,
+  "news_context": "Stale historical search results, non-actionable"
+}
+```
+
+---
+### 2026-10-07T08:03:06.288Z — ADA/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger. SMA fast_above_slow, no fresh cross. RSI 49.0, now fully neutral (up from 45.3 last cycle, pullback easing). Volume ratio 0.71x, below average, not confirming. Order book roughly flat (-0.02). News search returned old historical rally articles ($2.03 ATH context) - non-actionable. No qualifying setup despite the easing decline.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 48.99,
+  "sma_state": "fast_above_slow",
+  "sma_crossed_this_candle": false,
+  "volume_ratio": 0.71,
+  "order_book_imbalance": -0.023,
+  "pct_change_1h_48h": -4.56,
+  "pct_change_4h_48h": -5.11,
+  "news_context": "Stale historical search results, non-actionable"
+}
+```
+
+---
+### 2026-10-07T08:03:06.301Z — LINK/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger. SMA state remains fast_below_slow (bearish structure), no fresh cross. RSI 44.0, neutral. Volume ratio 0.47x, well below average. Order book mildly tilted to asks (-0.07). News search returned old historical rally articles (CCIP launch, 8% overnight surge from a past period) - non-actionable. Bearish SMA structure plus no confirming signals - no trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 43.98,
+  "sma_state": "fast_below_slow",
+  "sma_crossed_this_candle": false,
+  "volume_ratio": 0.47,
+  "order_book_imbalance": -0.069,
+  "pct_change_1h_48h": -2.78,
+  "pct_change_4h_48h": -3.32,
+  "news_context": "Stale historical search results, non-actionable; SMA structure still bearish"
+}
+```
+
+---
+### 2026-10-07T08:03:06.314Z — SUI/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger. SMA fast_above_slow, no fresh cross. RSI 40.8, neutral. Volume ratio 0.38x, well below average - no confirmation. Order book roughly flat (+0.04). News search returned stale/mixed historical articles (one mentions SUI sliding below $1.10 amid a broader selloff, somewhat consistent with the ongoing decline, but dated/unreliable for precise timing) - treated as non-actionable, not a fresh catalyst. Continuing steep 48h decline (-7.1%/-8.0%) with no reversal signal. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 40.81,
+  "sma_state": "fast_above_slow",
+  "sma_crossed_this_candle": false,
+  "volume_ratio": 0.376,
+  "order_book_imbalance": 0.041,
+  "pct_change_1h_48h": -7.14,
+  "pct_change_4h_48h": -7.98,
+  "news_context": "Stale/unreliable search results; one mentions a broader selloff consistent with ongoing decline but not a fresh dated catalyst"
+}
+```
+
+---
+### 2026-10-07T08:03:06.329Z — LTC/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger. SMA fast_above_slow, no fresh cross. RSI 39.8, neutral-weak. Volume ratio 0.52x, below average. Order book tilted to bids (+0.10). News search returned old historical articles (V-shaped recovery, UFC partnership from a past period) - non-actionable. No confirming signal combination - no trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 39.79,
+  "sma_state": "fast_above_slow",
+  "sma_crossed_this_candle": false,
+  "volume_ratio": 0.518,
+  "order_book_imbalance": 0.097,
+  "pct_change_1h_48h": -3.23,
+  "pct_change_4h_48h": -4.22,
+  "news_context": "Stale historical search results, non-actionable"
+}
+```
+
+---
