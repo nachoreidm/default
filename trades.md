@@ -56350,3 +56350,163 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-10-07T13:04:23.738Z — BTC/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger. SMA fast_above_slow, no fresh cross. RSI 40.0, neutral. Volume ratio 1.04x, not confirming. Order book roughly flat (-0.11). News search returned stale/inconsistent cached data ($116k price point inconsistent with live €74.7k), non-actionable. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 40.04,
+  "sma_state": "fast_above_slow",
+  "sma_crossed_this_candle": false,
+  "volume_ratio": 1.04,
+  "order_book_imbalance": -0.112,
+  "pct_change_1h_48h": -3.2,
+  "pct_change_4h_48h": -1.55,
+  "news_context": "Stale/inconsistent cached search results, non-actionable"
+}
+```
+
+---
+### 2026-10-07T13:04:23.754Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger. SMA fast_above_slow, no fresh cross. RSI 28.7, weak but unconfirmed. Volume ratio 0.67x, below average. Order book now heavily skewed to asks (-0.67). News search returned stale/generic cached data, non-actionable. No qualifying setup; decline deepening further (-5.4%/-4.2%).
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 28.73,
+  "sma_state": "fast_above_slow",
+  "sma_crossed_this_candle": false,
+  "volume_ratio": 0.67,
+  "order_book_imbalance": -0.67,
+  "pct_change_1h_48h": -5.37,
+  "pct_change_4h_48h": -4.15,
+  "news_context": "Stale/generic cached search results, non-actionable"
+}
+```
+
+---
+### 2026-10-07T13:04:23.780Z — SOL/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger. SMA fast_above_slow, no fresh cross. RSI 39.7, neutral. Volume ratio 0.74x, below average. Order book tilted to bids (+0.21). News search returned stale cached data ($81.65 price point, inconsistent with live €104.25), non-actionable. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 39.68,
+  "sma_state": "fast_above_slow",
+  "sma_crossed_this_candle": false,
+  "volume_ratio": 0.74,
+  "order_book_imbalance": 0.21,
+  "pct_change_1h_48h": -3.52,
+  "pct_change_4h_48h": -1.46,
+  "news_context": "Stale cached search results, non-actionable"
+}
+```
+
+---
+### 2026-10-07T13:04:23.795Z — XRP/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger. SMA fast_above_slow, no fresh cross. RSI 35.7, weak but unconfirmed. Volume ratio 0.61x, below average. Order book roughly flat (+0.06). News search mentions real institutional themes (EU e-money license, ETF inflows) but price range cited ($0.50-$0.70) is far below live €1.29 - stale, non-actionable. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 35.69,
+  "sma_state": "fast_above_slow",
+  "sma_crossed_this_candle": false,
+  "volume_ratio": 0.61,
+  "order_book_imbalance": 0.056,
+  "pct_change_1h_48h": -4.5,
+  "pct_change_4h_48h": -2.8,
+  "news_context": "Institutional themes noted but stale price range inconsistent with live data, non-actionable"
+}
+```
+
+---
+### 2026-10-07T13:04:23.809Z — ADA/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger. SMA fast_above_slow, no fresh cross. RSI 45.7, neutral. Volume ratio 0.71x, below average, not confirming. Order book tilted to bids (+0.25). News mentions Grayscale dropped ADA ETF plans in August 2026 - a real negative but dated, not a fresh trigger. 1h decline deepened further to -7.2%. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 45.71,
+  "sma_state": "fast_above_slow",
+  "sma_crossed_this_candle": false,
+  "volume_ratio": 0.71,
+  "order_book_imbalance": 0.255,
+  "pct_change_1h_48h": -7.15,
+  "pct_change_4h_48h": -3.57,
+  "news_context": "Grayscale dropped ADA ETF plans (Aug 2026) - real but dated, not a fresh trigger"
+}
+```
+
+---
+### 2026-10-07T13:04:23.822Z — LINK/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger. SMA state remains fast_below_slow (bearish structure), no fresh cross. RSI 36.4, weak but unconfirmed. Volume ratio 0.47x, well below average. Order book tilted to bids (+0.12). News: DTCC Q4 2026 launch and SmartCon Nov 2026 are real but not near-term triggers. Bearish SMA structure persists. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 36.36,
+  "sma_state": "fast_below_slow",
+  "sma_crossed_this_candle": false,
+  "volume_ratio": 0.47,
+  "order_book_imbalance": 0.121,
+  "pct_change_1h_48h": -5.04,
+  "pct_change_4h_48h": -2.7,
+  "news_context": "DTCC Q4 2026 launch, SmartCon Nov 2026 - real but not near-term triggers; SMA structure still bearish"
+}
+```
+
+---
+### 2026-10-07T13:04:23.835Z — SUI/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger. SMA fast_above_slow, no fresh cross. RSI 37.7, weak but unconfirmed. Volume ratio 0.38x, well below average. Order book tilted to bids (+0.08). News search claims SUI is "defying broader market downturns" and "rallying into October" - directly contradicted by live Kraken data showing SUI down -7.7%/-5.2% over 48h, its worst decline among all 8 pairs for a 7th consecutive cycle. Treated as stale (likely describing September's rally before the reversal), not actionable. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 37.72,
+  "sma_state": "fast_above_slow",
+  "sma_crossed_this_candle": false,
+  "volume_ratio": 0.376,
+  "order_book_imbalance": 0.075,
+  "pct_change_1h_48h": -7.73,
+  "pct_change_4h_48h": -5.22,
+  "news_context": "News claims an ongoing rally directly contradicted by live price data showing a deep ongoing decline - treated as stale, not actionable"
+}
+```
+
+---
+### 2026-10-07T13:04:23.849Z — LTC/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger. SMA fast_above_slow, no fresh cross. RSI 35.5, weak but unconfirmed. Volume ratio 0.52x, below average. Order book tilted to asks (-0.25). News search returned stale cached data (MWEB upgrade released 2022, $85 price point inconsistent with live €59.85), non-actionable. No confirming signal combination - no trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 35.46,
+  "sma_state": "fast_above_slow",
+  "sma_crossed_this_candle": false,
+  "volume_ratio": 0.518,
+  "order_book_imbalance": -0.246,
+  "pct_change_1h_48h": -5.79,
+  "pct_change_4h_48h": -4.15,
+  "news_context": "Stale cached search results (old MWEB upgrade news), non-actionable"
+}
+```
+
+---
