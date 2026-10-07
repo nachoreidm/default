@@ -56990,3 +56990,163 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-10-07T17:03:07.978Z — BTC/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger. SMA fast_above_slow, no fresh cross. RSI 37.6, neutral-weak. Volume ratio 1.04x, not confirming. Order book tilted to asks (-0.14). News search returned stale cached data ($88-92k range, inconsistent with live €74.6k) - non-actionable. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 37.62,
+  "sma_state": "fast_above_slow",
+  "sma_crossed_this_candle": false,
+  "volume_ratio": 1.04,
+  "order_book_imbalance": -0.144,
+  "pct_change_1h_48h": -2.27,
+  "pct_change_4h_48h": -2.36,
+  "news_context": "Stale cached search results, non-actionable"
+}
+```
+
+---
+### 2026-10-07T17:03:08.060Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger. SMA fast_above_slow, no fresh cross. RSI 27.5, weak but unconfirmed (6th consecutive cycle in this range with no confirming signal). Volume ratio 0.67x, below average. Order book roughly flat (-0.02). News search returned stale cached data ($1,858 price inconsistent with live €2,296), non-actionable. No qualifying setup; decline persists (-5.0%/-4.9%).
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 27.48,
+  "sma_state": "fast_above_slow",
+  "sma_crossed_this_candle": false,
+  "volume_ratio": 0.67,
+  "order_book_imbalance": -0.018,
+  "pct_change_1h_48h": -4.95,
+  "pct_change_4h_48h": -4.88,
+  "news_context": "Stale cached search results, non-actionable"
+}
+```
+
+---
+### 2026-10-07T17:03:08.097Z — SOL/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger. SMA fast_above_slow, no fresh cross. RSI 37.3, neutral-weak. Volume ratio 0.74x, below average. Order book notably tilted to bids (+0.35), a positive but insufficient alone. News search returned stale cached data ($170-190 range, inconsistent with live €104.4), non-actionable. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 37.3,
+  "sma_state": "fast_above_slow",
+  "sma_crossed_this_candle": false,
+  "volume_ratio": 0.74,
+  "order_book_imbalance": 0.351,
+  "pct_change_1h_48h": -2.57,
+  "pct_change_4h_48h": -2.64,
+  "news_context": "Stale cached search results, non-actionable"
+}
+```
+
+---
+### 2026-10-07T17:03:08.133Z — XRP/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger. SMA fast_above_slow, no fresh cross. RSI 32.6, weak but unconfirmed. Volume ratio 0.61x, below average. Order book tilted to asks (-0.38). News search returned stale cached data ($2.54 price point far above live €1.28), non-actionable. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 32.62,
+  "sma_state": "fast_above_slow",
+  "sma_crossed_this_candle": false,
+  "volume_ratio": 0.61,
+  "order_book_imbalance": -0.376,
+  "pct_change_1h_48h": -4.37,
+  "pct_change_4h_48h": -4.25,
+  "news_context": "Stale cached search results, non-actionable"
+}
+```
+
+---
+### 2026-10-07T17:03:08.180Z — ADA/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger. SMA fast_above_slow, no fresh cross. RSI 47.8, neutral. Volume ratio 0.71x, below average, not confirming. Order book heavily tilted to asks (-0.44). News search returned a stale "+13% rally" claim contradicted by the live declining price - non-actionable. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 47.82,
+  "sma_state": "fast_above_slow",
+  "sma_crossed_this_candle": false,
+  "volume_ratio": 0.71,
+  "order_book_imbalance": -0.442,
+  "pct_change_1h_48h": -2.94,
+  "pct_change_4h_48h": -3.43,
+  "news_context": "Stale rally claim contradicted by live declining price, non-actionable"
+}
+```
+
+---
+### 2026-10-07T17:03:08.209Z — LINK/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger. SMA state remains fast_below_slow (bearish structure), no fresh cross. RSI 37.7, weak but unconfirmed. Volume ratio 0.47x, well below average. Order book roughly flat (-0.01). News search returned stale cached data ($15.46 price inconsistent with live €12.03), non-actionable. Bearish SMA structure persists. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 37.7,
+  "sma_state": "fast_below_slow",
+  "sma_crossed_this_candle": false,
+  "volume_ratio": 0.47,
+  "order_book_imbalance": -0.008,
+  "pct_change_1h_48h": -2.89,
+  "pct_change_4h_48h": -3.16,
+  "news_context": "Stale cached search results, non-actionable; SMA structure still bearish"
+}
+```
+
+---
+### 2026-10-07T17:03:08.238Z — SUI/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger. SMA fast_above_slow, no fresh cross. RSI 38.6, neutral-weak. Volume ratio 0.38x, well below average. Order book tilted to asks (-0.18). News search returned a stale "+16.7% rally, RSI 78 overbought" claim at $2.45, wildly inconsistent with live Kraken price (€1.009, continuing a 48h decline of -5.3%/-6.5%) - clearly describing a much earlier, unrelated rally. Non-actionable. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 38.64,
+  "sma_state": "fast_above_slow",
+  "sma_crossed_this_candle": false,
+  "volume_ratio": 0.376,
+  "order_book_imbalance": -0.185,
+  "pct_change_1h_48h": -5.33,
+  "pct_change_4h_48h": -6.55,
+  "news_context": "Stale rally claim at a price far above live data, non-actionable"
+}
+```
+
+---
+### 2026-10-07T17:03:08.267Z — LTC/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger. SMA fast_above_slow, no fresh cross. RSI 31.6, weak but unconfirmed. Volume ratio 0.52x, below average. Order book tilted to asks (-0.09). News search returned stale/historical cached data spanning multiple years, non-actionable. No confirming signal combination - no trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 31.6,
+  "sma_state": "fast_above_slow",
+  "sma_crossed_this_candle": false,
+  "volume_ratio": 0.518,
+  "order_book_imbalance": -0.091,
+  "pct_change_1h_48h": -6.52,
+  "pct_change_4h_48h": -5.36,
+  "news_context": "Stale/historical cached search results, non-actionable"
+}
+```
+
+---
