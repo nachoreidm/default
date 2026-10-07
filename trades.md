@@ -57950,3 +57950,147 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-10-07T23:04:58.255Z — BTC/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger (48h move well under 6% threshold). SMA fast_above_slow, no fresh cross this candle. RSI neutral-to-soft, no oversold/overbought extreme. Volume below 7d average, no confirmation. BTC is the shallowest decliner of the 8 pairs this cycle but still in the same broad pullback. News search ("Bitcoin BTC price crypto market overnight") returned stale/non-current price levels inconsistent with live Kraken data - non-actionable, advisory only per instructions. No trade.
+
+**Signals considered:**
+```json
+{
+  "price_change_1h_pct": -2.82,
+  "price_change_4h_48h_pct": -2.58,
+  "momentum_trigger": false,
+  "sma_structure": "fast_above_slow",
+  "crossed_this_candle": false,
+  "volume_ratio_24h_vs_7d": "below_average",
+  "news_check": "stale/non-actionable"
+}
+```
+
+---
+### 2026-10-07T23:04:58.282Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger. SMA fast_above_slow, no fresh cross. RSI soft but not extreme. Volume below 7d average. ETH continuing the broad pullback (-5.03%/-4.97%). News search ("Ethereum ETH price crypto market overnight") returned stale/conflicting price data vs live Kraken - non-actionable. No trade.
+
+**Signals considered:**
+```json
+{
+  "price_change_1h_pct": -5.03,
+  "price_change_4h_48h_pct": -4.97,
+  "momentum_trigger": false,
+  "sma_structure": "fast_above_slow",
+  "crossed_this_candle": false,
+  "volume_ratio_24h_vs_7d": "below_average",
+  "news_check": "stale/non-actionable"
+}
+```
+
+---
+### 2026-10-07T23:04:58.301Z — SOL/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger. SMA fast_above_slow, no fresh cross this candle. Volume below 7d average. SOL down -3.84%/-3.95%, in line with the broad market pullback. News search ("Solana SOL price crypto market overnight") returned stale/non-current price data - non-actionable. No trade.
+
+**Signals considered:**
+```json
+{
+  "price_change_1h_pct": -3.84,
+  "price_change_4h_48h_pct": -3.95,
+  "momentum_trigger": false,
+  "sma_structure": "fast_above_slow",
+  "crossed_this_candle": false,
+  "volume_ratio_24h_vs_7d": "below_average",
+  "news_check": "stale/non-actionable"
+}
+```
+
+---
+### 2026-10-07T23:04:58.316Z — XRP/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger. SMA fast_above_slow, no fresh cross. Volume below 7d average. XRP down -5.85%/-5.82%, one of the deeper decliners this cycle but still consistent with the broad pullback, not an isolated breakdown. News search ("XRP price crypto market overnight") returned price figures (e.g. multi-dollar quotes) wildly inconsistent with live Kraken EUR price - non-actionable. No trade.
+
+**Signals considered:**
+```json
+{
+  "price_change_1h_pct": -5.85,
+  "price_change_4h_48h_pct": -5.82,
+  "momentum_trigger": false,
+  "sma_structure": "fast_above_slow",
+  "crossed_this_candle": false,
+  "volume_ratio_24h_vs_7d": "below_average",
+  "news_check": "stale/non-actionable"
+}
+```
+
+---
+### 2026-10-07T23:04:58.330Z — ADA/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger. SMA fast_above_slow, no fresh cross. Volume below 7d average. ADA down -5.94%/-5.63%, continuing the broad pullback - this is the same pattern that produced two of the account's three historical ADA/LTC-style unavoidable losers, so no entry is being considered on a declining pair regardless. News search ("Cardano ADA price crypto market overnight") returned stale/non-actionable content. No trade.
+
+**Signals considered:**
+```json
+{
+  "price_change_1h_pct": -5.94,
+  "price_change_4h_48h_pct": -5.63,
+  "momentum_trigger": false,
+  "sma_structure": "fast_above_slow",
+  "crossed_this_candle": false,
+  "volume_ratio_24h_vs_7d": "below_average",
+  "news_check": "stale/non-actionable"
+}
+```
+
+---
+### 2026-10-07T23:04:58.345Z — LINK/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger. SMA structure remains fast_below_slow (the only one of the 8 pairs bearish on this metric, consistent for many consecutive cycles), no fresh cross. Volume below 7d average. LINK down -3.88%/-3.33%. News search ("Chainlink LINK price crypto market overnight") returned stale/non-actionable content. No trade.
+
+**Signals considered:**
+```json
+{
+  "price_change_1h_pct": -3.88,
+  "price_change_4h_48h_pct": -3.33,
+  "momentum_trigger": false,
+  "sma_structure": "fast_below_slow",
+  "crossed_this_candle": false,
+  "volume_ratio_24h_vs_7d": "below_average",
+  "news_check": "stale/non-actionable"
+}
+```
+
+---
+### 2026-10-07T23:04:58.358Z — SUI/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger. SMA fast_above_slow, no fresh cross. Volume below 7d average. SUI remains the steepest decliner of the 8 pairs for a 12th+ consecutive cycle (-7.41%/-7.86%). News search ("Sui SUI price crypto market overnight") returned price levels inconsistent with live Kraken EUR price - non-actionable. No trade.
+
+**Signals considered:**
+```json
+{
+  "price_change_1h_pct": -7.41,
+  "price_change_4h_48h_pct": -7.86,
+  "momentum_trigger": false,
+  "sma_structure": "fast_above_slow",
+  "crossed_this_candle": false,
+  "volume_ratio_24h_vs_7d": "below_average",
+  "news_check": "stale/non-actionable"
+}
+```
+
+---
+### 2026-10-07T23:04:58.375Z — LTC/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger. SMA fast_above_slow, no fresh cross. Volume below 7d average. LTC down -5.92%/-5.66%, consistent with the broad pullback. News search ("Litecoin LTC price crypto market overnight") returned stale/non-actionable content. No trade.
+
+**Signals considered:**
+```json
+{
+  "price_change_1h_pct": -5.92,
+  "price_change_4h_48h_pct": -5.66,
+  "momentum_trigger": false,
+  "sma_structure": "fast_above_slow",
+  "crossed_this_candle": false,
+  "volume_ratio_24h_vs_7d": "below_average",
+  "news_check": "stale/non-actionable"
+}
+```
+
+---
