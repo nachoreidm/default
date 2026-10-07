@@ -55390,3 +55390,163 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-10-07T07:05:03.533Z — BTC/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger. SMA fast_above_slow, no fresh cross. RSI 38.7, neutral. Volume ratio 1.04x, not confirming. Order book skewed to asks (-0.16). News search returned stale/contradictory price data spanning multiple years, no reliable actionable catalyst. Continuation of the broad 48h pullback (-2.5%/-2.7%) seen last cycle - no qualifying entry signal.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 38.65,
+  "sma_state": "fast_above_slow",
+  "sma_crossed_this_candle": false,
+  "volume_ratio": 1.04,
+  "order_book_imbalance": -0.155,
+  "pct_change_1h_48h": -2.48,
+  "pct_change_4h_48h": -2.69,
+  "news_context": "Search results stale/contradictory (mixed dates across 2025-2026), no reliable near-term catalyst"
+}
+```
+
+---
+### 2026-10-07T07:05:03.557Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger. SMA fast_above_slow, no fresh cross. RSI 28.45, weak but no confirming crossover/volume/momentum. Volume ratio 0.67x, below average. Order book tilted to bids (+0.21), mild positive but insufficient alone. News search surfaced bullish analyst commentary (potential $5,000 target) but figures are inconsistent with live Kraken EUR price action (-4.1%/-4.5% 48h decline) - treating as unreliable/non-actionable. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 28.45,
+  "sma_state": "fast_above_slow",
+  "sma_crossed_this_candle": false,
+  "volume_ratio": 0.67,
+  "order_book_imbalance": 0.214,
+  "pct_change_1h_48h": -4.15,
+  "pct_change_4h_48h": -4.49,
+  "news_context": "Bullish analyst commentary found but inconsistent with live price data; treated as unreliable, not actionable"
+}
+```
+
+---
+### 2026-10-07T07:05:03.571Z — SOL/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger. SMA fast_above_slow, no fresh cross. RSI 39.7, neutral. Volume ratio 0.74x, below average. Order book skewed to asks (-0.17). News search returned stale data (mentions of SOL ETF launches and old price levels inconsistent with live price), no reliable near-term catalyst. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 39.75,
+  "sma_state": "fast_above_slow",
+  "sma_crossed_this_candle": false,
+  "volume_ratio": 0.74,
+  "order_book_imbalance": -0.173,
+  "pct_change_1h_48h": -2.55,
+  "pct_change_4h_48h": -3.09,
+  "news_context": "Stale/inconsistent search results re: ETF launches and price levels; no reliable near-term catalyst"
+}
+```
+
+---
+### 2026-10-07T07:05:03.583Z — XRP/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger. SMA fast_above_slow, no fresh cross. RSI 36.3, neutral-weak. Volume ratio 0.61x, below average. Order book notably skewed to asks (-0.43), a negative tilt. News search surfaced SEC-lawsuit optimism but at price levels ($0.62) wildly inconsistent with live Kraken EUR price (€1.31) - stale/unreliable, not actionable. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 36.26,
+  "sma_state": "fast_above_slow",
+  "sma_crossed_this_candle": false,
+  "volume_ratio": 0.61,
+  "order_book_imbalance": -0.425,
+  "pct_change_1h_48h": -3.27,
+  "pct_change_4h_48h": -4.02,
+  "news_context": "SEC lawsuit optimism mentioned but at stale price levels inconsistent with live data; not actionable"
+}
+```
+
+---
+### 2026-10-07T07:05:03.597Z — ADA/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger. SMA fast_above_slow, no fresh cross. RSI 45.3, neutral. Volume ratio 0.71x, below average. Order book notably skewed to asks (-0.41), negative tilt. News search surfaced an old "breakout toward $1" narrative at stale price levels inconsistent with the live Kraken EUR price (€0.229, down -6.8% on 4h window) - not actionable. Continues the steepest decline among the 8 pairs with no reversal signal. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 45.29,
+  "sma_state": "fast_above_slow",
+  "sma_crossed_this_candle": false,
+  "volume_ratio": 0.71,
+  "order_book_imbalance": -0.413,
+  "pct_change_1h_48h": -5.69,
+  "pct_change_4h_48h": -6.85,
+  "news_context": "Stale breakout narrative inconsistent with live price data; ongoing steep pullback with no reversal signal"
+}
+```
+
+---
+### 2026-10-07T07:05:03.610Z — LINK/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger. SMA state remains fast_below_slow (bearish structure), no fresh cross. RSI 38.1, neutral-weak. Volume ratio 0.47x, well below average. Order book mildly tilted to bids (+0.20). News search returned contradictory stale price points, no reliable catalyst. Bearish SMA structure plus no confirming signals - no trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 38.14,
+  "sma_state": "fast_below_slow",
+  "sma_crossed_this_candle": false,
+  "volume_ratio": 0.47,
+  "order_book_imbalance": 0.201,
+  "pct_change_1h_48h": -3.47,
+  "pct_change_4h_48h": -4.64,
+  "news_context": "Contradictory stale price points across sources, no reliable catalyst; SMA structure still bearish"
+}
+```
+
+---
+### 2026-10-07T07:05:03.623Z — SUI/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger. SMA fast_above_slow, no fresh cross. RSI 40.6, neutral. Volume ratio 0.38x, well below average - no confirmation. Order book tilted to bids (+0.22). News search figures ($2.63) are wildly inconsistent with the live Kraken EUR price (€1.016) - unreliable/stale, not actionable. 48h decline has deepened further this cycle (-8.6%/-8.3%) with no reversal signal. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 40.55,
+  "sma_state": "fast_above_slow",
+  "sma_crossed_this_candle": false,
+  "volume_ratio": 0.376,
+  "order_book_imbalance": 0.224,
+  "pct_change_1h_48h": -8.56,
+  "pct_change_4h_48h": -8.29,
+  "news_context": "Search price figures wildly inconsistent with live data, treated as unreliable; deepening pullback continues with no reversal signal"
+}
+```
+
+---
+### 2026-10-07T07:05:03.635Z — LTC/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger. SMA fast_above_slow, no fresh cross. RSI 38.6, neutral-weak. Volume ratio 0.52x, below average. Order book tilted to bids (+0.22). News search figures ($103-127) wildly inconsistent with live Kraken EUR price (€60.49) - stale/unreliable. No confirming signal combination - no trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 38.65,
+  "sma_state": "fast_above_slow",
+  "sma_crossed_this_candle": false,
+  "volume_ratio": 0.518,
+  "order_book_imbalance": 0.22,
+  "pct_change_1h_48h": -3.47,
+  "pct_change_4h_48h": -3.37,
+  "news_context": "Search price figures inconsistent with live data (stale/wrong-currency sources), no reliable catalyst"
+}
+```
+
+---
