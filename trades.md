@@ -57310,3 +57310,163 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-10-07T19:03:04.675Z — BTC/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger. SMA fast_above_slow, no fresh cross. RSI 37.6, neutral-weak. Volume ratio 1.04x, not confirming. Order book roughly flat (+0.05). News: Fed held steady at Sept 16 hike (3.75-4.00%), no move expected Oct 27-28; "Uptober" seasonality discussed but speculative. No near-term actionable catalyst. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 37.62,
+  "sma_state": "fast_above_slow",
+  "sma_crossed_this_candle": false,
+  "volume_ratio": 1.04,
+  "order_book_imbalance": 0.049,
+  "pct_change_1h_48h": -2.54,
+  "pct_change_4h_48h": -2.36,
+  "news_context": "Fed steady, Uptober seasonality discussed but speculative, no near-term catalyst"
+}
+```
+
+---
+### 2026-10-07T19:03:04.692Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger. SMA fast_above_slow, no fresh cross. RSI 27.5, weak but unconfirmed (8th consecutive cycle in this range, no confirming signal). Volume ratio 0.67x, below average. Order book roughly flat (-0.02). News: Citi cut 12-month BTC/ETH price targets citing stalled US crypto legislation and weak investor demand - a genuinely bearish-leaning note, consistent with the ongoing decline, but not itself a trade trigger without a confirming live signal. No qualifying setup; decline persists (-5.3%/-4.9%).
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 27.48,
+  "sma_state": "fast_above_slow",
+  "sma_crossed_this_candle": false,
+  "volume_ratio": 0.67,
+  "order_book_imbalance": -0.021,
+  "pct_change_1h_48h": -5.3,
+  "pct_change_4h_48h": -4.88,
+  "news_context": "Citi cut BTC/ETH price targets citing stalled legislation and weak demand - bearish-leaning, consistent with ongoing decline but not a trade trigger"
+}
+```
+
+---
+### 2026-10-07T19:03:04.703Z — SOL/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger. SMA fast_above_slow, no fresh cross. RSI 37.3, neutral-weak. Volume ratio 0.74x, below average. Order book tilted to asks (-0.29). News: Alpenglow upgrade window (Aug-Oct 2026) status unconfirmed; one August report noted SOL down ~38% YTD. No near-term actionable catalyst. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 37.3,
+  "sma_state": "fast_above_slow",
+  "sma_crossed_this_candle": false,
+  "volume_ratio": 0.74,
+  "order_book_imbalance": -0.288,
+  "pct_change_1h_48h": -3.29,
+  "pct_change_4h_48h": -2.64,
+  "news_context": "Alpenglow upgrade status unconfirmed, no near-term catalyst"
+}
+```
+
+---
+### 2026-10-07T19:03:04.712Z — XRP/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger. SMA fast_above_slow, no fresh cross. RSI 32.6, weak but unconfirmed. Volume ratio 0.61x, below average. Order book tilted to bids (+0.32). News: Ripple's 2026 business push (acquisitions, platform expansion) is real but longer-term; on-chain data shows a historically high share of XRP holders at unrealized losses, consistent with the ongoing price decline. No near-term actionable catalyst. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 32.62,
+  "sma_state": "fast_above_slow",
+  "sma_crossed_this_candle": false,
+  "volume_ratio": 0.61,
+  "order_book_imbalance": 0.318,
+  "pct_change_1h_48h": -4.98,
+  "pct_change_4h_48h": -4.25,
+  "news_context": "Ripple business push longer-term; on-chain unrealized losses consistent with ongoing decline; no near-term catalyst"
+}
+```
+
+---
+### 2026-10-07T19:03:04.732Z — ADA/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger. SMA fast_above_slow, no fresh cross. RSI 47.8, neutral. Volume ratio 0.71x, below average, not confirming. Order book heavily tilted to asks (-0.34). News: Van Rossem hard fork pending, SPAR Switzerland rollout, Midnight sidechain - all real but longer-term/already-priced developments, no fresh near-term catalyst. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 47.82,
+  "sma_state": "fast_above_slow",
+  "sma_crossed_this_candle": false,
+  "volume_ratio": 0.71,
+  "order_book_imbalance": -0.339,
+  "pct_change_1h_48h": -3.35,
+  "pct_change_4h_48h": -3.43,
+  "news_context": "Van Rossem hard fork pending, SPAR rollout, Midnight sidechain - longer-term, no fresh near-term catalyst"
+}
+```
+
+---
+### 2026-10-07T19:03:04.742Z — LINK/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger. SMA state remains fast_below_slow (bearish structure), no fresh cross. RSI 37.7, weak but unconfirmed. Volume ratio 0.47x, well below average. Order book mildly tilted to bids (+0.10). News: DTCC tokenized-securities full launch planned for "October 2026" (i.e. now) is a real pending catalyst, but not yet confirmed live and no live signal supports an entry. Bearish SMA structure persists. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 37.7,
+  "sma_state": "fast_below_slow",
+  "sma_crossed_this_candle": false,
+  "volume_ratio": 0.47,
+  "order_book_imbalance": 0.101,
+  "pct_change_1h_48h": -3.64,
+  "pct_change_4h_48h": -3.16,
+  "news_context": "DTCC full launch planned for October 2026, unconfirmed whether live yet; SMA structure still bearish"
+}
+```
+
+---
+### 2026-10-07T19:03:04.757Z — SUI/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger. SMA fast_above_slow, no fresh cross. RSI 38.6, neutral-weak. Volume ratio 0.38x, well below average. Order book tilted to asks (-0.27). News: institutional themes (Grayscale AI fund, Mubadala tokenization) are real but from August, already priced in; one report flags token unlocks weighing on price, consistent with the ongoing decline. 48h decline deepened further to -6.9%/-6.5%. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 38.64,
+  "sma_state": "fast_above_slow",
+  "sma_crossed_this_candle": false,
+  "volume_ratio": 0.376,
+  "order_book_imbalance": -0.266,
+  "pct_change_1h_48h": -6.9,
+  "pct_change_4h_48h": -6.55,
+  "news_context": "Institutional themes from August already priced in; token unlocks flagged as weighing on price, consistent with ongoing decline"
+}
+```
+
+---
+### 2026-10-07T19:03:04.768Z — LTC/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger. SMA fast_above_slow, no fresh cross. RSI 31.6, weak but unconfirmed. Volume ratio 0.52x, below average. Order book tilted to asks (-0.18). News: SEC classified LTC as a digital commodity (March 2026), LitVM mainnet status unconfirmed - longer-term themes, no fresh near-term catalyst. No confirming signal combination - no trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 31.6,
+  "sma_state": "fast_above_slow",
+  "sma_crossed_this_candle": false,
+  "volume_ratio": 0.518,
+  "order_book_imbalance": -0.181,
+  "pct_change_1h_48h": -5.57,
+  "pct_change_4h_48h": -5.36,
+  "news_context": "SEC digital-commodity classification, LitVM status unconfirmed - longer-term, no fresh near-term catalyst"
+}
+```
+
+---
