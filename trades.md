@@ -62062,3 +62062,204 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-10-08T23:03:00.141Z — BTC/EUR — NO TRADE
+
+**Reasoning:** Price essentially flat vs. last cycle: -3.99%/-4.12% (1h/4h over 48h) to €73,032.6, RSI 31.53 - unchanged, still oversold. SMA still fast_below_slow, no fresh cross. Order book turned positive (+0.17). momentum_trigger false - long-only, no qualifying upside move. Standard per-pair WebSearch returned the usual stale/conflicting content - non-actionable, advisory only. No bullish setup, no open position, no trade.
+
+**Signals considered:**
+```json
+{
+  "price": 73032.6,
+  "price_action_1h_48h_pct_change": -3.99,
+  "price_action_4h_48h_pct_change": -4.12,
+  "rsi_14_4h": 31.53,
+  "sma_crossover_4h": {
+    "state": "fast_below_slow",
+    "crossed_this_candle": false
+  },
+  "order_book_imbalance": 0.17,
+  "momentum_trigger": {
+    "flagged": false,
+    "threshold_pct": 6
+  },
+  "news": "stale/conflicting per-pair search results - non-actionable"
+}
+```
+
+---
+### 2026-10-08T23:03:00.159Z — ETH/EUR — NO TRADE
+
+**Reasoning:** Price essentially flat: -7.95%/-8.36% (1h/4h over 48h) to €2,209.15, RSI 22.82 - still oversold. SMA fast_below_slow, no fresh cross. Volume still flagged above 2x (ratio 2.39). momentum_trigger false (long-only). Standard per-pair WebSearch returned stale/conflicting content - non-actionable, advisory only. No bullish setup, no open position, no trade.
+
+**Signals considered:**
+```json
+{
+  "price": 2209.15,
+  "price_action_1h_48h_pct_change": -7.95,
+  "price_action_4h_48h_pct_change": -8.36,
+  "rsi_14_4h": 22.82,
+  "sma_crossover_4h": {
+    "state": "fast_below_slow",
+    "crossed_this_candle": false
+  },
+  "volume_ratio": 2.39,
+  "flag_above_2x": true,
+  "momentum_trigger": {
+    "flagged": false,
+    "threshold_pct": 6
+  },
+  "news": "stale/conflicting per-pair search results - non-actionable"
+}
+```
+
+---
+### 2026-10-08T23:03:00.182Z — SOL/EUR — NO TRADE
+
+**Reasoning:** Price essentially flat: -8.33%/-9.32% (1h/4h over 48h) to €98.45, RSI 20.37 - still oversold. SMA fast_below_slow, no fresh cross. Order book heavily bid-skewed (+0.58). momentum_trigger false (long-only). Standard per-pair WebSearch returned only conflicting undated/old figures - non-actionable, advisory only. No bullish setup, no open position, no trade.
+
+**Signals considered:**
+```json
+{
+  "price": 98.45,
+  "price_action_1h_48h_pct_change": -8.33,
+  "price_action_4h_48h_pct_change": -9.32,
+  "rsi_14_4h": 20.37,
+  "sma_crossover_4h": {
+    "state": "fast_below_slow",
+    "crossed_this_candle": false
+  },
+  "order_book_imbalance": 0.58,
+  "momentum_trigger": {
+    "flagged": false,
+    "threshold_pct": 6
+  },
+  "news": "stale per-pair search results - non-actionable"
+}
+```
+
+---
+### 2026-10-08T23:03:00.196Z — XRP/EUR — NO TRADE
+
+**Reasoning:** Modest continued improvement: -7.43%/-7.99% (1h/4h over 48h) to €1.23342, RSI 28.61 - still oversold. SMA fast_below_slow, no fresh cross. Order book heavily bid-skewed (+0.49). momentum_trigger false (long-only). Standard per-pair WebSearch returned stale, wildly conflicting content ($0.60-$1.56) - non-actionable, advisory only. No bullish setup, no open position, no trade.
+
+**Signals considered:**
+```json
+{
+  "price": 1.23342,
+  "price_action_1h_48h_pct_change": -7.43,
+  "price_action_4h_48h_pct_change": -7.99,
+  "rsi_14_4h": 28.61,
+  "sma_crossover_4h": {
+    "state": "fast_below_slow",
+    "crossed_this_candle": false
+  },
+  "order_book_imbalance": 0.49,
+  "momentum_trigger": {
+    "flagged": false,
+    "threshold_pct": 6
+  },
+  "news": "stale/conflicting per-pair search results - non-actionable"
+}
+```
+
+---
+### 2026-10-08T23:03:00.211Z — ADA/EUR — NO TRADE
+
+**Reasoning:** Still the deepest decliner over 48h: -11.92%/-12.65%, price €0.20929, RSI 31.04. SMA still fast_above_slow (only pair not bearish-crossed), order book turned negative (-0.29). momentum_trigger false - long-only, cannot flag a decline. Standard per-pair WebSearch returned stale/conflicting content - non-actionable, advisory only. No bullish setup, no open position, no trade.
+
+**Signals considered:**
+```json
+{
+  "price": 0.20929,
+  "price_action_1h_48h_pct_change": -11.92,
+  "price_action_4h_48h_pct_change": -12.65,
+  "rsi_14_4h": 31.04,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "order_book_imbalance": -0.29,
+  "momentum_trigger": {
+    "flagged": false,
+    "threshold_pct": 6
+  },
+  "news": "stale/conflicting per-pair search results - non-actionable"
+}
+```
+
+---
+### 2026-10-08T23:03:00.227Z — LINK/EUR — NO TRADE
+
+**Reasoning:** Price essentially flat: -8.21%/-10.00% (1h/4h over 48h) to €11.40043, RSI 25.41 - still oversold. SMA fast_below_slow, no fresh cross. Order book bid-skewed (+0.33). momentum_trigger false (long-only). Standard per-pair WebSearch returned stale, wildly conflicting content ($8.15-$13.50) - non-actionable, advisory only. No bullish setup, no open position, no trade.
+
+**Signals considered:**
+```json
+{
+  "price": 11.40043,
+  "price_action_1h_48h_pct_change": -8.21,
+  "price_action_4h_48h_pct_change": -10,
+  "rsi_14_4h": 25.41,
+  "sma_crossover_4h": {
+    "state": "fast_below_slow",
+    "crossed_this_candle": false
+  },
+  "order_book_imbalance": 0.33,
+  "momentum_trigger": {
+    "flagged": false,
+    "threshold_pct": 6
+  },
+  "news": "stale/conflicting per-pair search results - non-actionable"
+}
+```
+
+---
+### 2026-10-08T23:03:00.241Z — SUI/EUR — NO TRADE
+
+**Reasoning:** Price essentially flat: -10.59%/-11.47% (1h/4h over 48h) to €0.9386, RSI 28.32 - still oversold, second-steepest decliner after ADA. SMA fast_below_slow, no fresh cross. Order book bid-skewed (+0.32). momentum_trigger false (long-only). Standard per-pair WebSearch returned stale, wildly conflicting undated figures - non-actionable, advisory only. No bullish setup, no open position, no trade.
+
+**Signals considered:**
+```json
+{
+  "price": 0.9386,
+  "price_action_1h_48h_pct_change": -10.59,
+  "price_action_4h_48h_pct_change": -11.47,
+  "rsi_14_4h": 28.32,
+  "sma_crossover_4h": {
+    "state": "fast_below_slow",
+    "crossed_this_candle": false
+  },
+  "order_book_imbalance": 0.32,
+  "momentum_trigger": {
+    "flagged": false,
+    "threshold_pct": 6
+  },
+  "news": "stale/conflicting per-pair search results - non-actionable"
+}
+```
+
+---
+### 2026-10-08T23:03:00.257Z — LTC/EUR — NO TRADE
+
+**Reasoning:** Modest continued improvement: -7.75%/-8.91% (1h/4h over 48h) to €56.62, RSI 23.22 - still oversold. SMA fast_below_slow, no fresh cross. Order book bid-skewed (+0.42). momentum_trigger false (long-only). Standard per-pair WebSearch returned stale, conflicting undated figures - non-actionable, advisory only. No bullish setup, no open position, no trade.
+
+**Signals considered:**
+```json
+{
+  "price": 56.62,
+  "price_action_1h_48h_pct_change": -7.75,
+  "price_action_4h_48h_pct_change": -8.91,
+  "rsi_14_4h": 23.22,
+  "sma_crossover_4h": {
+    "state": "fast_below_slow",
+    "crossed_this_candle": false
+  },
+  "order_book_imbalance": 0.42,
+  "momentum_trigger": {
+    "flagged": false,
+    "threshold_pct": 6
+  },
+  "news": "stale per-pair search results - non-actionable"
+}
+```
+
+---
