@@ -60669,3 +60669,197 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-10-08T16:05:24.293Z — BTC/EUR — NO TRADE
+
+**Reasoning:** Broad selloff accelerated sharply this cycle. Price -4.83%/-4.82% (1h/4h over 48h) to €72,329.9, RSI 24.66 (oversold), and BTC posted its first bearish SMA(20/50) cross of the entire session this candle (crossed_this_candle: true) - a real structure change, but still a downside move and momentum_trigger is long-only (only flags upside moves ≥6%), so it correctly shows false here. Ran an extra non-standard broader WebSearch given the severity of the move ("crypto market crash sell-off today news") beyond the standard per-pair query - this one returned more current, corroborating context than the usual stale noise: BTC reportedly trading under $83,000, ~$403-550M in liquidations in the last hour/day across the market, cited causes include Ethereum spot ETF outflows, weak US jobs data (29K vs 90K expected), and macro pressure. Advisory only per standing instructions - doesn't change the conclusion since this is a selloff with no bullish setup, not something the long-only system can act on. No open position, no trade.
+
+**Signals considered:**
+```json
+{
+  "price": 72329.9,
+  "price_action_1h_48h_pct_change": -4.83,
+  "price_action_4h_48h_pct_change": -4.82,
+  "rsi_14_4h": 24.66,
+  "sma_crossover_4h": {
+    "state": "fast_below_slow",
+    "crossed_this_candle": true,
+    "crossover_direction": "bearish"
+  },
+  "momentum_trigger": {
+    "flagged": false,
+    "threshold_pct": 6
+  },
+  "news": "stale per-pair search as usual; broader crash-context search corroborated: BTC <$83k, ~$403-550M liquidations, ETF outflows, weak jobs data - advisory only"
+}
+```
+
+---
+### 2026-10-08T16:05:24.321Z — ETH/EUR — NO TRADE
+
+**Reasoning:** Deep selloff continues: -9.16%/-9.02% (1h/4h over 48h) to €2,169.97, RSI 16.05 - deeply oversold. SMA already fast_below_slow (bearish structure established earlier this session, no fresh cross this candle). momentum_trigger false - it's long-only (upside ≥6% only) and structurally cannot flag a downside move regardless of magnitude. Broader crash-context WebSearch this cycle (beyond the standard stale per-pair query) reported ETH trading under $2,600, with Ethereum spot ETF outflows (7th consecutive bearish day) cited as a specific driver for this pair - more corroborated than the usual noise, but still advisory only; doesn't change the no-trade conclusion since there's no bullish setup to act on. No open position, no trade.
+
+**Signals considered:**
+```json
+{
+  "price": 2169.97,
+  "price_action_1h_48h_pct_change": -9.16,
+  "price_action_4h_48h_pct_change": -9.02,
+  "rsi_14_4h": 16.05,
+  "sma_crossover_4h": {
+    "state": "fast_below_slow",
+    "crossed_this_candle": false
+  },
+  "momentum_trigger": {
+    "flagged": false,
+    "threshold_pct": 6
+  },
+  "news": "broader crash-context search: ETH <$2,600, spot ETF outflows 7th consecutive bearish day cited as driver - advisory only"
+}
+```
+
+---
+### 2026-10-08T16:05:24.345Z — SOL/EUR — NO TRADE
+
+**Reasoning:** -9.26%/-9.64% (1h/4h over 48h) to €96.91, RSI 18.35 - deeply oversold. SMA fast_below_slow (bearish structure already established, no fresh cross). momentum_trigger false (long-only, doesn't flag downside moves of any magnitude). Per-pair news search returned the usual stale/non-current content; the broader crash-context search this cycle was market-wide (BTC/ETH/XRP focus, liquidations, ETF outflows, weak jobs data) without SOL-specific detail - still advisory only, no bullish setup present regardless. No open position, no trade.
+
+**Signals considered:**
+```json
+{
+  "price": 96.91,
+  "price_action_1h_48h_pct_change": -9.26,
+  "price_action_4h_48h_pct_change": -9.64,
+  "rsi_14_4h": 18.35,
+  "sma_crossover_4h": {
+    "state": "fast_below_slow",
+    "crossed_this_candle": false
+  },
+  "momentum_trigger": {
+    "flagged": false,
+    "threshold_pct": 6
+  },
+  "news": "stale per-pair search; broader crash context market-wide but not SOL-specific - advisory only"
+}
+```
+
+---
+### 2026-10-08T16:05:24.366Z — XRP/EUR — NO TRADE
+
+**Reasoning:** -9.86%/-9.90% (1h/4h over 48h) to €1.2022, RSI 18.80 - deeply oversold. SMA fast_below_slow (bearish structure already established, no fresh cross). momentum_trigger false (long-only). Broader crash-context WebSearch this cycle specifically flagged XRP "challenging $1.40 support" as part of the wider market selloff - more corroborated than the usual stale per-pair noise, but still advisory only and doesn't change the conclusion: this is a breakdown, not a bullish setup, and the system only acts on confirmed upside momentum. No open position, no trade.
+
+**Signals considered:**
+```json
+{
+  "price": 1.2022,
+  "price_action_1h_48h_pct_change": -9.86,
+  "price_action_4h_48h_pct_change": -9.9,
+  "rsi_14_4h": 18.8,
+  "sma_crossover_4h": {
+    "state": "fast_below_slow",
+    "crossed_this_candle": false
+  },
+  "momentum_trigger": {
+    "flagged": false,
+    "threshold_pct": 6
+  },
+  "news": "broader crash-context search: XRP challenging $1.40 support - advisory only"
+}
+```
+
+---
+### 2026-10-08T16:05:24.393Z — ADA/EUR — NO TRADE
+
+**Reasoning:** Deepest decliner of all 8 pairs this cycle by far: -14.48%/-14.02% (1h/4h over 48h) to €0.206475, RSI 30.12. SMA structure still fast_above_slow (the only pair that hasn't flipped bearish yet, though order book is heavily bid-skewed at +0.70 which doesn't offset the price action). momentum_trigger false - long-only, cannot flag a -14% move regardless of magnitude. Per-pair news search stale/non-current as usual; the broader crash-context search was market-wide, not ADA-specific. No bullish setup present; this is the sharpest breakdown in the pool, strictly a no-trade. No open position, no trade.
+
+**Signals considered:**
+```json
+{
+  "price": 0.206475,
+  "price_action_1h_48h_pct_change": -14.48,
+  "price_action_4h_48h_pct_change": -14.02,
+  "rsi_14_4h": 30.12,
+  "sma_crossover_4h": {
+    "state": "fast_above_slow",
+    "crossed_this_candle": false
+  },
+  "order_book_imbalance_top10": 0.7,
+  "momentum_trigger": {
+    "flagged": false,
+    "threshold_pct": 6
+  },
+  "news": "stale per-pair search; broader crash context market-wide, not ADA-specific - advisory only"
+}
+```
+
+---
+### 2026-10-08T16:05:24.414Z — LINK/EUR — NO TRADE
+
+**Reasoning:** -10.36%/-11.04% (1h/4h over 48h) to €11.05495, RSI 20.54 - deeply oversold. SMA fast_below_slow (bearish structure already established, no fresh cross). momentum_trigger false (long-only). Per-pair news search stale as usual; broader crash-context search this cycle was market-wide (BTC/ETH/XRP/jobs-data/ETF-outflow focus), no LINK-specific detail - advisory only, no bullish setup present. No open position, no trade.
+
+**Signals considered:**
+```json
+{
+  "price": 11.05495,
+  "price_action_1h_48h_pct_change": -10.36,
+  "price_action_4h_48h_pct_change": -11.04,
+  "rsi_14_4h": 20.54,
+  "sma_crossover_4h": {
+    "state": "fast_below_slow",
+    "crossed_this_candle": false
+  },
+  "momentum_trigger": {
+    "flagged": false,
+    "threshold_pct": 6
+  },
+  "news": "stale per-pair search; broader crash context market-wide, not LINK-specific - advisory only"
+}
+```
+
+---
+### 2026-10-08T16:05:24.433Z — SUI/EUR — NO TRADE
+
+**Reasoning:** -12.77%/-13.01% (1h/4h over 48h) to €0.9167, RSI 25.13 - deeply oversold, second-steepest decliner this cycle after ADA. SMA fast_below_slow (bearish structure already established, no fresh cross). momentum_trigger false (long-only, cannot flag a -13% move). Per-pair news search stale as usual; broader crash-context search was market-wide, not SUI-specific - advisory only, no bullish setup present. No open position, no trade.
+
+**Signals considered:**
+```json
+{
+  "price": 0.9167,
+  "price_action_1h_48h_pct_change": -12.77,
+  "price_action_4h_48h_pct_change": -13.01,
+  "rsi_14_4h": 25.13,
+  "sma_crossover_4h": {
+    "state": "fast_below_slow",
+    "crossed_this_candle": false
+  },
+  "momentum_trigger": {
+    "flagged": false,
+    "threshold_pct": 6
+  },
+  "news": "stale per-pair search; broader crash context market-wide, not SUI-specific - advisory only"
+}
+```
+
+---
+### 2026-10-08T16:05:24.454Z — LTC/EUR — NO TRADE
+
+**Reasoning:** -10.43%/-9.99% (1h/4h over 48h) to €55.35, RSI 17.73 - the most oversold reading of all 8 pairs this cycle. SMA fast_below_slow (bearish structure already established, no fresh cross). momentum_trigger false (long-only). Per-pair news search stale as usual; broader crash-context search was market-wide, not LTC-specific - advisory only, no bullish setup present. No open position, no trade.
+
+**Signals considered:**
+```json
+{
+  "price": 55.35,
+  "price_action_1h_48h_pct_change": -10.43,
+  "price_action_4h_48h_pct_change": -9.99,
+  "rsi_14_4h": 17.73,
+  "sma_crossover_4h": {
+    "state": "fast_below_slow",
+    "crossed_this_candle": false
+  },
+  "momentum_trigger": {
+    "flagged": false,
+    "threshold_pct": 6
+  },
+  "news": "stale per-pair search; broader crash context market-wide, not LTC-specific - advisory only"
+}
+```
+
+---
