@@ -59703,3 +59703,163 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-10-08T10:03:14.251Z — BTC/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger. SMA fast_above_slow, no fresh cross. RSI 35.8. Volume 1.52x, below 2x bar. Order book now ask-heavy (-0.24). BTC down -3.01%/-3.18%, still the shallowest decliner. News search returned stale content - non-actionable. No trade.
+
+**Signals considered:**
+```json
+{
+  "price_change_1h_pct": -3.01,
+  "price_change_4h_48h_pct": -3.18,
+  "momentum_trigger": false,
+  "rsi_4h": 35.81,
+  "sma_structure": "fast_above_slow",
+  "crossed_this_candle": false,
+  "volume_ratio": 1.52,
+  "order_book_imbalance": -0.24,
+  "news_check": "stale/non-actionable"
+}
+```
+
+---
+### 2026-10-08T10:03:14.286Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger. SMA remains fast_below_slow (bearish, no fresh cross). RSI 29.0, oversold but no reversal confirmation. Volume 2.39x (above 2x) confirming the decline. ETH down -4.89%/-4.82%. News search returned conflicting/undated prices ($2,335-$3,634) - non-actionable. No trade.
+
+**Signals considered:**
+```json
+{
+  "price_change_1h_pct": -4.89,
+  "price_change_4h_48h_pct": -4.82,
+  "momentum_trigger": false,
+  "rsi_4h": 29.05,
+  "sma_structure": "fast_below_slow",
+  "crossed_this_candle": false,
+  "volume_ratio": 2.39,
+  "order_book_imbalance": -0.3,
+  "news_check": "stale/non-actionable"
+}
+```
+
+---
+### 2026-10-08T10:03:14.332Z — SOL/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger. SMA fast_above_slow, no fresh cross. Volume below average (0.85x). SOL down -3.69%/-3.89%, in line with the broad pullback. News search returned wildly conflicting undated prices ($69-$245) - non-actionable. No trade.
+
+**Signals considered:**
+```json
+{
+  "price_change_1h_pct": -3.69,
+  "price_change_4h_48h_pct": -3.89,
+  "momentum_trigger": false,
+  "rsi_4h": 31.73,
+  "sma_structure": "fast_above_slow",
+  "crossed_this_candle": false,
+  "volume_ratio": 0.85,
+  "order_book_imbalance": -0.08,
+  "news_check": "stale/non-actionable"
+}
+```
+
+---
+### 2026-10-08T10:03:14.357Z — XRP/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger (4h/48h move of -6.47% exceeds 6% in magnitude but long-only trigger doesn't flag downside). SMA remains fast_below_slow (bearish, no fresh cross). RSI 27.8, oversold. Volume 1.64x, below 2x bar. News search returned conflicting/stale prices (~$1.49 vs older $0.60-$1.56 range) - non-actionable. No trade.
+
+**Signals considered:**
+```json
+{
+  "price_change_1h_pct": -5.57,
+  "price_change_4h_48h_pct": -6.47,
+  "momentum_trigger": false,
+  "rsi_4h": 27.81,
+  "sma_structure": "fast_below_slow",
+  "crossed_this_candle": false,
+  "volume_ratio": 1.64,
+  "order_book_imbalance": -0.23,
+  "news_check": "stale/non-actionable"
+}
+```
+
+---
+### 2026-10-08T10:03:14.380Z — ADA/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger (both windows well exceed 6% in magnitude: -7.37%/-9.13%, but the trigger is long-only and doesn't flag downside moves). SMA fast_above_slow, no fresh cross. Volume below average (0.85x). ADA remains the deepest decliner by magnitude among the 8. News search returned widely conflicting/stale prices ($0.26-$0.78) - non-actionable. No trade.
+
+**Signals considered:**
+```json
+{
+  "price_change_1h_pct": -7.37,
+  "price_change_4h_48h_pct": -9.13,
+  "momentum_trigger": false,
+  "rsi_4h": 44.1,
+  "sma_structure": "fast_above_slow",
+  "crossed_this_candle": false,
+  "volume_ratio": 0.85,
+  "order_book_imbalance": -0.21,
+  "news_check": "stale/non-actionable"
+}
+```
+
+---
+### 2026-10-08T10:03:14.417Z — LINK/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger (4h/48h move of -6.43% exceeds 6% in magnitude but long-only trigger doesn't flag downside). SMA remains fast_below_slow (bearish structure, no fresh cross). Volume roughly in line with average (1.02x). News search returned conflicting/stale prices ($8-$13.50) - non-actionable. No trade.
+
+**Signals considered:**
+```json
+{
+  "price_change_1h_pct": -5.64,
+  "price_change_4h_48h_pct": -6.43,
+  "momentum_trigger": false,
+  "rsi_4h": 30.41,
+  "sma_structure": "fast_below_slow",
+  "crossed_this_candle": false,
+  "volume_ratio": 1.02,
+  "order_book_imbalance": 0.31,
+  "news_check": "stale/non-actionable"
+}
+```
+
+---
+### 2026-10-08T10:03:14.439Z — SUI/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger. SMA fast_above_slow, no fresh cross. Volume below average (0.88x). SUI down -4.70%/-5.68%, stabilizing somewhat on the 1h window. News search returned conflicting/stale content ($0.59-$0.99, undated) - non-actionable. No trade.
+
+**Signals considered:**
+```json
+{
+  "price_change_1h_pct": -4.7,
+  "price_change_4h_48h_pct": -5.68,
+  "momentum_trigger": false,
+  "rsi_4h": 41.02,
+  "sma_structure": "fast_above_slow",
+  "crossed_this_candle": false,
+  "volume_ratio": 0.88,
+  "order_book_imbalance": 0.37,
+  "news_check": "stale/non-actionable"
+}
+```
+
+---
+### 2026-10-08T10:03:14.462Z — LTC/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger (both windows well exceed 6% in magnitude: -7.52%/-8.07%, but the trigger is long-only and doesn't flag downside moves). Bearish SMA cross persists (fast_below_slow). RSI 24.3, deeply oversold. LTC remains near its period low, one of the steepest decliners by magnitude. News search returned wildly conflicting/stale prices ($46-$103) - non-actionable. No trade.
+
+**Signals considered:**
+```json
+{
+  "price_change_1h_pct": -7.52,
+  "price_change_4h_48h_pct": -8.07,
+  "momentum_trigger": false,
+  "rsi_4h": 24.34,
+  "sma_structure": "fast_below_slow",
+  "crossed_this_candle": false,
+  "volume_ratio": 1.24,
+  "order_book_imbalance": -0.03,
+  "news_check": "stale/non-actionable"
+}
+```
+
+---
