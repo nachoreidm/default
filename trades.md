@@ -64640,3 +64640,163 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-10-09T12:03:36.320Z — BTC/EUR — NO TRADE
+
+**Reasoning:** Price €74,234.8, 1h/48h -0.63%, 4h/48h -0.48% - decline moderating, RSI climbing to 47.53 (best since the selloff began, now near neutral). SMA fast_below_slow. Order book flipped positive (+0.055). Volume ratio 1.75x, not flagged. momentum_trigger false (long-only signal; magnitude far below 6% threshold either window). News confirms a modest bounce (Trump ruling out an Iran strike, oil pulling back) consistent with the stabilization seen on Kraken - advisory only, doesn't change conclusion since no qualifying setup exists. No position open. No trade.
+
+**Signals considered:**
+```json
+{
+  "price_eur": 74234.8,
+  "pct_change_1h_48h": -0.63,
+  "pct_change_4h_48h": -0.48,
+  "rsi_14_4h": 47.53,
+  "sma_state": "fast_below_slow",
+  "order_book_imbalance": 0.055,
+  "volume_ratio": 1.75,
+  "flag_above_2x": false,
+  "momentum_trigger": false
+}
+```
+
+---
+### 2026-10-09T12:03:36.335Z — ETH/EUR — NO TRADE
+
+**Reasoning:** Price €2,233.76, 1h/48h -2.94%, 4h/48h -2.72% - decline moderating vs prior cycles. RSI 34.22. SMA fast_below_slow. Order book slightly negative (-0.057). Volume ratio 2.61x, flagged above 2x. momentum_trigger false. News continues to cite ETF outflow streak ($568.8M over 7 sessions) as the main driver, consistent with weak but stabilizing price action on Kraken. No qualifying setup. No position open. No trade.
+
+**Signals considered:**
+```json
+{
+  "price_eur": 2233.76,
+  "pct_change_1h_48h": -2.94,
+  "pct_change_4h_48h": -2.72,
+  "rsi_14_4h": 34.22,
+  "sma_state": "fast_below_slow",
+  "order_book_imbalance": -0.057,
+  "volume_ratio": 2.61,
+  "flag_above_2x": true,
+  "momentum_trigger": false
+}
+```
+
+---
+### 2026-10-09T12:03:36.357Z — SOL/EUR — NO TRADE
+
+**Reasoning:** Price €99.13, 1h/48h -4.73%, 4h/48h -4.92%. RSI 33.08, improving from last cycle's laggard reading (28.44) but still soft. SMA fast_below_slow. Order book positive (+0.210). Volume ratio 1.92x, not flagged. momentum_trigger false - downside move, signal is long-only by design. News confirms the drop tracks the wider market pullback rather than anything SOL-specific, plus adoption news (Securitize, Samsung) explicitly framed as not a price call. No qualifying setup. No position open. No trade.
+
+**Signals considered:**
+```json
+{
+  "price_eur": 99.13,
+  "pct_change_1h_48h": -4.73,
+  "pct_change_4h_48h": -4.92,
+  "rsi_14_4h": 33.08,
+  "sma_state": "fast_below_slow",
+  "order_book_imbalance": 0.21,
+  "volume_ratio": 1.92,
+  "flag_above_2x": false,
+  "momentum_trigger": false
+}
+```
+
+---
+### 2026-10-09T12:03:36.369Z — XRP/EUR — NO TRADE
+
+**Reasoning:** Price €1.24895, 1h/48h -3.38%, 4h/48h -2.56% - mild improvement vs last cycle. RSI 39.13. SMA fast_below_slow. Order book strongly positive (+0.469). Volume ratio 1.22x, not flagged. momentum_trigger false. News continues to cite collapsed ETF demand and large exchange transfers to Binance as sell-pressure drivers - consistent context, no qualifying technical/momentum setup. No position open. No trade.
+
+**Signals considered:**
+```json
+{
+  "price_eur": 1.24895,
+  "pct_change_1h_48h": -3.38,
+  "pct_change_4h_48h": -2.56,
+  "rsi_14_4h": 39.13,
+  "sma_state": "fast_below_slow",
+  "order_book_imbalance": 0.469,
+  "volume_ratio": 1.22,
+  "flag_above_2x": false,
+  "momentum_trigger": false
+}
+```
+
+---
+### 2026-10-09T12:03:36.382Z — ADA/EUR — NO TRADE
+
+**Reasoning:** Price €0.213752, 1h/48h -5.90%, 4h/48h -6.55% - still among the deepest 48h decliners. RSI 40.18. SMA fast_above_slow - remains the only pair not bearish-crossed all session, though the gap between fast/slow is narrowing (0.22567 vs 0.22514). Order book flipped slightly negative (-0.072). Volume ratio 2.23x, flagged above 2x. momentum_trigger false (downside move; long-only signal). News attributes the move mainly to macro sympathy with BTC and rising yields, nothing ADA-specific. No qualifying setup. No position open. No trade.
+
+**Signals considered:**
+```json
+{
+  "price_eur": 0.213752,
+  "pct_change_1h_48h": -5.9,
+  "pct_change_4h_48h": -6.55,
+  "rsi_14_4h": 40.18,
+  "sma_state": "fast_above_slow",
+  "order_book_imbalance": -0.072,
+  "volume_ratio": 2.23,
+  "flag_above_2x": true,
+  "momentum_trigger": false
+}
+```
+
+---
+### 2026-10-09T12:03:36.395Z — LINK/EUR — NO TRADE
+
+**Reasoning:** Price €11.5105, 1h/48h -3.56%, 4h/48h -3.95%. RSI 38.78. SMA fast_below_slow. Order book positive (+0.067). Volume ratio 1.59x, not flagged. momentum_trigger false. News continues to attribute weakness to the CCIP Vault Adapters launch retracement and broader geopolitical/macro pressure (oil, yields, dollar strength) - doesn't change the no-trade conclusion. No qualifying setup. No position open. No trade.
+
+**Signals considered:**
+```json
+{
+  "price_eur": 11.5105,
+  "pct_change_1h_48h": -3.56,
+  "pct_change_4h_48h": -3.95,
+  "rsi_14_4h": 38.78,
+  "sma_state": "fast_below_slow",
+  "order_book_imbalance": 0.067,
+  "volume_ratio": 1.59,
+  "flag_above_2x": false,
+  "momentum_trigger": false
+}
+```
+
+---
+### 2026-10-09T12:03:36.409Z — SUI/EUR — NO TRADE
+
+**Reasoning:** Price €0.9542, 1h/48h -4.98%, 4h/48h -5.08%. RSI 37.77. SMA fast_below_slow. Order book negative (-0.152) - real near-term selling pressure. Volume ratio 1.54x, not flagged. momentum_trigger false. News notes the decline persists despite positive catalysts (40.6M TPS world record, Samsung Wallet integration) - genuine divergence between fundamentals and price, but doesn't change the no-trade conclusion since no technical/momentum setup qualifies. No position open. No trade.
+
+**Signals considered:**
+```json
+{
+  "price_eur": 0.9542,
+  "pct_change_1h_48h": -4.98,
+  "pct_change_4h_48h": -5.08,
+  "rsi_14_4h": 37.77,
+  "sma_state": "fast_below_slow",
+  "order_book_imbalance": -0.152,
+  "volume_ratio": 1.54,
+  "flag_above_2x": false,
+  "momentum_trigger": false
+}
+```
+
+---
+### 2026-10-09T12:03:36.421Z — LTC/EUR — NO TRADE
+
+**Reasoning:** Price €57.23, 1h/48h -4.31%, 4h/48h -3.13% - mild improvement vs last cycle. RSI 36.45. SMA fast_below_slow. Order book positive (+0.325). Volume ratio 2.09x, flagged above 2x. momentum_trigger false. News still finds no confirmed LTC-specific catalyst - general market weakness/mixed technical signals, analyst stance leaning toward holding rather than any directional call. No qualifying setup. No position open. No trade.
+
+**Signals considered:**
+```json
+{
+  "price_eur": 57.23,
+  "pct_change_1h_48h": -4.31,
+  "pct_change_4h_48h": -3.13,
+  "rsi_14_4h": 36.45,
+  "sma_state": "fast_below_slow",
+  "order_book_imbalance": 0.325,
+  "volume_ratio": 2.09,
+  "flag_above_2x": true,
+  "momentum_trigger": false
+}
+```
+
+---
