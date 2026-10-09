@@ -65928,3 +65928,163 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-10-09T20:03:01.730Z — BTC/EUR — NO TRADE
+
+**Reasoning:** Price €73,519.1, 1h/48h -1.39%, 4h/48h -1.20% - decline deepening slightly. RSI 40.96, softening from 45.67. SMA fast_below_slow. Order book negative (-0.157). Volume ratio 1.75x, not flagged. momentum_trigger false (long-only signal, magnitude far below 6%). News confirms BTC bouncing between $80-83K range, $700M+ in weekly ETF outflows - consistent with Kraken's soft action. No qualifying setup. No position open. No trade.
+
+**Signals considered:**
+```json
+{
+  "price_eur": 73519.1,
+  "pct_change_1h_48h": -1.39,
+  "pct_change_4h_48h": -1.2,
+  "rsi_14_4h": 40.96,
+  "sma_state": "fast_below_slow",
+  "order_book_imbalance": -0.157,
+  "volume_ratio": 1.75,
+  "flag_above_2x": false,
+  "momentum_trigger": false
+}
+```
+
+---
+### 2026-10-09T20:03:01.749Z — ETH/EUR — NO TRADE
+
+**Reasoning:** Price €2,212.69, 1h/48h -3.82%, 4h/48h -3.81% - decline deepening. RSI 30.60, approaching oversold. SMA fast_below_slow. Order book roughly flat (-0.006). Volume ratio 2.61x, flagged above 2x. momentum_trigger false. News confirms ETH near $2,500 support with ~$565M in 7-session ETF outflows and macro pressure (oil, yields) - consistent with the weakening price action on Kraken. No qualifying setup. No position open. No trade.
+
+**Signals considered:**
+```json
+{
+  "price_eur": 2212.69,
+  "pct_change_1h_48h": -3.82,
+  "pct_change_4h_48h": -3.81,
+  "rsi_14_4h": 30.6,
+  "sma_state": "fast_below_slow",
+  "order_book_imbalance": -0.006,
+  "volume_ratio": 2.61,
+  "flag_above_2x": true,
+  "momentum_trigger": false
+}
+```
+
+---
+### 2026-10-09T20:03:01.764Z — SOL/EUR — NO TRADE
+
+**Reasoning:** Price €97.02, 1h/48h -6.68%, 4h/48h -6.73% - deepest decline of the 8 pairs this cycle. RSI 26.65, now clearly the weakest/most oversold reading. SMA fast_below_slow. Order book negative (-0.332). Volume ratio 1.92x, not flagged. momentum_trigger false - downside move, signal is long-only by design. News confirms SOL losing the $116 support a day earlier with $110 now the level to hold, Bitcoin's slide pulling the wider market down. No qualifying setup. No position open. No trade.
+
+**Signals considered:**
+```json
+{
+  "price_eur": 97.02,
+  "pct_change_1h_48h": -6.68,
+  "pct_change_4h_48h": -6.73,
+  "rsi_14_4h": 26.65,
+  "sma_state": "fast_below_slow",
+  "order_book_imbalance": -0.332,
+  "volume_ratio": 1.92,
+  "flag_above_2x": false,
+  "momentum_trigger": false
+}
+```
+
+---
+### 2026-10-09T20:03:01.791Z — XRP/EUR — NO TRADE
+
+**Reasoning:** Price €1.23806, 1h/48h -2.77%, 4h/48h -2.73%. RSI 35.38. SMA fast_below_slow. Order book positive (+0.487). Volume ratio 1.22x, not flagged. momentum_trigger false. News confirms XRP holding $1.39-1.40 after rebounding off a 3-week low near $1.32, continuing to show relative resilience - still no qualifying technical/momentum setup. No position open. No trade.
+
+**Signals considered:**
+```json
+{
+  "price_eur": 1.23806,
+  "pct_change_1h_48h": -2.77,
+  "pct_change_4h_48h": -2.73,
+  "rsi_14_4h": 35.38,
+  "sma_state": "fast_below_slow",
+  "order_book_imbalance": 0.487,
+  "volume_ratio": 1.22,
+  "flag_above_2x": false,
+  "momentum_trigger": false
+}
+```
+
+---
+### 2026-10-09T20:03:01.808Z — ADA/EUR — NO TRADE
+
+**Reasoning:** Price €0.210959, 1h/48h -7.74%, 4h/48h -7.83% - deepest 48h decline reading of the session so far. RSI 36.96. SMA fast_below_slow (bearish cross from earlier cycles persists). Order book strongly positive (+0.535) despite the price weakness. Volume ratio 2.23x, flagged above 2x. momentum_trigger false (downside move; long-only signal). News confirms the ~13-14% weekly decline, funding rate at a 16-week low, with rising on-chain activity despite falling price (CIP-0113/Veridian launches) - fundamentals/price divergence, consistent with the bearish technical picture. No qualifying setup. No position open. No trade.
+
+**Signals considered:**
+```json
+{
+  "price_eur": 0.210959,
+  "pct_change_1h_48h": -7.74,
+  "pct_change_4h_48h": -7.83,
+  "rsi_14_4h": 36.96,
+  "sma_state": "fast_below_slow",
+  "order_book_imbalance": 0.535,
+  "volume_ratio": 2.23,
+  "flag_above_2x": true,
+  "momentum_trigger": false
+}
+```
+
+---
+### 2026-10-09T20:03:01.824Z — LINK/EUR — NO TRADE
+
+**Reasoning:** Price €11.41604, 1h/48h -4.64%, 4h/48h -4.30%. RSI 35.42. SMA fast_below_slow. Order book positive (+0.309). Volume ratio 1.59x, not flagged. momentum_trigger false. News confirms LINK in a descending channel with EMAs all above price (bearish structure), 7-day losses over 10% post-CCIP launch retracement. No qualifying setup. No position open. No trade.
+
+**Signals considered:**
+```json
+{
+  "price_eur": 11.41604,
+  "pct_change_1h_48h": -4.64,
+  "pct_change_4h_48h": -4.3,
+  "rsi_14_4h": 35.42,
+  "sma_state": "fast_below_slow",
+  "order_book_imbalance": 0.309,
+  "volume_ratio": 1.59,
+  "flag_above_2x": false,
+  "momentum_trigger": false
+}
+```
+
+---
+### 2026-10-09T20:03:01.836Z — SUI/EUR — NO TRADE
+
+**Reasoning:** Price €0.9444, 1h/48h -6.23%, 4h/48h -6.50% - deepening this cycle. RSI 35.17. SMA fast_below_slow. Order book sharply negative (-0.484) - real near-term selling pressure. Volume ratio 1.54x, not flagged. momentum_trigger false. News confirms a technical breakdown below Fibonacci/MA support with rising futures open interest - consistent with the weak order book on Kraken. No qualifying setup. No position open. No trade.
+
+**Signals considered:**
+```json
+{
+  "price_eur": 0.9444,
+  "pct_change_1h_48h": -6.23,
+  "pct_change_4h_48h": -6.5,
+  "rsi_14_4h": 35.17,
+  "sma_state": "fast_below_slow",
+  "order_book_imbalance": -0.484,
+  "volume_ratio": 1.54,
+  "flag_above_2x": false,
+  "momentum_trigger": false
+}
+```
+
+---
+### 2026-10-09T20:03:01.848Z — LTC/EUR — NO TRADE
+
+**Reasoning:** Price €56.54, 1h/48h -4.52%, 4h/48h -4.39%. RSI 32.03, weakening further. SMA fast_below_slow. Order book roughly flat (-0.008). Volume ratio 2.09x, flagged above 2x. momentum_trigger false. News continues to describe below-moving-average weakness with support cited around $62-63 (USD) - no confirmed catalyst, consistent with ongoing softening. No qualifying setup. No position open. No trade.
+
+**Signals considered:**
+```json
+{
+  "price_eur": 56.54,
+  "pct_change_1h_48h": -4.52,
+  "pct_change_4h_48h": -4.39,
+  "rsi_14_4h": 32.03,
+  "sma_state": "fast_below_slow",
+  "order_book_imbalance": -0.008,
+  "volume_ratio": 2.09,
+  "flag_above_2x": true,
+  "momentum_trigger": false
+}
+```
+
+---
