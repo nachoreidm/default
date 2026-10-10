@@ -67048,3 +67048,163 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-10-10T03:02:51.448Z — BTC/EUR — NO TRADE
+
+**Reasoning:** Price €73,726.5, 1h/48h -0.10%, 4h/48h -0.09% - now essentially flat. RSI 43.97, unchanged. SMA fast_below_slow. Order book positive (+0.060). Volume ratio 0.80x, not flagged. momentum_trigger false (long-only signal, magnitude far below 6%). News confirms BTC near $82.5-83K, continued recovery narrative (BTC and gold both recovering per FXStreet) - consistent with Kraken's near-flat action. No qualifying setup. No position open. No trade.
+
+**Signals considered:**
+```json
+{
+  "price_eur": 73726.5,
+  "pct_change_1h_48h": -0.1,
+  "pct_change_4h_48h": -0.09,
+  "rsi_14_4h": 43.97,
+  "sma_state": "fast_below_slow",
+  "order_book_imbalance": 0.06,
+  "volume_ratio": 0.8,
+  "flag_above_2x": false,
+  "momentum_trigger": false
+}
+```
+
+---
+### 2026-10-10T03:02:51.466Z — ETH/EUR — NO TRADE
+
+**Reasoning:** Price €2,224.46, 1h/48h -2.75%, 4h/48h -2.95% - mild improvement. RSI 33.62. SMA fast_below_slow. Order book positive (+0.072). Volume ratio 0.69x, not flagged. momentum_trigger false. News confirms ETH near $2,480-2,500, 8th straight ETF outflow (~$637M total) but one source notes a slight 24h uptick (+0.16%) - consistent with the stabilizing-but-weak picture on Kraken. No qualifying setup. No position open. No trade.
+
+**Signals considered:**
+```json
+{
+  "price_eur": 2224.46,
+  "pct_change_1h_48h": -2.75,
+  "pct_change_4h_48h": -2.95,
+  "rsi_14_4h": 33.62,
+  "sma_state": "fast_below_slow",
+  "order_book_imbalance": 0.072,
+  "volume_ratio": 0.69,
+  "flag_above_2x": false,
+  "momentum_trigger": false
+}
+```
+
+---
+### 2026-10-10T03:02:51.482Z — SOL/EUR — NO TRADE
+
+**Reasoning:** Price €98.04, 1h/48h -4.96%, 4h/48h -5.65% - continuing to improve, though still the weakest RSI. RSI 30.24. SMA fast_below_slow. Order book negative (-0.072). Volume ratio 0.64x, not flagged. momentum_trigger false - downside move, signal is long-only by design. News confirms SOL near $108-110, up modestly over 24h per OKX, $110 cited as the level to hold. No qualifying setup. No position open. No trade.
+
+**Signals considered:**
+```json
+{
+  "price_eur": 98.04,
+  "pct_change_1h_48h": -4.96,
+  "pct_change_4h_48h": -5.65,
+  "rsi_14_4h": 30.24,
+  "sma_state": "fast_below_slow",
+  "order_book_imbalance": -0.072,
+  "volume_ratio": 0.64,
+  "flag_above_2x": false,
+  "momentum_trigger": false
+}
+```
+
+---
+### 2026-10-10T03:02:51.506Z — XRP/EUR — NO TRADE
+
+**Reasoning:** Price €1.25469, 1h/48h -0.63%, 4h/48h -1.45% - now nearly flat, the mildest decline of all 8 pairs. RSI 40.28. SMA fast_below_slow. Order book roughly flat (+0.021). Volume ratio 0.37x, not flagged. momentum_trigger false. News confirms XRP near $1.39-1.40 defending the 100/200-day EMAs with fresh ETF inflows ($8M Thursday) - still no qualifying technical/momentum setup despite improving tone. No position open. No trade.
+
+**Signals considered:**
+```json
+{
+  "price_eur": 1.25469,
+  "pct_change_1h_48h": -0.63,
+  "pct_change_4h_48h": -1.45,
+  "rsi_14_4h": 40.28,
+  "sma_state": "fast_below_slow",
+  "order_book_imbalance": 0.021,
+  "volume_ratio": 0.37,
+  "flag_above_2x": false,
+  "momentum_trigger": false
+}
+```
+
+---
+### 2026-10-10T03:02:51.523Z — ADA/EUR — NO TRADE
+
+**Reasoning:** Price €0.2257, 1h/48h -0.50%, 4h/48h -4.37% - 1h window now essentially flat, continuing the strong improvement trend. RSI 45.69, best reading in days, held steady. SMA fast_below_slow, gap continuing to narrow. Order book negative this cycle (-0.178). Volume ratio 0.86x, not flagged. momentum_trigger false (downside move; long-only signal). News confirms continued rising on-chain/network activity (CIP-0113/Veridian) alongside price stabilization. No qualifying setup. No position open. No trade.
+
+**Signals considered:**
+```json
+{
+  "price_eur": 0.2257,
+  "pct_change_1h_48h": -0.5,
+  "pct_change_4h_48h": -4.37,
+  "rsi_14_4h": 45.69,
+  "sma_state": "fast_below_slow",
+  "order_book_imbalance": -0.178,
+  "volume_ratio": 0.86,
+  "flag_above_2x": false,
+  "momentum_trigger": false
+}
+```
+
+---
+### 2026-10-10T03:02:51.538Z — LINK/EUR — NO TRADE
+
+**Reasoning:** Price €11.46446, 1h/48h -2.51%, 4h/48h -2.71% - mild improvement. RSI 37.80. SMA fast_below_slow. Order book positive (+0.169). Volume ratio 0.28x, not flagged. momentum_trigger false. News continues to attribute weakness to the CCIP Vault Adapters launch retracement amid broader market weakness ($402M BTC ETF outflows cited) - no new catalyst. No qualifying setup. No position open. No trade.
+
+**Signals considered:**
+```json
+{
+  "price_eur": 11.46446,
+  "pct_change_1h_48h": -2.51,
+  "pct_change_4h_48h": -2.71,
+  "rsi_14_4h": 37.8,
+  "sma_state": "fast_below_slow",
+  "order_book_imbalance": 0.169,
+  "volume_ratio": 0.28,
+  "flag_above_2x": false,
+  "momentum_trigger": false
+}
+```
+
+---
+### 2026-10-10T03:02:51.553Z — SUI/EUR — NO TRADE
+
+**Reasoning:** Price €0.9683, 1h/48h -4.02%, 4h/48h -5.55% - mild improvement. RSI 39.92. SMA fast_below_slow. Order book roughly flat (-0.026). Volume ratio 0.47x, not flagged. momentum_trigger false. News confirms SUI up modestly (+1.72% per OKX) tied to Bitcoin lending/zero-gas USDC news - continued fundamentals/price alignment improving. No qualifying setup. No position open. No trade.
+
+**Signals considered:**
+```json
+{
+  "price_eur": 0.9683,
+  "pct_change_1h_48h": -4.02,
+  "pct_change_4h_48h": -5.55,
+  "rsi_14_4h": 39.92,
+  "sma_state": "fast_below_slow",
+  "order_book_imbalance": -0.026,
+  "volume_ratio": 0.47,
+  "flag_above_2x": false,
+  "momentum_trigger": false
+}
+```
+
+---
+### 2026-10-10T03:02:51.567Z — LTC/EUR — NO TRADE
+
+**Reasoning:** Price €56.89, 1h/48h -2.82%, 4h/48h -3.16% - mild improvement. RSI 35.03. SMA fast_below_slow. Order book positive (+0.256). Volume ratio 0.56x, not flagged. momentum_trigger false. News confirms LTC near $63-64 (USD), recovering off the prior session's lows near $61, support cited around $62-63 - consistent with the stabilization on Kraken. No qualifying setup. No position open. No trade.
+
+**Signals considered:**
+```json
+{
+  "price_eur": 56.89,
+  "pct_change_1h_48h": -2.82,
+  "pct_change_4h_48h": -3.16,
+  "rsi_14_4h": 35.03,
+  "sma_state": "fast_below_slow",
+  "order_book_imbalance": 0.256,
+  "volume_ratio": 0.56,
+  "flag_above_2x": false,
+  "momentum_trigger": false
+}
+```
+
+---
