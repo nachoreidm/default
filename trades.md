@@ -66568,3 +66568,163 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-10-10T00:03:03.238Z — BTC/EUR — NO TRADE
+
+**Reasoning:** Price €73,722.1, 1h/48h -0.91%, 4h/48h -0.09% - stabilizing. RSI improved to 43.97. SMA fast_below_slow. Order book roughly flat (+0.020). Volume ratio 0.80x (new UTC day reset, no longer flagged). momentum_trigger false (long-only signal, magnitude far below 6%). News confirms BTC near $82-83K, QCP expecting a Q4 range of $80-90K - consistent with Kraken's stabilizing action. No qualifying setup. No position open. No trade.
+
+**Signals considered:**
+```json
+{
+  "price_eur": 73722.1,
+  "pct_change_1h_48h": -0.91,
+  "pct_change_4h_48h": -0.09,
+  "rsi_14_4h": 43.97,
+  "sma_state": "fast_below_slow",
+  "order_book_imbalance": 0.02,
+  "volume_ratio": 0.8,
+  "flag_above_2x": false,
+  "momentum_trigger": false
+}
+```
+
+---
+### 2026-10-10T00:03:03.268Z — ETH/EUR — NO TRADE
+
+**Reasoning:** Price €2,219.89, 1h/48h -3.45%, 4h/48h -2.95%. RSI 33.62. SMA fast_below_slow. Order book negative (-0.247). Volume ratio 0.69x (new UTC day reset). momentum_trigger false. News confirms ETH testing $2,500 support with a large whale liquidation (~$69.7M) reported during the drop - consistent with the weak price action on Kraken. No qualifying setup. No position open. No trade.
+
+**Signals considered:**
+```json
+{
+  "price_eur": 2219.89,
+  "pct_change_1h_48h": -3.45,
+  "pct_change_4h_48h": -2.95,
+  "rsi_14_4h": 33.62,
+  "sma_state": "fast_below_slow",
+  "order_book_imbalance": -0.247,
+  "volume_ratio": 0.69,
+  "flag_above_2x": false,
+  "momentum_trigger": false
+}
+```
+
+---
+### 2026-10-10T00:03:03.315Z — SOL/EUR — NO TRADE
+
+**Reasoning:** Price €97.36, 1h/48h -6.34%, 4h/48h -5.65%. RSI 30.24, improving slightly but still the weakest reading of the 8 pairs. SMA fast_below_slow. Order book positive (+0.332). Volume ratio 0.64x (new UTC day reset). momentum_trigger false - downside move, signal is long-only by design. News confirms SOL near $108-110, still above its 200-day average (~$96.55). No qualifying setup. No position open. No trade.
+
+**Signals considered:**
+```json
+{
+  "price_eur": 97.36,
+  "pct_change_1h_48h": -6.34,
+  "pct_change_4h_48h": -5.65,
+  "rsi_14_4h": 30.24,
+  "sma_state": "fast_below_slow",
+  "order_book_imbalance": 0.332,
+  "volume_ratio": 0.64,
+  "flag_above_2x": false,
+  "momentum_trigger": false
+}
+```
+
+---
+### 2026-10-10T00:03:03.357Z — XRP/EUR — NO TRADE
+
+**Reasoning:** Price €1.24618, 1h/48h -2.03%, 4h/48h -1.45% - continues showing relative resilience. RSI 40.28. SMA fast_below_slow. Order book negative (-0.489). Volume ratio 0.37x (new UTC day reset). momentum_trigger false. News confirms XRP near $1.38-1.40, holding marginally above the 200-day EMA, ETF buyers reportedly 13% underwater but inflows continuing - still no qualifying technical/momentum setup. No position open. No trade.
+
+**Signals considered:**
+```json
+{
+  "price_eur": 1.24618,
+  "pct_change_1h_48h": -2.03,
+  "pct_change_4h_48h": -1.45,
+  "rsi_14_4h": 40.28,
+  "sma_state": "fast_below_slow",
+  "order_book_imbalance": -0.489,
+  "volume_ratio": 0.37,
+  "flag_above_2x": false,
+  "momentum_trigger": false
+}
+```
+
+---
+### 2026-10-10T00:03:03.373Z — ADA/EUR — NO TRADE
+
+**Reasoning:** Price €0.217248, 1h/48h -5.33%, 4h/48h -4.37% - clear improvement vs prior cycles. RSI 45.69, best reading in days. SMA fast_below_slow (bearish cross from earlier cycles persists but gap narrowing). Order book positive (+0.290). Volume ratio 0.86x (new UTC day reset). momentum_trigger false (downside move; long-only signal). News confirms continued rising on-chain activity (.ada domain bid advancing) despite price weakness - fundamentals/price divergence, but technical picture improving. No qualifying setup. No position open. No trade.
+
+**Signals considered:**
+```json
+{
+  "price_eur": 0.217248,
+  "pct_change_1h_48h": -5.33,
+  "pct_change_4h_48h": -4.37,
+  "rsi_14_4h": 45.69,
+  "sma_state": "fast_below_slow",
+  "order_book_imbalance": 0.29,
+  "volume_ratio": 0.86,
+  "flag_above_2x": false,
+  "momentum_trigger": false
+}
+```
+
+---
+### 2026-10-10T00:03:03.398Z — LINK/EUR — NO TRADE
+
+**Reasoning:** Price €11.4294, 1h/48h -3.71%, 4h/48h -2.71%. RSI 37.80. SMA fast_below_slow. Order book negative (-0.102). Volume ratio 0.28x (new UTC day reset). momentum_trigger false. News found no fresh catalyst for Oct 10, prices roughly steady near $12.75-12.85 (USD) - consistent with ongoing consolidation. No qualifying setup. No position open. No trade.
+
+**Signals considered:**
+```json
+{
+  "price_eur": 11.4294,
+  "pct_change_1h_48h": -3.71,
+  "pct_change_4h_48h": -2.71,
+  "rsi_14_4h": 37.8,
+  "sma_state": "fast_below_slow",
+  "order_book_imbalance": -0.102,
+  "volume_ratio": 0.28,
+  "flag_above_2x": false,
+  "momentum_trigger": false
+}
+```
+
+---
+### 2026-10-10T00:03:03.414Z — SUI/EUR — NO TRADE
+
+**Reasoning:** Price €0.9538, 1h/48h -6.00%, 4h/48h -5.55%. RSI 39.92. SMA fast_below_slow. Order book strongly positive (+0.607). Volume ratio 0.47x (new UTC day reset). momentum_trigger false. News confirms SUI near $1.07, up slightly over the most recent 24h per OKX despite the broader weekly decline - no qualifying technical/momentum setup. No position open. No trade.
+
+**Signals considered:**
+```json
+{
+  "price_eur": 0.9538,
+  "pct_change_1h_48h": -6,
+  "pct_change_4h_48h": -5.55,
+  "rsi_14_4h": 39.92,
+  "sma_state": "fast_below_slow",
+  "order_book_imbalance": 0.607,
+  "volume_ratio": 0.47,
+  "flag_above_2x": false,
+  "momentum_trigger": false
+}
+```
+
+---
+### 2026-10-10T00:03:03.429Z — LTC/EUR — NO TRADE
+
+**Reasoning:** Price €56.65, 1h/48h -4.01%, 4h/48h -3.16%. RSI 35.03. SMA fast_below_slow. Order book positive (+0.108). Volume ratio 0.56x (new UTC day reset). momentum_trigger false. News confirms LTC recovering slightly to ~$63-64 (USD) from the prior session's lows near $61, support cited at $62-63 - consistent with ongoing consolidation. No qualifying setup. No position open. No trade.
+
+**Signals considered:**
+```json
+{
+  "price_eur": 56.65,
+  "pct_change_1h_48h": -4.01,
+  "pct_change_4h_48h": -3.16,
+  "rsi_14_4h": 35.03,
+  "sma_state": "fast_below_slow",
+  "order_book_imbalance": 0.108,
+  "volume_ratio": 0.56,
+  "flag_above_2x": false,
+  "momentum_trigger": false
+}
+```
+
+---
