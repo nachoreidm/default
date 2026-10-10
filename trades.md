@@ -68837,3 +68837,171 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-10-10T14:03:06.217Z — BTC/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger (1h +0.27%, 4h +2.21%). SMA fast_below_slow, no cross. RSI 46.83 unchanged. Volume ratio 0.80, not confirmed. Order book positive (+7.5%). Coinversa Pulse smart-money (Sharps) cohort net Long (+0.140), unchanged - informational only. News search returned no dated Oct 10 2026 BTC coverage, only stale/conflicting snapshots - no actionable catalyst. No open position. No-trade.
+
+**Signals considered:**
+```json
+{
+  "price_eur": 73954.2,
+  "pct_change_1h_48h": 0.266,
+  "pct_change_4h_48h": 2.214,
+  "rsi_14_4h": 46.83,
+  "sma_state": "fast_below_slow",
+  "order_book_imbalance": 0.075,
+  "volume_ratio": 0.7956,
+  "flag_above_2x": false,
+  "momentum_trigger": false,
+  "coinversa_smart_money_bias": "Long (+0.140)"
+}
+```
+
+---
+### 2026-10-10T14:03:06.237Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger (1h -1.18%, 4h +2.46%). SMA fast_below_slow, no cross. RSI 36.81 unchanged. Volume ratio 0.69, not confirmed. Order book negative (-11.4%). Coinversa Pulse smart-money (Sharps) cohort net Long (+0.183), unchanged - informational only. News search returned no dated Oct 10 2026 ETH coverage, only stale snapshots - no actionable catalyst. No open position. No-trade.
+
+**Signals considered:**
+```json
+{
+  "price_eur": 2230.8,
+  "pct_change_1h_48h": -1.175,
+  "pct_change_4h_48h": 2.461,
+  "rsi_14_4h": 36.81,
+  "sma_state": "fast_below_slow",
+  "order_book_imbalance": -0.1141,
+  "volume_ratio": 0.6917,
+  "flag_above_2x": false,
+  "momentum_trigger": false,
+  "coinversa_smart_money_bias": "Long (+0.183)"
+}
+```
+
+---
+### 2026-10-10T14:03:06.277Z — SOL/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger (1h -2.21%, 4h +1.18%). SMA fast_below_slow, no cross. RSI 34.69, weakest of the 8 pairs this cycle, unchanged. Volume ratio 0.64, not confirmed. Order book positive (+12.9%). Coinversa Pulse smart-money (Sharps) cohort net Strong Long (+0.656), unchanged - informational only. News search returned no dated Oct 10 2026 SOL coverage, only stale/conflicting snapshots - no actionable catalyst. No open position. No-trade.
+
+**Signals considered:**
+```json
+{
+  "price_eur": 98.08,
+  "pct_change_1h_48h": -2.212,
+  "pct_change_4h_48h": 1.176,
+  "rsi_14_4h": 34.69,
+  "sma_state": "fast_below_slow",
+  "order_book_imbalance": 0.129,
+  "volume_ratio": 0.6392,
+  "flag_above_2x": false,
+  "momentum_trigger": false,
+  "coinversa_smart_money_bias": "Strong Long (+0.656)"
+}
+```
+
+---
+### 2026-10-10T14:03:06.294Z — XRP/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger (1h +0.15%, 4h +4.24%, under threshold). SMA fast_below_slow, no cross. RSI 43.82 neutral. Volume ratio 0.37, well below confirmation. Order book roughly balanced (-4.6%). Coinversa Pulse smart-money (Sharps) cohort net Strong Long (+0.339), unchanged - informational only. News search returned no dated Oct 10 2026 XRP coverage, only stale/conflicting snapshots - no actionable catalyst. No open position. No-trade.
+
+**Signals considered:**
+```json
+{
+  "price_eur": 1.25426,
+  "pct_change_1h_48h": 0.15,
+  "pct_change_4h_48h": 4.237,
+  "rsi_14_4h": 43.82,
+  "sma_state": "fast_below_slow",
+  "order_book_imbalance": -0.0457,
+  "volume_ratio": 0.3712,
+  "flag_above_2x": false,
+  "momentum_trigger": false,
+  "coinversa_smart_money_bias": "Strong Long (+0.339)"
+}
+```
+
+---
+### 2026-10-10T14:03:06.314Z — ADA/EUR — NO TRADE
+
+**Reasoning:** momentum_trigger still FLAGGED (1h +3.14%, 4h +10.17%). Called portfolio_check_breakout_confirmation(ADA/EUR, momentum_flagged=true): status "pending", candles_remaining 1 - one more holding candle away from confirmed. No momentum_only entry permitted this cycle. RSI 56.77 firm. SMA still fast_below_slow. Order book negative (-41.1%). Volume ratio 0.86, not confirmed. News search again found no dated Oct 10 2026 ADA catalyst. No open position. No-trade - breakout confirmation pending, watch next cycle closely.
+
+**Signals considered:**
+```json
+{
+  "price_eur": 0.227475,
+  "pct_change_1h_48h": 3.143,
+  "pct_change_4h_48h": 10.171,
+  "rsi_14_4h": 56.77,
+  "sma_state": "fast_below_slow",
+  "order_book_imbalance": -0.4109,
+  "volume_ratio": 0.857,
+  "flag_above_2x": false,
+  "momentum_trigger": true,
+  "breakout_confirmation_status": "pending",
+  "candles_remaining": 1
+}
+```
+
+---
+### 2026-10-10T14:03:06.329Z — LINK/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger (1h +0.81%, 4h +4.62%, under threshold). SMA fast_below_slow, no cross. RSI 42.85 neutral. Volume ratio 0.28, lowest of the 8 pairs, no confirmation. Order book positive (+12.8%). News search returned no dated Oct 10 2026 LINK coverage, only stale/conflicting snapshots - no actionable catalyst. Coinversa Pulse excluded for LINK per CLAUDE.md. No open position. No-trade.
+
+**Signals considered:**
+```json
+{
+  "price_eur": 11.67107,
+  "pct_change_1h_48h": 0.807,
+  "pct_change_4h_48h": 4.62,
+  "rsi_14_4h": 42.85,
+  "sma_state": "fast_below_slow",
+  "order_book_imbalance": 0.1284,
+  "volume_ratio": 0.2845,
+  "flag_above_2x": false,
+  "momentum_trigger": false
+}
+```
+
+---
+### 2026-10-10T14:03:06.344Z — SUI/EUR — NO TRADE
+
+**Reasoning:** momentum_trigger FLAGGED again (1h +1.65%, 4h +8.94% - same 4h window as the rejected breakout, price has since reclaimed and set a fresh breakout candle). Called portfolio_check_breakout_confirmation(SUI/EUR, momentum_flagged=true): status "started", candles_remaining 3 - fresh tracking from this new breakout candle, no entry permitted this cycle. RSI 53.08, SMA still fast_below_slow. Order book positive (+23.3%). Volume ratio 0.47, not confirmed. News search found no dated Oct 10 2026 SUI-specific catalyst. No open position. No-trade - breakout tracking restarted.
+
+**Signals considered:**
+```json
+{
+  "price_eur": 0.996,
+  "pct_change_1h_48h": 1.652,
+  "pct_change_4h_48h": 8.939,
+  "rsi_14_4h": 53.08,
+  "sma_state": "fast_below_slow",
+  "order_book_imbalance": 0.2332,
+  "volume_ratio": 0.4713,
+  "flag_above_2x": false,
+  "momentum_trigger": true,
+  "breakout_confirmation_status": "started",
+  "candles_remaining": 3
+}
+```
+
+---
+### 2026-10-10T14:03:06.363Z — LTC/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger (1h -0.63%, 4h +2.95%). SMA fast_below_slow, no cross. RSI 38.08, improving. Volume ratio 0.56, not confirmed. Order book roughly balanced (-4.8%). News search returned no dated Oct 10 2026 LTC coverage, only stale/conflicting snapshots - no actionable catalyst. Coinversa Pulse excluded for LTC per CLAUDE.md. No open position. No-trade.
+
+**Signals considered:**
+```json
+{
+  "price_eur": 56.93,
+  "pct_change_1h_48h": -0.628,
+  "pct_change_4h_48h": 2.946,
+  "rsi_14_4h": 38.08,
+  "sma_state": "fast_below_slow",
+  "order_book_imbalance": -0.0483,
+  "volume_ratio": 0.5577,
+  "flag_above_2x": false,
+  "momentum_trigger": false
+}
+```
+
+---
