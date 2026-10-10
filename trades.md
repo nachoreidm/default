@@ -67208,3 +67208,163 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-10-10T04:05:15.724Z — BTC/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger (1h -0.03%, 4h -0.55%, both far under 6% threshold). SMA still fast_below_slow, no cross. RSI 43.65 neutral. Volume ratio 0.80, no confirmation. Order book roughly balanced (-0.5%). News search returned no dated Oct 10 2026 BTC coverage, only stale/conflicting snapshots - no actionable catalyst. No open position. No-trade.
+
+**Signals considered:**
+```json
+{
+  "price_eur": 73793.7,
+  "pct_change_1h_48h": -0.026,
+  "pct_change_4h_48h": -0.546,
+  "rsi_14_4h": 43.65,
+  "sma_state": "fast_below_slow",
+  "order_book_imbalance": -0.0053,
+  "volume_ratio": 0.7956,
+  "flag_above_2x": false,
+  "momentum_trigger": false
+}
+```
+
+---
+### 2026-10-10T04:05:15.757Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger (1h -2.74%, 4h -3.05%). SMA fast_below_slow, no cross. RSI 34.67, approaching oversold but not a standalone trigger. Volume ratio 0.69, not confirmed. Order book skewed negative (-19.5%, more ask depth). News search returned no dated Oct 10 2026 ETH coverage, only stale snapshots - no actionable catalyst. No open position. No-trade.
+
+**Signals considered:**
+```json
+{
+  "price_eur": 2224.7,
+  "pct_change_1h_48h": -2.74,
+  "pct_change_4h_48h": -3.046,
+  "rsi_14_4h": 34.67,
+  "sma_state": "fast_below_slow",
+  "order_book_imbalance": -0.1948,
+  "volume_ratio": 0.6917,
+  "flag_above_2x": false,
+  "momentum_trigger": false
+}
+```
+
+---
+### 2026-10-10T04:05:15.778Z — SOL/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger (1h -4.56%, 4h -4.63%). SMA fast_below_slow, no cross. RSI 33.22, weakest of the 8 pairs this cycle but still above 30, improving vs earlier in the week. Volume ratio 0.64, not confirmed. Order book roughly balanced (-4.7%). News search returned no dated Oct 10 2026 SOL coverage, only stale/conflicting snapshots - no actionable catalyst. No open position. No-trade.
+
+**Signals considered:**
+```json
+{
+  "price_eur": 98.1,
+  "pct_change_1h_48h": -4.563,
+  "pct_change_4h_48h": -4.628,
+  "rsi_14_4h": 33.22,
+  "sma_state": "fast_below_slow",
+  "order_book_imbalance": -0.0472,
+  "volume_ratio": 0.6392,
+  "flag_above_2x": false,
+  "momentum_trigger": false
+}
+```
+
+---
+### 2026-10-10T04:05:15.796Z — XRP/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger (1h +0.22%, 4h -0.31% - near flat, mildest mover this cycle). SMA fast_below_slow, no cross. RSI 43.33 neutral. Volume ratio 0.37, well below confirmation. Order book skewed negative (-32.8%, heavier ask depth). News search returned no dated Oct 10 2026 XRP coverage, only stale/conflicting snapshots - no actionable catalyst. No open position. No-trade.
+
+**Signals considered:**
+```json
+{
+  "price_eur": 1.25293,
+  "pct_change_1h_48h": 0.222,
+  "pct_change_4h_48h": -0.306,
+  "rsi_14_4h": 43.33,
+  "sma_state": "fast_below_slow",
+  "order_book_imbalance": -0.3284,
+  "volume_ratio": 0.3712,
+  "flag_above_2x": false,
+  "momentum_trigger": false
+}
+```
+
+---
+### 2026-10-10T04:05:15.814Z — ADA/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger (1h -0.75%, 4h -0.68% - near flat). SMA fast_below_slow (bearish cross from 16:01 UTC yesterday persists). RSI 52.80, best reading of the 8 pairs and holding near its best levels in days. Volume ratio 0.86, not confirmed. Order book mildly positive (+9.6%). News search returned no dated Oct 10 2026 ADA coverage, only stale/conflicting snapshots - no actionable catalyst. No open position. No-trade.
+
+**Signals considered:**
+```json
+{
+  "price_eur": 0.225043,
+  "pct_change_1h_48h": -0.751,
+  "pct_change_4h_48h": -0.676,
+  "rsi_14_4h": 52.8,
+  "sma_state": "fast_below_slow",
+  "order_book_imbalance": 0.0964,
+  "volume_ratio": 0.857,
+  "flag_above_2x": false,
+  "momentum_trigger": false
+}
+```
+
+---
+### 2026-10-10T04:05:15.833Z — LINK/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger (1h -2.06%, 4h -2.11%). SMA fast_below_slow, no cross. RSI 37.66 soft. Volume ratio 0.28, lowest of the 8 pairs, no confirmation. Order book positive (+36.3%, heavier bid depth) but not a standalone trigger. News search returned no dated Oct 10 2026 LINK coverage, only stale/conflicting snapshots - no actionable catalyst. No open position. No-trade.
+
+**Signals considered:**
+```json
+{
+  "price_eur": 11.47187,
+  "pct_change_1h_48h": -2.062,
+  "pct_change_4h_48h": -2.111,
+  "rsi_14_4h": 37.66,
+  "sma_state": "fast_below_slow",
+  "order_book_imbalance": 0.3626,
+  "volume_ratio": 0.2845,
+  "flag_above_2x": false,
+  "momentum_trigger": false
+}
+```
+
+---
+### 2026-10-10T04:05:15.853Z — SUI/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger (1h -3.78%, 4h -4.29%). SMA fast_below_slow, no cross. RSI 43.43 neutral. Volume ratio 0.47, not confirmed. Order book skewed negative (-10.9%). News search returned no dated Oct 10 2026 SUI coverage, only stale/conflicting price snapshots disagreeing by up to 2x - no actionable catalyst. No open position. No-trade.
+
+**Signals considered:**
+```json
+{
+  "price_eur": 0.9722,
+  "pct_change_1h_48h": -3.776,
+  "pct_change_4h_48h": -4.291,
+  "rsi_14_4h": 43.43,
+  "sma_state": "fast_below_slow",
+  "order_book_imbalance": -0.1089,
+  "volume_ratio": 0.4713,
+  "flag_above_2x": false,
+  "momentum_trigger": false
+}
+```
+
+---
+### 2026-10-10T04:05:15.870Z — LTC/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger (1h -1.44%, 4h -1.41%). SMA fast_below_slow, no cross. RSI 35.13 soft. Volume ratio 0.56, not confirmed. Order book positive (+24.9%, heavier bid depth). News search returned no dated Oct 10 2026 LTC coverage, only stale/conflicting snapshots - no actionable catalyst. No open position. No-trade.
+
+**Signals considered:**
+```json
+{
+  "price_eur": 56.82,
+  "pct_change_1h_48h": -1.443,
+  "pct_change_4h_48h": -1.409,
+  "rsi_14_4h": 35.13,
+  "sma_state": "fast_below_slow",
+  "order_book_imbalance": 0.2485,
+  "volume_ratio": 0.5577,
+  "flag_above_2x": false,
+  "momentum_trigger": false
+}
+```
+
+---
