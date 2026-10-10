@@ -68008,3 +68008,167 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-10-10T09:02:59.827Z — BTC/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger (1h -0.48%, 4h +0.19%). SMA fast_below_slow, no cross. RSI 45.95 neutral. Volume ratio 0.80, not confirmed. Order book positive (+10.9%). Coinversa Pulse smart-money (Sharps) cohort net Long (+0.149) on Hyperliquid - informational only, never a trigger; per CLAUDE.md's hedging-wallet caveat, the same 1-2 large wallets short across BTC/ETH/SOL/XRP/SUI/LINK simultaneously so this may reflect market-maker hedging rather than directional conviction. News search returned no dated Oct 10 2026 BTC coverage, only stale/conflicting snapshots - no actionable catalyst. No open position. No-trade.
+
+**Signals considered:**
+```json
+{
+  "price_eur": 73962.1,
+  "pct_change_1h_48h": -0.477,
+  "pct_change_4h_48h": 0.188,
+  "rsi_14_4h": 45.95,
+  "sma_state": "fast_below_slow",
+  "order_book_imbalance": 0.1092,
+  "volume_ratio": 0.7956,
+  "flag_above_2x": false,
+  "momentum_trigger": false,
+  "coinversa_smart_money_bias": "Long (+0.149)"
+}
+```
+
+---
+### 2026-10-10T09:02:59.846Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger (1h -2.95%, 4h -1.82%). SMA fast_below_slow, no cross. RSI 36.10, improving slightly. Volume ratio 0.69, not confirmed. Order book positive (+21.9%). Coinversa Pulse smart-money (Sharps) cohort net Long (+0.171) on Hyperliquid - informational only, never a trigger; same hedging-wallet caveat as BTC applies. News search returned no dated Oct 10 2026 ETH coverage, only stale snapshots - no actionable catalyst. No open position. No-trade.
+
+**Signals considered:**
+```json
+{
+  "price_eur": 2228.2,
+  "pct_change_1h_48h": -2.946,
+  "pct_change_4h_48h": -1.824,
+  "rsi_14_4h": 36.1,
+  "sma_state": "fast_below_slow",
+  "order_book_imbalance": 0.2185,
+  "volume_ratio": 0.6917,
+  "flag_above_2x": false,
+  "momentum_trigger": false,
+  "coinversa_smart_money_bias": "Long (+0.171)"
+}
+```
+
+---
+### 2026-10-10T09:02:59.877Z — SOL/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger (1h -4.66%, 4h -2.99%). SMA fast_below_slow, no cross. RSI 34.83, weakest of the 8 pairs this cycle. Volume ratio 0.64, not confirmed. Order book near-balanced (+4.2%). Coinversa Pulse smart-money (Sharps) cohort net Strong Long (+0.650) on Hyperliquid, the strongest reading of the four checked pairs - informational only, never a trigger; same hedging-wallet caveat applies generally, though SOL wasn't named among the specific duplicated hedging addresses this check surfaced. News search returned no dated Oct 10 2026 SOL coverage, only stale/conflicting snapshots - no actionable catalyst. No open position. No-trade.
+
+**Signals considered:**
+```json
+{
+  "price_eur": 98.16,
+  "pct_change_1h_48h": -4.661,
+  "pct_change_4h_48h": -2.995,
+  "rsi_14_4h": 34.83,
+  "sma_state": "fast_below_slow",
+  "order_book_imbalance": 0.0421,
+  "volume_ratio": 0.6392,
+  "flag_above_2x": false,
+  "momentum_trigger": false,
+  "coinversa_smart_money_bias": "Strong Long (+0.650)"
+}
+```
+
+---
+### 2026-10-10T09:02:59.901Z — XRP/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger (1h -0.79%, 4h +0.48%). SMA fast_below_slow, no cross. RSI 44.45 neutral. Volume ratio 0.37, well below confirmation. Order book mildly negative (-7.2%). Coinversa Pulse smart-money (Sharps) cohort net Strong Long (+0.331) on Hyperliquid - informational only, never a trigger; same hedging-wallet caveat applies. News search returned no dated Oct 10 2026 XRP coverage, only stale/conflicting snapshots - no actionable catalyst. No open position. No-trade.
+
+**Signals considered:**
+```json
+{
+  "price_eur": 1.25673,
+  "pct_change_1h_48h": -0.79,
+  "pct_change_4h_48h": 0.483,
+  "rsi_14_4h": 44.45,
+  "sma_state": "fast_below_slow",
+  "order_book_imbalance": -0.0719,
+  "volume_ratio": 0.3712,
+  "flag_above_2x": false,
+  "momentum_trigger": false,
+  "coinversa_smart_money_bias": "Strong Long (+0.331)"
+}
+```
+
+---
+### 2026-10-10T09:02:59.926Z — ADA/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger (1h +0.66%, 4h +1.56%). SMA fast_below_slow, bearish cross from two days ago persists. RSI 55.77, strongest of the 8 pairs. Volume ratio 0.86, not confirmed. Order book positive (+25.6%). News search returned no dated Oct 10 2026 ADA coverage, only stale/conflicting snapshots - no actionable catalyst. Coinversa Pulse excluded for ADA per CLAUDE.md (thin Hyperliquid positioning data, not a meaningful signal). No open position. No-trade.
+
+**Signals considered:**
+```json
+{
+  "price_eur": 0.228775,
+  "pct_change_1h_48h": 0.658,
+  "pct_change_4h_48h": 1.559,
+  "rsi_14_4h": 55.77,
+  "sma_state": "fast_below_slow",
+  "order_book_imbalance": 0.2559,
+  "volume_ratio": 0.857,
+  "flag_above_2x": false,
+  "momentum_trigger": false
+}
+```
+
+---
+### 2026-10-10T09:02:59.951Z — LINK/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger (1h -1.51%, 4h -1.06%). SMA fast_below_slow, no cross. RSI 41.01, improving slightly. Volume ratio 0.28, lowest of the 8 pairs, no confirmation. Order book positive (+18.2%). News search returned no dated Oct 10 2026 LINK coverage, only stale/conflicting snapshots - no actionable catalyst. Coinversa Pulse excluded for LINK per CLAUDE.md (thin Hyperliquid positioning data). No open position. No-trade.
+
+**Signals considered:**
+```json
+{
+  "price_eur": 11.59361,
+  "pct_change_1h_48h": -1.514,
+  "pct_change_4h_48h": -1.064,
+  "rsi_14_4h": 41.01,
+  "sma_state": "fast_below_slow",
+  "order_book_imbalance": 0.1824,
+  "volume_ratio": 0.2845,
+  "flag_above_2x": false,
+  "momentum_trigger": false
+}
+```
+
+---
+### 2026-10-10T09:02:59.974Z — SUI/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger (1h -1.19%, 4h -1.31%). SMA fast_below_slow, no cross. RSI 49.40, best reading in a while, nearing neutral. Volume ratio 0.47, not confirmed. Order book near-balanced (+2.2%). News search returned no dated Oct 10 2026 SUI coverage, only stale/conflicting price snapshots varying widely - no actionable catalyst. Coinversa Pulse excluded for SUI per CLAUDE.md (thin Hyperliquid positioning data). No open position. No-trade.
+
+**Signals considered:**
+```json
+{
+  "price_eur": 0.999,
+  "pct_change_1h_48h": -1.193,
+  "pct_change_4h_48h": -1.312,
+  "rsi_14_4h": 49.4,
+  "sma_state": "fast_below_slow",
+  "order_book_imbalance": 0.0217,
+  "volume_ratio": 0.4713,
+  "flag_above_2x": false,
+  "momentum_trigger": false
+}
+```
+
+---
+### 2026-10-10T09:02:59.992Z — LTC/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger (1h -2.18%, 4h -1.10%). SMA fast_below_slow, no cross. RSI 35.24 soft. Volume ratio 0.56, not confirmed. Order book sharply positive (+59.1%, heavy bid depth). News search returned no dated Oct 10 2026 LTC coverage, only stale/conflicting snapshots - no actionable catalyst. Coinversa Pulse excluded for LTC per CLAUDE.md (thin Hyperliquid positioning data). No open position. No-trade.
+
+**Signals considered:**
+```json
+{
+  "price_eur": 56.67,
+  "pct_change_1h_48h": -2.175,
+  "pct_change_4h_48h": -1.099,
+  "rsi_14_4h": 35.24,
+  "sma_state": "fast_below_slow",
+  "order_book_imbalance": 0.5913,
+  "volume_ratio": 0.5577,
+  "flag_above_2x": false,
+  "momentum_trigger": false
+}
+```
+
+---
