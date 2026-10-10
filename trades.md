@@ -69701,3 +69701,117 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-10-10T19:05:05.733Z — BTC/EUR — NO TRADE
+
+**Reasoning:** momentum_trigger false this cycle. No breakout to track. Coinversa smart-money cohort net Long on BTC, roughly unchanged from prior cycles - informational only, not a trade trigger. No dated-to-today news catalyst.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "coinversa_smart_money_bias": "net_long",
+  "news": "no new dated catalyst"
+}
+```
+
+---
+### 2026-10-10T19:05:05.757Z — ETH/EUR — NO TRADE
+
+**Reasoning:** momentum_trigger false this cycle. Coinversa smart-money cohort net Long on ETH, consistent with prior cycles - informational only. No dated-to-today news catalyst.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "coinversa_smart_money_bias": "net_long",
+  "news": "no new dated catalyst"
+}
+```
+
+---
+### 2026-10-10T19:05:05.775Z — SOL/EUR — NO TRADE
+
+**Reasoning:** momentum_trigger false this cycle. Coinversa smart-money cohort net Long on SOL, consistent with prior cycles - informational only. No dated-to-today news catalyst.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "coinversa_smart_money_bias": "net_long",
+  "news": "no new dated catalyst"
+}
+```
+
+---
+### 2026-10-10T19:05:05.790Z — XRP/EUR — NO TRADE
+
+**Reasoning:** momentum_trigger false this cycle - faded back under threshold without ever reaching confirmed breakout status. Coinversa smart-money cohort net Long on XRP, consistent with prior cycles - informational only. No dated-to-today news catalyst.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "coinversa_smart_money_bias": "net_long",
+  "news": "no new dated catalyst"
+}
+```
+
+---
+### 2026-10-10T19:05:05.806Z — ADA/EUR — NO TRADE
+
+**Reasoning:** Existing open position (opened 15:04 UTC this session) - one-per-pair rule, no new entry considered. Price 0.225361, pulled back from earlier peak; momentum_trigger still true (1h +8.58%/4h +9.56%) but irrelevant while position is open. RSI 56.15. No dated-to-today news catalyst.
+
+**Signals considered:**
+```json
+{
+  "existing_position": true,
+  "momentum_trigger": true,
+  "price": 0.225361,
+  "rsi_4h": 56.15,
+  "news": "no new dated catalyst"
+}
+```
+
+---
+### 2026-10-10T19:05:05.821Z — LINK/EUR — NO TRADE
+
+**Reasoning:** momentum_trigger false this cycle - oscillated between flagged and unflagged without ever reaching confirmed breakout status. No dated-to-today news catalyst.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "news": "no new dated catalyst"
+}
+```
+
+---
+### 2026-10-10T19:05:05.836Z — SUI/EUR — NO TRADE
+
+**Reasoning:** Existing open position (opened 17:02 UTC this session) - one-per-pair rule, no new entry considered. Price 0.9983; momentum_trigger still true (1h +7.72%/4h +8.23%) but irrelevant while position is open. RSI 54.12. No dated-to-today news catalyst.
+
+**Signals considered:**
+```json
+{
+  "existing_position": true,
+  "momentum_trigger": true,
+  "price": 0.9983,
+  "rsi_4h": 54.12,
+  "news": "no new dated catalyst"
+}
+```
+
+---
+### 2026-10-10T19:05:05.850Z — LTC/EUR — NO TRADE
+
+**Reasoning:** momentum_trigger false this cycle. No dated-to-today news catalyst.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "news": "no new dated catalyst"
+}
+```
+
+---
