@@ -70193,3 +70193,129 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-10-10T23:02:43.260Z — BTC/EUR — NO TRADE
+
+**Reasoning:** momentum_trigger false this cycle (1h +1.77%/4h +1.77%, under threshold). Coinversa smart-money (Sharps) cohort net Long (+0.20 by notional), consistent with prior cycles - informational only. No dated-to-today news catalyst found.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": 1.77,
+  "pct_change_4h_48h": 1.77,
+  "coinversa_smart_money_bias": "net_long_0.20",
+  "news": "no new dated catalyst"
+}
+```
+
+---
+### 2026-10-10T23:02:43.282Z — ETH/EUR — NO TRADE
+
+**Reasoning:** momentum_trigger false this cycle (1h +1.62%/4h +1.77%, under threshold). Coinversa smart-money (Sharps) cohort net Long (+0.18 by notional), consistent with prior cycles - informational only. No dated-to-today news catalyst found.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": 1.62,
+  "pct_change_4h_48h": 1.77,
+  "coinversa_smart_money_bias": "net_long_0.18",
+  "news": "no new dated catalyst"
+}
+```
+
+---
+### 2026-10-10T23:02:43.296Z — SOL/EUR — NO TRADE
+
+**Reasoning:** momentum_trigger false this cycle (1h +0.95%/4h +0.92%, well under threshold). Coinversa smart-money (Sharps) cohort Strong Long (+0.67 by notional), consistent with prior cycles - informational only. No dated-to-today news catalyst found.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": 0.95,
+  "pct_change_4h_48h": 0.92,
+  "coinversa_smart_money_bias": "strong_net_long_0.67",
+  "news": "no new dated catalyst"
+}
+```
+
+---
+### 2026-10-10T23:02:43.309Z — XRP/EUR — NO TRADE
+
+**Reasoning:** momentum_trigger false this cycle (1h +1.84%/4h +1.98%, under threshold). Coinversa smart-money (Sharps) cohort net Long (+0.36 by notional), consistent with prior cycles - informational only. No dated-to-today news catalyst found.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": 1.84,
+  "pct_change_4h_48h": 1.98,
+  "coinversa_smart_money_bias": "net_long_0.36",
+  "news": "no new dated catalyst"
+}
+```
+
+---
+### 2026-10-10T23:02:43.322Z — ADA/EUR — NO TRADE
+
+**Reasoning:** Existing open position (opened 15:04 UTC this session) - one-per-pair rule, no new entry considered. Price 0.223852, still momentum-flagged (1h +8.32%/4h +9.07%) but irrelevant while position is open. RSI 53.75, still below +1R, stop resting cleanly per check_stops. No dated-to-today news catalyst found.
+
+**Signals considered:**
+```json
+{
+  "existing_position": true,
+  "momentum_trigger": true,
+  "price": 0.223852,
+  "rsi_4h": 53.75,
+  "news": "no new dated catalyst"
+}
+```
+
+---
+### 2026-10-10T23:02:43.336Z — LINK/EUR — NO TRADE
+
+**Reasoning:** momentum_trigger false this cycle (1h +2.63%/4h +3.07%, under threshold). No dated-to-today news catalyst found.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": 2.63,
+  "pct_change_4h_48h": 3.07,
+  "news": "no new dated catalyst"
+}
+```
+
+---
+### 2026-10-10T23:02:43.349Z — SUI/EUR — NO TRADE
+
+**Reasoning:** Existing open position (opened 17:02 UTC this session) - one-per-pair rule, no new entry considered. Price 0.995, still momentum-flagged (1h +7.14%/4h +7.91%) but irrelevant while position is open. RSI 53.45, still below +1R, stop resting cleanly per check_stops. No dated-to-today news catalyst found.
+
+**Signals considered:**
+```json
+{
+  "existing_position": true,
+  "momentum_trigger": true,
+  "price": 0.995,
+  "rsi_4h": 53.45,
+  "news": "no new dated catalyst"
+}
+```
+
+---
+### 2026-10-10T23:02:43.364Z — LTC/EUR — NO TRADE
+
+**Reasoning:** momentum_trigger false this cycle (1h +1.55%/4h +1.55%, well under threshold). No dated-to-today news catalyst found.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": 1.55,
+  "pct_change_4h_48h": 1.55,
+  "news": "no new dated catalyst"
+}
+```
+
+---
