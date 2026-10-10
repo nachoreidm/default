@@ -1,7 +1,47 @@
 {
   "starting_balance": 5000,
   "cash": 5000,
-  "open_positions": [],
+  "open_positions": [
+    {
+      "id": "cee0510e-735f-42b4-9311-2c1d211c01c7",
+      "pair": "ADA/EUR",
+      "direction": "long",
+      "entry_price": 0.228565,
+      "stop_loss": 0.2197,
+      "initial_stop_loss": 0.2197,
+      "take_profit": 0.24629499999999996,
+      "trailing_active": false,
+      "peak_price": 0.228565,
+      "size_pct": 3.2228567399887247,
+      "size_eur": 159.27212658185303,
+      "quantity": 696.83515228,
+      "entry_fee": 0.955633,
+      "opened_at": "2026-10-10T15:04:00.118Z",
+      "signals_at_entry": {
+        "price_eur": 0.228488,
+        "pct_change_1h_48h": 10.356,
+        "pct_change_4h_48h": 10.171,
+        "rsi_14_4h": 56.77,
+        "sma_state": "fast_below_slow",
+        "sma_fast_20": 0.219698,
+        "sma_slow_50": 0.225082,
+        "order_book_imbalance": -0.3859,
+        "volume_ratio": 0.857,
+        "flag_above_2x": false,
+        "momentum_trigger": true,
+        "breakout_confirmation_status": "confirmed",
+        "confirmed_count": 3,
+        "news_context": "Dated coverage (CoinMarketCap, TradingView, CryptoNews, Finwire, Bitcoin Sistemi) confirms a real ~10-11% single-day ADA rally to ~$0.27 - timing attribution is somewhat unclear (search surfaced Oct 3-6 dated pieces) but the magnitude and direction match our observed 48h move exactly (0.207->0.228). Cause disputed: one source claims T. Rowe Price added ADA to an active crypto ETF (unconfirmed by other sources); others attribute it to broad altcoin rotation with no single confirmed catalyst. Important caveat flagged by CryptoNews: Cardano's own DEX volume fell from $11.74M (Oct 1) to $5.72M (Oct 3) during the rally, i.e. on-chain activity did NOT confirm the price move - consistent with our own unconfirmed 0.857 volume ratio."
+      },
+      "invalidation": "Breakout fails if price closes back below the 4h 20-period SMA (~0.2197), the technical floor this breakout should hold above. The K=3 pullback-confirmation filter already passed (3 consecutive closed 1h candles held above the breakout level), which is the primary basis for taking this momentum-only entry despite unconfirmed volume.",
+      "confidence": "medium",
+      "confidence_reason": "momentum_only entry, capped at medium per rule. Breakout confirmed via K=3 pullback filter (3 consecutive holding 1h candles) - the mechanism specifically built to separate real breakouts from fakeouts when volume/order-book data is ambiguous, as it is here (volume ratio 0.86, not confirmed; order book -38.6%, adverse). News search found real, dated coverage of a ~10-11% ADA single-day rally matching this move (0.207->0.228), with one unconfirmed claim of a T. Rowe Price ETF-inclusion catalyst and a broader altcoin-rotation narrative - but one source flagged that Cardano's own DEX volume actually fell during the rally, an unconfirmed-volume caution consistent with our own signals. RSI 56.77 is moderate, not deeply overbought, and the 4h SMA structure (fast still below slow) means this is an early-stage breakout, not a chase into an already-extended structure. Mixed picture overall - taking it on the strength of the confirmed breakout mechanism, sized conservatively at medium confidence.",
+      "momentum_only": true,
+      "status": "open",
+      "entry_order_txid": "OFG66A-BJHTI-EI2JHJ",
+      "stop_order_txid": "OGNCLY-VG7XH-QY752A"
+    }
+  ],
   "closed_positions": [
     {
       "id": "836cb669-d4dd-403d-a562-c69ed336e2bf",
@@ -599,22 +639,27 @@
       "date": "2026-10-07",
       "realized_pnl_eur": -27.522936293140447,
       "halted": false
+    },
+    {
+      "date": "2026-10-10",
+      "realized_pnl_eur": 0,
+      "halted": false
     }
   ],
   "created_at": "2026-09-22T14:26:40.467Z",
-  "updated_at": "2026-10-10T14:02:22.910Z",
+  "updated_at": "2026-10-10T15:04:00.118Z",
   "pending_breakouts": {
-    "ADA/EUR": {
-      "breakout_time": 1791630000,
-      "breakout_level": 0.226873,
-      "confirmed_count": 2,
-      "last_checked_time": 1791637200
-    },
     "SUI/EUR": {
       "breakout_time": 1791637200,
       "breakout_level": 0.9902,
+      "confirmed_count": 1,
+      "last_checked_time": 1791640800
+    },
+    "LINK/EUR": {
+      "breakout_time": 1791640800,
+      "breakout_level": 11.64016,
       "confirmed_count": 0,
-      "last_checked_time": 1791637200
+      "last_checked_time": 1791640800
     }
   }
 }
