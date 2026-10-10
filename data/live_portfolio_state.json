@@ -602,5 +602,19 @@
     }
   ],
   "created_at": "2026-09-22T14:26:40.467Z",
-  "updated_at": "2026-10-07T02:42:12.612Z"
+  "updated_at": "2026-10-10T12:02:22.554Z",
+  "pending_breakouts": {
+    "ADA/EUR": {
+      "breakout_time": 1791630000,
+      "breakout_level": 0.226873,
+      "confirmed_count": 0,
+      "last_checked_time": 1791630000
+    },
+    "SUI/EUR": {
+      "breakout_time": 1791630000,
+      "breakout_level": 0.9958,
+      "confirmed_count": 0,
+      "last_checked_time": 1791630000
+    }
+  }
 }
