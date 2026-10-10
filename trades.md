@@ -67848,3 +67848,163 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-10-10T08:02:57.916Z — BTC/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger (1h -0.15%, 4h +0.19% - 4h window turned slightly positive). SMA fast_below_slow, no cross. RSI 45.95 improving slightly, neutral. Volume ratio 0.80, not confirmed. Order book positive (+11.5%). News search returned no dated Oct 10 2026 BTC coverage, only stale/conflicting snapshots - no actionable catalyst. No open position. No-trade.
+
+**Signals considered:**
+```json
+{
+  "price_eur": 73915.1,
+  "pct_change_1h_48h": -0.153,
+  "pct_change_4h_48h": 0.188,
+  "rsi_14_4h": 45.95,
+  "sma_state": "fast_below_slow",
+  "order_book_imbalance": 0.1153,
+  "volume_ratio": 0.7956,
+  "flag_above_2x": false,
+  "momentum_trigger": false
+}
+```
+
+---
+### 2026-10-10T08:02:57.931Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger (1h -2.59%, 4h -1.82% - 4h decline moderating). SMA fast_below_slow, no cross. RSI 36.10, improving slightly from oversold territory. Volume ratio 0.69, not confirmed. Order book turned positive (+29.1%, flipped from last cycle's -7.2%). News search returned no dated Oct 10 2026 ETH coverage, only stale snapshots - no actionable catalyst. No open position. No-trade.
+
+**Signals considered:**
+```json
+{
+  "price_eur": 2227.87,
+  "pct_change_1h_48h": -2.592,
+  "pct_change_4h_48h": -1.824,
+  "rsi_14_4h": 36.1,
+  "sma_state": "fast_below_slow",
+  "order_book_imbalance": 0.2906,
+  "volume_ratio": 0.6917,
+  "flag_above_2x": false,
+  "momentum_trigger": false
+}
+```
+
+---
+### 2026-10-10T08:02:57.958Z — SOL/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger (1h -4.39%, 4h -2.99% - 4h decline moderating). SMA fast_below_slow, no cross. RSI 34.83, weakest of the 8 pairs this cycle, inching up from lows. Volume ratio 0.64, not confirmed. Order book negative (-27.5%). News search returned no dated Oct 10 2026 SOL coverage, only stale/conflicting snapshots - no actionable catalyst. No open position. No-trade.
+
+**Signals considered:**
+```json
+{
+  "price_eur": 98.17,
+  "pct_change_1h_48h": -4.394,
+  "pct_change_4h_48h": -2.995,
+  "rsi_14_4h": 34.83,
+  "sma_state": "fast_below_slow",
+  "order_book_imbalance": -0.2746,
+  "volume_ratio": 0.6392,
+  "flag_above_2x": false,
+  "momentum_trigger": false
+}
+```
+
+---
+### 2026-10-10T08:02:57.971Z — XRP/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger (1h -0.40%, 4h +0.48% - mildest mover still). SMA fast_below_slow, no cross. RSI 44.45 neutral. Volume ratio 0.37, well below confirmation. Order book negative (-11.2%, moderated from last cycle's +49.7%). News search returned no dated Oct 10 2026 XRP coverage, only stale/conflicting snapshots - no actionable catalyst. No open position. No-trade.
+
+**Signals considered:**
+```json
+{
+  "price_eur": 1.2555,
+  "pct_change_1h_48h": -0.4,
+  "pct_change_4h_48h": 0.483,
+  "rsi_14_4h": 44.45,
+  "sma_state": "fast_below_slow",
+  "order_book_imbalance": -0.1121,
+  "volume_ratio": 0.3712,
+  "flag_above_2x": false,
+  "momentum_trigger": false
+}
+```
+
+---
+### 2026-10-10T08:02:57.986Z — ADA/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger (1h +0.75%, 4h +1.56% - both now positive). SMA fast_below_slow, bearish cross from two days ago persists. RSI 55.77, strongest of the 8 pairs and improving further. Volume ratio 0.86, not confirmed. Order book mildly negative (-7.3%). News search returned no dated Oct 10 2026 ADA coverage, only stale/conflicting snapshots - no actionable catalyst. No open position. No-trade.
+
+**Signals considered:**
+```json
+{
+  "price_eur": 0.227821,
+  "pct_change_1h_48h": 0.748,
+  "pct_change_4h_48h": 1.559,
+  "rsi_14_4h": 55.77,
+  "sma_state": "fast_below_slow",
+  "order_book_imbalance": -0.0734,
+  "volume_ratio": 0.857,
+  "flag_above_2x": false,
+  "momentum_trigger": false
+}
+```
+
+---
+### 2026-10-10T08:02:57.999Z — LINK/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger (1h -1.43%, 4h -1.06%). SMA fast_below_slow, no cross. RSI 41.01, improving slightly. Volume ratio 0.28, lowest of the 8 pairs, no confirmation. Order book strongly positive (+53.8%, heavy bid depth). News search returned no dated Oct 10 2026 LINK coverage, only stale/conflicting snapshots - no actionable catalyst. No open position. No-trade.
+
+**Signals considered:**
+```json
+{
+  "price_eur": 11.5126,
+  "pct_change_1h_48h": -1.425,
+  "pct_change_4h_48h": -1.064,
+  "rsi_14_4h": 41.01,
+  "sma_state": "fast_below_slow",
+  "order_book_imbalance": 0.5376,
+  "volume_ratio": 0.2845,
+  "flag_above_2x": false,
+  "momentum_trigger": false
+}
+```
+
+---
+### 2026-10-10T08:02:58.013Z — SUI/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger (1h -1.87%, 4h -1.31% - decline moderating sharply from earlier cycles). SMA fast_below_slow, no cross. RSI 49.40, best reading in a while, nearing neutral. Volume ratio 0.47, not confirmed. Order book positive (+36.7%). News search returned no dated Oct 10 2026 SUI coverage, only stale/conflicting price snapshots varying widely - no actionable catalyst. No open position. No-trade.
+
+**Signals considered:**
+```json
+{
+  "price_eur": 0.9856,
+  "pct_change_1h_48h": -1.872,
+  "pct_change_4h_48h": -1.312,
+  "rsi_14_4h": 49.4,
+  "sma_state": "fast_below_slow",
+  "order_book_imbalance": 0.3669,
+  "volume_ratio": 0.4713,
+  "flag_above_2x": false,
+  "momentum_trigger": false
+}
+```
+
+---
+### 2026-10-10T08:02:58.025Z — LTC/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger (1h -1.63%, 4h -1.10%). SMA fast_below_slow, no cross. RSI 35.24 soft. Volume ratio 0.56, not confirmed. Order book negative (-13.5%). News search returned no dated Oct 10 2026 LTC coverage, only stale/conflicting snapshots - no actionable catalyst. No open position. No-trade.
+
+**Signals considered:**
+```json
+{
+  "price_eur": 56.7,
+  "pct_change_1h_48h": -1.631,
+  "pct_change_4h_48h": -1.099,
+  "rsi_14_4h": 35.24,
+  "sma_state": "fast_below_slow",
+  "order_book_imbalance": -0.1346,
+  "volume_ratio": 0.5577,
+  "flag_above_2x": false,
+  "momentum_trigger": false
+}
+```
+
+---
