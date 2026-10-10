@@ -69815,3 +69815,129 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-10-10T20:03:02.585Z — BTC/EUR — NO TRADE
+
+**Reasoning:** momentum_trigger false this cycle (1h +1.65%/4h +1.77%, both well under 6% threshold). Coinversa smart-money (Sharps) cohort net Long (+0.18 by notional), consistent with prior cycles - informational only, not a trade trigger. No dated-to-today news catalyst found.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": 1.65,
+  "pct_change_4h_48h": 1.77,
+  "coinversa_smart_money_bias": "net_long_0.18",
+  "news": "no new dated catalyst"
+}
+```
+
+---
+### 2026-10-10T20:03:02.606Z — ETH/EUR — NO TRADE
+
+**Reasoning:** momentum_trigger false this cycle (1h +1.65%/4h +1.77%, both under threshold). Coinversa smart-money (Sharps) cohort net Long (+0.18 by notional), consistent with prior cycles - informational only. No dated-to-today news catalyst found.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": 1.65,
+  "pct_change_4h_48h": 1.77,
+  "coinversa_smart_money_bias": "net_long_0.18",
+  "news": "no new dated catalyst"
+}
+```
+
+---
+### 2026-10-10T20:03:02.619Z — SOL/EUR — NO TRADE
+
+**Reasoning:** momentum_trigger false this cycle (1h +0.62%/4h +0.92%, well under threshold). Coinversa smart-money (Sharps) cohort net Long, Strong Long by notional (+0.67), consistent with prior cycles - informational only. No dated-to-today news catalyst found.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": 0.62,
+  "pct_change_4h_48h": 0.92,
+  "coinversa_smart_money_bias": "strong_net_long_0.67",
+  "news": "no new dated catalyst"
+}
+```
+
+---
+### 2026-10-10T20:03:02.631Z — XRP/EUR — NO TRADE
+
+**Reasoning:** momentum_trigger false this cycle (1h +2.10%/4h +1.98%, under threshold). Coinversa smart-money (Sharps) cohort net Long (+0.36 by notional), consistent with prior cycles - informational only. No dated-to-today news catalyst found.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": 2.1,
+  "pct_change_4h_48h": 1.98,
+  "coinversa_smart_money_bias": "net_long_0.36",
+  "news": "no new dated catalyst"
+}
+```
+
+---
+### 2026-10-10T20:03:02.643Z — ADA/EUR — NO TRADE
+
+**Reasoning:** Existing open position (opened 15:04 UTC this session) - one-per-pair rule, no new entry considered. Price 0.225598, still momentum-flagged (1h +7.40%/4h +9.07%) but irrelevant while position is open. RSI 53.75, still below +1R, stop resting cleanly per check_stops. No dated-to-today news catalyst found.
+
+**Signals considered:**
+```json
+{
+  "existing_position": true,
+  "momentum_trigger": true,
+  "price": 0.225598,
+  "rsi_4h": 53.75,
+  "news": "no new dated catalyst"
+}
+```
+
+---
+### 2026-10-10T20:03:02.653Z — LINK/EUR — NO TRADE
+
+**Reasoning:** momentum_trigger false this cycle (1h +3.24%/4h +3.07%, under threshold). No dated-to-today news catalyst found.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": 3.24,
+  "pct_change_4h_48h": 3.07,
+  "news": "no new dated catalyst"
+}
+```
+
+---
+### 2026-10-10T20:03:02.664Z — SUI/EUR — NO TRADE
+
+**Reasoning:** Existing open position (opened 17:02 UTC this session) - one-per-pair rule, no new entry considered. Price 1.0024, still momentum-flagged (1h +6.43%/4h +7.91%) but irrelevant while position is open. RSI 53.45, still below +1R, stop resting cleanly per check_stops. No dated-to-today news catalyst found.
+
+**Signals considered:**
+```json
+{
+  "existing_position": true,
+  "momentum_trigger": true,
+  "price": 1.0024,
+  "rsi_4h": 53.45,
+  "news": "no new dated catalyst"
+}
+```
+
+---
+### 2026-10-10T20:03:02.675Z — LTC/EUR — NO TRADE
+
+**Reasoning:** momentum_trigger false this cycle (1h +1.56%/4h +1.55%, well under threshold). No dated-to-today news catalyst found.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": 1.56,
+  "pct_change_4h_48h": 1.55,
+  "news": "no new dated catalyst"
+}
+```
+
+---
