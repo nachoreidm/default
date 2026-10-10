@@ -66728,3 +66728,163 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-10-10T01:02:52.437Z — BTC/EUR — NO TRADE
+
+**Reasoning:** Price €73,687.9, 1h/48h -0.57%, 4h/48h -0.09% - holding steady. RSI 43.97, unchanged. SMA fast_below_slow. Order book positive (+0.104). Volume ratio 0.80x, not flagged. momentum_trigger false (long-only signal, magnitude far below 6%). News confirms BTC near $82.5K, ~4% down on the week, still recovering from Thursday's low - consistent with Kraken's sideways action. No qualifying setup. No position open. No trade.
+
+**Signals considered:**
+```json
+{
+  "price_eur": 73687.9,
+  "pct_change_1h_48h": -0.57,
+  "pct_change_4h_48h": -0.09,
+  "rsi_14_4h": 43.97,
+  "sma_state": "fast_below_slow",
+  "order_book_imbalance": 0.104,
+  "volume_ratio": 0.8,
+  "flag_above_2x": false,
+  "momentum_trigger": false
+}
+```
+
+---
+### 2026-10-10T01:02:52.460Z — ETH/EUR — NO TRADE
+
+**Reasoning:** Price €2,221.28, 1h/48h -3.36%, 4h/48h -2.95%. RSI 33.62. SMA fast_below_slow. Order book positive (+0.129). Volume ratio 0.69x, not flagged. momentum_trigger false. News confirms ETH near $2,480-2,500 with continued ETF outflow pressure (~$565M over 7 sessions) - consistent with the weak price action on Kraken. No qualifying setup. No position open. No trade.
+
+**Signals considered:**
+```json
+{
+  "price_eur": 2221.28,
+  "pct_change_1h_48h": -3.36,
+  "pct_change_4h_48h": -2.95,
+  "rsi_14_4h": 33.62,
+  "sma_state": "fast_below_slow",
+  "order_book_imbalance": 0.129,
+  "volume_ratio": 0.69,
+  "flag_above_2x": false,
+  "momentum_trigger": false
+}
+```
+
+---
+### 2026-10-10T01:02:52.490Z — SOL/EUR — NO TRADE
+
+**Reasoning:** Price €97.60, 1h/48h -5.65%, 4h/48h -5.65%. RSI 30.24. SMA fast_below_slow. Order book positive (+0.157). Volume ratio 0.64x, not flagged. momentum_trigger false - downside move, signal is long-only by design. News confirms SOL near $108-110, active addresses at a 13-month high despite the price weakness - fundamentals/price divergence. No qualifying setup. No position open. No trade.
+
+**Signals considered:**
+```json
+{
+  "price_eur": 97.6,
+  "pct_change_1h_48h": -5.65,
+  "pct_change_4h_48h": -5.65,
+  "rsi_14_4h": 30.24,
+  "sma_state": "fast_below_slow",
+  "order_book_imbalance": 0.157,
+  "volume_ratio": 0.64,
+  "flag_above_2x": false,
+  "momentum_trigger": false
+}
+```
+
+---
+### 2026-10-10T01:02:52.509Z — XRP/EUR — NO TRADE
+
+**Reasoning:** Price €1.24841, 1h/48h -1.64%, 4h/48h -1.45% - continues showing relative resilience, mild improvement. RSI 40.28. SMA fast_below_slow. Order book roughly flat (-0.002). Volume ratio 0.37x, not flagged. momentum_trigger false. News confirms XRP near $1.38-1.40, soft momentum (RSI near neutral 41 per news) - still no qualifying technical/momentum setup. No position open. No trade.
+
+**Signals considered:**
+```json
+{
+  "price_eur": 1.24841,
+  "pct_change_1h_48h": -1.64,
+  "pct_change_4h_48h": -1.45,
+  "rsi_14_4h": 40.28,
+  "sma_state": "fast_below_slow",
+  "order_book_imbalance": -0.002,
+  "volume_ratio": 0.37,
+  "flag_above_2x": false,
+  "momentum_trigger": false
+}
+```
+
+---
+### 2026-10-10T01:02:52.533Z — ADA/EUR — NO TRADE
+
+**Reasoning:** Price €0.218158, 1h/48h -4.08%, 4h/48h -4.37% - continued improvement vs prior cycles. RSI 45.69, holding its best reading in days. SMA fast_below_slow. Order book positive (+0.194). Volume ratio 0.86x, not flagged. momentum_trigger false (downside move; long-only signal). News confirms continued rising network activity (Santiment data) despite price weakness and the CIP-0113 launch - fundamentals/price divergence, technical picture continuing to improve. No qualifying setup. No position open. No trade.
+
+**Signals considered:**
+```json
+{
+  "price_eur": 0.218158,
+  "pct_change_1h_48h": -4.08,
+  "pct_change_4h_48h": -4.37,
+  "rsi_14_4h": 45.69,
+  "sma_state": "fast_below_slow",
+  "order_book_imbalance": 0.194,
+  "volume_ratio": 0.86,
+  "flag_above_2x": false,
+  "momentum_trigger": false
+}
+```
+
+---
+### 2026-10-10T01:02:52.552Z — LINK/EUR — NO TRADE
+
+**Reasoning:** Price €11.43286, 1h/48h -3.43%, 4h/48h -2.71%. RSI 37.80. SMA fast_below_slow. Order book positive (+0.120). Volume ratio 0.28x, not flagged. momentum_trigger false. News continues to attribute weakness to the CCIP Vault Adapters launch retracement - no new catalyst, consistent with ongoing consolidation. No qualifying setup. No position open. No trade.
+
+**Signals considered:**
+```json
+{
+  "price_eur": 11.43286,
+  "pct_change_1h_48h": -3.43,
+  "pct_change_4h_48h": -2.71,
+  "rsi_14_4h": 37.8,
+  "sma_state": "fast_below_slow",
+  "order_book_imbalance": 0.12,
+  "volume_ratio": 0.28,
+  "flag_above_2x": false,
+  "momentum_trigger": false
+}
+```
+
+---
+### 2026-10-10T01:02:52.572Z — SUI/EUR — NO TRADE
+
+**Reasoning:** Price €0.9576, 1h/48h -4.86%, 4h/48h -5.55%. RSI 39.92. SMA fast_below_slow. Order book positive (+0.206). Volume ratio 0.47x, not flagged. momentum_trigger false. News mixed - one source citing a 6.3% 24h gain tied to Bitcoin lending/zero-gas USDC news, another citing continued weakness - no qualifying technical/momentum setup either way. No position open. No trade.
+
+**Signals considered:**
+```json
+{
+  "price_eur": 0.9576,
+  "pct_change_1h_48h": -4.86,
+  "pct_change_4h_48h": -5.55,
+  "rsi_14_4h": 39.92,
+  "sma_state": "fast_below_slow",
+  "order_book_imbalance": 0.206,
+  "volume_ratio": 0.47,
+  "flag_above_2x": false,
+  "momentum_trigger": false
+}
+```
+
+---
+### 2026-10-10T01:02:52.589Z — LTC/EUR — NO TRADE
+
+**Reasoning:** Price €56.66, 1h/48h -3.62%, 4h/48h -3.16%. RSI 35.03. SMA fast_below_slow. Order book roughly flat (-0.010). Volume ratio 0.56x, not flagged. momentum_trigger false. News continues to describe a test of support near $63 (USD) with upside targets at $67/$72/$80 if a rebound holds - no confirmed catalyst, consistent with ongoing consolidation. No qualifying setup. No position open. No trade.
+
+**Signals considered:**
+```json
+{
+  "price_eur": 56.66,
+  "pct_change_1h_48h": -3.62,
+  "pct_change_4h_48h": -3.16,
+  "rsi_14_4h": 35.03,
+  "sma_state": "fast_below_slow",
+  "order_book_imbalance": -0.01,
+  "volume_ratio": 0.56,
+  "flag_above_2x": false,
+  "momentum_trigger": false
+}
+```
+
+---
