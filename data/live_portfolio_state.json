@@ -1,47 +1,7 @@
 {
   "starting_balance": 5000,
   "cash": 5000,
-  "open_positions": [
-    {
-      "id": "06ea57ed-f838-4b48-a48c-a2b66ee744a2",
-      "pair": "SUI/EUR",
-      "direction": "long",
-      "entry_price": 1.0004,
-      "stop_loss": 0.972635,
-      "initial_stop_loss": 0.972635,
-      "take_profit": 1.0559299999999998,
-      "trailing_active": false,
-      "peak_price": 1.0073,
-      "size_pct": 4.519699981926632,
-      "size_eur": 223.28155967603303,
-      "quantity": 223.21459,
-      "entry_fee": 1.33989328,
-      "opened_at": "2026-10-10T17:02:55.851Z",
-      "signals_at_entry": {
-        "price_eur": 0.9978,
-        "pct_change_1h_48h": 11.893,
-        "pct_change_4h_48h": 8.231,
-        "rsi_14_4h": 54.12,
-        "sma_state": "fast_below_slow",
-        "sma_fast_20": 0.972635,
-        "sma_slow_50": 1.02299,
-        "order_book_imbalance": 0.2534,
-        "volume_ratio": 0.4713,
-        "flag_above_2x": false,
-        "momentum_trigger": true,
-        "breakout_confirmation_status": "confirmed",
-        "confirmed_count": 3,
-        "news_context": "No single catalyst dated precisely to today found. Most recent related coverage (~5 days old, crypto.news) ties a smaller leg of SUI's rally to Mysten Labs' stablecoin/AI-agent strategy narrative. OKX posts describe SUI up >30% over the 'past week' tied to anticipation of the Sui Basecamp event in Singapore - product details undisclosed, explicitly speculative. Advisory only; breakout-confirmation mechanism is the primary basis for this trade."
-      },
-      "invalidation": "Breakout fails if price closes back below the 4h 20-period SMA (~0.9726), the technical floor this breakout should hold above. The K=3 pullback-confirmation filter already passed (3 consecutive closed 1h candles held above the breakout level), which is the primary basis for taking this momentum-only entry.",
-      "confidence": "medium",
-      "confidence_reason": "momentum_only entry, capped at medium per rule. Breakout confirmed via K=3 pullback filter (3 consecutive holding 1h candles). Volume ratio 0.47 is not confirmed (weaker than the ADA entry this same session), but order book is favorably skewed (+25.3%, heavier bid depth) unlike ADA's adverse book. RSI 54.12 is moderate, not deeply overbought. 4h SMA structure (fast still below slow) means this is an early-stage breakout rather than a chase into an extended structure. News search found no single catalyst dated precisely to today, but documented an ongoing multi-day SUI rally tied to Mysten Labs' stablecoin/AI-agent strategy narrative and anticipation of the Sui Basecamp event (speculative, details undisclosed) - advisory only. Taking this on the strength of the confirmed-breakout mechanism, same basis as the ADA entry earlier this cycle-chain, sized conservatively at medium confidence.",
-      "momentum_only": true,
-      "status": "open",
-      "entry_order_txid": "OP6F3A-XCIHU-DPWNNR",
-      "stop_order_txid": "OMQXFP-QFNJL-HCZXO6"
-    }
-  ],
+  "open_positions": [],
   "closed_positions": [
     {
       "id": "836cb669-d4dd-403d-a562-c69ed336e2bf",
@@ -627,6 +587,51 @@
       "close_reason": "Stop-loss filled on Kraken (order OGNCLY-VG7XH-QY752A).",
       "pnl_eur": -7.129261713246478,
       "pnl_pct_of_portfolio": -0.14034928154713963
+    },
+    {
+      "id": "06ea57ed-f838-4b48-a48c-a2b66ee744a2",
+      "pair": "SUI/EUR",
+      "direction": "long",
+      "entry_price": 1.0004,
+      "stop_loss": 0.972635,
+      "initial_stop_loss": 0.972635,
+      "take_profit": 1.0559299999999998,
+      "trailing_active": false,
+      "peak_price": 1.0073,
+      "size_pct": 4.519699981926632,
+      "size_eur": 223.28155967603303,
+      "quantity": 223.21459,
+      "entry_fee": 1.33989328,
+      "opened_at": "2026-10-10T17:02:55.851Z",
+      "signals_at_entry": {
+        "price_eur": 0.9978,
+        "pct_change_1h_48h": 11.893,
+        "pct_change_4h_48h": 8.231,
+        "rsi_14_4h": 54.12,
+        "sma_state": "fast_below_slow",
+        "sma_fast_20": 0.972635,
+        "sma_slow_50": 1.02299,
+        "order_book_imbalance": 0.2534,
+        "volume_ratio": 0.4713,
+        "flag_above_2x": false,
+        "momentum_trigger": true,
+        "breakout_confirmation_status": "confirmed",
+        "confirmed_count": 3,
+        "news_context": "No single catalyst dated precisely to today found. Most recent related coverage (~5 days old, crypto.news) ties a smaller leg of SUI's rally to Mysten Labs' stablecoin/AI-agent strategy narrative. OKX posts describe SUI up >30% over the 'past week' tied to anticipation of the Sui Basecamp event in Singapore - product details undisclosed, explicitly speculative. Advisory only; breakout-confirmation mechanism is the primary basis for this trade."
+      },
+      "invalidation": "Breakout fails if price closes back below the 4h 20-period SMA (~0.9726), the technical floor this breakout should hold above. The K=3 pullback-confirmation filter already passed (3 consecutive closed 1h candles held above the breakout level), which is the primary basis for taking this momentum-only entry.",
+      "confidence": "medium",
+      "confidence_reason": "momentum_only entry, capped at medium per rule. Breakout confirmed via K=3 pullback filter (3 consecutive holding 1h candles). Volume ratio 0.47 is not confirmed (weaker than the ADA entry this same session), but order book is favorably skewed (+25.3%, heavier bid depth) unlike ADA's adverse book. RSI 54.12 is moderate, not deeply overbought. 4h SMA structure (fast still below slow) means this is an early-stage breakout rather than a chase into an extended structure. News search found no single catalyst dated precisely to today, but documented an ongoing multi-day SUI rally tied to Mysten Labs' stablecoin/AI-agent strategy narrative and anticipation of the Sui Basecamp event (speculative, details undisclosed) - advisory only. Taking this on the strength of the confirmed-breakout mechanism, same basis as the ADA entry earlier this cycle-chain, sized conservatively at medium confidence.",
+      "momentum_only": true,
+      "status": "closed",
+      "entry_order_txid": "OP6F3A-XCIHU-DPWNNR",
+      "stop_order_txid": "OMQXFP-QFNJL-HCZXO6",
+      "exit_price": 0.972,
+      "exit_fee": 1.30192142,
+      "closed_at": "2026-10-11T05:02:05.302Z",
+      "close_reason": "Stop-loss filled on Kraken (order OMQXFP-QFNJL-HCZXO6).",
+      "pnl_eur": -7.6188996160330476,
+      "pnl_pct_of_portfolio": -0.14810635807024317
     }
   ],
   "daily_loss": [
@@ -692,12 +697,12 @@
     },
     {
       "date": "2026-10-11",
-      "realized_pnl_eur": -7.129261713246478,
+      "realized_pnl_eur": -14.748161329279526,
       "halted": false
     }
   ],
   "created_at": "2026-09-22T14:26:40.467Z",
-  "updated_at": "2026-10-11T04:01:39.253Z",
+  "updated_at": "2026-10-11T05:02:05.439Z",
   "pending_breakouts": {
     "LINK/EUR": {
       "breakout_time": 1791640800,
