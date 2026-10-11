@@ -70572,3 +70572,129 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-10-11T02:02:42.571Z — BTC/EUR — NO TRADE
+
+**Reasoning:** momentum_trigger false this cycle (1h +1.34%/4h +0.91%, under threshold). Coinversa smart-money (Sharps) cohort net Long (+0.19 by notional), consistent with prior cycles - informational only. No dated-to-today news catalyst found.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": 1.34,
+  "pct_change_4h_48h": 0.91,
+  "coinversa_smart_money_bias": "net_long_0.19",
+  "news": "no new dated catalyst"
+}
+```
+
+---
+### 2026-10-11T02:02:42.588Z — ETH/EUR — NO TRADE
+
+**Reasoning:** momentum_trigger false this cycle (1h +1.02%/4h +0.74%, under threshold). Coinversa smart-money (Sharps) cohort net Long (+0.19 by notional), consistent with prior cycles - informational only. No dated-to-today news catalyst found.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": 1.02,
+  "pct_change_4h_48h": 0.74,
+  "coinversa_smart_money_bias": "net_long_0.19",
+  "news": "no new dated catalyst"
+}
+```
+
+---
+### 2026-10-11T02:02:42.607Z — SOL/EUR — NO TRADE
+
+**Reasoning:** momentum_trigger false this cycle (1h -0.01%/4h -0.10%, flat). Coinversa smart-money (Sharps) cohort Strong Long (+0.67 by notional), consistent with prior cycles - informational only. No dated-to-today news catalyst found.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -0.01,
+  "pct_change_4h_48h": -0.1,
+  "coinversa_smart_money_bias": "strong_net_long_0.67",
+  "news": "no new dated catalyst"
+}
+```
+
+---
+### 2026-10-11T02:02:42.620Z — XRP/EUR — NO TRADE
+
+**Reasoning:** momentum_trigger false this cycle (1h +0.82%/4h +0.80%, well under threshold). Coinversa smart-money (Sharps) cohort net Long (+0.36 by notional), consistent with prior cycles - informational only. No dated-to-today news catalyst found.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": 0.82,
+  "pct_change_4h_48h": 0.8,
+  "coinversa_smart_money_bias": "net_long_0.36",
+  "news": "no new dated catalyst"
+}
+```
+
+---
+### 2026-10-11T02:02:42.633Z — ADA/EUR — NO TRADE
+
+**Reasoning:** Existing open position (opened 15:04 UTC prior session) - one-per-pair rule, no new entry considered. Price 0.222302, still momentum-flagged (1h +6.59%/4h +5.81%) but irrelevant while position is open. RSI 49.55, still below +1R, stop resting cleanly per check_stops. No dated-to-today news catalyst found.
+
+**Signals considered:**
+```json
+{
+  "existing_position": true,
+  "momentum_trigger": true,
+  "price": 0.222302,
+  "rsi_4h": 49.55,
+  "news": "no new dated catalyst"
+}
+```
+
+---
+### 2026-10-11T02:02:42.645Z — LINK/EUR — NO TRADE
+
+**Reasoning:** momentum_trigger false this cycle (1h +2.26%/4h +1.58%, under threshold). No dated-to-today news catalyst found.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": 2.26,
+  "pct_change_4h_48h": 1.58,
+  "news": "no new dated catalyst"
+}
+```
+
+---
+### 2026-10-11T02:02:42.657Z — SUI/EUR — NO TRADE
+
+**Reasoning:** Existing open position (opened 17:02 UTC prior session) - one-per-pair rule, no new entry considered. Price 0.9914, momentum_trigger back to true this cycle (1h +6.27%/4h +5.53%) but irrelevant while position is open. RSI 50.76, still below +1R, stop resting cleanly per check_stops. No dated-to-today news catalyst found.
+
+**Signals considered:**
+```json
+{
+  "existing_position": true,
+  "momentum_trigger": true,
+  "price": 0.9914,
+  "rsi_4h": 50.76,
+  "news": "no new dated catalyst"
+}
+```
+
+---
+### 2026-10-11T02:02:42.670Z — LTC/EUR — NO TRADE
+
+**Reasoning:** momentum_trigger false this cycle (1h +0.55%/4h +0.63%, well under threshold). No dated-to-today news catalyst found.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": 0.55,
+  "pct_change_4h_48h": 0.63,
+  "news": "no new dated catalyst"
+}
+```
+
+---
