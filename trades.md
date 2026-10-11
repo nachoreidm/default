@@ -70824,3 +70824,141 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-10-11T04:01:38.695Z — ADA/EUR — LONG — CLOSED (LIVE)
+
+- Exit price: €0.22 (real fill)
+- Exit fee (real): €0.92
+- Reason: Stop-loss filled on Kraken (order OGNCLY-VG7XH-QY752A).
+- Realized P&L: €-7.13 (-0.14% of portfolio)
+- Position id: cee0510e-735f-42b4-9311-2c1d211c01c7
+
+---
+### 2026-10-11T04:02:24.383Z — BTC/EUR — NO TRADE
+
+**Reasoning:** momentum_trigger false this cycle (1h +0.95%/4h +0.43%, under threshold). Coinversa smart-money (Sharps) cohort net Long (+0.20 by notional), consistent with prior cycles - informational only. No dated-to-today news catalyst found.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": 0.95,
+  "pct_change_4h_48h": 0.43,
+  "coinversa_smart_money_bias": "net_long_0.20",
+  "news": "no new dated catalyst"
+}
+```
+
+---
+### 2026-10-11T04:02:24.406Z — ETH/EUR — NO TRADE
+
+**Reasoning:** momentum_trigger false this cycle (1h +0.76%/4h +0.07%, flat). Coinversa smart-money (Sharps) cohort net Long (+0.20 by notional), consistent with prior cycles - informational only. No dated-to-today news catalyst found.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": 0.76,
+  "pct_change_4h_48h": 0.07,
+  "coinversa_smart_money_bias": "net_long_0.20",
+  "news": "no new dated catalyst"
+}
+```
+
+---
+### 2026-10-11T04:02:24.422Z — SOL/EUR — NO TRADE
+
+**Reasoning:** momentum_trigger false this cycle (1h -0.39%/4h -1.06%, negative). Coinversa smart-money (Sharps) cohort Strong Long (+0.67 by notional), consistent with prior cycles - informational only. No dated-to-today news catalyst found.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -0.39,
+  "pct_change_4h_48h": -1.06,
+  "coinversa_smart_money_bias": "strong_net_long_0.67",
+  "news": "no new dated catalyst"
+}
+```
+
+---
+### 2026-10-11T04:02:24.435Z — XRP/EUR — NO TRADE
+
+**Reasoning:** momentum_trigger false this cycle (1h +0.01%/4h -0.80%, flat/negative). Coinversa smart-money (Sharps) cohort net Long (+0.37 by notional), consistent with prior cycles - informational only. No dated-to-today news catalyst found.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": 0.01,
+  "pct_change_4h_48h": -0.8,
+  "coinversa_smart_money_bias": "net_long_0.37",
+  "news": "no new dated catalyst"
+}
+```
+
+---
+### 2026-10-11T04:02:24.448Z — ADA/EUR — NO TRADE
+
+**Reasoning:** Stop-loss filled this cycle (portfolio_check_stops), position now flat - real -€7.13 realized loss. No new entry considered this same cycle: momentum_trigger false (1h +5.02%/4h +2.76%, both now under the 6% threshold after the pullback that triggered the stop). RSI 46.55. No dated-to-today news catalyst found.
+
+**Signals considered:**
+```json
+{
+  "just_closed": true,
+  "close_reason": "stop_loss",
+  "pnl_eur": -7.13,
+  "momentum_trigger": false,
+  "pct_change_1h_48h": 5.02,
+  "pct_change_4h_48h": 2.76,
+  "rsi_4h": 46.55,
+  "news": "no new dated catalyst"
+}
+```
+
+---
+### 2026-10-11T04:02:24.461Z — LINK/EUR — NO TRADE
+
+**Reasoning:** momentum_trigger false this cycle (1h +0.51%/4h -0.29%, flat/negative). No dated-to-today news catalyst found.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": 0.51,
+  "pct_change_4h_48h": -0.29,
+  "news": "no new dated catalyst"
+}
+```
+
+---
+### 2026-10-11T04:02:24.474Z — SUI/EUR — NO TRADE
+
+**Reasoning:** Existing open position (opened 17:02 UTC prior session) - one-per-pair rule, no new entry considered. Price 0.9737, momentum_trigger now false this cycle (1h +4.10%/4h +1.83%, both under threshold after pullback) but irrelevant anyway while position is open. RSI 45.34, still below +1R, stop resting cleanly per check_stops. No dated-to-today news catalyst found.
+
+**Signals considered:**
+```json
+{
+  "existing_position": true,
+  "momentum_trigger": false,
+  "price": 0.9737,
+  "rsi_4h": 45.34,
+  "news": "no new dated catalyst"
+}
+```
+
+---
+### 2026-10-11T04:02:24.486Z — LTC/EUR — NO TRADE
+
+**Reasoning:** momentum_trigger false this cycle (1h -1.05%/4h -1.43%, negative). No dated-to-today news catalyst found.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -1.05,
+  "pct_change_4h_48h": -1.43,
+  "news": "no new dated catalyst"
+}
+```
+
+---
