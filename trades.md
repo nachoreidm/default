@@ -71717,3 +71717,143 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-10-11T10:14:52.672Z — BTC/EUR — NO TRADE
+
+**Reasoning:** No qualifying setup. SMA 4h fast_below_slow (bearish), RSI 48.5 (neutral), volume ratio 0.17x (well below 2x confirmation bar), momentum_trigger not flagged (1h 48h +0.64%, 4h 48h -0.21%, both under 6% threshold). Order book skewed to asks (imbalance -0.41). No current news found - web search returned only stale/undated articles, nothing from today. Coinversa Pulse (informational only): net bias +0.40 (long-leaning), but top short positions are the same cross-asset hedging wallets (0x5b5d5120..., 0xb83de012...) flagged in CLAUDE.md as not directional conviction - not used as a trigger either way.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 48.48,
+  "sma_crossover_4h": "fast_below_slow",
+  "volume_ratio": 0.173,
+  "momentum_trigger_flagged": false,
+  "order_book_imbalance": -0.408,
+  "news_context": "no current news found",
+  "coinversa_net_bias": 0.398
+}
+```
+
+---
+### 2026-10-11T10:14:52.696Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No qualifying setup. SMA 4h fast_below_slow, RSI 39.0 (neutral-weak), volume ratio 0.20x (far below 2x bar), momentum_trigger not flagged. Order book mildly ask-skewed (-0.14). No current news found - search returned only stale/undated articles. Coinversa Pulse (informational only): net bias +0.37 (long-leaning), same cross-asset hedging wallets dominate top shorts - not used as a trigger.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 39.05,
+  "sma_crossover_4h": "fast_below_slow",
+  "volume_ratio": 0.201,
+  "momentum_trigger_flagged": false,
+  "order_book_imbalance": -0.14,
+  "news_context": "no current news found",
+  "coinversa_net_bias": 0.368
+}
+```
+
+---
+### 2026-10-11T10:14:52.707Z — SOL/EUR — NO TRADE
+
+**Reasoning:** No qualifying setup. SMA 4h fast_below_slow, RSI 34.4 (weak), volume ratio 0.31x, momentum_trigger not flagged (4h 48h change -1.63%, well under threshold). Order book mildly bid-skewed (+0.08) but that alone isn't a trigger given the bearish SMA/RSI backdrop. No current news found. Coinversa Pulse (informational only): net bias +0.39 (long-leaning), same hedging-wallet caveat applies - not used as a trigger.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 34.44,
+  "sma_crossover_4h": "fast_below_slow",
+  "volume_ratio": 0.312,
+  "momentum_trigger_flagged": false,
+  "order_book_imbalance": 0.085,
+  "news_context": "no current news found",
+  "coinversa_net_bias": 0.389
+}
+```
+
+---
+### 2026-10-11T10:14:52.718Z — XRP/EUR — NO TRADE
+
+**Reasoning:** No qualifying setup. SMA 4h fast_below_slow, RSI 40.7 (neutral-weak), volume ratio 0.18x, momentum_trigger not flagged. Order book essentially flat (imbalance +0.002). No current news found beyond the long-running, already-priced-in SEC/Ripple legal background, nothing fresh today. Coinversa Pulse (informational only): net bias +0.20 (mildly long-leaning, weakest of the four), top shorts dominated by the same hedging wallets - not used as a trigger.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 40.68,
+  "sma_crossover_4h": "fast_below_slow",
+  "volume_ratio": 0.179,
+  "momentum_trigger_flagged": false,
+  "order_book_imbalance": 0.002,
+  "news_context": "no current news found",
+  "coinversa_net_bias": 0.201
+}
+```
+
+---
+### 2026-10-11T10:14:52.728Z — ADA/EUR — NO TRADE
+
+**Reasoning:** Closest to a setup but still doesn't qualify. SMA 4h still fast_below_slow (price up 4.3% 1h/48h and 3.4% 4h/48h, but hasn't crossed the SMA yet), RSI 49.0 (neutral), volume ratio 1.60x - above baseline but under the 2x confirmation bar required for a momentum_only entry, and momentum_trigger not flagged (both pct_change figures under the 6% threshold). Order book strongly bid-skewed (+0.53). No current news found - most recent dated coverage was from Sept 2025, nothing current. Given the unconfirmed volume and no SMA crossover yet, this doesn't meet the bar - logged as no-trade rather than forced.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 48.97,
+  "sma_crossover_4h": "fast_below_slow",
+  "volume_ratio": 1.601,
+  "momentum_trigger_flagged": false,
+  "order_book_imbalance": 0.532,
+  "news_context": "no current news found"
+}
+```
+
+---
+### 2026-10-11T10:14:52.738Z — LINK/EUR — NO TRADE
+
+**Reasoning:** No qualifying setup. SMA 4h fast_below_slow, RSI 41.2 (neutral-weak), volume ratio 0.31x, momentum_trigger not flagged. Order book mildly bid-skewed (+0.10). No current news found - most recent dated article was ~8 months old. Nothing to act on.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 41.24,
+  "sma_crossover_4h": "fast_below_slow",
+  "volume_ratio": 0.309,
+  "momentum_trigger_flagged": false,
+  "order_book_imbalance": 0.101,
+  "news_context": "no current news found"
+}
+```
+
+---
+### 2026-10-11T10:14:52.748Z — SUI/EUR — NO TRADE
+
+**Reasoning:** No qualifying setup. SMA 4h still fast_below_slow despite a positive 48h run (+3.5% 1h, +2.5% 4h), RSI 46.7 (neutral), volume ratio 0.57x (below baseline, no confirmation), momentum_trigger not flagged (well under 6% threshold). Order book ask-skewed (-0.20). No current news dated today - most relevant hits (ETF listing, exchange listing, trade-talk rally) were all from earlier in 2026, nothing fresh this cycle. Not excluded from Coinversa per instructions, but didn't check this cycle since no technical trigger warranted it.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 46.68,
+  "sma_crossover_4h": "fast_below_slow",
+  "volume_ratio": 0.568,
+  "momentum_trigger_flagged": false,
+  "order_book_imbalance": -0.197,
+  "news_context": "no current news found"
+}
+```
+
+---
+### 2026-10-11T10:14:52.757Z — LTC/EUR — NO TRADE
+
+**Reasoning:** No qualifying setup. SMA 4h fast_below_slow, RSI 40.9 (neutral-weak), volume ratio 0.42x, momentum_trigger not flagged. Order book mildly bid-skewed (+0.21). No current news found - most relevant hit (.ltc domain launch) was from Feb 2025. Nothing to act on.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 40.93,
+  "sma_crossover_4h": "fast_below_slow",
+  "volume_ratio": 0.423,
+  "momentum_trigger_flagged": false,
+  "order_book_imbalance": 0.209,
+  "news_context": "no current news found"
+}
+```
+
+---
