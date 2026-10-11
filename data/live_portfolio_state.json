@@ -702,7 +702,7 @@
     }
   ],
   "created_at": "2026-09-22T14:26:40.467Z",
-  "updated_at": "2026-10-11T18:02:19.428Z",
+  "updated_at": "2026-10-11T19:03:18.649Z",
   "pending_breakouts": {
     "LINK/EUR": {
       "breakout_time": 1791640800,
@@ -719,14 +719,14 @@
     "ADA/EUR": {
       "breakout_time": 1791730800,
       "breakout_level": 0.22187,
-      "confirmed_count": 2,
-      "last_checked_time": 1791738000
+      "confirmed_count": 3,
+      "last_checked_time": 1791741600
     },
     "SUI/EUR": {
       "breakout_time": 1791730800,
       "breakout_level": 0.9855,
-      "confirmed_count": 2,
-      "last_checked_time": 1791738000
+      "confirmed_count": 3,
+      "last_checked_time": 1791741600
     }
   }
 }

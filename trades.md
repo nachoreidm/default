@@ -73417,3 +73417,151 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-10-11T19:05:21.153Z — BTC/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/48h +1.57%, 4h/48h +1.91%, below 6% threshold). RSI 4h 58.6 (neutral-firm), SMA 4h fast below slow, no crossover. Volume 0.17x vs 7d avg - unconfirmed. Order book ask-skewed (-0.26). No dated news catalyst found for today. Coinversa smart-money net bias +0.41 (long-leaning), informational only. No qualifying setup - no trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 58.59,
+  "sma_crossover_4h": "fast_below_slow, no cross",
+  "volume_ratio": 0.17,
+  "momentum_trigger": false,
+  "order_book_imbalance": -0.256,
+  "news": "no dated catalyst found",
+  "coinversa_net_bias": 0.41
+}
+```
+
+---
+### 2026-10-11T19:05:21.192Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/48h +2.26%, 4h/48h +2.36%, below 6% threshold). RSI 4h 50.9 (neutral). SMA 4h fast below slow, no crossover. Volume 0.20x vs 7d avg - unconfirmed. Order book notably ask-skewed (-0.41). No dated news catalyst found for today. Coinversa smart-money net bias +0.38 (long-leaning), informational only. No qualifying setup - no trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 50.93,
+  "sma_crossover_4h": "fast_below_slow, no cross",
+  "volume_ratio": 0.2,
+  "momentum_trigger": false,
+  "order_book_imbalance": -0.406,
+  "news": "no dated catalyst found",
+  "coinversa_net_bias": 0.38
+}
+```
+
+---
+### 2026-10-11T19:05:21.225Z — SOL/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/48h +2.77%, 4h/48h +3.14%, below 6% threshold). RSI 4h 49.9 (neutral). SMA 4h fast below slow, no crossover. Volume 0.31x vs 7d avg - unconfirmed. Order book ask-skewed (-0.16). No dated news catalyst found for today. Coinversa smart-money net bias +0.39 (long-leaning), informational only. No qualifying setup - no trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 49.9,
+  "sma_crossover_4h": "fast_below_slow, no cross",
+  "volume_ratio": 0.31,
+  "momentum_trigger": false,
+  "order_book_imbalance": -0.157,
+  "news": "no dated catalyst found",
+  "coinversa_net_bias": 0.39
+}
+```
+
+---
+### 2026-10-11T19:05:21.247Z — XRP/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/48h +1.78%, 4h/48h +2.93%, below 6% threshold). RSI 4h 54.0 (neutral). SMA 4h fast below slow, no crossover. Volume 0.18x vs 7d avg - unconfirmed. Order book mildly ask-skewed (-0.09). News search surfaced only stale SEC-case background, nothing dated today. Coinversa smart-money net bias +0.21 (mild long lean), informational only. No qualifying setup - no trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 54.05,
+  "sma_crossover_4h": "fast_below_slow, no cross",
+  "volume_ratio": 0.18,
+  "momentum_trigger": false,
+  "order_book_imbalance": -0.087,
+  "news": "no dated catalyst found",
+  "coinversa_net_bias": 0.21
+}
+```
+
+---
+### 2026-10-11T19:05:21.273Z — ADA/EUR — NO TRADE
+
+**Reasoning:** Momentum trigger FLAGGED (1h/48h +7.36%, 4h/48h +7.78%, above 6% threshold) and portfolio_check_breakout_confirmation reported "confirmed" (3 candles). However, declining despite confirmation: (1) this is the SAME pair whose nearly identical K=3-confirmed momentum entry (opened yesterday 15:04 UTC) was stopped out just hours ago at 04:01 UTC today for -EUR7.13 - a quick spike-then-reversal pattern now potentially repeating same-day; (2) news search found genuinely conflicting signals - bullish catalysts (RealFi mainnet Oct 1, USDr stablecoin integration into Lace/Liqwid/SundaeSwap, CIP-0113 token standard live) alongside a same-week "death cross" caution flag and a documented +11% spike on Oct 6-8 that fully reversed within two days; (3) RSI 55.3 is moderate but SMA 4h fast remains below slow (broader downtrend context unchanged). Signals conflict - treating confirmation as necessary but not sufficient per instructions; declining this cycle rather than chasing a possible repeat whipsaw. Breakout tracking remains confirmed/unconsumed for reassessment next cycle.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 55.31,
+  "sma_crossover_4h": "fast_below_slow, no cross",
+  "volume_ratio": 1.6,
+  "momentum_trigger": true,
+  "breakout_confirmation": "confirmed (3 candles)",
+  "pct_change_1h_48h": 7.36,
+  "pct_change_4h_48h": 7.78,
+  "order_book_imbalance": -0.07,
+  "news": "conflicting - bullish catalysts (RealFi mainnet, USDr integration, CIP-0113) vs death-cross caution and a just-reversed Oct 6-8 spike",
+  "prior_same_pair_stop_loss_today": "-7.13 EUR at 04:01 UTC"
+}
+```
+
+---
+### 2026-10-11T19:05:21.300Z — LINK/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/48h +4.22%, 4h/48h +4.78%, below 6% threshold). RSI 4h 57.9 (neutral-firm). SMA 4h fast below slow, no crossover. Volume 0.31x vs 7d avg - unconfirmed. Order book ask-skewed (-0.16). No dated news catalyst found for today. No qualifying setup - no trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 57.86,
+  "sma_crossover_4h": "fast_below_slow, no cross",
+  "volume_ratio": 0.31,
+  "momentum_trigger": false,
+  "order_book_imbalance": -0.159,
+  "news": "no dated catalyst found"
+}
+```
+
+---
+### 2026-10-11T19:05:21.320Z — SUI/EUR — NO TRADE
+
+**Reasoning:** Momentum trigger FLAGGED (1h/48h +6.35%, 4h/48h +7.41%, above 6% threshold) and portfolio_check_breakout_confirmation reported "confirmed" (3 candles). Declining despite confirmation: (1) same pair whose nearly identical K=3-confirmed momentum entry (opened yesterday 17:02 UTC) was stopped out just hours ago at 05:02 UTC today for -EUR7.62; (2) order book is extremely ask-skewed (-0.68, bid 9,213 vs ask 49,163 - roughly 5x more resting sell-side volume than buy-side) - a concrete adverse signal, consistent with this project's established practice of treating heavy order-book skew as a pass criterion even when other signals qualify; (3) news catalysts found (30-day +54% rally, Bitwise institutional yield product, dev-conference throughput record) describe a multi-week trend already priced in, not a fresh same-day catalyst, and don't offset the order-book concern. Declining this cycle. Breakout tracking remains confirmed/unconsumed for reassessment next cycle.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 56.75,
+  "sma_crossover_4h": "fast_below_slow, no cross",
+  "volume_ratio": 0.57,
+  "momentum_trigger": true,
+  "breakout_confirmation": "confirmed (3 candles)",
+  "pct_change_1h_48h": 6.35,
+  "pct_change_4h_48h": 7.41,
+  "order_book_imbalance": -0.684,
+  "news": "30-day rally already priced in (Bitwise yield product, dev-conference throughput record), not a fresh catalyst",
+  "prior_same_pair_stop_loss_today": "-7.62 EUR at 05:02 UTC"
+}
+```
+
+---
+### 2026-10-11T19:05:21.374Z — LTC/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/48h +1.76%, 4h/48h +2.22%, below 6% threshold). RSI 4h 49.1 (neutral). SMA 4h fast below slow, no crossover. Volume 0.42x vs 7d avg - unconfirmed. Order book bid-skewed (+0.37). No dated news catalyst found for today. No qualifying setup - no trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 49.11,
+  "sma_crossover_4h": "fast_below_slow, no cross",
+  "volume_ratio": 0.42,
+  "momentum_trigger": false,
+  "order_book_imbalance": 0.367,
+  "news": "no dated catalyst found"
+}
+```
+
+---
