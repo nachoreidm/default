@@ -73861,3 +73861,142 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-10-11T22:02:56.206Z — BTC/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/48h +1.11%, 4h/48h +1.20%, below 6% threshold). RSI 4h 54.9 (neutral). SMA 4h fast below slow, no crossover. Volume 0.17x vs 7d avg - unconfirmed. Order book ask-skewed (-0.15). No dated news catalyst found for today. Coinversa smart-money net bias +0.42 (long-leaning), informational only. No qualifying setup - no trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 54.91,
+  "sma_crossover_4h": "fast_below_slow, no cross",
+  "volume_ratio": 0.17,
+  "momentum_trigger": false,
+  "order_book_imbalance": -0.147,
+  "news": "no dated catalyst found",
+  "coinversa_net_bias": 0.42
+}
+```
+
+---
+### 2026-10-11T22:02:56.252Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/48h +1.63%, 4h/48h +1.90%, below 6% threshold). RSI 4h 50.7 (neutral). SMA 4h fast below slow, no crossover. Volume 0.20x vs 7d avg - unconfirmed. Order book mildly ask-skewed (-0.10). No dated news catalyst found for today. Coinversa smart-money net bias +0.39 (long-leaning), informational only. No qualifying setup - no trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 50.65,
+  "sma_crossover_4h": "fast_below_slow, no cross",
+  "volume_ratio": 0.2,
+  "momentum_trigger": false,
+  "order_book_imbalance": -0.1,
+  "news": "no dated catalyst found",
+  "coinversa_net_bias": 0.39
+}
+```
+
+---
+### 2026-10-11T22:02:56.273Z — SOL/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/48h +1.41%, 4h/48h +1.98%, below 6% threshold). RSI 4h 47.0 (neutral). SMA 4h fast below slow, no crossover. Volume 0.31x vs 7d avg - unconfirmed. Order book near-neutral (+0.03). No dated news catalyst found for today. Coinversa smart-money net bias +0.44 (long-leaning), informational only. No qualifying setup - no trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 47.02,
+  "sma_crossover_4h": "fast_below_slow, no cross",
+  "volume_ratio": 0.31,
+  "momentum_trigger": false,
+  "order_book_imbalance": 0.033,
+  "news": "no dated catalyst found",
+  "coinversa_net_bias": 0.44
+}
+```
+
+---
+### 2026-10-11T22:02:56.295Z — XRP/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/48h +0.71%, 4h/48h +1.03%, below 6% threshold). RSI 4h 48.7 (neutral). SMA 4h fast below slow, no crossover. Volume 0.18x vs 7d avg - unconfirmed. Order book bid-skewed (+0.43). News search surfaced only stale SEC-case background, nothing dated today. Coinversa smart-money net bias +0.30 (mild long lean), informational only. No qualifying setup - no trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 48.67,
+  "sma_crossover_4h": "fast_below_slow, no cross",
+  "volume_ratio": 0.18,
+  "momentum_trigger": false,
+  "order_book_imbalance": 0.43,
+  "news": "no dated catalyst found",
+  "coinversa_net_bias": 0.3
+}
+```
+
+---
+### 2026-10-11T22:02:56.323Z — ADA/EUR — NO TRADE
+
+**Reasoning:** Existing open position (opened 20:04 UTC) - one-per-pair rule, no new entry considered. Position now underwater (-0.64%), non-trailing; left to the original hard stop per design (invalidation checks only apply to currently-profitable positions). No momentum trigger this cycle anyway. No dated news catalyst found for today.
+
+**Signals considered:**
+```json
+{
+  "existing_position": true,
+  "momentum_trigger": false,
+  "rsi_14_4h": 54.59,
+  "unrealized_pnl_pct": -0.64,
+  "news": "no dated catalyst found"
+}
+```
+
+---
+### 2026-10-11T22:02:56.351Z — LINK/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/48h +3.48%, 4h/48h +3.62%, below 6% threshold). RSI 4h 55.1 (neutral-firm). SMA 4h fast below slow, no crossover. Volume 0.31x vs 7d avg - unconfirmed. Order book bid-skewed (+0.39). No dated news catalyst found for today. No qualifying setup - no trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 55.14,
+  "sma_crossover_4h": "fast_below_slow, no cross",
+  "volume_ratio": 0.31,
+  "momentum_trigger": false,
+  "order_book_imbalance": 0.391,
+  "news": "no dated catalyst found"
+}
+```
+
+---
+### 2026-10-11T22:02:56.376Z — SUI/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/48h +4.62%, 4h/48h +4.93%, below 6% threshold). RSI 4h 53.7 (neutral). SMA 4h fast below slow, no crossover. Volume 0.57x vs 7d avg - unconfirmed. Order book bid-skewed (+0.53). No dated news catalyst found for today. No qualifying setup - no trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 53.68,
+  "sma_crossover_4h": "fast_below_slow, no cross",
+  "volume_ratio": 0.57,
+  "momentum_trigger": false,
+  "order_book_imbalance": 0.527,
+  "news": "no dated catalyst found"
+}
+```
+
+---
+### 2026-10-11T22:02:56.395Z — LTC/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/48h +0.84%, 4h/48h +1.96%, below 6% threshold). RSI 4h 50.5 (neutral). SMA 4h fast below slow, no crossover. Volume 0.42x vs 7d avg - unconfirmed. Order book bid-skewed (+0.29). No dated news catalyst found for today. No qualifying setup - no trade.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 50.55,
+  "sma_crossover_4h": "fast_below_slow, no cross",
+  "volume_ratio": 0.42,
+  "momentum_trigger": false,
+  "order_book_imbalance": 0.285,
+  "news": "no dated catalyst found"
+}
+```
+
+---
