@@ -72481,3 +72481,159 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-10-11T14:13:44.988Z — BTC/EUR — NO TRADE
+
+**Reasoning:** No qualifying setup. RSI(14,4h) 50.1 is neutral, SMA(4h) fast below slow with no crossover this candle, volume ratio 0.17x (far below the 2x confirmation bar), order book roughly balanced (+0.039). No momentum trigger (1h/4h 48h change +0.02%/+0.22%, both far under the 6% threshold). News search returned no reliably-dated current Bitcoin headlines this cycle - nothing notable confirmed. Coinversa Hyperliquid positioning: smart-money net bias +0.40 (long-leaning), but the same two wallet addresses (0x5b5d5120.../0xb83de012...) that show up as top shorts across BTC/ETH/SOL/XRP/SUI/LINK simultaneously are also the top BTC shorts here - informational only, consistent with a cross-asset hedging book, not treated as a signal.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 50.115098713483235,
+  "sma_crossover_4h": "fast_below_slow, no crossover",
+  "volume_ratio": 0.17312118545973848,
+  "order_book_imbalance": 0.03913248467703922,
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": 0.022660321776573154,
+  "pct_change_4h_48h": 0.2217824991727014,
+  "coinversa_smart_money_net_bias": 0.3969584420799036,
+  "news_context": "no reliably-dated current headlines found"
+}
+```
+
+---
+### 2026-10-11T14:13:45.015Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No qualifying setup. RSI(14,4h) 41.0, SMA(4h) fast below slow with no crossover, volume ratio 0.20x (far below 2x bar), order book roughly balanced (-0.020). No momentum trigger (1h/4h 48h change +0.45%/+0.60%, well under 6%). News search returned no reliably-dated current Ethereum headlines this cycle - nothing notable confirmed. Coinversa Hyperliquid positioning: smart-money net bias +0.37 (long-leaning); same hedging-wallet caveat applies (top shorts shared across BTC/ETH/SOL/XRP) - informational only.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 40.99631890905468,
+  "sma_crossover_4h": "fast_below_slow, no crossover",
+  "volume_ratio": 0.2013098256650848,
+  "order_book_imbalance": -0.019567705022250585,
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": 0.4532720576662752,
+  "pct_change_4h_48h": 0.5964107407907059,
+  "coinversa_smart_money_net_bias": 0.366127468490075,
+  "news_context": "no reliably-dated current headlines found"
+}
+```
+
+---
+### 2026-10-11T14:13:45.029Z — SOL/EUR — NO TRADE
+
+**Reasoning:** No qualifying setup. RSI(14,4h) 36.2 (weak, not oversold-extreme), SMA(4h) fast below slow with no crossover, volume ratio 0.31x (well below 2x bar), order book skewed ask-heavy (-0.133). No momentum trigger (1h/4h 48h change -0.61%/-0.19%, both under 6%, and negative). News search returned no reliably-dated current Solana headlines this cycle - nothing notable confirmed. Coinversa Hyperliquid positioning: smart-money net bias +0.39 (long-leaning); same hedging-wallet caveat applies - informational only.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 36.232048250487125,
+  "sma_crossover_4h": "fast_below_slow, no crossover",
+  "volume_ratio": 0.3120369400452516,
+  "order_book_imbalance": -0.13274634772910346,
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": -0.610252237591532,
+  "pct_change_4h_48h": -0.193837992246478,
+  "coinversa_smart_money_net_bias": 0.3892190152801358,
+  "news_context": "no reliably-dated current headlines found"
+}
+```
+
+---
+### 2026-10-11T14:13:45.044Z — XRP/EUR — NO TRADE
+
+**Reasoning:** No qualifying setup. RSI(14,4h) 41.2, SMA(4h) fast below slow with no crossover, volume ratio 0.18x (far below 2x bar), order book notably ask-heavy (-0.309) despite positive recent price action. No momentum trigger (1h/4h 48h change +0.87%/+0.77%, under 6%). News search returned no reliably-dated current XRP/Ripple headlines this cycle (only general SEC-case background, nothing new confirmed) - nothing notable confirmed. Coinversa Hyperliquid positioning: smart-money net bias +0.20 (mildly long-leaning, weakest of the four tracked pairs); same hedging-wallet caveat applies - informational only.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 41.163831395024395,
+  "sma_crossover_4h": "fast_below_slow, no crossover",
+  "volume_ratio": 0.17903413387968223,
+  "order_book_imbalance": -0.3091687662010879,
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": 0.8740197625579581,
+  "pct_change_4h_48h": 0.7733670213627413,
+  "coinversa_smart_money_net_bias": 0.19834710743801653,
+  "news_context": "no reliably-dated current headlines found"
+}
+```
+
+---
+### 2026-10-11T14:13:45.059Z — ADA/EUR — NO TRADE
+
+**Reasoning:** No qualifying setup despite the strongest price action of the cycle (+4.2%/+3.8% over 1h/4h-48h windows). Volume ratio 1.60x is elevated but still under the 2x confirmation bar this system requires. No momentum trigger (needs 6%, actual 4.2%/3.8%). RSI(14,4h) 47.7 is neutral, SMA(4h) still fast below slow with no crossover, order book roughly balanced (+0.043). News search returned no reliably-dated current Cardano headlines this cycle - nothing notable confirmed. ADA is excluded from Coinversa positioning context per instructions (Hyperliquid market too thin for this pair).
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 47.746149668392796,
+  "sma_crossover_4h": "fast_below_slow, no crossover",
+  "volume_ratio": 1.6014395676804056,
+  "order_book_imbalance": 0.042543085278549296,
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": 4.193791511611472,
+  "pct_change_4h_48h": 3.83781644078339,
+  "news_context": "no reliably-dated current headlines found"
+}
+```
+
+---
+### 2026-10-11T14:13:45.074Z — LINK/EUR — NO TRADE
+
+**Reasoning:** No qualifying setup. RSI(14,4h) 42.5, SMA(4h) fast below slow with no crossover, volume ratio 0.31x (well below 2x bar), order book roughly balanced (+0.053). No momentum trigger (1h/4h 48h change +1.10%/+0.56%, under 6%). News search returned no reliably-dated current Chainlink headlines this cycle - nothing notable confirmed. LINK is excluded from Coinversa positioning context per instructions (Hyperliquid market too thin for this pair).
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 42.505500939516615,
+  "sma_crossover_4h": "fast_below_slow, no crossover",
+  "volume_ratio": 0.30889347296919517,
+  "order_book_imbalance": 0.05258579080408844,
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": 1.0991217852783224,
+  "pct_change_4h_48h": 0.5600950824543176,
+  "news_context": "no reliably-dated current headlines found"
+}
+```
+
+---
+### 2026-10-11T14:13:45.086Z — SUI/EUR — NO TRADE
+
+**Reasoning:** No qualifying setup. Price action is positive (+3.95%/+3.67% 1h/4h-48h) with a notably bid-heavy order book (+0.294), but volume ratio is only 0.57x (below even a 1x baseline, let alone 2x), RSI(14,4h) 46.9 is neutral, SMA(4h) still fast below slow with no crossover, and no momentum trigger (under the 6% threshold). Volume unconfirmed despite the price move is the same pattern that preceded past SUI entries requiring an actual catalyst - none found here. News search returned no reliably-dated current Sui headlines this cycle (only stale/conflicting older items on ETF launches and price unlocks) - nothing notable confirmed. SUI is excluded from Coinversa positioning context per instructions (Hyperliquid market too thin for this pair).
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 46.88694741411504,
+  "sma_crossover_4h": "fast_below_slow, no crossover",
+  "volume_ratio": 0.5684372286698882,
+  "order_book_imbalance": 0.29416063755686445,
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": 3.9470899470899474,
+  "pct_change_4h_48h": 3.6739015352038065,
+  "news_context": "no reliably-dated current headlines found"
+}
+```
+
+---
+### 2026-10-11T14:13:45.097Z — LTC/EUR — NO TRADE
+
+**Reasoning:** No qualifying setup. RSI(14,4h) 39.3, SMA(4h) fast below slow with no crossover, volume ratio 0.42x (well below 2x bar), order book notably ask-heavy (-0.341). No momentum trigger (1h/4h 48h change +0.48%/-0.26%, flat/negative, under 6%). News search returned no reliably-dated current Litecoin headlines this cycle - nothing notable confirmed. LTC is excluded from Coinversa positioning context per instructions (Hyperliquid market too thin for this pair).
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 39.32851796791211,
+  "sma_crossover_4h": "fast_below_slow, no crossover",
+  "volume_ratio": 0.4233127925025498,
+  "order_book_imbalance": -0.3413229853517358,
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": 0.47753802617616403,
+  "pct_change_4h_48h": -0.26399155227032484,
+  "news_context": "no reliably-dated current headlines found"
+}
+```
+
+---
