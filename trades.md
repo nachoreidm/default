@@ -71469,3 +71469,127 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-10-11T09:02:23.676Z — BTC/EUR — NO TRADE
+
+**Reasoning:** momentum_trigger false this cycle (1h +0.62%/4h -0.21%, flat/negative). Coinversa smart-money (Sharps) cohort net Long (+0.19 by notional), consistent with prior cycles - informational only. No dated-to-today news catalyst found.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": 0.62,
+  "pct_change_4h_48h": -0.21,
+  "coinversa_smart_money_bias": "net_long_0.19",
+  "news": "no new dated catalyst"
+}
+```
+
+---
+### 2026-10-11T09:02:23.696Z — ETH/EUR — NO TRADE
+
+**Reasoning:** momentum_trigger false this cycle (1h +0.09%/4h -0.13%, flat). Coinversa smart-money (Sharps) cohort net Long (+0.19 by notional), consistent with prior cycles - informational only. No dated-to-today news catalyst found.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": 0.09,
+  "pct_change_4h_48h": -0.13,
+  "coinversa_smart_money_bias": "net_long_0.19",
+  "news": "no new dated catalyst"
+}
+```
+
+---
+### 2026-10-11T09:02:23.718Z — SOL/EUR — NO TRADE
+
+**Reasoning:** momentum_trigger false this cycle (1h -0.64%/4h -1.63%, negative). Coinversa smart-money (Sharps) cohort Strong Long (+0.67 by notional), consistent with prior cycles - informational only. No dated-to-today news catalyst found.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -0.64,
+  "pct_change_4h_48h": -1.63,
+  "coinversa_smart_money_bias": "strong_net_long_0.67",
+  "news": "no new dated catalyst"
+}
+```
+
+---
+### 2026-10-11T09:02:23.732Z — XRP/EUR — NO TRADE
+
+**Reasoning:** momentum_trigger false this cycle (1h -0.23%/4h -0.48%, negative). Coinversa smart-money (Sharps) cohort net Long (+0.38 by notional), consistent with prior cycles - informational only. No dated-to-today news catalyst found.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -0.23,
+  "pct_change_4h_48h": -0.48,
+  "coinversa_smart_money_bias": "net_long_0.38",
+  "news": "no new dated catalyst"
+}
+```
+
+---
+### 2026-10-11T09:02:23.748Z — ADA/EUR — NO TRADE
+
+**Reasoning:** No open position. momentum_trigger false this cycle (1h +3.97%/4h +3.43%, under threshold). No dated-to-today news catalyst found.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": 3.97,
+  "pct_change_4h_48h": 3.43,
+  "news": "no new dated catalyst"
+}
+```
+
+---
+### 2026-10-11T09:02:23.764Z — LINK/EUR — NO TRADE
+
+**Reasoning:** momentum_trigger false this cycle (1h +0.01%/4h -0.42%, flat). No dated-to-today news catalyst found.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": 0.01,
+  "pct_change_4h_48h": -0.42,
+  "news": "no new dated catalyst"
+}
+```
+
+---
+### 2026-10-11T09:02:23.780Z — SUI/EUR — NO TRADE
+
+**Reasoning:** No open position. momentum_trigger false this cycle (1h +2.61%/4h +2.47%, under threshold). No dated-to-today news catalyst found.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": 2.61,
+  "pct_change_4h_48h": 2.47,
+  "news": "no new dated catalyst"
+}
+```
+
+---
+### 2026-10-11T09:02:23.796Z — LTC/EUR — NO TRADE
+
+**Reasoning:** momentum_trigger false this cycle (1h -0.85%/4h -0.66%, negative). No dated-to-today news catalyst found.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -0.85,
+  "pct_change_4h_48h": -0.66,
+  "news": "no new dated catalyst"
+}
+```
+
+---
