@@ -70319,3 +70319,130 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-10-11T00:02:29.707Z — BTC/EUR — NO TRADE
+
+**Reasoning:** momentum_trigger false this cycle (1h +1.61%/4h +0.91%, under threshold). Coinversa smart-money (Sharps) cohort net Long (+0.20 by notional), consistent with prior cycles - informational only. No dated-to-today news catalyst found.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": 1.61,
+  "pct_change_4h_48h": 0.91,
+  "coinversa_smart_money_bias": "net_long_0.20",
+  "news": "no new dated catalyst"
+}
+```
+
+---
+### 2026-10-11T00:02:29.725Z — ETH/EUR — NO TRADE
+
+**Reasoning:** momentum_trigger false this cycle (1h +1.17%/4h +0.74%, under threshold). Coinversa smart-money (Sharps) cohort net Long (+0.17 by notional), consistent with prior cycles - informational only. No dated-to-today news catalyst found.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": 1.17,
+  "pct_change_4h_48h": 0.74,
+  "coinversa_smart_money_bias": "net_long_0.17",
+  "news": "no new dated catalyst"
+}
+```
+
+---
+### 2026-10-11T00:02:29.748Z — SOL/EUR — NO TRADE
+
+**Reasoning:** momentum_trigger false this cycle (1h +0.82%/4h -0.10%, well under threshold). Coinversa smart-money (Sharps) cohort Strong Long (+0.67 by notional), consistent with prior cycles - informational only. No dated-to-today news catalyst found.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": 0.82,
+  "pct_change_4h_48h": -0.1,
+  "coinversa_smart_money_bias": "strong_net_long_0.67",
+  "news": "no new dated catalyst"
+}
+```
+
+---
+### 2026-10-11T00:02:29.763Z — XRP/EUR — NO TRADE
+
+**Reasoning:** momentum_trigger false this cycle (1h +1.10%/4h +0.80%, under threshold). Coinversa smart-money (Sharps) cohort net Long (+0.35 by notional), consistent with prior cycles - informational only. No dated-to-today news catalyst found.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": 1.1,
+  "pct_change_4h_48h": 0.8,
+  "coinversa_smart_money_bias": "net_long_0.35",
+  "news": "no new dated catalyst"
+}
+```
+
+---
+### 2026-10-11T00:02:29.777Z — ADA/EUR — NO TRADE
+
+**Reasoning:** Existing open position (opened 15:04 UTC this session) - one-per-pair rule, no new entry considered. Price 0.222221, still momentum-flagged (1h +7.20%/4h +5.81%) but irrelevant while position is open. RSI 49.55, still below +1R, stop resting cleanly per check_stops. Volume ratio ticked above 1x (1.60) for the first time this session but doesn't change the no-trade outcome given the existing position. No dated-to-today news catalyst found.
+
+**Signals considered:**
+```json
+{
+  "existing_position": true,
+  "momentum_trigger": true,
+  "price": 0.222221,
+  "rsi_4h": 49.55,
+  "volume_ratio": 1.6,
+  "news": "no new dated catalyst"
+}
+```
+
+---
+### 2026-10-11T00:02:29.794Z — LINK/EUR — NO TRADE
+
+**Reasoning:** momentum_trigger false this cycle (1h +2.69%/4h +1.58%, under threshold). No dated-to-today news catalyst found.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": 2.69,
+  "pct_change_4h_48h": 1.58,
+  "news": "no new dated catalyst"
+}
+```
+
+---
+### 2026-10-11T00:02:29.811Z — SUI/EUR — NO TRADE
+
+**Reasoning:** Existing open position (opened 17:02 UTC this session) - one-per-pair rule, no new entry considered. Price 0.9929, still momentum-flagged (1h +6.50%/4h +5.53%) but irrelevant while position is open. RSI 50.76, still below +1R, stop resting cleanly per check_stops. No dated-to-today news catalyst found.
+
+**Signals considered:**
+```json
+{
+  "existing_position": true,
+  "momentum_trigger": true,
+  "price": 0.9929,
+  "rsi_4h": 50.76,
+  "news": "no new dated catalyst"
+}
+```
+
+---
+### 2026-10-11T00:02:29.825Z — LTC/EUR — NO TRADE
+
+**Reasoning:** momentum_trigger false this cycle (1h +1.31%/4h +0.63%, well under threshold). No dated-to-today news catalyst found.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": 1.31,
+  "pct_change_4h_48h": 0.63,
+  "news": "no new dated catalyst"
+}
+```
+
+---
