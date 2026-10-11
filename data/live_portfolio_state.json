@@ -1,7 +1,47 @@
 {
   "starting_balance": 5000,
   "cash": 5000,
-  "open_positions": [],
+  "open_positions": [
+    {
+      "id": "aeb48d3d-be9f-46ad-b3f9-50e9c4872625",
+      "pair": "ADA/EUR",
+      "direction": "long",
+      "entry_price": 0.22608,
+      "stop_loss": 0.219,
+      "initial_stop_loss": 0.219,
+      "take_profit": 0.24024,
+      "trailing_active": false,
+      "peak_price": 0.22608,
+      "size_pct": 3.99207162028535,
+      "size_eur": 196.6055352274332,
+      "quantity": 869.63201017,
+      "entry_fee": 1.179642,
+      "opened_at": "2026-10-11T20:04:25.533Z",
+      "signals_at_entry": {
+        "price_eur": 0.226097,
+        "pct_change_1h_48h": 6.56,
+        "pct_change_4h_48h": 4.25,
+        "rsi_14_4h": 54.59,
+        "sma_state": "fast_below_slow",
+        "sma_fast_20": 0.2182632,
+        "sma_slow_50": 0.2255962,
+        "order_book_imbalance": -0.038,
+        "volume_ratio": 1.6014,
+        "flag_above_2x": false,
+        "momentum_trigger": true,
+        "breakout_confirmation_status": "confirmed",
+        "confirmed_count": 3,
+        "news_context": "No fresh dated catalyst today specifically; ongoing background developments (RealFi mainnet Oct 1, USDr stablecoin integration into Lace/Liqwid/SundaeSwap, CIP-0113 token standard live) and a documented short-squeeze dynamic (open interest +25% to $304M per prior-cycle search) remain the backdrop. No new negative signal found."
+      },
+      "invalidation": "Breakout fails if price closes back below the 4h 20-period SMA (~0.2183), the technical floor this breakout should hold above.",
+      "confidence": "medium",
+      "confidence_reason": "Momentum_only entry, capped at medium per rule. Breakout confirmed via K=3 pullback filter - tracked consistently over 4+ hours (started 16:03 UTC, advanced through pending, confirmed by 19:05 UTC, still confirmed now) rather than a single-candle spike, the exact pattern this filter was built to separate from fakeouts. Order book has normalized to near-neutral (-0.038, materially improved from -0.07 to -0.39 seen on this breakout's earlier legs). RSI 54.6 is moderate, well below the 65-67 extended profile of the account's known momentum_only losers (ADA#1, LTC). Volume ratio 1.60x is elevated but below the 2x confirmation bar - same caveat the prior ADA entry (opened yesterday, since stopped out) also carried. News: no fresh dated catalyst today specifically, but the same ongoing, genuine network developments persist (RealFi mainnet Oct 1, USDr stablecoin integration, CIP-0113 token standard live) alongside a documented short-squeeze dynamic (open interest +25%); no new negative signal found. Aware this exact pair's nearly identical K=3-confirmed entry from yesterday was stopped out this morning (-€7.13) - weighed that against the now-longer, more mature confirmation history and the normalized order book, and judged the setup supportable at medium confidence with tight, mechanically-sized risk.",
+      "momentum_only": true,
+      "status": "open",
+      "entry_order_txid": "OQROFY-ZOZ2D-V3LCNP",
+      "stop_order_txid": "O263NG-LZWIF-OOMH4C"
+    }
+  ],
   "closed_positions": [
     {
       "id": "836cb669-d4dd-403d-a562-c69ed336e2bf",
@@ -702,7 +742,7 @@
     }
   ],
   "created_at": "2026-09-22T14:26:40.467Z",
-  "updated_at": "2026-10-11T19:03:18.649Z",
+  "updated_at": "2026-10-11T20:04:25.533Z",
   "pending_breakouts": {
     "LINK/EUR": {
       "breakout_time": 1791640800,
@@ -715,12 +755,6 @@
       "breakout_level": 1.25331,
       "confirmed_count": 0,
       "last_checked_time": 1791648000
-    },
-    "ADA/EUR": {
-      "breakout_time": 1791730800,
-      "breakout_level": 0.22187,
-      "confirmed_count": 3,
-      "last_checked_time": 1791741600
     },
     "SUI/EUR": {
       "breakout_time": 1791730800,
