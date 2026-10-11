@@ -1701,3 +1701,68 @@ a `portfolio_check_breakout_confirmation` call and verify its
 action, the same discipline applied to every other new check on this
 branch (4h/fast invalidation, tiered lock fractions) before trusting it
 blind.
+
+**First real confirmation closed at a loss, same day.** Both ADA/EUR
+(opened 2026-10-10 15:04, confirmed via K=3) and SUI/EUR (opened
+2026-10-10 17:02, confirmed via K=3 after one rejected attempt) hit their
+hard stops overnight 2026-10-11: ADA -€7.13 (04:01 UTC), -SUI -€7.62
+(05:02 UTC). Checked the real numbers before drawing any conclusion:
+entry-to-confirmation price drift was trivial (ADA +0.3%, SUI +0.4%, both
+within typical noise and nowhere near the stop distance), and SUI's
+first breakout attempt was correctly rejected right before a real dip -
+the filter did exactly what the backtest predicted. Two trades is not
+enough to say anything about the filter's real hit rate either way; not
+a cause for alarm on n=2, and not evidence the filter is working either
+- just the first live data point under real conditions. Revisit once a
+handful more confirmed entries have closed.
+
+## Weekly cutover hit a new, unexplained Notion-prompt pattern - 2 of 3 verification sessions prompted despite confirmed-correct settings (2026-10-11)
+
+The scheduled weekly cutover ran as usual (see the cutover playbook
+above), but the Notion-prompt check - the standard "did a prompt appear"
+question asked of every verification session before trusting it - failed
+twice in a row before succeeding on the third attempt, in a way that
+doesn't fit any previously-established theory:
+
+1. First verification session (`session_0142v2FsXtBi1UdSPER3FQbC`)
+   prompted. Archived without binding, per the standing rule.
+2. User confirmed Notion's own connector settings (the actual Notion
+   integration page, not the routines UI) still showed every tool set to
+   "always allow" - ruling out the 2026-09-30 root cause (some tools
+   missed when the setting was applied).
+3. Second verification session (`session_01Behj8HQiBgeYa9KqD6TZ6w`) ALSO
+   prompted, despite the confirmed-correct settings. Archived without
+   binding.
+4. Third verification session (`session_01QZWaKp2XxvCY1LuJwzNwT7`) did
+   NOT prompt. Bound to the trigger, cutover completed normally.
+
+**Why this breaks every prior theory, not just adds a data point**: the
+2026-09-11/09-25/09-30 "session created before vs. after a fix" theory
+doesn't apply (no fix happened between attempts 1, 2, and 3 - the
+Notion-side settings were already confirmed correct before attempt 2,
+which still prompted). The 2026-10-03/10-04 "trigger-level connector
+attachment timing" theory doesn't apply either - none of these three
+verification sessions were ever bound to any trigger; they're bare
+sessions created directly via `create_session`, so there's no
+`mcp_connections` field in play at all for any of them. Two bare,
+freshly-created, settings-confirmed-correct sessions prompted while a
+third (created the same way, minutes apart) didn't - the only honest
+conclusion is that **something about Notion approval is intermittent
+per-session for reasons not yet identified**, not a fixable
+setting or timing issue known so far. Retrying with a fresh session
+remains the practical workaround (it worked after 2 attempts this time),
+but don't expect this to be the last time it costs 1-2 extra retries on
+a cutover day.
+
+**Deployed**: live trigger is `trig_01T9NxC9X2setxuv7Hr8KXot` ("Kraken
+live-trading hourly monitoring"), bound to `session_01QZWaKp2XxvCY1LuJwzNwT7`
+(verified clean via commit `aa7ea77`, no Notion prompt confirmed), both
+connectors attached and confirmed via `list_triggers`. Old trigger
+`trig_01LzLfsXdfBp8m32zunsXVke` disabled (not deleted). Old session
+`session_01QDsxt5L6k5FMnqtT1PaMbm` archived - **$147.42 over its ~4.4-day,
+126-turn life**, its highest lifetime cost yet among live-trading
+sessions (absorbed the pullback-confirmation deploy plus 4 days of normal
+cycles with no intermediate cutover) - the retries today added real but
+modest extra cost (2 archived verification sessions, each a single
+cycle) against avoiding a worse outcome (binding to a session that might
+degrade Notion sync indefinitely).
