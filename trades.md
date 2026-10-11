@@ -73097,3 +73097,163 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-10-11T17:03:06.584Z — BTC/EUR — NO TRADE
+
+**Reasoning:** No qualifying setup. SMA 4h still fast_below_slow, RSI 58.6 (neutral-strong), volume ratio 0.17x, momentum_trigger not flagged (1h/48h +1.38%, 4h/48h +1.91%, both under 6%). Order book ask-skewed (-0.26). News: BTC ~€74.8k/$83-84k, crash-anniversary retrospectives ($19B liquidated a year ago), miners halting sales with ETF inflows returning, sell walls flagged at $85-89k, Ledger wallet-tampering probe ongoing. Nothing dated-today actionable. Coinversa Pulse (informational only): Sharps net bias +0.210 (Long), Apex net Short - mixed, not used as a trigger.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 58.59,
+  "sma_crossover_4h": "fast_below_slow",
+  "volume_ratio": 0.173,
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": 1.38,
+  "pct_change_4h_48h": 1.91,
+  "order_book_imbalance": -0.261,
+  "news_context": "crash anniversary, miners halting sales/ETF inflows returning, sell walls $85-89k - no dated catalyst",
+  "coinversa_sharps_net_bias": 0.21
+}
+```
+
+---
+### 2026-10-11T17:03:06.609Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No qualifying setup. SMA 4h fast_below_slow, RSI 50.9 (neutral), volume ratio 0.20x, momentum_trigger not flagged (1h/48h +2.52%, 4h/48h +2.36%, both under 6%). Order book ask-skewed (-0.33). News: ETH ~€2,268/$2,500-2,507, 9-day ETF outflow streak continues, BitMine treasury >6M ETH, record 43.7M ETH staked, pending Glamsterdam upgrade cited as bullish. Nothing dated-today actionable. Coinversa Pulse (informational only): Sharps net bias +0.187 (Long), Apex net Short - mixed, not used as a trigger.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 50.93,
+  "sma_crossover_4h": "fast_below_slow",
+  "volume_ratio": 0.201,
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": 2.52,
+  "pct_change_4h_48h": 2.36,
+  "order_book_imbalance": -0.327,
+  "news_context": "9-day ETF outflow streak continues, BitMine treasury growth, record staking, Glamsterdam upgrade pending - no dated actionable catalyst",
+  "coinversa_sharps_net_bias": 0.187
+}
+```
+
+---
+### 2026-10-11T17:03:06.651Z — SOL/EUR — NO TRADE
+
+**Reasoning:** No qualifying setup. SMA 4h fast_below_slow, RSI 49.9 (neutral), volume ratio 0.31x, momentum_trigger not flagged (1h/48h +2.15%, 4h/48h +3.14%, both under 6%). Order book roughly flat (+0.01). News: SOL ~€99.8/$109-110, Solana ETFs broke a record 14-week inflow run even as ETH/other ETFs saw outflows; a ~$51M SOL transfer to Coinbase flagged as possible sell pressure; Apple/Nvidia/Tesla tokenized shares live on SOL. No dated actionable catalyst today. Coinversa Pulse (informational only): Sharps net bias +0.679 (Strong Long), strongest of the four - not used as a trigger.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 49.9,
+  "sma_crossover_4h": "fast_below_slow",
+  "volume_ratio": 0.312,
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": 2.15,
+  "pct_change_4h_48h": 3.14,
+  "order_book_imbalance": 0.014,
+  "news_context": "record 14-week ETF inflow run, one large whale transfer to Coinbase, tokenized stocks live - no dated actionable catalyst",
+  "coinversa_sharps_net_bias": 0.679
+}
+```
+
+---
+### 2026-10-11T17:03:06.669Z — XRP/EUR — NO TRADE
+
+**Reasoning:** No qualifying setup. SMA 4h fast_below_slow, RSI 54.0 (neutral), volume ratio 0.18x, momentum_trigger not flagged (1h/48h +2.27%, 4h/48h +2.93%, both under 6%). Order book roughly flat (+0.02). News: XRPL mint-bug already patched, market absorbed it without significant losses; SBI Ripple Asia launching prepaid tokens on XRPL targeting Japan; Evernorth Nasdaq-listing progress. One unreliable Forbes snippet claiming XRP fell below $1 conflicts with other sources showing ~$1.39 - disregarded as unreconcilable. Nothing dated-today actionable. Coinversa Pulse (informational only): Sharps net bias +0.359 (Strong Long) but Apex/full_rekt/giga_rekt tiers net Strong Short - mixed, not used as a trigger.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 54.05,
+  "sma_crossover_4h": "fast_below_slow",
+  "volume_ratio": 0.179,
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": 2.27,
+  "pct_change_4h_48h": 2.93,
+  "order_book_imbalance": 0.018,
+  "news_context": "XRPL bug patched and absorbed, SBI Ripple Asia Japan launch, Evernorth Nasdaq progress - no dated actionable catalyst",
+  "coinversa_sharps_net_bias": 0.359
+}
+```
+
+---
+### 2026-10-11T17:03:06.687Z — ADA/EUR — NO TRADE
+
+**Reasoning:** momentum_trigger still flagged (1h/48h +7.31%, 4h/48h +7.78%, both ≥6%). Called portfolio_check_breakout_confirmation(pair: ADA/EUR, momentum_flagged: true) - status advanced from "started" to "pending" with 2 candles remaining, still NOT "confirmed", so no momentum_only entry is possible this cycle. SMA 4h still fast_below_slow, RSI 55.3 (neutral), volume ratio 1.60x (above baseline but under the 2x bar), order book roughly flat (+0.08). News: a real squeeze-driven breakout is underway - one report has ADA +11% to ~$0.27 on a short squeeze after clearing $0.26 resistance, up ~42% since Sept 16; a TradingView analyst flags $0.3875/$0.5627 as bullish targets if the pattern holds, but another piece notes a breakout above $0.28 could also trap leveraged longs if it fails. Genuinely live breakout, consistent with the pullback-confirmation tracking already in progress - holding for the next confirmation check rather than forcing an entry now.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 55.31,
+  "sma_crossover_4h": "fast_below_slow",
+  "volume_ratio": 1.601,
+  "momentum_trigger_flagged": true,
+  "pct_change_1h_48h": 7.31,
+  "pct_change_4h_48h": 7.78,
+  "order_book_imbalance": 0.075,
+  "breakout_confirmation_status": "pending",
+  "breakout_candles_remaining": 2,
+  "news_context": "short-squeeze breakout above $0.26, up ~42% since Sept 16, bullish TA targets but squeeze-trap risk flagged too"
+}
+```
+
+---
+### 2026-10-11T17:03:06.705Z — LINK/EUR — NO TRADE
+
+**Reasoning:** No qualifying setup. SMA 4h fast_below_slow, RSI 57.9 (neutral-strong), volume ratio 0.31x, momentum_trigger not flagged (1h/48h +4.15%, 4h/48h +4.78%, both under 6%). Order book roughly flat (-0.06). News: still below the $13.56 H&S neckline despite CCIP 2.0/Vault Adapters rollout (Aave, Lombard, Maple, Venus named adopters), one Infosys/Schwab partnership backdrop already priced in. Net mixed technical picture, nothing dated-today to act on.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 57.86,
+  "sma_crossover_4h": "fast_below_slow",
+  "volume_ratio": 0.309,
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": 4.15,
+  "pct_change_4h_48h": 4.78,
+  "order_book_imbalance": -0.058,
+  "news_context": "still below H&S neckline despite CCIP 2.0/Vault Adapters rollout - no actionable dated catalyst"
+}
+```
+
+---
+### 2026-10-11T17:03:06.722Z — SUI/EUR — NO TRADE
+
+**Reasoning:** momentum_trigger still flagged (1h/48h +6.23%, 4h/48h +7.41%, both ≥6%). Called portfolio_check_breakout_confirmation(pair: SUI/EUR, momentum_flagged: true) - status advanced from "started" to "pending" with 2 candles remaining, still NOT "confirmed", so no momentum_only entry is possible this cycle. SMA 4h still fast_below_slow, RSI 56.8 (neutral), volume ratio 0.57x (below baseline, no confirmation), order book ask-skewed (-0.33). News: older coverage of SUI 200-day-EMA breakouts and prior +20-26% surges in Sept found, but nothing confirmed dated to today specifically continuing the move; the earlier Hashi/CME/Samsung catalysts remain the operative backdrop. Holding for the next confirmation check rather than forcing an entry now.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 56.75,
+  "sma_crossover_4h": "fast_below_slow",
+  "volume_ratio": 0.568,
+  "momentum_trigger_flagged": true,
+  "pct_change_1h_48h": 6.23,
+  "pct_change_4h_48h": 7.41,
+  "order_book_imbalance": -0.328,
+  "breakout_confirmation_status": "pending",
+  "breakout_candles_remaining": 2,
+  "news_context": "continuation of ongoing institutional-flow rally, no fresh dated catalyst today specifically"
+}
+```
+
+---
+### 2026-10-11T17:03:06.739Z — LTC/EUR — NO TRADE
+
+**Reasoning:** No qualifying setup. SMA 4h fast_below_slow, RSI 49.1 (neutral), volume ratio 0.42x, momentum_trigger not flagged (1h/48h +1.67%, 4h/48h +2.22%, both under 6%). Order book strongly bid-skewed (+0.59). News: a press release claims Grayscale moved its Litecoin Trust closer to ETF status (NYSE Arca listing proposed) - genuine but unconfirmed against a primary SEC/Grayscale source, so treated cautiously; Ledger wallet-exploit reports continuing; one Spanish-language analysis for today explicitly notes volume 59% below its 30-day average and "no verifiable fundamental or news catalyst." Nothing confirmed dated-today warranting action.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 49.11,
+  "sma_crossover_4h": "fast_below_slow",
+  "volume_ratio": 0.423,
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": 1.67,
+  "pct_change_4h_48h": 2.22,
+  "order_book_imbalance": 0.592,
+  "news_context": "unconfirmed Grayscale ETF-status press release, Ledger wallet-exploit reports continuing, weak volume with no confirmed catalyst today"
+}
+```
+
+---
