@@ -72325,3 +72325,159 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-10-11T14:03:05.894Z — BTC/EUR — NO TRADE
+
+**Reasoning:** No qualifying setup. SMA 4h fast_below_slow, RSI 50.1 (neutral), volume ratio 0.17x, momentum_trigger not flagged (1h/48h +0.02%, 4h/48h +0.22%). Order book roughly flat (-0.08). News: BTC ~€74.1k/$83k, crash-anniversary coverage, miners easing selling vs. whale/MARA mixed flows, hardware-wallet breach (~$86-91M) ongoing, Thailand moving toward local BTC/ETH ETFs. Nothing dated-today actionable. Coinversa Pulse (informational only): Sharps net bias +0.194 (Long), Apex net Short - mixed, not used as a trigger.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 50.12,
+  "sma_crossover_4h": "fast_below_slow",
+  "volume_ratio": 0.173,
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": 0.02,
+  "pct_change_4h_48h": 0.22,
+  "order_book_imbalance": -0.075,
+  "news_context": "crash anniversary, mixed miner/whale flows, Ledger-style breach ongoing - no dated catalyst",
+  "coinversa_sharps_net_bias": 0.194
+}
+```
+
+---
+### 2026-10-11T14:03:05.912Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No qualifying setup. SMA 4h fast_below_slow, RSI 41.0 (neutral-weak), volume ratio 0.20x, momentum_trigger not flagged (1h/48h +0.45%, 4h/48h +0.60%). Order book bid-skewed (+0.27). News: ETH ~€2,233/$2,500-2,510, no ETF inflow day in October yet (~$56M outflow Oct 9), market-wide liquidations hit ETH hardest (~6x BTC's rate), BitMine nearing its self-imposed buy cap, Thailand ETH ETF approval effective Oct 16. Nothing dated-today actionable. Coinversa Pulse (informational only): Sharps net bias +0.189 (Long), Apex net Short - mixed, not used as a trigger.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 40.996,
+  "sma_crossover_4h": "fast_below_slow",
+  "volume_ratio": 0.201,
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": 0.45,
+  "pct_change_4h_48h": 0.6,
+  "order_book_imbalance": 0.268,
+  "news_context": "no Oct ETF inflows, elevated liquidations, BitMine nearing buy cap - no dated actionable catalyst",
+  "coinversa_sharps_net_bias": 0.189
+}
+```
+
+---
+### 2026-10-11T14:03:05.941Z — SOL/EUR — NO TRADE
+
+**Reasoning:** No qualifying setup. SMA 4h fast_below_slow, RSI 36.2 (weak), volume ratio 0.31x, momentum_trigger not flagged (1h/48h -0.61%, 4h/48h -0.19%). Order book mildly bid-skewed (+0.08). News: SOL ~€97.6/$109-110, Solana funds snapped a 14-week ETF inflow streak even as ETH ETFs saw 9 straight outflow days, new addresses surged 124% despite price drop, token holder net income positive for 2 weeks running, Securitize tokenizing Apple/Nvidia/Tesla on SOL. Broadly constructive but no dated actionable catalyst today. Coinversa Pulse (informational only): Sharps net bias +0.677 (Strong Long), strongest of the four - not used as a trigger.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 36.23,
+  "sma_crossover_4h": "fast_below_slow",
+  "volume_ratio": 0.312,
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": -0.61,
+  "pct_change_4h_48h": -0.19,
+  "order_book_imbalance": 0.081,
+  "news_context": "14-week ETF inflow streak, address growth, constructive infra news - no dated actionable catalyst",
+  "coinversa_sharps_net_bias": 0.677
+}
+```
+
+---
+### 2026-10-11T14:03:05.957Z — XRP/EUR — NO TRADE
+
+**Reasoning:** No qualifying setup. SMA 4h fast_below_slow, RSI 41.2 (neutral-weak), volume ratio 0.18x, momentum_trigger not flagged (1h/48h +0.87%, 4h/48h +0.77%). Order book ask-skewed (-0.47). News: XRPL mint-bug already patched and absorbed by the market without significant losses; Evernorth Nasdaq-listing SPAC merger complete; XRP down ~8% on the week despite continued ETF inflows (buyers reportedly underwater). Nothing dated-today actionable. Coinversa Pulse (informational only): Sharps net bias +0.369 (Strong Long) but Apex/full_rekt/giga_rekt tiers net Strong Short - mixed, not used as a trigger.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 41.16,
+  "sma_crossover_4h": "fast_below_slow",
+  "volume_ratio": 0.179,
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": 0.87,
+  "pct_change_4h_48h": 0.77,
+  "order_book_imbalance": -0.469,
+  "news_context": "XRPL bug patched and absorbed, Evernorth Nasdaq progress, ETF buyers underwater - no dated actionable catalyst",
+  "coinversa_sharps_net_bias": 0.369
+}
+```
+
+---
+### 2026-10-11T14:03:05.973Z — ADA/EUR — NO TRADE
+
+**Reasoning:** Closest to a setup but still doesn't qualify. SMA 4h still fast_below_slow (price up 4.19% 1h/48h and 3.84% 4h/48h, hasn't crossed yet), RSI 47.7 (neutral), volume ratio 1.60x - above baseline but under the 2x confirmation bar, momentum_trigger not flagged (both well under 6% threshold). Order book ask-skewed (-0.20). News: CIP-0113 programmable-token standard live, Veridian became first to use it for equity (not offered to public), Midnight Japan listing, one bullish TA piece targets $0.88 but another notes an earlier 11% jump fully reversed within days. Nothing dated specifically today, and the "gains vanished within days" precedent argues against chasing. Logged as no-trade, not forced.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 47.75,
+  "sma_crossover_4h": "fast_below_slow",
+  "volume_ratio": 1.601,
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": 4.19,
+  "pct_change_4h_48h": 3.84,
+  "order_book_imbalance": -0.204,
+  "news_context": "CIP-0113 live, Veridian equity pilot, Midnight Japan listing, prior rally reversed within days - no actionable dated catalyst"
+}
+```
+
+---
+### 2026-10-11T14:03:05.989Z — LINK/EUR — NO TRADE
+
+**Reasoning:** No qualifying setup. SMA 4h fast_below_slow, RSI 42.5 (neutral-weak), volume ratio 0.31x, momentum_trigger not flagged (1h/48h +1.10%, 4h/48h +0.56%). Order book strongly bid-skewed (+0.47). News: LINK slid despite CCIP 2.0/Vault Adapters rollout (Aave, Lombard, Maple named as adopters), still below the $13.56 H&S neckline, one large whale deposit (~$150M) to Binance reported. Net bearish-leaning technical picture despite genuine product news; nothing dated-today to act on.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 42.51,
+  "sma_crossover_4h": "fast_below_slow",
+  "volume_ratio": 0.309,
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": 1.1,
+  "pct_change_4h_48h": 0.56,
+  "order_book_imbalance": 0.466,
+  "news_context": "slid despite CCIP 2.0 rollout, H&S breakdown persists, large whale deposit to Binance - bearish-leaning, no actionable dated catalyst"
+}
+```
+
+---
+### 2026-10-11T14:03:06.005Z — SUI/EUR — NO TRADE
+
+**Reasoning:** No qualifying setup. SMA 4h still fast_below_slow despite a positive 48h run (+3.95% 1h, +3.67% 4h), RSI 46.9 (neutral), volume ratio 0.57x (below baseline), momentum_trigger not flagged (well under 6% threshold). Order book strongly bid-skewed (+0.40). News: continued strong fundamental flow (Hashi $500M Bitcoin-backed lending protocol, Circle CCTP V2 native USDC, CME Emerging Crypto Index inclusion, Samsung Wallet integration) and SUI up 54% over 4 weeks outpacing BTC/ETH - genuinely strong but nothing dated specifically today, and no technical trigger (no momentum flag, no SMA cross) to act on regardless.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 46.89,
+  "sma_crossover_4h": "fast_below_slow",
+  "volume_ratio": 0.568,
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": 3.95,
+  "pct_change_4h_48h": 3.67,
+  "order_book_imbalance": 0.398,
+  "news_context": "strong multi-week fundamental flow (Hashi, CCTP V2, CME index, Samsung) but nothing dated today and no technical trigger"
+}
+```
+
+---
+### 2026-10-11T14:03:06.020Z — LTC/EUR — NO TRADE
+
+**Reasoning:** No qualifying setup. SMA 4h fast_below_slow, RSI 39.3 (neutral-weak), volume ratio 0.42x, momentum_trigger not flagged (1h/48h +0.48%, 4h/48h -0.26%). Order book essentially flat (+0.01). News: reports of Ledger wallet exploits affecting LTC users continuing to be cited as a price driver, Canton Network/cLTC tokenization plan targeted for late 2026 (already priced in, not imminent), altcoin ETF inflows under $10M (too small to move price). Nothing dated-today warranting action.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 39.33,
+  "sma_crossover_4h": "fast_below_slow",
+  "volume_ratio": 0.423,
+  "momentum_trigger_flagged": false,
+  "pct_change_1h_48h": 0.48,
+  "pct_change_4h_48h": -0.26,
+  "order_book_imbalance": 0.008,
+  "news_context": "Ledger wallet-exploit reports continuing, cLTC plan targeted late 2026 (not imminent) - no actionable dated catalyst"
+}
+```
+
+---
