@@ -75112,3 +75112,129 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-10-12T07:31:54.069Z — BTC/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/4h vs 48h pct_change both well under 6% threshold). RSI 4h neutral (~50). SMA 4h fast_below_slow, no crossover. No dated news catalyst for Oct 12 2026. Coinversa smart-money (Sharps) tier net Long (+0.23 by notional) on BTC - informational only, not a trade trigger.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_4h": "neutral_~50",
+  "sma_4h": "fast_below_slow_no_crossover",
+  "volume": "unconfirmed",
+  "coinversa_smart_money_bias": "Long(+0.23)"
+}
+```
+
+---
+### 2026-10-12T07:31:54.099Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger. RSI 4h neutral. SMA 4h fast_below_slow, no crossover. No dated news catalyst for Oct 12 2026. Coinversa smart-money (Sharps) tier net Long (+0.20 by notional) on ETH - informational only.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_4h": "neutral",
+  "sma_4h": "fast_below_slow_no_crossover",
+  "volume": "unconfirmed",
+  "coinversa_smart_money_bias": "Long(+0.20)"
+}
+```
+
+---
+### 2026-10-12T07:31:54.117Z — SOL/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger. RSI 4h neutral. SMA 4h fast_below_slow, no crossover. No dated news catalyst for Oct 12 2026. Coinversa smart-money (Sharps) tier net Strong Long (+0.70 by notional) on SOL - informational only.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_4h": "neutral",
+  "sma_4h": "fast_below_slow_no_crossover",
+  "volume": "unconfirmed",
+  "coinversa_smart_money_bias": "StrongLong(+0.70)"
+}
+```
+
+---
+### 2026-10-12T07:31:54.135Z — XRP/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger. RSI 4h neutral. SMA 4h fast_below_slow, no crossover. No dated news catalyst for Oct 12 2026. Coinversa smart-money (Sharps) tier net Strong Long (+0.35 by notional) on XRP - informational only.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_4h": "neutral",
+  "sma_4h": "fast_below_slow_no_crossover",
+  "volume": "unconfirmed",
+  "coinversa_smart_money_bias": "StrongLong(+0.35)"
+}
+```
+
+---
+### 2026-10-12T07:31:54.156Z — ADA/EUR — NO TRADE
+
+**Reasoning:** Existing open position (opened 2026-10-11 20:04 UTC) - one-per-pair rule, no new entry considered. Position slightly profitable (+0.23%, +€0.45), still pre-+1R, not trailing. No momentum trigger this cycle anyway. No dated news catalyst found for today.
+
+**Signals considered:**
+```json
+{
+  "existing_position": true,
+  "momentum_trigger": false,
+  "rsi_4h": "neutral",
+  "unrealized_pnl_eur": 0.45,
+  "unrealized_pnl_pct": 0.23,
+  "trailing_active": false
+}
+```
+
+---
+### 2026-10-12T07:31:54.192Z — LINK/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger. RSI 4h neutral. SMA 4h fast_below_slow, no crossover. No dated news catalyst for Oct 12 2026. Coinversa not applicable (informational scope limited to BTC/ETH/SOL/XRP).
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_4h": "neutral",
+  "sma_4h": "fast_below_slow_no_crossover",
+  "volume": "unconfirmed"
+}
+```
+
+---
+### 2026-10-12T07:31:54.211Z — SUI/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger. RSI 4h neutral. SMA 4h fast_below_slow, no crossover. No dated news catalyst for Oct 12 2026. Coinversa not applicable (informational scope limited to BTC/ETH/SOL/XRP).
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_4h": "neutral",
+  "sma_4h": "fast_below_slow_no_crossover",
+  "volume": "unconfirmed"
+}
+```
+
+---
+### 2026-10-12T07:31:54.229Z — LTC/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger. RSI 4h neutral. SMA 4h fast_below_slow, no crossover. No dated news catalyst for Oct 12 2026. Coinversa not applicable (informational scope limited to BTC/ETH/SOL/XRP).
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_4h": "neutral",
+  "sma_4h": "fast_below_slow_no_crossover",
+  "volume": "unconfirmed"
+}
+```
+
+---
