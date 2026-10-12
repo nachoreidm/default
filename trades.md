@@ -76497,3 +76497,127 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-10-12T19:02:59.266Z — BTC/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (~-0.1 to -0.5%, under 6%). RSI 4h neutral (46.3). SMA 4h fast_below_slow, no crossover. No dated news catalyst for Oct 12 2026. Coinversa smart-money (Sharps) net Long (+0.25 by notional) - informational only.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_4h": 46.33,
+  "sma_4h": "fast_below_slow_no_crossover",
+  "volume_ratio": 0.31,
+  "coinversa_smart_money_bias": "Long(+0.25)"
+}
+```
+
+---
+### 2026-10-12T19:02:59.295Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (~0.3-1.0%, under 6%). RSI 4h neutral (50.6). SMA 4h fast_below_slow, no crossover. No dated news catalyst for Oct 12 2026. Coinversa smart-money (Sharps) net Strong Long (+0.32 by notional) - informational only.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_4h": 50.62,
+  "sma_4h": "fast_below_slow_no_crossover",
+  "volume_ratio": 0.5,
+  "coinversa_smart_money_bias": "StrongLong(+0.32)"
+}
+```
+
+---
+### 2026-10-12T19:02:59.313Z — SOL/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (~-1.1 to -2.3%, under 6%). RSI 4h weakening (38.9). SMA 4h fast_below_slow, no crossover. No dated news catalyst for Oct 12 2026. Coinversa smart-money (Sharps) net Strong Long (+0.66 by notional) - informational only.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_4h": 38.9,
+  "sma_4h": "fast_below_slow_no_crossover",
+  "volume_ratio": 0.45,
+  "coinversa_smart_money_bias": "StrongLong(+0.66)"
+}
+```
+
+---
+### 2026-10-12T19:02:59.330Z — XRP/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (~-1.7 to -3.0%). RSI 4h weakening (39.1). SMA 4h fast_below_slow, no crossover. No dated news catalyst for Oct 12 2026. Coinversa smart-money (Sharps) net Strong Long (+0.50 by notional) - informational only.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_4h": 39.14,
+  "sma_4h": "fast_below_slow_no_crossover",
+  "volume_ratio": 0.5,
+  "coinversa_smart_money_bias": "StrongLong(+0.50)"
+}
+```
+
+---
+### 2026-10-12T19:02:59.344Z — ADA/EUR — NO TRADE
+
+**Reasoning:** No open position. No momentum trigger (-4.3% 1h/48h, -3.7% 4h/48h, still under 6% threshold). RSI 4h 42.8. SMA 4h fast_below_slow, no crossover. Broad market weakness continues, no pair-specific catalyst. Pair stopped out twice this week - no reason to re-enter.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_4h": 42.84,
+  "sma_4h": "fast_below_slow_no_crossover",
+  "volume_ratio": 0.79
+}
+```
+
+---
+### 2026-10-12T19:02:59.359Z — LINK/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (~-0.1 to -1.1%, under 6%). RSI 4h neutral (46.7). SMA 4h fast_below_slow, no crossover. No dated news catalyst for Oct 12 2026. Coinversa not applicable (informational scope limited to BTC/ETH/SOL/XRP).
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_4h": 46.73,
+  "sma_4h": "fast_below_slow_no_crossover",
+  "volume_ratio": 0.57
+}
+```
+
+---
+### 2026-10-12T19:02:59.372Z — SUI/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (~-2.7 to -4.7%). RSI 4h weakening (44.8). SMA 4h fast_below_slow, no crossover. No dated news catalyst for Oct 12 2026. Coinversa not applicable (informational scope limited to BTC/ETH/SOL/XRP).
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_4h": 44.8,
+  "sma_4h": "fast_below_slow_no_crossover",
+  "volume_ratio": 0.33
+}
+```
+
+---
+### 2026-10-12T19:02:59.386Z — LTC/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (~-1.3 to -2.3%, under 6%). RSI 4h weakening (40.1). SMA 4h fast_below_slow, no crossover. No dated news catalyst for Oct 12 2026. Coinversa not applicable (informational scope limited to BTC/ETH/SOL/XRP).
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_4h": 40.07,
+  "sma_4h": "fast_below_slow_no_crossover",
+  "volume_ratio": 0.6
+}
+```
+
+---
