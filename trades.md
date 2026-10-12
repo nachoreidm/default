@@ -76125,3 +76125,127 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-10-12T16:18:09.491Z — BTC/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (~-0.1 to -0.03%, under 6%). RSI 4h neutral (46.3). SMA 4h fast_below_slow, no crossover. No dated news catalyst for Oct 12 2026. Coinversa smart-money (Sharps) net Long (+0.24 by notional) - informational only.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_4h": 46.33,
+  "sma_4h": "fast_below_slow_no_crossover",
+  "volume_ratio": 0.31,
+  "coinversa_smart_money_bias": "Long(+0.24)"
+}
+```
+
+---
+### 2026-10-12T16:18:09.530Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (~1.0-1.3%, under 6%). RSI 4h neutral (50.6). SMA 4h fast_below_slow, no crossover. No dated news catalyst for Oct 12 2026. Coinversa smart-money (Sharps) net Long (+0.30 by notional) - informational only.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_4h": 50.62,
+  "sma_4h": "fast_below_slow_no_crossover",
+  "volume_ratio": 0.5,
+  "coinversa_smart_money_bias": "Long(+0.30)"
+}
+```
+
+---
+### 2026-10-12T16:18:09.551Z — SOL/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (~-0.7 to -1.1%, under 6%). RSI 4h weakening (38.9, not oversold enough to be notable). SMA 4h fast_below_slow, no crossover. No dated news catalyst for Oct 12 2026. Coinversa smart-money (Sharps) net Strong Long (+0.67 by notional) - informational only.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_4h": 38.9,
+  "sma_4h": "fast_below_slow_no_crossover",
+  "volume_ratio": 0.45,
+  "coinversa_smart_money_bias": "StrongLong(+0.67)"
+}
+```
+
+---
+### 2026-10-12T16:18:09.571Z — XRP/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (~-1.6 to -1.7%). RSI 4h weakening (39.1). SMA 4h fast_below_slow, no crossover. No dated news catalyst for Oct 12 2026. Coinversa smart-money (Sharps) net Strong Long (+0.49 by notional) - informational only.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_4h": 39.14,
+  "sma_4h": "fast_below_slow_no_crossover",
+  "volume_ratio": 0.5,
+  "coinversa_smart_money_bias": "StrongLong(+0.49)"
+}
+```
+
+---
+### 2026-10-12T16:18:09.590Z — ADA/EUR — NO TRADE
+
+**Reasoning:** No open position. No momentum trigger despite continued decline (-4.6% 1h/48h, -3.7% 4h/48h, still under 6% threshold). RSI 4h 42.8, weakening further from prior cycles. SMA 4h fast_below_slow, no crossover. No dated news catalyst. Pair has now been stopped out twice this week - continued weakness, no reason to re-enter.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_4h": 42.84,
+  "sma_4h": "fast_below_slow_no_crossover",
+  "volume_ratio": 0.79
+}
+```
+
+---
+### 2026-10-12T16:18:09.609Z — LINK/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (~-0.5 to -0.07%, under 6%). RSI 4h neutral (46.7). SMA 4h fast_below_slow, no crossover. No dated news catalyst for Oct 12 2026. Coinversa not applicable (informational scope limited to BTC/ETH/SOL/XRP).
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_4h": 46.73,
+  "sma_4h": "fast_below_slow_no_crossover",
+  "volume_ratio": 0.57
+}
+```
+
+---
+### 2026-10-12T16:18:09.628Z — SUI/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (~-2.6 to -2.7%). RSI 4h weakening (44.8). SMA 4h fast_below_slow, no crossover. No dated news catalyst for Oct 12 2026. Coinversa not applicable (informational scope limited to BTC/ETH/SOL/XRP).
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_4h": 44.8,
+  "sma_4h": "fast_below_slow_no_crossover",
+  "volume_ratio": 0.33
+}
+```
+
+---
+### 2026-10-12T16:18:09.647Z — LTC/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (~-1.3 to -1.7%, under 6%). RSI 4h weakening (40.1). SMA 4h fast_below_slow, no crossover. No dated news catalyst for Oct 12 2026. Coinversa not applicable (informational scope limited to BTC/ETH/SOL/XRP).
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_4h": 40.07,
+  "sma_4h": "fast_below_slow_no_crossover",
+  "volume_ratio": 0.6
+}
+```
+
+---
