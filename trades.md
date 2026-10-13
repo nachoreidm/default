@@ -80423,3 +80423,147 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-10-13T21:02:51.753Z — BTC/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/48h -0.16%, 4h/48h -0.49%, well below 6% threshold). RSI 4h 49.9 (neutral), volume ratio 0.94, order book bid-leaning (+0.17). News search returned no dated 2026-10-13 catalyst. Coinversa smart-money (Sharps) cohort bias: Long (0.24), informational only, not a trigger. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -0.16,
+  "pct_change_4h_48h": -0.49,
+  "rsi_4h": 49.89,
+  "volume_ratio": 0.94,
+  "order_book_imbalance": 0.17,
+  "coinversa_sharps_bias": "Long (0.238)"
+}
+```
+
+---
+### 2026-10-13T21:02:51.784Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/48h -0.78%, 4h/48h -1.05%, below threshold). RSI 4h 46.4, volume ratio 1.00, order book roughly balanced (+0.06). News search returned no dated 2026-10-13 catalyst. Coinversa smart-money (Sharps) cohort bias: Long (0.26), informational only, not a trigger. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -0.78,
+  "pct_change_4h_48h": -1.05,
+  "rsi_4h": 46.39,
+  "volume_ratio": 1,
+  "order_book_imbalance": 0.06,
+  "coinversa_sharps_bias": "Long (0.26)"
+}
+```
+
+---
+### 2026-10-13T21:02:51.802Z — SOL/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/48h -3.30%, 4h/48h -3.35%, below threshold). RSI 4h 41.0, volume ratio 0.93 (unconfirmed), order book bid-heavy (+0.18) against the decline but not actionable without volume confirmation. News search returned no dated 2026-10-13 catalyst. Coinversa smart-money (Sharps) cohort bias: Strong Long (0.69), informational only, not a trigger. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -3.3,
+  "pct_change_4h_48h": -3.35,
+  "rsi_4h": 40.96,
+  "volume_ratio": 0.93,
+  "order_book_imbalance": 0.18,
+  "coinversa_sharps_bias": "Strong Long (0.688)"
+}
+```
+
+---
+### 2026-10-13T21:02:51.820Z — XRP/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/48h -2.57%, 4h/48h -2.68%, below threshold). RSI 4h 43.2, volume ratio 0.79, order book bid-heavy (+0.30) against the decline but not actionable without volume confirmation. News search returned no dated 2026-10-13 catalyst. Coinversa smart-money (Sharps) cohort bias: Long (0.25), informational only, not a trigger. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -2.57,
+  "pct_change_4h_48h": -2.68,
+  "rsi_4h": 43.16,
+  "volume_ratio": 0.79,
+  "order_book_imbalance": 0.3,
+  "coinversa_sharps_bias": "Long (0.253)"
+}
+```
+
+---
+### 2026-10-13T21:02:51.837Z — ADA/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (this signal only flags qualifying upside breakouts, never downside declines, so this decline does not qualify regardless of magnitude). Deep ongoing decline (-5.85% 1h/48h, -5.96% 4h/48h, similar to prior cycle), RSI 4h 41.7 (not oversold-extreme), volume ratio 0.73 (below confirmation threshold), order book heavily ask-skewed (-0.66, deepened from prior cycle, consistent with the active decline, no bullish divergence). News search returned no dated 2026-10-13 catalyst. Coinversa: not applicable (thin Hyperliquid market, per 2026-10-04 research). No qualifying setup; not a long-only actionable signal.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -5.85,
+  "pct_change_4h_48h": -5.96,
+  "rsi_4h": 41.75,
+  "volume_ratio": 0.73,
+  "order_book_imbalance": -0.66,
+  "coinversa": "not applicable (thin market)"
+}
+```
+
+---
+### 2026-10-13T21:02:51.851Z — LINK/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/48h -2.65%, 4h/48h -3.11%, below threshold). RSI 4h 45.9, volume ratio 0.98, order book bid-leaning (+0.27). News search returned no dated 2026-10-13 catalyst. Coinversa: not applicable (thin Hyperliquid market, per 2026-10-04 research). No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -2.65,
+  "pct_change_4h_48h": -3.11,
+  "rsi_4h": 45.9,
+  "volume_ratio": 0.98,
+  "order_book_imbalance": 0.27,
+  "coinversa": "not applicable (thin market)"
+}
+```
+
+---
+### 2026-10-13T21:02:51.867Z — SUI/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (this signal only flags qualifying upside breakouts, never downside declines, so this decline does not qualify regardless of magnitude). Deep ongoing decline (-5.76% 1h/48h, -6.71% 4h/48h, slightly eased on 1h), RSI 4h 42.7 (not oversold-extreme), volume ratio 0.67 (below confirmation threshold), order book bid-leaning (+0.25) but no price reversal confirming it. News search returned no dated 2026-10-13 catalyst. Coinversa: not applicable (thin Hyperliquid market, per 2026-10-04 research). No qualifying setup; not a long-only actionable signal.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -5.76,
+  "pct_change_4h_48h": -6.71,
+  "rsi_4h": 42.73,
+  "volume_ratio": 0.67,
+  "order_book_imbalance": 0.25,
+  "coinversa": "not applicable (thin market)"
+}
+```
+
+---
+### 2026-10-13T21:02:51.879Z — LTC/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/48h -3.91%, 4h/48h -4.23%, below threshold). RSI 4h 41.2, volume ratio 0.84, order book roughly balanced (+0.07). News search returned no dated 2026-10-13 catalyst (no Litecoin-specific coverage at all). Coinversa: not applicable (thin Hyperliquid market, per 2026-10-04 research). No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -3.91,
+  "pct_change_4h_48h": -4.23,
+  "rsi_4h": 41.23,
+  "volume_ratio": 0.84,
+  "order_book_imbalance": 0.07,
+  "coinversa": "not applicable (thin market)"
+}
+```
+
+---
