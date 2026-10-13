@@ -77439,3 +77439,163 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-10-13T02:03:01.300Z — BTC/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/4h 48h change -0.57%/-0.84%). RSI 38.4 weak, price below both SMAs, volume below average (0.94x). Order book mildly bid-heavy (+0.14). News search returned no dated Oct 13 2026 catalysts. Sharps cohort Long bias (+0.26 notional), informational only. Selloff moderating slightly vs prior cycle but still no qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -0.57,
+  "pct_change_4h_48h": -0.84,
+  "rsi_4h": 38.4,
+  "sma_state": "fast_below_slow",
+  "volume_ratio": 0.94,
+  "order_book_imbalance": 0.14,
+  "coinversa_sharps_bias": "Long (+0.26)",
+  "news": "no dated catalyst found"
+}
+```
+
+---
+### 2026-10-13T02:03:01.328Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/4h 48h change -1.67%/-1.82%). RSI 31.5 weak, price below both SMAs, volume in-line (1.00x). Order book ask-heavy (-0.11). News search returned no dated Oct 13 2026 catalysts. Sharps cohort Long bias (+0.23 notional), informational only. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -1.67,
+  "pct_change_4h_48h": -1.82,
+  "rsi_4h": 31.5,
+  "sma_state": "fast_below_slow",
+  "volume_ratio": 1,
+  "order_book_imbalance": -0.11,
+  "coinversa_sharps_bias": "Long (+0.23)",
+  "news": "no dated catalyst found"
+}
+```
+
+---
+### 2026-10-13T02:03:01.344Z — SOL/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/4h 48h change -4.03%/-2.88%, easing vs prior cycle's -6.16%). RSI 29.6 oversold-leaning, price below both SMAs, volume below average (0.93x). Order book mildly bid-heavy (+0.06). News search returned no dated Oct 13 2026 catalysts. Sharps cohort Strong Long bias (+0.66 notional), informational only - no confirmed reversal signal present. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -4.03,
+  "pct_change_4h_48h": -2.88,
+  "rsi_4h": 29.6,
+  "sma_state": "fast_below_slow",
+  "volume_ratio": 0.93,
+  "order_book_imbalance": 0.06,
+  "coinversa_sharps_bias": "Strong Long (+0.66)",
+  "news": "no dated catalyst found"
+}
+```
+
+---
+### 2026-10-13T02:03:01.359Z — XRP/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/4h 48h change -3.18%/-3.17%). RSI 30.1 weak, price below both SMAs, volume below average (0.79x). Order book bid-heavy (+0.19). News search returned no dated Oct 13 2026 catalysts. Sharps cohort Long bias (+0.16 notional), informational only. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -3.18,
+  "pct_change_4h_48h": -3.17,
+  "rsi_4h": 30.1,
+  "sma_state": "fast_below_slow",
+  "volume_ratio": 0.79,
+  "order_book_imbalance": 0.19,
+  "coinversa_sharps_bias": "Long (+0.16)",
+  "news": "no dated catalyst found"
+}
+```
+
+---
+### 2026-10-13T02:03:01.375Z — ADA/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/4h 48h change -6.46%/-4.97%, over 6% magnitude but momentum_trigger only flags qualifying upside moves). RSI 34.7 weak, price below both SMAs, volume below average (0.73x). Order book ask-heavy (-0.17). News search returned no dated Oct 13 2026 catalysts. Coinversa not applicable for ADA per 2026-10-04 research. No qualifying long setup - continued broad-market weakness.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -6.46,
+  "pct_change_4h_48h": -4.97,
+  "rsi_4h": 34.7,
+  "sma_state": "fast_below_slow",
+  "volume_ratio": 0.73,
+  "order_book_imbalance": -0.17,
+  "coinversa": "not applicable (thin market)",
+  "news": "no dated catalyst found"
+}
+```
+
+---
+### 2026-10-13T02:03:01.389Z — LINK/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/4h 48h change -2.17%/-1.59%). RSI 36.9 weak, price below both SMAs, volume in-line (0.98x). Order book roughly balanced (-0.05). News search returned no dated Oct 13 2026 catalysts. Coinversa not applicable for LINK per 2026-10-04 research. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -2.17,
+  "pct_change_4h_48h": -1.59,
+  "rsi_4h": 36.9,
+  "sma_state": "fast_below_slow",
+  "volume_ratio": 0.98,
+  "order_book_imbalance": -0.05,
+  "coinversa": "not applicable (thin market)",
+  "news": "no dated catalyst found"
+}
+```
+
+---
+### 2026-10-13T02:03:01.401Z — SUI/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/4h 48h change -6.89%/-5.49%, over 6% magnitude but momentum_trigger only flags qualifying upside moves). RSI 33.5 weak, price below both SMAs, volume well below average (0.67x). Order book bid-heavy (+0.26). News search found only undated/stale Sui ETF and TVL coverage, no Oct 13 2026 catalyst. Coinversa not applicable for SUI per 2026-10-04 research. No qualifying long setup - continued sharpest decline among the 8 pairs, broad market weakness.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -6.89,
+  "pct_change_4h_48h": -5.49,
+  "rsi_4h": 33.5,
+  "sma_state": "fast_below_slow",
+  "volume_ratio": 0.67,
+  "order_book_imbalance": 0.26,
+  "coinversa": "not applicable (thin market)",
+  "news": "no dated catalyst found"
+}
+```
+
+---
+### 2026-10-13T02:03:01.414Z — LTC/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/4h 48h change -3.64%/-2.96%, easing vs prior cycle's -6.05%). RSI 31.4 weak, price below both SMAs, volume below average (0.84x). Order book bid-heavy (+0.30). News search returned no dated Oct 13 2026 catalysts. Coinversa not applicable for LTC per 2026-10-04 research. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -3.64,
+  "pct_change_4h_48h": -2.96,
+  "rsi_4h": 31.4,
+  "sma_state": "fast_below_slow",
+  "volume_ratio": 0.84,
+  "order_book_imbalance": 0.3,
+  "coinversa": "not applicable (thin market)",
+  "news": "no dated catalyst found"
+}
+```
+
+---
