@@ -80159,3 +80159,123 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-10-13T19:04:34.419Z — BTC/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (threshold not met on 1h or 4h/48h). Price mildly negative, no sharp new move this cycle. News search returned stale/undated results, no real current catalyst. Coinversa smart-money cohort bias: Long/Strong Long (informational only, not a trigger). No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "coinversa_cohort_bias": "Long/Strong Long (Sharps tier)",
+  "news": "no dated 2026-10-13 catalyst found"
+}
+```
+
+---
+### 2026-10-13T19:04:34.443Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger. Price mildly negative, no sharp new move this cycle. News search returned stale/undated results, no real current catalyst. Coinversa smart-money cohort bias: Long/Strong Long (informational only, not a trigger). No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "coinversa_cohort_bias": "Long/Strong Long (Sharps tier)",
+  "news": "no dated 2026-10-13 catalyst found"
+}
+```
+
+---
+### 2026-10-13T19:04:34.458Z — SOL/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger. Price mildly negative, no sharp new move this cycle. News search returned stale/undated results, no real current catalyst. Coinversa smart-money cohort bias: Long/Strong Long (informational only, not a trigger). No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "coinversa_cohort_bias": "Long/Strong Long (Sharps tier)",
+  "news": "no dated 2026-10-13 catalyst found"
+}
+```
+
+---
+### 2026-10-13T19:04:34.472Z — XRP/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger. Price mildly negative, no sharp new move this cycle. News search returned stale/undated results, no real current catalyst. Coinversa smart-money cohort bias: Long/Strong Long (informational only, not a trigger). No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "coinversa_cohort_bias": "Long/Strong Long (Sharps tier)",
+  "news": "no dated 2026-10-13 catalyst found"
+}
+```
+
+---
+### 2026-10-13T19:04:34.486Z — ADA/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (this signal only flags qualifying upside breakouts, never downside declines, so the sustained decline below does not qualify regardless of magnitude). Deep ongoing decline (-6.46% 1h/48h, -7.67% 4h/48h), RSI 4h 37.9 (not oversold-extreme), volume ratio 0.73 (below confirmation threshold), order book imbalance +0.59 (bid-heavy divergence against the active decline, noted but not actionable without volume confirmation or an actual price reversal). News search returned stale/undated results, no real current catalyst. Coinversa: not applicable (thin Hyperliquid market, per 2026-10-04 research). No qualifying setup; not a long-only actionable signal.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -6.46,
+  "pct_change_4h_48h": -7.67,
+  "rsi_4h": 37.9,
+  "volume_ratio": 0.73,
+  "order_book_imbalance": 0.59,
+  "coinversa": "not applicable (thin market)"
+}
+```
+
+---
+### 2026-10-13T19:04:34.501Z — LINK/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger. Price mildly negative, no sharp new move this cycle. News search returned stale/undated results, no real current catalyst. Coinversa: not applicable (thin Hyperliquid market, per 2026-10-04 research). No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "coinversa": "not applicable (thin market)",
+  "news": "no dated 2026-10-13 catalyst found"
+}
+```
+
+---
+### 2026-10-13T19:04:34.518Z — SUI/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (this signal only flags qualifying upside breakouts, never downside declines, so the sustained decline below does not qualify regardless of magnitude). Deep ongoing decline (-6.38% 1h/48h, -7.75% 4h/48h), RSI 4h 38.0 (not oversold-extreme), volume ratio 0.67 (below confirmation threshold), order book imbalance -0.01 (roughly neutral, no divergence this cycle). News search returned stale/undated results, no real current catalyst. Coinversa: not applicable (thin Hyperliquid market, per 2026-10-04 research). No qualifying setup; not a long-only actionable signal.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -6.38,
+  "pct_change_4h_48h": -7.75,
+  "rsi_4h": 38,
+  "volume_ratio": 0.67,
+  "order_book_imbalance": -0.01,
+  "coinversa": "not applicable (thin market)"
+}
+```
+
+---
+### 2026-10-13T19:04:34.537Z — LTC/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger. Price mildly negative, no sharp new move this cycle. News search returned stale/undated results, no real current catalyst. Coinversa: not applicable (thin Hyperliquid market, per 2026-10-04 research). No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "coinversa": "not applicable (thin market)",
+  "news": "no dated 2026-10-13 catalyst found"
+}
+```
+
+---
