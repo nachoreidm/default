@@ -79839,3 +79839,163 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-10-13T17:03:51.944Z — BTC/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/4h 48h change -0.46%/-0.20%). RSI 51.4 neutral, price below both SMAs. Volume below average (0.94x). Order book bid-heavy (+0.14). News search returned no dated Oct 13 2026 catalysts. Sharps cohort Long bias (+0.25 notional), informational only. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -0.46,
+  "pct_change_4h_48h": -0.2,
+  "rsi_4h": 51.4,
+  "sma_state": "fast_below_slow",
+  "volume_ratio": 0.94,
+  "order_book_imbalance": 0.14,
+  "coinversa_sharps_bias": "Long (+0.25)",
+  "news": "no dated catalyst found"
+}
+```
+
+---
+### 2026-10-13T17:03:51.966Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/4h 48h change -0.95%/-0.73%). RSI 47.9, price below both SMAs. Volume in-line (1.00x). Order book bid-heavy (+0.28). News search returned no dated Oct 13 2026 catalysts. Sharps cohort Long bias (+0.27 notional), informational only. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -0.95,
+  "pct_change_4h_48h": -0.73,
+  "rsi_4h": 47.9,
+  "sma_state": "fast_below_slow",
+  "volume_ratio": 1,
+  "order_book_imbalance": 0.28,
+  "coinversa_sharps_bias": "Long (+0.27)",
+  "news": "no dated catalyst found"
+}
+```
+
+---
+### 2026-10-13T17:03:51.998Z — SOL/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/4h 48h change -3.99%/-3.56%). RSI 40.2, price below both SMAs. Volume below average (0.93x). Order book ask-heavy (-0.29). News search returned no dated Oct 13 2026 catalysts. Sharps cohort Strong Long bias (+0.68 notional), informational only. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -3.99,
+  "pct_change_4h_48h": -3.56,
+  "rsi_4h": 40.2,
+  "sma_state": "fast_below_slow",
+  "volume_ratio": 0.93,
+  "order_book_imbalance": -0.29,
+  "coinversa_sharps_bias": "Strong Long (+0.68)",
+  "news": "no dated catalyst found"
+}
+```
+
+---
+### 2026-10-13T17:03:52.029Z — XRP/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/4h 48h change -3.23%/-2.82%). RSI 42.7, price below both SMAs. Volume below average (0.79x). Order book roughly balanced (-0.08). News search returned no dated Oct 13 2026 catalysts. Sharps cohort Long bias (+0.24 notional), informational only. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -3.23,
+  "pct_change_4h_48h": -2.82,
+  "rsi_4h": 42.7,
+  "sma_state": "fast_below_slow",
+  "volume_ratio": 0.79,
+  "order_book_imbalance": -0.08,
+  "coinversa_sharps_bias": "Long (+0.24)",
+  "news": "no dated catalyst found"
+}
+```
+
+---
+### 2026-10-13T17:03:52.048Z — ADA/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/4h 48h change -7.09%/-7.67%, easing slightly from last cycle's -8.66%/-7.67% but still well past the 6% magnitude threshold - unactionable since momentum_trigger only flags qualifying upside moves). RSI 37.9, price below both SMAs. Volume below average (0.73x). Order book bid-heavy (+0.30). News search returned no dated Oct 13 2026 catalysts. Coinversa not applicable for ADA per 2026-10-04 research. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -7.09,
+  "pct_change_4h_48h": -7.67,
+  "rsi_4h": 37.9,
+  "sma_state": "fast_below_slow",
+  "volume_ratio": 0.73,
+  "order_book_imbalance": 0.3,
+  "coinversa": "not applicable (thin market)",
+  "news": "no dated catalyst found"
+}
+```
+
+---
+### 2026-10-13T17:03:52.073Z — LINK/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/4h 48h change -3.51%/-2.97%). RSI 44.7, price below both SMAs. Volume in-line (0.98x). Order book ask-heavy (-0.13). News search returned no dated Oct 13 2026 catalysts. Coinversa not applicable for LINK per 2026-10-04 research. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -3.51,
+  "pct_change_4h_48h": -2.97,
+  "rsi_4h": 44.7,
+  "sma_state": "fast_below_slow",
+  "volume_ratio": 0.98,
+  "order_book_imbalance": -0.13,
+  "coinversa": "not applicable (thin market)",
+  "news": "no dated catalyst found"
+}
+```
+
+---
+### 2026-10-13T17:03:52.089Z — SUI/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/4h 48h change -7.31%/-7.75%, easing slightly from last cycle's -8.93% but still well past the 6% magnitude threshold - unactionable since momentum_trigger only flags qualifying upside moves). RSI 38.0, price below both SMAs. Volume well below average (0.67x). Order book bid-heavy (+0.53). News search surfaced only old (May 2025) Sui/Chainlink coverage, no Oct 13 2026 catalyst. Coinversa not applicable for SUI per 2026-10-04 research. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -7.31,
+  "pct_change_4h_48h": -7.75,
+  "rsi_4h": 38,
+  "sma_state": "fast_below_slow",
+  "volume_ratio": 0.67,
+  "order_book_imbalance": 0.53,
+  "coinversa": "not applicable (thin market)",
+  "news": "no dated catalyst found"
+}
+```
+
+---
+### 2026-10-13T17:03:52.106Z — LTC/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/4h 48h change -4.96%/-5.87%, easing from last cycle). RSI 34.9 approaching oversold, price below both SMAs. Volume below average (0.84x). Order book bid-heavy (+0.19). News search returned no dated Oct 13 2026 catalysts. Coinversa not applicable for LTC per 2026-10-04 research. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -4.96,
+  "pct_change_4h_48h": -5.87,
+  "rsi_4h": 34.9,
+  "sma_state": "fast_below_slow",
+  "volume_ratio": 0.84,
+  "order_book_imbalance": 0.19,
+  "coinversa": "not applicable (thin market)",
+  "news": "no dated catalyst found"
+}
+```
+
+---
