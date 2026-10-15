@@ -85152,3 +85152,161 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-10-15T04:03:00.426Z — BTC/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/48h -3.48%, 4h/48h -3.82%, under 6%). RSI 30.4 (oversold), 4h SMA still bullish but no breakout magnitude. Order book ask-heavy (-0.17). Broad market decline accelerating across all 8 pairs this cycle. News search found no Oct 15 2026-dated coverage of the move. Coinversa Sharps cohort net Long (+0.28) on BTC - informational only. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_1h_48h": -3.48,
+  "pct_4h_48h": -3.82,
+  "rsi": 30.4,
+  "sma_state": "fast_above_slow",
+  "order_book_imbalance": -0.17,
+  "coinversa_sharps_bias": "Long (+0.28)",
+  "news": "no same-day dated results",
+  "note": "broad market decline accelerating"
+}
+```
+
+---
+### 2026-10-15T04:03:00.454Z — ETH/EUR — NO TRADE
+
+**Reasoning:** 1h/48h -6.71%, 4h/48h -7.00% - both exceed 6% magnitude but are downside declines, not upside breakouts, so momentum_trigger correctly did not flag (long-only system). RSI 24.9 (deeply oversold). 4h SMA bearish. Order book bid-leaning (+0.09). News search found no Oct 15 2026-dated coverage. Coinversa Sharps cohort net Strong Long (+0.32) on ETH - informational only. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_1h_48h": -6.71,
+  "pct_4h_48h": -7,
+  "rsi": 24.9,
+  "sma_state": "fast_below_slow",
+  "order_book_imbalance": 0.09,
+  "coinversa_sharps_bias": "Strong Long (+0.32)",
+  "news": "no same-day dated results",
+  "note": "exceeds 6% magnitude but non-actionable downside"
+}
+```
+
+---
+### 2026-10-15T04:03:00.471Z — SOL/EUR — NO TRADE
+
+**Reasoning:** 1h/48h -5.66%, 4h/48h -6.00% - 4h window right at threshold magnitude but a downside decline, not upside, so momentum_trigger correctly did not flag. RSI 28.1 (oversold). 4h SMA bearish. Order book bid-leaning (+0.22). News search found no Oct 15 2026-dated coverage. Coinversa Sharps cohort net Strong Long (+0.72) on SOL - informational only. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_1h_48h": -5.66,
+  "pct_4h_48h": -6,
+  "rsi": 28.1,
+  "sma_state": "fast_below_slow",
+  "order_book_imbalance": 0.22,
+  "coinversa_sharps_bias": "Strong Long (+0.72)",
+  "news": "no same-day dated results"
+}
+```
+
+---
+### 2026-10-15T04:03:00.490Z — XRP/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/48h -5.17%, 4h/48h -5.72%, just under 6% threshold). RSI 27.2 (oversold). 4h SMA bearish. Order book ask-heavy (-0.09). News search found no Oct 15 2026-dated coverage. Coinversa Sharps cohort net Long (+0.25) on XRP - informational only. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_1h_48h": -5.17,
+  "pct_4h_48h": -5.72,
+  "rsi": 27.2,
+  "sma_state": "fast_below_slow",
+  "order_book_imbalance": -0.09,
+  "coinversa_sharps_bias": "Long (+0.25)",
+  "news": "no same-day dated results"
+}
+```
+
+---
+### 2026-10-15T04:03:00.510Z — ADA/EUR — NO TRADE
+
+**Reasoning:** 1h/48h -7.70%, 4h/48h -7.86% - both exceed 6% magnitude but are downside declines, not upside breakouts, so momentum_trigger correctly did not flag. RSI 28.8 (oversold). 4h SMA bearish. Order book bid-heavy (+0.45). News search found no Oct 15 2026-dated coverage. Coinversa not applicable (thin Hyperliquid market for ADA). No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_1h_48h": -7.7,
+  "pct_4h_48h": -7.86,
+  "rsi": 28.8,
+  "sma_state": "fast_below_slow",
+  "order_book_imbalance": 0.45,
+  "coinversa": "not applicable (thin market)",
+  "news": "no same-day dated results",
+  "note": "exceeds 6% magnitude but non-actionable downside"
+}
+```
+
+---
+### 2026-10-15T04:03:00.532Z — LINK/EUR — NO TRADE
+
+**Reasoning:** 1h/48h -7.88%, 4h/48h -8.10% - both exceed 6% magnitude but are downside declines, not upside breakouts, so momentum_trigger correctly did not flag. RSI 27.7 (oversold). 4h SMA bearish. Order book bid-leaning (+0.15). News search found no Oct 15 2026-dated coverage. Coinversa not applicable (thin Hyperliquid market for LINK). No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_1h_48h": -7.88,
+  "pct_4h_48h": -8.1,
+  "rsi": 27.7,
+  "sma_state": "fast_below_slow",
+  "order_book_imbalance": 0.15,
+  "coinversa": "not applicable (thin market)",
+  "news": "no same-day dated results",
+  "note": "exceeds 6% magnitude but non-actionable downside"
+}
+```
+
+---
+### 2026-10-15T04:03:00.554Z — SUI/EUR — NO TRADE
+
+**Reasoning:** 1h/48h -7.51%, 4h/48h -8.11% - both exceed 6% magnitude but are downside declines, not upside breakouts, so momentum_trigger correctly did not flag. RSI 32.0. 4h SMA bearish. Order book bid-heavy (+0.36). News search found no Oct 15 2026-dated coverage. Coinversa not applicable (thin Hyperliquid market for SUI). No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_1h_48h": -7.51,
+  "pct_4h_48h": -8.11,
+  "rsi": 32,
+  "sma_state": "fast_below_slow",
+  "order_book_imbalance": 0.36,
+  "coinversa": "not applicable (thin market)",
+  "news": "no same-day dated results",
+  "note": "exceeds 6% magnitude but non-actionable downside"
+}
+```
+
+---
+### 2026-10-15T04:03:00.572Z — LTC/EUR — NO TRADE
+
+**Reasoning:** 1h/48h -7.06%, 4h/48h -7.60% - both exceed 6% magnitude but are downside declines, not upside breakouts, so momentum_trigger correctly did not flag. RSI 29.8 (oversold). 4h SMA bearish. Order book bid-heavy (+0.28). News search found no Oct 15 2026-dated coverage. Coinversa not applicable (thin Hyperliquid market for LTC). No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_1h_48h": -7.06,
+  "pct_4h_48h": -7.6,
+  "rsi": 29.8,
+  "sma_state": "fast_below_slow",
+  "order_book_imbalance": 0.28,
+  "coinversa": "not applicable (thin market)",
+  "news": "no same-day dated results",
+  "note": "exceeds 6% magnitude but non-actionable downside"
+}
+```
+
+---
