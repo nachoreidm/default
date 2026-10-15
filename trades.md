@@ -86247,3 +86247,131 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-10-15T11:20:52.654Z — BTC/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger flagged. 4h SMA crossover remains bearish (fast_below_slow, crossed this candle persisting since 08:01 UTC) - consistent with the broader market decline that began moderating from 08:01 UTC onward. RSI recovering from oversold levels seen earlier in the session. Coinversa Sharps cohort net bias: Long/Strong Long (informational only, not a trade trigger). No qualifying long entry setup this cycle.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false
+  },
+  "sma_4h_crossover": {
+    "fast_below_slow": true,
+    "crossed_this_candle": false,
+    "crossover_direction": "bearish",
+    "note": "persisting since 2026-10-15 08:01 UTC"
+  },
+  "coinversa_sharps_bias": "Long/Strong Long (informational only)"
+}
+```
+
+---
+### 2026-10-15T11:20:52.679Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger flagged this cycle. Market decline from earlier in the session (03:01-07:01 UTC) has been moderating since 08:01 UTC. Coinversa Sharps cohort net bias: Long/Strong Long (informational only, not a trade trigger). No qualifying long entry setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false
+  },
+  "coinversa_sharps_bias": "Long/Strong Long (informational only)"
+}
+```
+
+---
+### 2026-10-15T11:20:52.696Z — SOL/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger flagged this cycle. Market decline from earlier in the session has been moderating since 08:01 UTC. Coinversa Sharps cohort net bias: Long/Strong Long (informational only, not a trade trigger). No qualifying long entry setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false
+  },
+  "coinversa_sharps_bias": "Long/Strong Long (informational only)"
+}
+```
+
+---
+### 2026-10-15T11:20:52.718Z — XRP/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger flagged this cycle. Market decline from earlier in the session has been moderating since 08:01 UTC. Coinversa Sharps cohort net bias: Long/Strong Long (informational only, not a trade trigger). No qualifying long entry setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false
+  },
+  "coinversa_sharps_bias": "Long/Strong Long (informational only)"
+}
+```
+
+---
+### 2026-10-15T11:20:52.744Z — ADA/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger flagged this cycle. Market decline from earlier in the session has been moderating since 08:01 UTC. Coinversa cohort data not applicable (thin Hyperliquid market, per 2026-10-04 research - excluded from bias use). No qualifying long entry setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false
+  },
+  "coinversa": "not applicable (thin market)"
+}
+```
+
+---
+### 2026-10-15T11:20:52.766Z — LINK/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger flagged - the long-only system does not flag downside moves. 1h decline of -6.57% exceeds the 6% magnitude threshold but is non-actionable (downside only). Coinversa cohort data not applicable (thin Hyperliquid market). No qualifying long entry setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false
+  },
+  "price_action_1h_pct": -6.57,
+  "note": "exceeds 6% magnitude but non-actionable downside (long-only system)",
+  "coinversa": "not applicable (thin market)"
+}
+```
+
+---
+### 2026-10-15T11:20:52.785Z — SUI/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger flagged this cycle. Market decline from earlier in the session has been moderating since 08:01 UTC. Coinversa cohort data not applicable (thin Hyperliquid market). No qualifying long entry setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false
+  },
+  "coinversa": "not applicable (thin market)"
+}
+```
+
+---
+### 2026-10-15T11:20:52.808Z — LTC/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger flagged this cycle. Market decline from earlier in the session has been moderating since 08:01 UTC. Coinversa cohort data not applicable (thin Hyperliquid market). No qualifying long entry setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false
+  },
+  "coinversa": "not applicable (thin market)"
+}
+```
+
+---
