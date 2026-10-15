@@ -85784,3 +85784,160 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-10-15T08:03:06.780Z — BTC/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/48h -2.70%, 4h/48h -2.38%, under 6%). RSI 38.3, 4h SMA just crossed bearish this candle. Order book ask-heavy (-0.12). News search found no Oct 15 2026-dated coverage. Coinversa Sharps cohort net Strong Long (+0.30) on BTC - informational only. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_1h_48h": -2.7,
+  "pct_4h_48h": -2.38,
+  "rsi": 38.3,
+  "sma_state": "fast_below_slow",
+  "sma_crossed_this_candle": true,
+  "order_book_imbalance": -0.12,
+  "coinversa_sharps_bias": "Strong Long (+0.30)",
+  "news": "no same-day dated results"
+}
+```
+
+---
+### 2026-10-15T08:03:06.812Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/48h -5.74%, 4h/48h -5.07%, under 6%). RSI 30.4 (oversold), 4h SMA bearish. Order book roughly balanced (-0.01). News search found no Oct 15 2026-dated coverage. Coinversa Sharps cohort net Strong Long (+0.30) on ETH - informational only. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_1h_48h": -5.74,
+  "pct_4h_48h": -5.07,
+  "rsi": 30.4,
+  "sma_state": "fast_below_slow",
+  "order_book_imbalance": -0.01,
+  "coinversa_sharps_bias": "Strong Long (+0.30)",
+  "news": "no same-day dated results"
+}
+```
+
+---
+### 2026-10-15T08:03:06.847Z — SOL/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/48h -4.37%, 4h/48h -2.97%, under 6%). RSI 32.8 (oversold). 4h SMA bearish. Order book bid-leaning (+0.10). News search found no Oct 15 2026-dated coverage. Coinversa Sharps cohort net Strong Long (+0.72) on SOL - informational only. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_1h_48h": -4.37,
+  "pct_4h_48h": -2.97,
+  "rsi": 32.8,
+  "sma_state": "fast_below_slow",
+  "order_book_imbalance": 0.1,
+  "coinversa_sharps_bias": "Strong Long (+0.72)",
+  "news": "no same-day dated results"
+}
+```
+
+---
+### 2026-10-15T08:03:06.872Z — XRP/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/48h -4.60%, 4h/48h -3.41%, under 6%). RSI 32.2. 4h SMA bearish. Order book bid-leaning (+0.17). News search found no Oct 15 2026-dated coverage. Coinversa Sharps cohort net Long (+0.26) on XRP - informational only. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_1h_48h": -4.6,
+  "pct_4h_48h": -3.41,
+  "rsi": 32.2,
+  "sma_state": "fast_below_slow",
+  "order_book_imbalance": 0.17,
+  "coinversa_sharps_bias": "Long (+0.26)",
+  "news": "no same-day dated results"
+}
+```
+
+---
+### 2026-10-15T08:03:06.890Z — ADA/EUR — NO TRADE
+
+**Reasoning:** 1h/48h -6.54% exceeds 6% magnitude but is a downside decline, not an upside breakout, so momentum_trigger correctly did not flag. 4h/48h -4.72%. RSI 31.8. 4h SMA bearish. Order book ask-heavy (-0.43). News search found no Oct 15 2026-dated coverage. Coinversa not applicable (thin Hyperliquid market for ADA). No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_1h_48h": -6.54,
+  "pct_4h_48h": -4.72,
+  "rsi": 31.8,
+  "sma_state": "fast_below_slow",
+  "order_book_imbalance": -0.43,
+  "coinversa": "not applicable (thin market)",
+  "news": "no same-day dated results",
+  "note": "exceeds 6% magnitude but non-actionable downside"
+}
+```
+
+---
+### 2026-10-15T08:03:06.915Z — LINK/EUR — NO TRADE
+
+**Reasoning:** 1h/48h -6.88% exceeds 6% magnitude but is a downside decline, not an upside breakout, so momentum_trigger correctly did not flag. 4h/48h -5.69%. RSI 31.6. 4h SMA bearish. Order book ask-heavy (-0.12). News search found no Oct 15 2026-dated coverage. Coinversa not applicable (thin Hyperliquid market for LINK). No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_1h_48h": -6.88,
+  "pct_4h_48h": -5.69,
+  "rsi": 31.6,
+  "sma_state": "fast_below_slow",
+  "order_book_imbalance": -0.12,
+  "coinversa": "not applicable (thin market)",
+  "news": "no same-day dated results",
+  "note": "exceeds 6% magnitude but non-actionable downside"
+}
+```
+
+---
+### 2026-10-15T08:03:06.933Z — SUI/EUR — NO TRADE
+
+**Reasoning:** 1h/48h -6.70% exceeds 6% magnitude but is a downside decline, not an upside breakout, so momentum_trigger correctly did not flag. 4h/48h -4.10%. RSI 34.6. 4h SMA bearish. Order book bid-leaning (+0.15). News search found no Oct 15 2026-dated coverage. Coinversa not applicable (thin Hyperliquid market for SUI). No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_1h_48h": -6.7,
+  "pct_4h_48h": -4.1,
+  "rsi": 34.6,
+  "sma_state": "fast_below_slow",
+  "order_book_imbalance": 0.15,
+  "coinversa": "not applicable (thin market)",
+  "news": "no same-day dated results",
+  "note": "exceeds 6% magnitude but non-actionable downside"
+}
+```
+
+---
+### 2026-10-15T08:03:06.954Z — LTC/EUR — NO TRADE
+
+**Reasoning:** 1h/48h -6.34% exceeds 6% magnitude but is a downside decline, not an upside breakout, so momentum_trigger correctly did not flag. 4h/48h -4.17%. RSI 32.7. 4h SMA bearish. Order book strongly bid-heavy (+0.50). News search found no Oct 15 2026-dated coverage. Coinversa not applicable (thin Hyperliquid market for LTC). No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_1h_48h": -6.34,
+  "pct_4h_48h": -4.17,
+  "rsi": 32.7,
+  "sma_state": "fast_below_slow",
+  "order_book_imbalance": 0.5,
+  "coinversa": "not applicable (thin market)",
+  "news": "no same-day dated results",
+  "note": "exceeds 6% magnitude but non-actionable downside"
+}
+```
+
+---
