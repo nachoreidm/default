@@ -87679,3 +87679,187 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-10-15T19:03:10.003Z — BTC/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger flagged (1h -1.20%, 4h -1.08%, both below 6%). RSI 48.2. 4h SMA still bearish. News: BTC dipped below $80K intraday (~$79,694) then rebounded above $82K; >$777M in long liquidations; CPI-driven volatility continuing. Coinversa Sharps cohort: Strong Long (0.30, informational only). No qualifying long entry setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -1.2,
+    "pct_change_4h_48h": -1.08
+  },
+  "rsi_14_4h": 48.22,
+  "sma_4h_crossover": {
+    "state": "fast_below_slow"
+  },
+  "volume_ratio": 1.35,
+  "news": "intraday dip below $80K then rebound above $82K, >$777M long liquidations",
+  "coinversa_sharps_bias": 0.3
+}
+```
+
+---
+### 2026-10-15T19:03:10.033Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger flagged (1h -2.40%, 4h -2.74%, both below 6%). RSI 44.9. 4h SMA still bearish. News: ETH ~$2,350-2,400 (USD), ETF outflows 11 straight days totaling $782.8M before a brief inflow. Coinversa Sharps cohort: Strong Long (0.30, informational only). No qualifying long entry setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -2.4,
+    "pct_change_4h_48h": -2.74
+  },
+  "rsi_14_4h": 44.85,
+  "sma_4h_crossover": {
+    "state": "fast_below_slow"
+  },
+  "volume_ratio": 1.12,
+  "news": "ETF outflows 11 straight days ($782.8M) before brief inflow",
+  "coinversa_sharps_bias": 0.3
+}
+```
+
+---
+### 2026-10-15T19:03:10.054Z — SOL/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger flagged (1h -1.59%, 4h -1.38%, both below 6%). RSI 46.8. 4h SMA still bearish. News: SOL ~$101-102 (USD), 7-day loss 10.2%, 8th consecutive day of ETF outflows, Oct 21 network upgrade seen as possible catalyst. Coinversa Sharps cohort: Strong Long (0.73, informational only). No qualifying long entry setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -1.59,
+    "pct_change_4h_48h": -1.38
+  },
+  "rsi_14_4h": 46.79,
+  "sma_4h_crossover": {
+    "state": "fast_below_slow"
+  },
+  "volume_ratio": 0.89,
+  "news": "7-day loss 10.2%, ETF 8-day outflow streak, pre-upgrade catalyst watch",
+  "coinversa_sharps_bias": 0.73
+}
+```
+
+---
+### 2026-10-15T19:03:10.071Z — XRP/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger flagged (1h -2.23%, 4h -2.42%, both below 6%). RSI 43.5. 4h SMA still bearish. News: XRP ~$1.30-1.31 (USD), modest ETF inflow on Oct 14 (only major crypto with inflows that day). Coinversa Sharps cohort: Long (0.26, informational only). No qualifying long entry setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -2.23,
+    "pct_change_4h_48h": -2.42
+  },
+  "rsi_14_4h": 43.48,
+  "sma_4h_crossover": {
+    "state": "fast_below_slow"
+  },
+  "volume_ratio": 1.04,
+  "news": "modest ETF inflow, only major crypto with inflows that day",
+  "coinversa_sharps_bias": 0.26
+}
+```
+
+---
+### 2026-10-15T19:03:10.091Z — ADA/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger flagged (1h -2.83%, 4h -2.61%, both below 6%). RSI 44.8. 4h SMA still bearish. News: ADA ~$0.22 (USD), reports of a ~3-6.6% decline tied to whale selling. Coinversa cohort data not applicable (thin Hyperliquid market). No qualifying long entry setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -2.83,
+    "pct_change_4h_48h": -2.61
+  },
+  "rsi_14_4h": 44.84,
+  "sma_4h_crossover": {
+    "state": "fast_below_slow"
+  },
+  "volume_ratio": 0.45,
+  "news": "whale selling, broad market decline",
+  "coinversa": "not applicable (thin market)"
+}
+```
+
+---
+### 2026-10-15T19:03:10.114Z — LINK/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger flagged (1h -3.02%, 4h -2.74%, both below 6%). RSI 46.2. 4h SMA still bearish. News: LINK ~$12-13 (USD), Stellar RWA network launch plus $10M ETF inflows, support near $12.50. Coinversa cohort data not applicable (thin Hyperliquid market). No qualifying long entry setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -3.02,
+    "pct_change_4h_48h": -2.74
+  },
+  "rsi_14_4h": 46.22,
+  "sma_4h_crossover": {
+    "state": "fast_below_slow"
+  },
+  "volume_ratio": 1.09,
+  "news": "Stellar RWA network launch, $10M ETF inflows, support near $12.50",
+  "coinversa": "not applicable (thin market)"
+}
+```
+
+---
+### 2026-10-15T19:03:10.133Z — SUI/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger flagged (1h -1.80%, 4h -2.15%, both below 6%). RSI 46.2. 4h SMA still bearish. News: SUI down ~3.5% amid market-wide risk-off flush, no confirmed current price. Coinversa cohort data not applicable (thin Hyperliquid market). No qualifying long entry setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -1.8,
+    "pct_change_4h_48h": -2.15
+  },
+  "rsi_14_4h": 46.16,
+  "sma_4h_crossover": {
+    "state": "fast_below_slow"
+  },
+  "volume_ratio": 0.58,
+  "news": "broad market-wide risk-off flush",
+  "coinversa": "not applicable (thin market)"
+}
+```
+
+---
+### 2026-10-15T19:03:10.151Z — LTC/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger flagged (1h -2.48%, 4h -2.14%, both below 6%). RSI 46.2. 4h SMA still bearish. News: LTC ~$60 (USD), up ~1.05% intraday per one source. Coinversa cohort data not applicable (thin Hyperliquid market). No qualifying long entry setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -2.48,
+    "pct_change_4h_48h": -2.14
+  },
+  "rsi_14_4h": 46.17,
+  "sma_4h_crossover": {
+    "state": "fast_below_slow"
+  },
+  "volume_ratio": 0.89,
+  "news": "broad market-wide decline, slight intraday uptick reported",
+  "coinversa": "not applicable (thin market)"
+}
+```
+
+---
