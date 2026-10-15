@@ -88415,3 +88415,187 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-10-15T23:02:46.430Z — BTC/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger flagged (1h -0.94%, 4h -1.07%, both below 6%). RSI 47.2. 4h SMA still bearish. News: BTC ~$80-82K (USD), CPI-driven selloff, ~$331M liquidations, support near $80K. Coinversa Sharps cohort: Strong Long (0.33, informational only). No qualifying long entry setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -0.94,
+    "pct_change_4h_48h": -1.07
+  },
+  "rsi_14_4h": 47.23,
+  "sma_4h_crossover": {
+    "state": "fast_below_slow"
+  },
+  "volume_ratio": 1.35,
+  "news": "CPI-driven selloff, support near $80K",
+  "coinversa_sharps_bias": 0.33
+}
+```
+
+---
+### 2026-10-15T23:02:46.450Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger flagged (1h -1.85%, 4h -1.95%, both below 6%). RSI 46.5. 4h SMA still bearish. News: ETH ~$2,365-2,400 (USD), ETF outflow $129.5M (3rd largest of October). Coinversa Sharps cohort: Long (0.28, informational only). No qualifying long entry setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -1.85,
+    "pct_change_4h_48h": -1.95
+  },
+  "rsi_14_4h": 46.47,
+  "sma_4h_crossover": {
+    "state": "fast_below_slow"
+  },
+  "volume_ratio": 1.12,
+  "news": "CPI-driven selloff, ETF outflow $129.5M",
+  "coinversa_sharps_bias": 0.28
+}
+```
+
+---
+### 2026-10-15T23:02:46.474Z — SOL/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger flagged (1h -1.03%, 4h -0.86%, both below 6%). RSI 46.2. 4h SMA still bearish. News: SOL ~$101-102 (USD), 8th consecutive day of ETF outflows. Coinversa Sharps cohort: Strong Long (0.72, informational only). No qualifying long entry setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -1.03,
+    "pct_change_4h_48h": -0.86
+  },
+  "rsi_14_4h": 46.2,
+  "sma_4h_crossover": {
+    "state": "fast_below_slow"
+  },
+  "volume_ratio": 0.89,
+  "news": "SOL ETF 8-day outflow streak",
+  "coinversa_sharps_bias": 0.72
+}
+```
+
+---
+### 2026-10-15T23:02:46.491Z — XRP/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger flagged (1h -2.05%, 4h -1.71%, both below 6%). RSI 44.7. 4h SMA still bearish. News: XRP ~$1.30 (USD), ETFs the only ones in green today, barely. Coinversa Sharps cohort: Long (0.24, informational only). No qualifying long entry setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -2.05,
+    "pct_change_4h_48h": -1.71
+  },
+  "rsi_14_4h": 44.68,
+  "sma_4h_crossover": {
+    "state": "fast_below_slow"
+  },
+  "volume_ratio": 1.04,
+  "news": "XRP ETFs only ones in green, barely",
+  "coinversa_sharps_bias": 0.24
+}
+```
+
+---
+### 2026-10-15T23:02:46.508Z — ADA/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger flagged (1h -2.34%, 4h -2.05%, both below 6%). RSI 45.1. 4h SMA still bearish. News: ADA ~$0.22 (USD), down ~3% tied to whale selling and network activity drop. Coinversa cohort data not applicable (thin Hyperliquid market). No qualifying long entry setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -2.34,
+    "pct_change_4h_48h": -2.05
+  },
+  "rsi_14_4h": 45.09,
+  "sma_4h_crossover": {
+    "state": "fast_below_slow"
+  },
+  "volume_ratio": 0.45,
+  "news": "whale selling, network activity drop",
+  "coinversa": "not applicable (thin market)"
+}
+```
+
+---
+### 2026-10-15T23:02:46.526Z — LINK/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger flagged (1h -2.99%, 4h -2.73%, both below 6%). RSI 45.4. 4h SMA still bearish. News: LINK ~$12-13 (USD), rebounding toward $13 after retreating from late-September peak, Open USD adopted Chainlink as official data oracle. Coinversa cohort data not applicable (thin Hyperliquid market). No qualifying long entry setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -2.99,
+    "pct_change_4h_48h": -2.73
+  },
+  "rsi_14_4h": 45.37,
+  "sma_4h_crossover": {
+    "state": "fast_below_slow"
+  },
+  "volume_ratio": 1.09,
+  "news": "rebounding toward $13, Open USD adopted Chainlink as oracle",
+  "coinversa": "not applicable (thin market)"
+}
+```
+
+---
+### 2026-10-15T23:02:46.548Z — SUI/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger flagged (1h -1.04%, 4h -1.32%, both below 6%). RSI 46.8. 4h SMA still bearish. News: SUI ~$0.99 (USD) per one source, down ~3.5% amid market-wide risk-off flush. Coinversa cohort data not applicable (thin Hyperliquid market). No qualifying long entry setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -1.04,
+    "pct_change_4h_48h": -1.32
+  },
+  "rsi_14_4h": 46.8,
+  "sma_4h_crossover": {
+    "state": "fast_below_slow"
+  },
+  "volume_ratio": 0.58,
+  "news": "broad market-wide risk-off flush",
+  "coinversa": "not applicable (thin market)"
+}
+```
+
+---
+### 2026-10-15T23:02:46.566Z — LTC/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger flagged (1h -0.81%, 4h -1.14%, both below 6%). RSI 45.7. 4h SMA still bearish. News: LTC testing ~$62 support per one unconfirmed/promotional source. Coinversa cohort data not applicable (thin Hyperliquid market). No qualifying long entry setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -0.81,
+    "pct_change_4h_48h": -1.14
+  },
+  "rsi_14_4h": 45.7,
+  "sma_4h_crossover": {
+    "state": "fast_below_slow"
+  },
+  "volume_ratio": 0.89,
+  "news": "unconfirmed $62 support test, broad market stable",
+  "coinversa": "not applicable (thin market)"
+}
+```
+
+---
