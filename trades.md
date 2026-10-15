@@ -87127,3 +87127,187 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-10-15T16:05:44.568Z — BTC/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger flagged (1h -1.26%, 4h -1.08%, both below 6%). Market continuing to recover - RSI now 48.2, back near neutral. 4h SMA still bearish but moderating. News: BTC ~$80-82K (USD), hot CPI driving broader risk-off, support near $81K. Coinversa Sharps cohort: Strong Long (0.33, informational only). No qualifying long entry setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -1.26,
+    "pct_change_4h_48h": -1.08
+  },
+  "rsi_14_4h": 48.22,
+  "sma_4h_crossover": {
+    "state": "fast_below_slow"
+  },
+  "volume_ratio": 1.35,
+  "news": "CPI-driven selloff continuing to moderate, support near $81K",
+  "coinversa_sharps_bias": 0.33
+}
+```
+
+---
+### 2026-10-15T16:05:44.591Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger flagged (1h -2.98%, 4h -2.74%, both below 6%). Market recovering - RSI now 44.9. 4h SMA still bearish. News: ETH ~$2,365-2,400 (USD), down ~5-6% on day, ETF outflows ~$129.5M (3rd largest of October). Coinversa Sharps cohort: Long (0.30, informational only). No qualifying long entry setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -2.98,
+    "pct_change_4h_48h": -2.74
+  },
+  "rsi_14_4h": 44.85,
+  "sma_4h_crossover": {
+    "state": "fast_below_slow"
+  },
+  "volume_ratio": 1.12,
+  "news": "CPI-driven selloff moderating, ETF outflows continuing",
+  "coinversa_sharps_bias": 0.3
+}
+```
+
+---
+### 2026-10-15T16:05:44.606Z — SOL/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger flagged (1h -1.48%, 4h -1.38%, both below 6%). Market recovering - RSI now 46.8. 4h SMA still bearish. News: SOL ~$100-102 (USD), 8th consecutive day of ETF outflows, Alpenglow upgrade due Oct 21 (slashing finality to ~150ms). Coinversa Sharps cohort: Strong Long (0.74, informational only). No qualifying long entry setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -1.48,
+    "pct_change_4h_48h": -1.38
+  },
+  "rsi_14_4h": 46.79,
+  "sma_4h_crossover": {
+    "state": "fast_below_slow"
+  },
+  "volume_ratio": 0.89,
+  "news": "CPI-driven selloff moderating, ETF outflow streak, pre-Alpenglow-upgrade",
+  "coinversa_sharps_bias": 0.74
+}
+```
+
+---
+### 2026-10-15T16:05:44.621Z — XRP/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger flagged (1h -2.27%, 4h -2.42%, both below 6%). Market recovering - RSI now 43.5. 4h SMA still bearish. News: XRP ~$1.30-1.31 (USD), small ETF inflow but smallest of October, CLARITY Act progress mixed (cleared Senate Banking Committee but reportedly stalled in Senate). Coinversa Sharps cohort: Long (0.25, informational only). No qualifying long entry setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -2.27,
+    "pct_change_4h_48h": -2.42
+  },
+  "rsi_14_4h": 43.48,
+  "sma_4h_crossover": {
+    "state": "fast_below_slow"
+  },
+  "volume_ratio": 1.04,
+  "news": "CPI-driven selloff moderating, small ETF inflow, mixed CLARITY Act news",
+  "coinversa_sharps_bias": 0.25
+}
+```
+
+---
+### 2026-10-15T16:05:44.635Z — ADA/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger flagged (1h -2.17%, 4h -2.61%, both below 6%). Market recovering - RSI now 44.8. 4h SMA still bearish. News: ADA ~$0.22 (USD), fell harder than Bitcoin, testing rising channel support. Coinversa cohort data not applicable (thin Hyperliquid market). No qualifying long entry setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -2.17,
+    "pct_change_4h_48h": -2.61
+  },
+  "rsi_14_4h": 44.84,
+  "sma_4h_crossover": {
+    "state": "fast_below_slow"
+  },
+  "volume_ratio": 0.45,
+  "news": "broad market decline moderating, fell harder than BTC",
+  "coinversa": "not applicable (thin market)"
+}
+```
+
+---
+### 2026-10-15T16:05:44.649Z — LINK/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger flagged (1h -2.79%, 4h -2.74%, both below 6%). Market recovering - RSI now 46.2. 4h SMA still bearish. News: LINK ~$12-12.4 (USD), down ~7% tied to Stellar RWA network launch news. Coinversa cohort data not applicable (thin Hyperliquid market). No qualifying long entry setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -2.79,
+    "pct_change_4h_48h": -2.74
+  },
+  "rsi_14_4h": 46.22,
+  "sma_4h_crossover": {
+    "state": "fast_below_slow"
+  },
+  "volume_ratio": 1.09,
+  "news": "decline moderating, tied to Stellar RWA network launch news",
+  "coinversa": "not applicable (thin market)"
+}
+```
+
+---
+### 2026-10-15T16:05:44.662Z — SUI/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger flagged (1h -1.62%, 4h -2.15%, both below 6%). Market recovering - RSI now 46.2. 4h SMA still bearish. News: SUI down ~3.5% amid market-wide risk-off flush, no confirmed current price found. Coinversa cohort data not applicable (thin Hyperliquid market). No qualifying long entry setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -1.62,
+    "pct_change_4h_48h": -2.15
+  },
+  "rsi_14_4h": 46.16,
+  "sma_4h_crossover": {
+    "state": "fast_below_slow"
+  },
+  "volume_ratio": 0.58,
+  "news": "broad market-wide risk-off flush moderating",
+  "coinversa": "not applicable (thin market)"
+}
+```
+
+---
+### 2026-10-15T16:05:44.675Z — LTC/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger flagged (1h -1.44%, 4h -2.14%, both below 6%). Market recovering - RSI now 46.2. 4h SMA still bearish. News: LTC ~$60 (USD), up 0.44% intraday per one source, still far below record high. Coinversa cohort data not applicable (thin Hyperliquid market). No qualifying long entry setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -1.44,
+    "pct_change_4h_48h": -2.14
+  },
+  "rsi_14_4h": 46.17,
+  "sma_4h_crossover": {
+    "state": "fast_below_slow"
+  },
+  "volume_ratio": 0.89,
+  "news": "broad market-wide decline moderating, slight intraday uptick reported",
+  "coinversa": "not applicable (thin market)"
+}
+```
+
+---
