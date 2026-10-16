@@ -89524,3 +89524,188 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-10-16T05:03:24.437Z — BTC/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger flagged (1h -1.81%, 4h -2.09%, both below 6%). RSI 44.1. 4h SMA still bearish. News: BTC ~$81-82K (USD), CPI-driven selloff then rebound, large holders reportedly rebuilding positions at lower prices, ETF outflows $261M over the week. Coinversa Sharps cohort: Strong Long (0.32, informational only). No qualifying long entry setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -1.81,
+    "pct_change_4h_48h": -2.09
+  },
+  "rsi_14_4h": 44.07,
+  "sma_4h_crossover": {
+    "state": "fast_below_slow"
+  },
+  "volume_ratio": 1.63,
+  "news": "CPI-driven selloff then rebound, large holders rebuilding per on-chain data",
+  "coinversa_sharps_bias": 0.32
+}
+```
+
+---
+### 2026-10-16T05:03:24.457Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger flagged (1h -2.59%, 4h -3.21%, both below 6%). RSI 43.6. 4h SMA still bearish. News: ETH ~$2,430-2,520 (USD) per some sources reporting a bounce, ETF outflow ~$130M. Coinversa Sharps cohort: Long (0.26, informational only). No qualifying long entry setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -2.59,
+    "pct_change_4h_48h": -3.21
+  },
+  "rsi_14_4h": 43.62,
+  "sma_4h_crossover": {
+    "state": "fast_below_slow"
+  },
+  "volume_ratio": 1.74,
+  "news": "reported bounce to $2,430-2,520, ETF outflow ~$130M",
+  "coinversa_sharps_bias": 0.26
+}
+```
+
+---
+### 2026-10-16T05:03:24.494Z — SOL/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger flagged (1h -1.62%, 4h -2.38%, both below 6%). RSI 43.4. 4h SMA still bearish. News: SOL ~$104-105 (USD), analyst sentiment most bullish of the group per CryptoQuant, minor ETF outflows. Coinversa Sharps cohort: Strong Long (0.72, informational only). No qualifying long entry setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -1.62,
+    "pct_change_4h_48h": -2.38
+  },
+  "rsi_14_4h": 43.39,
+  "sma_4h_crossover": {
+    "state": "fast_below_slow"
+  },
+  "volume_ratio": 1.5,
+  "news": "bullish analyst sentiment per CryptoQuant, minor ETF outflows",
+  "coinversa_sharps_bias": 0.72
+}
+```
+
+---
+### 2026-10-16T05:03:24.516Z — XRP/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger flagged (1h -2.35%, 4h -3.26%, both below 6%). RSI 41.0. 4h SMA still bearish. News: XRP ~$1.33 (USD), slipping back from $1.40, small ETF inflow bright spot. Coinversa Sharps cohort: Long (0.26, informational only). No qualifying long entry setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -2.35,
+    "pct_change_4h_48h": -3.26
+  },
+  "rsi_14_4h": 40.99,
+  "sma_4h_crossover": {
+    "state": "fast_below_slow"
+  },
+  "volume_ratio": 1.62,
+  "news": "slipping back from $1.40, small ETF inflow",
+  "coinversa_sharps_bias": 0.26
+}
+```
+
+---
+### 2026-10-16T05:03:24.534Z — ADA/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger flagged (1h -2.37%, 4h -3.09%, both below 6%). RSI 42.4. 4h SMA still bearish. News: ADA ~$0.22 (USD), down ~3% tied to whale selling and network activity drop. Coinversa cohort data not applicable (thin Hyperliquid market). No qualifying long entry setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -2.37,
+    "pct_change_4h_48h": -3.09
+  },
+  "rsi_14_4h": 42.37,
+  "sma_4h_crossover": {
+    "state": "fast_below_slow"
+  },
+  "volume_ratio": 0.64,
+  "news": "whale selling, network activity drop",
+  "coinversa": "not applicable (thin market)"
+}
+```
+
+---
+### 2026-10-16T05:03:24.552Z — LINK/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger flagged (1h -3.33%, 4h -4.14%, both below 6%). Volume ratio 2.27x (above 2x) but price move stays below threshold. RSI 42.5. 4h SMA still bearish. News: LINK ~$12-12.5 (USD), down ~6.7% and ~17.7% below late-September high (~$15.74) despite $10M ETF inflows. Coinversa cohort data not applicable (thin Hyperliquid market). No qualifying long entry setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -3.33,
+    "pct_change_4h_48h": -4.14
+  },
+  "rsi_14_4h": 42.53,
+  "sma_4h_crossover": {
+    "state": "fast_below_slow"
+  },
+  "volume_ratio": 2.27,
+  "flag_above_2x": true,
+  "news": "down 6.7%, 17.7% below late-Sept high, $10M ETF inflows",
+  "coinversa": "not applicable (thin market)"
+}
+```
+
+---
+### 2026-10-16T05:03:24.569Z — SUI/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger flagged (1h -1.35%, 4h -2.72%, both below 6%). RSI 45.3. 4h SMA still bearish. News: SUI ~$1.03 (USD) per one source, down ~5.66%; Hashi (Bitcoin-into-Sui bridge) launching with >$500M committed. Coinversa cohort data not applicable (thin Hyperliquid market). No qualifying long entry setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -1.35,
+    "pct_change_4h_48h": -2.72
+  },
+  "rsi_14_4h": 45.34,
+  "sma_4h_crossover": {
+    "state": "fast_below_slow"
+  },
+  "volume_ratio": 1.12,
+  "news": "Hashi bridge launch with >$500M committed",
+  "coinversa": "not applicable (thin market)"
+}
+```
+
+---
+### 2026-10-16T05:03:24.586Z — LTC/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger flagged (1h -1.11%, 4h -1.54%, both below 6%). RSI 47.5. 4h SMA still bearish. News: no reliable current USD price found this cycle. Coinversa cohort data not applicable (thin Hyperliquid market). No qualifying long entry setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": {
+    "flagged": false,
+    "pct_change_1h_48h": -1.11,
+    "pct_change_4h_48h": -1.54
+  },
+  "rsi_14_4h": 47.5,
+  "sma_4h_crossover": {
+    "state": "fast_below_slow"
+  },
+  "volume_ratio": 0.86,
+  "news": "no reliable current price found",
+  "coinversa": "not applicable (thin market)"
+}
+```
+
+---
