@@ -90305,3 +90305,152 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-10-16T10:02:54.692Z — BTC/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger (1h -2.30%, 4h -1.87%). 4h SMA bearish, RSI 45.2 neutral, order book ask-skewed (-0.31). Coinversa Sharps cohort long BTC (+0.32 notional) - informational only. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -2.3,
+  "pct_change_4h_48h": -1.87,
+  "rsi_14_4h": 45.24,
+  "sma_state": "fast_below_slow",
+  "volume_ratio": 1.63,
+  "order_book_imbalance": -0.308,
+  "coinversa_sharps_bias": "Strong Long (+0.318 notional)"
+}
+```
+
+---
+### 2026-10-16T10:02:54.710Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger (1h -2.83%, 4h -2.47%). 4h SMA bearish, RSI 46.3 neutral, order book ask-skewed (-0.22). Coinversa Sharps cohort long ETH (+0.27 notional) - informational only. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -2.83,
+  "pct_change_4h_48h": -2.47,
+  "rsi_14_4h": 46.31,
+  "sma_state": "fast_below_slow",
+  "volume_ratio": 1.74,
+  "order_book_imbalance": -0.22,
+  "coinversa_sharps_bias": "Long (+0.273 notional)"
+}
+```
+
+---
+### 2026-10-16T10:02:54.732Z — SOL/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger (1h -1.35%, 4h -1.19%). 4h SMA bearish, RSI 47.3 neutral, order book ask-skewed (-0.21). Coinversa Sharps cohort strongly long SOL (+0.73 notional) - informational only. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -1.35,
+  "pct_change_4h_48h": -1.19,
+  "rsi_14_4h": 47.31,
+  "sma_state": "fast_below_slow",
+  "volume_ratio": 1.5,
+  "order_book_imbalance": -0.208,
+  "coinversa_sharps_bias": "Strong Long (+0.733 notional)"
+}
+```
+
+---
+### 2026-10-16T10:02:54.748Z — XRP/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger (1h -3.27%, 4h -2.89%, largest decline in the pool but below threshold). 4h SMA bearish, RSI 43.6 neutral, order book heavily bid-skewed (+0.78) despite the decline - divergence worth noting but not a trigger. Coinversa Sharps cohort long XRP (+0.24 notional) but Apex tier strong short - mixed, informational only. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -3.27,
+  "pct_change_4h_48h": -2.89,
+  "rsi_14_4h": 43.58,
+  "sma_state": "fast_below_slow",
+  "volume_ratio": 1.62,
+  "order_book_imbalance": 0.782,
+  "coinversa_sharps_bias": "Long (+0.239 notional)"
+}
+```
+
+---
+### 2026-10-16T10:02:54.762Z — ADA/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger (1h -2.18%, 4h -2.17%). 4h SMA bearish, RSI 44.6 neutral, volume below average (0.64x). Order book ask-skewed (-0.23). No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -2.18,
+  "pct_change_4h_48h": -2.17,
+  "rsi_14_4h": 44.59,
+  "sma_state": "fast_below_slow",
+  "volume_ratio": 0.64,
+  "order_book_imbalance": -0.226
+}
+```
+
+---
+### 2026-10-16T10:02:54.776Z — LINK/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger (1h -2.53%, 4h -2.87%). Volume ratio above 2x (2.27x) confirming the decline, not a breakout - momentum_trigger is long-only and did not flag. 4h SMA bearish, RSI 46.6 neutral, order book roughly balanced. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -2.53,
+  "pct_change_4h_48h": -2.87,
+  "rsi_14_4h": 46.62,
+  "sma_state": "fast_below_slow",
+  "volume_ratio": 2.27,
+  "flag_above_2x": true,
+  "order_book_imbalance": -0.009
+}
+```
+
+---
+### 2026-10-16T10:02:54.790Z — SUI/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger (1h -1.19%, 4h -1.48%). 4h SMA bearish, RSI 48.4 neutral, order book heavily bid-skewed (+0.67). Thin Hyperliquid market for SUI - no Coinversa cohort check per instructions. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -1.19,
+  "pct_change_4h_48h": -1.48,
+  "rsi_14_4h": 48.43,
+  "sma_state": "fast_below_slow",
+  "volume_ratio": 1.12,
+  "order_book_imbalance": 0.67
+}
+```
+
+---
+### 2026-10-16T10:02:54.804Z — LTC/EUR — NO TRADE
+
+**Reasoning:** No momentum_trigger (1h -1.54%, 4h -0.97%). 4h SMA bearish, RSI 46.7 neutral, volume below average (0.86x). Order book bid-heavy (+0.27). No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -1.54,
+  "pct_change_4h_48h": -0.97,
+  "rsi_14_4h": 46.72,
+  "sma_state": "fast_below_slow",
+  "volume_ratio": 0.86,
+  "order_book_imbalance": 0.266
+}
+```
+
+---
