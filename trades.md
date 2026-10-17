@@ -94095,3 +94095,131 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-10-17T13:02:47.428Z — BTC/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger: 1h/48h +1.43%, 4h/48h -1.36%, both well under the 6% threshold. RSI 42.0 (neutral), order book skewed bearish (-0.14 imbalance). No qualifying setup this cycle.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 42,
+  "volume_ratio": 0.93,
+  "order_book_imbalance": -0.14,
+  "sma_4h": "fast_below_slow"
+}
+```
+
+---
+### 2026-10-17T13:02:47.454Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger: 1h/48h +3.52%, 4h/48h -0.60%, under 6% threshold. RSI 45.0 (neutral), order book skewed bullish (+0.15 imbalance). No qualifying setup this cycle.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 45,
+  "volume_ratio": 1.07,
+  "order_book_imbalance": 0.15,
+  "sma_4h": "fast_below_slow"
+}
+```
+
+---
+### 2026-10-17T13:02:47.490Z — SOL/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger: 1h/48h +2.31%, 4h/48h -1.66%, under 6% threshold. RSI 43.8 (neutral), order book roughly balanced (+0.09 imbalance). No qualifying setup this cycle.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 43.8,
+  "volume_ratio": 0.84,
+  "order_book_imbalance": 0.09,
+  "sma_4h": "fast_below_slow"
+}
+```
+
+---
+### 2026-10-17T13:02:47.512Z — XRP/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger: 1h/48h +0.28%, 4h/48h -2.76%, under 6% threshold. RSI 37.6 (neutral-weak), order book roughly balanced (-0.02 imbalance). No qualifying setup this cycle.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 37.6,
+  "volume_ratio": 0.84,
+  "order_book_imbalance": -0.02,
+  "sma_4h": "fast_below_slow"
+}
+```
+
+---
+### 2026-10-17T13:02:47.534Z — ADA/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger: 1h/48h +0.60%, 4h/48h -3.69%, under 6% threshold. RSI 37.2 (neutral-weak), volume unconfirmed (0.31x avg), order book skewed bearish (-0.59 imbalance). No qualifying setup this cycle.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 37.2,
+  "volume_ratio": 0.31,
+  "order_book_imbalance": -0.59,
+  "sma_4h": "fast_below_slow"
+}
+```
+
+---
+### 2026-10-17T13:02:47.567Z — LINK/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger: 1h/48h +1.06%, 4h/48h -3.54%, under 6% threshold. RSI 38.3 (neutral-weak), order book skewed bearish (-0.10 imbalance). No qualifying setup this cycle.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 38.3,
+  "volume_ratio": 1.03,
+  "order_book_imbalance": -0.1,
+  "sma_4h": "fast_below_slow"
+}
+```
+
+---
+### 2026-10-17T13:02:47.597Z — SUI/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger: 1h/48h +1.87%, 4h/48h -3.23%, under 6% threshold. RSI 39.0 (neutral-weak), order book skewed bullish (+0.21 imbalance). No qualifying setup this cycle.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 39,
+  "volume_ratio": 0.84,
+  "order_book_imbalance": 0.21,
+  "sma_4h": "fast_below_slow"
+}
+```
+
+---
+### 2026-10-17T13:02:47.629Z — LTC/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger: 1h/48h +1.80%, 4h/48h -1.92%, under 6% threshold. RSI 41.7 (neutral), order book roughly balanced (+0.04 imbalance). No qualifying setup this cycle.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 41.7,
+  "volume_ratio": 0.96,
+  "order_book_imbalance": 0.04,
+  "sma_4h": "fast_below_slow"
+}
+```
+
+---
