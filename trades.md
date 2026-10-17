@@ -95249,3 +95249,133 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-10-17T22:02:36.221Z — BTC/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger: 1h/48h -1.83%, 4h/48h -0.95%, both well under the 6% threshold. RSI 43.4 (neutral), order book roughly balanced (+0.08 imbalance). No qualifying setup this cycle.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 43.4,
+  "volume_ratio": 0.93,
+  "order_book_imbalance": 0.08,
+  "sma_4h": "fast_below_slow"
+}
+```
+
+---
+### 2026-10-17T22:02:36.243Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger: 1h/48h -3.35%, 4h/48h -1.15%, under 6% threshold. RSI 43.1 (neutral), order book skewed bearish (-0.14 imbalance). No qualifying setup this cycle.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 43.1,
+  "volume_ratio": 1.07,
+  "order_book_imbalance": -0.14,
+  "sma_4h": "fast_below_slow"
+}
+```
+
+---
+### 2026-10-17T22:02:36.280Z — SOL/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger: 1h/48h -3.55%, 4h/48h -1.47%, under 6% threshold. RSI 42.5 (neutral), order book skewed bearish (-0.17 imbalance). No qualifying setup this cycle.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 42.5,
+  "volume_ratio": 0.84,
+  "order_book_imbalance": -0.17,
+  "sma_4h": "fast_below_slow"
+}
+```
+
+---
+### 2026-10-17T22:02:36.297Z — XRP/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger: 1h/48h -4.04%, 4h/48h -2.68%, under 6% threshold. RSI 38.0 (neutral-weak), order book skewed bullish (+0.20 imbalance). No qualifying setup this cycle.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 38,
+  "volume_ratio": 0.84,
+  "order_book_imbalance": 0.2,
+  "sma_4h": "fast_below_slow"
+}
+```
+
+---
+### 2026-10-17T22:02:36.324Z — ADA/EUR — NO TRADE
+
+**Reasoning:** 1h magnitude -6.05% exceeds the 6% threshold, but momentum_trigger is long-only (flags upside breakouts only) - a decline of this magnitude correctly does not flag. 4h/48h -3.28%. RSI 39.2 (neutral-weak), volume unconfirmed (0.31x avg). This is a decline, not a breakout - no qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 39.2,
+  "volume_ratio": 0.31,
+  "order_book_imbalance": 0.41,
+  "sma_4h": "fast_below_slow",
+  "note": "1h magnitude exceeded 6% but direction is down; long-only trigger does not fire on declines"
+}
+```
+
+---
+### 2026-10-17T22:02:36.344Z — LINK/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger: 1h/48h -5.15%, 4h/48h -3.18%, under 6% threshold but close - long-only design means a decline cannot flag regardless. RSI 38.9 (neutral-weak), order book skewed bullish (+0.09 imbalance). No qualifying setup this cycle.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 38.9,
+  "volume_ratio": 1.03,
+  "order_book_imbalance": 0.09,
+  "sma_4h": "fast_below_slow"
+}
+```
+
+---
+### 2026-10-17T22:02:36.367Z — SUI/EUR — NO TRADE
+
+**Reasoning:** 1h magnitude -7.09% exceeds the 6% threshold (steepest decline of this session), but momentum_trigger is long-only (flags upside breakouts only) - a decline of this magnitude correctly does not flag. 4h/48h -4.40%. RSI 39.0 (neutral-weak), order book skewed bullish (+0.33 imbalance). This is a decline, not a breakout - no qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 39,
+  "volume_ratio": 0.84,
+  "order_book_imbalance": 0.33,
+  "sma_4h": "fast_below_slow",
+  "note": "1h magnitude exceeded 6% but direction is down; long-only trigger does not fire on declines"
+}
+```
+
+---
+### 2026-10-17T22:02:36.388Z — LTC/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger: 1h/48h -4.64%, 4h/48h -2.90%, under 6% threshold. RSI 41.9 (neutral), order book skewed bullish (+0.14 imbalance). No qualifying setup this cycle.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 41.9,
+  "volume_ratio": 0.96,
+  "order_book_imbalance": 0.14,
+  "sma_4h": "fast_below_slow"
+}
+```
+
+---
