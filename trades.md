@@ -97214,3 +97214,159 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-10-18T10:30:28.581Z — BTC/EUR — NO TRADE
+
+**Reasoning:** Broad 48h pullback, no momentum trigger, SMA fast below slow with no crossover, RSI neutral (45), volume well below average (0.29x). No qualifying setup. Coinversa Hyperliquid smart-money netBias +0.38 (long-leaning) but same hedging-book wallets (0x5b5d.../0xb83de...) dominate the short side across BTC/ETH/SOL/XRP/SUI/LINK, so treated as informational only, not a trigger. No reliable same-day news catalyst found (web search returned stale/conflicting results, nothing dated to this cycle).
+
+**Signals considered:**
+```json
+{
+  "price_action_1h_48h_pct": 0.13,
+  "price_action_4h_48h_pct": -0.97,
+  "rsi_14_4h": 45.04,
+  "sma_state": "fast_below_slow",
+  "volume_ratio": 0.29,
+  "order_book_imbalance": -0.015,
+  "momentum_trigger": false,
+  "coinversa_netBias": 0.38,
+  "news": "no reliable same-day catalyst found"
+}
+```
+
+---
+### 2026-10-18T10:30:28.613Z — ETH/EUR — NO TRADE
+
+**Reasoning:** Broad 48h pullback, no momentum trigger, SMA fast below slow with no crossover, RSI neutral-weak (42.5), volume roughly in-line with average (1.04x, not a confirming signal). No qualifying setup. Coinversa Hyperliquid smart-money netBias +0.36 (long-leaning) but same hedging-book wallets dominate the short side across majors, so informational only. No reliable same-day news catalyst found; search surfaced only stale items (Bitmine accumulation, Ethereum Foundation roadmap, declining blob fee revenue) none dated to this cycle.
+
+**Signals considered:**
+```json
+{
+  "price_action_1h_48h_pct": -1.43,
+  "price_action_4h_48h_pct": -2.59,
+  "rsi_14_4h": 42.52,
+  "sma_state": "fast_below_slow",
+  "volume_ratio": 1.04,
+  "order_book_imbalance": -0.193,
+  "momentum_trigger": false,
+  "coinversa_netBias": 0.36,
+  "news": "no reliable same-day catalyst found"
+}
+```
+
+---
+### 2026-10-18T10:30:28.629Z — SOL/EUR — NO TRADE
+
+**Reasoning:** Broad 48h pullback, no momentum trigger, SMA fast below slow with no crossover, RSI neutral-weak (40.97), volume well below average (0.41x). No qualifying setup. Coinversa Hyperliquid smart-money netBias +0.28 (long-leaning), informational only given the same hedging-book caveat. No reliable same-day news catalyst found; search returned only stale/undated items.
+
+**Signals considered:**
+```json
+{
+  "price_action_1h_48h_pct": -2.38,
+  "price_action_4h_48h_pct": -2.87,
+  "rsi_14_4h": 40.97,
+  "sma_state": "fast_below_slow",
+  "volume_ratio": 0.41,
+  "order_book_imbalance": -0.036,
+  "momentum_trigger": false,
+  "coinversa_netBias": 0.28,
+  "news": "no reliable same-day catalyst found"
+}
+```
+
+---
+### 2026-10-18T10:30:28.642Z — XRP/EUR — NO TRADE
+
+**Reasoning:** Broad 48h pullback, no momentum trigger, SMA fast below slow with no crossover, RSI weak (37.3), volume well below average (0.34x). No qualifying setup. Coinversa Hyperliquid smart-money netBias +0.10 (near neutral), informational only. No reliable same-day news catalyst found; search returned only stale/undated commentary on the long-resolved SEC case.
+
+**Signals considered:**
+```json
+{
+  "price_action_1h_48h_pct": -3.02,
+  "price_action_4h_48h_pct": -3.8,
+  "rsi_14_4h": 37.32,
+  "sma_state": "fast_below_slow",
+  "volume_ratio": 0.34,
+  "order_book_imbalance": -0.031,
+  "momentum_trigger": false,
+  "coinversa_netBias": 0.1,
+  "news": "no reliable same-day catalyst found"
+}
+```
+
+---
+### 2026-10-18T10:30:28.655Z — ADA/EUR — NO TRADE
+
+**Reasoning:** Broad 48h pullback, no momentum trigger, SMA fast below slow with no crossover, RSI weak (36.8), volume below average (0.51x). No qualifying setup. Coinversa Hyperliquid positioning not checked for this pair per instructions (thin market, excluded 2026-10-04). No reliable same-day news catalyst found; search returned only stale (pre-2026) items.
+
+**Signals considered:**
+```json
+{
+  "price_action_1h_48h_pct": -4.19,
+  "price_action_4h_48h_pct": -5.07,
+  "rsi_14_4h": 36.78,
+  "sma_state": "fast_below_slow",
+  "volume_ratio": 0.51,
+  "order_book_imbalance": 0.186,
+  "momentum_trigger": false,
+  "news": "no reliable same-day catalyst found"
+}
+```
+
+---
+### 2026-10-18T10:30:28.667Z — LINK/EUR — NO TRADE
+
+**Reasoning:** Broad 48h pullback, no momentum trigger, SMA fast below slow with no crossover, RSI weak (37.7), volume below average (0.45x). No qualifying setup. Coinversa positioning not checked for this pair (thin market, excluded 2026-10-04). No reliable same-day news catalyst found; search returned only stale items (Feb 2026 price level, Oct 2025 rally).
+
+**Signals considered:**
+```json
+{
+  "price_action_1h_48h_pct": -4.61,
+  "price_action_4h_48h_pct": -5.5,
+  "rsi_14_4h": 37.7,
+  "sma_state": "fast_below_slow",
+  "volume_ratio": 0.45,
+  "order_book_imbalance": 0.096,
+  "momentum_trigger": false,
+  "news": "no reliable same-day catalyst found"
+}
+```
+
+---
+### 2026-10-18T10:30:28.680Z — SUI/EUR — NO TRADE
+
+**Reasoning:** Broad 48h pullback, no momentum trigger, SMA fast below slow with no crossover, RSI weak (38.2), volume below average (0.66x). No qualifying setup. Coinversa positioning not checked for this pair (thin market, excluded 2026-10-04). No reliable same-day news catalyst found; search returned only stale items (Feb 2026 ETF listing, undated price moves).
+
+**Signals considered:**
+```json
+{
+  "price_action_1h_48h_pct": -5.19,
+  "price_action_4h_48h_pct": -6.74,
+  "rsi_14_4h": 38.2,
+  "sma_state": "fast_below_slow",
+  "volume_ratio": 0.66,
+  "order_book_imbalance": -0.138,
+  "momentum_trigger": false,
+  "news": "no reliable same-day catalyst found"
+}
+```
+
+---
+### 2026-10-18T10:30:28.697Z — LTC/EUR — NO TRADE
+
+**Reasoning:** Broad 48h pullback, no momentum trigger, SMA fast below slow with no crossover, RSI neutral-weak (41.2), volume below average (0.77x). No qualifying setup. Coinversa positioning not checked for this pair (thin market, excluded 2026-10-04). No reliable same-day news catalyst found; search returned only stale items (Feb 2025 domain-extension rally).
+
+**Signals considered:**
+```json
+{
+  "price_action_1h_48h_pct": -2.4,
+  "price_action_4h_48h_pct": -3.49,
+  "rsi_14_4h": 41.2,
+  "sma_state": "fast_below_slow",
+  "volume_ratio": 0.77,
+  "order_book_imbalance": 0.057,
+  "momentum_trigger": false,
+  "news": "no reliable same-day catalyst found"
+}
+```
+
+---
