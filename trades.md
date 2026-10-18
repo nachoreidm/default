@@ -96662,3 +96662,131 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-10-18T09:02:41.246Z — BTC/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (long-only). 1h -0.18%/4h -0.97%. RSI 45.0. sma_crossover_4h fast_below_slow. Volume thin (0.29x avg). No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 45.04,
+  "volume_ratio": 0.29,
+  "order_book_imbalance": -0.17,
+  "sma_4h": "fast_below_slow"
+}
+```
+
+---
+### 2026-10-18T09:02:41.275Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (long-only). 1h -1.45%/4h -2.59%. RSI 42.5. sma_crossover_4h fast_below_slow. Volume near average (1.04x). No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 42.52,
+  "volume_ratio": 1.04,
+  "order_book_imbalance": -0.06,
+  "sma_4h": "fast_below_slow"
+}
+```
+
+---
+### 2026-10-18T09:02:41.294Z — SOL/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (long-only). 1h -2.75%/4h -2.87%. RSI 41.0. sma_crossover_4h fast_below_slow. Volume thin (0.41x avg). No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 40.97,
+  "volume_ratio": 0.41,
+  "order_book_imbalance": 0.44,
+  "sma_4h": "fast_below_slow"
+}
+```
+
+---
+### 2026-10-18T09:02:41.313Z — XRP/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (long-only). 1h -3.25%/4h -3.80%. RSI 37.3. sma_crossover_4h fast_below_slow. Volume thin (0.34x avg). No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 37.32,
+  "volume_ratio": 0.34,
+  "order_book_imbalance": 0.34,
+  "sma_4h": "fast_below_slow"
+}
+```
+
+---
+### 2026-10-18T09:02:41.331Z — ADA/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (long-only). 1h -5.10%/4h -5.07%. RSI 36.8, approaching oversold. sma_crossover_4h fast_below_slow. Volume moderate (0.51x avg). No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 36.78,
+  "volume_ratio": 0.51,
+  "order_book_imbalance": 0.12,
+  "sma_4h": "fast_below_slow"
+}
+```
+
+---
+### 2026-10-18T09:02:41.350Z — LINK/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (long-only). 1h -5.56%/4h -5.50%, deepest mover this cycle but still short of the 6% threshold. RSI 37.7. sma_crossover_4h fast_below_slow. Volume thin (0.45x avg). No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 37.7,
+  "volume_ratio": 0.45,
+  "order_book_imbalance": 0.02,
+  "sma_4h": "fast_below_slow"
+}
+```
+
+---
+### 2026-10-18T09:02:41.368Z — SUI/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger. 1h -6.08%/4h -6.74%, both still over the 6% threshold but momentum_trigger is long-only, so this decline correctly does not flag. RSI 38.2. sma_crossover_4h fast_below_slow. Volume moderate (0.66x avg). No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 38.2,
+  "volume_ratio": 0.66,
+  "order_book_imbalance": 0.04,
+  "sma_4h": "fast_below_slow"
+}
+```
+
+---
+### 2026-10-18T09:02:41.390Z — LTC/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (long-only). 1h -2.95%/4h -3.49%. RSI 41.2. sma_crossover_4h fast_below_slow. Volume moderate (0.77x avg). No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "rsi_14_4h": 41.2,
+  "volume_ratio": 0.77,
+  "order_book_imbalance": 0.42,
+  "sma_4h": "fast_below_slow"
+}
+```
+
+---
