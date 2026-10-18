@@ -97070,3 +97070,147 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-10-18T10:20:41.730Z — BTC/EUR — NO TRADE
+
+**Reasoning:** Broad pullback, not a setup: price -1.0% (4h/48h), RSI 45 (neutral), SMA still fast_below_slow (no bullish crossover), volume ratio 0.29x (well below confirmation), order book roughly flat. No momentum_trigger. News search found no current, dated BTC catalyst for today - nothing notable. No qualifying entry signal.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 45.04,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "volume_ratio": 0.29,
+  "momentum_trigger_flagged": false,
+  "order_book_imbalance": -0.017,
+  "pct_change_4h_48h": -0.97,
+  "news_context": "nothing notable / no dated current catalyst found"
+}
+```
+
+---
+### 2026-10-18T10:20:41.753Z — ETH/EUR — NO TRADE
+
+**Reasoning:** Downtrend: price -2.59% (4h/48h), RSI 42.5 (neutral-bearish), SMA fast_below_slow, volume ratio ~1.04x (unconfirmed, under 2x bar). No momentum_trigger flagged. News search returned only stale/undated items, nothing current for today. No qualifying entry signal.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 42.52,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "volume_ratio": 1.04,
+  "momentum_trigger_flagged": false,
+  "order_book_imbalance": 0.042,
+  "pct_change_4h_48h": -2.59,
+  "news_context": "nothing notable / no dated current catalyst found"
+}
+```
+
+---
+### 2026-10-18T10:20:41.766Z — SOL/EUR — NO TRADE
+
+**Reasoning:** Downtrend: price -2.87% (4h/48h), RSI 41 (neutral-bearish), SMA fast_below_slow, volume ratio 0.41x (well below confirmation), order book skewed negative (-0.10). No momentum_trigger. News search surfaced only old/undated items, nothing current. No qualifying entry signal.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 40.97,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "volume_ratio": 0.41,
+  "momentum_trigger_flagged": false,
+  "order_book_imbalance": -0.102,
+  "pct_change_4h_48h": -2.87,
+  "news_context": "nothing notable / no dated current catalyst found"
+}
+```
+
+---
+### 2026-10-18T10:20:41.779Z — XRP/EUR — NO TRADE
+
+**Reasoning:** Downtrend: price -3.80% (4h/48h), RSI 37.3 (bearish-leaning), SMA fast_below_slow, volume ratio 0.34x (unconfirmed). No momentum_trigger. News search returned only legal-case background/generic pages, nothing dated for today. No qualifying entry signal.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 37.32,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "volume_ratio": 0.34,
+  "momentum_trigger_flagged": false,
+  "order_book_imbalance": 0.096,
+  "pct_change_4h_48h": -3.8,
+  "news_context": "nothing notable / no dated current catalyst found"
+}
+```
+
+---
+### 2026-10-18T10:20:41.791Z — ADA/EUR — NO TRADE
+
+**Reasoning:** Downtrend: price -5.07% (4h/48h), RSI 36.8 (bearish-leaning), SMA fast_below_slow, volume ratio 0.51x (unconfirmed), order book sharply negative (-0.55, heavy ask-side skew). No momentum_trigger. News search returned only stale 2025-era items, nothing current for today. No qualifying entry signal.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 36.78,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "volume_ratio": 0.51,
+  "momentum_trigger_flagged": false,
+  "order_book_imbalance": -0.555,
+  "pct_change_4h_48h": -5.07,
+  "news_context": "nothing notable / no dated current catalyst found"
+}
+```
+
+---
+### 2026-10-18T10:20:41.804Z — LINK/EUR — NO TRADE
+
+**Reasoning:** Downtrend: price -5.50% (4h/48h), RSI 37.7 (bearish-leaning), SMA fast_below_slow, volume ratio 0.45x (unconfirmed). No momentum_trigger. News search returned only older/undated items, nothing current for today. No qualifying entry signal.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 37.7,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "volume_ratio": 0.45,
+  "momentum_trigger_flagged": false,
+  "order_book_imbalance": 0.026,
+  "pct_change_4h_48h": -5.5,
+  "news_context": "nothing notable / no dated current catalyst found"
+}
+```
+
+---
+### 2026-10-18T10:20:41.817Z — SUI/EUR — NO TRADE
+
+**Reasoning:** Downtrend: price -6.74% (4h/48h), RSI 38.2 (bearish-leaning), SMA fast_below_slow, volume ratio 0.66x (unconfirmed), order book skewed negative (-0.36). No momentum_trigger. News search returned only stale Feb-2026-and-earlier items with conflicting price levels, nothing current/dated for today. No qualifying entry signal.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 38.2,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "volume_ratio": 0.66,
+  "momentum_trigger_flagged": false,
+  "order_book_imbalance": -0.363,
+  "pct_change_4h_48h": -6.74,
+  "news_context": "nothing notable / no dated current catalyst found"
+}
+```
+
+---
+### 2026-10-18T10:20:41.829Z — LTC/EUR — NO TRADE
+
+**Reasoning:** Downtrend: price -3.49% (4h/48h), RSI 41.2 (neutral-bearish), SMA fast_below_slow, volume ratio 0.77x (unconfirmed). No momentum_trigger. News search returned only 2025-era items, nothing current for today. No qualifying entry signal.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 41.2,
+  "sma_crossover_4h_state": "fast_below_slow",
+  "volume_ratio": 0.77,
+  "momentum_trigger_flagged": false,
+  "order_book_imbalance": 0.169,
+  "pct_change_4h_48h": -3.49,
+  "news_context": "nothing notable / no dated current catalyst found"
+}
+```
+
+---
