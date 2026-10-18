@@ -96918,3 +96918,155 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-10-18T10:14:07.289Z — BTC/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/4h 48h changes +0.13%/-0.97%, well under 6% threshold). 4h SMA fast below slow (downtrend), RSI 45 (neutral, not oversold). Volume ratio 0.29x (well below confirmation). News search returned no dated, current Bitcoin headlines - nothing notable to act on. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 45.04,
+  "sma_state": "fast_below_slow",
+  "momentum_flagged": false,
+  "pct_change_1h_48h": 0.13,
+  "pct_change_4h_48h": -0.97,
+  "volume_ratio": 0.29,
+  "order_book_imbalance": -0.067,
+  "news": "no reliable current headlines found"
+}
+```
+
+---
+### 2026-10-18T10:14:07.316Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/4h 48h changes -1.43%/-2.59%). 4h SMA fast below slow (downtrend), RSI 42.5 (neutral). Volume ratio ~1.04x (unconfirmed, under 2x bar). News search surfaced only stale/undated items (Foundation governance, quantum-resistant research) - nothing actionable this cycle. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 42.52,
+  "sma_state": "fast_below_slow",
+  "momentum_flagged": false,
+  "pct_change_1h_48h": -1.43,
+  "pct_change_4h_48h": -2.59,
+  "volume_ratio": 1.04,
+  "order_book_imbalance": 0.196,
+  "news": "no current dated headlines found"
+}
+```
+
+---
+### 2026-10-18T10:14:07.338Z — SOL/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/4h 48h changes -2.38%/-2.87%). 4h SMA fast below slow (downtrend), RSI 41 (neutral). Volume ratio 0.41x (well below confirmation). News search returned only stale/undated items. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 40.97,
+  "sma_state": "fast_below_slow",
+  "momentum_flagged": false,
+  "pct_change_1h_48h": -2.38,
+  "pct_change_4h_48h": -2.87,
+  "volume_ratio": 0.41,
+  "order_book_imbalance": -0.148,
+  "news": "no current dated headlines found"
+}
+```
+
+---
+### 2026-10-18T10:14:07.359Z — XRP/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/4h 48h changes -3.02%/-3.80%). 4h SMA fast below slow (downtrend), RSI 37.3 (soft, not extreme oversold). Volume ratio 0.34x (well below confirmation). News search surfaced only background/legal-case context, nothing dated/actionable. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 37.32,
+  "sma_state": "fast_below_slow",
+  "momentum_flagged": false,
+  "pct_change_1h_48h": -3.02,
+  "pct_change_4h_48h": -3.8,
+  "volume_ratio": 0.34,
+  "order_book_imbalance": -0.222,
+  "news": "no current dated headlines found"
+}
+```
+
+---
+### 2026-10-18T10:14:07.378Z — ADA/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/4h 48h changes -4.19%/-5.07%). 4h SMA fast below slow (downtrend), RSI 36.8 (soft). Volume ratio 0.51x (below confirmation). News search surfaced only stale (2025-era) items. No qualifying setup - consistent with this pair's historical momentum_only losses (volume unconfirmed, no catalyst).
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 36.78,
+  "sma_state": "fast_below_slow",
+  "momentum_flagged": false,
+  "pct_change_1h_48h": -4.19,
+  "pct_change_4h_48h": -5.07,
+  "volume_ratio": 0.51,
+  "order_book_imbalance": -0.097,
+  "news": "no current dated headlines found"
+}
+```
+
+---
+### 2026-10-18T10:14:07.396Z — LINK/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/4h 48h changes -4.61%/-5.50%). 4h SMA fast below slow (downtrend), RSI 37.7 (soft). Volume ratio 0.45x (below confirmation). News search surfaced only stale (Feb-2026-era and older) items. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 37.7,
+  "sma_state": "fast_below_slow",
+  "momentum_flagged": false,
+  "pct_change_1h_48h": -4.61,
+  "pct_change_4h_48h": -5.5,
+  "volume_ratio": 0.45,
+  "order_book_imbalance": 0.066,
+  "news": "no current dated headlines found"
+}
+```
+
+---
+### 2026-10-18T10:14:07.415Z — SUI/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/4h 48h changes -5.19%/-6.74% on 4h window, close to but not past the 6% 1h/4h-window threshold used by the tool, which reported flagged:false). 4h SMA fast below slow (downtrend), RSI 38.2 (soft). Volume ratio 0.66x (below confirmation). News search surfaced only stale/undated items, no proportionate catalyst. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 38.2,
+  "sma_state": "fast_below_slow",
+  "momentum_flagged": false,
+  "pct_change_1h_48h": -5.19,
+  "pct_change_4h_48h": -6.74,
+  "volume_ratio": 0.66,
+  "order_book_imbalance": 0.075,
+  "news": "no current dated headlines found"
+}
+```
+
+---
+### 2026-10-18T10:14:07.434Z — LTC/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/4h 48h changes -2.40%/-3.49%). 4h SMA fast below slow (downtrend), RSI 41.2 (neutral). Volume ratio 0.77x (below confirmation). News search surfaced only stale (2025-era and older) items. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "rsi_14_4h": 41.2,
+  "sma_state": "fast_below_slow",
+  "momentum_flagged": false,
+  "pct_change_1h_48h": -2.4,
+  "pct_change_4h_48h": -3.49,
+  "volume_ratio": 0.77,
+  "order_book_imbalance": 0.17,
+  "news": "no current dated headlines found"
+}
+```
+
+---
