@@ -97882,3 +97882,159 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-10-18T15:03:01.286Z — BTC/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger, SMA fast below slow with no crossover, RSI neutral (49.3), volume well below average (0.29x). No qualifying setup. Coinversa netBias +0.39 (long-leaning), informational only given hedging-wallet caveat. No reliable same-day news catalyst found.
+
+**Signals considered:**
+```json
+{
+  "price_action_1h_48h_pct": -0.31,
+  "price_action_4h_48h_pct": 0.84,
+  "rsi_14_4h": 49.28,
+  "sma_state": "fast_below_slow",
+  "volume_ratio": 0.29,
+  "order_book_imbalance": -0.407,
+  "momentum_trigger": false,
+  "coinversa_netBias": 0.39,
+  "news": "no reliable same-day catalyst found"
+}
+```
+
+---
+### 2026-10-18T15:03:01.305Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger, SMA fast below slow with no crossover, RSI neutral (44.8), volume in-line with average (1.04x, not confirming). No qualifying setup. Coinversa netBias +0.37 (long-leaning), informational only. No reliable same-day news catalyst found.
+
+**Signals considered:**
+```json
+{
+  "price_action_1h_48h_pct": -2.23,
+  "price_action_4h_48h_pct": -0.56,
+  "rsi_14_4h": 44.77,
+  "sma_state": "fast_below_slow",
+  "volume_ratio": 1.04,
+  "order_book_imbalance": 0.145,
+  "momentum_trigger": false,
+  "coinversa_netBias": 0.37,
+  "news": "no reliable same-day catalyst found"
+}
+```
+
+---
+### 2026-10-18T15:03:01.325Z — SOL/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger, SMA fast below slow with no crossover, RSI neutral (44.2), volume well below average (0.41x). No qualifying setup. Coinversa netBias +0.29 (long-leaning), informational only. No reliable same-day news catalyst found.
+
+**Signals considered:**
+```json
+{
+  "price_action_1h_48h_pct": -1.56,
+  "price_action_4h_48h_pct": 0.2,
+  "rsi_14_4h": 44.24,
+  "sma_state": "fast_below_slow",
+  "volume_ratio": 0.41,
+  "order_book_imbalance": -0.2,
+  "momentum_trigger": false,
+  "coinversa_netBias": 0.29,
+  "news": "no reliable same-day catalyst found"
+}
+```
+
+---
+### 2026-10-18T15:03:01.338Z — XRP/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger, SMA fast below slow with no crossover, RSI weak (39.7), volume well below average (0.34x). Coinversa netBias +0.10 (near neutral), informational only. No reliable same-day news catalyst found.
+
+**Signals considered:**
+```json
+{
+  "price_action_1h_48h_pct": -2.49,
+  "price_action_4h_48h_pct": -0.84,
+  "rsi_14_4h": 39.75,
+  "sma_state": "fast_below_slow",
+  "volume_ratio": 0.34,
+  "order_book_imbalance": -0.01,
+  "momentum_trigger": false,
+  "coinversa_netBias": 0.1,
+  "news": "no reliable same-day catalyst found"
+}
+```
+
+---
+### 2026-10-18T15:03:01.353Z — ADA/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger, SMA fast below slow with no crossover, RSI weak (38.2), volume below average (0.51x). No qualifying setup. Coinversa positioning not checked (thin market, excluded). No reliable same-day news catalyst found.
+
+**Signals considered:**
+```json
+{
+  "price_action_1h_48h_pct": -3.57,
+  "price_action_4h_48h_pct": -1.89,
+  "rsi_14_4h": 38.16,
+  "sma_state": "fast_below_slow",
+  "volume_ratio": 0.51,
+  "order_book_imbalance": -0.13,
+  "momentum_trigger": false,
+  "news": "no reliable same-day catalyst found"
+}
+```
+
+---
+### 2026-10-18T15:03:01.365Z — LINK/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger, SMA fast below slow with no crossover, RSI weak (39.0), volume below average (0.45x). No qualifying setup. Coinversa positioning not checked (thin market, excluded). No reliable same-day news catalyst found.
+
+**Signals considered:**
+```json
+{
+  "price_action_1h_48h_pct": -4.6,
+  "price_action_4h_48h_pct": -2.64,
+  "rsi_14_4h": 39.02,
+  "sma_state": "fast_below_slow",
+  "volume_ratio": 0.45,
+  "order_book_imbalance": -0.208,
+  "momentum_trigger": false,
+  "news": "no reliable same-day catalyst found"
+}
+```
+
+---
+### 2026-10-18T15:03:01.378Z — SUI/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h -5.87%, under the 6% threshold), SMA fast below slow with no crossover, RSI weak (38.7), volume below average (0.66x). No qualifying setup. Coinversa positioning not checked (thin market, excluded). No reliable same-day news catalyst found.
+
+**Signals considered:**
+```json
+{
+  "price_action_1h_48h_pct": -5.87,
+  "price_action_4h_48h_pct": -3.89,
+  "rsi_14_4h": 38.68,
+  "sma_state": "fast_below_slow",
+  "volume_ratio": 0.66,
+  "order_book_imbalance": -0.401,
+  "momentum_trigger": false,
+  "news": "no reliable same-day catalyst found"
+}
+```
+
+---
+### 2026-10-18T15:03:01.391Z — LTC/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger, SMA fast below slow with no crossover, RSI neutral (44.1), volume below average (0.77x). No qualifying setup. Coinversa positioning not checked (thin market, excluded). No reliable same-day news catalyst found.
+
+**Signals considered:**
+```json
+{
+  "price_action_1h_48h_pct": -1.69,
+  "price_action_4h_48h_pct": -0.86,
+  "rsi_14_4h": 44.14,
+  "sma_state": "fast_below_slow",
+  "volume_ratio": 0.77,
+  "order_book_imbalance": -0.194,
+  "momentum_trigger": false,
+  "news": "no reliable same-day catalyst found"
+}
+```
+
+---
