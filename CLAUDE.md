@@ -1840,3 +1840,58 @@ the cutover took to resolve the Notion-prompt retries). Two archived
 verification sessions from the stuck-prompt attempts added modest extra
 cost, same tradeoff as Oct 11's incident - accepted knowingly rather
 than binding a session with unresolved Notion-sync risk.
+
+## Weekly cutover trigger disabled - manual-only going forward (2026-10-19)
+
+**Prompted by**: after this same day's repeated manual back-and-forth
+(2 of 3 verification sessions hit a real Notion-permission block, plus
+the user already finding the whole manual UI-click dance tiring even
+before that), the user said "i'll stop the cutover session. tired of
+manual work involved." Clarified the real tradeoff before acting on it:
+the weekly trigger exists to bound a *usage-quota* problem, not a
+dollar-cost one (this account is on a flat subscription per the
+2026-10-04 note at the top of this file - the "$X over Y hours" figures
+throughout this log are API-cost-equivalent usage-intensity proxies, not
+real spend). User initially asked whether Claude Code's context
+*compaction* feature already covers this. Checked a real session's
+`rate_limit_info` rather than guessing: `rateLimitType: "five_hour"` -
+**the account's actual quota window is a rolling 5 hours, not weekly** -
+worth correcting here since the cutover's weekly cadence was chosen for
+cost-growth-curve reasons (the original paper-branch $336.31/18h
+incident), not because it's synced to any quota-reset clock. Conceded on
+reflection: compaction *does* meaningfully address the same per-call
+token-growth problem the cutover targets (shrinks context sent per
+call, same direction as a cutover, just less completely - a fresh
+session still beats a compacted one since it starts from zero instead of
+a summary). But compaction cannot substitute for a cutover entirely,
+since two of the reasons this project cuts over are unrelated to context
+size at all: (1) the live MCP server is a long-lived Node process that
+doesn't reload code on `git pull` - confirmed directly by the SOL/EUR
+precision-bug incident, 2026-09-25 - so a code-change deploy always
+needs a literal new session regardless of context size; (2) Notion/
+Coinversa connector access is tied to session *creation time*, not
+context size (2026-10-04 "generalized pattern" entry).
+
+**Decision**: disabled the weekly cutover trigger
+(`trig_01U9hjsV4GHewJ4ie3q334xm`, `enabled: false` - not deleted, so
+re-enabling later is a one-line change) rather than deleting it. Future
+cutovers happen only when the user explicitly asks for one, or when a
+code change requires one anyway (unchanged - code deploys were always
+manual cutovers, this doesn't touch that). The underlying cost-climb
+problem itself is now **unmonitored by default** - nothing will
+proactively catch a session running long and expensive the way the
+weekly trigger used to; that tradeoff was made knowingly in exchange for
+less recurring manual overhead, not overlooked.
+
+**Also decided the same day, applies whenever a manual cutover does
+happen** (user: "keep it and handle retries yourself"): stuck/blocked
+verification sessions (`SESSION_STATUS_REQUIRES_ACTION` on a Notion
+permission) are retried automatically without asking the user each
+time - that state is directly observable via `get_session`, no need to
+ask. The user is pinged only twice per cutover, batched into one message
+at the end rather than spread across turns: the Notion-prompt
+confirmation (only for the session actually about to be bound - never
+for discarded retries), and the two UI clicks (disable old routine,
+attach connectors to new) that remain unavoidable given the platform
+constraints documented earlier in this file. See the cutover playbook
+section near the top of this file for the updated step-by-step.
