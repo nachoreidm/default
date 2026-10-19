@@ -1766,3 +1766,57 @@ cycles with no intermediate cutover) - the retries today added real but
 modest extra cost (2 archived verification sessions, each a single
 cycle) against avoiding a worse outcome (binding to a session that might
 degrade Notion sync indefinitely).
+
+## Weekly cutover 2026-10-18 - Notion prompt recurred a 5th time, real root cause found again (missed tool in "always allow")
+
+Old session (`session_01QZWaKp2XxvCY1LuJwzNwT7`, bound since the Oct 11
+cutover) was at **$209.38/7 days/193 turns** when this week's cutover
+fired - another new high, continuing the established pattern that cost
+tracks session duration, not trade count.
+
+**Two fresh verification sessions in a row hit the identical Notion
+permission block** - unlike the Oct 11 incident (intermittent, never
+explained, resolved itself by the 3rd attempt with no settings change),
+this time both blocks were on the exact same `connector_uuid`
+(`df6da5e6-eb7c-46d9-9e87-98ce39fe51c8`) and the session genuinely sat in
+`SESSION_STATUS_REQUIRES_ACTION` waiting on interactive approval, not
+just a theoretical risk. Both prompted sessions had otherwise completed
+real trading-critical work cleanly (verified via commit - `fc55194` for
+the second one - before the Notion step blocked), consistent with the
+standing design that Notion sync (step 5) can never hold up real trading
+(steps 0-4).
+
+Per the "two failures in the same pattern = real, repeatable problem"
+discipline, did not attempt a third blind retry. Asked the user to
+re-check Notion's own connector settings (not the routines UI) - **this
+time the check found a real, concrete cause**: one Notion tool was not
+actually set to "always allow" (same category of root cause as
+2026-09-30's incident - a setting that looks applied "to every tool" can
+still miss one). User fixed it directly in Notion's settings. A third
+verification session, created *after* the fix, completed cleanly with no
+prompt (commit `9f57de9`), confirmed by explicit user answer ("No") to
+the standard "did a prompt appear" question - not inferred from the
+clean result alone.
+
+**Worth noting for next time this recurs**: this is now the 5th
+documented Notion-approval-prompt incident on this branch (paper branch
+2026-09-11 is the original; live branch 2026-09-25, 09-30, 10-03,
+10-04/10-11 unresolved pattern, and now this one). The "session created
+before vs. after a fix" distinction (2026-09-11 precedent) and the
+"check Notion's own settings, not just the routines UI" step
+(2026-09-30 precedent) both held up again exactly as documented - this
+project's existing playbook steps are sufficient, this was just another
+real occurrence of the same known failure mode, not a new mechanism.
+
+**Final state**: live trigger is `trig_01PUpRvKvis6BaM5D2wo1jhm` ("Kraken
+live-trading hourly monitoring"), bound to `session_01YZbxRuD6bUweQWeKS9xmaB`,
+both connectors attached and confirmed via `list_triggers`. Old trigger
+`trig_01T9NxC9X2setxuv7Hr8KXot` disabled (not deleted). Old session
+`session_01QZWaKp2XxvCY1LuJwzNwT7` archived - **$238.54 over its
+~7.6-day, 214-turn life**, a new highest-cost session for this branch,
+continuing to climb roughly in line with how long it ran unattended
+between cutovers (this one spanned the full week plus the extra hours
+the cutover took to resolve the Notion-prompt retries). Two archived
+verification sessions from the stuck-prompt attempts added modest extra
+cost, same tradeoff as Oct 11's incident - accepted knowingly rather
+than binding a session with unresolved Notion-sync risk.
