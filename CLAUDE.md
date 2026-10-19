@@ -77,7 +77,7 @@ directly rather than re-deriving it each time):
    own summary.
 3. Explicitly ask the user whether a Notion approval prompt appeared - a
    clean completed cycle is never proof by itself (established
-   2026-09-25, reconfirmed 2026-09-30 and 2026-10-03).
+   2026-09-25, reconfirmed 2026-09-30, 2026-10-03, and 2026-10-18).
 4. `create_trigger` a brand-new trigger (same name/cron) bound to that
    verified session - don't attempt to touch the old one's binding first.
 5. Immediately rename both triggers distinctly (old → "DISABLE THIS
@@ -96,6 +96,26 @@ It does not replace the separate, more important guardrail against
 *needing* an unplanned cutover in the first place - see "Hourly cycle
 self-initiated an unauthorized session/trigger cutover" further down for
 why the hourly cycle must never decide on its own that one is warranted.
+
+**Retries handled silently, user pinged only at the two irreducible
+points (decided 2026-10-19, user: "keep it and handle retries
+yourself")**: a verification session sitting in `SESSION_STATUS_
+REQUIRES_ACTION` (blocked on a Notion permission prompt) is directly
+observable via `get_session` - no need to ask the user about it. Archive
+it and create another retry automatically, as many times as it takes,
+without pinging the user after each one. Only two things in this whole
+sequence genuinely can't be done without the user, and both should be
+batched into one message at the end rather than asked across multiple
+back-and-forth turns:
+1. The Notion-prompt question (step 3 above) - asked exactly once, for
+   the final session that's about to actually be bound to the trigger,
+   never for intermediate retries that got discarded anyway.
+2. The two UI clicks (step 6) - disable old, attach connectors to new.
+If retries repeat the identical block many times in a row (not just
+2-3), that's still worth surfacing per the "two failures in the same
+pattern = real problem" discipline rather than retrying forever silently
+- but the bar for interrupting the user is now "this looks like a
+genuine stuck pattern," not "a single retry was needed."
 
 ## Layout
 
