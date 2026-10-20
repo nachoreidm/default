@@ -104682,3 +104682,151 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-10-20T09:03:06.051Z — BTC/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (48h change -0.70%/-0.57%, mild pullback). SMA fast_below_slow, no crossover. RSI neutral-soft at 45.0. Volume thin at 0.77x. Order book mildly negative (-0.28). Smart-money cohort net long bias +0.42 (informational only; top-short wallets are the known cross-asset hedging addresses). No reliable same-day news catalyst found.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -0.698,
+  "pct_change_4h_48h": -0.568,
+  "rsi_14_4h": 45.01,
+  "sma_state": "fast_below_slow",
+  "volume_ratio": 0.771,
+  "order_book_imbalance": -0.279,
+  "coinversa_net_bias": 0.422
+}
+```
+
+---
+### 2026-10-20T09:03:06.070Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (48h change -1.54%/-1.08%). SMA fast_below_slow, no crossover. RSI neutral-soft at 44.2. Volume thin at 0.50x. Order book mildly positive (+0.09). Smart-money cohort net long bias +0.37 (informational only). No reliable same-day news catalyst found.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -1.544,
+  "pct_change_4h_48h": -1.082,
+  "rsi_14_4h": 44.22,
+  "sma_state": "fast_below_slow",
+  "volume_ratio": 0.496,
+  "order_book_imbalance": 0.0943,
+  "coinversa_net_bias": 0.373
+}
+```
+
+---
+### 2026-10-20T09:03:06.093Z — SOL/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (48h change +0.19%/+0.44%, essentially flat). SMA fast_below_slow, no crossover. RSI neutral at 48.4. Volume thin at 0.57x. Order book roughly balanced (-0.04). Smart-money cohort net long bias +0.34 (informational only). No reliable same-day news catalyst found.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": 0.195,
+  "pct_change_4h_48h": 0.443,
+  "rsi_14_4h": 48.44,
+  "sma_state": "fast_below_slow",
+  "volume_ratio": 0.565,
+  "order_book_imbalance": -0.0373,
+  "coinversa_net_bias": 0.342
+}
+```
+
+---
+### 2026-10-20T09:03:06.109Z — XRP/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (48h change -0.33%/-0.03%, essentially flat). SMA fast_below_slow, no crossover. RSI neutral-soft at 44.7. Volume thin at 0.56x. Order book roughly balanced (-0.02). Smart-money cohort net long bias +0.19 (informational only, weakest of the four covered pairs). No reliable same-day news catalyst found.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -0.328,
+  "pct_change_4h_48h": -0.026,
+  "rsi_14_4h": 44.66,
+  "sma_state": "fast_below_slow",
+  "volume_ratio": 0.565,
+  "order_book_imbalance": -0.0202,
+  "coinversa_net_bias": 0.191
+}
+```
+
+---
+### 2026-10-20T09:03:06.127Z — ADA/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (48h change -2.68%/-1.41%, negative moves never flag the long-only momentum trigger regardless of magnitude). SMA fast_below_slow, no crossover. RSI 40.7, still the softest of all pairs. Volume thin at 0.44x. Order book mildly positive (+0.17). No reliable same-day news catalyst found. Coinversa excluded for this pair per instructions (thin Hyperliquid market).
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -2.684,
+  "pct_change_4h_48h": -1.408,
+  "rsi_14_4h": 40.66,
+  "sma_state": "fast_below_slow",
+  "volume_ratio": 0.44,
+  "order_book_imbalance": 0.175
+}
+```
+
+---
+### 2026-10-20T09:03:06.144Z — LINK/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (48h change -1.20%/-0.45%). SMA fast_below_slow, no crossover. RSI neutral-soft at 44.4. Volume thin at 0.64x. Order book notably negative (-0.40). No reliable same-day news catalyst found. Coinversa excluded for this pair per instructions (thin Hyperliquid market).
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -1.204,
+  "pct_change_4h_48h": -0.449,
+  "rsi_14_4h": 44.42,
+  "sma_state": "fast_below_slow",
+  "volume_ratio": 0.641,
+  "order_book_imbalance": -0.401
+}
+```
+
+---
+### 2026-10-20T09:03:06.159Z — SUI/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (48h change -0.41%/+1.02%, mixed/flat). SMA fast_below_slow, no crossover. RSI neutral at 46.5. Volume thin at 0.71x. Order book notably positive (+0.44). No reliable same-day news catalyst found. Coinversa excluded for this pair per instructions (thin Hyperliquid market).
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -0.409,
+  "pct_change_4h_48h": 1.02,
+  "rsi_14_4h": 46.48,
+  "sma_state": "fast_below_slow",
+  "volume_ratio": 0.712,
+  "order_book_imbalance": 0.439
+}
+```
+
+---
+### 2026-10-20T09:03:06.178Z — LTC/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (48h change -0.62%/-0.02%, essentially flat). SMA fast_below_slow, no crossover. RSI neutral at 47.3. Volume slightly above average at 1.23x but well under the 2x confirmation bar. Order book mildly positive (+0.17). No reliable same-day news catalyst found. Coinversa excluded for this pair per instructions (thin Hyperliquid market).
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -0.624,
+  "pct_change_4h_48h": -0.019,
+  "rsi_14_4h": 47.3,
+  "sma_state": "fast_below_slow",
+  "volume_ratio": 1.23,
+  "order_book_imbalance": 0.171
+}
+```
+
+---
