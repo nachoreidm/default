@@ -105854,3 +105854,148 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-10-20T17:03:07.449Z — BTC/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1.92% 1h/2.07% 4h, both under 6% threshold). SMA fast_below_slow (72836 vs 73238 on 4h), no crossover. RSI_14_4h neutral-firming at 55.2. Order book mildly bid-heavy (+15.3%). News: BTC rejected at $83k resistance as bond yields rose, weak ETF demand continuing ($228.6M weekly outflow), Strategy/Strive still adding to holdings - mixed, nothing proportionate. Coinversa smart-money net bias +0.41 (informational only; same shared top-short hedging wallets present again). No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": 1.92,
+  "pct_change_4h_48h": 2.07,
+  "sma_crossover_4h": "fast_below_slow",
+  "rsi_14_4h": 55.2,
+  "order_book_imbalance": 0.153,
+  "coinversa_net_bias": 0.409,
+  "news_catalyst": "mixed, none proportionate"
+}
+```
+
+---
+### 2026-10-20T17:03:07.467Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (3.47% 1h/4.34% 4h, both under 6% threshold). SMA fast_below_slow (2142 vs 2174 on 4h), no crossover. RSI_14_4h neutral-firming at 53.9. Order book mildly bid-heavy (+11.2%). News: JPM Coin live on Ethereum remains the main story, but ETH still down ~4.2% on the week despite it; Bitmine continues accumulating, nearing 5% of supply. Mixed, nothing proportionate. Coinversa smart-money net bias +0.38 (informational only, same hedging-wallet caveat). No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": 3.47,
+  "pct_change_4h_48h": 4.34,
+  "sma_crossover_4h": "fast_below_slow",
+  "rsi_14_4h": 53.9,
+  "order_book_imbalance": 0.112,
+  "coinversa_net_bias": 0.383,
+  "news_catalyst": "mixed, none proportionate"
+}
+```
+
+---
+### 2026-10-20T17:03:07.488Z — SOL/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (4.23% 1h/4.95% 4h, closer than usual but still under 6% threshold). SMA fast_below_slow (92.70 vs 93.77 on 4h), no crossover. RSI_14_4h neutral-firming at 54.4. Order book ask-heavy (-9.3%). News: SkyAI's full SOL treasury liquidation remains the dominant overhang (shareholders disputing pricing); strong Q3 network/app-revenue growth and tokenized-stock adoption are structurally positive but not same-day catalysts. Coinversa smart-money net bias +0.33 (informational only, same hedging-wallet caveat). No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": 4.23,
+  "pct_change_4h_48h": 4.95,
+  "sma_crossover_4h": "fast_below_slow",
+  "rsi_14_4h": 54.4,
+  "order_book_imbalance": -0.093,
+  "coinversa_net_bias": 0.327,
+  "news_catalyst": "mixed, none proportionate"
+}
+```
+
+---
+### 2026-10-20T17:03:07.508Z — XRP/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (4.33% 1h/4.81% 4h, both under 6% threshold). SMA fast_below_slow (1.1563 vs 1.1814 on 4h), no crossover. RSI_14_4h neutral-firming at 54.4. Order book mildly bid-heavy (+5.0%). News mixed: whale outflows at multi-year lows and Sparkassen Germany adoption are positive, but rising exchange reserves (99th percentile) and an analyst warning of a possible drop below $1.00 after losing the 50-day average are cautionary - no proportionate catalyst. Coinversa smart-money net bias +0.20, still weakest of the four covered pairs. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": 4.33,
+  "pct_change_4h_48h": 4.81,
+  "sma_crossover_4h": "fast_below_slow",
+  "rsi_14_4h": 54.4,
+  "order_book_imbalance": 0.05,
+  "coinversa_net_bias": 0.203,
+  "news_catalyst": "mixed, none proportionate"
+}
+```
+
+---
+### 2026-10-20T17:03:07.523Z — ADA/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (3.62% 1h/4.44% 4h, both under 6% threshold). SMA fast_below_slow (0.1950 vs 0.2019 on 4h), no crossover. RSI_14_4h neutral at 49.6. News bearish-leaning: analyst still flags risk of a drop toward $0.19 after rejection at resistance, ADA down ~7-11% on the week depending on source; Hoskinson's new programming language and CIP-0113 are structural, not same-day catalysts. No Coinversa coverage (ADA excluded per instructions - thin Hyperliquid market). No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": 3.62,
+  "pct_change_4h_48h": 4.44,
+  "sma_crossover_4h": "fast_below_slow",
+  "rsi_14_4h": 49.6,
+  "news_catalyst": "bearish-leaning, none proportionate"
+}
+```
+
+---
+### 2026-10-20T17:03:07.537Z — LINK/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (4.31% 1h/5.18% 4h, closer than usual but still under 6% threshold). SMA fast_below_slow (10.684 vs 11.031 on 4h), no crossover. RSI_14_4h neutral at 51.1. Order book roughly balanced (+3.9%). News: continued exchange outflow (246,800 LINK off Binance, mild structural positive), ongoing cross-chain/ETF integrations - no proportionate catalyst. No Coinversa coverage (LINK excluded per instructions - thin Hyperliquid market). No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": 4.31,
+  "pct_change_4h_48h": 5.18,
+  "sma_crossover_4h": "fast_below_slow",
+  "rsi_14_4h": 51.1,
+  "order_book_imbalance": 0.039,
+  "news_catalyst": "mild, none proportionate"
+}
+```
+
+---
+### 2026-10-20T17:03:07.565Z — SUI/EUR — NO TRADE
+
+**Reasoning:** Momentum trigger flagged again (+6.16% 1h / +7.51% 4h, now over threshold on both timeframes), but SUI/EUR already has an open position (opened this session at 0.918, stop 0.86) - only one open position per pair is allowed (code-enforced), so this is logged as no-trade rather than attempting a second entry. Current price 0.9047 vs entry 0.918 - still essentially flat/slightly underwater, not yet at +1R. Existing position continues to be governed by portfolio_check_stops (hard stop, invalidation checks, trailing once +1R is reached).
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": true,
+  "pct_change_1h_48h": 6.16,
+  "pct_change_4h_48h": 7.51,
+  "existing_position": "already open from this session, one-per-pair rule applies",
+  "current_vs_entry": "0.9047 vs 0.918 (still slightly underwater)"
+}
+```
+
+---
+### 2026-10-20T17:03:07.577Z — LTC/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (3.68% 1h/5.18% 4h, both under 6% threshold). SMA fast_below_slow (52.69 vs 53.59 on 4h), no crossover. RSI_14_4h neutral at 51.0. Order book bid-heavy (+46.8%). News: price pinned ~$59-60, weak trading volume (41% below 30-day average), bearish MACD per one source - no proportionate catalyst identified. No Coinversa coverage (LTC excluded per instructions - thin Hyperliquid market). No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": 3.68,
+  "pct_change_4h_48h": 5.18,
+  "sma_crossover_4h": "fast_below_slow",
+  "rsi_14_4h": 51,
+  "order_book_imbalance": 0.468,
+  "news_catalyst": "none, mixed signals"
+}
+```
+
+---
