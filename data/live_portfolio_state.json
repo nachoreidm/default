@@ -799,7 +799,7 @@
     }
   ],
   "created_at": "2026-09-22T14:26:40.467Z",
-  "updated_at": "2026-10-20T15:04:40.618Z",
+  "updated_at": "2026-10-20T19:02:07.509Z",
   "pending_breakouts": {
     "LINK/EUR": {
       "breakout_time": 1791640800,
@@ -812,6 +812,12 @@
       "breakout_level": 1.25331,
       "confirmed_count": 0,
       "last_checked_time": 1791648000
+    },
+    "LTC/EUR": {
+      "breakout_time": 1792519200,
+      "breakout_level": 53.42,
+      "confirmed_count": 0,
+      "last_checked_time": 1792519200
     }
   }
 }
