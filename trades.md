@@ -105274,3 +105274,128 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-10-20T13:07:02.725Z — BTC/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (long-only, needs >=6% move on 1h or 4h 48h-window; BTC nowhere close). SMA state fast_below_slow on 4h, no crossover. RSI_14_4h in neutral band. Coinversa Hyperliquid smart-money cohort net bias mildly positive (+0.1 to +0.2 range this cycle), informational only per instructions, never a standalone trigger, and caveated by shared top-short hedging wallets appearing across BTC/ETH/SOL/XRP/SUI/LINK simultaneously. No reliable same-day news catalyst found (WebSearch results stale/undated). No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "sma_crossover_4h": "fast_below_slow",
+  "rsi_14_4h": "neutral band",
+  "coinversa_net_bias": "mildly positive, informational only",
+  "news_catalyst": "none found"
+}
+```
+
+---
+### 2026-10-20T13:07:02.753Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger - ETH essentially flat across both 1h and 4h 48h-windows this cycle. SMA fast_below_slow on 4h, no crossover. RSI_14_4h neutral. Coinversa smart-money net bias mild, same hedging-wallet caveat applies. No reliable same-day news catalyst found. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "sma_crossover_4h": "fast_below_slow",
+  "rsi_14_4h": "neutral band",
+  "coinversa_net_bias": "mild, informational only",
+  "news_catalyst": "none found"
+}
+```
+
+---
+### 2026-10-20T13:07:02.781Z — SOL/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger - mildly positive on 4h but well under the 6% threshold. SMA fast_below_slow, no crossover. RSI_14_4h neutral. Coinversa smart-money net bias mildly positive, informational only, same shared-hedging-wallet caveat. No reliable same-day news catalyst found. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "sma_crossover_4h": "fast_below_slow",
+  "rsi_14_4h": "neutral band",
+  "coinversa_net_bias": "mildly positive, informational only",
+  "news_catalyst": "none found"
+}
+```
+
+---
+### 2026-10-20T13:07:02.802Z — XRP/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger - mildly positive on 4h, well under 6% threshold. SMA fast_below_slow, no crossover. RSI_14_4h neutral. Coinversa smart-money net bias mildly positive, informational only, same shared-hedging-wallet caveat. No reliable same-day news catalyst found. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "sma_crossover_4h": "fast_below_slow",
+  "rsi_14_4h": "neutral band",
+  "coinversa_net_bias": "mildly positive, informational only",
+  "news_catalyst": "none found"
+}
+```
+
+---
+### 2026-10-20T13:07:02.823Z — ADA/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (long-only) - ADA flat to mildly negative on 1h this cycle, continuing its pattern as the softest pair by RSI. SMA fast_below_slow, no crossover. RSI_14_4h neutral but on the weak end of the band. No Coinversa coverage (ADA excluded per instructions - thin/noisy Hyperliquid market). No reliable same-day news catalyst found. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "sma_crossover_4h": "fast_below_slow",
+  "rsi_14_4h": "neutral, weak end of band",
+  "news_catalyst": "none found"
+}
+```
+
+---
+### 2026-10-20T13:07:02.843Z — LINK/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger - mildly positive on 4h, well under 6% threshold. SMA fast_below_slow, no crossover. RSI_14_4h neutral. No Coinversa coverage (LINK excluded per instructions - thin/noisy Hyperliquid market). No reliable same-day news catalyst found. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "sma_crossover_4h": "fast_below_slow",
+  "rsi_14_4h": "neutral band",
+  "news_catalyst": "none found"
+}
+```
+
+---
+### 2026-10-20T13:07:02.862Z — SUI/EUR — NO TRADE
+
+**Reasoning:** Strongest pair this cycle at +3.58% on 4h 48h-window, but still well under the 6% long-only momentum threshold, so no trigger. SMA fast_below_slow, no crossover. RSI_14_4h neutral. No Coinversa coverage (SUI excluded per instructions - thin/noisy Hyperliquid market). No reliable same-day news catalyst found. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "four_h_48h_change_pct": 3.58,
+  "sma_crossover_4h": "fast_below_slow",
+  "rsi_14_4h": "neutral band",
+  "news_catalyst": "none found"
+}
+```
+
+---
+### 2026-10-20T13:07:02.881Z — LTC/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger - mildly positive on 4h, well under 6% threshold. SMA fast_below_slow, no crossover. RSI_14_4h neutral. No Coinversa coverage (LTC excluded per instructions - thin/noisy Hyperliquid market). No reliable same-day news catalyst found. No trade.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "sma_crossover_4h": "fast_below_slow",
+  "rsi_14_4h": "neutral band",
+  "news_catalyst": "none found"
+}
+```
+
+---
