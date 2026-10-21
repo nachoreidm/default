@@ -11,7 +11,7 @@
       "initial_stop_loss": 0.86,
       "take_profit": 1.0340000000000003,
       "trailing_active": false,
-      "peak_price": 0.9365,
+      "peak_price": 0.9391,
       "size_pct": 1.972079037800686,
       "size_eur": 33.447411023195855,
       "quantity": 36.42715,
@@ -52,7 +52,7 @@
       "initial_stop_loss": 51.3,
       "take_profit": 60.03000000000001,
       "trailing_active": false,
-      "peak_price": 55.42,
+      "peak_price": 55.48,
       "size_pct": 2.3286082474226775,
       "size_eur": 34.83103435502341,
       "quantity": 0.64252046,
@@ -97,7 +97,7 @@
       "initial_stop_loss": 10.547,
       "take_profit": 12.795709999999996,
       "trailing_active": false,
-      "peak_price": 11.33225,
+      "peak_price": 11.3819,
       "size_pct": 1.883536748032549,
       "size_eur": 28.194934621359135,
       "quantity": 2.49585583,
@@ -890,13 +890,13 @@
     }
   ],
   "created_at": "2026-09-22T14:26:40.467Z",
-  "updated_at": "2026-10-21T18:05:03.275Z",
+  "updated_at": "2026-10-21T19:02:37.181Z",
   "pending_breakouts": {
     "XRP/EUR": {
       "breakout_time": 1792594800,
       "breakout_level": 1.223,
-      "confirmed_count": 2,
-      "last_checked_time": 1792602000
+      "confirmed_count": 3,
+      "last_checked_time": 1792605600
     }
   }
 }

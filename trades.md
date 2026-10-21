@@ -109652,3 +109652,150 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-10-21T19:03:57.620Z — BTC/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/4h 48h change 3.05%/3.24%, below 6%). RSI 68.6 elevated. News: BTC range-bound $83,000-$84,500, still hasn't closed a day above $84,000 since Oct 6; mixed institutional signals (JPMorgan bullish long-term view, BlackRock new ETF filing). Volume below average (0.89x). Order book roughly balanced (-0.04). Coinversa: Apex short (-0.20), Sharps/Grinders/Scrapers long - same split as prior cycles, no clean smart-money read given known cross-asset hedging-wallet caveat. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": 3.05,
+  "pct_change_4h_48h": 3.24,
+  "rsi_14_4h": 68.59,
+  "volume_ratio": 0.89,
+  "order_book_imbalance": -0.042,
+  "coinversa_apex_bias": "Short -0.20",
+  "coinversa_sharps_bias": "Long 0.20"
+}
+```
+
+---
+### 2026-10-21T19:03:57.650Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/4h 48h change 4.22%/4.88%). SMA fast_below_slow. RSI 65.8. News: ETH ~$2,445-$2,465, key level $2,450 daily close needed for buyers to take control; ETF outflows continue ($103M Monday vs $70M Friday); BitMine staking buys ongoing. Mixed, no clean catalyst. Volume ratio 1.2x, unconfirmed. Coinversa: Apex short (-0.14), Sharps neutral (+0.02) - no clear smart-money conviction. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": 4.22,
+  "pct_change_4h_48h": 4.88,
+  "rsi_14_4h": 65.76,
+  "volume_ratio": 1.2,
+  "order_book_imbalance": 0.244,
+  "coinversa_apex_bias": "Short -0.14",
+  "coinversa_sharps_bias": "Neutral 0.02"
+}
+```
+
+---
+### 2026-10-21T19:03:57.664Z — SOL/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/4h 48h change 3.83%/4.24%). RSI 63.6. Volume below average (0.72x). News: SOL ~$106-109, modest 2-3% daily gain, Alpenglow upgrade's price effect remains muted/limited as expected across prior cycles - commentary notes declining volume suggesting a pause rather than a clear trend. Order book skewed negative (-0.21, ask-heavy). Coinversa: Apex strong short (-0.38) vs Sharps strong long (+0.72) - same conflicting read as prior cycles. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": 3.83,
+  "pct_change_4h_48h": 4.24,
+  "rsi_14_4h": 63.65,
+  "volume_ratio": 0.72,
+  "order_book_imbalance": -0.213,
+  "coinversa_apex_bias": "Strong Short -0.38",
+  "coinversa_sharps_bias": "Strong Long 0.72"
+}
+```
+
+---
+### 2026-10-21T19:03:57.677Z — ADA/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/4h 48h change 5.08%/5.63%, close to but below 6%). Volume unconfirmed (0.49x) - same caution pattern as historical ADA#1 loss. RSI 62.3. News mixed: modest ~3% bounce reported, but a SuperTrend bearish flip flagged by one analyst (daily close below $0.21 could send ADA to $0.17); resistance $0.2255/$0.2394, support $0.22/$0.21. Order book negative (-0.09). No clean catalyst. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": 5.08,
+  "pct_change_4h_48h": 5.63,
+  "rsi_14_4h": 62.32,
+  "volume_ratio": 0.49,
+  "order_book_imbalance": -0.093,
+  "news": "mixed - modest bounce vs SuperTrend bearish flip warning"
+}
+```
+
+---
+### 2026-10-21T19:03:57.691Z — LINK/EUR — NO TRADE
+
+**Reasoning:** Momentum trigger flagged again (1h/4h 48h change 6.83%/6.87%) but one open position already exists on LINK/EUR (opened 16:04 UTC today) - one-per-pair rule blocks any new entry regardless of signal strength. No breakout-confirmation check needed since the pair is already excluded. Logged for completeness only.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": true,
+  "pct_change_1h_48h": 6.83,
+  "pct_change_4h_48h": 6.87,
+  "existing_position": "open since 2026-10-21 16:04 UTC",
+  "rule_applied": "one_open_position_per_pair"
+}
+```
+
+---
+### 2026-10-21T19:03:57.707Z — SUI/EUR — NO TRADE
+
+**Reasoning:** Momentum trigger flagged again (1h/4h 48h change 5.95%/6.70%) but one open position already exists on SUI/EUR - one-per-pair rule blocks any new entry regardless of signal strength. No breakout-confirmation check needed since the pair is already excluded. Logged for completeness only.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": true,
+  "pct_change_1h_48h": 5.95,
+  "pct_change_4h_48h": 6.7,
+  "existing_position": "open",
+  "rule_applied": "one_open_position_per_pair"
+}
+```
+
+---
+### 2026-10-21T19:03:57.726Z — LTC/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/4h 48h change 3.94%/4.11%). One open position already exists on LTC/EUR - one-per-pair rule would block entry regardless. News: LTC ~$61-62, modest bounce not yet confirming a trend change, futures OI fell ~4% alongside the bounce. No qualifying setup even disregarding the existing position.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": 3.94,
+  "pct_change_4h_48h": 4.11,
+  "rsi_14_4h": 63.24,
+  "volume_ratio": 1.74,
+  "existing_position": "open",
+  "rule_applied": "one_open_position_per_pair"
+}
+```
+
+---
+### 2026-10-21T19:03:57.738Z — XRP/EUR — NO TRADE
+
+**Reasoning:** Momentum trigger flagged (1h/4h 48h change 6.49%/6.10%) and the K=3 pullback-confirmation filter just reached "confirmed" (3/3) this cycle, clearing the mechanical gate for a momentum_only entry. However, passing on this one at the confidence-assessment stage given a weaker-than-usual quality profile versus the account's other recent momentum_only entries (LINK, SUI, LTC): RSI_14_4h is 70.4, the most extended of any momentum_only entry taken on this branch, exceeding even the 65-67 zone the 2026-09-30 closed-trade review identified as the specific failure signature behind ADA#1/LTC's historical losses (both entered mid-extension with no pullback). Order book is notably ask-heavy (-0.34 imbalance), unlike LINK/SUI/LTC's neutral-to-positive books at entry - a real near-term selling-pressure signal, not just noise. Volume ratio 1.76, still below the 2x confirmation bar. News is mixed-to-bearish-leaning rather than supportive: multiple sources put XRP below its 50-day/200-day EMAs, one analyst's RSI read near oversold territory (conflicting with this system's own overbought 4h RSI, itself notable), derivatives positioning still net short, and one technical view flags XRP as 'nearing a fourth correction' before any breakout. The one potentially bullish catalyst (German Sparkassen bank XRP listing, Oct 19) is already priced in and one source found its causal link to the move doubtful; the next concrete dated catalyst (XRPL network upgrade) isn't until Oct 23. Coinversa cohort bias conflicting as usual (Apex strong short -0.64, Sharps strong long +0.55) with the standing cross-asset hedging-wallet caveat, no clean smart-money read. On balance, this looks like the account's most extended, least-confirmed momentum setup yet - passing rather than forcing a trade just because the mechanical filter cleared. Breakout tracking remains confirmed/unconsumed; will reassess if conditions change next cycle.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": true,
+  "pct_change_1h_48h": 6.49,
+  "pct_change_4h_48h": 6.1,
+  "rsi_14_4h": 70.39,
+  "volume_ratio": 1.76,
+  "order_book_imbalance": -0.341,
+  "breakout_confirmation_status": "confirmed",
+  "confirmed_count": 3,
+  "coinversa_apex_bias": "Strong Short -0.64",
+  "coinversa_sharps_bias": "Strong Long 0.55",
+  "news": "mixed-to-bearish: below 50d/200d EMA, derivatives net short, 'nearing fourth correction', no imminent concrete catalyst until Oct 23 XRPL upgrade"
+}
+```
+
+---
