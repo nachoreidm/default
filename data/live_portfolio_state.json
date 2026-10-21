@@ -97,7 +97,7 @@
       "initial_stop_loss": 10.547,
       "take_profit": 12.795709999999996,
       "trailing_active": false,
-      "peak_price": 11.29657,
+      "peak_price": 11.33225,
       "size_pct": 1.883536748032549,
       "size_eur": 28.194934621359135,
       "quantity": 2.49585583,
@@ -890,13 +890,13 @@
     }
   ],
   "created_at": "2026-09-22T14:26:40.467Z",
-  "updated_at": "2026-10-21T17:02:44.342Z",
+  "updated_at": "2026-10-21T18:05:03.275Z",
   "pending_breakouts": {
     "XRP/EUR": {
       "breakout_time": 1792594800,
       "breakout_level": 1.223,
-      "confirmed_count": 1,
-      "last_checked_time": 1792598400
+      "confirmed_count": 2,
+      "last_checked_time": 1792602000
     }
   }
 }
