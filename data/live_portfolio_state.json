@@ -11,7 +11,7 @@
       "initial_stop_loss": 0.86,
       "take_profit": 1.0340000000000003,
       "trailing_active": false,
-      "peak_price": 0.9321,
+      "peak_price": 0.9361,
       "size_pct": 1.972079037800686,
       "size_eur": 33.447411023195855,
       "quantity": 36.42715,
@@ -87,6 +87,47 @@
       "status": "open",
       "entry_order_txid": "OMRGUP-VY6QT-VIHKPZ",
       "stop_order_txid": "OXE54F-BSJCF-HECZQH"
+    },
+    {
+      "id": "eaa5f604-925b-499d-adbc-9dad5edd5ad5",
+      "pair": "LINK/EUR",
+      "direction": "long",
+      "entry_price": 11.29657,
+      "stop_loss": 10.547,
+      "initial_stop_loss": 10.547,
+      "take_profit": 12.795709999999996,
+      "trailing_active": false,
+      "peak_price": 11.29657,
+      "size_pct": 1.883536748032549,
+      "size_eur": 28.194934621359135,
+      "quantity": 2.49585583,
+      "entry_fee": 0.169168,
+      "opened_at": "2026-10-21T16:04:14.308Z",
+      "signals_at_entry": {
+        "momentum_trigger": {
+          "flagged": true,
+          "pct_change_1h_48h": 5.98,
+          "pct_change_4h_48h": 6.87,
+          "threshold_pct": 6
+        },
+        "rsi_14_4h": 64.43,
+        "sma_crossover_4h": {
+          "state": "fast_below_slow",
+          "fast_value": 10.784,
+          "slow_value": 10.96
+        },
+        "volume_ratio": 0.637,
+        "order_book_imbalance_top10": 0.102,
+        "breakout_confirmation": "confirmed (K=3)",
+        "news_context": "Most sources report modest 2.5-3.6% 24h gains to ~$12.33-12.41; one unconfirmed theory ties the move to an OpenZeppelin integration reaching major asset managers, not corroborated elsewhere. No single proportionate catalyst for the full 48h-window move."
+      },
+      "invalidation": "Close below the rising 4h 20-period SMA (currently ~10.784) - would invalidate the breakout thesis this trade is based on. Stop set at the 48h swing low (10.547), just below the SMA.",
+      "confidence": "medium",
+      "confidence_reason": "Momentum trigger flagged (+5.98% 1h / +6.87% 4h, both measured over the 48h window, 4h above the 6% threshold) and confirmed via the K=3 pullback-confirmation filter - 3 consecutive closed 1h candles held above the breakout level before this entry, the same filter that in backtest rejected 3 of the account's 6 real momentum-only losers. RSI_14_4h at 64.4 - elevated but below the 65-67 zone where ADA#1/LTC's prior losses entered deep into their moves, so not as extended as those failure cases. Volume ratio 0.64, below the 2x confirmation bar (a known risk factor shared with past losers) - the one meaningful caution flag on this entry. Order book mildly bid-heavy (+10.2%). News search found only modest reported 24h gains (2.5-3.6%) across most sources, well below this system's own 48h-window reading - one source floated an unconfirmed OpenZeppelin-integration catalyst (reaching BlackRock/WisdomTree/Franklin Templeton tooling) not corroborated elsewhere, so treated as advisory only, not a fundamental driver - this is momentum/technical only, capped at medium confidence per the momentum_only rule. No Coinversa coverage for LINK (excluded per instructions as a thin Hyperliquid market).",
+      "momentum_only": true,
+      "status": "open",
+      "entry_order_txid": "OBSDHR-YWJQJ-JPRPLD",
+      "stop_order_txid": "ODV72M-FLTUI-2OYIRR"
     }
   ],
   "closed_positions": [
@@ -841,16 +882,21 @@
       "date": "2026-10-20",
       "realized_pnl_eur": 0,
       "halted": false
+    },
+    {
+      "date": "2026-10-21",
+      "realized_pnl_eur": 0,
+      "halted": false
     }
   ],
   "created_at": "2026-09-22T14:26:40.467Z",
-  "updated_at": "2026-10-21T15:02:56.941Z",
+  "updated_at": "2026-10-21T16:04:14.308Z",
   "pending_breakouts": {
-    "LINK/EUR": {
-      "breakout_time": 1791640800,
-      "breakout_level": 11.64016,
-      "confirmed_count": 2,
-      "last_checked_time": 1791648000
+    "XRP/EUR": {
+      "breakout_time": 1792594800,
+      "breakout_level": 1.223,
+      "confirmed_count": 0,
+      "last_checked_time": 1792594800
     }
   }
 }
