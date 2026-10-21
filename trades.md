@@ -110251,3 +110251,155 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-10-21T23:03:14.454Z — BTC/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/4h 48h change 2.96%/2.97%). RSI 67.0. News: BTC rebounded on tech-stock rally, one late-day snapshot near $84,700 (+2%), day range ~$82,567-$84,808. Volume below average (0.89x). Order book flat (-0.01). Coinversa: Apex short (-0.21), Sharps/Grinders/Scrapers long - same split, no clean smart-money read. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": 2.96,
+  "pct_change_4h_48h": 2.97,
+  "rsi_14_4h": 67.03,
+  "volume_ratio": 0.89,
+  "order_book_imbalance": -0.006,
+  "coinversa_apex_bias": "Short -0.21",
+  "coinversa_sharps_bias": "Long 0.20"
+}
+```
+
+---
+### 2026-10-21T23:03:14.471Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/4h 48h change 3.10%/3.49%). RSI 60.8. News: ETH jumped to ~$2,444-2,460 with $27M in shorts liquidated per one report; range $2,380-2,472. Order book ask-heavy (-0.27). Volume ratio 1.2x. Coinversa: Apex short (-0.14), Sharps neutral (+0.07). No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": 3.1,
+  "pct_change_4h_48h": 3.49,
+  "rsi_14_4h": 60.82,
+  "volume_ratio": 1.2,
+  "order_book_imbalance": -0.268,
+  "coinversa_apex_bias": "Short -0.14",
+  "coinversa_sharps_bias": "Neutral 0.07"
+}
+```
+
+---
+### 2026-10-21T23:03:14.495Z — SOL/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/4h 48h change 2.24%/3.01%). RSI 62.3. Order book negative (-0.22). News: SOL ~$106-109, Alpenglow upgrade effect still muted. Volume below average (0.72x). Coinversa: Apex strong short (-0.38) vs Sharps strong long (+0.72) - same conflicting read as every cycle. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": 2.24,
+  "pct_change_4h_48h": 3.01,
+  "rsi_14_4h": 62.31,
+  "volume_ratio": 0.72,
+  "order_book_imbalance": -0.215,
+  "coinversa_apex_bias": "Strong Short -0.38",
+  "coinversa_sharps_bias": "Strong Long 0.72"
+}
+```
+
+---
+### 2026-10-21T23:03:14.509Z — ADA/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/4h 48h change 3.81%/4.47%). Volume unconfirmed (0.49x). RSI 59.6. News: ADA ~$0.22-0.23, narrow range, no fresh catalyst. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": 3.81,
+  "pct_change_4h_48h": 4.47,
+  "rsi_14_4h": 59.58,
+  "volume_ratio": 0.49,
+  "order_book_imbalance": -0.021,
+  "news": "narrow range, no fresh catalyst"
+}
+```
+
+---
+### 2026-10-21T23:03:14.522Z — LINK/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/4h 48h change 4.22%/5.12%). One open position already exists on LINK/EUR - one-per-pair rule would block entry regardless. No qualifying setup even disregarding the existing position.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": 4.22,
+  "pct_change_4h_48h": 5.12,
+  "rsi_14_4h": 63.61,
+  "volume_ratio": 0.64,
+  "existing_position": "open",
+  "rule_applied": "one_open_position_per_pair"
+}
+```
+
+---
+### 2026-10-21T23:03:14.536Z — SUI/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/4h 48h change 3.39%/4.20%). One open position already exists on SUI/EUR - one-per-pair rule would block entry regardless. No qualifying setup even disregarding the existing position.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": 3.39,
+  "pct_change_4h_48h": 4.2,
+  "rsi_14_4h": 59.23,
+  "volume_ratio": 0.88,
+  "existing_position": "open",
+  "rule_applied": "one_open_position_per_pair"
+}
+```
+
+---
+### 2026-10-21T23:03:14.549Z — LTC/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/4h 48h change 3.08%/3.68%). One open position already exists on LTC/EUR - one-per-pair rule would block entry regardless. No qualifying setup even disregarding the existing position.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": 3.08,
+  "pct_change_4h_48h": 3.68,
+  "rsi_14_4h": 62,
+  "volume_ratio": 1.74,
+  "existing_position": "open",
+  "rule_applied": "one_open_position_per_pair"
+}
+```
+
+---
+### 2026-10-21T23:03:14.561Z — XRP/EUR — NO TRADE
+
+**Reasoning:** Momentum trigger flagged again (1h/4h 48h change 5.07%/6.38%) and the K=3 breakout confirmation remains "confirmed" (unconsumed for a 5th consecutive cycle now), clearing the mechanical gate again. The setup weakened further this cycle rather than improving: price actually fell versus the last two cycles (€1.220 now vs €1.227 then €1.232), order book deteriorated back to sharply ask-heavy (-0.55, worse than last cycle's -0.21), and RSI_14_4h remains unchanged at 71.8, still the most extended reading on this branch. News continues the same mixed-to-bearish framing seen all evening: one source frames XRP as "gathering upside momentum" while simultaneously noting it "holds below the 50-day and 200-day EMAs, keeping the near-term bias bearish." Coinversa cohort bias unchanged (Apex strong short -0.64, Sharps strong long +0.54, same hedging-wallet caveat). Continuing to pass - the setup has had five consecutive cycles to improve and instead degraded this cycle. Breakout tracking remains confirmed/unconsumed.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": true,
+  "pct_change_1h_48h": 5.07,
+  "pct_change_4h_48h": 6.38,
+  "rsi_14_4h": 71.82,
+  "volume_ratio": 1.76,
+  "order_book_imbalance": -0.547,
+  "breakout_confirmation_status": "confirmed",
+  "confirmed_count": 3,
+  "cycles_unconsumed": 5,
+  "coinversa_apex_bias": "Strong Short -0.64",
+  "coinversa_sharps_bias": "Strong Long 0.54",
+  "news": "mixed: 'gathering upside momentum' yet 'bias remains bearish below 50d/200d EMA'"
+}
+```
+
+---
