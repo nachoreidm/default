@@ -111605,3 +111605,150 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-10-22T08:03:33.506Z — BTC/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/4h 48h change 0.79%/0.71%). RSI 45.9. News: BTC ~$82,000-$84,800, gave back its run at $85,000 per one headline, Tesla/Meta earnings failing to calm AI-trade nerves, Middle East worries resurfacing. Order book negative (-0.40). Volume near average (1.05x). Coinversa: Apex short (-0.26), Sharps strong long (+0.28) - no clean smart-money read. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": 0.79,
+  "pct_change_4h_48h": 0.71,
+  "rsi_14_4h": 45.86,
+  "volume_ratio": 1.05,
+  "order_book_imbalance": -0.402,
+  "coinversa_apex_bias": "Short -0.26",
+  "coinversa_sharps_bias": "Strong Long 0.28"
+}
+```
+
+---
+### 2026-10-22T08:03:33.535Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/4h 48h change 1.78%/1.69%). RSI 47.6. News: ETH ~$2,440-2,510, a major exploiter reportedly moved $61M more in stolen ETH to Tornado Cash. Order book positive (+0.22). Volume below average (0.73x). Coinversa: Apex short (-0.14), Sharps neutral (+0.07). No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": 1.78,
+  "pct_change_4h_48h": 1.69,
+  "rsi_14_4h": 47.56,
+  "volume_ratio": 0.73,
+  "order_book_imbalance": 0.219,
+  "coinversa_apex_bias": "Short -0.14",
+  "coinversa_sharps_bias": "Neutral 0.07"
+}
+```
+
+---
+### 2026-10-22T08:03:33.554Z — SOL/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/4h 48h change 0.21%/0.11%, very narrow). RSI 44.4. News: SOL ~$105-108, SOL ETF outflows 12 straight days, RSI around 40-44 suggesting sellers losing strength without buyers taking control. Order book positive (+0.15). Volume below average (0.79x). Coinversa: Apex strong short (-0.36) vs Sharps strong long (+0.73) - same conflicting read. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": 0.21,
+  "pct_change_4h_48h": 0.11,
+  "rsi_14_4h": 44.42,
+  "volume_ratio": 0.79,
+  "order_book_imbalance": 0.151,
+  "coinversa_apex_bias": "Strong Short -0.36",
+  "coinversa_sharps_bias": "Strong Long 0.73"
+}
+```
+
+---
+### 2026-10-22T08:03:33.597Z — XRP/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/4h 48h change 3.43%/3.07%). RSI 52.2. News: XRP ~$1.33-1.38, Binance whale outflows at 5yr low while exchange inflows hit 7-month high (mixed signal), still below 50d/200d EMAs, XRPL amendment pending Oct 23. Order book roughly balanced (+0.07). Coinversa: Apex strong short (-0.58), Sharps strong long (+0.52) - same conflicting read. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": 3.43,
+  "pct_change_4h_48h": 3.07,
+  "rsi_14_4h": 52.15,
+  "volume_ratio": 1.65,
+  "order_book_imbalance": 0.069,
+  "coinversa_apex_bias": "Strong Short -0.58",
+  "coinversa_sharps_bias": "Strong Long 0.52"
+}
+```
+
+---
+### 2026-10-22T08:03:33.620Z — ADA/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/4h 48h change 0.88%/0.37%). RSI 40.7, weakening further. Volume unconfirmed (0.69x). News: ADA ~$0.22, dipped despite Cardano co-signing an SEC commodity-status letter with other blockchain groups. Order book negative (-0.44). No clean catalyst. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": 0.88,
+  "pct_change_4h_48h": 0.37,
+  "rsi_14_4h": 40.67,
+  "volume_ratio": 0.69,
+  "order_book_imbalance": -0.435,
+  "news": "SEC letter co-signed but price dipped anyway"
+}
+```
+
+---
+### 2026-10-22T08:03:33.637Z — LINK/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/4h 48h change 2.29%/1.86%). One open position already exists on LINK/EUR - one-per-pair rule would block entry regardless. News: LINK ~$12-13, Q3 review reported $15B in CCIP cross-chain migrations plus new Swift/DTCC integrations, support ~$12 with breakdown risk to $11. No qualifying setup even disregarding the existing position.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": 2.29,
+  "pct_change_4h_48h": 1.86,
+  "rsi_14_4h": 47.06,
+  "volume_ratio": 0.94,
+  "existing_position": "open",
+  "rule_applied": "one_open_position_per_pair"
+}
+```
+
+---
+### 2026-10-22T08:03:33.654Z — SUI/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/4h 48h change 0.73%/-0.18%). One open position already exists on SUI/EUR - one-per-pair rule would block entry regardless. News: SUI ~$0.995-1.04, resistance $1.05 still intact, Hashi mainnet and Grayscale news structural rather than same-day drivers. No qualifying setup even disregarding the existing position.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": 0.73,
+  "pct_change_4h_48h": -0.18,
+  "rsi_14_4h": 43.1,
+  "volume_ratio": 1.16,
+  "existing_position": "open",
+  "rule_applied": "one_open_position_per_pair"
+}
+```
+
+---
+### 2026-10-22T08:03:33.668Z — LTC/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/4h 48h change 1.16%/1.97%). No open position. RSI 44.9, slightly below neutral. News: LTC ~$60-62, no fresh catalyst since 15th-anniversary narrative. No qualifying setup for a re-entry.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": 1.16,
+  "pct_change_4h_48h": 1.97,
+  "rsi_14_4h": 44.93,
+  "volume_ratio": 1.95,
+  "news": "no fresh catalyst"
+}
+```
+
+---
