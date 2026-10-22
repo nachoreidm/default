@@ -112741,3 +112741,143 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-10-22T16:03:59.836Z — BTC/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (-1.14%/-0.88% over 48h, continued mild pullback). RSI 43.1 neutral, SMA bullish-aligned, order book now notably negative (-0.61). Coinversa: Apex strong short, Sharps/Scrapers strong long - same recurring split. No concrete catalyst in available news. No actionable signal.
+
+**Signals considered:**
+```json
+{
+  "pct_change_1h_48h": -1.14,
+  "pct_change_4h_48h": -0.88,
+  "rsi_14_4h": 43.07,
+  "sma_state": "fast_above_slow",
+  "order_book_imbalance": -0.61,
+  "volume_ratio": 1.05,
+  "coinversa_apex_bias": -0.32,
+  "coinversa_sharps_bias": 0.32
+}
+```
+
+---
+### 2026-10-22T16:03:59.864Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (-2.02%/-1.36% over 48h). RSI 43.2 neutral, SMA barely bullish-aligned, order book mildly positive, volume below average. Coinversa: Apex short, Sharps near-neutral, lower tiers long. No concrete catalyst in available news. No actionable signal.
+
+**Signals considered:**
+```json
+{
+  "pct_change_1h_48h": -2.02,
+  "pct_change_4h_48h": -1.36,
+  "rsi_14_4h": 43.19,
+  "sma_state": "fast_above_slow",
+  "order_book_imbalance": 0.2,
+  "volume_ratio": 0.73,
+  "coinversa_apex_bias": -0.14,
+  "coinversa_sharps_bias": 0.05
+}
+```
+
+---
+### 2026-10-22T16:03:59.880Z — SOL/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (-1.55%/-1.11% over 48h). RSI 46.3 neutral, order book mildly negative. Coinversa: Apex strong short, Sharps strong long - sharp tier split, no consensus. No concrete catalyst in available news. No actionable signal.
+
+**Signals considered:**
+```json
+{
+  "pct_change_1h_48h": -1.55,
+  "pct_change_4h_48h": -1.11,
+  "rsi_14_4h": 46.28,
+  "sma_state": "fast_above_slow",
+  "order_book_imbalance": -0.17,
+  "volume_ratio": 0.79,
+  "coinversa_apex_bias": -0.36,
+  "coinversa_sharps_bias": 0.72
+}
+```
+
+---
+### 2026-10-22T16:03:59.895Z — XRP/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger - both 1h/4h windows now mildly negative, well under threshold. RSI 47.1 neutral. Volume ratio 1.65x, still below 2x confirmation bar. Order book notably negative. Coinversa: Apex strong short, Sharps/Scrapers strong long - same conflicting split. No breakout-confirmation tracking active since momentum isn't flagged. No concrete catalyst in available news. No actionable signal.
+
+**Signals considered:**
+```json
+{
+  "pct_change_1h_48h": -0.33,
+  "pct_change_4h_48h": -0.3,
+  "rsi_14_4h": 47.06,
+  "sma_state": "fast_above_slow",
+  "order_book_imbalance": -0.42,
+  "volume_ratio": 1.65,
+  "coinversa_apex_bias": -0.57,
+  "coinversa_sharps_bias": 0.52
+}
+```
+
+---
+### 2026-10-22T16:03:59.913Z — ADA/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (-4.07%/-3.22% over 48h, the largest pullback of the 8 pairs this cycle, still below the 6% threshold). RSI 36.7, SMA fast below slow (bearish-aligned), order book mildly negative. No concrete catalyst in available news. No actionable signal.
+
+**Signals considered:**
+```json
+{
+  "pct_change_1h_48h": -4.07,
+  "pct_change_4h_48h": -3.22,
+  "rsi_14_4h": 36.73,
+  "sma_state": "fast_below_slow",
+  "order_book_imbalance": -0.06,
+  "volume_ratio": 0.69
+}
+```
+
+---
+### 2026-10-22T16:03:59.929Z — LINK/EUR — NO TRADE
+
+**Reasoning:** Existing open position - one-open-position-per-pair rule applies regardless of signals. No momentum trigger flagged anyway this cycle.
+
+**Signals considered:**
+```json
+{
+  "existing_position": "open",
+  "rule_applied": "one_open_position_per_pair",
+  "pct_change_1h_48h": -2.12,
+  "pct_change_4h_48h": -1.64
+}
+```
+
+---
+### 2026-10-22T16:03:59.944Z — SUI/EUR — NO TRADE
+
+**Reasoning:** Existing open position - one-open-position-per-pair rule applies regardless of signals. No momentum trigger flagged anyway this cycle (continuing to drift lower, -3.59%/-3.58% over 48h).
+
+**Signals considered:**
+```json
+{
+  "existing_position": "open",
+  "rule_applied": "one_open_position_per_pair",
+  "pct_change_1h_48h": -3.59,
+  "pct_change_4h_48h": -3.58
+}
+```
+
+---
+### 2026-10-22T16:03:59.958Z — LTC/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (-1.87%/-2.63% over 48h). RSI 40.3 neutral, order book mildly positive, volume ratio 1.95x (just under 2x confirmation bar). No concrete catalyst in available news. No actionable signal.
+
+**Signals considered:**
+```json
+{
+  "pct_change_1h_48h": -1.87,
+  "pct_change_4h_48h": -2.63,
+  "rsi_14_4h": 40.3,
+  "sma_state": "fast_above_slow",
+  "order_book_imbalance": 0.14,
+  "volume_ratio": 1.95
+}
+```
+
+---
