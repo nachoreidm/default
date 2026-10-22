@@ -110403,3 +110403,161 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-10-22T00:02:09.768Z — LTC/EUR — LONG — CLOSED (LIVE)
+
+- Exit price: €54.73 (real fill)
+- Exit fee (real): €0.21
+- Reason: Fast invalidation close: still-profitable pre-+1R position, but the last 2 closed 1h candles (54.84,54.74) all closed below their own 1h 20-period SMA (54.8885,54.8895) - a faster reversal signal the 4h check alone would have missed. Closed early rather than risk a round-trip back to the hard stop.
+- Realized P&L: €0.12 (0.01% of portfolio)
+- Position id: cb56a6f6-1ad1-44de-9780-c9d76e0d7d4a
+
+---
+### 2026-10-22T00:03:14.360Z — BTC/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/4h 48h change 2.76%/2.38%). RSI 62.1. News: BTC ~$82,600-$84,600, consolidating ahead of Fed Oct 28; mixed ETF flows ($593M weekly outflows cited by one source). Volume near average (1.05x). Order book positive (+0.37). Coinversa: Apex short (-0.20), Sharps/Grinders/Scrapers long - same split, no clean smart-money read. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": 2.76,
+  "pct_change_4h_48h": 2.38,
+  "rsi_14_4h": 62.15,
+  "volume_ratio": 1.05,
+  "order_book_imbalance": 0.368,
+  "coinversa_apex_bias": "Short -0.20",
+  "coinversa_sharps_bias": "Long 0.20"
+}
+```
+
+---
+### 2026-10-22T00:03:14.396Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/4h 48h change 2.79%/2.38%). RSI 55.9. News: ETH ~$2,445-2,500, briefly reclaimed $2,500 then pulled back; ETF outflows have passed $1B in October per Cointelegraph. Order book negative (-0.26). Volume below average (0.73x). Coinversa: Apex short (-0.14), Sharps neutral (+0.07). No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": 2.79,
+  "pct_change_4h_48h": 2.38,
+  "rsi_14_4h": 55.93,
+  "volume_ratio": 0.73,
+  "order_book_imbalance": -0.257,
+  "coinversa_apex_bias": "Short -0.14",
+  "coinversa_sharps_bias": "Neutral 0.07"
+}
+```
+
+---
+### 2026-10-22T00:03:14.414Z — SOL/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/4h 48h change 1.93%/1.54%, cooled off considerably). RSI 54.8. News: SOL ~$105-108, Alpenglow upgrade effect remains muted, $100 the key support level, $111-114 resistance. Order book negative (-0.30). Volume below average (0.79x). Coinversa: Apex strong short (-0.38) vs Sharps strong long (+0.73) - same conflicting read. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": 1.93,
+  "pct_change_4h_48h": 1.54,
+  "rsi_14_4h": 54.83,
+  "volume_ratio": 0.79,
+  "order_book_imbalance": -0.297,
+  "coinversa_apex_bias": "Strong Short -0.38",
+  "coinversa_sharps_bias": "Strong Long 0.73"
+}
+```
+
+---
+### 2026-10-22T00:03:14.430Z — XRP/EUR — NO TRADE
+
+**Reasoning:** Momentum trigger no longer flagged this cycle (1h/4h 48h change 5.06%/4.50%, both now below 6% - cooled off after 5 consecutive cycles at "confirmed" breakout status). RSI 61.2, down sharply from 71.8 last cycle - the extension that kept this setup unattractive has eased. News: XRP ~$1.33-1.36, Europe's Sparkassen banking network now offers XRP to 50M customers, whale outflows at 5-year low, XRPL fixCleanup3_4_0 amendment approaching Oct 23, one source sees medium-term support near $1.34 supporting a possible recovery toward $1.40. Order book roughly balanced (-0.04). Coinversa: Apex strong short (-0.64), Sharps strong long (+0.54) - same conflicting read. No qualifying setup now that momentum itself isn't flagged; breakout tracking presumably resets/ages out without a flag to re-check against.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": 5.06,
+  "pct_change_4h_48h": 4.5,
+  "rsi_14_4h": 61.19,
+  "volume_ratio": 1.65,
+  "order_book_imbalance": -0.038,
+  "coinversa_apex_bias": "Strong Short -0.64",
+  "coinversa_sharps_bias": "Strong Long 0.54",
+  "news": "Sparkassen XRP rollout, whale outflows 5yr low, XRPL amendment ~Oct 23"
+}
+```
+
+---
+### 2026-10-22T00:03:14.447Z — ADA/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/4h 48h change 3.43%/2.99%). RSI 53.0. Volume unconfirmed (0.69x). News: ADA ~$0.22-0.23, bearish SuperTrend warning persists (close below $0.21 risks $0.17), one bullish Elliott Wave counter-view. No clean catalyst. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": 3.43,
+  "pct_change_4h_48h": 2.99,
+  "rsi_14_4h": 53.01,
+  "volume_ratio": 0.69,
+  "order_book_imbalance": -0.115,
+  "news": "bearish SuperTrend warning persists, one bullish counter-view"
+}
+```
+
+---
+### 2026-10-22T00:03:14.462Z — LINK/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/4h 48h change 4.03%/3.12%). One open position already exists on LINK/EUR - one-per-pair rule would block entry regardless. News: LINK ~$12.3-12.7, still below several medium-term moving averages, $12.37 support watched. No qualifying setup even disregarding the existing position.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": 4.03,
+  "pct_change_4h_48h": 3.12,
+  "rsi_14_4h": 56.18,
+  "volume_ratio": 0.94,
+  "existing_position": "open",
+  "rule_applied": "one_open_position_per_pair"
+}
+```
+
+---
+### 2026-10-22T00:03:14.483Z — SUI/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/4h 48h change 3.29%/2.53%). One open position already exists on SUI/EUR - one-per-pair rule would block entry regardless. News: SUI ~$0.99-1.05, bounce stalling beneath $1.05-1.08 resistance, Samsung Wallet USDC integration cited as structural. No qualifying setup even disregarding the existing position.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": 3.29,
+  "pct_change_4h_48h": 2.53,
+  "rsi_14_4h": 53.75,
+  "volume_ratio": 1.16,
+  "existing_position": "open",
+  "rule_applied": "one_open_position_per_pair"
+}
+```
+
+---
+### 2026-10-22T00:03:14.500Z — LTC/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/4h 48h change 3.28%/2.91%). Position was just closed this cycle via fast_invalidation (see portfolio_check_stops result) - no open position remains, but no fresh momentum signal to act on either. News: LTC ~$61-62, 15th-anniversary narrative faded, bounce earlier stalled below 20-day SMA, no new catalyst. No qualifying setup for a re-entry this cycle.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": 3.28,
+  "pct_change_4h_48h": 2.91,
+  "rsi_14_4h": 57.72,
+  "volume_ratio": 1.95,
+  "position_just_closed": "fast_invalidation, +EUR0.12",
+  "news": "no new catalyst"
+}
+```
+
+---
