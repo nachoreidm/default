@@ -111752,3 +111752,152 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-10-22T09:05:26.573Z — BTC/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/4h 48h change 0.31%/0.71%). RSI 45.9. News: BTC retreating toward $82,000 as China's CSI 300 enters bear market, Japan/Korea/HK stocks down ~3%+, Brent crude above $112/barrel - broad macro risk-off explaining the across-the-board weakness seen this cycle. ~$550M in crypto liquidations reported. Order book flat (+0.003). Volume near average (1.05x). Coinversa: Apex short (-0.26), Sharps strong long (+0.34) - no clean smart-money read. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": 0.31,
+  "pct_change_4h_48h": 0.71,
+  "rsi_14_4h": 45.86,
+  "volume_ratio": 1.05,
+  "order_book_imbalance": 0.003,
+  "coinversa_apex_bias": "Short -0.26",
+  "coinversa_sharps_bias": "Strong Long 0.34",
+  "news": "Asian stock selloff, China bear market, oil >$112, ~$550M liquidations - macro risk-off"
+}
+```
+
+---
+### 2026-10-22T09:05:26.592Z — ETH/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/4h 48h change 0.91%/1.69%). RSI 47.6. News: ETH ~$2,400-2,500, same macro risk-off backdrop as BTC; ETF outflows continuing into a second week per one source. Order book positive (+0.35). Volume below average (0.73x). Coinversa: Apex short (-0.14), Sharps neutral (+0.06). No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": 0.91,
+  "pct_change_4h_48h": 1.69,
+  "rsi_14_4h": 47.56,
+  "volume_ratio": 0.73,
+  "order_book_imbalance": 0.348,
+  "coinversa_apex_bias": "Short -0.14",
+  "coinversa_sharps_bias": "Neutral 0.06"
+}
+```
+
+---
+### 2026-10-22T09:05:26.608Z — SOL/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/4h 48h change -0.39%/0.11%). RSI 44.4. News: SOL ~$104-105, below every short/medium-term MA per one source, intraday high ~$109.20 rejected; $116 cited as the bear-market reversal trigger; SOL ETF outflows ended a 14-week inflow streak. Order book negative (-0.37). Volume below average (0.79x). Coinversa: Apex strong short (-0.35) vs Sharps strong long (+0.73) - same conflicting read. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -0.39,
+  "pct_change_4h_48h": 0.11,
+  "rsi_14_4h": 44.42,
+  "volume_ratio": 0.79,
+  "order_book_imbalance": -0.37,
+  "coinversa_apex_bias": "Strong Short -0.35",
+  "coinversa_sharps_bias": "Strong Long 0.73",
+  "news": "below all short/medium MAs, SOL ETF outflows end 14-week inflow streak"
+}
+```
+
+---
+### 2026-10-22T09:05:26.667Z — XRP/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/4h 48h change 2.53%/3.07%). RSI 52.2. News: XRP ~$1.28-1.38, mostly flat per most recent reports, down ~10.4% in October overall, bounced from a low of ~$1.255 on Oct 18; close above $1.40 could reach $1.50, miss risks drop toward $1.28. Order book roughly balanced (+0.03). Coinversa: Apex strong short (-0.56), Sharps strong long (+0.52) - same conflicting read. No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": 2.53,
+  "pct_change_4h_48h": 3.07,
+  "rsi_14_4h": 52.15,
+  "volume_ratio": 1.65,
+  "order_book_imbalance": 0.031,
+  "coinversa_apex_bias": "Strong Short -0.56",
+  "coinversa_sharps_bias": "Strong Long 0.52"
+}
+```
+
+---
+### 2026-10-22T09:05:26.685Z — ADA/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/4h 48h change -0.35%/0.37%). RSI 40.7, continuing to weaken. Volume unconfirmed (0.69x). News: ADA ~$0.21-0.22, down despite Cardano/5-others' SEC commodity-status letter; one source ties the slide to hot US CPI/PPI data (macro, consistent with the broader risk-off backdrop). Order book positive (+0.07). No qualifying setup.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -0.35,
+  "pct_change_4h_48h": 0.37,
+  "rsi_14_4h": 40.67,
+  "volume_ratio": 0.69,
+  "order_book_imbalance": 0.069,
+  "news": "hot CPI/PPI data cited as driver, consistent with broader macro risk-off"
+}
+```
+
+---
+### 2026-10-22T09:05:26.701Z — LINK/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/4h 48h change 0.78%/1.86%). One open position already exists on LINK/EUR - one-per-pair rule would block entry regardless. News: LINK ~$11.75-12.7 depending on source, Chainlink Reserve continues buying LINK with revenue but price still sliding - "keeps buying, still down" framing. No qualifying setup even disregarding the existing position.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": 0.78,
+  "pct_change_4h_48h": 1.86,
+  "rsi_14_4h": 47.06,
+  "volume_ratio": 0.94,
+  "existing_position": "open",
+  "rule_applied": "one_open_position_per_pair"
+}
+```
+
+---
+### 2026-10-22T09:05:26.719Z — SUI/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/4h 48h change -0.66%/-0.18%). One open position already exists on SUI/EUR - one-per-pair rule would block entry regardless. News: SUI back under $1 despite a reported 35% gain this month, resistance $1.05 still intact. No qualifying setup even disregarding the existing position.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": -0.66,
+  "pct_change_4h_48h": -0.18,
+  "rsi_14_4h": 43.1,
+  "volume_ratio": 1.16,
+  "existing_position": "open",
+  "rule_applied": "one_open_position_per_pair"
+}
+```
+
+---
+### 2026-10-22T09:05:26.736Z — LTC/EUR — NO TRADE
+
+**Reasoning:** No momentum trigger (1h/4h 48h change 0.29%/1.97%). No open position. RSI 44.9, slightly below neutral. News: LTC ~$60, modest decline, no coin-specific catalyst identified, down ~9.4% over the past week per one regional Coinbase page (broader altcoin rotation/macro backdrop). No qualifying setup for a re-entry.
+
+**Signals considered:**
+```json
+{
+  "momentum_trigger": false,
+  "pct_change_1h_48h": 0.29,
+  "pct_change_4h_48h": 1.97,
+  "rsi_14_4h": 44.93,
+  "volume_ratio": 1.95,
+  "news": "modest decline, no coin-specific catalyst, broader macro/altcoin rotation"
+}
+```
+
+---
