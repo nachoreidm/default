@@ -115427,3 +115427,143 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-10-23T11:07:37.183Z — BTC/EUR — NO TRADE
+
+**Reasoning:** Decline continuing: -1.88%/-2.06% (1h/4h, 48h window), below the 6% long-only momentum threshold. RSI 44.16, SMA bullish-aligned, order book negative (-0.50). News: BTC ~€73k/$81.4-81.6k, ETF outflows $635M after 3 inflow sessions, ~$406M liquidated across ~89,600 traders, Fear/Greed slid from 68 to 50, Fed decision Oct 28 ahead. No same-day actionable catalyst. No position, no action.
+
+**Signals considered:**
+```json
+{
+  "momentum_1h_pct": -1.88,
+  "momentum_4h_pct": -2.06,
+  "momentum_trigger": false,
+  "rsi_4h": 44.16,
+  "sma_alignment": "bullish",
+  "order_book_imbalance": -0.5,
+  "coinversa_apex_bias": "Strong Short -0.34",
+  "coinversa_sharps_bias": "Long +0.30"
+}
+```
+
+---
+### 2026-10-23T11:07:37.211Z — ETH/EUR — NO TRADE
+
+**Reasoning:** Decline continuing: -2.63%/-2.52% (1h/4h, 48h window), below the 6% long-only momentum threshold. RSI 45.38, order book roughly balanced (-0.03). News: ETH ~€2,135/$2,400-2,405, Glamsterdam Hoodi testnet delayed over EIP-8037 compatibility concerns, ETF outflow streak continuing. No same-day actionable catalyst. No position, no action.
+
+**Signals considered:**
+```json
+{
+  "momentum_1h_pct": -2.63,
+  "momentum_4h_pct": -2.52,
+  "momentum_trigger": false,
+  "rsi_4h": 45.38,
+  "order_book_imbalance": -0.03,
+  "coinversa_apex_bias": "Short -0.14",
+  "coinversa_sharps_bias": "Neutral +0.03"
+}
+```
+
+---
+### 2026-10-23T11:07:37.226Z — SOL/EUR — NO TRADE
+
+**Reasoning:** Decline continuing: -2.40%/-2.22% (1h/4h, 48h window), below the 6% long-only momentum threshold. RSI 46.48, order book negative (-0.17). News: SOL ~€93/$103-104, Alpenglow live, tokenized-equities activity growing, ETF flow reports conflicting. No same-day actionable catalyst. No position, no action.
+
+**Signals considered:**
+```json
+{
+  "momentum_1h_pct": -2.4,
+  "momentum_4h_pct": -2.22,
+  "momentum_trigger": false,
+  "rsi_4h": 46.48,
+  "order_book_imbalance": -0.17,
+  "coinversa_apex_bias": "Strong Short -0.38",
+  "coinversa_sharps_bias": "Strong Long +0.72"
+}
+```
+
+---
+### 2026-10-23T11:07:37.241Z — XRP/EUR — NO TRADE
+
+**Reasoning:** Decline continuing: -2.45%/-2.22% (1h/4h, 48h window), below the 6% long-only momentum threshold. RSI 49.22. Volume ratio 2.30x (flag_above_2x true) but irrelevant - momentum_trigger is long-only. News: XRP ~€1.18/$1.32-1.33, ledger bug-fix delayed to November but validator support recovering, Ripple Swell conference Oct 27 upcoming not same-day, Arf RLUSD partnership structural. No same-day actionable catalyst. No position, no action.
+
+**Signals considered:**
+```json
+{
+  "momentum_1h_pct": -2.45,
+  "momentum_4h_pct": -2.22,
+  "momentum_trigger": false,
+  "rsi_4h": 49.22,
+  "volume_ratio": 2.3,
+  "flag_above_2x": true,
+  "coinversa_apex_bias": "Strong Short -0.66",
+  "coinversa_sharps_bias": "Strong Long +0.32"
+}
+```
+
+---
+### 2026-10-23T11:07:37.256Z — ADA/EUR — NO TRADE
+
+**Reasoning:** Decline continuing, steepest among the 8 pairs this cycle: -4.24%/-4.07% (1h/4h, 48h window), still below the 6% long-only momentum threshold. RSI 43.57, SMA bearish-aligned. News: ADA ~€0.192/below $0.222, Toto Finance treasury copper proposal speculative, Cardano Foundation pressing SEC on digital-commodity status - not a same-day driver. No same-day actionable catalyst. No position, no action.
+
+**Signals considered:**
+```json
+{
+  "momentum_1h_pct": -4.24,
+  "momentum_4h_pct": -4.07,
+  "momentum_trigger": false,
+  "rsi_4h": 43.57,
+  "sma_alignment": "bearish (fast_below_slow)"
+}
+```
+
+---
+### 2026-10-23T11:07:37.272Z — LINK/EUR — NO TRADE
+
+**Reasoning:** Decline continuing: -2.50%/-1.60% (1h/4h, 48h window), below the 6% long-only momentum threshold. RSI 49.68 (near-neutral), order book strongly positive (+0.62). News: LINK ~€10.75/$11.88, Reserve continuing to buy but not offsetting selling pressure, LG CNS Korea deal and Grayscale in-kind subscriptions structural positives. No same-day actionable catalyst strong enough to trade. No position, no action.
+
+**Signals considered:**
+```json
+{
+  "momentum_1h_pct": -2.5,
+  "momentum_4h_pct": -1.6,
+  "momentum_trigger": false,
+  "rsi_4h": 49.68,
+  "order_book_imbalance": 0.62
+}
+```
+
+---
+### 2026-10-23T11:07:37.288Z — SUI/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule) - no new entry evaluated. Decline continuing, steeper on 1h this cycle: -4.19%/-3.55% (1h/4h, 48h window), still below the 6% long-only momentum threshold regardless. RSI 47.37, order book positive (+0.18). News: SUI ~€0.880/~$0.98, Hashi mainnet launch nearing (>$500M commitments, Anchorage Digital), Samsung Wallet USDC rollout starting final week of October - structural, not same-day drivers. Position remains underwater/pre-+1R, so neither 4h nor fast 1h invalidation check applies (both require currently-profitable); resting hard stop-loss at EUR0.86 confirmed intact via portfolio_check_stops this cycle.
+
+**Signals considered:**
+```json
+{
+  "momentum_1h_pct": -4.19,
+  "momentum_4h_pct": -3.55,
+  "momentum_trigger": false,
+  "rsi_4h": 47.37,
+  "order_book_imbalance": 0.18,
+  "position_status": "open, pre-+1R, underwater",
+  "invalidation_checks_applicable": false
+}
+```
+
+---
+### 2026-10-23T11:07:37.304Z — LTC/EUR — NO TRADE
+
+**Reasoning:** Decline continuing, steepest this cycle at -4.08%/-3.50% (1h/4h, 48h window), still below the 6% long-only momentum threshold. RSI 45.71, order book positive (+0.12). News: LTC ~€52.5/$58-59, weak volume and mixed technicals, no concrete catalyst identified for the move. No same-day actionable catalyst. No position, no action.
+
+**Signals considered:**
+```json
+{
+  "momentum_1h_pct": -4.08,
+  "momentum_4h_pct": -3.5,
+  "momentum_trigger": false,
+  "rsi_4h": 45.71,
+  "order_book_imbalance": 0.12
+}
+```
+
+---
