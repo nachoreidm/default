@@ -114308,3 +114308,143 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-10-23T03:03:31.273Z — BTC/EUR — NO TRADE
+
+**Reasoning:** Decline easing further this cycle: -0.80%/-1.54% (1h/4h, 48h window), well below the 6% long-only momentum threshold. RSI 40.69, SMA bullish-aligned (fast_above_slow), order book negative (-0.47). News: BTC trading ~$81k, down from recent highs, Fed rate decision Oct 28 flagged as upcoming catalyst - no same-day trigger. No concrete catalyst found in available news. No position, no action.
+
+**Signals considered:**
+```json
+{
+  "momentum_1h_pct": -0.8,
+  "momentum_4h_pct": -1.54,
+  "momentum_trigger": false,
+  "rsi_4h": 40.69,
+  "sma_alignment": "bullish",
+  "order_book_imbalance": -0.47,
+  "coinversa_apex_bias": "Strong Short -0.35",
+  "coinversa_sharps_bias": "Long +0.30"
+}
+```
+
+---
+### 2026-10-23T03:03:31.303Z — ETH/EUR — NO TRADE
+
+**Reasoning:** Decline continuing: -1.05%/-2.24% (1h/4h, 48h window), below the 6% long-only momentum threshold. RSI 41.26, order book negative (-0.54). News: ETH ~$2,400, heavy spot ETF outflows this month (>$1B October), Glamsterdam upgrade on testnet Oct 26. Coinversa full_rekt tier still Strong Short (-0.35, same as last cycle); Apex also short, Sharps roughly neutral (+0.06). No concrete catalyst found justifying action. No position, no action.
+
+**Signals considered:**
+```json
+{
+  "momentum_1h_pct": -1.05,
+  "momentum_4h_pct": -2.24,
+  "momentum_trigger": false,
+  "rsi_4h": 41.26,
+  "order_book_imbalance": -0.54,
+  "coinversa_apex_bias": "Short -0.15",
+  "coinversa_sharps_bias": "Neutral +0.06",
+  "coinversa_full_rekt_bias": "Strong Short -0.35"
+}
+```
+
+---
+### 2026-10-23T03:03:31.315Z — SOL/EUR — NO TRADE
+
+**Reasoning:** Decline continuing: -1.04%/-2.04% (1h/4h, 48h window), below the 6% long-only momentum threshold. RSI 41.99, order book roughly balanced (-0.04). News: SOL ~$104, whale deposited 240k SOL (~$25.3M) to exchanges (selling pressure), Alpenglow upgrade live but price impact muted. No concrete catalyst found justifying action. No position, no action.
+
+**Signals considered:**
+```json
+{
+  "momentum_1h_pct": -1.04,
+  "momentum_4h_pct": -2.04,
+  "momentum_trigger": false,
+  "rsi_4h": 41.99,
+  "order_book_imbalance": -0.04,
+  "coinversa_apex_bias": "Strong Short -0.38",
+  "coinversa_sharps_bias": "Strong Long +0.71"
+}
+```
+
+---
+### 2026-10-23T03:03:31.327Z — XRP/EUR — NO TRADE
+
+**Reasoning:** Decline continuing: -0.57%/-1.66% (1h/4h, 48h window), below the 6% long-only momentum threshold. RSI 43.53. Volume ratio 2.30x (flag_above_2x true) but irrelevant - momentum_trigger is long-only and this is a decline. News: XRP ~$1.32, exchange reserves at yearly high (sell-pressure concern), whale inflows to Binance at 7-month high. No concrete catalyst justifying action. No position, no action.
+
+**Signals considered:**
+```json
+{
+  "momentum_1h_pct": -0.57,
+  "momentum_4h_pct": -1.66,
+  "momentum_trigger": false,
+  "rsi_4h": 43.53,
+  "volume_ratio": 2.3,
+  "flag_above_2x": true,
+  "coinversa_apex_bias": "Strong Short -0.67",
+  "coinversa_sharps_bias": "Strong Long +0.60"
+}
+```
+
+---
+### 2026-10-23T03:03:31.337Z — ADA/EUR — NO TRADE
+
+**Reasoning:** Decline continuing, steepest among the 8 pairs this cycle: -3.15%/-4.97% (1h/4h, 48h window), still below the 6% long-only momentum threshold and momentum_trigger is long-only so this decline doesn't qualify regardless of magnitude. RSI 34.31, SMA bearish-aligned (fast_below_slow). News: ADA ~$0.21, down ~6.7% on day per some sources, tied partly to SEC commodity-status push context. No concrete catalyst found justifying action. No position, no action.
+
+**Signals considered:**
+```json
+{
+  "momentum_1h_pct": -3.15,
+  "momentum_4h_pct": -4.97,
+  "momentum_trigger": false,
+  "rsi_4h": 34.31,
+  "sma_alignment": "bearish (fast_below_slow)"
+}
+```
+
+---
+### 2026-10-23T03:03:31.351Z — LINK/EUR — NO TRADE
+
+**Reasoning:** Decline continuing: -0.70%/-3.11% (1h/4h, 48h window), below the 6% long-only momentum threshold. RSI 41.37. New bullish 4h SMA crossover this cycle (fast crossed above slow) - noted but not a trade trigger on its own, no momentum flag. News: LINK ~$12, bearish technical tone despite fundamentally positive Q3 review ($15B CCIP migrations, Reserve buying LINK). Position closed via stop-loss the prior day; no re-entry signal. No concrete catalyst justifying action. No position, no action.
+
+**Signals considered:**
+```json
+{
+  "momentum_1h_pct": -0.7,
+  "momentum_4h_pct": -3.11,
+  "momentum_trigger": false,
+  "rsi_4h": 41.37,
+  "sma_crossover_4h": "bullish, crossed_this_candle=true"
+}
+```
+
+---
+### 2026-10-23T03:03:31.365Z — SUI/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule) - no new entry evaluated. Decline easing slightly vs last cycle: -3.23%/-5.49% (1h/4h, 48h window), still below the 6% long-only momentum threshold regardless. RSI 37.56, order book positive (+0.22). News: SUI ~$0.98, Sui Foundation backing $30M DATA project, Hashi lending-protocol mainnet launch generating bullish chatter - neither a same-day price driver for this position. Position remains underwater/pre-+1R, so neither 4h nor fast 1h invalidation check applies (both require currently-profitable); resting hard stop-loss at EUR0.86 confirmed intact via portfolio_check_stops this cycle.
+
+**Signals considered:**
+```json
+{
+  "momentum_1h_pct": -3.23,
+  "momentum_4h_pct": -5.49,
+  "momentum_trigger": false,
+  "rsi_4h": 37.56,
+  "order_book_imbalance": 0.22,
+  "position_status": "open, pre-+1R, underwater",
+  "invalidation_checks_applicable": false
+}
+```
+
+---
+### 2026-10-23T03:03:31.379Z — LTC/EUR — NO TRADE
+
+**Reasoning:** Decline continuing: -3.00%/-4.28% (1h/4h, 48h window), below the 6% long-only momentum threshold. RSI 39.53. News: LTC ~$59, down ~5% on day, no specific catalyst identified, bearish technical tone (below near-term moving averages). No concrete catalyst justifying action. No position, no action.
+
+**Signals considered:**
+```json
+{
+  "momentum_1h_pct": -3,
+  "momentum_4h_pct": -4.28,
+  "momentum_trigger": false,
+  "rsi_4h": 39.53
+}
+```
+
+---
