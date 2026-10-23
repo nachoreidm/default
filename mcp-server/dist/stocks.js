@@ -33,6 +33,17 @@ function toCandle(raw) {
         count: raw.n ?? 0,
     };
 }
+// Alpaca's bars endpoint defaults to a narrow recent window (effectively
+// just today) when no `start` is given - confirmed live 2026-10-23:
+// requesting limit=30 with no start/end returned exactly 1 bar (today's),
+// not 30. `limit` alone does not backfill history; an explicit `start` is
+// required. Computed generously (3x the requested bar count in calendar
+// days, minimum 90) to comfortably cover weekends/holidays for daily bars.
+function startParamFor(limit, timeframe) {
+    const calendarDaysBack = timeframe === "1Day" ? Math.max(limit * 3, 90) : Math.max(limit, 14);
+    const start = new Date(Date.now() - calendarDaysBack * 24 * 60 * 60 * 1000);
+    return start.toISOString();
+}
 // Fetches daily bars for a single symbol, oldest-first, up to `limit` most
 // recent closed trading days. Alpaca's /stocks/bars endpoint already only
 // returns completed bars for historical ranges (no "still forming" bar to
@@ -41,6 +52,7 @@ export async function fetchStockBars(symbol, timeframe, limit = 60) {
     const url = new URL(`${ALPACA_DATA_BASE}/stocks/${encodeURIComponent(symbol)}/bars`);
     url.searchParams.set("timeframe", timeframe);
     url.searchParams.set("limit", String(limit));
+    url.searchParams.set("start", startParamFor(limit, timeframe));
     url.searchParams.set("adjustment", "split"); // split-adjusted so a historical RSI/SMA read isn't skewed by a split that happened mid-window
     const res = await fetch(url.toString(), { headers: authHeaders() });
     if (!res.ok) {
@@ -65,6 +77,7 @@ export async function fetchMultiStockBars(symbols, timeframe, limit = 60) {
             url.searchParams.set("symbols", batch.join(","));
             url.searchParams.set("timeframe", timeframe);
             url.searchParams.set("limit", String(limit));
+            url.searchParams.set("start", startParamFor(limit, timeframe));
             url.searchParams.set("adjustment", "split");
             if (pageToken)
                 url.searchParams.set("page_token", pageToken);

@@ -38,16 +38,27 @@ export async function getCikForTicker(ticker) {
 }
 // Best-effort structured extraction from a Form 4 XML document using
 // regex on the known tag names (ownershipDocument schema) rather than a
-// full XML parser - no xml-parsing dependency exists in this project yet,
-// and Form 4's relevant fields are simple enough scalar values that this
-// is a reasonable first pass. UNVERIFIED AGAINST A LIVE DOCUMENT as of
-// this writing (sec.gov isn't allowlisted in this environment yet) - if
-// a real filing's tags don't match, fields come back null rather than
-// throwing, so a parsing miss shows up as a gap in the output, not a
-// crash or a wrong number.
-function extractTag(xml, tag) {
-    const match = xml.match(new RegExp(`<${tag}>\\s*<value>([^<]*)</value>`, "i")) ?? xml.match(new RegExp(`<${tag}>([^<]*)</${tag}>`, "i"));
-    return match ? match[1].trim() : null;
+// full XML parser - no xml-parsing dependency exists in this project yet.
+// VERIFIED against a real live filing 2026-10-23 (AAPL, accession
+// 0001140361-26-040540): rptOwnerName/officerTitle/transactionCode are
+// flat text (e.g. <rptOwnerName>Newstead Jennifer</rptOwnerName>), while
+// transactionShares/transactionPricePerShare wrap a nested <value>
+// (e.g. <transactionShares><value>2399</value></transactionShares>).
+// Two-step extraction: grab the named tag's full inner content first
+// (non-greedy, spanning newlines via [\s\S]), then look for a nested
+// <value> inside that content; fall back to the inner content itself
+// (trimmed) if there's no nested <value> - handles both real forms
+// without needing to know in advance which one a given tag uses. Fails
+// safe: returns null (not a crash, not a wrong number) if the tag isn't
+// present at all or its content is empty/whitespace-only.
+export function extractTag(xml, tag) {
+    const outer = xml.match(new RegExp(`<${tag}(?:\\s[^>]*)?>([\\s\\S]*?)</${tag}>`, "i"));
+    if (!outer)
+        return null;
+    const inner = outer[1];
+    const nestedValue = inner.match(/<value(?:\s[^>]*)?>([^<]*)<\/value>/i);
+    const raw = (nestedValue ? nestedValue[1] : inner).trim();
+    return raw.length > 0 ? raw : null;
 }
 async function parseForm4(accessionNoDashes, cik, filedAt, primaryDoc) {
     const docUrl = `https://www.sec.gov/Archives/edgar/data/${Number(cik)}/${accessionNoDashes}/${primaryDoc}`;

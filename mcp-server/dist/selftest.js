@@ -4,7 +4,7 @@ import { computeSignals } from "./signals.js";
 import { ALLOWED_PAIRS } from "./types.js";
 import { fetchStockBars, computeStockSignals } from "./stocks.js";
 import { fetchSp500Constituents, screenSp500 } from "./sp500.js";
-import { getCikForTicker, getInsiderActivity } from "./edgar.js";
+import { getCikForTicker, getInsiderActivity, extractTag } from "./edgar.js";
 function assert(cond, msg) {
     if (!cond)
         throw new Error(`ASSERTION FAILED: ${msg}`);
@@ -41,6 +41,35 @@ async function main() {
         asks: [{ price: 101, volume: 5 }],
     }, 10);
     assert(Math.abs(imb.imbalance - (5 / 15)) < 0.001, `order book imbalance skews toward bids (got ${imb.imbalance})`);
+    // --- extractTag pure unit test against a REAL Form 4 XML sample (AAPL,
+    // accession 0001140361-26-040540, captured live 2026-10-23) - pins down
+    // the exact bug found that day (flat-text tags vs. tags wrapping a
+    // nested <value>) so it can't silently regress.
+    const sampleForm4Xml = `
+    <reportingOwner>
+      <reportingOwnerId>
+        <rptOwnerName>Newstead Jennifer</rptOwnerName>
+      </reportingOwnerId>
+      <reportingOwnerRelationship>
+        <officerTitle>SVP, GC and Government Affairs</officerTitle>
+      </reportingOwnerRelationship>
+    </reportingOwner>
+    <nonDerivativeTransaction>
+      <transactionCoding>
+        <transactionCode>S</transactionCode>
+      </transactionCoding>
+      <transactionAmounts>
+        <transactionShares><value>2399</value></transactionShares>
+        <transactionPricePerShare><value>339.62</value></transactionPricePerShare>
+      </transactionAmounts>
+    </nonDerivativeTransaction>
+  `;
+    assert(extractTag(sampleForm4Xml, "rptOwnerName") === "Newstead Jennifer", "extractTag reads a flat-text tag (rptOwnerName)");
+    assert(extractTag(sampleForm4Xml, "officerTitle") === "SVP, GC and Government Affairs", "extractTag reads a flat-text tag (officerTitle)");
+    assert(extractTag(sampleForm4Xml, "transactionCode") === "S", "extractTag reads a flat-text tag (transactionCode)");
+    assert(extractTag(sampleForm4Xml, "transactionShares") === "2399", "extractTag drills into a nested <value> (transactionShares)");
+    assert(extractTag(sampleForm4Xml, "transactionPricePerShare") === "339.62", "extractTag drills into a nested <value> (transactionPricePerShare)");
+    assert(extractTag(sampleForm4Xml, "notPresentAtAll") === null, "extractTag returns null, not a crash, for a tag that isn't present");
     // --- Live Kraken API smoke test (public endpoints, no auth, same 8 EUR pairs as the live trading branch) ---
     for (const pair of ALLOWED_PAIRS) {
         const t = await fetchTicker(pair);

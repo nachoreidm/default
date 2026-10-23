@@ -4,26 +4,29 @@ import { priceAction, volumeVs7dAvg, rsi, momentumTrigger } from "./indicators.j
 import { MOMENTUM_THRESHOLD_PCT } from "./types.js";
 
 // S&P 500 membership isn't something Alpaca (a brokerage data feed, not an
-// index provider) exposes at all, and this environment can't reach a
-// verified authoritative source yet (Wikipedia/S&P Dow Jones Indices
-// aren't allowlisted here, and a live WebFetch attempt during this build
-// failed with ENOTFOUND for exactly that reason). Rather than hardcode a
-// guessed/stale 500-ticker list and risk silently screening against wrong
-// membership for months, this fetches iShares' CORE S&P 500 ETF (IVV)
-// holdings CSV - a free, no-key, publicly published daily file that's a
-// very close real-time proxy for actual S&P 500 membership (iShares
-// rebalances IVV to track the index directly).
+// index provider) exposes at all. Rather than hardcode a guessed/stale
+// 500-ticker list and risk silently screening against wrong membership
+// for months, this fetches iShares' CORE S&P 500 ETF (IVV) holdings CSV -
+// a free, no-key, publicly published daily file that's a very close
+// real-time proxy for actual S&P 500 membership (iShares rebalances IVV
+// to track the index directly).
 //
-// UNVERIFIED AGAINST A LIVE FETCH as of this writing - ishares.com isn't
-// allowlisted in this environment either, so the CSV's exact column
-// layout below is from documented/known format, not a live response.
-// Must be smoke-tested the moment ishares.com is added to this
-// environment's network policy (see CLAUDE.md's credential-setup
-// section) - if the real column headers differ, parseIvvHoldingsCsv
+// The original `.../1467271812596.ajax?fileType=csv...` URL (the
+// documented/known AJAX-export pattern this was first built against) was
+// confirmed DEAD 2026-10-23 - a live fetch returned the ordinary product
+// page's HTML, not a CSV, meaning that numeric export token has gone
+// stale on iShares' side. Replaced with the plain `/latest-holdings.csv`
+// path, found by observing the same pattern work for several OTHER
+// iShares funds via live web search that same day (e.g.
+// `.../340800/ishares-large-cap-accelerated-outcome-etf/latest-holdings.csv`)
+// - this specific IVV URL has NOT yet been confirmed with an actual
+// fetch (this environment's verification sessions kept hitting
+// permission friction before this fix could be re-verified) - re-run the
+// self-test's S&P 500 constituent check the moment this is deployed and
+// fix the exact path again if it's still wrong; parseIvvHoldingsCsv
 // throws a clear error naming what it expected rather than silently
-// mis-mapping columns.
-const IVV_HOLDINGS_URL =
-  "https://www.ishares.com/us/products/239726/ishares-core-sp-500-etf/1467271812596.ajax?fileType=csv&fileName=IVV_holdings&dataType=fund";
+// mis-mapping columns either way.
+const IVV_HOLDINGS_URL = "https://www.ishares.com/us/products/239726/ishares-core-sp-500-etf/latest-holdings.csv";
 
 let constituentsCache: { fetchedAt: number; rows: Sp500Constituent[] } | null = null;
 const CACHE_TTL_MS = 12 * 60 * 60 * 1000; // 12h - holdings don't change intraday
