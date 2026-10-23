@@ -114172,3 +114172,139 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-10-23T02:05:08.025Z — BTC/EUR — NO TRADE
+
+**Reasoning:** Broad decline easing slightly but continuing: -1.64%/-1.54% (1h/4h, 48h window), well below the 6% long-only momentum threshold. RSI 40.69, SMA bullish-aligned but no breakout signal. No concrete catalyst found in available news (stale cached price-tracker results only). No position, no action.
+
+**Signals considered:**
+```json
+{
+  "momentum_1h_pct": -1.64,
+  "momentum_4h_pct": -1.54,
+  "momentum_trigger": false,
+  "rsi_4h": 40.69,
+  "sma_alignment": "bullish",
+  "coinversa_apex_bias": "short",
+  "coinversa_sharps_bias": "Strong Long +0.31"
+}
+```
+
+---
+### 2026-10-23T02:05:08.042Z — ETH/EUR — NO TRADE
+
+**Reasoning:** Decline continuing: -2.17%/-2.24% (1h/4h, 48h window), below the 6% long-only momentum threshold. RSI 41.26. Coinversa full_rekt tier swung to Strong Short (-0.35) for the first time in recent cycles - noted as a new observation but not acted on (informational-only per instructions, never a trade trigger/filter). No concrete catalyst found in available news. No position, no action.
+
+**Signals considered:**
+```json
+{
+  "momentum_1h_pct": -2.17,
+  "momentum_4h_pct": -2.24,
+  "momentum_trigger": false,
+  "rsi_4h": 41.26,
+  "coinversa_apex_bias": "short",
+  "coinversa_sharps_bias": "Neutral +0.06",
+  "coinversa_full_rekt_bias": "Strong Short -0.35 (new this cycle)"
+}
+```
+
+---
+### 2026-10-23T02:05:08.053Z — SOL/EUR — NO TRADE
+
+**Reasoning:** Decline continuing: -2.04%/-2.04% (1h/4h, 48h window), below the 6% long-only momentum threshold. RSI 41.99. No concrete catalyst found in available news. No position, no action.
+
+**Signals considered:**
+```json
+{
+  "momentum_1h_pct": -2.04,
+  "momentum_4h_pct": -2.04,
+  "momentum_trigger": false,
+  "rsi_4h": 41.99,
+  "coinversa_apex_bias": "short",
+  "coinversa_sharps_bias": "Strong Long +0.71"
+}
+```
+
+---
+### 2026-10-23T02:05:08.064Z — XRP/EUR — NO TRADE
+
+**Reasoning:** Decline continuing: -1.36%/-1.66% (1h/4h, 48h window), below the 6% long-only momentum threshold. RSI 43.53. Volume ratio 2.30x (flag_above_2x true) but irrelevant - momentum_trigger is long-only and this is a decline, not an upside move. No concrete catalyst found in available news. No position, no action.
+
+**Signals considered:**
+```json
+{
+  "momentum_1h_pct": -1.36,
+  "momentum_4h_pct": -1.66,
+  "momentum_trigger": false,
+  "rsi_4h": 43.53,
+  "volume_ratio": 2.3,
+  "flag_above_2x": true,
+  "coinversa_apex_bias": "short",
+  "coinversa_sharps_bias": "Strong Long +0.60"
+}
+```
+
+---
+### 2026-10-23T02:05:08.076Z — ADA/EUR — NO TRADE
+
+**Reasoning:** Decline continuing, one of the steeper moves this cycle: -4.52%/-4.97% (1h/4h, 48h window), still below the 6% long-only momentum threshold and momentum_trigger is long-only so this decline doesn't qualify regardless of magnitude. RSI 34.31, SMA bearish-aligned (fast below slow). No concrete catalyst found in available news. No position, no action.
+
+**Signals considered:**
+```json
+{
+  "momentum_1h_pct": -4.52,
+  "momentum_4h_pct": -4.97,
+  "momentum_trigger": false,
+  "rsi_4h": 34.31,
+  "sma_alignment": "bearish (fast_below_slow)"
+}
+```
+
+---
+### 2026-10-23T02:05:08.087Z — LINK/EUR — NO TRADE
+
+**Reasoning:** Decline continuing: -2.63%/-3.11% (1h/4h, 48h window), below the 6% long-only momentum threshold. RSI 41.37. Position closed via stop-loss the prior day (17:02 UTC 10/22); no re-entry signal this cycle. No concrete catalyst found in available news. No position, no action.
+
+**Signals considered:**
+```json
+{
+  "momentum_1h_pct": -2.63,
+  "momentum_4h_pct": -3.11,
+  "momentum_trigger": false,
+  "rsi_4h": 41.37
+}
+```
+
+---
+### 2026-10-23T02:05:08.097Z — SUI/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule) - no new entry evaluated. Decline continuing: -4.44%/-5.49% (1h/4h, 48h window), still below the 6% long-only momentum threshold regardless. RSI 37.56, order book notably negative (-0.13). Position remains underwater/pre-+1R, so neither the 4h nor fast 1h invalidation check applies (both require currently-profitable); resting hard stop-loss at EUR0.86 remains the sole protection, confirmed intact via portfolio_check_stops this cycle. No concrete catalyst found in available news.
+
+**Signals considered:**
+```json
+{
+  "momentum_1h_pct": -4.44,
+  "momentum_4h_pct": -5.49,
+  "momentum_trigger": false,
+  "rsi_4h": 37.56,
+  "order_book_imbalance": -0.13,
+  "position_status": "open, pre-+1R, underwater",
+  "invalidation_checks_applicable": false
+}
+```
+
+---
+### 2026-10-23T02:05:08.108Z — LTC/EUR — NO TRADE
+
+**Reasoning:** Decline continuing: -4.31%/-4.28% (1h/4h, 48h window), below the 6% long-only momentum threshold. RSI 39.53. No concrete catalyst found in available news. No position, no action.
+
+**Signals considered:**
+```json
+{
+  "momentum_1h_pct": -4.31,
+  "momentum_4h_pct": -4.28,
+  "momentum_trigger": false,
+  "rsi_4h": 39.53
+}
+```
+
+---
