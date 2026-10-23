@@ -116268,3 +116268,142 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-10-23T17:03:02.375Z — BTC/EUR — NO TRADE
+
+**Reasoning:** Decline continuing: -3.19%/-3.07% (1h/4h, 48h window), below the 6% long-only momentum threshold. RSI 45.56, SMA bullish-aligned, order book negative (-0.48). News: BTC ~€73k/$81-82k, ETF outflows $635.6M, ~89,600 traders liquidated ($406M), oil-driven risk-off (Brent at highest since March), large 230k BTC UTXO movement with no exchange inflow detected. No same-day actionable catalyst. No position, no action.
+
+**Signals considered:**
+```json
+{
+  "momentum_1h_pct": -3.19,
+  "momentum_4h_pct": -3.07,
+  "momentum_trigger": false,
+  "rsi_4h": 45.56,
+  "sma_alignment": "bullish",
+  "order_book_imbalance": -0.48,
+  "coinversa_apex_bias": "Strong Short -0.35",
+  "coinversa_sharps_bias": "Strong Long +0.35"
+}
+```
+
+---
+### 2026-10-23T17:03:02.393Z — ETH/EUR — NO TRADE
+
+**Reasoning:** Decline continuing: -4.00%/-3.23% (1h/4h, 48h window), below the 6% long-only momentum threshold. RSI 47.13, order book positive (+0.44). News: ETH ~€2,149/$2,384-2,408, underperformed BTC/SOL on the day, Glamsterdam Oct 26 Hoodi activation canceled pending EIP-8037 review, ETF outflow streak continuing. No same-day actionable catalyst. No position, no action.
+
+**Signals considered:**
+```json
+{
+  "momentum_1h_pct": -4,
+  "momentum_4h_pct": -3.23,
+  "momentum_trigger": false,
+  "rsi_4h": 47.13,
+  "order_book_imbalance": 0.44,
+  "coinversa_apex_bias": "Short -0.14",
+  "coinversa_sharps_bias": "Neutral +0.06"
+}
+```
+
+---
+### 2026-10-23T17:03:02.415Z — SOL/EUR — NO TRADE
+
+**Reasoning:** Decline continuing: -3.28%/-3.03% (1h/4h, 48h window), below the 6% long-only momentum threshold. RSI 49.24, order book roughly balanced (+0.07). News: SOL ~€93/$103-104, Alpenglow consensus switch confirmed live Oct 21 (TowerBFT replaced), analysts watching $101 support for recovery toward $112-120. No same-day actionable catalyst. No position, no action.
+
+**Signals considered:**
+```json
+{
+  "momentum_1h_pct": -3.28,
+  "momentum_4h_pct": -3.03,
+  "momentum_trigger": false,
+  "rsi_4h": 49.24,
+  "order_book_imbalance": 0.07,
+  "coinversa_apex_bias": "Strong Short -0.38",
+  "coinversa_sharps_bias": "Strong Long +0.75"
+}
+```
+
+---
+### 2026-10-23T17:03:02.428Z — XRP/EUR — NO TRADE
+
+**Reasoning:** Decline continuing, approaching but not crossing threshold: -5.27%/-5.21% (1h/4h, 48h window), still below the 6% long-only momentum threshold and this is a decline so the rule wouldn't apply regardless. RSI 45.84, order book balanced (-0.002). News: XRP ~€1.17/$1.31, down >11% in October per one report, ledger bug-fix delayed to November, XRPL reached record 8.24M wallets (growth continuing despite price weakness). No same-day actionable catalyst. No position, no action.
+
+**Signals considered:**
+```json
+{
+  "momentum_1h_pct": -5.27,
+  "momentum_4h_pct": -5.21,
+  "momentum_trigger": false,
+  "rsi_4h": 45.84,
+  "order_book_imbalance": -0.002,
+  "coinversa_apex_bias": "Strong Short -0.67",
+  "coinversa_sharps_bias": "Strong Long +0.32"
+}
+```
+
+---
+### 2026-10-23T17:03:02.441Z — ADA/EUR — NO TRADE
+
+**Reasoning:** Decline continuing, approaching but not crossing threshold: -5.04%/-4.93% (1h/4h, 48h window), still below the 6% long-only momentum threshold and this is a decline so the rule wouldn't apply regardless. RSI 44.46, SMA bearish-aligned. News: ADA ~€0.193/below $0.222, whale supply share declining, open interest down 11%/24h, Cardano Foundation 100k Indian farms milestone a structural positive not offsetting price weakness. No same-day actionable catalyst. No position, no action.
+
+**Signals considered:**
+```json
+{
+  "momentum_1h_pct": -5.04,
+  "momentum_4h_pct": -4.93,
+  "momentum_trigger": false,
+  "rsi_4h": 44.46,
+  "sma_alignment": "bearish (fast_below_slow)"
+}
+```
+
+---
+### 2026-10-23T17:03:02.466Z — LINK/EUR — NO TRADE
+
+**Reasoning:** Decline continuing, approaching but not crossing threshold: -4.85%/-4.90% (1h/4h, 48h window), still below the 6% long-only momentum threshold and this is a decline so the rule wouldn't apply regardless. RSI 45.29, order book positive (+0.43). News: LINK ~€10.74/$11.88-12.04, LG CNS deal failed to lift price (no disclosed value/timeline), Reserve buying continuing but not offsetting pressure, BitGo migration ($7.7B WBTC) cited in Q3 review. No same-day actionable catalyst strong enough to trade. No position, no action.
+
+**Signals considered:**
+```json
+{
+  "momentum_1h_pct": -4.85,
+  "momentum_4h_pct": -4.9,
+  "momentum_trigger": false,
+  "rsi_4h": 45.29,
+  "order_book_imbalance": 0.43
+}
+```
+
+---
+### 2026-10-23T17:03:02.479Z — SUI/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule) - no new entry evaluated. Decline continuing, approaching but not crossing threshold: -4.86%/-4.54% (1h/4h, 48h window), still a decline so the long-only momentum rule wouldn't apply regardless. RSI 46.77, order book positive (+0.16). News: SUI ~€0.883/~$0.98-0.99, Hashi mainnet launch due later this month (>$500M commitments), DATA migration, stablecoins on Sui up 35% since Aug 31 - structural, not same-day drivers. Position remains underwater/pre-+1R, so neither 4h nor fast 1h invalidation check applies (both require currently-profitable); resting hard stop-loss at EUR0.86 confirmed intact via portfolio_check_stops this cycle.
+
+**Signals considered:**
+```json
+{
+  "momentum_1h_pct": -4.86,
+  "momentum_4h_pct": -4.54,
+  "momentum_trigger": false,
+  "rsi_4h": 46.77,
+  "order_book_imbalance": 0.16,
+  "position_status": "open, pre-+1R, underwater",
+  "invalidation_checks_applicable": false
+}
+```
+
+---
+### 2026-10-23T17:03:02.495Z — LTC/EUR — NO TRADE
+
+**Reasoning:** Decline continuing, closest to the threshold this cycle: -5.54%/-5.47% (1h/4h, 48h window), still below the 6% long-only momentum threshold and this is a decline so the rule wouldn't apply regardless. RSI 39.01 (lowest among the 8 pairs), order book positive (+0.10). News: LTC ~€52.1/$58.3-59.3, weak volume (~49% below 30-day average), no specific catalyst identified for the move per multiple sources. No same-day actionable catalyst. No position, no action.
+
+**Signals considered:**
+```json
+{
+  "momentum_1h_pct": -5.54,
+  "momentum_4h_pct": -5.47,
+  "momentum_trigger": false,
+  "rsi_4h": 39.01,
+  "order_book_imbalance": 0.1
+}
+```
+
+---
