@@ -90,51 +90,72 @@ explicit request to "ask questions first"), covering:
   is live-fetched and cached per-process (12h TTL), not stored in the
   repo - see `sp500.ts`.
 
-## Credential & environment setup - NOT YET DONE, blocks real operation
+## Credential & environment setup - DONE and fully live-verified (2026-10-23)
 
-This is the one thing that can't be done from inside a session - it
-needs the user's own action on claude.ai/code, mirroring exactly how the
-live trading branch's Kraken credentials were set up (see that branch's
-CLAUDE.md "Credential handling" section for the precedent this follows).
+A dedicated CCR environment ("Market Advisory", `env_01SahdmY86diSRmDJJTJiL28`)
+was created by the user with `ALPACA_API_KEY_ID`/`ALPACA_API_SECRET_KEY`
+set and `api.kraken.com`, `data.alpaca.markets`, `www.sec.gov`,
+`data.sec.gov`, `efts.sec.gov`, and `www.ishares.com` allowlisted - same
+credential-isolation discipline the live trading branch's CLAUDE.md
+documents (separate from "Default" and "Kraken live").
 
-**Needed**:
-1. An Alpaca account + a free market-data API key pair
-   (`ALPACA_API_KEY_ID` / `ALPACA_API_SECRET_KEY`). Alpaca's free tier is
-   a standalone market-data product - it does not require funding a
-   brokerage account to use for data only.
-2. A **dedicated CCR environment** for this agent (not the "Default" one
-   the paper branch uses, not "Kraken live" either) - same credential-
-   isolation discipline the live branch's CLAUDE.md documents and the
-   same reasoning: keeps Alpaca's keys structurally unreachable from any
-   other branch's session, and vice versa. Lower stakes than Kraken's
-   keys (market-data-only, no trading/withdrawal scope exists on
-   Alpaca's data API to begin with), but isolating by habit costs
-   nothing and avoids a future mix-up.
-3. That environment's network policy needs these domains allowlisted
-   (this environment currently only allows `api.kraken.com`, inherited
-   from the trading branches - confirmed by a live WebFetch/fetch
-   failure against both during this build):
-   - `data.alpaca.markets` - stock quotes/bars
-   - `www.sec.gov`, `data.sec.gov`, `efts.sec.gov` - SEC EDGAR (insider
-     Form 4 filings, 13F full-text search, the CIK lookup file)
-   - `www.ishares.com` - S&P 500 membership proxy (see `sp500.ts`'s
-     header comment for why this specific source was picked; Alpaca
-     itself has no index-membership endpoint)
+Getting here took several real rounds of live verification, not a
+single clean pass - worth recording the actual bugs found, since they're
+the kind of thing that look fine in code review and only break against
+real data:
 
-**Until this exists**: `npm run test` (the self-test suite) runs
-everything that's live-testable today - all pure indicator math, and a
-full live smoke test against Kraken's EUR pairs (confirmed passing,
-2026-10-23) - and skips the Alpaca/EDGAR/iShares-dependent tests
-explicitly and gracefully (`skip:` lines, not failures) rather than
-crashing or hanging. The code for all three was written against each
-API's documented/known shape since it can't be live-verified from this
-environment yet - **explicitly unverified**, same honesty convention the
-live trading branch's CLAUDE.md uses for anything built this way (see
-that branch's `kraken-private.ts` entry). Each unverified spot is called
-out in a comment at the point it matters (`stocks.ts`'s Alpaca client,
-`sp500.ts`'s CSV parser, `edgar.ts`'s Form 4 XML extraction) - re-read
-those comments and live-smoke-test immediately once the new environment
-and credentials exist, before trusting any of their output.
+1. **Alpaca bars defaulted to today-only.** `limit=30` with no `start`
+   param returned exactly 1 bar, not 30 - Alpaca's bars endpoint doesn't
+   backfill history from `limit` alone. Fixed by adding an explicit
+   `start` param sized generously for the requested window
+   (`stocks.ts`).
+2. **Form 4 XML path was wrong.** EDGAR submissions.json's
+   `primaryDocument` field (e.g. `"xslF345X06/form4.xml"`) is the
+   XSLT-rendered HTML viewer for the filing, not the raw ownershipDocument
+   XML, despite the `.xml` name - fetching it returned HTML with none of
+   the expected tags, so every field fell back to null/"unknown". Fixed
+   by stripping the directory component to reach the real raw XML at the
+   accession root, confirmed against 3 real AAPL filings (`edgar.ts`).
+3. **IVV holdings CSV parsing returned 0 rows, for two separate reasons.**
+   First the original `.ajax?fileType=csv...` URL had gone dead (returned
+   the product page's HTML) - replaced with the `/latest-holdings.csv`
+   path. Then, once real CSV came back, a naive `line.split(",")` broke
+   on quoted fields with internal commas (e.g. `"68,152,575,876.48"`),
+   leaving literal quote characters on every value so the Asset Class
+   filter never matched - fixed with a proper quote-aware CSV line
+   splitter (`sp500.ts`). Also found while verifying this: IVV's ticker
+   column uses a space for class shares (`"BRK B"`), which Alpaca's bars
+   endpoint rejects outright (HTTP 400) - normalized to the dot form
+   (`"BRK.B"`) Alpaca actually expects, at the parse source so every
+   downstream caller gets the correct symbol.
+4. **Alpaca rate-limited the full ~500-ticker scan (HTTP 429)** once the
+   bugs above stopped silently truncating the real request. Added a
+   small pacing delay between batch/pagination requests plus a real
+   retry-with-backoff on 429 (honors `Retry-After` when sent, exponential
+   backoff otherwise).
+
+All four fixes were diagnosed against real responses (not guessed) across
+several verification sessions in the Market Advisory environment, and
+the full self-test suite - including a genuine end-to-end `screen_sp500`
+run across the real ~500-ticker universe - passed with exit 0 against
+live Kraken, Alpaca, EDGAR, and iShares calls on the final pass. Nothing
+in this agent's data pipeline is unverified anymore.
+
+**A process note worth keeping**: verification sessions created fresh in
+this environment, without the real repo attached and given a prompt that
+claimed cross-session authority and told them not to verify anything,
+correctly refused to proceed - that's indistinguishable from a prompt-
+injection pattern to a session with no way to confirm the claim, and the
+refusal was the right call, not a bug to route around. What worked
+instead: attach the real repo (so the session can ground its own
+judgment in actual git history and this file), describe the task
+honestly without claiming special authority, and let it decide for
+itself that the work is legitimate. Also worth noting: one such session
+accidentally committed full `devDependencies` into the tracked
+`node_modules` (should only ever hold production deps - see "Layout"
+above) while chasing a build error; caught by diffing the push and fixed
+forward in the next commit. Re-check `node_modules` size (~26MB) after
+any session does a build/test cycle, not just that tests passed.
 
 ## Known data-source caveats - read before trusting a 13F-mentions result
 
@@ -173,16 +194,18 @@ classes worth being explicit about rather than pretending symmetry.
 
 ## Not yet done
 
-- Credential/environment setup above (blocks everything Alpaca/EDGAR/
-  iShares-dependent from running live).
 - The daily trigger itself + the advisory Notion page don't exist yet -
-  both need the credential setup above done first, then should follow
-  the live trading branch's cutover-and-verify discipline where it
-  applies (new trigger, explicit Notion-prompt check, etc. - see that
-  branch's "Cutover playbook" section, which generalizes beyond Kraken
-  specifically) even though this agent has no real-money stakes to
-  protect the way that playbook was originally built for.
+  credentials/network/code are all verified now, so this is the next
+  real step. Should follow the live trading branch's cutover-and-verify
+  discipline where it applies (new trigger, explicit Notion-prompt check,
+  etc. - see that branch's "Cutover playbook" section, which generalizes
+  beyond Kraken specifically) even though this agent has no real-money
+  stakes to protect the way that playbook was originally built for.
 - `screen_sp500`'s ranking score is a simple, transparent sum of
   independent flags (momentum/RSI-extreme/volume-spike) - explicitly not
   a tuned or backtested model. Treat it as a narrowing filter for what
   the daily report digs into, never as the recommendation itself.
+- The Alpaca 429 pacing/backoff values (350ms between requests, 1s/2s/4s
+  backoff) are reasonable defaults, not tuned against Alpaca's actual
+  published rate-limit numbers - they worked on the one full-scan live
+  test run so far; revisit if a 429 ever gets through in practice.
