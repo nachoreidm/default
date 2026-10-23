@@ -26,7 +26,7 @@ fi
 
 if [ "$needs_build" -eq 1 ]; then
   echo "WARNING: mcp-server/dist looks stale relative to src/ or package.json." >&2
-  echo "The already-running kraken-paper-trading MCP connection for this session" >&2
+  echo "The already-running market-advisory MCP connection for this session" >&2
   echo "was made against the committed dist/, so rebuilding here won't fix it -" >&2
   echo "rebuild locally and commit mcp-server/dist (and node_modules if deps" >&2
   echo "changed) so the NEXT session starts from current code." >&2

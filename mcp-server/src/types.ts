@@ -1,11 +1,18 @@
+// ADVISORY AGENT - crypto side reuses the live Kraken trading branch's
+// 8-pair EUR list verbatim (not the original paper-trading USD 7-pair
+// list this file was forked from) - per the user's explicit 2026-10-23
+// decision to keep the same proven-liquid pairs now that there's no
+// position-count/execution-risk reason to widen or narrow the list. See
+// this repo's CLAUDE.md for the full re-screen history behind this list.
 export const ALLOWED_PAIRS = [
-  "BTC/USD",
-  "ETH/USD",
-  "SOL/USD",
-  "XRP/USD",
-  "ADA/USD",
-  "LINK/USD",
-  "DOGE/USD",
+  "BTC/EUR",
+  "ETH/EUR",
+  "SOL/EUR",
+  "XRP/EUR",
+  "ADA/EUR",
+  "LINK/EUR",
+  "SUI/EUR",
+  "LTC/EUR",
 ] as const;
 export type AllowedPair = (typeof ALLOWED_PAIRS)[number];
 
@@ -46,106 +53,11 @@ export interface OrderBook {
   asks: OrderBookLevel[];
 }
 
+// Advisory confidence tiers - this agent only ever recommends, it never
+// sizes or executes anything, so this is purely a label on how strong the
+// signal confluence is, not an input to a position-sizing formula like the
+// live trading branches used.
 export type Confidence = "low" | "medium" | "high";
-
-export interface Position {
-  id: string;
-  pair: AllowedPair;
-  direction: "long";
-  entry_price: number;
-  stop_loss: number;
-  // The stop-loss level as originally set at entry - never mutated after
-  // that. `stop_loss` above moves (breakeven, then trailing) once the
-  // trade earns it; `initial_stop_loss` stays fixed so R (the trade's own
-  // risk-per-unit) can always be recomputed correctly from entry.
-  initial_stop_loss: number;
-  take_profit: number;
-  // Flips true (permanently) the first time price reaches entry + 1R. From
-  // then on the fixed take_profit target above is superseded - checkStops
-  // stops checking it and instead trails `stop_loss` up (floored at a
-  // guaranteed profit lock that scales with `peak_price` - see
-  // PEAK_PROFIT_LOCK_FRACTION - then below the rising 20-period 4h SMA once
-  // that climbs higher), so a strong trend isn't capped at the original 2:1
-  // target and a post-trigger pullback still closes in profit rather than
-  // at a scratch.
-  trailing_active: boolean;
-  // Highest price observed since entry (updated every portfolio_check_stops
-  // cycle, regardless of trailing_active). Used to scale the profit-lock
-  // floor with how far the trade has actually run - a rally that reaches
-  // +3R and then reverses locks in more guaranteed profit than one that
-  // barely ticked over +1R, rather than both being floored at the same
-  // fixed fraction of the original 1R.
-  peak_price: number;
-  size_pct: number;
-  size_usd: number;
-  quantity: number;
-  entry_fee: number;
-  opened_at: string;
-  signals_at_entry: Record<string, unknown>;
-  invalidation: string;
-  confidence: Confidence;
-  confidence_reason: string;
-  momentum_only: boolean;
-  status: "open";
-}
-
-export interface ClosedPosition extends Omit<Position, "status"> {
-  status: "closed";
-  exit_price: number;
-  exit_fee: number;
-  closed_at: string;
-  close_reason: string;
-  pnl_usd: number;
-  pnl_pct_of_portfolio: number;
-}
-
-export interface DailyLoss {
-  date: string; // UTC YYYY-MM-DD
-  realized_pnl_usd: number;
-  halted: boolean;
-}
-
-export interface PortfolioState {
-  starting_balance: number;
-  cash: number;
-  open_positions: Position[];
-  closed_positions: ClosedPosition[];
-  daily_loss: DailyLoss[];
-  created_at: string;
-  updated_at: string;
-}
-
-export const RISK_LIMITS = {
-  MAX_POSITION_PCT: 5,
-  MAX_TOTAL_EXPOSURE_PCT: 25,
-  // Matches ALLOWED_PAIRS.length (one open position per pair, see
-  // ONE_POSITION_PER_PAIR below) - not a loosening of actual risk, since
-  // MAX_TOTAL_EXPOSURE_PCT stays the binding aggregate-risk constraint
-  // either way. Recompute this if the pair list changes.
-  MAX_OPEN_POSITIONS: 7,
-  MAX_DAILY_LOSS_PCT: 5,
-} as const;
-
-// Fixed profit-taking rule: take-profit is set automatically at entry, at
-// this multiple of the trade's own risk (entry-to-stop distance) above
-// entry - a standard risk/reward target, not something the agent chooses
-// or can override. A 2:1 target means a trade risking $1/unit to the stop
-// takes profit at $2/unit of gain. Checked every cycle by
-// portfolio_check_stops alongside the stop-loss.
-export const TAKE_PROFIT_RR_MULTIPLE = 2;
-
-// Position size is capped by stated confidence, not just the global 5% max.
-// Formalizes a pattern the agent was already applying ad hoc (e.g. sizing a
-// medium-confidence trade at 3% on its own judgment) into a fixed, code-
-// enforced rule so sizing is consistent and auditable across cycles rather
-// than a case-by-case call. Low confidence doesn't trade at all - if the
-// signal isn't strong enough to size at least 2%, it isn't strong enough to
-// act on; that's what "no trade" is for.
-export const CONFIDENCE_MAX_SIZE_PCT: Record<Confidence, number> = {
-  low: 0,
-  medium: 3,
-  high: RISK_LIMITS.MAX_POSITION_PCT,
-};
 
 // A 48h price move at or above this, on either the 1h or 4h window, flags
 // compute_signals' momentum_trigger. Calibrated against a real missed
@@ -155,62 +67,45 @@ export const CONFIDENCE_MAX_SIZE_PCT: Record<Confidence, number> = {
 export const MOMENTUM_THRESHOLD_PCT = 6;
 
 // Momentum alone isn't confirmed by anything else the way a crossover,
-// RSI extreme, or volume spike is - so a trade whose ONLY trigger is
-// momentum_trigger.flagged (no other signal present) is capped at medium
-// confidence in code, same enforcement mechanism as CONFIDENCE_MAX_SIZE_PCT
-// above. Enforced in portfolio_open_position: momentum_only=true rejects
-// confidence="high" outright.
+// RSI extreme, or volume spike is - so a recommendation whose ONLY
+// supporting signal is momentum_trigger.flagged (no other signal present)
+// should never be labeled "high" confidence. Enforced nowhere in code here
+// (there's no portfolio_open_position gate to enforce it against, since
+// this agent never opens anything) - it's a rule for the daily-report
+// write-up itself, documented in instructions/market-advisory-
+// instructions.md.
 export const MOMENTUM_ONLY_MAX_CONFIDENCE: Confidence = "medium";
 
-// Exit-logic upgrade layered on top of the fixed 2:1 take-profit (see
-// TAKE_PROFIT_RR_MULTIPLE): once a position reaches +1R (its own
-// entry-to-stop risk, in profit), portfolio_check_stops moves stop_loss up
-// to a guaranteed-profit floor (see PEAK_PROFIT_LOCK_FRACTION below) and
-// from then on trails it below this period's SMA on the 4h chart instead
-// of exiting flat at the fixed target - lets a strong trend run further
-// while a real reversal still cuts the trade, never below the locked-in
-// floor once earned. Same 20-period already used by smaCrossover's fast
-// SMA, reused here rather than adding a new indicator.
-export const TRAIL_SMA_PERIOD = 20;
+// --- Stock-side types (Alpaca market data + SEC EDGAR) ---
 
-// What fraction of the position's PEAK gain (peak_price - entry_price, the
-// highest price actually reached so far - not just the gain at the moment
-// +1R first triggered) to lock in as guaranteed profit, instead of
-// flooring at bare breakeven. Decided 2026-09-19, revised the same day:
-// breakeven alone means a trade that spikes to +1R and immediately
-// reverses closes at a scratch - or, after real round-trip fees/slippage
-// (see ROUND_TRIP_COST_PCT below), a small guaranteed LOSS - which defeats
-// the point of having reached +1R at all. The first fix locked a flat 0.3R
-// (0.3x the ORIGINAL 1R) the moment trailing activated - correct at that
-// exact moment, but it meant the floor never rose any further no matter
-// how much higher the rally went afterward; a trade that ran to +3R and
-// then round-tripped all the way back down would still only be guaranteed
-// the same 0.3R as one that barely ticked over +1R. Locking a fraction of
-// the PEAK gain instead means the floor keeps ratcheting up as the rally
-// extends (peak_price only ever increases - see Position.peak_price) - a
-// bigger rally that reverses now guarantees more locked-in profit than a
-// small one that barely qualified, matching the intuition that a trade
-// that ran further earned the right to a better worst case. At the exact
-// moment of the +1R trigger, peak gain == the original 1R, so this
-// produces the identical 0.3R floor as before - the change only matters
-// for what happens as the rally continues past that point.
-export const PEAK_PROFIT_LOCK_FRACTION = 0.3;
+export interface StockBar {
+  symbol: string;
+  bar: Candle; // same OHLCV(+vwap/count) shape Alpaca's bars already use
+}
 
-// Kraken's lowest-volume-tier fee schedule (approximate as of 2025; fees are
-// tier/volume dependent and change over time - update if you care about
-// precise paper-vs-live parity). We model market-style (taker) fills since
-// paper "recommendations" are meant to be actionable immediately.
-export const TAKER_FEE_PCT = 0.4;
-// Small modeled slippage on top of the quoted ask/bid to approximate market
-// impact and quote staleness. Not derived from real depth data.
-export const SLIPPAGE_PCT = 0.05;
+export interface Sp500Constituent {
+  ticker: string;
+  name: string;
+  sector: string;
+}
 
-// Approximate round-trip cost (entry + exit fee, plus entry + exit
-// slippage) as a percentage of entry price - used only as a safety floor
-// under PEAK_PROFIT_LOCK_FRACTION so the profit lock is guaranteed to
-// clear real transaction costs even for a hypothetical future trade with
-// an unusually tight R. In every trade seen so far, 0.3x the peak gain has
-// cleared this comfortably on its own at the moment of the +1R trigger
-// (roughly 1.5-2.1% given observed stop distances) - this is defensive,
-// not the normally-binding term.
-export const ROUND_TRIP_COST_PCT = 2 * (TAKER_FEE_PCT + SLIPPAGE_PCT);
+export interface InsiderTransaction {
+  filed_at: string; // ISO date the Form 4 was filed
+  transaction_date: string;
+  insider_name: string;
+  insider_title: string;
+  transaction_code: string; // Form 4 code, e.g. "P" (open-market buy), "S" (sale)
+  shares: number | null;
+  price_per_share: number | null;
+  acquired_or_disposed: "A" | "D" | null;
+  accession_number: string;
+  source_url: string;
+}
+
+export interface Institutional13FMention {
+  filer_name: string;
+  filed_at: string;
+  form_type: string;
+  accession_number: string;
+  source_url: string;
+}

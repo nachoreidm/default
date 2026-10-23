@@ -1,16 +1,17 @@
 import { ALLOWED_PAIRS, isAllowedPair } from "./types.js";
 const KRAKEN_API_BASE = "https://api.kraken.com/0/public";
+// EUR pair codes, carried over verbatim from the live Kraken trading
+// branch's confirmed-live mapping (see that branch's CLAUDE.md) - this
+// agent reuses the same 8-pair EUR list per the user's 2026-10-23 decision.
 const PAIR_CODE = {
-    "BTC/USD": "XBTUSD",
-    "ETH/USD": "ETHUSD",
-    "SOL/USD": "SOLUSD",
-    "XRP/USD": "XRPUSD",
-    "ADA/USD": "ADAUSD",
-    "LINK/USD": "LINKUSD",
-    // Kraken's internal ticker for Dogecoin is XDG, not DOGE - confirmed live
-    // against /0/public/AssetPairs (2026-09-17); "DOGEUSD" itself is not a
-    // valid Kraken pair code.
-    "DOGE/USD": "XDGUSD",
+    "BTC/EUR": "XBTEUR",
+    "ETH/EUR": "ETHEUR",
+    "SOL/EUR": "SOLEUR",
+    "XRP/EUR": "XRPEUR",
+    "ADA/EUR": "ADAEUR",
+    "LINK/EUR": "LINKEUR",
+    "SUI/EUR": "SUIEUR",
+    "LTC/EUR": "LTCEUR",
 };
 export const INTERVAL_MINUTES = {
     "1h": 60,

@@ -1,582 +1,188 @@
-# Kraken Paper-Trading Agent
+# Market Advisory Agent
 
-Read `instructions/kraken-agent-instructions.md` in full before doing any
-trading research, recommendation, or portfolio action in this repo — it's
-the operating spec (scope, risk limits, required output format) and takes
-precedence over improvising.
+> **This agent never trades.** No order-placement tool, no portfolio
+> module, no position-state file, and no execution-capable credential
+> exist anywhere in this codebase - that's a structural property, not a
+> rule to follow. It scans crypto (Kraken public data) and stocks (Alpaca
+> + SEC EDGAR), computes the same kind of technical signals the trading
+> branches use, and writes a daily recommendation report. Nothing here
+> can touch real money. Read
+> `instructions/market-advisory-instructions.md` in full before running a
+> cycle - it's the operating spec and takes precedence over improvising.
+
+## How this branch came to exist (2026-10-23)
+
+Split off from `claude/ai-crypto-trading-agent-x0w1d3` (the paper-trading
+branch - chosen as the base specifically because it's clean, read-only
+signal code with none of the live branch's real-credential/execution
+baggage; `portfolio.ts` and all paper-trading state were deleted
+entirely, not just disabled).
+
+**Prompted by**: the user asked to pause the live Kraken trading agent
+and turn the idea into an "advisory" role - scan crypto and stocks daily,
+report what looks good to buy, using similar technical metrics to the
+crypto side plus earnings/institutional-investor signals for stocks.
+Asked clarifying questions before building anything (per the user's own
+explicit request to "ask questions first"), covering:
+
+1. **New agent vs. converting the live branch in place** → new, separate
+   branch (this one). Keeps the live trading branch's code/history/
+   credentials completely untouched and resumable later; keeps "used to
+   place real orders" history out of what's now a read-only advisor.
+2. **What happens to the live trigger/open positions** → the live
+   hourly trigger (`trig_01PUpRvKvis6BaM5D2wo1jhm`, bound to
+   `session_01YZbxRuD6bUweQWeKS9xmaB`) was disabled (`enabled: false`,
+   not deleted) same day. Any position open on Kraken at the time of
+   disabling keeps its real resting stop-loss order on the exchange
+   itself, so it's still protected - but nothing will manage trailing
+   stops, invalidation checks, or open new trades until a human
+   re-enables it. See the live branch's own `CLAUDE.md` for that
+   trigger's full history; this branch doesn't touch it further.
+3. **Stock data source** → user will set up Alpaca (free market-data
+   tier). Alpaca covers quotes/bars but explicitly does NOT cover
+   earnings calendars, fundamentals, or 13F/insider data - those gaps are
+   covered separately (see below), not silently left unaddressed.
+4. **"Big investor" signal** → the user specifically meant 13F
+   institutional holdings changes AND Form 4 insider buying/selling.
+   Both covered via free, no-key SEC EDGAR endpoints - no new paid
+   account needed for this part. See the EDGAR section below for a real,
+   load-bearing caveat on the 13F half specifically.
+5. **Delivery & cadence** → daily digest, written to a Notion page
+   (mirroring the live trading branch's summary-page pattern), not
+   hourly - advisory output has no reason to be as time-sensitive as a
+   system that was placing real orders.
+6. **Stock universe** → S&P 500 / large-cap screen (not a fixed
+   watchlist) - scan the whole index cheaply, narrow to a short list
+   worth deeper analysis each day.
+7. **Crypto universe** → kept the same 8 EUR pairs the live trading
+   branch uses (BTC/ETH/SOL/XRP/ADA/LINK/SUI/LTC), reusing that branch's
+   confirmed-live Kraken pair-code mapping verbatim. No reason to widen
+   now that there's no position-count or execution-risk limit forcing a
+   small list - but these 8 are already proven liquid enough for the
+   signals to mean something, so kept as-is rather than guessing at a
+   wider list.
 
 ## Layout
 
-- `instructions/kraken-agent-instructions.md` — the agent's operating rules
-- `mcp-server/` — custom MCP server: Kraken public market data, computed
-  signals (RSI/SMA/volume/order-book), and the paper-portfolio engine with
-  risk limits enforced in code (not just by prompt)
-- `.mcp.json` — registers the MCP server for any Claude Code session opened
-  in this repo
-- `data/portfolio_state.json` — paper portfolio state (cash, open/closed
-  positions, daily realized P&L). Source of truth; don't hand-edit except to
-  reset for a fresh start.
-- `trades.md` — human-readable trade log, appended to automatically by the
-  MCP server's portfolio tools (open/close/no-trade). Don't hand-edit; if a
-  fix is needed, fix `data/portfolio_state.json` and regenerate, or note a
-  correction inline.
+- `instructions/market-advisory-instructions.md` - the agent's daily
+  operating cycle (read this, not just this file, before running)
+- `mcp-server/` - the MCP server. Reused verbatim from the paper-trading
+  branch: `indicators.ts` (RSI/SMA/volume/price-action/momentum - fully
+  generic over `Candle[]`, not Kraken-specific, so it's reused as-is for
+  stocks too - "similar metrics to crypto" falls out directly rather than
+  being a second implementation to keep in sync) and `signals.ts`
+  (crypto-specific orchestration, unchanged). `kraken.ts` ported from the
+  live branch's EUR pair-code mapping (not the paper branch's USD one) -
+  see "Crypto universe" above. Three new files: `stocks.ts` (Alpaca
+  client + stock signal computation), `sp500.ts` (S&P 500 membership via
+  a live proxy + the cheap screening pass), `edgar.ts` (SEC EDGAR insider/
+  institutional lookups). `portfolio.ts` was deleted entirely, not kept
+  as dead code or disabled - this agent has no concept of a position.
+- `.mcp.json` - registers `market-advisory`, declaring
+  `ALPACA_API_KEY_ID`/`ALPACA_API_SECRET_KEY` env vars (see credential
+  setup below)
+- `recommendations.md` - this agent's audit-trail log, parallel to the
+  trading branches' `trades.md` but for recommendations, not trades.
+  Starts clean - nothing to inherit from either trading branch's trade
+  history.
+- No `data/` directory - unlike both trading branches, there is no
+  position state to persist between cycles. The S&P 500 constituent list
+  is live-fetched and cached per-process (12h TTL), not stored in the
+  repo - see `sp500.ts`.
 
-## Setup
+## Credential & environment setup - NOT YET DONE, blocks real operation
 
-`mcp-server/dist/` (built output) and `mcp-server/node_modules/`
-(production deps only — `@modelcontextprotocol/sdk`, `zod`, and their
-transitive deps, ~26MB, no native binaries) are **committed**, not
-gitignored. This is deliberate: the harness connects to the MCP server at
-session bootstrap, before any `SessionStart` hook gets a chance to run, so
-a build step that only happens in a hook is too late — the first
-connection attempt hits missing files, fails, and never retries for that
-session's lifetime. Committing the built artifacts means the server is
-launchable the instant the repo is cloned, no build race possible.
+This is the one thing that can't be done from inside a session - it
+needs the user's own action on claude.ai/code, mirroring exactly how the
+live trading branch's Kraken credentials were set up (see that branch's
+CLAUDE.md "Credential handling" section for the precedent this follows).
 
-**If you change anything in `mcp-server/src/`, you must rebuild and commit
-`dist/` (and `node_modules/` if dependencies changed) before pushing** —
-otherwise sessions keep running the old committed code even though the
-source has moved on. `.claude/hooks/session-start.sh` only warns about
-this drift on cloud sessions; it can't fix it for the current session (see
-above), only remind you to fix it for the next one.
+**Needed**:
+1. An Alpaca account + a free market-data API key pair
+   (`ALPACA_API_KEY_ID` / `ALPACA_API_SECRET_KEY`). Alpaca's free tier is
+   a standalone market-data product - it does not require funding a
+   brokerage account to use for data only.
+2. A **dedicated CCR environment** for this agent (not the "Default" one
+   the paper branch uses, not "Kraken live" either) - same credential-
+   isolation discipline the live branch's CLAUDE.md documents and the
+   same reasoning: keeps Alpaca's keys structurally unreachable from any
+   other branch's session, and vice versa. Lower stakes than Kraken's
+   keys (market-data-only, no trading/withdrawal scope exists on
+   Alpaca's data API to begin with), but isolating by habit costs
+   nothing and avoids a future mix-up.
+3. That environment's network policy needs these domains allowlisted
+   (this environment currently only allows `api.kraken.com`, inherited
+   from the trading branches - confirmed by a live WebFetch/fetch
+   failure against both during this build):
+   - `data.alpaca.markets` - stock quotes/bars
+   - `www.sec.gov`, `data.sec.gov`, `efts.sec.gov` - SEC EDGAR (insider
+     Form 4 filings, 13F full-text search, the CIK lookup file)
+   - `www.ishares.com` - S&P 500 membership proxy (see `sp500.ts`'s
+     header comment for why this specific source was picked; Alpaca
+     itself has no index-membership endpoint)
 
-```
-cd mcp-server && npm install && npm run build   # full install incl. devDeps (typescript, tsx)
-npm test                                         # indicator-math unit checks + live Kraken smoke test
-rm -rf node_modules && npm install --omit=dev    # prune back to production-only before committing
-```
+**Until this exists**: `npm run test` (the self-test suite) runs
+everything that's live-testable today - all pure indicator math, and a
+full live smoke test against Kraken's EUR pairs (confirmed passing,
+2026-10-23) - and skips the Alpaca/EDGAR/iShares-dependent tests
+explicitly and gracefully (`skip:` lines, not failures) rather than
+crashing or hanging. The code for all three was written against each
+API's documented/known shape since it can't be live-verified from this
+environment yet - **explicitly unverified**, same honesty convention the
+live trading branch's CLAUDE.md uses for anything built this way (see
+that branch's `kraken-private.ts` entry). Each unverified spot is called
+out in a comment at the point it matters (`stocks.ts`'s Alpaca client,
+`sp500.ts`'s CSV parser, `edgar.ts`'s Form 4 XML extraction) - re-read
+those comments and live-smoke-test immediately once the new environment
+and credentials exist, before trusting any of their output.
 
-Verify the pruned build still runs before committing — a stray runtime
-import from a devDependency won't show up until node_modules is pruned:
+## Known data-source caveats - read before trusting a 13F-mentions result
 
-```
-echo '{"jsonrpc":"2.0","id":1,"method":"initialize","params":{"protocolVersion":"2024-11-05","capabilities":{},"clientInfo":{"name":"test","version":"1.0"}}}' \
-  | NODE_USE_ENV_PROXY=1 node dist/index.js
-```
+**13F "mentions" is a noisy proxy, not aggregated institutional flow.**
+13F-HR filings are filed BY institutional managers listing ALL their
+holdings - not by the company itself - so there is no clean per-issuer
+"who bought how much of this stock" endpoint on EDGAR the way there is
+for Form 4. `get_institutional_13f_mentions` uses EDGAR's full-text
+search across recent 13F-HR filings for a company name match - it tells
+you which managers' filings mention the name somewhere in the document,
+not a parsed, aggregated net-buy/net-sell figure. Getting a real
+aggregated number would mean fetching and parsing every matched manager's
+full holdings table (hundreds of XML rows each) to find the specific
+CUSIP and diff it quarter-over-quarter - deliberately not attempted in
+this first build. Also inherently laggy regardless: 13F is filed up to
+45 days after quarter-end. `instructions/market-advisory-
+instructions.md` mandates carrying this caveat into every report that
+uses this tool - never present it as a clean signal.
 
-## The hourly routine (trigger)
+**Form 4 insider activity is the cleaner half of the "big investor"
+ask.** Filed per-issuer, near-real-time, structurally straightforward to
+look up by ticker. Weight this more heavily than the 13F proxy above.
 
-**2026-09-20: fresh-session-per-firing was tried and reverted within the
-same day - it's broken, don't re-attempt without fixing the root cause
-first.** The motivating problem was real and remains unsolved (see below),
-but the fix attempted did not work.
+**Alpaca's free/IEX tier has no L2 order-book depth** - `compute_stock_
+signals` always reports this as a `data_gaps` entry rather than silently
+omitting the crypto side's order-book-imbalance signal. If a paid Alpaca
+tier is ever added specifically for this, revisit - not needed to ship a
+useful first version.
 
-What was tried: switched the trigger to `create_new_session_on_fire: true`
-(`persist_session: false`, no `persistent_session_id`), on the theory that
-a brand-new disposable session per hourly firing would keep cost flat
-instead of climbing as one persistent session's conversation history
-accumulates forever (see "the cost problem" below for the numbers that
-motivated this).
+**No crypto-equivalent of 13F/Form 4** - there's no regulatory filing
+regime for crypto holdings the way there is for US equities, so the
+crypto side's "big investor" context stays whatever the trading branches
+already used (news-catalyst WebSearch), not an EDGAR-style structured
+lookup. Not a gap to fix, just a real asymmetry between the two asset
+classes worth being explicit about rather than pretending symmetry.
 
-What actually happened: the very first real firing under this mode
-(`trig_018vYAWycycUJfDwZTvpzzh9`, fired 08:11 UTC) reported
-`ROUTINE_RUN_STATUS_SUCCEEDED` but did **nothing** - no git commit, no
-trade decisions, nothing pushed. `get_session` on the session it spawned
-showed no `sources` field at all (no git repository configured) and no
-`post_turn_summary`, with a suspiciously low `cost_usd` (~$0.37) and
-`input_tokens` (28). **Root cause: `create_trigger`'s
-`create_new_session_on_fire` mode has no parameter to specify a git repo
-source at all** (unlike `create_session`, which takes `source_url`/
-`source_revision`), and the environment itself has no bound default
-repository (checked via `list_environments`). So every fresh session this
-mode spawned started completely empty - no repo, no `.mcp.json`, no MCP
-tools, nothing to `git pull`, nothing to commit - while the trigger
-infrastructure still reported the firing as a bare success. This is a
-dangerous failure mode specifically *because* it fails silently: a
-real-money version of this bug would look identical (routine reports
-"succeeded," nothing actually gets checked or traded) unless someone
-happens to notice the missing commit.
+## Not yet done
 
-**Fix applied same day**: reverted to the persistent-session model.
-Deleted the broken trigger, created a verification session via
-`create_session` with an explicit `source_url`/`source_revision` (confirmed
-this time to have `session_context.sources` populated correctly), had it
-run a full cycle to prove the repo + MCP tools work end-to-end, then
-recreated the hourly trigger (same name, same `11 * * * *` cron) bound to
-that verified session via `persistent_session_id` - i.e., back to exactly
-the architecture that was in place before this whole detour, with a fresh
-starting session (cost resets to the "cycle 1" baseline from here, but
-*will* start climbing again over this session's lifetime - see below).
-
-**The original cost-climb problem** - a persistent session bound to the
-trigger before this detour had racked up **$336.31 over ~18 hours** (cost
-climbing from ~$1/cycle early on toward $18-19/cycle by the end), purely
-from conversation-history accumulation, not from doing more work - **is
-now mitigated via a weekly session cutover, not fresh-session-per-firing.**
-
-**Same-day follow-up test, 2026-09-20: the "self-heal" idea for
-fresh-session-per-firing was tried and also failed, ruling that path out
-entirely.** Theory: even though `create_new_session_on_fire` can't specify
-a repo source, maybe a spawned session could attach one itself mid-session
-via `add_repo` + `register_repo_root` (both ordinary Claude Code Remote
-meta-tools, not gated on having a repo already). Tested directly with two
-throwaway sessions created via `create_session` with no `source_url`
-(deliberately mimicking a fresh firing's starting state) and a step-by-step
-script asking them to self-attach the repo and then try calling
-`portfolio_get_state`. **Both sessions refused before doing anything** -
-the very act of asking a session to attach a repo and probe an MCP tool
-mid-conversation tripped a suspected-prompt-injection safety check, and
-each sat blocked waiting for a human to click confirm in the web UI (first
-attempt: "confirm you want me to grant push access... and probe kraken
-trading MCP"; second, simplified/read-only attempt: same block, "refused
-suspected prompt injection"). Two-for-two on the identical block, with
-different wording and different access levels, means this isn't a
-prompt-phrasing problem to work around - it's a structural one: an
-unattended hourly trigger can never click "confirm," so a self-healing
-fresh session would just trade one silent-failure mode (no repo, reports
-success anyway) for a different one (stuck waiting for approval nobody's
-there to give, indefinitely). **Conclusion: fresh-session-per-firing is a
-dead end for this system, full stop - don't revisit it** unless the
-underlying "attach a repo mid-session" action stops tripping that check
-(not something this project controls) or `create_new_session_on_fire`
-gains its own repo-source parameter (a platform change, not something to
-work around here).
-
-**What's actually implemented instead: weekly automated cutover.** A
-separate trigger, `trig_01BXwQ1gY9eTyFCdvTmCVnM9` ("Weekly session cutover
-for Kraken hourly monitoring", cron `0 9 * * 0` - Sundays 09:00 UTC),
-fires into the main persistent chat session (not the hourly-monitoring
-session itself) with a self-contained procedure: look up the current
-hourly trigger's id/prompt/session, spin up a brand-new session via
-`create_session` with an explicit `source_url`/`source_revision` (the
-approach proven to work, unlike the repo-less path above), run that same
-hourly-cycle prompt on it as both a verification step and that hour's real
-cycle, and - only if it completes cleanly (repo present, MCP tools present,
-an actual git push happened) - delete the old hourly trigger and recreate
-it bound to the new session via `persistent_session_id`, then
-best-effort-archive the old session. This bounds conversation-history
-growth (and therefore cost) to at most a week's worth of cycles before
-each reset, without ever needing a repo-less session to do anything.
-User-chosen cadence: weekly, fully automated except the one unavoidable
-manual step below. If a cutover ever fails its own verification step, it's
-designed to leave the working hourly trigger untouched and just report the
-failure - not silently break monitoring the way the fresh-session detour
-did.
-
-**Notion connector reattachment turned out NOT to be needed on a
-cutover, despite `create_trigger`'s warning - confirmed empirically,
-twice, same day (2026-09-20).** Original assumption (now corrected): since
-`create_trigger`'s `connectors` param can't be set from a session that
-doesn't itself hold the connector, and the create response explicitly
-warns "this trigger stores no MCP connectors," it seemed like every
-recreated trigger would need a manual reattach at claude.ai/code/routines.
-User pushed back on doing this weekly and asked for alternatives - turned
-out the premise was wrong, not just annoying. That warning describes what
-happens when a *trigger* spawns a session from scratch
-(`create_new_session_on_fire`); it doesn't apply to a `persistent_session_id`
-trigger, because the trigger never creates anything - the session already
-exists (made via `create_session`, which runs under `permission_mode: auto`
-and inherits the account-level Notion always-allow setting automatically
-at creation, no connector list required) and the trigger just resumes it.
-Direct evidence: the first weekly cutover's verification cycle synced to
-Notion cleanly, and the very next *real* scheduled hourly firing (10:11
-UTC, same session) also synced cleanly - neither one had any manual
-reattachment done, by anyone, in between. The weekly-cutover trigger's own
-prompt has been updated to stop asking the user to reattach anything; it
-now only escalates if a cutover's verification cycle shows Notion sync
-actually failing (which would mean this assumption broke and needs
-re-investigating), not as a routine reminder.
-
-**Historical context, from the original persistent-session model, kept for
-reference:** a Notion write tool could start prompting for interactive
-approval again despite the account-level always-allow setting, because
-that setting appeared to be evaluated and locked in the *first time a
-given session* encountered the tool - a session created before the
-setting was fixed kept asking forever, even after the fix. Confirmed by
-direct A/B test (2026-09-11). If Notion ever does start silently prompting
-again on some future session: don't just re-click approve each time. Fix
-the always-allow setting first (Settings → Connectors → Notion, per-tool),
-then do a fresh cutover so the replacement session picks up the fix from
-its first tool call - a session that already hit the bug before the fix
-keeps asking forever, per the note above. This is now the only Notion-related
-watch item; ordinary weekly cutovers need no Notion action at all.
-
-## Shipped to paper trading (2026-09-17)
-
-Three items that started life in "Planned but not yet built" below were
-pulled forward into paper trading now, on the reasoning that paper trading
-is the cheap place to shake out bugs/behavior before any of this matters
-with real money - user explicitly asked to build these three now and hold
-the remaining two ("No opportunity-cost / position-swap logic" and
-"Entry-timing review", both still below) for the live version:
-
-- **`MAX_OPEN_POSITIONS` raised from 3 to 7**, matching the new 7-pair
-  scope (one per pair). `MAX_TOTAL_EXPOSURE_PCT` (25%) was deliberately
-  left unchanged - it's the real aggregate-risk constraint, not position
-  count; see the git history on this file for the full original reasoning
-  if needed. Bundled in: **`portfolio_open_position` now rejects a second
-  open position on a pair that already has one open**, even if the
-  position-count cap isn't reached - explicit code enforcement, no longer
-  just implicitly true because each pair was evaluated once per cycle.
-- **POL/USD dropped, ADA/USD + LINK/USD + DOGE/USD added** - re-verified
-  live 24h volume immediately before building (2026-09-17): ADA ~$11.7M,
-  LINK ~$4.4M, DOGE ~$6.1M, vs. POL ~$684K (still the thinnest pair by a
-  wide margin despite recovering off its 2026-09-13 low of $267K). Kraken's
-  internal pair code for Dogecoin is `XDGUSD`, not `DOGEUSD` - confirmed
-  live against `/0/public/AssetPairs` before hardcoding it in
-  `kraken.ts`'s `PAIR_CODE` map. No open positions existed at build time,
-  so no correction/backfill entry was needed in `trades.md` or
-  `data/portfolio_state.json`.
-- **Breakeven + trailing-stop exit logic**, layered on top of the fixed
-  2:1 take-profit (which remains the mechanical baseline for any trade
-  that never earns better). `Position` gained two fields: `initial_stop_loss`
-  (the stop as originally set at entry, immutable - used to always
-  recompute the trade's own risk/R correctly even after `stop_loss`
-  itself starts moving) and `trailing_active` (flips true, permanently,
-  the first time price reaches entry + 1R). `portfolio_check_stops` now
-  does two passes each cycle: first bring every position's trailing state
-  up to date and persist it (so a stop advance survives even if nothing
-  closes that cycle), then decide closes against that saved state. Once
-  `trailing_active` is true, the fixed take-profit is **superseded** - no
-  longer checked - and the position is governed purely by `stop_loss`,
-  which trails below the rising 20-period 4h SMA (`TRAIL_SMA_PERIOD` in
-  `types.ts`) once that climbs high enough, never moving back down. The
-  pure math (`hasReachedOneR`, `effectiveTrailingStop` in `portfolio.ts`)
-  is exported and unit-tested in `selftest.ts` rather than only exercised
-  live, since it can't be validated against production
-  `data/portfolio_state.json` without polluting real trade history with
-  test entries.
-  - **Revised 2026-09-19: floor is a guaranteed +0.3R profit lock, not bare
-    breakeven.** User caught a real gap in the original design: a position
-    that spiked to +1R and immediately reversed would close at bare
-    breakeven price, which - after real round-trip fees/slippage
-    (`ROUND_TRIP_COST_PCT`, ~0.9%) - is actually a small guaranteed LOSS,
-    not a scratch, defeating the point of having reached +1R at all.
-    Fixed by adding `TRAILING_LOCK_R_MULTIPLE = 0.3`: the floor is now
-    `entry + max(0.3 * R, entry * ROUND_TRIP_COST_PCT)`, guaranteeing a
-    real net profit on any reversal from the moment +1R triggers, while
-    still leaving 0.7R of room (the gap between the +1R trigger and the
-    +0.3R floor) for an ordinary post-breakout pullback before the trade
-    actually closes. The fee-cost term is defensive only - 0.3R alone has
-    comfortably cleared it on every trade seen so far (observed stop
-    distances of 4.8-7% put 0.3R at roughly 1.5-2.1% of entry, vs. the
-    ~0.9% fee floor) - but keeps the guarantee real even for a
-    hypothetical future trade with an unusually tight R. The SMA-based
-    trailing above that floor is unchanged. Zero trades had reached +1R
-    with a subsequent reversal at the time of this change, so this was a
-    correctness fix applied proactively, not a response to an observed bad
-    outcome.
-  - **Revised again 2026-09-19: floor scales with the trade's PEAK gain,
-    not just the gain at the moment +1R first triggered.** User's
-    follow-up question exposed a second gap in the same day's first fix:
-    `TRAILING_LOCK_R_MULTIPLE`'s 0.3R was a flat amount computed once from
-    the *original* 1R and never revisited - a trade that ran all the way
-    to +3R and then round-tripped back down would still only be guaranteed
-    the same 0.3R as one that barely ticked over +1R before reversing. The
-    SMA-based trail was the only thing that could improve on that, and the
-    SMA lags a fast rally (20 periods of 4h candles = up to ~80h of
-    history), so a quick spike-then-reverse could give back most of a big
-    run with nothing but the flat floor to show for it. Fixed by adding
-    `Position.peak_price` (highest price observed since entry, updated
-    every `checkStops` cycle regardless of `trailing_active`) and
-    replacing the fixed-R lock with `PEAK_PROFIT_LOCK_FRACTION = 0.3`
-    (same 0.3 value, reinterpreted): the floor is now
-    `entry + max(0.3 * (peak_price - entry), entry * ROUND_TRIP_COST_PCT)`.
-    Since `peak_price` only ever increases, the floor now ratchets up as a
-    rally extends - a bigger run locks in more guaranteed profit than a
-    small one, matching the intuition that a trade that ran further earned
-    a better worst case. At the exact moment of the +1R trigger this
-    produces the identical result as the first fix (peak gain == the
-    original 1R at that instant), so nothing changed about small,
-    single-tick-over-+1R trades - only about what happens if the rally
-    keeps going afterward. Two currently-open positions (ADA/USD, SOL/USD)
-    were already `trailing_active` under the old flat formula - see the
-    2026-09-19 `peak_price` backfill CORRECTION entry in `trades.md` for
-    how their historical peak was reconstructed from live Kraken 1h-candle
-    data (not approximated from the current price alone) rather than
-    guessed; their `stop_loss` itself was left as-is in the backfill since
-    the new peak-based floor is provably >= the old flat one once trailing
-    is active, so `checkStops`'s existing "only move up" logic corrects it
-    automatically on the next cycle with no manual edit needed.
-  - **Revised 2026-09-20: `peak_price` now tracks 1h candle highs since
-    entry, not a live point-sample of `ticker.last`.** User asked what
-    happens if a trade spikes to a new high and reverses within the hour
-    between two `checkStops` runs - traced it and found a real gap: the
-    old code only compared `ticker.last` (a single price at the instant of
-    each check) against the stored `peak_price`, so a spike-and-reversal
-    between checks was never recorded at all. That silently understated
-    the guaranteed-profit floor below what the trade actually earned, and
-    - separately - meant `hasReachedOneR` could miss that a trade had ever
-    reached +1R if price had already pulled back below it by the time a
-    given cycle ran. Fixed with `peakFromCandles` (pure, unit-tested) and
-    `historicalPeakSinceEntry`: each cycle now fetches 1h candles since
-    `opened_at` and takes the highest `high` among them (deliberately
-    including the still-forming last candle, whose `high` is a true
-    running high-so-far, unlike `close`), combined via `Math.max` with
-    `ticker.last` and the existing `peak_price` so the value can only ever
-    increase. `hasReachedOneR` is now also evaluated against the refreshed
-    `peak_price` rather than a live-only price, so a trade that touched
-    +1R and pulled back still correctly earns the trailing treatment. No
-    backfill needed - `peak_price` is monotonic, so the very next
-    `checkStops` cycle self-corrects any position where the old
-    point-sampled value happened to understate the true historical peak.
-
-This required a full session cutover per "The hourly routine" section
-above (both `mcp-server/src/` and `instructions/kraken-agent-instructions.md`
-changed, plus the trigger's own prompt text hardcodes the pair list) -
-check `mcp__Claude_Code_Remote__list_triggers` for the currently-bound
-session if picking this up later and the cutover isn't done yet.
-
-## Planned but not yet built
-
-These are agreed changes for a future (live) version - **don't implement
-without the user explicitly asking**, they're recorded here so the
-decision isn't lost between sessions:
-
-- **Raise position-sizing caps for the live version: high confidence
-  5%→8%, medium confidence 3%→5%, `MAX_TOTAL_EXPOSURE_PCT` 25%→40%.**
-  Discussed 2026-09-20. User's reasoning: since every position always has
-  a stop-loss, the real per-trade risk is `size_pct × stop_distance_pct`,
-  not `size_pct` alone - a stop makes a larger position meaningfully safer
-  than the raw size number suggests, so the current caps looked more
-  conservative than necessary. Counterpoint discussed: the 25% exposure
-  cap already binds well before the old 5% per-trade cap does in practice
-  (the account has held at most 2 positions open at once, far under the 7
-  slots) - so on its own, raising just the per-trade cap wouldn't add much
-  new *aggregate* risk, it would mostly concentrate more of the same 25%
-  into fewer, higher-confidence bets. It does still increase the
-  consequence of the live-only gap-risk item below (stops aren't real
-  resting orders yet, so a severe single-hour move can blow through a stop
-  before the next check catches it) - a bigger position makes that
-  specific known gap more expensive when it fires. Final numbers chosen to
-  keep the exposure cap's *relative* headroom the same as today rather
-  than being arbitrary: the 8/5 = 1.6x scaling was applied consistently to
-  all three limits (high 5→8, and 25×1.6=40 for exposure), so "5 full-size
-  high-confidence positions before the aggregate cap binds" stays true in
-  relative terms at the new sizes, even though 25→40 sounds like a big
-  jump in isolation. Medium's final value (3%→5%) was set by the user
-  directly rather than the same 1.6x ratio (which would have given 4.8%) -
-  a clean round number, and it also happens to land medium at today's old
-  high-confidence cap. Not implemented - this only applies to
-  `RISK_LIMITS.MAX_POSITION_PCT`, `CONFIDENCE_MAX_SIZE_PCT`, and
-  `RISK_LIMITS.MAX_TOTAL_EXPOSURE_PCT` in `mcp-server/src/types.ts` for the
-  live build; paper trading keeps running on today's 5%/3%/25% values
-  until the live version actually exists, consistent with every other
-  live-only decision in this section.
-- **No opportunity-cost / position-swap logic.** Even with 7 slots, once
-  all slots are full the agent still just rejects a new opportunity rather
-  than ever closing an existing (weaker) position to make room. That's a
-  deliberate absence, not a bug - swapping requires comparing trades
-  against each other, which is a meaningfully bigger design decision than
-  a fixed threshold. Left as-is for now; revisit once slots are actually
-  filling up regularly (the account has held at most 2 positions open at
-  once so far).
-- **Entry-timing review: consider requiring pullback/confirmation before
-  entry, and consider ATR-based stops.** Loss-pattern review 2026-09-15,
-  after the first 3 closed trades (POL, ETH, XRP) all hit stop-loss for a
-  combined -$30.44 (-0.3% of portfolio) - risk management itself worked
-  fine (each capped at medium confidence, sized 2-3%, no blowups, nowhere
-  near the 5% daily halt), but n=3 is too small to conclude anything
-  statistically; this is a flagged pattern to keep watching, not a
-  diagnosed bug. What the three had in common: each entered right at an
-  already-extended/euphoric moment rather than on a pullback - ETH's own
-  confidence_reason explicitly named "Extreme Greed... contrarian pullback
-  risk" as the reason it was capped at medium, and still got traded; XRP's
-  momentum-only entry came after price had already run +8.4% in 48h, right
-  near the 48h high (chasing a move already made, the exact risk flagged
-  when the momentum trigger was designed - its first live test was also
-  its first loss, n=1 so far); POL's crossover fired on below-average
-  volume (0.27x, unconfirmed) plus a mixed news item. None of the three
-  got anywhere near +1R before reversing, so this reads as an entry-timing
-  issue, not the (separately shipped, see above) exit-logic gap - the
-  breakeven/trailing upgrade wouldn't have changed any of these three
-  outcomes either, since none of them got far enough into profit to
-  trigger it. Two candidate
-  changes for the live version, neither implemented: (1) require a minor
-  pullback/confirmation candle before a momentum-only entry specifically,
-  rather than buying the extension immediately; (2) size stops off ATR /
-  realized volatility rather than purely "just below the nearest SMA or
-  support level" - 2.2-2.4% stops on ETH/POL are tight relative to normal
-  crypto 4h noise and may be getting shaken out before the thesis plays
-  out. Don't act on either until there's a real sample (20-30+ trades) -
-  track win rate/expectancy split by signal type (crossover vs.
-  momentum-only vs. RSI) as trades accumulate, per the instructions doc's
-  existing Review loop section, and revisit this note then.
-- **Consider a risk-based exposure cap alongside (or instead of) the
-  current notional one.** Raised 2026-09-19, after the user questioned why
-  `total_exposure_pct` climbs on a rally even though no new money is being
-  committed and every position has a stop. Verified live at the time: 7
-  open positions, $2,100 notional (21% of the $10,027 portfolio), but the
-  actual $ outcome if all 7 hit their *current* stop simultaneously was
-  only -$71.91 (-0.72% of portfolio) - two of them (ADA, SOL, already past
-  +1R) would have closed at a **guaranteed profit**, not a loss. The
-  25%-of-notional cap (`MAX_TOTAL_EXPOSURE_PCT` in `types.ts`) is real and
-  intentional as a tail-risk hedge (bounds how much of the account could
-  be caught in one correlated crash with real slippage, independent of
-  individual stop distances - see the reasoning already on file for why
-  it doesn't scale with pair count), but it's a cruder measure than actual
-  risk: a $300 position with a tight 2% stop and a $300 position with a
-  loose 7% stop count identically toward the 25% notional cap despite
-  being very different bets. A risk-based variant would instead cap the
-  sum of $-at-risk-given-current-stops (which also improves automatically
-  once a position crosses +1R and can no longer lose, unlike notional
-  exposure which doesn't know or care about that). Not acted on yet -
-  the notional cap has never actually bound trading decisions in a way
-  that looked wrong, this is a theoretical refinement flagged for the live
-  version. Revisit once there's more data on how often notional and
-  risk-based exposure meaningfully diverge in practice (right now: a lot -
-  21% notional vs. 0.72% real downside - but that's one snapshot, not a
-  trend).
-- **Surface the guaranteed-profit-lock status on the Notion sync.**
-  Requested 2026-09-19, right after the risk-based-exposure-cap note above
-  - user wants to track locked-in profit somewhere they actually look
-  day-to-day, not just in `data/portfolio_state.json`. Right now
-  `trailing_active`, `stop_loss`, and `peak_price` (see the peak-scaling
-  profit-lock upgrade under "Shipped to paper trading" above) are fully
-  present in the paper-trading state and in `trades.md`'s close-reason
-  text when a trailing stop triggers, but the Notion summary page and
-  Trade Log don't surface any of it while a position is still open - a
-  trade that's already past +1R and guaranteed profitable looks identical
-  in Notion to one still sitting on its original fixed stop. Add either a
-  per-position note/line on the summary page, or a column in the Trade Log
-  showing each open position's currently locked-in profit ($ and/or % of
-  entry) whenever `trailing_active` is true (blank/n/a otherwise - most
-  positions most of the time won't have reached +1R). The data needed
-  (`trailing_active`, `stop_loss`, `entry_price`, `quantity`) is already
-  returned by `portfolio_get_state` per open position; this only needs the
-  hourly routine's Notion sync step (step 5 in the trigger prompt) updated
-  to compute the derived $/% and write it somewhere in Notion. Not
-  implemented - batch this with the risk-based-exposure-cap note above and
-  any other Notion-schema changes when picking this up, so a schema tweak
-  doesn't force its own one-off session cutover.
-- **Use EUR as the live account's base currency, not USD.** Discussed
-  2026-09-20 - user's income is in EUR, so this was weighed as EUR vs.
-  USD-then-convert, not as a neutral choice. Checked live before
-  deciding, not assumed:
-  - **Liquidity**: EUR versions of all 7 current pairs are real and
-    tradeable but consistently thinner than USD - roughly 11-41% of USD's
-    24h volume per pair (DOGE/EUR thinnest at 11%, ADA/EUR least-thin at
-    41%). Judged not to bind in practice at this system's ~$300/trade
-    size (even DOGE/EUR's ~$1.4M/day is ~350x a single trade) - would
-    need re-checking only if position sizes are later scaled up
-    substantially.
-  - **Funding cost**: EUR SEPA deposits are free for verified Kraken
-    users; funding a USD account from a EUR bank requires an
-    international wire (~$40/transfer) - a real, avoidable, recurring
-    cost if funding or withdrawing more than once.
-  - **FX exposure**: holding the account in USD means EUR-denominated net
-    worth moves with the EUR/USD rate on top of actual trading
-    performance, for as long as the account holds USD - noise uncorrelated
-    with strategy skill. Staying in EUR the whole way through (EUR
-    deposit, EUR-quoted pairs, EUR withdrawal) avoids this entirely, and
-    keeps P&L measured in the currency that actually matters for the
-    user's finances.
-  - **No hidden EUR markup**: confirmed Kraken's standard maker/taker fee
-    schedule is identical regardless of quote currency, as long as
-    trading goes through the real order book (Kraken Pro / API - what
-    this system already does) rather than the separate "Instant Buy"
-    convenience feature, which does carry an undisclosed 0.5-2% spread
-    baked into the execution price. A bot placing real orders via the API
-    never touches that path in either currency.
-  - **API support confirmed live**: all 7 pairs' EUR versions show
-    `status: "online"` on Kraken's own `/0/public/AssetPairs` endpoint
-    (the same field that gates order placement), and Kraken's official
-    AddOrder docs use `ETH/EUR` as their own worked example - EUR-quoted
-    trading is fully supported via the same API/pair namespace already
-    used for market data, no separate or restricted access tier.
-  - **Recommendation: EUR**, on balance - the funding-fee and FX-exposure
-    arguments are real and ongoing, while the liquidity gap doesn't
-    actually bind at planned trade sizes. Not implemented (paper trading
-    stays USD-denominated, matching Kraken's public API default used for
-    testing) - this is specifically a live-build decision.
-- **Re-screen the live pair list for EUR liquidity specifically before
-  finalizing it - don't just carry over the USD-based selection.**
-  Follow-up to the EUR-base-currency decision above, 2026-09-20. The
-  current 7-pair lineup (BTC/ETH/SOL/XRP/ADA/LINK/DOGE) was screened
-  entirely on USD volume (see "Shipped to paper trading" above); a fresh
-  live EUR-volume screen of the 7 plus a broader candidate set turned up
-  a real discrepancy:
-  ```
-  BTC $18.5M > XRP $15.5M > ETH $14.9M > SOL $8.3M > AVAX $5.1M >
-  ADA $3.6M > SUI $2.8M > NEAR $2.7M > UNI $2.2M > LINK $2.1M >
-  AAVE $1.5M > DOGE $1.4M (weakest in lineup)
-  ```
-  AVAX (not in the current lineup) has more than 3.6x DOGE's EUR volume
-  and more than double LINK's - it missed the original USD-based bar but
-  would rank 5th in EUR terms, ahead of ADA. SUI, NEAR, and UNI (also not
-  in the lineup) all edge out LINK too. Complication: the original
-  ADA/LINK/DOGE picks weren't pure volume-ranking - they explicitly
-  weighted sector diversity (LINK = oracle/infra, a different category
-  from the L1s already in scope; DOGE = distinct social-sentiment
-  volatility character) over raw volume. AVAX and SUI are both L1
-  smart-contract platforms, the same bucket SOL/ADA already cover, so
-  swapping toward them would trade some of that deliberate diversity for
-  liquidity. Leaning: DOGE is the more clear-cut candidate to reconsider
-  (weakest EUR liquidity in the lineup, and a 3.6x gap against AVAX isn't
-  offset by "distinct volatility character" alone); LINK's case is
-  murkier since its category diversity was a deliberate choice, not just
-  a ranking. Not decided or implemented - this was a live snapshot
-  (2026-09-20), re-verify with fresh EUR volume data before actually
-  finalizing the live pair list, same re-verify-before-acting caveat as
-  every other volume-based pair decision on file.
-- **For the live version, replace hourly-polled stop/trailing execution
-  with real resting stop orders on Kraken.** Raised 2026-09-20, after the
-  user asked what happens if a trailing position (already past +1R, stop
-  floored at a guaranteed profit) gaps down through its stop and keeps
-  falling within the hour between checks, landing back below entry by the
-  time the next hourly `portfolio_check_stops` run catches it. Traced the
-  exact mechanics: `checkStops` compares the *live* price at check time
-  against the stored `stop_loss`, but `closePosition` fills at whatever
-  `ticker.bid` is *at that moment* - not at the recorded `stop_loss`
-  level. So the "guaranteed profit" floor only holds if the position is
-  actually closed near that level; a severe enough single-hour move can
-  gap straight through it and keep falling before the next check, closing
-  at an real loss despite having been guaranteed-profitable an hour
-  earlier. This is invisible in paper trading (a worse-than-expected fill
-  there is just a number) but would be real money slipping past a level
-  meant to be a floor once live. Root cause: the current stops aren't real
-  orders resting on the exchange - they're soft checks this agent runs
-  once an hour, so they can't react to anything that happens between
-  checks. Fix for the live version: place genuine resting orders on
-  Kraken itself so the exchange's own matching engine owns the trigger
-  and reacts continuously as the market moves, rather than this agent's
-  hourly poll loop. Not implemented - paper trading has no real order
-  book to rest an order on, so this is specifically a live-build item;
-  the peak-scaling profit-lock math itself (what level the floor *should*
-  be at) doesn't change, only how it gets enforced.
-  - **Design decision 2026-09-20: keep the bespoke peak-scaling/SMA logic
-    (option 2), don't switch to Kraken's native `trailing-stop` order
-    type (option 1).** Two ways to use real resting orders were weighed.
-    Kraken's native `trailing-stop` order type would close the gap-risk
-    completely (exchange-managed, truly continuous) but only supports a
-    fixed trailing distance set at placement - it has no concept of "wait
-    for +1R first," "floor at 0.3x peak gain," or "switch to the
-    20-period 4h SMA once that's higher." Adopting it would mean
-    discarding the exact strategy already built and paper-tested, in
-    exchange for simplicity, right as real money enters the picture. User
-    chose to keep the existing logic instead: the hourly run keeps
-    computing the correct floor exactly as `checkStops` does today, but
-    instead of only comparing against a locally-stored `stop_loss` and
-    self-triggering a market order, it must now also **actively manage a
-    real resting order on Kraken** - cancel and replace it with a fresh
-    `stop-loss` (or `stop-loss-limit`) order whenever the computed floor
-    moves up. This closes the *execution* gap (a real order sits at the
-    last-computed level and fires immediately if touched, rather than
-    waiting up to an hour for the next poll to notice) without closing
-    the separate, smaller *logic-update* lag (the floor itself still only
-    recomputes once an hour) - those are different gaps and this only
-    fixes the first one, which is also the one that can turn a guaranteed
-    profit into a real loss.
-    - **New duty for the live hourly run: reconciliation, not just
-      detection.** Once orders rest on Kraken, the exchange can fill one
-      at any moment, not just when this agent happens to be checking. So
-      each cycle needs to query Kraken's order/trade history first, to
-      find out whether any resting order already filled since the last
-      run (and at what real price/time), and update
-      `data/portfolio_state.json` / `trades.md` to match what Kraken
-      actually did - rather than assuming nothing closed just because the
-      agent didn't personally trigger it. This is a real architecture
-      change from today's checkStops (which is the sole decision-maker)
-      to a live version where Kraken's engine can act unilaterally between
-      runs and the agent's job is partly to catch up to reality.
-
-## Network access
-
-This environment's network policy has `api.kraken.com` allowlisted
-(Custom network access, set in the environment's settings on claude.ai/code).
-Node's built-in `fetch` doesn't honor `HTTPS_PROXY` by default, so
-`NODE_USE_ENV_PROXY=1` is set on the MCP server process (in `.mcp.json`)
-and in `mcp-server/package.json`'s scripts — without it, calls to Kraken
-fail even when the domain is allowlisted. If this is ever run in a
-*different* cloud environment, that environment needs the same domain
-added before any Kraken tool call will work.
+- Credential/environment setup above (blocks everything Alpaca/EDGAR/
+  iShares-dependent from running live).
+- The daily trigger itself + the advisory Notion page don't exist yet -
+  both need the credential setup above done first, then should follow
+  the live trading branch's cutover-and-verify discipline where it
+  applies (new trigger, explicit Notion-prompt check, etc. - see that
+  branch's "Cutover playbook" section, which generalizes beyond Kraken
+  specifically) even though this agent has no real-money stakes to
+  protect the way that playbook was originally built for.
+- `screen_sp500`'s ranking score is a simple, transparent sum of
+  independent flags (momentum/RSI-extreme/volume-spike) - explicitly not
+  a tuned or backtested model. Treat it as a narrowing filter for what
+  the daily report digs into, never as the recommendation itself.

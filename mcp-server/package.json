@@ -1,7 +1,7 @@
 {
-  "name": "kraken-paper-trading-mcp",
+  "name": "market-advisory-mcp",
   "version": "0.1.0",
-  "description": "MCP server exposing Kraken public market data, computed indicators, and a paper-trading portfolio engine with hard-coded risk limits.",
+  "description": "Advisory-only MCP server: Kraken public crypto market data, Alpaca stock market data, computed technical signals shared across both, and SEC EDGAR insider/institutional lookups. No order-placement capability of any kind - scan and report only.",
   "type": "module",
   "main": "dist/index.js",
   "scripts": {

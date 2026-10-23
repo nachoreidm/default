@@ -3,19 +3,18 @@ import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js"
 import { z } from "zod";
 import { fetchOHLC, fetchDepth, fetchTicker, closedCandles, INTERVAL_MINUTES } from "./kraken.js";
 import { computeSignals } from "./signals.js";
-import { getSnapshot, openPosition, closePosition, checkStops, logNoTrade } from "./portfolio.js";
-import {
-  ALLOWED_PAIRS,
-  RISK_LIMITS,
-  CONFIDENCE_MAX_SIZE_PCT,
-  TAKE_PROFIT_RR_MULTIPLE,
-  MOMENTUM_THRESHOLD_PCT,
-  MOMENTUM_ONLY_MAX_CONFIDENCE,
-  TRAIL_SMA_PERIOD,
-  PEAK_PROFIT_LOCK_FRACTION,
-} from "./types.js";
+import { computeStockSignals } from "./stocks.js";
+import { screenSp500, fetchSp500Constituents } from "./sp500.js";
+import { getInsiderActivity, getInstitutional13FMentions } from "./edgar.js";
+import { ALLOWED_PAIRS, MOMENTUM_THRESHOLD_PCT } from "./types.js";
 
-const server = new McpServer({ name: "kraken-paper-trading", version: "0.1.0" });
+// ADVISORY-ONLY MCP SERVER. There is no portfolio module, no order-
+// placement tool, no position state file, and no credential here capable
+// of placing a trade - this is a structural property of this codebase,
+// not just a rule written in a prompt. Every tool below is read-only
+// market data or a computed signal; nothing here can touch real money,
+// crypto or stock.
+const server = new McpServer({ name: "market-advisory", version: "0.1.0" });
 
 function ok(data: unknown) {
   return { content: [{ type: "text" as const, text: JSON.stringify(data, null, 2) }] };
@@ -35,16 +34,18 @@ function wrap<T>(fn: () => Promise<T>) {
 
 const pairSchema = z.enum(ALLOWED_PAIRS);
 
+// --- Crypto (Kraken public data, EUR pairs - same 8 as the live trading branch) ---
+
 server.tool(
   "kraken_get_ticker",
-  `Get the current Kraken ticker (bid/ask/last/24h volume) for an allowed pair. Allowed pairs: ${ALLOWED_PAIRS.join(", ")}.`,
+  `Get the current Kraken ticker (bid/ask/last/24h volume) for an allowed crypto pair. Allowed pairs: ${ALLOWED_PAIRS.join(", ")}.`,
   { pair: pairSchema },
   async ({ pair }) => wrap(() => fetchTicker(pair))()
 );
 
 server.tool(
   "kraken_get_ohlc",
-  "Get closed (fully formed) OHLC candles for an allowed pair at a given interval. Returns most-recent-last.",
+  "Get closed (fully formed) OHLC candles for an allowed crypto pair at a given interval. Returns most-recent-last.",
   { pair: pairSchema, interval: z.enum(Object.keys(INTERVAL_MINUTES) as [string, ...string[]]), limit: z.number().int().positive().max(720).optional() },
   async ({ pair, interval, limit }) =>
     wrap(async () => {
@@ -55,60 +56,53 @@ server.tool(
 
 server.tool(
   "kraken_get_orderbook",
-  "Get the current order book (bids/asks) for an allowed pair, top N levels.",
+  "Get the current order book (bids/asks) for an allowed crypto pair, top N levels.",
   { pair: pairSchema, count: z.number().int().positive().max(100).optional() },
   async ({ pair, count }) => wrap(() => fetchDepth(pair, count ?? 10))()
 );
 
 server.tool(
-  "compute_signals",
-  `Compute the full authorized signal set for a pair in one call: 1h/4h price action over the last 48h, 24h volume vs 7-day average, RSI(14) on 4h, 20/50 SMA crossover on 4h, top-10 order book imbalance, and momentum_trigger (flagged when the 1h or 4h price-action window shows a move at or above ${MOMENTUM_THRESHOLD_PCT}% over 48h - unlike the other signals this one isn't confirmed by anything else, see portfolio_open_position's momentum_only param). Any signal that can't be reliably computed is reported in data_gaps instead of being estimated.`,
+  "compute_crypto_signals",
+  `Compute the full crypto signal set for a pair in one call: 1h/4h price action over the last 48h, 24h volume vs 7-day average, RSI(14) on 4h, 20/50 SMA crossover on 4h, top-10 order book imbalance, and momentum_trigger (flagged when the 1h or 4h price-action window shows a move at or above ${MOMENTUM_THRESHOLD_PCT}% over 48h). Any signal that can't be reliably computed is reported in data_gaps instead of being estimated. Advisory only - this never opens, sizes, or closes anything.`,
   { pair: pairSchema },
   async ({ pair }) => wrap(() => computeSignals(pair))()
 );
 
+// --- Stocks (Alpaca market data + SEC EDGAR) ---
+
 server.tool(
-  "portfolio_get_state",
-  "Get the current paper portfolio snapshot: cash, portfolio value, open positions with live unrealized P&L, total exposure %, open position count, and today's (UTC) realized P&L and halt status.",
+  "screen_sp500",
+  "Cheap first pass over the full S&P 500 (via iShares IVV holdings as a live membership proxy - Alpaca itself doesn't expose index membership): daily bars for every constituent, ranked by a transparent sum of momentum/RSI-extreme/volume-spike flags. Returns the top N by that score plus the full universe size and any per-ticker fetch errors. This is a NARROWING filter for what the daily report digs into further (full signals + earnings + institutional/insider context) - it is explicitly not itself a buy recommendation.",
+  { top_n: z.number().int().positive().max(100).optional() },
+  async ({ top_n }) => wrap(() => screenSp500(top_n ?? 20))()
+);
+
+server.tool(
+  "sp500_constituents",
+  "Get the current S&P 500 constituent list (ticker, name, sector) via the IVV-holdings live proxy, for reference/debugging without running the full screen.",
   {},
-  async () => wrap(() => getSnapshot())()
+  async () => wrap(() => fetchSp500Constituents())()
 );
 
 server.tool(
-  "portfolio_open_position",
-  `Open a new paper LONG position (spot only, no margin/short). All risk limits are enforced here in code and will reject the call if violated: max ${RISK_LIMITS.MAX_POSITION_PCT}% of portfolio per trade, max ${RISK_LIMITS.MAX_TOTAL_EXPOSURE_PCT}% total exposure, max ${RISK_LIMITS.MAX_OPEN_POSITIONS} open positions (one per pair - a second position on a pair that already has one open is rejected), a same-UTC-day halt once realized paper losses hit ${RISK_LIMITS.MAX_DAILY_LOSS_PCT}% of portfolio value, and a confidence-based size cap: low confidence doesn't trade at all (call portfolio_log_no_trade instead), medium caps at ${CONFIDENCE_MAX_SIZE_PCT.medium}%, high can use the full ${CONFIDENCE_MAX_SIZE_PCT.high}%. Fill price is simulated from the live ask plus modeled fee/slippage. A take-profit target is set automatically at ${TAKE_PROFIT_RR_MULTIPLE}:1 risk/reward above entry (${TAKE_PROFIT_RR_MULTIPLE}x the entry-to-stop distance) - this is fixed at entry, not something you choose or can override, though portfolio_check_stops may later supersede it with a trailing stop once the trade earns +1R (see that tool's description). momentum_only: set to true only if compute_signals' momentum_trigger.flagged is the ONLY thing supporting this trade - no fresh SMA crossover this candle, no RSI extreme, no volume spike. Momentum alone can't be "high" confidence (rejected in code) since nothing else confirms it - cap at "${MOMENTUM_ONLY_MAX_CONFIDENCE}" or lower. Automatically appends a structured entry to trades.md on success.`,
-  {
-    pair: pairSchema,
-    size_pct: z.number().positive().max(RISK_LIMITS.MAX_POSITION_PCT),
-    stop_loss: z.number().positive(),
-    invalidation: z.string().min(1),
-    confidence: z.enum(["low", "medium", "high"]),
-    confidence_reason: z.string().min(1),
-    momentum_only: z.boolean(),
-    signals_at_entry: z.record(z.any()),
-  },
-  async (input) => wrap(() => openPosition(input))()
+  "compute_stock_signals",
+  "Compute the full stock signal set for a single ticker: 5-day and 20-day price action, RSI(14) on daily bars, 20/50 SMA crossover, 7-day volume ratio, and the same momentum_trigger logic used for crypto. No order-book imbalance (Alpaca's free tier has no L2 depth - reported as a data_gap). Use this for a candidate narrowed down by screen_sp500, not for scanning the whole index (too slow/call-heavy one ticker at a time).",
+  { ticker: z.string().min(1).max(10) },
+  async ({ ticker }) => wrap(() => computeStockSignals(ticker.toUpperCase()))()
 );
 
 server.tool(
-  "portfolio_close_position",
-  "Close an open paper position at the live bid (minus modeled fee/slippage). Updates the daily realized-loss tracker and appends a structured entry to trades.md.",
-  { position_id: z.string(), reason: z.string().min(1) },
-  async (input) => wrap(() => closePosition(input))()
+  "get_insider_activity",
+  "Get the most recent Form 4 (insider buy/sell) filings for a ticker's issuer from SEC EDGAR - free, no key, near-real-time, filed per-issuer so this is a clean ticker-centric signal (distinct from the noisier 13F proxy below). Returns parsed transaction details (code, shares, price, acquired/disposed) where the filing's XML could be parsed; a filing that couldn't be parsed is simply omitted from the list rather than erroring the whole call.",
+  { ticker: z.string().min(1).max(10), limit: z.number().int().positive().max(25).optional() },
+  async ({ ticker, limit }) => wrap(() => getInsiderActivity(ticker.toUpperCase(), limit ?? 10))()
 );
 
 server.tool(
-  "portfolio_check_stops",
-  `Check every open paper position against its stop-loss and take-profit using live prices, and auto-close any that have breached either. Take-profit starts fixed at ${TAKE_PROFIT_RR_MULTIPLE}:1 risk/reward above entry, set automatically when the position was opened - but once a position reaches +1R (up by its own entry-to-stop risk amount) this tool moves its stop up to a guaranteed profit floor (locking in ${PEAK_PROFIT_LOCK_FRACTION * 100}% of the peak gain reached so far, or enough to clear round-trip fees/slippage, whichever is larger - this floor keeps ratcheting up as the rally extends, not just once) and then trails it below the rising ${TRAIL_SMA_PERIOD}-period 4h SMA once that climbs higher, superseding the fixed take-profit so a strong trend isn't capped at the original target; the stop only ever moves up, never back down. Intended to be called both on demand and from a scheduled monitoring run, so stops, the profit lock, trailing, and profit-taking are all respected even when nobody is actively chatting with the agent.`,
-  {},
-  async () => wrap(() => checkStops())()
-);
-
-server.tool(
-  "portfolio_log_no_trade",
-  "Log an explicit 'no trade' decision for a pair to trades.md, with the reasoning and the signal values considered. Use this whenever signals conflict, data is incomplete, or there's nothing worth doing — a logged no-trade is required output, not optional.",
-  { pair: pairSchema, reasoning: z.string().min(1), signals_considered: z.record(z.any()) },
-  async (input) => wrap(() => logNoTrade(input))()
+  "get_institutional_13f_mentions",
+  "Search recent 13F-HR filings (institutional 'big investor' holdings reports) for mentions of a company name, via SEC EDGAR's full-text search. IMPORTANT CAVEAT: this is NOT an aggregated net-institutional-buying figure - 13F filings are filed by managers listing all their holdings, not by the company, so there is no clean per-issuer 'who bought how much' endpoint on EDGAR. This only tells you which managers' recent 13F filings mention the name somewhere in the document - a noisy 'who's been filing near this name' proxy, not a buy/sell signal by itself. Also inherently stale: 13F is filed up to 45 days after quarter-end.",
+  { company_name: z.string().min(1), limit: z.number().int().positive().max(25).optional() },
+  async ({ company_name, limit }) => wrap(() => getInstitutional13FMentions(company_name, limit ?? 10))()
 );
 
 const transport = new StdioServerTransport();

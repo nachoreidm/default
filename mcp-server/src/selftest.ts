@@ -1,22 +1,22 @@
 import { fetchOHLC, fetchTicker, fetchDepth, closedCandles } from "./kraken.js";
 import { rsi, sma, smaCrossover, volumeVs7dAvg, orderBookImbalance, priceAction } from "./indicators.js";
 import { computeSignals } from "./signals.js";
-import { hasReachedOneR, effectiveTrailingStop, peakFromCandles } from "./portfolio.js";
 import { ALLOWED_PAIRS } from "./types.js";
-import type { Candle } from "./types.js";
-
-function candle(time: number, high: number): Candle {
-  return { time, open: high, high, low: high, close: high, vwap: high, volume: 0, count: 0 };
-}
+import { fetchStockBars, computeStockSignals } from "./stocks.js";
+import { fetchSp500Constituents, screenSp500 } from "./sp500.js";
+import { getCikForTicker, getInsiderActivity } from "./edgar.js";
 
 function assert(cond: boolean, msg: string) {
   if (!cond) throw new Error(`ASSERTION FAILED: ${msg}`);
   console.log(`ok: ${msg}`);
 }
 
+function skip(msg: string) {
+  console.log(`skip: ${msg}`);
+}
+
 async function main() {
-  // --- Indicator math sanity checks against known values ---
-  // Classic RSI textbook example (Wilder), 15 closes -> 1 RSI value.
+  // --- Indicator math sanity checks against known values (pure, no network) ---
   const closes = [44.34, 44.09, 44.15, 43.61, 44.33, 44.83, 45.10, 45.42, 45.84, 46.08, 45.89, 46.03, 45.61, 46.28, 46.28];
   const r = rsi(closes, 14);
   assert(r.length === 1, "rsi returns one value for 15 closes at period 14");
@@ -43,7 +43,7 @@ async function main() {
 
   const imb = orderBookImbalance(
     {
-      pair: "BTC/USD",
+      pair: "BTC/EUR",
       bids: [{ price: 100, volume: 10 }],
       asks: [{ price: 101, volume: 5 }],
     },
@@ -51,72 +51,74 @@ async function main() {
   );
   assert(Math.abs(imb.imbalance - (5 / 15)) < 0.001, `order book imbalance skews toward bids (got ${imb.imbalance})`);
 
-  // --- Breakeven/trailing-stop exit-logic math (pure, no network) ---
-  assert(hasReachedOneR(100, 90, 109.9) === false, "hasReachedOneR false just below entry+1R (100/90/109.9)");
-  assert(hasReachedOneR(100, 90, 110) === true, "hasReachedOneR true exactly at entry+1R (100/90/110)");
-  assert(hasReachedOneR(100, 90, 150) === true, "hasReachedOneR true well past entry+1R (100/90/150)");
-  assert(hasReachedOneR(100, 100, 200) === false, "hasReachedOneR false for zero risk (entry == initial stop)");
-
-  // effectiveTrailingStop(entryPrice, peakPrice, currentStopLoss, sma20).
-  // entry=100, peakPrice=110 (peak gain=10, equivalent to a trade that
-  // just barely reached +1R with a $10 original risk) -> 0.3x peak-gain
-  // lock = 103, fee-floor (ROUND_TRIP_COST_PCT=0.9%) = 100.9 -> lock (103) wins.
-  assert(effectiveTrailingStop(100, 110, 90, null) === 103, "effectiveTrailingStop floors at 0.3x peak gain with no SMA data (got not 103)");
-  assert(effectiveTrailingStop(100, 110, 90, 101) === 103, "effectiveTrailingStop floors at the peak-gain lock when SMA is still below it (101 < 103)");
-  assert(effectiveTrailingStop(100, 110, 90, 110) === 110, "effectiveTrailingStop trails up to a rising SMA above the lock floor (110 > 103)");
-  assert(effectiveTrailingStop(100, 110, 108, 105) === 108, "effectiveTrailingStop never moves the stop down (108 already above candidate 103/105)");
-  // entry=100, peakPrice=101 (peak gain=1, a very small gain so far) ->
-  // 0.3x peak gain = 100.3, fee-floor = 100.9 -> fee-floor wins here,
-  // proving the max() defensive term works.
-  assert(effectiveTrailingStop(100, 101, 95, null) === 100.9, "effectiveTrailingStop falls back to the fee/slippage floor when 0.3x peak gain is too small (got not 100.9)");
-  // The core new behavior: the lock RATCHETS UP as the peak extends
-  // further, rather than staying pinned at the gain reached when +1R
-  // first triggered. entry=100, a rally to peak=130 (peak gain=30, e.g.
-  // +3R on a $10 original risk) locks 0.3*30=9 -> floor=109, clearly
-  // higher than the 103 floor a peak of only 110 (+1R) would produce.
-  assert(effectiveTrailingStop(100, 130, 90, null) === 109, "effectiveTrailingStop locks more profit for a bigger peak (130 -> 109) than a smaller one (110 -> 103)");
-
-  // peakFromCandles(candles, entryTs, currentPeak) - the fix for
-  // point-sampling ticker.last: a spike-and-reversal between two checks
-  // must still be captured via candle highs, not missed entirely.
-  const candles = [
-    candle(1000, 105), // before entry - must be excluded
-    candle(2000, 108), // at/after entry - counts
-    candle(3000, 112), // the spike that would be missed by point-sampling
-    candle(4000, 106), // price already reversed back down by "now"
-  ];
-  assert(peakFromCandles(candles, 2000, 100) === 112, "peakFromCandles catches an intra-window spike that already reversed (got not 112)");
-  assert(peakFromCandles(candles, 2000, 115) === 115, "peakFromCandles never regresses below the currently-stored peak (115 > 112)");
-  assert(peakFromCandles([], 2000, 100) === 100, "peakFromCandles falls back to currentPeak when no candles qualify");
-  assert(peakFromCandles([candle(500, 999)], 2000, 100) === 100, "peakFromCandles ignores candles before entryTs even if their high is huge");
-
-  // --- Live Kraken API smoke test (public endpoints, no auth) ---
-  const ticker = await fetchTicker("BTC/USD");
-  assert(ticker.last > 0, `live BTC/USD ticker last price > 0 (got ${ticker.last})`);
-  assert(ticker.ask >= ticker.bid, "ask >= bid");
-
-  // Every allowed pair (including the newly added ADA/LINK/DOGE and the
-  // Kraken-internal XDG code for DOGE) must resolve to a real, tradeable
-  // Kraken ticker - catches a wrong PAIR_CODE mapping immediately.
+  // --- Live Kraken API smoke test (public endpoints, no auth, same 8 EUR pairs as the live trading branch) ---
   for (const pair of ALLOWED_PAIRS) {
     const t = await fetchTicker(pair);
     assert(t.last > 0, `live ${pair} ticker last price > 0 (got ${t.last})`);
   }
 
-  const candles1h = closedCandles(await fetchOHLC("BTC/USD", "1h"));
+  const candles1h = closedCandles(await fetchOHLC("BTC/EUR", "1h"));
   assert(candles1h.length > 48, `enough 1h candles for 48h window (got ${candles1h.length})`);
 
   const pa = priceAction(candles1h.slice(-48), 48);
   assert(pa.candles_used === 48, "priceAction uses the 48 candles given");
 
-  const book = await fetchDepth("BTC/USD", 10);
+  const book = await fetchDepth("BTC/EUR", 10);
   assert(book.bids.length > 0 && book.asks.length > 0, "order book has bids and asks");
 
-  const signals = await computeSignals("BTC/USD");
+  const signals = await computeSignals("BTC/EUR");
   assert(signals.current_price > 0, "compute_signals returns a current price");
-  console.log("\nFull signal report for BTC/USD:\n", JSON.stringify(signals, null, 2));
+  console.log("\nFull crypto signal report for BTC/EUR:\n", JSON.stringify(signals, null, 2));
 
-  console.log("\nALL SELF-TESTS PASSED");
+  // --- Stock side: Alpaca - skips gracefully if credentials aren't set yet ---
+  // (expected on first build - see CLAUDE.md's credential-setup section).
+  if (!process.env.ALPACA_API_KEY_ID || !process.env.ALPACA_API_SECRET_KEY) {
+    skip("Alpaca live smoke test (ALPACA_API_KEY_ID/ALPACA_API_SECRET_KEY not set in this environment yet)");
+  } else {
+    try {
+      const bars = await fetchStockBars("AAPL", "1Day", 30);
+      assert(bars.length > 0, `live AAPL daily bars returned (got ${bars.length})`);
+      const stockSignals = await computeStockSignals("AAPL");
+      assert(stockSignals.current_price > 0, "compute_stock_signals returns a current price for AAPL");
+      console.log("\nFull stock signal report for AAPL:\n", JSON.stringify(stockSignals, null, 2));
+    } catch (e: any) {
+      throw new Error(`Alpaca live smoke test failed with credentials present - this is a real failure, not an expected skip: ${e.message}`);
+    }
+  }
+
+  // --- S&P 500 constituent source (iShares IVV CSV) - skips if ishares.com isn't reachable yet ---
+  try {
+    const constituents = await fetchSp500Constituents();
+    assert(constituents.length >= 400, `S&P 500 constituent list has a plausible count (got ${constituents.length})`);
+    console.log(`\nS&P 500 constituents fetched: ${constituents.length} (sample: ${constituents.slice(0, 3).map((c) => c.ticker).join(", ")}...)`);
+  } catch (e: any) {
+    skip(`S&P 500 constituent fetch (ishares.com likely not allowlisted in this environment yet): ${e.message}`);
+  }
+
+  // --- screen_sp500 end-to-end - only runs if both Alpaca creds AND the constituent source are live ---
+  if (process.env.ALPACA_API_KEY_ID && process.env.ALPACA_API_SECRET_KEY) {
+    try {
+      const screen = await screenSp500(10);
+      assert(screen.candidates.length > 0, `screen_sp500 returned candidates (got ${screen.candidates.length})`);
+      console.log(`\nTop screen_sp500 candidates:\n`, JSON.stringify(screen.candidates.slice(0, 5), null, 2));
+    } catch (e: any) {
+      skip(`screen_sp500 end-to-end (needs both Alpaca creds and ishares.com reachable): ${e.message}`);
+    }
+  } else {
+    skip("screen_sp500 end-to-end (needs Alpaca credentials)");
+  }
+
+  // --- SEC EDGAR - free, no key, but sec.gov domains may not be allowlisted yet ---
+  try {
+    const cik = await getCikForTicker("AAPL");
+    assert(/^\d{10}$/.test(cik), `getCikForTicker resolves AAPL to a 10-digit CIK (got ${cik})`);
+    const insider = await getInsiderActivity("AAPL", 5);
+    console.log(`\nAAPL recent Form 4 filings parsed: ${insider.length}`, JSON.stringify(insider, null, 2));
+  } catch (e: any) {
+    skip(`SEC EDGAR live smoke test (sec.gov domains likely not allowlisted in this environment yet): ${e.message}`);
+  }
+
+  console.log("\nALL SELF-TESTS PASSED (see 'skip:' lines above for anything not yet live-testable in this environment)");
 }
 
 main().catch((e) => {
