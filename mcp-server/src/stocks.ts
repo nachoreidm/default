@@ -91,6 +91,41 @@ export async function fetchStockBars(symbol: string, timeframe: AlpacaTimeframe,
 // limit once live, not yet confirmed).
 const MULTI_SYMBOL_BATCH_SIZE = 100;
 
+// screen_sp500's full ~500-ticker scan hit Alpaca's free-tier rate limit
+// (HTTP 429) confirmed live 2026-10-23, once the CSV/ticker-normalization
+// bugs that were silently truncating the real request were fixed. Two
+// mitigations: a small fixed pacing delay between requests (both batches
+// and pagination pages) so a full scan doesn't fire its ~5-10 requests
+// back-to-back, and a real retry-with-backoff on 429 specifically -
+// honoring the Retry-After header when Alpaca sends one, falling back to
+// exponential backoff (1s, 2s, 4s) otherwise. Not yet re-verified live
+// against the actual 429 (this fix was written same-day but the
+// environment's verification sessions were tied up elsewhere) - the
+// pacing delay and backoff values are reasonable defaults, not tuned
+// against Alpaca's actual published rate-limit numbers; revisit if a 429
+// still gets through.
+const INTER_REQUEST_DELAY_MS = 350;
+const MAX_429_RETRIES = 3;
+
+function sleep(ms: number): Promise<void> {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+async function fetchWithRateLimitRetry(url: string, headers: Record<string, string>): Promise<Response> {
+  for (let attempt = 0; attempt <= MAX_429_RETRIES; attempt++) {
+    const res = await fetch(url, { headers });
+    if (res.status !== 429) return res;
+    if (attempt === MAX_429_RETRIES) return res; // give up, let the caller surface the final 429
+
+    const retryAfterHeader = res.headers.get("Retry-After");
+    const retryAfterMs = retryAfterHeader ? Number(retryAfterHeader) * 1000 : NaN;
+    const backoffMs = Number.isFinite(retryAfterMs) ? retryAfterMs : 1000 * 2 ** attempt;
+    await sleep(backoffMs);
+  }
+  // Unreachable (loop always returns), but keeps TypeScript's control-flow analysis happy.
+  throw new AlpacaApiError("Alpaca rate-limit retry loop exited unexpectedly");
+}
+
 export async function fetchMultiStockBars(
   symbols: string[],
   timeframe: AlpacaTimeframe,
@@ -111,7 +146,7 @@ export async function fetchMultiStockBars(
       url.searchParams.set("adjustment", "split");
       if (pageToken) url.searchParams.set("page_token", pageToken);
 
-      const res = await fetch(url.toString(), { headers: authHeaders() });
+      const res = await fetchWithRateLimitRetry(url.toString(), authHeaders());
       if (!res.ok) {
         throw new AlpacaApiError(`Alpaca multi-bars HTTP ${res.status}: ${await res.text().catch(() => "")}`);
       }
@@ -121,7 +156,10 @@ export async function fetchMultiStockBars(
         out.set(symbol, existing.concat(bars.map(toCandle)));
       }
       pageToken = body.next_page_token ?? undefined;
+      if (pageToken) await sleep(INTER_REQUEST_DELAY_MS);
     } while (pageToken);
+
+    if (i + MULTI_SYMBOL_BATCH_SIZE < symbols.length) await sleep(INTER_REQUEST_DELAY_MS);
   }
 
   return out;
