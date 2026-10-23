@@ -100,16 +100,29 @@ async function fetchWithRateLimitRetry(url, headers) {
     // Unreachable (loop always returns), but keeps TypeScript's control-flow analysis happy.
     throw new AlpacaApiError("Alpaca rate-limit retry loop exited unexpectedly");
 }
+// Alpaca's multi-symbol bars endpoint treats `limit` as a cap on the TOTAL
+// number of bars in the page across every symbol in the request, not a
+// per-symbol count the way the single-symbol endpoint and this function's
+// own `limit` parameter (bars wanted per symbol) do. Passing the per-symbol
+// count straight through as the query param (confirmed live 2026-10-23)
+// made a 100-symbol batch paginate ~1-2 symbols at a time - around 150
+// requests just for one batch - which burned through Alpaca's rate limit
+// before a 504-ticker scan could finish, no matter how much the pacing
+// delay below was tuned. Scaling the request-level limit by batch size
+// (capped at Alpaca's documented 10,000-row max) gets every symbol in the
+// batch back on one page instead.
+const ALPACA_MAX_LIMIT = 10000;
 export async function fetchMultiStockBars(symbols, timeframe, limit = 60) {
     const out = new Map();
     for (let i = 0; i < symbols.length; i += MULTI_SYMBOL_BATCH_SIZE) {
         const batch = symbols.slice(i, i + MULTI_SYMBOL_BATCH_SIZE);
         let pageToken;
+        const requestLimit = Math.min(ALPACA_MAX_LIMIT, limit * batch.length);
         do {
             const url = new URL(`${ALPACA_DATA_BASE}/stocks/bars`);
             url.searchParams.set("symbols", batch.join(","));
             url.searchParams.set("timeframe", timeframe);
-            url.searchParams.set("limit", String(limit));
+            url.searchParams.set("limit", String(requestLimit));
             url.searchParams.set("start", startParamFor(limit, timeframe));
             url.searchParams.set("adjustment", "split");
             if (pageToken)
