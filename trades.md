@@ -116407,3 +116407,142 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-10-23T18:02:50.590Z — BTC/EUR — NO TRADE
+
+**Reasoning:** Decline easing slightly: -3.04%/-3.07% (1h/4h, 48h window), below the 6% long-only momentum threshold. RSI 45.56, SMA bullish-aligned, order book negative (-0.26). News: BTC ~€73k/$81.5-83k, steadying near $81,700 per CoinDesk as altcoins rebounded, ETF outflows $635.5M still a drag, Fed decision Oct 28 ahead. No same-day actionable catalyst. No position, no action.
+
+**Signals considered:**
+```json
+{
+  "momentum_1h_pct": -3.04,
+  "momentum_4h_pct": -3.07,
+  "momentum_trigger": false,
+  "rsi_4h": 45.56,
+  "sma_alignment": "bullish",
+  "order_book_imbalance": -0.26,
+  "coinversa_apex_bias": "Strong Short -0.34",
+  "coinversa_sharps_bias": "Strong Long +0.34"
+}
+```
+
+---
+### 2026-10-23T18:02:50.625Z — ETH/EUR — NO TRADE
+
+**Reasoning:** Decline continuing: -3.27%/-3.23% (1h/4h, 48h window), below the 6% long-only momentum threshold. RSI 47.13, order book positive (+0.42). News: ETH ~€2,150/$2,384-2,408, Glamsterdam Hoodi activation delayed pending EIP-8037 review (no new date), ETF outflow streak continuing. No same-day actionable catalyst. No position, no action.
+
+**Signals considered:**
+```json
+{
+  "momentum_1h_pct": -3.27,
+  "momentum_4h_pct": -3.23,
+  "momentum_trigger": false,
+  "rsi_4h": 47.13,
+  "order_book_imbalance": 0.42,
+  "coinversa_apex_bias": "Short -0.14",
+  "coinversa_sharps_bias": "Neutral +0.05"
+}
+```
+
+---
+### 2026-10-23T18:02:50.642Z — SOL/EUR — NO TRADE
+
+**Reasoning:** Decline continuing: -3.04%/-3.03% (1h/4h, 48h window), below the 6% long-only momentum threshold. RSI 49.24, order book roughly balanced (-0.03). News: SOL ~€93/$103-104, Morgan Stanley's SOL fund saw its first inflow after an outflow run since Oct 5, Alpenglow upgrade live. No same-day actionable catalyst. No position, no action.
+
+**Signals considered:**
+```json
+{
+  "momentum_1h_pct": -3.04,
+  "momentum_4h_pct": -3.03,
+  "momentum_trigger": false,
+  "rsi_4h": 49.24,
+  "order_book_imbalance": -0.03,
+  "coinversa_apex_bias": "Strong Short -0.38",
+  "coinversa_sharps_bias": "Strong Long +0.74"
+}
+```
+
+---
+### 2026-10-23T18:02:50.657Z — XRP/EUR — NO TRADE
+
+**Reasoning:** Decline continuing, approaching but not crossing threshold: -5.22%/-5.21% (1h/4h, 48h window), still below the 6% long-only momentum threshold and this is a decline so the rule wouldn't apply regardless. RSI 45.84, order book positive (+0.45). News: XRP ~€1.17/$1.31-1.32, down >11% in October, ledger bug-fix delayed to November, lending-feature amendment awaiting validator approval, XRPL record 8.24M wallets. No same-day actionable catalyst. No position, no action.
+
+**Signals considered:**
+```json
+{
+  "momentum_1h_pct": -5.22,
+  "momentum_4h_pct": -5.21,
+  "momentum_trigger": false,
+  "rsi_4h": 45.84,
+  "order_book_imbalance": 0.45,
+  "coinversa_apex_bias": "Strong Short -0.67",
+  "coinversa_sharps_bias": "Strong Long +0.32"
+}
+```
+
+---
+### 2026-10-23T18:02:50.674Z — ADA/EUR — NO TRADE
+
+**Reasoning:** Decline continuing, approaching but not crossing threshold: -5.07%/-4.93% (1h/4h, 48h window), still below the 6% long-only momentum threshold and this is a decline so the rule wouldn't apply regardless. RSI 44.46, SMA bearish-aligned. News: ADA ~€0.193/~$0.21-0.22, whale supply share declining to 37.93%, open interest down 11%/24h, Cardano Foundation 100k Indian farms milestone structural not same-day. No same-day actionable catalyst. No position, no action.
+
+**Signals considered:**
+```json
+{
+  "momentum_1h_pct": -5.07,
+  "momentum_4h_pct": -4.93,
+  "momentum_trigger": false,
+  "rsi_4h": 44.46,
+  "sma_alignment": "bearish (fast_below_slow)"
+}
+```
+
+---
+### 2026-10-23T18:02:50.689Z — LINK/EUR — NO TRADE
+
+**Reasoning:** Decline continuing, approaching but not crossing threshold: -4.82%/-4.90% (1h/4h, 48h window), still below the 6% long-only momentum threshold and this is a decline so the rule wouldn't apply regardless. RSI 45.29, order book negative (-0.21). News: LINK ~€10.76/$11.96-12.69, LG CNS Korea partnership failed to lift price (no disclosed terms), still in downtrend since early October, Reserve buying not offsetting. No same-day actionable catalyst strong enough to trade. No position, no action.
+
+**Signals considered:**
+```json
+{
+  "momentum_1h_pct": -4.82,
+  "momentum_4h_pct": -4.9,
+  "momentum_trigger": false,
+  "rsi_4h": 45.29,
+  "order_book_imbalance": -0.21
+}
+```
+
+---
+### 2026-10-23T18:02:50.703Z — SUI/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule) - no new entry evaluated. Decline continuing, approaching but not crossing threshold: -4.73%/-4.54% (1h/4h, 48h window), still a decline so the long-only momentum rule wouldn't apply regardless. RSI 46.77, order book negative (-0.10). News: SUI ~€0.884/~$0.98-0.99, Hashi mainnet launch due later this month (>$500M commitments, Anchorage Digital), Samsung Wallet USDC rollout starting final week of October - structural, not same-day drivers. Position remains underwater/pre-+1R, so neither 4h nor fast 1h invalidation check applies (both require currently-profitable); resting hard stop-loss at EUR0.86 confirmed intact via portfolio_check_stops this cycle.
+
+**Signals considered:**
+```json
+{
+  "momentum_1h_pct": -4.73,
+  "momentum_4h_pct": -4.54,
+  "momentum_trigger": false,
+  "rsi_4h": 46.77,
+  "order_book_imbalance": -0.1,
+  "position_status": "open, pre-+1R, underwater",
+  "invalidation_checks_applicable": false
+}
+```
+
+---
+### 2026-10-23T18:02:50.718Z — LTC/EUR — NO TRADE
+
+**Reasoning:** Decline continuing, approaching but not crossing threshold: -4.75%/-5.47% (1h/4h, 48h window), still below the 6% long-only momentum threshold and this is a decline so the rule wouldn't apply regardless. RSI 39.01 (lowest among the 8 pairs), order book positive (+0.15). News: LTC ~€52.5/$58-59, weak volume (~half 30-day average), no specific catalyst identified for the move per multiple sources. No same-day actionable catalyst. No position, no action.
+
+**Signals considered:**
+```json
+{
+  "momentum_1h_pct": -4.75,
+  "momentum_4h_pct": -5.47,
+  "momentum_trigger": false,
+  "rsi_4h": 39.01,
+  "order_book_imbalance": 0.15
+}
+```
+
+---
