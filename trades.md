@@ -114448,3 +114448,143 @@ open/close/no-trade calls. Don't hand-edit; if a correction is needed, fix
 ```
 
 ---
+### 2026-10-23T04:03:16.419Z — BTC/EUR — NO TRADE
+
+**Reasoning:** Decline continuing: -1.07%/-1.46% (1h/4h, 48h window), below the 6% long-only momentum threshold. RSI 45.63, SMA bullish-aligned, order book negative (-0.47). News: BTC ~€73k/$81-82k, mixed - spot ETF inflows ($528M, 3-day haul past $1B) but DeFi-led weakness and AI-sector doubts; China seeking to confiscate 61,800 BTC tied to fraud case; Fed decision Oct 28 ahead. No same-day actionable catalyst. No position, no action.
+
+**Signals considered:**
+```json
+{
+  "momentum_1h_pct": -1.07,
+  "momentum_4h_pct": -1.46,
+  "momentum_trigger": false,
+  "rsi_4h": 45.63,
+  "sma_alignment": "bullish",
+  "order_book_imbalance": -0.47,
+  "coinversa_apex_bias": "Strong Short -0.35",
+  "coinversa_sharps_bias": "Long +0.28"
+}
+```
+
+---
+### 2026-10-23T04:03:16.434Z — ETH/EUR — NO TRADE
+
+**Reasoning:** Decline continuing: -1.35%/-1.76% (1h/4h, 48h window), below the 6% long-only momentum threshold. RSI 46.60, order book negative (-0.39). News: ETH ~€2,145/$2,380, ETF outflows >$1B in October erasing Sept inflows, but longer-term positives (JPMorgan deposit token, Deutsche Bank custody, record staking). Coinversa Apex short, Sharps near-neutral (+0.04), full_rekt tier still Strong Short. No same-day actionable catalyst. No position, no action.
+
+**Signals considered:**
+```json
+{
+  "momentum_1h_pct": -1.35,
+  "momentum_4h_pct": -1.76,
+  "momentum_trigger": false,
+  "rsi_4h": 46.6,
+  "order_book_imbalance": -0.39,
+  "coinversa_apex_bias": "Short -0.15",
+  "coinversa_sharps_bias": "Neutral +0.04",
+  "coinversa_full_rekt_bias": "Strong Short -0.35"
+}
+```
+
+---
+### 2026-10-23T04:03:16.452Z — SOL/EUR — NO TRADE
+
+**Reasoning:** Decline continuing: -1.49%/-2.31% (1h/4h, 48h window), below the 6% long-only momentum threshold. RSI 45.50, order book roughly balanced (+0.03). News: SOL ~€93/$103-104, Alpenglow upgrade live on mainnet (150ms finality), buyers defending $95-100 zone, but SkyAI liquidated SOL holdings. No same-day actionable catalyst. No position, no action.
+
+**Signals considered:**
+```json
+{
+  "momentum_1h_pct": -1.49,
+  "momentum_4h_pct": -2.31,
+  "momentum_trigger": false,
+  "rsi_4h": 45.5,
+  "order_book_imbalance": 0.03,
+  "coinversa_apex_bias": "Strong Short -0.38",
+  "coinversa_sharps_bias": "Strong Long +0.71"
+}
+```
+
+---
+### 2026-10-23T04:03:16.464Z — XRP/EUR — NO TRADE
+
+**Reasoning:** Decline continuing: -0.81%/-1.73% (1h/4h, 48h window), below the 6% long-only momentum threshold. RSI 48.21. Volume ratio 2.30x (flag_above_2x true) but irrelevant - momentum_trigger is long-only. News: XRP ~€1.18/$1.32-1.35, ledger bug-fix delayed to November, but positive institutional news (Standard Chartered RLUSD custody, Ripple-Arf settlement partnership). No same-day actionable catalyst. No position, no action.
+
+**Signals considered:**
+```json
+{
+  "momentum_1h_pct": -0.81,
+  "momentum_4h_pct": -1.73,
+  "momentum_trigger": false,
+  "rsi_4h": 48.21,
+  "volume_ratio": 2.3,
+  "flag_above_2x": true,
+  "coinversa_apex_bias": "Strong Short -0.67",
+  "coinversa_sharps_bias": "Strong Long +0.60"
+}
+```
+
+---
+### 2026-10-23T04:03:16.477Z — ADA/EUR — NO TRADE
+
+**Reasoning:** Decline continuing: -2.84%/-3.93% (1h/4h, 48h window), below the 6% long-only momentum threshold. RSI 43.81, SMA bearish-aligned (fast_below_slow). News: ADA ~€0.192/$0.21-0.22, below 50/200 EMA, but positive ecosystem news (CIP-0113 token standard live, Petrobras sustainability apps on Cardano); overall news sentiment rated positive by one source despite weak price action. No same-day actionable catalyst. No position, no action.
+
+**Signals considered:**
+```json
+{
+  "momentum_1h_pct": -2.84,
+  "momentum_4h_pct": -3.93,
+  "momentum_trigger": false,
+  "rsi_4h": 43.81,
+  "sma_alignment": "bearish (fast_below_slow)"
+}
+```
+
+---
+### 2026-10-23T04:03:16.488Z — LINK/EUR — NO TRADE
+
+**Reasoning:** Decline continuing but easing: -1.11%/-1.76% (1h/4h, 48h window), below the 6% long-only momentum threshold. RSI 49.95 (near-neutral), order book negative (-0.23). News: LINK ~€10.86/$11.88-12.21, down ~6.5% over 24h despite positive fundamentals ($15B CCIP migrations, Reserve buying >6M LINK, LG CNS adoption deal) - Reserve buying not offsetting broader selling pressure. No same-day actionable catalyst, no re-entry signal. No position, no action.
+
+**Signals considered:**
+```json
+{
+  "momentum_1h_pct": -1.11,
+  "momentum_4h_pct": -1.76,
+  "momentum_trigger": false,
+  "rsi_4h": 49.95,
+  "order_book_imbalance": -0.23
+}
+```
+
+---
+### 2026-10-23T04:03:16.501Z — SUI/EUR — NO TRADE
+
+**Reasoning:** Existing open position (one-per-pair rule) - no new entry evaluated. Decline continuing: -2.94%/-3.90% (1h/4h, 48h window), still below the 6% long-only momentum threshold regardless. RSI 46.60, order book negative (-0.16). News: SUI ~€0.885/$0.98, testing $0.95-1.05 support zone, a16z-backed DATA project's $30M move to Sui and upcoming Hashi lending-protocol launch are structural positives, not same-day drivers. Position remains underwater/pre-+1R, so neither 4h nor fast 1h invalidation check applies (both require currently-profitable); resting hard stop-loss at EUR0.86 confirmed intact via portfolio_check_stops this cycle.
+
+**Signals considered:**
+```json
+{
+  "momentum_1h_pct": -2.94,
+  "momentum_4h_pct": -3.9,
+  "momentum_trigger": false,
+  "rsi_4h": 46.6,
+  "order_book_imbalance": -0.16,
+  "position_status": "open, pre-+1R, underwater",
+  "invalidation_checks_applicable": false
+}
+```
+
+---
+### 2026-10-23T04:03:16.516Z — LTC/EUR — NO TRADE
+
+**Reasoning:** Decline continuing: -2.90%/-3.52% (1h/4h, 48h window), below the 6% long-only momentum threshold. RSI 44.71. News: LTC ~€52.9/$58-61, mixed - 15th anniversary momentum cited in one source (+5% move) but figures conflict across sources and timestamps; first US spot LTC ETF launched with modest trading. No clear same-day actionable catalyst. No position, no action.
+
+**Signals considered:**
+```json
+{
+  "momentum_1h_pct": -2.9,
+  "momentum_4h_pct": -3.52,
+  "momentum_trigger": false,
+  "rsi_4h": 44.71
+}
+```
+
+---
