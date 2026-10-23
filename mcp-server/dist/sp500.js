@@ -29,13 +29,56 @@ let constituentsCache = null;
 const CACHE_TTL_MS = 12 * 60 * 60 * 1000; // 12h - holdings don't change intraday
 export class Sp500SourceError extends Error {
 }
-function parseIvvHoldingsCsv(csv) {
+// Real IVV holdings rows quote every field (e.g. "NVDA","NVIDIA",...) and
+// some quoted fields (Market Value, Quantity) contain internal commas
+// (e.g. "68,152,575,876.48") - a naive line.split(",") leaves literal
+// quote characters on every field (so `assetClass !== "Equity"` never
+// matched, filtering out all 500+ rows) and misaligns columns after any
+// comma-containing field. This respects quotes the way the real file
+// needs: commas inside a quoted field aren't delimiters, and surrounding
+// quotes are stripped from each value. VERIFIED against the real live
+// CSV 2026-10-23 (504 equity rows parsed correctly).
+export function splitCsvLine(line) {
+    const fields = [];
+    let field = "";
+    let inQuotes = false;
+    for (let i = 0; i < line.length; i++) {
+        const c = line[i];
+        if (inQuotes) {
+            if (c === '"') {
+                if (line[i + 1] === '"') {
+                    field += '"';
+                    i++;
+                }
+                else {
+                    inQuotes = false;
+                }
+            }
+            else {
+                field += c;
+            }
+        }
+        else if (c === '"') {
+            inQuotes = true;
+        }
+        else if (c === ",") {
+            fields.push(field);
+            field = "";
+        }
+        else {
+            field += c;
+        }
+    }
+    fields.push(field);
+    return fields;
+}
+export function parseIvvHoldingsCsv(csv) {
     const lines = csv.split(/\r?\n/);
     const headerIdx = lines.findIndex((l) => l.startsWith("Ticker,"));
     if (headerIdx === -1) {
         throw new Sp500SourceError("IVV holdings CSV format has changed - no line starting with 'Ticker,' found. This parser was written against a documented/known layout, never verified live - re-check the real CSV structure and update parseIvvHoldingsCsv.");
     }
-    const header = lines[headerIdx].split(",");
+    const header = splitCsvLine(lines[headerIdx]);
     const tickerIdx = header.indexOf("Ticker");
     const nameIdx = header.indexOf("Name");
     const sectorIdx = header.indexOf("Sector");
@@ -47,8 +90,14 @@ function parseIvvHoldingsCsv(csv) {
     for (const line of lines.slice(headerIdx + 1)) {
         if (!line.trim())
             continue;
-        const cols = line.split(",");
-        const ticker = cols[tickerIdx]?.trim();
+        const cols = splitCsvLine(line);
+        // IVV's own ticker column uses a space for class shares (e.g. "BRK B",
+        // "BF B") where every downstream consumer - Alpaca's bars endpoint
+        // (confirmed live 2026-10-23: "BRK B" -> HTTP 400 "invalid symbol",
+        // "BRK.B" -> 200) and standard ticker notation generally - expects a
+        // dot. Normalized once here so every caller downstream (screen_sp500,
+        // compute_stock_signals, EDGAR lookups) gets the same correct symbol.
+        const ticker = cols[tickerIdx]?.trim().replace(/ /g, ".");
         const name = cols[nameIdx]?.trim();
         const sector = cols[sectorIdx]?.trim() ?? "";
         const assetClass = assetClassIdx !== -1 ? cols[assetClassIdx]?.trim() : "Equity";

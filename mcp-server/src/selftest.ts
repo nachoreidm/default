@@ -3,7 +3,7 @@ import { rsi, sma, smaCrossover, volumeVs7dAvg, orderBookImbalance, priceAction 
 import { computeSignals } from "./signals.js";
 import { ALLOWED_PAIRS } from "./types.js";
 import { fetchStockBars, computeStockSignals } from "./stocks.js";
-import { fetchSp500Constituents, screenSp500 } from "./sp500.js";
+import { fetchSp500Constituents, screenSp500, splitCsvLine, parseIvvHoldingsCsv } from "./sp500.js";
 import { getCikForTicker, getInsiderActivity, extractTag } from "./edgar.js";
 
 function assert(cond: boolean, msg: string) {
@@ -81,6 +81,31 @@ async function main() {
   assert(extractTag(sampleForm4Xml, "transactionPricePerShare") === "339.62", "extractTag drills into a nested <value> (transactionPricePerShare)");
   assert(extractTag(sampleForm4Xml, "notPresentAtAll") === null, "extractTag returns null, not a crash, for a tag that isn't present");
 
+  // --- splitCsvLine pure unit test against REAL IVV holdings CSV rows
+  // (captured live 2026-10-23) - pins down the exact bug found that day
+  // (quoted fields with internal commas, e.g. the Market Value column,
+  // breaking a naive line.split(",") and leaving literal quote chars on
+  // every field so `assetClass !== "Equity"` never matched).
+  const sampleIvvRow = '"NVDA","NVIDIA","Information Technology","Equity","68,152,575,876.48","7.76","68,152,575,876.48","321,156,288.00","212.21","United States","NASDAQ","USD","1.00","USD","-"';
+  const ivvCols = splitCsvLine(sampleIvvRow);
+  assert(ivvCols[0] === "NVDA", `splitCsvLine strips quotes from a simple field (got ${JSON.stringify(ivvCols[0])})`);
+  assert(ivvCols[3] === "Equity", `splitCsvLine strips quotes so Asset Class compares cleanly (got ${JSON.stringify(ivvCols[3])})`);
+  assert(ivvCols[4] === "68,152,575,876.48", `splitCsvLine keeps a comma-containing quoted field intact (got ${JSON.stringify(ivvCols[4])})`);
+  assert(ivvCols.length === 15, `splitCsvLine returns all 15 columns despite internal commas (got ${ivvCols.length})`);
+
+  // --- parseIvvHoldingsCsv unit test: ticker normalization for class
+  // shares. Found live 2026-10-23 while verifying the CSV fix above:
+  // IVV's "BRK B" (space) made it through quote-stripping fine but then
+  // failed Alpaca's bars endpoint with HTTP 400 "invalid symbol" -
+  // confirmed live that "BRK.B" (dot) is what Alpaca actually expects.
+  const sampleIvvCsv =
+    'Ticker,Name,Sector,Asset Class,Market Value,Weight (%),Notional Value,Quantity,Price,Location,Exchange,Currency,FX Rate,Market Currency,Accrual Date\n' +
+    '"BRK B","BERKSHIRE HATHAWAY CLASS B","Financials","Equity","1,000.00","0.01","1,000.00","10.00","100.00","United States","NYSE","USD","1.00","USD","-"\n' +
+    '"ESZ6","S&P500 EMINI DEC 26","Cash and/or Derivatives","Futures","0.00","0.00","0.00","0.00","0.00","-","Index And Options Market","USD","1.00","USD","-"\n';
+  const parsedIvv = parseIvvHoldingsCsv(sampleIvvCsv + Array.from({ length: 400 }, (_, i) => `"T${i}","Co ${i}","Sector","Equity","1","1","1","1","1","US","NYSE","USD","1.00","USD","-"`).join("\n"));
+  assert(parsedIvv.some((c) => c.ticker === "BRK.B"), `parseIvvHoldingsCsv normalizes "BRK B" to "BRK.B" (got tickers: ${parsedIvv.filter((c) => c.ticker.includes("BRK")).map((c) => c.ticker).join(",")})`);
+  assert(!parsedIvv.some((c) => c.ticker === "ESZ6"), "parseIvvHoldingsCsv still excludes non-Equity asset classes (Futures)");
+
   // --- Live Kraken API smoke test (public endpoints, no auth, same 8 EUR pairs as the live trading branch) ---
   for (const pair of ALLOWED_PAIRS) {
     const t = await fetchTicker(pair);
@@ -143,6 +168,11 @@ async function main() {
     const cik = await getCikForTicker("AAPL");
     assert(/^\d{10}$/.test(cik), `getCikForTicker resolves AAPL to a 10-digit CIK (got ${cik})`);
     const insider = await getInsiderActivity("AAPL", 5);
+    assert(insider.length > 0, `getInsiderActivity returns at least one parsed AAPL filing (got ${insider.length})`);
+    assert(insider[0].insider_name !== "unknown", `getInsiderActivity resolves a real insider_name, not the "unknown" fallback (got ${insider[0].insider_name})`);
+    assert(insider[0].transaction_code !== "?", `getInsiderActivity resolves a real transaction_code, not the "?" fallback (got ${insider[0].transaction_code})`);
+    assert(insider[0].shares !== null && insider[0].shares > 0, `getInsiderActivity resolves real shares, not null (got ${insider[0].shares})`);
+    assert(insider[0].price_per_share !== null && insider[0].price_per_share > 0, `getInsiderActivity resolves a real price_per_share, not null (got ${insider[0].price_per_share})`);
     console.log(`\nAAPL recent Form 4 filings parsed: ${insider.length}`, JSON.stringify(insider, null, 2));
   } catch (e: any) {
     skip(`SEC EDGAR live smoke test (sec.gov domains likely not allowlisted in this environment yet): ${e.message}`);

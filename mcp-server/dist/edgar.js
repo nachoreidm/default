@@ -61,7 +61,17 @@ export function extractTag(xml, tag) {
     return raw.length > 0 ? raw : null;
 }
 async function parseForm4(accessionNoDashes, cik, filedAt, primaryDoc) {
-    const docUrl = `https://www.sec.gov/Archives/edgar/data/${Number(cik)}/${accessionNoDashes}/${primaryDoc}`;
+    // The submissions API's primaryDocument path (e.g. "xslF345X06/form4.xml")
+    // is EDGAR's XSLT-rendered HTML viewer for the filing, not the raw
+    // ownershipDocument XML, even though it ends in ".xml" - fetching it
+    // returns an HTML page with none of the tags extractTag looks for, so
+    // every field came back null/"unknown". VERIFIED live 2026-10-23
+    // (AAPL, accession 0001140361-26-040540): the real raw XML always sits
+    // at the accession root using just the primaryDocument's basename
+    // (stripping any "xslXXXXX/" directory component), e.g.
+    // ".../000114036126040540/form4.xml", confirmed against 3 real filings.
+    const rawDocName = primaryDoc.split("/").pop() ?? primaryDoc;
+    const docUrl = `https://www.sec.gov/Archives/edgar/data/${Number(cik)}/${accessionNoDashes}/${rawDocName}`;
     try {
         const res = await edgarFetch(docUrl);
         const xml = await res.text();
