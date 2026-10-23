@@ -129,12 +129,27 @@ real data:
    (`"BRK.B"`) Alpaca actually expects, at the parse source so every
    downstream caller gets the correct symbol.
 4. **Alpaca rate-limited the full ~500-ticker scan (HTTP 429)** once the
-   bugs above stopped silently truncating the real request. Added a
-   small pacing delay between batch/pagination requests plus a real
-   retry-with-backoff on 429 (honors `Retry-After` when sent, exponential
-   backoff otherwise).
+   bugs above stopped silently truncating the real request - two fixes,
+   not one, since the first wasn't sufficient on its own:
+   - A pacing delay between batch/pagination requests plus retry-with-
+     backoff on 429 (honors `Retry-After` when sent, exponential backoff
+     otherwise) - a reasonable defensive measure, but the 429 persisted
+     after this alone.
+   - The actual root cause, found in a later verification pass:
+     Alpaca's multi-symbol bars endpoint treats `limit` as a cap on the
+     TOTAL bars per page across every symbol in the request, not a
+     per-symbol count the way this codebase's own `limit` parameter
+     (bars wanted per symbol) assumed. Passing the per-symbol count
+     straight through made a 100-symbol batch paginate roughly one
+     symbol at a time - confirmed live, a 20-symbol/40-bars-each request
+     needed ~150 pages instead of 1 - burning through the rate limit
+     long before a full scan could finish no matter how the pacing/
+     backoff above was tuned. Fixed by scaling the request-level `limit`
+     by batch size (capped at Alpaca's documented 10,000-row max);
+     confirmed live afterward that the same 20-symbol batch returns
+     everything in a single page.
 
-All four fixes were diagnosed against real responses (not guessed) across
+All fixes were diagnosed against real responses (not guessed) across
 several verification sessions in the Market Advisory environment, and
 the full self-test suite - including a genuine end-to-end `screen_sp500`
 run across the real ~500-ticker universe - passed with exit 0 against
