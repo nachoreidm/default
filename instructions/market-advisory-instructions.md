@@ -14,6 +14,15 @@ split off from.
 
 ## Daily cycle
 
+Runs weekdays at 8:00am ET, before the US market opens (9:30am ET) -
+deliberately timed to land after most before-market-open (BMO) earnings
+releases (typically 6:00-8:30am ET) while still giving the full trading
+day to act on anything flagged. Same-evening after-market-close (AMC)
+earnings aren't captured until the next day's cycle - a one-cycle delay,
+not a permanently missed signal. Crypto timing is unaffected either way
+(24/7 market); only the stock-side earnings-catalyst step depends on
+this cadence. See CLAUDE.md for the full reasoning behind this choice.
+
 0. `git pull` the branch first - state (constituent cache aside, which is
    live-fetched each run, not stored in the repo) lives in instructions
    and code, not in your own memory.
@@ -78,10 +87,12 @@ split off from.
      here executes, verify before acting."
 
 5. **Notion sync**. Write the day's findings to the advisory Notion page
-   (see CLAUDE.md for the page ID once created) using
-   `notion-update-page` with `command: "replace_content"` - same
-   discipline the trading branches learned the hard way (an append-style
-   write duplicates/garbles content on every subsequent cycle). Structure:
+   (page_id `40378a93-63b8-81f0-891f-d23b7012219f`, "Market Advisory
+   Agent" - see CLAUDE.md) using `notion-update-page` with `command:
+   "replace_content"` - same discipline the trading branches learned the
+   hard way (an append-style write duplicates/garbles content on every
+   subsequent cycle). Fetch the page first to see its current exact
+   structure before rewriting. Structure:
    - Date / last-synced timestamp.
    - "## Crypto" - one entry per pair that triggered a signal worth
      mentioning this cycle (not all 8 every time if most are quiet).

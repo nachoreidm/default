@@ -207,15 +207,40 @@ already used (news-catalyst WebSearch), not an EDGAR-style structured
 lookup. Not a gap to fix, just a real asymmetry between the two asset
 classes worth being explicit about rather than pretending symmetry.
 
+## Daily trigger cadence - 8:00am ET, weekdays (decided 2026-10-24)
+
+User asked specifically about timing relative to earnings: before open,
+halfway through the day, or after close. Worked through the real
+constraint first rather than just picking one: the stock-side technical
+signals are all daily-bar-based, so they're identical regardless of what
+time of day the cycle runs (the most recent *complete* bar is always
+"yesterday's close" until the market actually closes) - timing only
+matters for the earnings-catalyst WebSearch step, not the math. Earnings
+cluster at two windows: before market open (BMO, ~6:00-8:30am ET) or
+after close (AMC, ~4:00-5:30pm ET) - "halfway through the day" doesn't
+actually buy anything over either edge.
+
+Chose **before open, 8:00am ET** over after-close: this agent exists to
+inform same-day decisions, and running before open gives the whole
+trading day to act on anything flagged, reading like a standard morning
+research note (overnight + BMO-earnings digest, technical picture going
+into the session). The tradeoff, accepted knowingly: that same evening's
+AMC earnings aren't captured until the next day's cycle - a one-cycle
+delay, not a permanently missed signal (the next morning's run picks
+them up fully digested). Crypto is 24/7 either way, so this choice is
+purely about the stock side. Notion page created same day: page_id
+`40378a93-63b8-81f0-891f-d23b7012219f` ("Market Advisory Agent").
+
 ## Not yet done
 
-- The daily trigger itself + the advisory Notion page don't exist yet -
-  credentials/network/code are all verified now, so this is the next
-  real step. Should follow the live trading branch's cutover-and-verify
-  discipline where it applies (new trigger, explicit Notion-prompt check,
-  etc. - see that branch's "Cutover playbook" section, which generalizes
-  beyond Kraken specifically) even though this agent has no real-money
-  stakes to protect the way that playbook was originally built for.
+- The trigger itself isn't created yet - cadence is decided (above) and
+  the Notion page exists; next is verifying a real session end-to-end
+  (git pull, full cycle, Notion sync, explicit no-Notion-prompt check)
+  before binding the trigger to it, following the live trading branch's
+  cutover-and-verify discipline where it applies (see that branch's
+  "Cutover playbook" section, which generalizes beyond Kraken
+  specifically) even though this agent has no real-money stakes to
+  protect the way that playbook was originally built for.
 - `screen_sp500`'s ranking score is a simple, transparent sum of
   independent flags (momentum/RSI-extreme/volume-spike) - explicitly not
   a tuned or backtested model. Treat it as a narrowing filter for what
