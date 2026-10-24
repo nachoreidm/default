@@ -231,16 +231,60 @@ them up fully digested). Crypto is 24/7 either way, so this choice is
 purely about the stock side. Notion page created same day: page_id
 `40378a93-63b8-81f0-891f-d23b7012219f` ("Market Advisory Agent").
 
+## First real cycle (2026-10-24) found and fixed a genuine data bug
+
+Ran the actual daily-digest prompt for real (not a test) to verify the
+whole pipeline end to end: 8 crypto pairs (no momentum trigger that day,
+broad quiet weakness), a real `screen_sp500` pass (504 constituents, top
+20 deepened to 5: CCI/AMT/LMT/NOW/IBM), news/insider/13F context pulled
+for each, logged to `recommendations.md`, pushed, and synced to the
+Notion page. The cycle correctly refused to trust its own picks when it
+noticed something wrong, rather than reporting them at face value - the
+5 deepened stock candidates got capped at low confidence because
+`screen_sp500`'s numbers and `compute_stock_signals`'s numbers disagreed
+for the same ticker/day, badly enough that LMT and IBM's 5-day % change
+flipped sign between the two.
+
+**Root-caused and fixed same day**: `fetchStockBars` (single-symbol,
+used by `compute_stock_signals`) requested `limit=40` with no `sort`
+param. Alpaca's bars endpoint defaults to ascending order from `start`,
+so a plain `limit` silently caps the response at the OLDEST 40 bars in
+the window - a `next_page_token` was returned but never followed -
+instead of the most recent 40. Confirmed live by comparing raw JSON from
+both Alpaca endpoints for LMT with identical params: the unsorted
+single-symbol call stopped at a 2026-08-24 close ($564.14) while the
+correct, current bar was 2026-10-23 ($604.18). `fetchMultiStockBars`
+(used by `screen_sp500`) was never the buggy side - its batch-scaled
+`limit` plus existing pagination already covers the whole window
+regardless, confirmed correct even forced across 17 real pages in a
+10-symbol test. Fixed by adding `sort=desc` + reversing the result back
+to ascending order (every downstream indicator assumes oldest-first).
+Added a `selftest.ts` assertion that cross-checks `current_price` and
+5-day `pct_change` between the single- and multi-symbol paths for the
+same real ticker (AAPL), so a future regression on either side fails
+loudly instead of silently feeding a stale price into a daily digest.
+Full self-test suite, including a live `screen_sp500` run, passes with
+exit 0 after the fix.
+
+**The actual lesson, worth generalizing**: this is the second real bug
+(after the 429/limit-scaling one above) that only surfaced once the
+pipeline was run against its real intended use - not the self-test
+suite's synthetic/isolated calls, but the full daily-cycle prompt doing
+what it'll actually do every morning. Treat the first few real trigger
+firings the same way: don't just confirm "it ran without crashing,"
+cross-check its numbers against something independent before trusting
+them.
+
 ## Not yet done
 
-- The trigger itself isn't created yet - cadence is decided (above) and
-  the Notion page exists; next is verifying a real session end-to-end
-  (git pull, full cycle, Notion sync, explicit no-Notion-prompt check)
-  before binding the trigger to it, following the live trading branch's
-  cutover-and-verify discipline where it applies (see that branch's
-  "Cutover playbook" section, which generalizes beyond Kraken
-  specifically) even though this agent has no real-money stakes to
-  protect the way that playbook was originally built for.
+- The trigger itself isn't created yet - cadence is decided, the Notion
+  page exists, and the first real cycle's data bug is now fixed and
+  verified; next is binding a verified session to the actual trigger,
+  following the live trading branch's cutover-and-verify discipline
+  where it applies (see that branch's "Cutover playbook" section, which
+  generalizes beyond Kraken specifically) even though this agent has no
+  real-money stakes to protect the way that playbook was originally
+  built for.
 - `screen_sp500`'s ranking score is a simple, transparent sum of
   independent flags (momentum/RSI-extreme/volume-spike) - explicitly not
   a tuned or backtested model. Treat it as a narrowing filter for what
