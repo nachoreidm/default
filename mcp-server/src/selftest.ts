@@ -2,7 +2,7 @@ import { fetchOHLC, fetchTicker, fetchDepth, closedCandles } from "./kraken.js";
 import { rsi, sma, smaCrossover, volumeVs7dAvg, orderBookImbalance, priceAction } from "./indicators.js";
 import { computeSignals } from "./signals.js";
 import { ALLOWED_PAIRS } from "./types.js";
-import { fetchStockBars, computeStockSignals } from "./stocks.js";
+import { fetchStockBars, fetchMultiStockBars, computeStockSignals } from "./stocks.js";
 import { fetchSp500Constituents, screenSp500, splitCsvLine, parseIvvHoldingsCsv } from "./sp500.js";
 import { getCikForTicker, getInsiderActivity, extractTag } from "./edgar.js";
 
@@ -139,6 +139,45 @@ async function main() {
     } catch (e: any) {
       throw new Error(`Alpaca live smoke test failed with credentials present - this is a real failure, not an expected skip: ${e.message}`);
     }
+  }
+
+  // --- Cross-check: single-symbol vs multi-symbol Alpaca bars must agree
+  // on the same real ticker, same day. Added 2026-10-24 after a real bug:
+  // fetchStockBars (single-symbol, used by compute_stock_signals) ignored
+  // Alpaca's next_page_token and its ascending default sort, so a plain
+  // `limit` silently returned the OLDEST `limit` bars in the start..now
+  // window instead of the most recent ones - while fetchMultiStockBars
+  // (used by screen_sp500) happened to be correct because its
+  // batch-scaled `limit` plus full pagination always ends up covering the
+  // whole window. That let screen_sp500 and compute_stock_signals disagree
+  // badly enough for the same ticker/day that LMT and IBM's 5-day %
+  // change flipped sign between the two (see recommendations.md's
+  // 2026-10-24 entry). Fixed by adding sort=desc + reverse to
+  // fetchStockBars. This assertion pins the fix down so a future
+  // regression on either path fails loudly instead of silently feeding a
+  // stale price into a daily digest.
+  if (process.env.ALPACA_API_KEY_ID && process.env.ALPACA_API_SECRET_KEY) {
+    const crossCheckSymbol = "AAPL";
+    const singleBars = await fetchStockBars(crossCheckSymbol, "1Day", 40);
+    const multiBarsMap = await fetchMultiStockBars([crossCheckSymbol], "1Day", 40);
+    const multiBars = multiBarsMap.get(crossCheckSymbol) ?? [];
+    assert(singleBars.length > 0 && multiBars.length > 0, `cross-check has bars from both paths for ${crossCheckSymbol}`);
+
+    const singlePrice = singleBars[singleBars.length - 1].close;
+    const multiPrice = multiBars[multiBars.length - 1].close;
+    assert(
+      Math.abs(singlePrice - multiPrice) < 0.01,
+      `single-symbol and multi-symbol current_price agree for ${crossCheckSymbol} (single=${singlePrice}, multi=${multiPrice})`
+    );
+
+    const singlePa5d = priceAction(singleBars.slice(-5), 120);
+    const multiPa5d = priceAction(multiBars.slice(-5), 120);
+    assert(
+      Math.abs(singlePa5d.pct_change - multiPa5d.pct_change) < 0.1,
+      `single-symbol and multi-symbol 5d pct_change agree for ${crossCheckSymbol} (single=${singlePa5d.pct_change}, multi=${multiPa5d.pct_change})`
+    );
+  } else {
+    skip("single-vs-multi Alpaca bars cross-check (needs Alpaca credentials)");
   }
 
   // --- S&P 500 constituent source (iShares IVV CSV) - skips if ishares.com isn't reachable yet ---

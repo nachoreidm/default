@@ -69,19 +69,34 @@ function startParamFor(limit: number, timeframe: AlpacaTimeframe): string {
 // recent closed trading days. Alpaca's /stocks/bars endpoint already only
 // returns completed bars for historical ranges (no "still forming" bar to
 // drop, unlike Kraken's OHLC endpoint).
+//
+// `sort=desc` + `limit` is what actually gets "the most recent N bars" here:
+// Alpaca's default sort is ascending from `start`, so a plain `limit` caps
+// the response to the OLDEST `limit` bars in the `start..now` window (with a
+// `next_page_token` silently left unfollowed) rather than the most recent
+// ones - confirmed live 2026-10-24 by comparing this endpoint's unsorted
+// response against screen_sp500's multi-symbol one for the same ticker
+// (LMT): the unsorted single-symbol call stopped at an 2026-08-24 close
+// while the correct, current bar was 2026-10-23 - this is what caused
+// screen_sp500 and compute_stock_signals to disagree, including sign-flipped
+// 5-day % changes, for the same ticker on the same day (see
+// recommendations.md's 2026-10-24 entry). Reversed back to ascending order
+// after fetching since every downstream indicator (priceAction/rsi/
+// smaCrossover/volumeVs7dAvg) assumes oldest-first, most-recent-last.
 export async function fetchStockBars(symbol: string, timeframe: AlpacaTimeframe, limit = 60): Promise<Candle[]> {
   const url = new URL(`${ALPACA_DATA_BASE}/stocks/${encodeURIComponent(symbol)}/bars`);
   url.searchParams.set("timeframe", timeframe);
   url.searchParams.set("limit", String(limit));
   url.searchParams.set("start", startParamFor(limit, timeframe));
   url.searchParams.set("adjustment", "split"); // split-adjusted so a historical RSI/SMA read isn't skewed by a split that happened mid-window
+  url.searchParams.set("sort", "desc");
 
   const res = await fetch(url.toString(), { headers: authHeaders() });
   if (!res.ok) {
     throw new AlpacaApiError(`Alpaca bars HTTP ${res.status} for ${symbol}: ${await res.text().catch(() => "")}`);
   }
   const body = (await res.json()) as { bars: AlpacaBarRaw[] };
-  return (body.bars ?? []).map(toCandle);
+  return (body.bars ?? []).map(toCandle).reverse();
 }
 
 // Fetches daily bars for many symbols in one call where Alpaca's multi-

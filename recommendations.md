@@ -177,3 +177,32 @@ the deep-dive tool undermines all 5 deepened candidates enough to cap
 them at low confidence until the discrepancy is root-caused. This is
 advisory context only, not investment advice presented as certain -
 verify independently before acting on anything above.
+
+### Follow-up - 2026-10-24 - data-integrity bug root-caused and fixed
+
+Root cause confirmed by fetching raw JSON from both Alpaca endpoints for
+LMT with identical params: `fetchStockBars` (single-symbol, used by
+`compute_stock_signals`) requested `limit=40` with no `sort` param.
+Alpaca's bars endpoint defaults to ascending order from `start`, so a
+plain `limit` caps the response at the OLDEST 40 bars in the
+`start..now` window - a `next_page_token` was returned but never
+followed - instead of the most recent 40. Live-confirmed: the unsorted
+single-symbol call for LMT stopped at a 2026-08-24 close ($564.14,
+exactly matching that day's `compute_stock_signals` reading);
+`fetchMultiStockBars` (used by `screen_sp500`) was NOT the buggy side -
+its batch-scaled `limit` (`limit * batch.length`) plus the existing
+full-pagination loop already collects the whole window regardless, so
+it correctly reached 2026-10-23's close ($604.18, matching that day's
+`screen_sp500` reading) even when forced across 17 real pages in a
+10-symbol test batch.
+
+Fix: added `sort=desc` to `fetchStockBars`'s request and reversed the
+result back to ascending order (`mcp-server/src/stocks.ts`). Live
+re-check after the fix: both `fetchStockBars` and `fetchMultiStockBars`
+now return the identical LMT bar (close $604.18, 2026-10-23) for
+identical params. Added a selftest.ts assertion that fetches both paths
+for the same real ticker (AAPL) and asserts `current_price` and 5-day
+`pct_change` agree within a tight tolerance, so a future regression on
+either path fails loudly instead of silently feeding a stale price into
+a daily digest. Full self-test suite, including a live end-to-end
+`screen_sp500` run, passed with exit 0 after the fix.
