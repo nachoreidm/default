@@ -206,3 +206,215 @@ for the same real ticker (AAPL) and asserts `current_price` and 5-day
 either path fails loudly instead of silently feeding a stale price into
 a daily digest. Full self-test suite, including a live end-to-end
 `screen_sp500` run, passed with exit 0 after the fix.
+
+---
+
+## 2026-10-24 - second cycle (post-fix, corrected digest)
+
+**Advisory only. Nothing here executes - verify before acting.**
+
+This cycle replaces the low-confidence picks from the first 2026-10-24
+entry above now that the `screen_sp500` / `compute_stock_signals` price-
+sort bug is fixed. Re-ran the full daily cycle: `git pull` (branch was
+already fast-forwarded to `d6c8347`, which contains the fix), crypto
+pass (8 pairs), `screen_sp500(top_n=20)`, and a deep dive on the same 5
+tickers deepened in the first entry (CCI, AMT, LMT, NOW, IBM) so the
+before/after disagreement could be checked directly.
+
+### Cross-check: the data-integrity bug is fixed
+
+For all 5 deepened tickers, `screen_sp500`'s numbers and
+`compute_stock_signals`'s numbers now **agree** on price and 5-day %
+change (the two fields that previously disagreed, sign-flipped for LMT
+and IBM):
+
+| Ticker | screen_sp500 price / 5d chg / RSI | compute_stock_signals price / 5d chg / RSI |
+|---|---|---|
+| CCI | $85.97 / +6.057% / 71.81 | $85.97 / +6.057% / 71.56 |
+| AMT | $188.97 / +3.245% / 65.72 | $188.97 / +3.245% / 65.54 |
+| LMT | $604.18 / +10.206% / 78.03 | $604.18 / +10.206% / 77.05 |
+| NOW | $158.96 / +9.356% / 70.01 | $158.96 / +9.356% / 67.53 |
+| IBM | $253.56 / +7.263% / 71.04 | $253.56 / +7.263% / 71.88 |
+
+Price and 5-day % change now match exactly on all 5 (previously LMT
+showed +10.21% vs **-7.09%**, and IBM +7.26% vs **-0.70%** - both sign
+flips). RSI differs by ~1-3 points on each, which is expected (14-day
+RSI on daily bars vs. the single-ticker tool's own 14-period calc using
+a slightly different bar count/window) and not evidence of a remaining
+bug. Confidence is no longer artificially capped by a pipeline defect -
+each name below is scored on its own signals.
+
+### Crypto - all 8 EUR pairs, no momentum trigger fired (second day running)
+
+| Pair | 1h/48h chg | 4h/48h chg | RSI(14,4h) | Vol ratio (24h vs 7d avg) | SMA state |
+|---|---|---|---|---|---|
+| BTC/EUR | -1.84% | -1.18% | 39.7 | 0.86x | fast>slow |
+| ETH/EUR | -1.80% | -1.58% | 41.8 | 0.63x | fast>slow |
+| SOL/EUR | -1.75% | -1.35% | 39.3 | 0.68x | fast>slow |
+| XRP/EUR | -3.30% | -3.33% | 38.8 | **1.81x** | fast>slow |
+| ADA/EUR | -2.60% | -2.31% | 37.9 | 0.67x | **fast<slow** |
+| LINK/EUR | -2.32% | -2.21% | 41.4 | 1.55x | fast>slow |
+| SUI/EUR | -2.97% | -2.48% | 38.9 | 0.98x | fast>slow |
+| LTC/EUR | -4.54% | -4.14% | **31.5** | 0.83x | fast>slow |
+
+Readings are essentially unchanged from the first entry (same quiet
+broad weakness, no pair within range of the 6% `momentum_trigger`
+threshold, no volume ratio above 2x). Same two notable-but-not-triggered
+pairs got a fresh news check:
+- **LTC/EUR** (lowest RSI 31.5, largest decline): WebSearch found no
+  reliable October 2026 news. The only October-dated price point
+  ($58.82, LiteFinance, 2026-10-19) is internally inconsistent with that
+  same page's market-cap/volume/supply figures (which imply ~$44), so
+  it's not trustworthy; everything else returned is algorithmic
+  price-prediction content, not news. No catalyst found either way.
+- **XRP/EUR** (highest volume ratio 1.81x): WebSearch surfaced a
+  September 29 forecast piece (XRP +46% over the prior 90 days at the
+  time, priced ~$1.49) flagging an October 28 FOMC decision as a risk to
+  that move, plus Ripple corporate items (OCC trust-bank rule from
+  April, ongoing integration of 5 acquired firms) - all either stale or
+  forward-looking, nothing dated to the last 48h that explains today's
+  specific -3.3% move.
+- **ADA/EUR** remains the only pair with a bearish 20/50 SMA state - noted,
+  not searched (not today's most extreme reading).
+
+**Confidence: n/a - no crypto candidate meets the bar for inclusion
+today, second day running.**
+
+### Stocks - S&P 500 screen (top 20 of 504) + deep dive on 5 names
+
+`screen_sp500(top_n=20)` returned the same 504-name universe (1 fetch
+error again: `HOLX: no bars returned`). Top candidate by score is still
+**CCI** (score 4); the next 19 (including the other 4 deepened here)
+all score 3. Deepened the same 5 as the first entry so the cross-check
+above is apples-to-apples: **CCI, AMT, LMT, NOW, IBM**.
+
+- **IBM** (Information Technology): $253.56, RSI 71.0-71.9 (both tools
+  agree, overbought territory), +7.26%/5d, +14.9%/20d, volume 0.84x (not
+  a spike). **Confirmed Q3 2026 results, reported 2026-10-21**: revenue
+  ~$17.1B (+4.7% YoY, 6% currency-adjusted), beating the ~$16.82B
+  consensus; GAAP EPS $2.31 (up from $1.84); adjusted EPS $2.95 vs.
+  ~$2.85 consensus - a real, confirmed beat, not a rumor. Software
+  revenue +8% to $7.8B; AI now ~30% of quarterly revenue, ~35% of
+  backlog. Full-year guidance maintained at 4-5% constant-currency
+  revenue growth, FCF outlook raised by >$1B. Insider activity: a
+  uniform batch of routine annual director stock grants (268-489 sh @
+  $219.93, all dated 2026-09-30) - no directional signal. 13F mentions:
+  old (2001-2017), thin, unrelated small/obscure filers - no signal, per
+  the standard staleness caveat.
+  **Confidence: medium** - the price move is now fully backed by a
+  confirmed, verifiable earnings beat (not just an uncorroborated
+  technical reading), but RSI is already overbought (71), there's no
+  institutional/insider confirmation, and the move has already happened
+  (buying after a confirmed beat with RSI this high is chasing, not
+  catching it early) - capped below high for that reason.
+- **LMT** (Lockheed Martin, Industrials): $604.18, RSI 77-78 (both tools
+  agree, deeply overbought), +10.21%/5d, +16.6%/20d, volume ~1.08x (not
+  a spike). Earnings-date sources conflict (Oct 20/22/27 variously
+  cited) and no confirmed Q3 2026 results or official reaction were
+  found in this search - only an AI-generated news item citing a +3.0%
+  move today attributed to "renewed buying in a weak defense sector,"
+  which is not a verifiable source. The clearest hard data point found
+  is the prior quarter: a confirmed +10.5% move on the July 23 Q2 beat
+  with raised full-year guidance. Insider activity: entirely routine
+  annual director stock-unit grants (fractional shares, $0 price) - no
+  signal. 13F mentions: old (2016-2025), thin, scattered small/obscure
+  filers (Foresters, Winnow Wealth, Pathway) - no signal.
+  **Confidence: low** - the technical reading is strong and now
+  internally consistent (both tools agree), but the catalyst behind
+  *this specific* 5-day move is unconfirmed, RSI is the most extreme of
+  the 5 names, and there's no insider/13F corroboration.
+- **CCI** (Crown Castle, Real Estate): $85.97, RSI 71.6-71.8 (both tools
+  agree), +6.06%/5d, +28.1%/20d, volume 3.13x (genuine spike, confirmed
+  on both tools - `flag_above_2x: true`). Highest score (4) of the full
+  screen. Q3 2026 reported 2026-10-21 AMC per schedule, but actual
+  results were not found in this search - only conflicting pre-earnings
+  estimates (consensus EPS cited anywhere from $0.69 to $1.20, one
+  source showing a prior-quarter "surprise" built on inconsistent
+  baseline numbers) and an unrelated post-earnings-drift stat from the
+  *July* release. Company context: completed its Fiber/Small Cell
+  divestiture (~$8.4B) on May 1, now a pure-play U.S. tower operator -
+  the revenue base itself has structurally shrunk, so any backward-
+  looking revenue comparison is not apples-to-apples. Insider activity:
+  mostly routine RSU/option vesting; one small director open-market buy
+  (820 sh @ $90.24, May) and one VP sale (1,500 sh @ $75.89, Aug) - no
+  net signal. 13F mentions: dominated by DigitalBridge Group filings
+  (2022-2025, stale) and one obscure small filer - not a clean
+  institutional-flow read, per the standard caveat.
+  **Confidence: low** - the volume spike is real and confirmed, but the
+  actual earnings outcome driving it could not be verified in this
+  search, and the business itself just underwent a structural change
+  that complicates reading any of its historical comparisons.
+- **AMT** (American Tower, Real Estate): $188.97, RSI 65.5-65.7 (both
+  tools agree, elevated but not extreme), +3.25%/5d, +12.5%/20d, volume
+  2.94x (genuine spike, confirmed on both tools). Next earnings not yet
+  reported - dates conflict across sources (Oct 27 vs. Oct 29), so this
+  move precedes the print rather than reacting to it. Last reported
+  quarter (Jul 28) was a modest beat ($2.71 AFFO vs. $2.65 consensus)
+  with raised guidance and a subsequent Barclays upgrade; 2026 is
+  described by management as a likely AFFO-growth trough with the DISH
+  churn headwind and CoreSite leasing cited as the things to watch into
+  the print. Insider activity: routine annual director stock-purchase-
+  plan buys (small, $177-$206/share) and RSU grants; the 2023-04-28
+  transaction date on an October-filed Form 4 is almost certainly a
+  parsing/data artifact (treat with suspicion, a known gap in this
+  tool, not a real 2023 trade appearing 3 years late). 13F mentions:
+  again dominated by DigitalBridge and small/obscure filers, stale.
+  **Confidence: low** - a real pre-earnings volume spike with no
+  confirmed catalyst yet (earnings haven't printed), thin/stale
+  institutional signal, and a likely data artifact in the insider feed.
+- **NOW** (ServiceNow, IT): $158.96, RSI 67.5-70.0 (both tools agree,
+  elevated), +9.36%/5d, +20.9%/20d (`momentum_trigger` independently
+  flagged true on the 20d window by `compute_stock_signals`), volume
+  0.80x (not a spike - the move is price-driven, not volume-confirmed).
+  Next earnings not yet reported (Q3 2026 consensus ~$0.93 EPS / $4.10B
+  revenue per one tracker, unconfirmed and possibly stale); last
+  reported quarter (Jul 22) beat cleanly ($0.90 vs. $0.76 non-GAAP EPS,
+  $3.99B vs. $3.93B revenue, subscription revenue +23% YoY constant
+  currency) continuing a multi-quarter beat streak (+18.4%, +21.3%
+  surprises in the two quarters before that). Insider activity: a
+  *cluster* of open-market sales in late Aug/early Sept by several
+  senior execs (Fipps, Canney, Chamberlain - $135-148/share), all
+  following option exercises - a real, recent, ticker-specific caution
+  signal, not noise. 13F mentions: thin/old, one 2025 Coatue Management
+  mention otherwise small filers - no signal.
+  **Confidence: low** - this is the only name with an independently-
+  triggered momentum signal, but it isn't volume-confirmed, hasn't yet
+  cleared its next earnings print, and is undercut by a genuine,
+  recent, multi-exec insider-selling cluster.
+
+### Data gaps carried from the tools (not silently dropped)
+
+- Stocks have no order-book-imbalance signal on any ticker (Alpaca
+  free/IEX tier has no L2 depth) - structural, every cycle.
+- All 5 deepened tickers: insufficient daily history for a 20/50 SMA
+  crossover read via `compute_stock_signals` (`sma_crossover_1d: null`
+  on all 5) - structural (needs 51+ daily bars, tool defaults to 40).
+- 13F mentions for all 5 names are the known noisy full-text-search
+  proxy (which managers' filings *mention* the name, not a net-flow
+  figure) and again surfaced mostly stale (pre-2025) or obscure filers -
+  treat as non-signal today for every name, not a clean read either way.
+- WebSearch could not confirm actual Q3 2026 earnings results for CCI,
+  LMT, AMT, or NOW within this search (only IBM's result was
+  independently confirmed) - several sources gave conflicting
+  consensus/report-date figures for the same ticker. Where noted above,
+  "confirmed" vs. "unconfirmed" catalyst framing reflects this directly.
+
+### Bottom line
+
+The pipeline bug flagged in the first 2026-10-24 entry is fixed and
+verified live: `screen_sp500` and `compute_stock_signals` now agree on
+price/5d-change for all 5 previously-disputed names, including both
+sign-flip cases (LMT, IBM). With that defect removed, **IBM** is the
+one name here with a confirmed, verifiable catalyst (a real, beat-and-
+raise Q3 print) behind its move, so it gets this cycle's only
+medium-confidence mention - still capped below high given its already-
+overbought RSI and lack of insider/institutional confirmation. CCI and
+AMT both show genuine, dual-tool-confirmed volume spikes, but neither
+has a verified catalyst in hand yet (CCI's actual Q3 result wasn't
+found; AMT hasn't reported yet). LMT and NOW remain low-confidence for
+the same reasons as before (unconfirmed catalyst / insider-selling
+cluster, respectively) even with the pricing bug resolved - the fix
+corrected the *numbers*, not the underlying strength of each case.
+Crypto is quiet for a second day running with nothing hitting a
+trigger. This is advisory context only, not investment advice presented
+as certain - verify independently before acting on anything above.
