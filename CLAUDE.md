@@ -303,3 +303,33 @@ the live trading branch's CLAUDE.md).
   backoff) are reasonable defaults, not tuned against Alpaca's actual
   published rate-limit numbers - they worked on the one full-scan live
   test run so far; revisit if a 429 ever gets through in practice.
+
+## Notion page restructured - short top layer, detail collapsed (2026-10-24)
+
+Direct user feedback same day: "the report is too long. What am I
+supposed to focus on? Feels I need more concrete points." The original
+structure ("## Crypto" / "## Stocks" with full per-candidate prose)
+dumped every data gap, 13F caveat, and insider-activity sentence right
+at the top with nothing scannable above it - fine as an audit trail
+(which `recommendations.md` already serves), wrong as the thing a human
+actually reads each morning.
+
+Restructured to lead with "## Today's picks" (one-row-per-candidate
+table, `Asset | Confidence | Why` - "Why" is one line, not a paragraph)
+and "## Watch list" (near-misses, one line each), with everything else -
+full crypto table, full per-candidate stock write-ups, data gaps,
+methodology - moved into `<toggle>` blocks under "## Full detail",
+collapsed by default. Also answered a second question same day: yes,
+Nasdaq-listed names are already in scope - S&P 500 membership isn't
+exchange-filtered, so the screen already covers both NYSE and Nasdaq
+(today's 5 deepened names happened to be NYSE, which is incidental to
+that day's results, not a scope gap).
+
+Retrofitted the existing live page to this structure immediately (not
+waiting for tomorrow's cycle), and updated `instructions/market-
+advisory-instructions.md`'s step 5 to describe it going forward.
+Trigger prompt updated to match (same mechanism as every prior prompt
+edit on the trading branches - `update_trigger` can't change a prompt
+from a different session than the one it's bound to, so this took a
+new trigger pointed at the *same* already-verified session, not a full
+cutover - no code changed, so no new verification cycle was needed).

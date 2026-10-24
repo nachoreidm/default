@@ -92,15 +92,31 @@ this cadence. See CLAUDE.md for the full reasoning behind this choice.
    "replace_content"` - same discipline the trading branches learned the
    hard way (an append-style write duplicates/garbles content on every
    subsequent cycle). Fetch the page first to see its current exact
-   structure before rewriting. Structure:
+   structure before rewriting.
+
+   **Structure - lead with a short, scannable top layer; put the full
+   detail below it, collapsed.** Changed 2026-10-24 after direct user
+   feedback that the page was too long with no clear "what do I focus
+   on" - don't regress to a wall of per-candidate prose at the top:
    - Date / last-synced timestamp.
-   - "## Crypto" - one entry per pair that triggered a signal worth
-     mentioning this cycle (not all 8 every time if most are quiet).
-   - "## Stocks" - one entry per narrowed candidate, with the full
-     write-up from step 4.
-   - A short "## Universe & methodology" footer (which pairs/screen,
-     what the score does and doesn't mean, data-source caveats) so the
-     page is self-explanatory to anyone reading it cold.
+   - "## Today's picks" - a SHORT table, one row per candidate that
+     actually cleared the bar (crypto or stock together, not split into
+     separate sections): `Asset | Confidence | Why` where "Why" is ONE
+     line, not a paragraph. If nothing cleared the bar, this is one
+     sentence saying so - never an empty-looking table.
+   - "## Watch list" - 1-2 lines per near-miss worth monitoring (e.g. an
+     extreme-but-not-triggered RSI or volume reading), kept to a single
+     line each. Skip this section entirely on a day with nothing notable
+     to watch - don't pad it.
+   - "## Full detail" - everything else (the full 8-pair crypto table,
+     the full per-candidate stock write-ups from step 4 with their data
+     gaps/13F caveats/insider detail, the universe & methodology note)
+     goes here, wrapped in `<toggle heading="h3">...</toggle>` blocks
+     (one toggle per subsection: crypto, stocks, methodology) so it's
+     collapsed by default - present for anyone who wants to check the
+     reasoning or audit a pick, but not blocking a 10-second morning
+     read of the top two sections.
+   - "## Links" footer (repo branch, recommendations.md, this file).
 
 ## Things you must never do
 
