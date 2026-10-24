@@ -275,16 +275,26 @@ firings the same way: don't just confirm "it ran without crashing,"
 cross-check its numbers against something independent before trusting
 them.
 
+## Status: LIVE as of 2026-10-24
+
+Daily trigger created: `trig_01EFUbXzwtpJ6m8TfWW2FT9r` ("Market Advisory
+daily digest"), cron `CRON_TZ=America/New_York 49 7 * * 1-5` (weekdays,
+~8am ET - see "Daily trigger cadence" above), bound to
+`session_01JBdr9xEEUZ18hg1Mg9cDn3` - the session that ran the corrected
+second cycle, verified via the real pushed commit (`6e370bd`) and the
+real Notion page content (not just its own summary), with the user's
+explicit confirmation that no Notion approval prompt appeared. The
+trigger's own `mcp_connections` came back empty on creation; left as-is
+rather than asking for a manual attach, since this exact session already
+demonstrated clean Notion access without one during verification - if a
+future cycle ever does hit a Notion prompt, that's the signal to attach
+it explicitly in the routines UI (same mechanism documented at length in
+the live trading branch's CLAUDE.md).
+
 ## Not yet done
 
-- The trigger itself isn't created yet - cadence is decided, the Notion
-  page exists, and the first real cycle's data bug is now fixed and
-  verified; next is binding a verified session to the actual trigger,
-  following the live trading branch's cutover-and-verify discipline
-  where it applies (see that branch's "Cutover playbook" section, which
-  generalizes beyond Kraken specifically) even though this agent has no
-  real-money stakes to protect the way that playbook was originally
-  built for.
+- Nothing structural - the agent is fully live. The two open items below
+  are refinements, not blockers.
 - `screen_sp500`'s ranking score is a simple, transparent sum of
   independent flags (momentum/RSI-extreme/volume-spike) - explicitly not
   a tuned or backtested model. Treat it as a narrowing filter for what
