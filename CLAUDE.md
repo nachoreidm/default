@@ -277,18 +277,26 @@ them.
 
 ## Status: LIVE as of 2026-10-24
 
-Daily trigger created: `trig_01EFUbXzwtpJ6m8TfWW2FT9r` ("Market Advisory
-daily digest"), cron `CRON_TZ=America/New_York 49 7 * * 1-5` (weekdays,
-~8am ET - see "Daily trigger cadence" above), bound to
+Daily trigger: `trig_01BfuesSPFkZWQVyjGamxZ3m` ("Market Advisory daily
+digest (v2 - short top layer)"), cron `CRON_TZ=America/New_York 49 7 *
+* 1-5` (weekdays, ~8am ET - see "Daily trigger cadence" above), bound to
 `session_01JBdr9xEEUZ18hg1Mg9cDn3` - the session that ran the corrected
 second cycle, verified via the real pushed commit (`6e370bd`) and the
 real Notion page content (not just its own summary), with the user's
-explicit confirmation that no Notion approval prompt appeared. The
-trigger's own `mcp_connections` came back empty on creation; left as-is
-rather than asking for a manual attach, since this exact session already
-demonstrated clean Notion access without one during verification - if a
-future cycle ever does hit a Notion prompt, that's the signal to attach
-it explicitly in the routines UI (same mechanism documented at length in
+explicit confirmation that no Notion approval prompt appeared. (The
+original trigger, `trig_01EFUbXzwtpJ6m8TfWW2FT9r`, was disabled same day
+when the Notion page structure changed - see "Notion page restructured"
+below; `update_trigger` can't change a bound trigger's prompt text from
+a different session, so the structure change took a new trigger pointed
+at the same already-verified session, not a new verification cycle,
+since no code changed. Disabling the old one via `update_trigger` worked
+fine from here - only prompt-text edits hit that constraint, not
+enabled/disabled toggles.) The trigger's own `mcp_connections` came back
+empty on creation; left as-is rather than asking for a manual attach,
+since this exact session already demonstrated clean Notion access
+without one during verification - if a future cycle ever does hit a
+Notion prompt, that's the signal to attach it explicitly in the routines
+UI (same mechanism documented at length in
 the live trading branch's CLAUDE.md).
 
 ## Not yet done
