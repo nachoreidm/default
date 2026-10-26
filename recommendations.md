@@ -418,3 +418,176 @@ corrected the *numbers*, not the underlying strength of each case.
 Crypto is quiet for a second day running with nothing hitting a
 trigger. This is advisory context only, not investment advice presented
 as certain - verify independently before acting on anything above.
+
+---
+
+## 2026-10-26 - daily trigger's first real firing
+
+**Advisory only. Nothing here executes - verify before acting.**
+
+First cycle run by the actual daily trigger (`trig_01BfuesSPFkZWQVyjGamxZ3m`),
+not a manual run. `git pull` picked up nothing new to the cycle logic
+itself (origin already at `daaf876`, which only touched `CLAUDE.md`/
+instructions for the trigger-creation and Notion-restructure work - no
+code changes since the last cycle).
+
+### No repeat of the 2026-10-24 data-integrity bug
+
+Checked explicitly per standing instruction: for all 5 deepened tickers,
+`screen_sp500` and `compute_stock_signals` agree exactly on price and
+5-day % change again today (CCI $85.97/+6.06%, AMT $188.97/+3.25%, LMT
+$604.18/+10.21%, NOW $158.96/+9.36%, IBM $253.56/+7.26%). RSI gaps are
+the same small (~0.2-2.5 point) magnitude as the prior two cycles -
+expected from differing bar-count windows between the tools, not a
+regression.
+
+### Why the stock numbers are byte-identical to 2026-10-24's second cycle
+
+Not a bug: 2026-10-24 was a Saturday and 2026-10-25 a Sunday, so no new
+daily bar exists - Friday 2026-10-23's close is still the latest
+complete daily bar for every ticker, hence identical price/RSI/%-change
+figures from `screen_sp500` (same 20 candidates, same scores) and from
+`compute_stock_signals` on the same 5 names. Crypto, being 24/7, moved
+normally over the weekend (see table below).
+
+### Crypto - all 8 EUR pairs, no momentum trigger fired (third cycle running)
+
+| Pair | 1h/48h chg | 4h/48h chg | RSI(14,4h) | Vol ratio (24h vs 7d avg) | SMA state |
+|---|---|---|---|---|---|
+| BTC/EUR | -0.52% | +0.69% | 44.6 | 0.42x | fast<slow |
+| ETH/EUR | -1.55% | +1.08% | 43.0 | 0.79x | fast<slow |
+| SOL/EUR | +0.06% | +1.86% | 45.9 | 0.46x | fast<slow |
+| XRP/EUR | +0.67% | +2.00% | 47.3 | 0.27x | fast<slow |
+| ADA/EUR | -1.50% | +0.88% | 42.0 | 0.71x | fast<slow |
+| LINK/EUR | -1.31% | +0.90% | 42.5 | **1.28x** | fast<slow |
+| SUI/EUR | -3.11% | -0.82% | **38.4** | 0.54x | fast<slow |
+| LTC/EUR | +0.34% | +1.63% | 42.2 | 0.54x | fast<slow |
+
+A visibly different picture from the last two cycles: all 8 pairs now
+show `fast_below_slow` on the 20/50 4h SMA (was mostly `fast>slow`
+before) - a broad short-term trend-state flip, though still no pair
+near the 6% momentum threshold and no volume ratio above 2x. Two pairs
+got a fresh news check as today's most notable (not triggered) readings:
+- **SUI/EUR** (lowest RSI, 38.4, largest decline -3.11%/1h): WebSearch
+  found no October-2026-dated news. Price figures across sources ranged
+  wildly ($0.69-$1.99) with no clear "as of" date on most pages, and one
+  hit was for an unrelated ticker (Sun Communities REIT, also "SUI" on
+  NYSE) - none of this is usable. No catalyst found either way.
+- **LINK/EUR** (highest volume ratio, 1.28x, below the 2x flag):
+  WebSearch found real, dated items - Chainlink launched "Fulcrum" (a
+  cross-chain institutional repo/financing tool) on Sept 30, and
+  Coinedition reports Open Standard named Chainlink the oracle for its
+  "Open USD" stablecoin. Both are weeks-old adoption news, not
+  same-day catalysts, and price figures across sources still disagree
+  ($11.39-$15.75) enough that none should be trusted precisely. Directionally
+  supportive context, not a trigger by itself.
+
+**Confidence: n/a - no crypto candidate meets the bar for inclusion
+today**, third cycle running. Note the broad SMA state flip to
+`fast_below_slow` across all 8 pairs as a shift worth tracking even
+though nothing triggered.
+
+### Stocks - S&P 500 screen (top 20 of 504) + deep dive on 5 names
+
+Same universe size (504, same single error: `HOLX: no bars returned`)
+and same top candidates as the last two cycles (frozen weekend bars, see
+above) - CCI still highest score (4), the rest at 3. Deepened the same 5
+for continuity: **CCI, AMT, LMT, NOW, IBM**.
+
+**Development since the last cycle: LMT's Q3 2026 results are now
+confirmed** (they were not, as of 2026-10-24). Reported 2026-10-22:
+revenue $20.7B, +11% YoY (vs. $18.6B prior year), beating a pre-earnings
+consensus of ~$20.42B (~+1% beat); EPS $7.97 vs. $6.95 prior year,
+beating ~$7.43 consensus (~+7% beat); record backlog of $292.0B
+including a $52.5B PAC-3 interceptor award; free cash flow $3.0B.
+Source: Lockheed Martin's own Q3 2026 8-K press release. This is a real,
+verified beat, not a rumor - LMT moves from "unconfirmed catalyst" to
+the same tier as IBM.
+
+- **IBM** (unchanged from 2026-10-24): $253.56, RSI ~71-72 (both tools
+  agree), +7.26%/5d, +14.9%/20d, volume 0.84x. Confirmed Q3 beat
+  (2026-10-21) stands as reported previously. **Confidence: medium** -
+  same reasoning as before (confirmed catalyst, but overbought RSI and
+  no insider/institutional confirmation cap it below high).
+- **LMT** (upgraded from low to medium this cycle): $604.18, RSI ~77-78
+  (both tools agree, still the most overbought of the 5), +10.21%/5d,
+  +16.6%/20d, volume ~1.08x (no spike - the move is price-driven).
+  Confirmed beat-and-raise-caliber Q3 print (above) now backs the
+  move - the main thing missing on 2026-10-24 ("unconfirmed catalyst")
+  is resolved. Insider activity unchanged: entirely routine annual
+  director stock-unit grants, no directional signal. 13F mentions
+  unchanged: thin/stale, scattered small/obscure filers. **Confidence:
+  medium** - real confirmed beat now in hand, but RSI is the most
+  extreme of the 5 names and there's still no insider/institutional
+  confirmation, so capped below high; buying here is chasing a move
+  that already happened on confirmed news, not catching it early.
+- **CCI** (unchanged, stays low): $85.97, RSI ~71.6-71.8, +6.06%/5d,
+  +28.1%/20d, volume **3.13x** (genuine spike, confirmed both tools).
+  Q3 release confirmed for 2026-10-21 AMC and a management-commentary
+  excerpt was found (CEO cited "improved margins" and "completion of an
+  agreement with a key customer"), but no actual EPS/revenue print was
+  found in this search - still unconfirmed at the number level.
+  Pre-earnings estimates (~$0.69-0.70 EPS, ~$1.01-1.04B revenue) remain
+  just estimates. Insider/13F unchanged from prior cycles: no net
+  signal, stale DigitalBridge-dominated 13F mentions. **Confidence:
+  low** - real volume spike, still no confirmed numbers behind it.
+- **AMT** (unchanged, stays low): $188.97, RSI ~65.5-65.7, +3.25%/5d,
+  +12.5%/20d, volume **2.94x** (genuine spike, confirmed both tools).
+  **Now confirmed**: Q3 2026 release is scheduled for tomorrow,
+  2026-10-27, 7:00am ET (date was previously disputed between Oct 27/29
+  across sources - now pinned down via the company's own release
+  notice). This remains a pre-earnings positioning move, not a
+  post-earnings reaction. Insider/13F unchanged: routine purchase-plan
+  buys, one likely parsing-artifact transaction date, stale 13F
+  mentions. **Confidence: low** - real pre-earnings volume spike, no
+  catalyst in hand until tomorrow's print.
+- **NOW** (unchanged, stays low): $158.96, RSI ~67.5-70.0, +9.36%/5d,
+  +20.9%/20d (`momentum_trigger` independently flagged true on the 20d
+  window), volume 0.80x (not volume-confirmed). **Now confirmed**: Q3
+  2026 release is scheduled for 2026-10-28 after close, with Q3
+  subscription-revenue guidance of $3.975-3.980B (~20% YoY constant-
+  currency growth) carried over from the Q2 call. Insider activity
+  unchanged: the same cluster of senior-exec open-market sales
+  (Fipps, Canney, Chamberlain, late Aug/early Sept) remains the most
+  recent insider signal - still a caution, not stale, since no newer
+  Form 4s have superseded it. **Confidence: low** - independently
+  triggered momentum signal, but not volume-confirmed and still
+  undercut by the insider-selling cluster; earnings haven't printed yet.
+
+### Data gaps carried from the tools (not silently dropped)
+
+- Stocks: no order-book-imbalance signal on any ticker (Alpaca free/IEX
+  tier has no L2 depth) - structural, every cycle.
+- All 5 deepened tickers: insufficient daily history for a 20/50 SMA
+  crossover read via `compute_stock_signals` (`sma_crossover_1d: null`
+  on all 5) - structural (needs 51+ daily bars, tool defaults to 40).
+- 13F mentions for all 5 names remain the known noisy full-text-search
+  proxy and surfaced mostly stale (pre-2025) or obscure filers again -
+  treat as non-signal today for every name.
+- WebSearch still could not confirm actual Q3 2026 EPS/revenue figures
+  for CCI (management commentary only, no numbers); AMT and NOW haven't
+  reported yet (confirmed dates: Oct 27 and Oct 28 respectively). Only
+  IBM and, newly, LMT have fully confirmed, numbered results.
+- Crypto price figures from WebSearch for both SUI and LINK were
+  internally inconsistent across sources (undated pages, conflicting
+  quotes) - treated as context only, not relied on for any number in
+  this entry; all crypto numbers above come from `compute_crypto_signals`
+  (Kraken), not WebSearch.
+
+### Bottom line
+
+Third cycle running with no crypto candidate and no data-integrity
+regression - the 2026-10-24 bug stays fixed. The one real development
+today is **LMT's Q3 beat getting confirmed**, which upgrades it
+alongside **IBM** to this cycle's two medium-confidence picks - both
+capped below high on overbought RSI and no institutional/insider
+confirmation, both already-happened moves rather than early reads.
+CCI and AMT keep their genuine, dual-tool-confirmed volume spikes but
+still lack (CCI) or are still awaiting (AMT, tomorrow) a confirmed
+catalyst. NOW stays low-confidence on the same insider-selling-cluster
+caution as before. Worth tracking into tomorrow: all 8 crypto pairs
+flipped to a bearish `fast_below_slow` 4h SMA state today, and AMT/NOW
+both report within the next two sessions - likely material to the next
+1-2 cycles regardless of today's lack of a trigger. This is advisory
+context only, not investment advice presented as certain - verify
+independently before acting on anything above.
