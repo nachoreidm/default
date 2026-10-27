@@ -591,3 +591,191 @@ both report within the next two sessions - likely material to the next
 1-2 cycles regardless of today's lack of a trigger. This is advisory
 context only, not investment advice presented as certain - verify
 independently before acting on anything above.
+
+---
+
+## 2026-10-27 - daily cycle
+
+**Advisory only. Nothing here executes - verify before acting.**
+
+`git pull` picked up a new commit since the last cycle
+(`30f43a0`, "Add read-only Kraken account tracking") - unrelated to this
+cycle's logic (no changes to `signals.ts`, `stocks.ts`, `sp500.ts`, or
+`edgar.ts`), so nothing to re-verify for today's numbers. Noted for the
+record: it adds `kraken_account_get_balance`/`get_open_orders`/
+`get_closed_orders`/`get_ledger`, reading the user's real Kraken account
+via a separately-scoped, query-only API key (no addOrder/cancelOrder
+code path exists, and the key itself has no order-placement/withdrawal
+permission at Kraken's end) - this agent's no-execution-capability
+property holds. Not used in this cycle; out of scope for the daily
+digest unless asked for.
+
+### No repeat of the 2026-10-24 data-integrity bug
+
+Checked again: for all 5 deepened tickers today, `screen_sp500` and
+`compute_stock_signals` agree exactly on price and 5-day % change
+(LMT \$635.20/+15.76%, IBM \$253.44/+4.76%, NDAQ \$104.72/+10.46%, CTAS
+\$225.93/+4.10%, WM \$241.02/+4.01%). RSI gaps are the same small
+(~0.2-2.6 point) magnitude seen on every prior cycle - NDAQ's gap
+(74.29 vs 71.67) is the largest seen so far but still well within the
+range already established as normal (NOW's 2.48-point gap on
+2026-10-24), not a regression.
+
+### Crypto - all 8 EUR pairs, no momentum trigger fired (fourth cycle running)
+
+| Pair | 1h/48h chg | 4h/48h chg | RSI(14,4h) | Vol ratio (24h vs 7d avg) | SMA state |
+|---|---|---|---|---|---|
+| BTC/EUR | -0.42% | -0.69% | 41.6 | 0.84x | fast<slow |
+| ETH/EUR | -0.66% | -0.81% | 40.9 | 0.86x | fast<slow |
+| SOL/EUR | -0.86% | -0.95% | 40.6 | 1.01x | fast<slow |
+| XRP/EUR | +0.57% | +0.49% | 52.1 | 0.46x | fast<slow |
+| ADA/EUR | -0.16% | +0.09% | 43.0 | 0.83x | fast<slow |
+| LINK/EUR | -0.17% | -0.002% | 41.5 | **1.71x** | fast<slow |
+| SUI/EUR | -0.51% | -0.82% | **38.4** | 0.62x | fast<slow |
+| LTC/EUR | +0.32% | +0.68% | 44.9 | 0.82x | fast<slow |
+
+Still no pair near the 6% threshold or 2x volume flag; the
+`fast_below_slow` SMA state flagged yesterday as worth watching has
+persisted across all 8 pairs for a second day. SUI and LINK are, for a
+second cycle running, respectively the lowest-RSI and highest-volume-
+ratio pairs - same two names, both re-checked fresh rather than reusing
+yesterday's search:
+- **SUI/EUR** (RSI 38.4, essentially unchanged from yesterday's 38.4):
+  fresh WebSearch found no October-2026-dated news; results ranged from
+  a plausible-but-unconfirmed "+9% over the past month on a CME
+  emerging-crypto-index addition" claim to clearly stale items (a "$4.8"
+  price mention that doesn't match any current price level). No
+  catalyst found either way, still.
+- **LINK/EUR** (volume ratio now 1.71x, up from 1.28x yesterday - the
+  most elevated reading on this pair so far, still under the 2x flag):
+  fresh WebSearch found nothing dated to Oct 26-27; results were old
+  (2022 and earlier) or low-quality/undated pages. The rising volume
+  ratio with no identifiable news is worth tracking into tomorrow, but
+  isn't itself actionable.
+
+**Confidence: n/a - no crypto candidate meets the bar for inclusion
+today**, fourth cycle running.
+
+### Stocks - S&P 500 screen (top 20 of 504) - new leaderboard, first new trading day's data
+
+This is the first screen run on a genuinely new trading day's bars
+since the weekend freeze (Monday Oct 26 is now the latest complete
+daily bar). The top-20 list changed materially: **CCI and AMT, both
+deepened on 2026-10-24/26, dropped out of the top 20 entirely** (their
+RSI/volume extremity cooled on fresh data), and **NOW also isn't
+present** (same). New top names include **NDAQ (+10.46%/5d), NOC
+(+5.88%/5d), MSI, CTAS, WM, CME** alongside holdovers **LMT and IBM**.
+No ticker scored above 3 today (CCI's score-4 from the prior two
+cycles is gone with CCI itself). Deepened 5 for today's screen plus one
+carry-over check: **LMT, IBM, NDAQ, CTAS, WM** (top 5 by combined
+RSI/%-change extremity) **and AMT** (not in today's top 20, but checked
+anyway since its confirmed Q3 earnings release was scheduled for this
+morning, 7:00am ET, per yesterday's entry).
+
+- **LMT** - \$635.20, RSI **81.7-82.6** (both tools agree; now the most
+  overbought reading seen in any cycle so far, up from 77-78 Monday),
+  +15.76%/5d (up from +10.21%/5d Monday), +24.0%/20d, volume 1.54x (not
+  a 2x spike, but the highest volume ratio of today's 5). **No new
+  catalyst found** - WebSearch for an October 27 defense-sector rally or
+  fresh LMT news returned nothing dated to this week; the only Q3 catalyst
+  remains the already-confirmed Oct 22 beat reported yesterday. The
+  stock has run materially further (+5.5 points of RSI, +5.5 points of
+  5d %-change) on no identifiable new information since then. Insider:
+  unchanged, routine annual director grants only. 13F: unchanged,
+  thin/stale. **Confidence: medium, with an explicit caution this cycle
+  - the original catalyst is still real, but at RSI ~82 with nothing
+  new behind the extension, this reads as late-stage momentum/possible
+  broader-sector drift rather than a fresh signal; buying here risks
+  chasing an already-stretched move with no confirmation of what's
+  driving the latest leg.**
+- **IBM** - \$253.44, RSI ~71-72 (both tools agree, essentially
+  unchanged), +4.76%/5d (cooled from +7.26%/5d as the post-earnings bar
+  ages out of the 5-day window), +15.2%/20d, volume 0.52x (lowest of
+  the 5, well below average). No new information since the confirmed
+  Oct 21 beat. Insider/13F unchanged: no signal, stale mentions.
+  **Confidence: medium** - unchanged reasoning from prior cycles.
+- **NDAQ** (Nasdaq Inc, Financials - the exchange operator, not the
+  index) - \$104.72, RSI ~71.7-74.3, +10.46%/5d, +14.0%/20d, volume
+  0.84x (not a spike). Earnings date sources conflict (Oct 19 vs Oct 22,
+  both already passed) but no actual Q3 print was found in this search -
+  still only pre-earnings consensus estimates (~\$1.02-1.04 EPS,
+  ~\$1.44-1.50B revenue). Insider activity: a *recurring* pattern of
+  sales by EVP/CSO Jeremy Skule (near-identical 1,125-share sales roughly
+  monthly since August, same cadence/size - looks like a scheduled
+  10b5-1 plan, not a discretionary signal) plus several other senior
+  execs' sales clustered in August - all sales, no buys, but spread over
+  months rather than concentrated, so weighted as weaker evidence than
+  NOW's tighter late-Aug/early-Sept cluster. 13F mentions: old/thin
+  (LGT Capital Partners repeatedly, Winslow Capital, AAFMAA), nothing
+  recent or large. **Confidence: low** - real move, but the earnings
+  outcome behind it is unconfirmed and the insider picture leans mildly
+  negative, not supportive.
+- **CTAS** (Cintas, Industrials) - \$225.93, RSI ~79.7-79.8 (both tools
+  agree), +4.10%/5d, +14.3%/20d, volume 1.03x (not a spike). No Q1
+  FY2027 earnings news found for October - the company's last reported
+  quarter was fiscal Q4 (July 15, a beat with raised FY27 guidance), and
+  next-earnings-date sources were explicitly unconfirmed/inconsistent.
+  This move has **no identified catalyst at all**. Insider: mixed
+  routine stock-grant activity (executive-chairman and CEO grants at
+  \$202.71 in August), nothing directional. 13F: old, scattered small
+  filers. **Confidence: low** - overbought RSI with no catalyst and no
+  volume confirmation behind it.
+- **WM** (Waste Management, Industrials) - \$241.02, RSI ~79.3-79.4
+  (both tools agree), +4.01%/5d, +16.4%/20d, volume 0.63x (below
+  average - the move is not volume-confirmed at all). Q3 2026 earnings
+  confirmed for **today, Oct 27, after market close** (consensus ~\$2.18
+  EPS vs. \$1.98 prior year) - this is purely a pre-earnings positioning
+  move on low volume, not a reaction. Insider: routine tax-withholding/
+  stock-plan sales (codes S/F/G) by several execs, nothing alarming but
+  nothing supportive. 13F: old, thin, unrelated small filers.
+  **Confidence: low** - pre-earnings move, no volume confirmation,
+  outcome lands tonight.
+- **AMT** (American Tower, carried over from the prior two cycles) -
+  \$188.28, RSI 64.4 (cooled from 65.5-65.7, no longer extreme), +2.57%/
+  5d (cooled from +3.25%), volume 1.16x (no longer a spike - down from
+  2.94x Monday). No longer in today's top-20 screen. Its Q3 2026 release
+  was scheduled for 7:00am ET this morning - by this cycle's run time
+  (~12:00 UTC / ~8:00am ET) the release should already be out, but
+  WebSearch found no actual Q3 figures, only the release-schedule
+  announcement and Q2 numbers. **Status genuinely uncertain as of this
+  search** - either the results aren't indexed yet or the search didn't
+  surface them; worth an explicit follow-up check rather than assuming
+  either a beat or a miss. Insider/13F unchanged: routine, stale.
+  **Confidence: low** - cooled technicals, earnings outcome unknown.
+
+### Data gaps carried from the tools (not silently dropped)
+
+- Stocks: no order-book-imbalance signal on any ticker (Alpaca
+  free/IEX tier has no L2 depth) - structural, every cycle.
+- All deepened tickers: insufficient daily history for a 20/50 SMA
+  crossover read via `compute_stock_signals` (`sma_crossover_1d: null`)
+  - structural (needs 51+ daily bars, tool defaults to 40).
+  13F mentions for all 6 names remain the known noisy full-text-search
+  proxy, mostly stale (pre-2025) or obscure filers again today.
+- WebSearch could not confirm AMT's actual Q3 2026 results despite the
+  scheduled release time having passed by this cycle's run, and could
+  not confirm NDAQ's actual Q3 results either (only pre-earnings
+  estimates for both). CTAS's next earnings date itself is unconfirmed
+  across sources.
+- Crypto WebSearch results for SUI and LINK were again undated/
+  inconsistent across sources and not relied on for any number above;
+  all crypto figures come from Kraken via `compute_crypto_signals`.
+
+### Bottom line
+
+Fourth cycle running with no crypto candidate and no data-integrity
+regression. The screen's leaderboard turned over materially on the
+first new trading day's data (CCI, AMT, NOW all dropped out; NDAQ, CTAS,
+WM, NOC, MSI entered) - a reminder that this list is a daily snapshot,
+not a standing watchlist. **LMT and IBM remain this cycle's two
+medium-confidence picks**, but LMT's case now carries an explicit
+caution: it has extended another ~5 points of RSI and 5-day %-change
+with no new catalyst found, which reads more like late-stage/chasing
+risk than a fresh signal. NDAQ, CTAS, and WM all show real moves with
+RSI in the 72-80 range but none has both a confirmed catalyst and
+volume confirmation - stays low-confidence across the board. AMT's
+earnings status is genuinely unresolved as of this search despite its
+scheduled release time having passed - worth checking again rather than
+assuming an outcome. This is advisory context only, not investment
+advice presented as certain - verify independently before acting on
+anything above.
