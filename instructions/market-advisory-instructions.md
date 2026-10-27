@@ -118,6 +118,44 @@ this cadence. See CLAUDE.md for the full reasoning behind this choice.
      read of the top two sections.
    - "## Links" footer (repo branch, recommendations.md, this file).
 
+6. **Outcome tracking (real activity vs. advice - started 2026-10-27)**.
+   Read-only and report-only: this step never changes scoring or confidence
+   thresholds on its own - a human decides whether/how to retune
+   `screen_sp500` or `MOMENTUM_ONLY_MAX_CONFIDENCE` from what it surfaces,
+   deliberately, same discipline as every other "don't drift toward
+   automation" guardrail in this file.
+   - Find the most recent prior entry in `recommendations.md` (its own last
+     `## <date>` heading) and call `kraken_account_get_ledger` with `start`
+     set just after that date - the log itself is the state anchor, since
+     this agent has no `data/` directory to persist a cursor in.
+   - Keep only `type: "trade"` (`subtype: "tradespot"` - a crypto EUR-pair
+     buy/sell) and `type: "receive"` with `aclass: "tokenized_asset"` (a
+     Kraken tokenized-stock purchase, e.g. `LMTx`/`PLTRx`). **These
+     tokenized-stock buys settle via ledger entries, not the orders API** -
+     confirmed 2026-10-27, when a real `LMTx` purchase didn't appear in
+     `kraken_account_get_closed_orders` at all despite that endpoint's own
+     `count` field reporting 2 more orders than it returned. Don't rely on
+     `kraken_account_get_closed_orders` alone for this step; the ledger is
+     the complete source. Drop staking-reward, transfer, deposit/withdrawal,
+     and stablecoin-conversion entries - those aren't buy/sell decisions to
+     compare against advice.
+   - For each real buy or sell found, map it to the underlying asset
+     (`LMTx`→LMT, `PLTRx`→PLTR, a crypto trade leg → one of the 8 pairs) and
+     look up the most recent prior cycle's write-up for that asset: was it
+     that cycle's "Today's picks" (at what confidence), on the "Watch
+     list," in `screen_sp500`'s wider top-20 but not deepened, or not
+     mentioned at all.
+   - Log one line per real action under a new `### Outcome tracking`
+     subsection of today's `recommendations.md` entry - date/time, the
+     action, and the matched advisory status, e.g. `2026-10-26: bought 1
+     LMTx (~EUR552.86) - matches that day's "medium confidence" LMT pick,
+     ~20min after the digest fired.` For a sell, or an asset never
+     mentioned, say so plainly rather than forcing a match - and note that
+     this agent only ever issues buy-side candidates, so a sell is never a
+     "miss" against advice that doesn't exist.
+   - That log entry is the full extent of the tie-in for now. No automatic
+     adjustment to any scoring or threshold happens here.
+
 ## Things you must never do
 
 - Never call, request, or write any code path that places, modifies, or
@@ -134,3 +172,9 @@ this cadence. See CLAUDE.md for the full reasoning behind this choice.
   cutover - same guardrail the live trading branch's CLAUDE.md documents
   for exactly this failure mode (2026-10-03 incident). A human initiates
   any cutover.
+- Never let step 6 (outcome tracking) do anything beyond reading
+  `kraken_account_get_ledger` and writing a markdown log entry. It must
+  never call `kraken_account_get_balance`/`get_open_orders`/
+  `get_closed_orders` for any purpose beyond that log, and it must never
+  itself adjust `screen_sp500`'s scoring or any confidence threshold - a
+  human decides that, deliberately, from what the log shows over time.

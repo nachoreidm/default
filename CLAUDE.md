@@ -385,8 +385,46 @@ every other credential-gated test in this file. Live-verify the moment
 the key is set, before trusting any balance/order data it returns -
 same discipline applied to every other data source on this branch.
 
-**Not yet decided**: how real outcomes get logged against advisory
-picks once this works (a new section in `recommendations.md`? a
-separate outcomes file? pulled automatically by the daily trigger, or
-only on request?) - deliberately left open rather than guessed at
-before the data access itself is even verified.
+## Outcome tracking - decided and wired in (2026-10-27)
+
+**Live-verified in this session**: pulled real closed orders, open
+orders, balance, and ledger via the read-only key - all four endpoints
+work. Confirmed a genuine bug in the plan this far: `kraken_account_
+get_closed_orders` returned 50 orders while its own `count` field said
+52 - the missing 2 turned out to be Kraken tokenized-equity purchases
+(`LMTx`, `PLTRx`), which settle as `receive`/`spend` ledger entries and
+never appear in the orders API at all. Anything built on outcome
+tracking has to read the ledger, not just closed orders, or it silently
+misses every tokenized-stock trade.
+
+**What the ledger actually showed since go-live (2026-10-24)**: zero
+crypto trades (consistent - every cycle so far found no crypto
+candidate), and exactly one real stock move: 1 share of `LMTx` bought
+2026-10-26 12:09 UTC, ~20 minutes after that day's digest (fired 11:49
+UTC) upgraded LMT to medium confidence on the confirmed Q3 beat. IBM,
+that same day's other medium-confidence pick, was not bought. (A 3-share
+`PLTRx` position exists too, but was bought 2026-10-16, before this
+agent went live - out of scope for comparing against its advice.)
+
+**Decided, with the user, how this gets built**: a new instructions
+step 6, "Outcome tracking," added to `instructions/market-advisory-
+instructions.md` -
+- **Where it's logged**: a new `### Outcome tracking` subsection inside
+  each day's existing `recommendations.md` entry - not a separate file,
+  not the Notion page. Keeps it next to the picks it's judging, in the
+  file git already tracks.
+- **Cadence**: folded into the daily trigger itself - each cycle checks
+  the ledger for new activity since the last logged entry and matches it
+  against that period's prior pick(s), fully automatic.
+- **Scope**: report-only. It surfaces follow/skip patterns (e.g. "this
+  pick was acted on, that one wasn't") for a human to read - it never
+  adjusts `screen_sp500`'s scoring or `MOMENTUM_ONLY_MAX_CONFIDENCE` on
+  its own. Deliberately chosen over letting the agent self-tune, given
+  the sample size (one real trade so far) and this branch's existing
+  "never drift toward automating a judgment call" discipline.
+
+Not yet done: the step is written into the instructions but hasn't run
+through a real trigger firing yet - the next daily cycle (or a manual
+run) will be the first live test of it, same "verify against a real
+firing, not just that it's written down" discipline as everything else
+on this branch.
