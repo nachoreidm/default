@@ -341,3 +341,52 @@ edit on the trading branches - `update_trigger` can't change a prompt
 from a different session than the one it's bound to, so this took a
 new trigger pointed at the *same* already-verified session, not a full
 cutover - no code changed, so no new verification cycle was needed).
+
+## Real Kraken account tracking (read-only) - built, not yet live-verified (2026-10-27)
+
+**Prompted by**: the user acted on an advisory pick in real life (bought
+a small crypto position on Kraken based on a report) and asked whether
+their actual trades could be tracked automatically, suggesting a
+read-only API key themselves. Good idea, worth building - there was no
+feedback loop at all before this between what the advisory flags and
+what actually happens to real money, which is the only way to tell
+later whether a "medium confidence" label is worth anything.
+
+**Credential**: a NEW, separate Kraken API key (`KRAKEN_READONLY_API_KEY`/
+`KRAKEN_READONLY_API_SECRET`), scoped to Query Funds / Query Open
+Orders & Trades / Query Closed Orders & Trades / Query Ledger Entries
+ONLY - explicitly without Create & Modify Orders, Cancel/Close Orders,
+or Withdraw Funds. Even more restricted than the live trading branch's
+key (which needs order-placement permissions to actually trade) - this
+one is read-only by Kraken's own enforcement, not just by omission in
+this code. Added to the existing "Market Advisory" environment (user's
+choice over a new dedicated one) - no new network allowlist entry
+needed, Kraken's private endpoints live under the same `api.kraken.com`
+domain already allowlisted for public data.
+
+**Code**: new `kraken-account.ts`, deliberately NOT named or structured
+like a general "kraken-private.ts" - ports only the read-only pieces
+(Balance, OpenOrders, ClosedOrders, QueryOrders, plus a new Ledgers
+function the live branch never needed) from the live trading branch's
+already-verified signing implementation (HMAC-SHA512, confirmed correct
+against live Kraken via that branch's `validate: true` AddOrder call).
+`addOrder`/`cancelOrder` were NOT ported - on purpose, so this agent's
+"no execution capability anywhere in this codebase" property stays true
+even at the Kraken-account layer, not just the stock side. New tools:
+`kraken_account_get_balance`, `kraken_account_get_open_orders`,
+`kraken_account_get_closed_orders`, `kraken_account_get_ledger`.
+
+**Not yet live-verified** - the signing logic is reused from code
+already proven correct, but the read-only endpoints themselves (and
+this specific key, once created) haven't been smoke-tested against
+real Kraken yet. `selftest.ts` skips gracefully until
+`KRAKEN_READONLY_API_KEY`/`SECRET` exist, same fail-safe pattern as
+every other credential-gated test in this file. Live-verify the moment
+the key is set, before trusting any balance/order data it returns -
+same discipline applied to every other data source on this branch.
+
+**Not yet decided**: how real outcomes get logged against advisory
+picks once this works (a new section in `recommendations.md`? a
+separate outcomes file? pulled automatically by the daily trigger, or
+only on request?) - deliberately left open rather than guessed at
+before the data access itself is even verified.

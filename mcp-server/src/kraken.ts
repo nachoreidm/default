@@ -24,7 +24,7 @@ export const INTERVAL_MINUTES = {
 } as const;
 export type IntervalKey = keyof typeof INTERVAL_MINUTES;
 
-class KrakenApiError extends Error {}
+export class KrakenApiError extends Error {}
 
 function assertAllowedPair(pair: string): AllowedPair {
   if (!isAllowedPair(pair)) {

@@ -18,7 +18,7 @@ export const INTERVAL_MINUTES = {
     "4h": 240,
     "1d": 1440,
 };
-class KrakenApiError extends Error {
+export class KrakenApiError extends Error {
 }
 function assertAllowedPair(pair) {
     if (!isAllowedPair(pair)) {

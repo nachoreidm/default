@@ -5,6 +5,7 @@ import { ALLOWED_PAIRS } from "./types.js";
 import { fetchStockBars, fetchMultiStockBars, computeStockSignals } from "./stocks.js";
 import { fetchSp500Constituents, screenSp500, splitCsvLine, parseIvvHoldingsCsv } from "./sp500.js";
 import { getCikForTicker, getInsiderActivity, extractTag } from "./edgar.js";
+import { queryBalance, queryClosedOrders } from "./kraken-account.js";
 function assert(cond, msg) {
     if (!cond)
         throw new Error(`ASSERTION FAILED: ${msg}`);
@@ -191,6 +192,23 @@ async function main() {
     }
     catch (e) {
         skip(`SEC EDGAR live smoke test (sec.gov domains likely not allowlisted in this environment yet): ${e.message}`);
+    }
+    // --- Real Kraken account (read-only) - skips gracefully until KRAKEN_READONLY_API_KEY/SECRET exist ---
+    if (!process.env.KRAKEN_READONLY_API_KEY || !process.env.KRAKEN_READONLY_API_SECRET) {
+        skip("Kraken read-only account live smoke test (KRAKEN_READONLY_API_KEY/SECRET not set in this environment yet)");
+    }
+    else {
+        try {
+            const balance = await queryBalance();
+            assert(typeof balance === "object" && balance !== null, "queryBalance returns an object");
+            console.log("\nReal Kraken account balance:", JSON.stringify(balance, null, 2));
+            const closed = await queryClosedOrders();
+            assert(typeof closed.closed === "object", "queryClosedOrders returns a closed-orders object");
+            console.log(`\nReal Kraken closed orders: ${Object.keys(closed.closed).length}`);
+        }
+        catch (e) {
+            throw new Error(`Kraken read-only account smoke test failed with credentials present - this is a real failure, not an expected skip: ${e.message}`);
+        }
     }
     console.log("\nALL SELF-TESTS PASSED (see 'skip:' lines above for anything not yet live-testable in this environment)");
 }
