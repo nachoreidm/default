@@ -779,3 +779,22 @@ scheduled release time having passed - worth checking again rather than
 assuming an outcome. This is advisory context only, not investment
 advice presented as certain - verify independently before acting on
 anything above.
+
+### Outcome tracking - attempted, blocked this cycle
+
+A sibling session pushed outcome tracking (step 6 in the instructions
+file) and the underlying `kraken_account_get_*` tools while this cycle
+was already mid-run; merged in cleanly (`e2d6cf0`) with no conflicts.
+Attempted to run step 6 as instructed - looked for
+`kraken_account_get_ledger` via tool search and it is not available in
+this running session: the `market-advisory` MCP server process behind
+this session predates the merge and hasn't restarted, so it hasn't
+picked up `kraken-account.ts`'s new tool registrations (confirmed only
+the pre-existing `kraken_get_ticker`/`kraken_get_ohlc`/
+`kraken_get_orderbook` tools are present). Per step 6's own text
+("read-only and report-only... never let step 6 do anything beyond
+reading `kraken_account_get_ledger`"), not substituting any other tool
+or fabricating a ledger read - deferring this step to the next cycle,
+which should run with a fresh server process that has the new tools
+loaded. No outcome-tracking log for today; this gap is the full extent
+of today's shortfall on step 6, nothing else was skipped.
