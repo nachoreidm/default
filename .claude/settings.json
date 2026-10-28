@@ -1,4 +1,28 @@
 {
+  "permissions": {
+    "allow": [
+      "Bash(git fetch *)",
+      "Bash(npm run test)",
+      "mcp__Claude_Code_Remote__get_session",
+      "mcp__Claude_Code_Remote__list_triggers",
+      "mcp__Notion__notion-fetch",
+      "mcp__Notion__notion-search",
+      "mcp__kraken-live-trading__kraken_get_ohlc",
+      "mcp__market-advisory__kraken_get_ticker",
+      "mcp__market-advisory__kraken_get_ohlc",
+      "mcp__market-advisory__kraken_get_orderbook",
+      "mcp__market-advisory__compute_crypto_signals",
+      "mcp__market-advisory__screen_sp500",
+      "mcp__market-advisory__sp500_constituents",
+      "mcp__market-advisory__compute_stock_signals",
+      "mcp__market-advisory__get_insider_activity",
+      "mcp__market-advisory__get_institutional_13f_mentions",
+      "mcp__market-advisory__kraken_account_get_balance",
+      "mcp__market-advisory__kraken_account_get_open_orders",
+      "mcp__market-advisory__kraken_account_get_closed_orders",
+      "mcp__market-advisory__kraken_account_get_ledger"
+    ]
+  },
   "hooks": {
     "SessionStart": [
       {
