@@ -410,9 +410,10 @@ agent went live - out of scope for comparing against its advice.)
 step 6, "Outcome tracking," added to `instructions/market-advisory-
 instructions.md` -
 - **Where it's logged**: a new `### Outcome tracking` subsection inside
-  each day's existing `recommendations.md` entry - not a separate file,
-  not the Notion page. Keeps it next to the picks it's judging, in the
-  file git already tracks.
+  each day's existing `recommendations.md` entry - not a separate file.
+  Keeps it next to the picks it's judging, in the file git already
+  tracks. (The Notion page gets a one-line pointer only, added
+  2026-10-28 - see below; the full detail stays in `recommendations.md`.)
 - **Cadence**: folded into the daily trigger itself - each cycle checks
   the ledger for new activity since the last logged entry and matches it
   against that period's prior pick(s), fully automatic.
@@ -428,3 +429,22 @@ through a real trigger firing yet - the next daily cycle (or a manual
 run) will be the first live test of it, same "verify against a real
 firing, not just that it's written down" discipline as everything else
 on this branch.
+
+**First live attempt (2026-10-27) was blocked, not skipped**: that day's
+cycle correctly noted in `recommendations.md` that the running MCP
+server process predated this feature's merge, so the new
+`kraken_account_*` tools weren't registered yet - documented the gap and
+deferred to the next cycle's fresh process rather than silently omitting
+the step or substituting another tool.
+
+**Notion gets a one-line pointer too - added 2026-10-28**, per direct
+user request after this was first built Notion-free. Step 5 (outcome
+tracking, renumbered ahead of what's now step 6 "Notion sync" so a
+same-cycle finding can be mentioned the same morning instead of a cycle
+late) hands step 6 a single short "Real activity since last cycle: ..."
+line, placed directly under "## Today's picks," only when there's new
+real activity to report - no line at all otherwise, same no-padding
+discipline as the "Watch list" section. The full price/fee/timestamp
+detail stays in `recommendations.md`'s `### Outcome tracking` subsection
+only; Notion never gets more than the pointer, keeping the short-top-
+layer discipline from the 2026-10-24 restructure intact.

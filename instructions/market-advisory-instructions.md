@@ -86,44 +86,14 @@ this cadence. See CLAUDE.md for the full reasoning behind this choice.
      "REAL MONEY" framing, just inverted: this is explicitly "nothing
      here executes, verify before acting."
 
-5. **Notion sync**. Write the day's findings to the advisory Notion page
-   (page_id `40378a93-63b8-81f0-891f-d23b7012219f`, "Market Advisory
-   Agent" - see CLAUDE.md) using `notion-update-page` with `command:
-   "replace_content"` - same discipline the trading branches learned the
-   hard way (an append-style write duplicates/garbles content on every
-   subsequent cycle). Fetch the page first to see its current exact
-   structure before rewriting.
-
-   **Structure - lead with a short, scannable top layer; put the full
-   detail below it, collapsed.** Changed 2026-10-24 after direct user
-   feedback that the page was too long with no clear "what do I focus
-   on" - don't regress to a wall of per-candidate prose at the top:
-   - Date / last-synced timestamp.
-   - "## Today's picks" - a SHORT table, one row per candidate that
-     actually cleared the bar (crypto or stock together, not split into
-     separate sections): `Asset | Confidence | Why` where "Why" is ONE
-     line, not a paragraph. If nothing cleared the bar, this is one
-     sentence saying so - never an empty-looking table.
-   - "## Watch list" - 1-2 lines per near-miss worth monitoring (e.g. an
-     extreme-but-not-triggered RSI or volume reading), kept to a single
-     line each. Skip this section entirely on a day with nothing notable
-     to watch - don't pad it.
-   - "## Full detail" - everything else (the full 8-pair crypto table,
-     the full per-candidate stock write-ups from step 4 with their data
-     gaps/13F caveats/insider detail, the universe & methodology note)
-     goes here, wrapped in `<toggle heading="h3">...</toggle>` blocks
-     (one toggle per subsection: crypto, stocks, methodology) so it's
-     collapsed by default - present for anyone who wants to check the
-     reasoning or audit a pick, but not blocking a 10-second morning
-     read of the top two sections.
-   - "## Links" footer (repo branch, recommendations.md, this file).
-
-6. **Outcome tracking (real activity vs. advice - started 2026-10-27)**.
+5. **Outcome tracking (real activity vs. advice - started 2026-10-27)**.
    Read-only and report-only: this step never changes scoring or confidence
    thresholds on its own - a human decides whether/how to retune
    `screen_sp500` or `MOMENTUM_ONLY_MAX_CONFIDENCE` from what it surfaces,
    deliberately, same discipline as every other "don't drift toward
-   automation" guardrail in this file.
+   automation" guardrail in this file. Runs BEFORE the Notion sync below
+   (moved 2026-10-28, see CLAUDE.md) so a same-cycle finding can be
+   mentioned there the same morning, not a cycle late.
    - Find the most recent prior entry in `recommendations.md` (its own last
      `## <date>` heading) and call `kraken_account_get_ledger` with `start`
      set just after that date - the log itself is the state anchor, since
@@ -153,8 +123,54 @@ this cadence. See CLAUDE.md for the full reasoning behind this choice.
      mentioned, say so plainly rather than forcing a match - and note that
      this agent only ever issues buy-side candidates, so a sell is never a
      "miss" against advice that doesn't exist.
-   - That log entry is the full extent of the tie-in for now. No automatic
-     adjustment to any scoring or threshold happens here.
+   - That log entry is the full extent of the tie-in for `recommendations.md`.
+     No automatic adjustment to any scoring or threshold happens here. The
+     ONE exception: carry the same line(s) forward into the next step's
+     Notion top layer (see its "Real activity" bullet below) - nothing
+     else about this step reaches Notion.
+
+6. **Notion sync**. Write the day's findings to the advisory Notion page
+   (page_id `40378a93-63b8-81f0-891f-d23b7012219f`, "Market Advisory
+   Agent" - see CLAUDE.md) using `notion-update-page` with `command:
+   "replace_content"` - same discipline the trading branches learned the
+   hard way (an append-style write duplicates/garbles content on every
+   subsequent cycle). Fetch the page first to see its current exact
+   structure before rewriting.
+
+   **Structure - lead with a short, scannable top layer; put the full
+   detail below it, collapsed.** Changed 2026-10-24 after direct user
+   feedback that the page was too long with no clear "what do I focus
+   on" - don't regress to a wall of per-candidate prose at the top:
+   - Date / last-synced timestamp.
+   - "## Today's picks" - a SHORT table, one row per candidate that
+     actually cleared the bar (crypto or stock together, not split into
+     separate sections): `Asset | Confidence | Why` where "Why" is ONE
+     line, not a paragraph. If nothing cleared the bar, this is one
+     sentence saying so - never an empty-looking table.
+   - **"Real activity" line** (added 2026-10-28) - directly under "##
+     Today's picks," ONE short line if (and only if) step 5 above found
+     new real trade activity since the last cycle, e.g. "Real activity
+     since last cycle: bought 1 LMTx on 2026-10-26 - matched to that
+     day's medium-confidence LMT pick (see recommendations.md)." Several
+     new actions since the last cycle get one line each, still terse. No
+     new activity -> no line at all, same no-padding discipline as
+     "Watch list" below. Never put the full ledger detail (price/fee/
+     exact timestamp) here - that stays in `recommendations.md`'s
+     `### Outcome tracking` subsection; Notion only ever gets the
+     one-line pointer to it.
+   - "## Watch list" - 1-2 lines per near-miss worth monitoring (e.g. an
+     extreme-but-not-triggered RSI or volume reading), kept to a single
+     line each. Skip this section entirely on a day with nothing notable
+     to watch - don't pad it.
+   - "## Full detail" - everything else (the full 8-pair crypto table,
+     the full per-candidate stock write-ups from step 4 with their data
+     gaps/13F caveats/insider detail, the universe & methodology note)
+     goes here, wrapped in `<toggle heading="h3">...</toggle>` blocks
+     (one toggle per subsection: crypto, stocks, methodology) so it's
+     collapsed by default - present for anyone who wants to check the
+     reasoning or audit a pick, but not blocking a 10-second morning
+     read of the top two sections.
+   - "## Links" footer (repo branch, recommendations.md, this file).
 
 ## Things you must never do
 
@@ -172,9 +188,12 @@ this cadence. See CLAUDE.md for the full reasoning behind this choice.
   cutover - same guardrail the live trading branch's CLAUDE.md documents
   for exactly this failure mode (2026-10-03 incident). A human initiates
   any cutover.
-- Never let step 6 (outcome tracking) do anything beyond reading
-  `kraken_account_get_ledger` and writing a markdown log entry. It must
-  never call `kraken_account_get_balance`/`get_open_orders`/
-  `get_closed_orders` for any purpose beyond that log, and it must never
-  itself adjust `screen_sp500`'s scoring or any confidence threshold - a
-  human decides that, deliberately, from what the log shows over time.
+- Never let step 5 (outcome tracking) do anything beyond reading
+  `kraken_account_get_ledger`, writing a markdown log entry, and (as of
+  2026-10-28) handing step 6 the single short "Real activity" line
+  described there. It must never call `kraken_account_get_balance`/
+  `get_open_orders`/`get_closed_orders` for any purpose beyond that log,
+  it must never write to Notion itself (step 6 does, from the line step 5
+  hands it), and it must never itself adjust `screen_sp500`'s scoring or
+  any confidence threshold - a human decides that, deliberately, from
+  what the log shows over time.
