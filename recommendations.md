@@ -798,3 +798,199 @@ or fabricating a ledger read - deferring this step to the next cycle,
 which should run with a fresh server process that has the new tools
 loaded. No outcome-tracking log for today; this gap is the full extent
 of today's shortfall on step 6, nothing else was skipped.
+
+---
+
+## 2026-10-28 - daily cycle
+
+**Advisory only. Nothing here executes - verify before acting.**
+
+`git pull` picked up two more commits since yesterday (`d307ea8`):
+instructions step 5/6 renumbering (outcome tracking now runs before the
+Notion sync, so same-cycle findings reach Notion same-morning) and a new
+Notion "Real activity" one-line pointer. No code changes - nothing to
+re-verify in the signal pipeline itself.
+
+### Outcome tracking (first successful run - backfilled from go-live)
+
+The `kraken_account_*` tools are loaded in this session (fresh MCP
+server process). Since `recommendations.md` itself has never
+successfully logged a real ledger pull before (blocked 2026-10-27),
+pulled from go-live (`start` = 2026-10-24T00:00:00Z) rather than just
+"since yesterday," so this becomes a complete first entry rather than
+leaving a silent gap for 2026-10-24 through 2026-10-26's activity.
+
+Two real buy/sell actions found in the window (zero crypto EUR-pair
+trades - consistent with every cycle finding no crypto candidate):
+
+- **2026-10-26 12:09:05 UTC: bought 1 LMTx (~EUR552.86)** - matches that
+  day's "medium confidence" LMT pick (upgraded that morning on the
+  confirmed Q3 beat), ~13-20 minutes after the digest fired (~11:49-
+  11:56 UTC). That same day's other medium-confidence pick, IBM, was
+  not bought.
+- **2026-10-27 15:54:13 UTC: sold the entire 3-share PLTRx position**
+  (proceeds ~\$596.13 USD / ~EUR534.93 after a USD->EUR conversion
+  leg). PLTR/PLTRx has never appeared in any cycle's `screen_sp500` top
+  20 or in the 8 crypto pairs - there is no advisory status to match
+  this against. This was the pre-go-live position noted in CLAUDE.md
+  (bought 2026-10-16, before this agent existed), now fully closed out.
+  Per the standing rule, a sell against advice that never existed is
+  not a "miss" - noted plainly, not forced into a match.
+
+No automatic adjustment to `screen_sp500` scoring or confidence
+thresholds from this - report-only, per the instructions.
+
+### Crypto - all 8 EUR pairs, nothing notable today (first such day)
+
+| Pair | 1h/48h chg | 4h/48h chg | RSI(14,4h) | Vol ratio (24h vs 7d avg) | SMA state |
+|---|---|---|---|---|---|
+| BTC/EUR | +1.80% | +1.64% | 62.2 | 1.09x | fast<slow |
+| ETH/EUR | +2.20% | +1.94% | 57.2 | 0.66x | fast<slow |
+| SOL/EUR | +1.65% | +1.33% | 58.9 | 0.81x | fast<slow |
+| XRP/EUR | +2.65% | +2.61% | 58.9 | 0.42x | fast<slow |
+| ADA/EUR | +1.04% | +0.55% | 49.8 | 0.69x | fast<slow |
+| LINK/EUR | +3.25% | +2.51% | 59.4 | 1.45x | fast<slow |
+| SUI/EUR | +3.05% | +2.53% | 54.2 | 0.65x | fast<slow |
+| LTC/EUR | +2.57% | +1.96% | 58.6 | 0.54x | fast<slow |
+
+A broad modest bounce across all 8 pairs (every pair positive on both
+windows, unlike the prior four cycles' weakness), but genuinely nothing
+extreme today: RSI sits in a 49.8-62.2 band (no pair near the 30/70
+zones that triggered a WebSearch on the last four cycles), and the
+highest volume ratio (LINK, 1.45x) is below even its own recent peak
+(1.71x two cycles ago). No momentum_trigger, no pair flagged as
+"otherwise notable" by the standard the last four cycles used - so no
+crypto WebSearch this cycle; nothing met the bar for one. SMA state
+remains fast_below_slow across all 8 for a third day.
+
+**Confidence: n/a - no crypto candidate today**, fifth cycle running
+with none.
+
+### Stocks - S&P 500 screen (top 20 of 505) - another full leaderboard turnover
+
+Universe grew to 505 (was 504; `HOLX` still errors with no bars). The
+top 20 turned over again on Tuesday Oct 27's fresh close: four NEW
+names hit **score 4** (genuine 2x+ volume spikes, the first score-4
+cluster this large) - **UPS, CINF, CNP, PNR** - while LMT (score 3,
+carried over) is the only holdover from yesterday's deepened names.
+IBM, NDAQ, CTAS, WM, AMT all dropped out of today's top 20 entirely.
+Deepened the 4 score-4 names plus LMT for continuity: **UPS, CINF, CNP,
+PNR, LMT**.
+
+Cross-check: `screen_sp500` and `compute_stock_signals` agree exactly
+on price/volume-ratio for all 5 (UPS \$106.09/2.40x, CINF \$181.41/2.48x,
+CNP \$41.97/2.35x, PNR \$62.29/2.96x, LMT \$622.99/1.16x); RSI gaps stay
+in the same small, already-established normal range. No repeat of the
+2026-10-24 bug.
+
+- **UPS** (United Parcel Service, Industrials) - \$106.09, RSI 72.3-72.6,
+  +6.55%/5d, volume **2.40x** (genuine spike, confirmed both tools).
+  **Confirmed Q3 2026 beat, reported 2026-10-27**: revenue \$22.9B vs.
+  ~\$22.14B consensus; adjusted EPS \$1.69 vs. ~\$1.63 consensus; raised
+  FY2026 guidance (revenue ~\$92.6B, adj. EPS ~\$7.28) and Q4 guidance.
+  GAAP EPS was lower (\$1.37) due to a \$279M one-time charge
+  (transformation costs + a Supply Chain Solutions goodwill impairment)
+  - a real item, but doesn't undermine the adjusted-basis beat or the
+  guidance raise. Insider: routine RSU vesting only (code A, \$0 price,
+  Sept), no selling cluster. 13F: thin/stale (Merit Financial Group,
+  Capital Wealth Planning, old). **Confidence: medium** - the best-
+  supported case of today's names (confirmed beat + raise, genuine
+  volume confirmation, RSI only moderately overbought, no negative
+  insider signal) but still capped at medium absent any insider/
+  institutional buying to push past it.
+- **CNP** (CenterPoint Energy, Utilities) - \$41.97, RSI 72.2-72.3,
+  +4.09%/5d, volume **2.35x** (genuine spike, confirmed both tools).
+  **Confirmed Q3 2026 beat-and-raise, reported 2026-10-27**: GAAP EPS
+  \$0.50 (in line with consensus), non-GAAP EPS \$0.53 (beat); raised
+  earnings guidance, increased the capital plan, and extended its
+  7-9% non-GAAP EPS growth outlook through 2030 - a real structural
+  positive, not just a one-quarter beat. Insider: mildly positive
+  (one small director buy, 1,000sh @ \$40.70, Aug; routine stock grants
+  to several execs in May; no sales found). 13F: old/stale, nothing
+  recent or large. **Confidence: medium** - comparable strength to UPS:
+  confirmed beat+raise, volume-confirmed, insider picture mildly
+  supportive rather than neutral.
+- **LMT** (carried over) - \$622.99, RSI 76.2 (cooled from 81.7-82.6
+  yesterday), +12.96%/5d (down from +15.76%), volume 1.16x (no spike).
+  WebSearch again found no dated, confirmed news for this week - only
+  old/irrelevant results (one from an unrelated April 2026 miss).
+  Two fresh Form 4s filed 2026-10-27 for Oct 23 transactions: a routine
+  director stock grant (Burritt) and a small COO sale (St John, 720sh,
+  \$0 price shown - likely a net-settlement/withholding transaction, not
+  an open-market sale) - neither is a new directional signal. 13F:
+  unchanged, thin/stale. **Confidence: medium, same caution as
+  yesterday** - still no new catalyst behind the move, though the RSI
+  has eased slightly rather than extending further.
+- **CINF** (Cincinnati Financial, Financials) - \$181.41, RSI 72.8-73.1,
+  +4.48%/5d, volume **2.48x** (genuine spike, confirmed both tools). No
+  confirmed Q3 2026 print found - only pre-earnings consensus (~\$2.01
+  EPS vs. \$2.85 prior year) and conflicting report-date claims (Oct 22/
+  26/27). Worth weighing against base rate: the *prior* quarter (Q2)
+  reportedly **missed** consensus significantly (\$1.43 vs. \$1.82).
+  Insider: one small director buy (1,000sh @ \$171.64, Aug) and one
+  larger director sale (7,600sh @ \$175.40, Aug) - mixed, not a clear
+  signal either way. 13F: old (2001-2005, the company's own captive
+  asset manager CINFIN Capital Management - not a third-party signal).
+  **Confidence: low** - real volume spike, but no confirmed catalyst and
+  a recent miss on the books argues against assuming this one beat.
+- **PNR** (Pentair, Industrials) - \$62.29, RSI **77.5** (highest of the
+  5), **+17.84%/5d** (by far the largest move of any name deepened in
+  any cycle so far), volume **2.96x** (highest of the 5). **No
+  confirmed catalyst identified at all** - earnings date itself is
+  disputed/unconfirmed across sources (Oct 20 vs. 27) and no results
+  were found; the only real news found was a $1.4B acquisition
+  (Taco Group Holdings) that closed Oct 1 - three weeks old, not this
+  week's driver. Insider: a routine director stock grant (Oct 15) and
+  a series of small, apparently tax-related sales by the *interim* CFO
+  (Fishman) spread across Aug-Sept - the "interim" CFO title itself is
+  worth noting as a loose ends-untied signal, though not acted on here.
+  13F: old/thin, nothing recent. **Confidence: low - flagged
+  prominently: this is today's single most extreme mover with the
+  least information behind it.** Treat with real caution, not
+  excitement, until an actual catalyst surfaces.
+
+### Data gaps and unresolved items carried from prior cycles
+
+- Stocks: no order-book-imbalance signal on any ticker (Alpaca
+  free/IEX tier); insufficient history for a 20/50 SMA crossover on any
+  deepened ticker - both structural, every cycle.
+- 13F mentions for all 5 names remain the known noisy full-text-search
+  proxy, mostly stale/obscure filers again.
+- **AMT's actual Q3 2026 results remain unconfirmed after a third
+  check across two days** (release time passed 2026-10-27 7am ET) -
+  WebSearch still surfaces only the release-schedule announcement and
+  Q2 figures, nothing dated to the actual print. Not re-checking again
+  this cycle (diminishing returns after 3 attempts); flagging the
+  pattern itself as notable rather than continuing to assume an
+  eventual answer.
+- **WM's Q3 2026 results are now substantially confirmed** (reported
+  2026-10-27): revenue \$6,846M vs. ~\$6,443M prior year, in line with
+  the ~\$6.80B consensus; adjusted operating EBITDA +5.8% YoY; \$957M
+  returned to shareholders. The exact adjusted EPS print (vs. the
+  \$2.19/\$2.18 consensus cited across cycles) still wasn't found, but
+  the revenue/EBITDA/cash-flow picture is a real, modestly positive
+  report - WM is not in today's top-20 screen, so not deepened further.
+- **CINF and PNR's actual Q3 results, and PNR's earnings date itself,
+  remain unconfirmed** - see their write-ups above.
+
+### Bottom line
+
+Fifth crypto cycle running with nothing notable (a first - no pair even
+reached the "worth a WebSearch" bar today, let alone a trigger). Stocks
+saw the largest single-day leaderboard turnover yet: four new score-4
+names with genuine volume spikes. Two of them, **UPS and CNP, clear the
+bar at medium confidence** on confirmed beat-and-raise earnings plus
+volume confirmation and neutral-to-mildly-positive insider pictures -
+arguably the best-supported cases this agent has produced so far, still
+capped at medium absent insider/institutional buying. **LMT** holds at
+medium on its existing confirmed catalyst, now de-extending slightly
+rather than stretching further. **CINF and PNR stay low-confidence** -
+PNR especially is flagged prominently as the day's most extreme move
+with the least confirming information behind it. Outcome tracking ran
+for the first time and surfaced a real pattern worth watching: the one
+real buy so far (LMTx) followed a medium-confidence pick within 20
+minutes, while the other medium-confidence pick that same day (IBM) was
+not acted on - too small a sample to mean anything yet, but exactly the
+kind of signal this tracking exists to surface over time. This is
+advisory context only, not investment advice presented as certain -
+verify independently before acting on anything above.
