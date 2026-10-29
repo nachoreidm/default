@@ -994,3 +994,184 @@ not acted on - too small a sample to mean anything yet, but exactly the
 kind of signal this tracking exists to surface over time. This is
 advisory context only, not investment advice presented as certain -
 verify independently before acting on anything above.
+
+---
+
+## 2026-10-29 - daily cycle
+
+**Advisory only. Nothing here executes - verify before acting.**
+
+`git pull` picked up one commit since yesterday (`0c27c26`): a
+`.claude/settings.json` allowlisting read-only market-advisory/Kraken-
+read/Notion-fetch tool calls plus a pre-existing (not newly added)
+informational SessionStart hook that only warns if `mcp-server/dist`
+looks stale relative to `src/` - no execution capability, no change to
+the signal pipeline.
+
+### Outcome tracking - closes the loop on the 2026-10-26 LMTx buy
+
+Pulled the ledger with `start` set just after yesterday's check
+(2026-10-28T12:21:00Z, the exact time of that pull) to avoid any gap.
+One real action found:
+
+- **2026-10-28 16:16:05 UTC: sold the entire 1-share LMTx position**
+  (proceeds ~\$622.64 USD / ~EUR558.79 after a USD->EUR conversion
+  leg). This closes out the position bought 2026-10-26 (~EUR552.86) -
+  a holding period of just under 2 days for a gain of roughly
+  **+EUR5.93 (~+1.1%)**. The sale happened while LMT was still rated
+  medium confidence on both the 2026-10-27 and 2026-10-28 digests (this
+  agent never issues a sell signal, so the sale wasn't "triggered" by
+  anything here - noted plainly, not forced into a match). No other
+  real buy/sell activity in the window; zero crypto trades, consistent
+  with every cycle finding no crypto candidate.
+
+### Crypto - a first: one pair crosses the 2x volume flag
+
+| Pair | 1h/48h chg | 4h/48h chg | RSI(14,4h) | Vol ratio (24h vs 7d avg) | SMA state |
+|---|---|---|---|---|---|
+| BTC/EUR | +0.51% | -0.01% | 43.3 | 1.52x | fast<slow |
+| ETH/EUR | +0.60% | -0.16% | 41.9 | 0.97x | fast<slow |
+| SOL/EUR | +0.46% | -0.31% | 42.4 | 1.30x | fast<slow |
+| XRP/EUR | -0.61% | -1.03% | 43.0 | **2.25x (flagged)** | fast<slow |
+| ADA/EUR | -1.07% | -2.78% | **35.8** | 1.07x | fast<slow |
+| LINK/EUR | +2.24% | +0.31% | 42.7 | 1.92x | fast<slow |
+| SUI/EUR | +1.53% | -0.40% | 41.3 | 0.77x | fast<slow |
+| LTC/EUR | +2.98% | +1.63% | 47.4 | 1.16x | fast<slow |
+
+**XRP/EUR's volume ratio (2.25x) is the first time any crypto pair has
+crossed the 2x `flag_above_2x` threshold in any cycle so far** - but
+`momentum_trigger` is still false (price moves are modest, -0.6%/1h,
+-1.0%/4h, nowhere near the 6% threshold), so this is a volume-only
+reading, not a full trigger. WebSearch found nothing dated to this
+week - results ranged from a plausible-but-unconfirmed "$15.4B daily
+volume, highest of 2026" KuCoin item (undated beyond "2026") to clearly
+old items (2024-2025). No identifiable same-day catalyst. **ADA/EUR**
+has the lowest RSI (35.8, more extreme than recent cycles' ~38-40
+lows) on a -2.78%/4h decline; WebSearch found only price-prediction
+pages and an unconfirmed Petrobras-deal mention in a forecast article -
+no verified catalyst.
+
+**Confidence: n/a - no crypto candidate meets the momentum-trigger bar
+today**, but the XRP volume milestone is worth tracking into tomorrow
+given it's a first.
+
+### Stocks - S&P 500 screen (top 20 of 505) - another full turnover, and PNR's catalyst finally confirmed
+
+Five NEW names hit **score 4** today (the largest score-4 cluster yet):
+**GEHC, LH, PPG, FTV, PNR**. LMT (score 3) is again the only holdover
+from yesterday's deepened names; UPS, CINF, CNP all dropped out of
+today's top 20. Deepened the 5 score-4 names plus LMT for continuity.
+
+Cross-check: price/volume-ratio agree exactly between `screen_sp500`
+and `compute_stock_signals` for all 6 (GEHC \$75.82/3.23x, LH \$360.25/
+2.57x, PPG \$118.44/2.92x, FTV \$64.11/2.35x, PNR \$64.37/2.34x, LMT
+\$629.75/0.83x). No repeat of the 2026-10-24 bug.
+
+- **GEHC** (GE HealthCare, Health Care) - \$75.82, RSI 71.2-72.7,
+  +6.16%/5d, volume **3.23x** (highest of any name deepened in any
+  cycle so far, genuine spike confirmed both tools). **Confirmed Q3
+  2026 beat, reported 2026-10-28**: revenue \$5.5B, +7.2% YoY (organic
+  +6.2%); adjusted EPS \$1.34 (+25.1% YoY) vs. ~\$1.21 consensus; raised
+  FY2026 guidance (from a prior \$4.80-5.00 adjusted EPS range, exact
+  new range not found). GEHC has beaten consensus in 7 of its last 8
+  quarters. Insider: a large but routine cluster of RSU/tax-withholding
+  sales (code F, \$70.56/share, Sept) across many execs including the
+  CEO - selling after vesting, not a discretionary signal. 13F: no
+  mentions found at all (empty result - plausibly thin filing history
+  for a company spun off in 2023, not itself a red flag). **Confidence:
+  medium** - confirmed beat+raise, the largest volume confirmation yet,
+  moderate (not extreme) RSI, neutral insider picture.
+- **PNR** (Pentair, Industrials) - \$64.37, RSI **80.7** (the most
+  overbought reading in any cycle so far, up from 77.5 yesterday and
+  79.97 on the screen), +16.11%/5d, volume 2.34x (spike, though eased
+  from 2.96x yesterday). **Catalyst now confirmed** - resolving the
+  open question flagged the last two cycles: Pentair reported Q3 2026
+  on 2026-10-27 with adjusted EPS of \$1.18, beating the \$1.07
+  consensus by \$0.11 (guided range had been \$1.05-1.08); free cash
+  flow \$153M. Revenue actuals and updated guidance still not found.
+  Insider: a routine director grant (Oct 15) and continued small,
+  tax-related sales by the *interim* CFO (Fishman) - unchanged from
+  prior cycles, nothing new. 13F: old/thin. **Confidence: medium, with
+  the same chasing-risk caution used for LMT** - the catalyst is now
+  real and confirmed, but RSI 80.7 is the single most overbought
+  reading this agent has recorded; this is confirmation arriving very
+  late in an already-extreme move, not an early read.
+- **LMT** (carried over) - \$629.75, RSI 78.1 (ticked up from 76.2),
+  +6.75%/5d (down sharply from +12.96% as the big early-week gains roll
+  out of the 5-day window), volume 0.83x (no spike). WebSearch again
+  found nothing dated to Oct 28-29 - only old items (a May 2026 munitions-
+  plant groundbreaking, March leadership changes). Still no new catalyst
+  since the Oct 22 beat. Note for context (not a change to this
+  assessment): the real LMTx position bought off the 2026-10-26 pick
+  was sold yesterday for a small gain (see Outcome tracking above).
+  **Confidence: medium, same standing caution** - no new information
+  either way.
+- **PPG** (PPG Industries, Materials) - \$118.44, RSI 71.7-72.1,
+  +4.73%/5d, volume **2.92x** (genuine spike). Reported Q3 2026
+  2026-10-27: net sales \$4,353M vs. \$4,082M prior year (+6.6% YoY,
+  confirmed via the SEC 8-K filing), but the actual EPS print (vs.
+  ~\$2.13 consensus) was not found - partial confirmation only. Insider:
+  a notable same-day, same-price cluster of "acquired" transactions
+  (CEO Knavish + 6 other execs, all \$107.81/share, Oct 15; two
+  directors at \$104.67, Oct 1) - the uniform price/date pattern across
+  many people looks like a scheduled purchase or dividend-reinvestment
+  plan, not discretionary open-market buying, so weighted as neutral
+  rather than a strong positive signal. No sales found. 13F: old
+  (2002-2017), nothing recent. **Confidence: low** - real revenue
+  growth confirmed, but the EPS outcome itself (the actual "beat or
+  miss") remains unconfirmed, so this stays below medium despite no
+  negative signals.
+- **LH** (Labcorp, Health Care) - \$360.25, RSI 78.4-80.0 (near PNR's
+  level), +9.19%/5d, volume **2.57x** (genuine spike). No actual Q3
+  print found - report-date sources conflict (Oct 27/28/29) and none
+  confirm a result. Insider: a real, if slightly dated, selling
+  pattern - CEO Schechter (4,669sh @ \$320.37, Aug), a director
+  (3,000sh @ \$318.02, Aug), and the CMO (924sh, Aug) all sold; the
+  Sept 1 entries are routine \$0-price stock awards, not purchases. No
+  open-market buys found at all. 13F: thin/old (repeated Needham
+  Investment Management filings - a small specialty manager, not a
+  major institutional signal). **Confidence: low** - unconfirmed
+  catalyst and a mildly negative insider picture (sales only, no buys).
+- **FTV** (Fortive, Industrials) - \$64.11, RSI 78.3-78.9, +6.76%/5d,
+  volume **2.35x** (genuine spike). Report-date sources conflict (Oct
+  26 vs. 28) and no actual results were found - still at the pre-
+  earnings-estimate stage (consensus ~\$0.70 EPS). Insider: mostly a
+  routine same-day/same-price acquisition cluster (CEO Soroye + 5 execs,
+  \$56.09/share, Sept 25 - same scheduled-plan pattern as PPG's), plus
+  one real discretionary sale (Chief Legal Officer, 8,662sh @ \$61.59,
+  Aug). 13F: old (2019-2020), nothing recent. **Confidence: low** - no
+  confirmed catalyst, mixed/neutral insider picture.
+
+### Data gaps and unresolved items
+
+- Stocks: no order-book-imbalance signal on any ticker; insufficient
+  history for a 20/50 SMA crossover on any deepened ticker - both
+  structural, every cycle.
+- 13F mentions for 5 of the 6 names remain the known noisy full-text-
+  search proxy, mostly stale/obscure filers; GEHC returned zero
+  mentions at all (plausibly thin history for a 2023 spinoff).
+- LH's and FTV's actual Q3 results, and PPG's actual EPS print (vs. its
+  now-confirmed revenue figure), remain unconfirmed - see write-ups
+  above. AMT and CINF's open questions from prior cycles were not
+  re-checked this cycle (neither is in today's top 20).
+
+### Bottom line
+
+Crypto produced a genuine first (XRP's volume ratio crossing 2x) without
+a full momentum trigger - worth tracking, not yet actionable. Stocks saw
+their largest score-4 cluster yet (5 names), and one of this cycle's
+open questions from the prior two days - **PNR's missing catalyst** -
+is now resolved with a real, confirmed EPS beat, though the stock is
+also now the most overbought reading this agent has recorded (RSI
+80.7). **GEHC, PNR, and LMT clear medium confidence**; PNR and LMT both
+carry an explicit chasing-risk caution (confirmed catalysts, but very
+extended technicals), while GEHC is the cleanest case of the three
+(confirmed beat+raise, strong volume confirmation, only moderately
+overbought). PPG, LH, and FTV all show genuine volume spikes but stay
+low-confidence on incomplete or unconfirmed catalysts. Outcome tracking
+closed its first full loop: the LMTx position bought off a medium-
+confidence pick was held under 2 days and sold for a small (~1.1%)
+gain - one data point, not yet a pattern, but exactly what this
+tracking exists to surface. This is advisory context only, not
+investment advice presented as certain - verify independently before
+acting on anything above.
