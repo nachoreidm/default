@@ -496,3 +496,50 @@ prompts still show up specifically around Notion on that run, the
 `permitted_tools: []` / connector-grant angle is the next thing to dig
 into, not the repo-level allowlist (which is now confirmed working for
 the coding-tool side).
+
+## Cutover v3 → v4: the real root cause was `permission_mode`, not staleness (2026-10-29, same day)
+
+The v3 cutover above was half right and half wrong. Right that a fresh
+session was needed; wrong about *why* it would fix the daily prompts.
+Found by actually firing the real trigger (`fire_trigger`, not waiting
+for tomorrow's schedule) instead of trusting the interactive
+verification pass - which is exactly the "verify against a real firing"
+discipline this file keeps calling for, and once again paid off: the
+v3 session immediately got asked to approve `market-advisory — Compute
+Crypto Signals`, step 1 of the cycle, despite being on the
+`.claude/settings.json` allowlist. Then `screen_sp500` too.
+
+**Actual root cause**: `create_session` was called with
+`permission_mode: "default"` explicitly (a mistake - should have been
+omitted, or set to `"auto"`, to match this orchestrating session's own
+mode). Per this platform's own documentation: only **"Auto"** mode runs
+tool calls other than file edits without asking; `.claude/settings.json`'s
+`permissions.allow` list does not override that - it works, but only on
+top of a session already in a mode that doesn't ask for everything
+regardless. The four-day staleness theory in the v3 section above may
+also be real (untestable now, since v3 is superseded), but it was never
+the main effect being observed - `permission_mode: "default"` alone
+fully explains it.
+
+**Fix**: created `session_01NcifoYuW4bKhSNi18G3FF1` with
+`permission_mode: "auto"`, a new trigger `trig_01GGEJZ6N52bqhSP5ShaMTDY`
+("v4 - auto mode, no approval prompts") pointed at it, same cron/prompt,
+and fired it immediately to test for real. Confirmed: every
+`mcp__market-advisory__*` call (compute_crypto_signals, screen_sp500,
+get_insider_activity, etc.) ran with zero prompts this time - the
+allowlist + auto mode combination works together as intended. Disabled
+v3 (`trig_014UhXti8EYR1Qvm5YqgTxny`) via `update_trigger`, not deleted.
+
+**One real gate remains, and it's a different mechanism entirely**:
+the cycle got all the way to the Notion sync step before hitting
+`Waiting on permission: df6da5e6-eb7c-46d9-9e87-98ce39fe51c8 —
+Notion-Update...` - a **connector-level** approval prompt, which is
+neither `permission_mode` nor `.claude/settings.json`. The user
+approved it manually this one time (cycle completed, pushed `5d49255`).
+**Not yet known**: whether that approval persists for future firings of
+this same connector action, or whether it'll ask again on tomorrow's
+real 7:49am ET run. If it asks again, the fix is almost certainly in
+the routines/connector-attachment UI (attaching Notion to this specific
+trigger explicitly, with the update-page action pre-approved), not
+another session/trigger cutover - don't repeat the v3→v4 pattern a
+third time for this; check the UI-level connector grant first.
