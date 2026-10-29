@@ -448,3 +448,51 @@ discipline as the "Watch list" section. The full price/fee/timestamp
 detail stays in `recommendations.md`'s `### Outcome tracking` subsection
 only; Notion never gets more than the pointer, keeping the short-top-
 layer discipline from the 2026-10-24 restructure intact.
+
+## Trigger cutover (2026-10-29) - fresh session, so the permission allowlist actually loads
+
+**Prompted by**: the user reported manually approving permissions every
+single day for market-advisory tool calls and Notion access, despite
+the `.claude/settings.json` allowlist added the day before (2026-10-28,
+commit `0c27c26`). Root cause: the daily trigger had been bound to the
+*same* persistent session (`session_01JBdr9xEEUZ18hg1Mg9cDn3`) since
+go-live on 2026-10-24 - four days before that allowlist existed. A
+session's permission configuration loads when its container starts, not
+hot-reloaded from a later `git pull` mid-session, so that session almost
+certainly never picked up the allowlist no matter how many times its
+daily `git pull` step ran. (Separately checked whether the trigger's own
+Notion connector attachment, which showed `permitted_tools: []` since
+creation, was also gating Notion prompts - this account's org doesn't
+support the `connectors` param on `create_trigger` at all, so that
+theory couldn't be tested directly either way.)
+
+**Fix, following this branch's standing "a human initiates any
+cutover" rule** (same discipline used for the 2026-10-24 Notion
+restructure and every prompt-text edit since): spun up a fresh one-off
+verification session (`session_01NcifoauLCZwhqsL2Hww1Ze`) in the Market
+Advisory environment first, rather than cutting over blind. It pulled
+the latest commit, ran the full build + self-test cycle (pass, exit 0,
+live Kraken/Alpaca/EDGAR/iShares calls), then called a couple of the
+now-allowlisted `mcp__market-advisory__*` tools and a `notion-fetch` on
+the live Notion page - **none of them prompted**, confirming the
+allowlist works correctly on a session that actually starts after it
+exists.
+
+With that verified, created a new trigger, `trig_014UhXti8EYR1Qvm5YqgTxny`
+("Market Advisory daily digest (v3 - fresh session, allowlist loaded)"),
+same cron (`CRON_TZ=America/New_York 49 7 * * 1-5`) and same cycle
+prompt (now also folding in the step 5/6 outcome-tracking reorder from
+2026-10-28, which the old trigger's stored prompt predated), bound to
+the verified session. Disabled the old trigger
+(`trig_01BfuesSPFkZWQVyjGamxZ3m`) via `update_trigger` - `enabled:
+false`, not deleted, same pattern as every prior trigger cutover on
+this branch, so its run history stays intact.
+
+**Not fully verified**: whether Notion access stays prompt-free through
+an actual *trigger firing* (as opposed to the same calls made
+interactively in the verification session) - the next scheduled run
+(2026-10-30, ~7:49am ET) is the first real test of that. If approval
+prompts still show up specifically around Notion on that run, the
+`permitted_tools: []` / connector-grant angle is the next thing to dig
+into, not the repo-level allowlist (which is now confirmed working for
+the coding-tool side).
