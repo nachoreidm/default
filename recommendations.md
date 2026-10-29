@@ -1175,3 +1175,231 @@ gain - one data point, not yet a pattern, but exactly what this
 tracking exists to surface. This is advisory context only, not
 investment advice presented as certain - verify independently before
 acting on anything above.
+
+## 2026-10-29 - supplementary intraday re-run (manual, post-close)
+
+**Advisory only. Nothing here executes - verify before acting.**
+
+This is a second, manually-triggered cycle on the same calendar day as
+the normal 8am ET run above (`c841e8d`), requested directly rather than
+by the trigger. `git pull` picked up one commit since that run
+(`71947d6`): the daily trigger was repointed at a fresh session so the
+`.claude/settings.json` allowlist actually loads (see CLAUDE.md's
+"Trigger cutover" section) - no change to the signal pipeline.
+
+**Timing note, worth flagging explicitly**: this run happened at
+~22:27 UTC (~6:27pm ET), well after today's market close - not the
+usual before-open timing. That means `screen_sp500` and
+`compute_stock_signals`' daily bars now include *today's full completed
+session*, not "yesterday's close" the way the normal 8am cadence always
+sees it. Two of today's deepened names (HII, WST) reported Q3 earnings
+this morning, so their price/RSI/volume figures below already reflect
+the post-earnings reaction, not pre-earnings positioning - noted
+per-candidate below rather than assumed.
+
+### Outcome tracking - a same-day match to this morning's GEHC pick
+
+Pulled the ledger with `start` set just after the last known real
+action (the 2026-10-28 16:16 UTC LMTx sale logged above, to avoid any
+gap rather than guess this morning's exact pull time). One real action
+found:
+
+- **2026-10-29 13:37:02 UTC: bought 3 shares of `GEHCx`** (tokenized
+  GE HealthCare) for ~EUR211.09 (via a USD conversion leg - Kraken
+  routed \$234.84 spend/receive through ZEUR 211.09 net). This lands
+  **~1h36m after this morning's digest** (`c841e8d`, committed 12:01
+  UTC) upgraded GEHC to medium confidence on the confirmed Q3
+  beat+raise - a direct match to that pick. No other real buy/sell
+  activity in the window; zero crypto trades, consistent with every
+  cycle finding no crypto candidate.
+
+### Crypto - no change in character from this morning; XRP's volume flag persists
+
+| Pair | 1h/48h chg | 4h/48h chg | RSI(14,4h) | Vol ratio (24h vs 7d avg) | SMA state |
+|---|---|---|---|---|---|
+| BTC/EUR | -2.68% | -0.34% | 50.8 | 1.52x | fast<slow |
+| ETH/EUR | -3.60% | -0.80% | 48.2 | 0.97x | fast<slow |
+| SOL/EUR | -4.09% | -1.77% | 44.0 | 1.30x | fast<slow |
+| XRP/EUR | -5.84% | -3.98% | 41.9 | **2.25x (flagged)** | fast>slow |
+| ADA/EUR | **-6.20%** | -2.06% | 45.7 | 1.07x | fast<slow |
+| LINK/EUR | -4.27% | +0.73% | 51.7 | 1.92x | fast<slow |
+| SUI/EUR | -4.80% | -0.55% | 49.4 | 0.77x | fast<slow |
+| LTC/EUR | -3.18% | +1.17% | 52.5 | 1.16x | fast<slow |
+
+No pair's `momentum_trigger` is flagged - the tool only fires on an
+*upward* 6%+ move (a buy signal), and every pair here moved down over
+the 1h/48h window. **ADA/EUR's 1h/48h change is -6.20%**, technically
+past the 6% magnitude threshold but in the wrong direction to trigger -
+worth noting as a "would-have-been-a-trigger-if-it-were-up" data point,
+not a buy candidate. **XRP/EUR's volume ratio (2.25x) stays flagged**,
+unchanged in character from this morning's first-ever crossing; RSI
+(41.9) and price action remain unremarkable. No WebSearch found any
+dated catalyst for XRP today (same generic/stale results as this
+morning). Given nothing here clears even the volume-only bar for a
+fresh deep-dive beyond what was already covered this morning,
+no additional crypto WebSearch was run this cycle.
+
+**Confidence: n/a - no crypto candidate meets the momentum-trigger bar.**
+
+### Stocks - S&P 500 screen (top 20 of 505) - complete turnover from this morning
+
+**Full turnover**: none of this morning's six deepened names (GEHC,
+PNR, LMT, PPG, LH, FTV) appear anywhere in this run's top 20 - by
+~6:30pm ET the screen has moved on entirely. Seven NEW names hit score
+4 (the largest score-4 cluster yet, surpassing this morning's five):
+**LHX, WEC, VMC, WST, TXT, HII, NCLH**. Deepened all seven.
+
+Cross-check: price/volume-ratio agree exactly between `screen_sp500`
+and `compute_stock_signals` for all 7 (LHX \$278.43/2.08x, WEC
+\$114.63/2.71x, VMC \$280.31/2.37x, WST \$416.67/2.76x, TXT \$87.46/
+3.19x, HII \$316.21/3.19x, NCLH \$18.22/3.71x). No repeat of the
+2026-10-24 bug.
+
+- **HII** (Huntington Ingalls, Industrials) - \$316.21, RSI 75.7,
+  +15.37%/5d, volume **3.19x**. **Confirmed Q3 2026 beat+raise** (SEC
+  8-K, filed today): record quarterly revenue \$3.5B, diluted EPS
+  \$5.48 vs. a ~\$4.49 consensus estimate, new contract awards \$32.4B
+  in the quarter; FY26 shipbuilding revenue guidance raised to
+  \$10.5-10.7B. Per the timing note above, this price move already
+  includes today's post-earnings reaction, not pre-earnings
+  positioning. Insider: a same-day, same-price cluster of 10 directors
+  all acquiring 177 shares @ \$274.33 (Oct 1) - looks like a routine
+  scheduled annual director grant, not discretionary buying - neutral.
+  13F: Jump Financial LLC mentioned Aug 2026 (recent but a single
+  full-text mention, not a signal); rest old (Copeland Capital,
+  2019-2021). **Confidence: medium** - real, large confirmed beat, but
+  RSI 75.7 plus an already-completed post-earnings pop means real
+  chasing risk on top of an already-realized move.
+- **WST** (West Pharmaceutical Services, Health Care) - \$416.67, RSI
+  **81.8** (the most overbought reading this agent has recorded,
+  surpassing PNR's 80.7 from the prior two cycles), +6.25%/5d, volume
+  **2.76x**. **Confirmed Q3 2026 beat** (SEC 8-K, filed today): net
+  sales \$874.5M (+8.7% YoY, organic +11.9%), diluted EPS \$3.02 (+57.3%
+  YoY) - well above July's own guidance of \$2.14-2.24 EPS on
+  \$820-835M revenue. Same timing caveat as HII: the move already
+  includes today's reaction. Insider: one real discretionary sale
+  (SVP Clement, 2,000sh @ \$285.10, Aug 7) plus mostly routine
+  option-exercise/award entries (director M-code exercise, CFO
+  zero-price award) - mixed/neutral, nothing fresh. 13F: old
+  (2019-2020), nothing recent. **Confidence: medium, with an explicit
+  chasing-risk caution stronger than any prior pick** - the beat is
+  real and large, but RSI 81.8 is now the single most extended reading
+  logged on this branch; treat as the highest-risk-of-a-pullback pick
+  so far even though the catalyst itself is solid.
+- **LHX** (L3Harris Technologies, Industrials - *scored under
+  "Industrials" by the screen; GICS classifies it Industrials/
+  Aerospace & Defense*) - \$278.43, RSI 77.0, +9.63%/5d, volume
+  **2.08x**. L3Harris's own press release set today (Oct 29, BMO) as
+  its Q3 2026 release date, with a 10:30am ET earnings call - **but no
+  actual Q3 figures were found**, only pre-earnings context: consensus
+  EPS estimates cluster \$2.97-3.03, an options-implied move of
+  ±5.36%, and a track record of beating consensus in all of its last 8
+  quarters (avg. surprise +6.0%). Since this run happened well after
+  the call, the absence of findable results is itself notable - may
+  simply not be indexed yet by search. Insider: Oct 1 cluster of 4
+  directors/officers acquiring shares @ \$238.40 (routine annual
+  grant-looking), plus Sept/Aug zero-price stock-award batches for
+  several EVPs including the CEO - all routine, no real discretionary
+  buy or sell found. 13F: scattered recent-ish mentions (Element
+  Capital May 2026, Lord & Richards Oct 14, J.R. Prunier June 2026) -
+  noisy proxy, no clear signal. **Confidence: low** - momentum and a
+  strong beat history, but the actual Q3 outcome itself is unconfirmed,
+  same treatment as PPG/LH/FTV in the prior cycle.
+- **WEC** (WEC Energy Group, Utilities) - \$114.63, RSI 71.3, +3.19%/5d
+  (20d: +12.84%, the window that actually trips momentum_trigger),
+  volume **2.71x**. Company confirmed today (Oct 29, BMO) as its Q3
+  release date; consensus ~\$0.90 EPS vs. \$0.83 a year ago - **no
+  actual print found**. Insider: a real sale (director Payne, 980sh @
+  \$105.58, Aug 11) alongside mostly routine annual director-grant
+  clusters (Oct 7, July) and one "I" (indirect) EVP entry - mixed,
+  leans neutral-to-slightly-negative given the one real sale. 13F:
+  scattered, nothing recent or notable (Shenkman, AEGON, Energy Income
+  Partners all 2026 but no concentration). **Confidence: low** -
+  unconfirmed catalyst, no positive insider signal to offset it.
+- **VMC** (Vulcan Materials, Materials) - \$280.31, RSI 72.4, +7.12%/5d,
+  volume **2.37x**. Report-date sources conflict (today vs. Nov 2) and
+  **no Q3 figures were found either way** - genuinely unclear whether
+  this has even reported yet. Insider: CFO Carlisle received a
+  zero-price stock award (July); director Hill exercised options (Aug
+  12, M-code) then sold part of the resulting position (Aug 25, S-code,
+  \$275.49) - a real, if modest, insider sale; SVP Clement sold twice
+  this year (June, Aug) at successively higher prices - a mild
+  repeat-seller pattern worth noting, not a strong signal either way.
+  13F: old/stale (most recent is Winslow Capital, Nov 2024). **Confidence:
+  low** - catalyst timing itself is unresolved, plus a mild net-negative
+  insider tilt.
+- **TXT** (Textron, Industrials) - \$87.46, RSI 77.6, +13.84%/5d,
+  volume **3.19x**. One source lists Textron's Q3 2026 report date as
+  already past (Oct 22, confirmed before-open) but **no coverage of
+  the actual results was found** - if it did report over a week ago,
+  this move is not a same-day earnings reaction and the catalyst behind
+  it (if any) is unidentified. Insider: an April/May 2026 cluster of
+  ~10 directors each acquiring 2,061 shares at \$0 (routine annual
+  stock-award batch) - dated and non-discretionary, no signal. 13F:
+  old (Great Lakes Advisors, Karsch, Tide Point - nothing within the
+  last year). **Confidence: low** - momentum only, no confirmed or even
+  located catalyst.
+- **NCLH** (Norwegian Cruise Line Holdings, Consumer Discretionary) -
+  \$18.22, RSI 74.5, **+20.66%/5d** and **+20.34%/20d** (the largest
+  move of any candidate this cycle, on any day so far) with the
+  cycle's highest volume ratio (**3.71x**). **No earnings catalyst was
+  found at all** - WebSearch turned up no October 2026 NCLH earnings
+  coverage, confirmed or scheduled; the most relevant hits were a Q1
+  2026 beat from May and a sympathy-rally mention tied to Carnival's
+  results, neither dated to this week. **This is the cycle's biggest
+  unresolved-catalyst flag** - a 20%+ move with no identified reason is
+  a bigger caution than PNR's "late-arriving but real" catalyst or
+  LHX/WEC's "pending but plausible" earnings, since nothing here
+  explains the move at all. Insider: a genuinely real, large,
+  discretionary **open-market buying cluster** - CEO Chidsey bought
+  153,000sh @ \$16.37 (May 22); director Pagliuca bought 695,000sh @
+  \$18.16 (June 1); five more directors bought between \$15.25-17.67/
+  share across May - all code "P" (purchase), not grants. This is the
+  cleanest insider-buying signal of any candidate this cycle, but it's
+  dated (5 months old) and was made well below today's \$18.22 price,
+  so it supports the stock's longer-term thesis rather than today's
+  specific spike. 13F: recurring Private Capital Management mentions
+  (May and Aug 2026) plus older Ariel Investments filings - thin, not a
+  clear signal. **Confidence: low** - the size of this move with zero
+  identified catalyst is a reason for more caution, not less, despite
+  the genuine (if dated) insider-buying support.
+
+### Data gaps and unresolved items
+
+- Stocks: no order-book-imbalance signal on any ticker; insufficient
+  history for a 20/50 SMA crossover on any deepened ticker - both
+  structural, every cycle.
+- LHX's and WEC's actual Q3 prints (both reported this morning per
+  their own press releases) were not found via WebSearch as of this
+  run (~10+ hours after release) - may not be indexed yet, or may
+  require a direct IR/8-K check next cycle.
+- VMC's and TXT's report dates themselves are unresolved from public
+  sources (conflicting or unconfirmed) - worth a direct EDGAR 8-K check
+  next cycle rather than relying on WebSearch alone.
+- NCLH's 20%+ move has no identified catalyst of any kind - the single
+  largest open question this cycle, larger than any pending-earnings
+  case above since there isn't even a pending report to point to.
+- 13F mentions for all 7 names remain the known noisy full-text-search
+  proxy; none rose above "scattered, inconclusive."
+
+### Bottom line
+
+A second, manually-requested cycle the same day, run well after market
+close, found a complete turnover of the stock screen from this
+morning's picks and a real trade matching this morning's GEHC call
+(3 GEHCx bought ~1.5h after the digest). Of the 7 newly-deepened names,
+only **HII and WST clear medium confidence**, both on confirmed,
+large Q3 beats - but both also carry the strongest chasing-risk caution
+yet, since (per the timing note above) their price moves already
+include today's full post-earnings reaction rather than being a fresh
+signal to act on; **WST's RSI of 81.8 is now the most overbought
+reading this agent has recorded.** The other five (LHX, WEC, VMC, TXT,
+NCLH) stay at **low confidence** - all genuine momentum/volume, but
+each missing a confirmed catalyst, and NCLH in particular combines the
+cycle's largest move and volume with zero identified reason for it.
+Crypto stayed quiet, with XRP/EUR's volume flag persisting unchanged
+from this morning and no pair's momentum_trigger firing (ADA's -6.2%
+1h/48h move is a magnitude-only near-miss, in the wrong direction to
+qualify). This is advisory context only, not investment advice
+presented as certain - verify independently before acting on anything
+above.
