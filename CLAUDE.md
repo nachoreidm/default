@@ -543,3 +543,57 @@ the routines/connector-attachment UI (attaching Notion to this specific
 trigger explicitly, with the update-page action pre-approved), not
 another session/trigger cutover - don't repeat the v3→v4 pattern a
 third time for this; check the UI-level connector grant first.
+
+## Notion connector prompt - the real fix, same `permission_mode` lesson applied (2026-10-30)
+
+It did ask again - confirmed the "not yet known" question above the
+hard way, across two one-off supplementary runs that day (a Binance-
+hack dislocation check and its follow-up, both user-requested given
+real crypto-market news - see `recommendations.md` for those findings;
+neither call changed, both logged "not an actionable buying
+opportunity"). Same connector UUID (`df6da5e6-eb7c-46d9-9e87-98ce39fe51c8`),
+same `Notion-Update` action, every single time, regardless of a prior
+approval on the same persistent session.
+
+**The actual fix**: a **per-tool permission setting on the Notion
+connector itself**, at `https://claude.ai/customize/connectors` - not
+`permission_mode`, not `.claude/settings.json`, not anything
+trigger-side. The user set the Notion page-update action to "always
+allow" there. First test immediately after the change still prompted -
+turned out this is the *exact same class of bug* as the `permission_mode`
+mistake above: connector grants, like permission mode, are read when a
+session **starts**, not hot-reloaded into one already running. The
+session being tested (`session_01NcifoYuW4bKhSNi18G3FF1`, the live v4/v5
+session at the time) predated the settings change. A brand-new session
+(`session_01NcifoZJJGNh3praj5P6yWB`, created after the change) hit the
+same `notion-update-page` call with **zero prompts** - confirmed via a
+deliberate no-op fetch-then-write-back test, not just trusting a
+status summary.
+
+**Cutover**: created `trig_01UaFPGQL4dFwhDm4wyLP5QX` ("v5 - connector
+permission fixed"), same cron/prompt, bound to the new session.
+Disabled v4 (`trig_01GGEJZ6N52bqhSP5ShaMTDY`) via `update_trigger`, not
+deleted. Deleted the two throwaway one-off test triggers used to verify
+this (they were single-use by design, not meant to persist).
+
+**The generalizable lesson, now confirmed twice on this branch**: *any*
+account-level or connector-level permission/grant change only takes
+effect on a session that starts after the change. A trigger's own
+daily `git pull` refreshes code and instructions; it does not refresh
+the session's permission or connector grants. When something like this
+needs fixing, the fix is cutting over to a fresh session, not editing
+the one already running - same pattern both times, worth remembering
+before assuming a third such issue needs a novel diagnosis.
+
+**One real footnote from testing this**: hit a second, separate
+footgun along the way - `fire_trigger`'s `text` parameter did NOT
+resume the real bound session as expected; it silently spun up an
+unrelated throwaway "preview" session (`origin: force_run_trigger`, no
+repo attached, wrong environment, no commit produced). Caught only by
+checking `git log` afterward rather than trusting the session's own
+summary. **Do not use `fire_trigger`'s `text` param on this branch's
+triggers** - use a plain `fire_trigger` (no text), or create a
+dedicated one-off "poke-only" trigger (no `cron_expression`/`run_once_at`)
+pointed at the same `persistent_session_id` when extra one-time context
+needs to be injected, same pattern used for both Binance-hack checks
+above.
