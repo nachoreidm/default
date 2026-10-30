@@ -1403,3 +1403,131 @@ from this morning and no pair's momentum_trigger firing (ADA's -6.2%
 qualify). This is advisory context only, not investment advice
 presented as certain - verify independently before acting on anything
 above.
+
+## 2026-10-30 - one-off: Binance hack crypto dislocation check (user-requested)
+
+**Advisory only. Nothing here executes - verify before acting.**
+
+Triggered directly by a user question ("heard there's crypto news about
+a hack that affected prices - is there a buying opportunity?"), fired
+via a one-off scheduled trigger rather than the normal cadence. `git
+pull` picked up one commit since the last entry (`c5f3c2a`, a fix to
+the daily trigger's `permission_mode` - unrelated to signals, not
+touched further per standing rule).
+
+### What happened - confirmed via WebSearch
+
+A suspected major breach at **Binance** broke in the last day (as of
+this run, ~02:40 UTC Oct 30). Key facts, with real disagreement across
+sources on the final number:
+
+- Binance confirmed a security incident; funds were seen draining from
+  exchange wallets. Binance says user funds are safe but has not
+  published a final, confirmed loss figure.
+- Loss estimates range wildly: >\$2B (crypto-watcher hot-wallet
+  estimate) to \$5.91B (Chainalysis, via Benzinga) to \$5.8B (Pulse) to
+  \$2.8B (CryptoTicker). None of these is independently confirmed by
+  Binance itself - treat all of them as unverified.
+- Tether froze ~\$1.56B and Circle froze ~\$800M in USDT tied to the
+  hack; >\$2.5B total reported frozen.
+- If the higher-end figures hold up, this would be the largest
+  exchange theft on record, surpassing the \$1.4B Bybit hack (Feb 2025,
+  attributed to North Korean state actors).
+- This is a **centralized-exchange hot-wallet breach**, not a
+  smart-contract or protocol-level exploit of any base-layer asset -
+  none of BTC/ETH/SOL/XRP/ADA/LINK/SUI/LTC's own protocols were
+  compromised. The mechanism is custodial security at Binance, not a
+  flaw in any of the 8 pairs this agent tracks.
+
+### Price dislocation check - all 8 pairs, real and simultaneous
+
+`compute_crypto_signals` failed for all 8 pairs with `Kraken API error
+for Ticker: EGeneral:No data` - a genuine tool/data gap worth flagging
+(the Ticker endpoint specifically; `kraken_get_ohlc` worked fine
+throughout, so this wasn't a full Kraken outage). Worked around it by
+pulling 50 hourly candles per pair directly via `kraken_get_ohlc` and
+computing price action by hand. **Flagging for a future fix**: either
+`compute_crypto_signals` needs a fallback when Ticker fails, or this
+was transient congestion-related and worth re-checking on the next
+normal cycle - not diagnosed further here per the "report-only, don't
+widen scope" discipline for an already-tight one-off request.
+
+All 8 pairs show a sharp, simultaneous drop starting in the 2026-10-29
+20:00 UTC hourly candle (the first candle to show the break), with
+volume spiking 3x-300x in that same candle across every pair - the
+signature of a market-wide deleveraging/liquidation cascade, not a
+move specific to any one asset. Comparing each pair's close just
+before the break (19:00 UTC candle) to its latest available close
+(~01:00 UTC Oct 30, roughly 5 hours later):
+
+| Pair | Pre-break close | Latest close | Change | Crash-candle vol. multiple |
+|---|---|---|---|---|
+| BTC/EUR | 72,351.7 | 68,489.6 | **-5.34%** | ~10x |
+| ETH/EUR | 2,091.93 | 1,957.46 | **-6.43%** | ~18x |
+| SOL/EUR | 89.34 | 83.78 | **-6.22%** | ~300x |
+| XRP/EUR | 1.14765 | 1.07822 | **-6.05%** | ~33x |
+| ADA/EUR | 0.181225 | 0.166796 | **-7.96%** | ~300x |
+| LINK/EUR | 10.46957 | 9.38386 | **-10.37%** | ~3x |
+| SUI/EUR | 0.833 | 0.7631 | **-8.39%** | ~12x |
+| LTC/EUR | 51.94 | 48.49 | **-6.64%** | ~16x |
+
+No pair's `momentum_trigger` fired - it only flags an *upward* 6%+
+move, and every pair here fell, several (ADA, LINK, SUI) past that
+magnitude in the wrong direction for the tool to flag it as anything.
+As of the most recent hourly candle, BTC/ETH/SOL/XRP are still
+declining candle-over-candle; ADA/LINK/SUI/LTC show a small uptick in
+the single most recent candle only - too little data (one candle) to
+call this a bottom or a stabilization with any confidence.
+
+### Isolated-exchange event vs. contagion risk - the actual question
+
+**Narrowly, technically: isolated to Binance's custodial security, not
+a protocol-level break in any of the 8 underlying assets.** Nothing
+about BTC's, ETH's, or any other tracked asset's own blockchain or
+protocol was compromised - the hack is about who controls Binance's
+hot wallets, not a flaw in the assets themselves. In that narrow sense,
+this isn't "the asset is broken."
+
+**But the scale argues against calling this a confident, contained dip
+to buy right now**, for several real reasons, not just caution for its
+own sake:
+- The loss estimates, if they hold anywhere near the higher end
+  (\$5.8-5.9B), would make this larger than any exchange hack on
+  record - genuinely uncharted territory for how markets and other
+  exchanges/counterparties react in the following days, not a routine
+  "altcoin bridge drained for \$20M" event this agent's own 13F/insider
+  framework has no equivalent precedent for.
+- The simultaneous, uniform decline across all 8 pairs (and the 3x-300x
+  volume spikes) is consistent with a market-wide liquidation
+  cascade - forced selling and de-risking across exchanges generally,
+  not a reasoned repricing of any one asset's fundamentals. That kind
+  of cascade can keep running (further liquidations, other exchanges
+  or lending platforms with Binance counterparty exposure, stablecoin
+  stress) well past the point a single snapshot like this one can see.
+- Binance's own "user funds are safe" statement is self-reported and
+  unconfirmed, and no source here has a verified final loss number -
+  the single biggest open variable for how this resolves is still
+  unknown as of this run.
+- This agent's own signals (momentum_trigger, RSI, volume flags) are
+  built to flag upward buy-candidates on confirmed, discrete catalysts
+  (an earnings beat, a technical breakout) - they were never designed
+  to call a bottom on an in-progress, uncharacterized market-wide
+  crash, and this write-up should not be read as attempting to do so.
+
+### Confidence: no buying-opportunity call - genuinely unresolved, not a "yes" or a "no"
+
+This is **not** rated as an actionable buying opportunity, at any
+confidence level. The honest read is: a real, large, simultaneous
+price drop is happening right now, driven by a still-unconfirmed and
+potentially record-setting exchange hack, with real (if unquantifiable
+from here) contagion risk on top of the ordinary volatility a crash
+like this brings. "The assets themselves aren't technically broken" is
+true but is not the same as "this is a safe dip to buy" - that would
+require confidence about resolution and contagion that nothing found
+here supports. Watching, not acting, is the right read until (a) a
+confirmed final loss figure emerges, (b) it's clear whether other
+exchanges/platforms have material Binance counterparty exposure, and
+(c) price action actually stabilizes over more than one hourly candle.
+This is advisory context only, not investment advice presented as
+certain - especially today, verify independently and do not treat
+anything above as a signal to act on.
