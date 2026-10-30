@@ -1640,3 +1640,152 @@ action that holds or extends the recovery across more than one
 session. This is advisory context only, not investment advice
 presented as certain - verify independently before acting on anything
 above.
+
+## 2026-10-30 - daily cycle
+
+**Advisory only. Nothing here executes - verify before acting.** This
+is the normal 8am ET weekday trigger (v4, auto-mode session). `git
+pull` found no new commits since the last entry.
+
+### Outcome tracking - a real BTC buy, and a ledger-matching gap worth flagging
+
+Pulled the ledger with `start` set just after the last known real
+action (the 2026-10-29 13:37:02 UTC GEHCx buy). 8 entries found, of two
+very different kinds:
+
+- **6 entries, 2026-10-29 22:33:28 UTC, `subtype: "dustsweeping"`**:
+  Kraken's own housekeeping sweep of tiny leftover SUI/SOL/USDC/ADA/
+  XLTC dust balances into ~EUR0.82 - not a buy/sell decision, correctly
+  excluded (same spirit as the "drop stablecoin-conversion/transfer"
+  rule in the instructions, even though "dustsweeping" isn't literally
+  one of the named subtypes there).
+- **2 entries, 2026-10-30 09:13:42 UTC: a real BTC purchase** - spent
+  EUR600, received 0.00848877 BTC (implied price ~EUR70,682/BTC).
+  **This doesn't cleanly match either pattern the instructions define**
+  (`type: "trade"/"tradespot"` for crypto, or `type: "receive"` +
+  `aclass: "tokenized_asset"` for tokenized stocks) - these two legs
+  are `type: "receive"/"spend"` with `aclass: "currency"` and an empty
+  subtype, which looks like Kraken's Instant Buy/Convert path rather
+  than an order-book trade. Flagging this as a genuine gap in the
+  matching logic (same spirit as the 2026-10-27 LMTx-via-ledger
+  discovery) rather than silently dropping it, since the economic
+  substance - a real EUR600 BTC purchase - is unambiguous.
+  - **Timing**: ~14 minutes after this morning's 08:59 UTC Binance-hack
+    follow-up reassessment (logged above), which explicitly said BTC/
+    all 8 pairs were "still not rated as a buying opportunity -
+    genuinely unresolved." This buy happened anyway - not a case of
+    acting on an advisory pick, but a real action taken independently
+    of (or despite) this agent's explicit non-call. Noted plainly, not
+    forced into a false "matched the advice" framing.
+  - **Price note**: the implied purchase price (~EUR70,682) is
+    noticeably above this agent's own BTC/EUR reference price at that
+    same time (EUR69,585 at the 08:59 UTC check, EUR69,051 now,
+    ~11:53 UTC) - consistent with an Instant-Buy-style execution price/
+    spread rather than the raw order-book price this agent quotes,
+    not a data discrepancy in this agent's own tooling.
+
+### Crypto - still in the Binance-hack aftermath, no new momentum trigger
+
+| Pair | 1h/48h chg | 4h/48h chg | RSI(14,4h) | Vol ratio (24h vs 7d avg) | SMA state |
+|---|---|---|---|---|---|
+| BTC/EUR | -4.95% | -4.39% | 36.1 | 2.64x | fast<slow |
+| ETH/EUR | -5.37% | -5.75% | 33.1 | 2.00x | fast<slow |
+| SOL/EUR | -5.98% | -5.76% | 39.5 | 2.30x | fast<slow |
+| XRP/EUR | -5.51% | -6.06% | 36.5 | 2.17x | fast>slow |
+| ADA/EUR | -6.00% | -7.34% | 35.7 | 2.86x | fast<slow |
+| LINK/EUR | -5.99% | -6.81% | 41.5 | 2.61x | fast<slow |
+| SUI/EUR | -5.36% | -6.27% | 40.2 | 2.03x | fast<slow |
+| LTC/EUR | -4.20% | -3.83% | 41.9 | 2.52x | fast<slow |
+
+No pair's `momentum_trigger` fired (it only flags upward moves; every
+pair is still net negative over the 48h window). These numbers are a
+continuation of the Binance-hack aftermath covered in depth in today's
+two earlier entries, not a new event - see those for the full
+narrative (root cause, Binance's own ~\$6.3B estimate, the price-
+dislocation table, and why it's still not rated a buying opportunity).
+Current levels vs. this morning's ~08:59 UTC follow-up check: mixed and
+small (BTC/SOL/XRP/LTC slightly lower, ETH/ADA/LINK/SUI slightly
+higher) - essentially flat over the last ~3 hours, consistent with the
+"stabilizing, not yet confirmed reversed" read already on record rather
+than a new development.
+
+### Stocks - S&P 500 screen (top 20 of 505) - identical to last night's post-close run; real new earnings confirmations found on refresh
+
+`screen_sp500` returned the exact same top 20 (same tickers, same
+scores, same prices to the cent) as the 2026-10-29 post-close entry -
+expected, not a bug: today's cycle runs pre-market, so the most recent
+complete daily bar is still Thursday Oct 29's close, identical to what
+last night's manual run already saw. Rather than re-running the full
+insider/13F pull on all 7 names for data that can't have changed in
+under a day, did a targeted WebSearch refresh specifically on the four
+names flagged as catalyst-unconfirmed last night (LHX, WEC, VMC, TXT)
+plus NCLH (zero catalyst found) - and found real, new, confirmed
+information on three of them:
+
+- **WEC - confirmed strong beat, now resolved**: Q3 2026 EPS **\$1.18**
+  vs. a \$0.92-0.97 consensus range across sources (a ~22-28% beat);
+  net income \$389.3M vs. \$271.3M a year earlier. **Upgrading from
+  low to medium confidence** - RSI 71.7 is overbought but not extreme,
+  less chasing-risk caution than most of this cycle's other picks.
+- **TXT - confirmed beat+raise, now resolved**: Q3 2026 adjusted EPS
+  **\$1.76** vs. \$1.55 a year earlier (+13.5% YoY); revenue \$3.8B
+  (+4%); FY guidance raised to \$6.55-6.65 adjusted EPS (from a prior
+  \$6.40-6.60 range) and cash flow guidance to \$800-900M. **Upgrading
+  from low to medium**, with real chasing-risk caution given RSI 76.1
+  (very extended) and the move already includes today's post-earnings
+  pop.
+- **LHX - not a full print, but a real confirmed positive**: still no
+  exact Q3 EPS/revenue figure found, but L3Harris's own 8-K **raised
+  FY guidance** (GAAP EPS to \$12.25-12.35 from \$11.80-12.00; revenue
+  to \$23.5-23.7B) - a guidance raise is itself a confirmed positive a
+  company doesn't make after a bad quarter, even without the exact
+  beat number. **Upgrading from low to medium**, with the same
+  chasing-risk caution as TXT given RSI 77.5.
+- **VMC - confirmed, and it's a miss, not a beat - the most notable
+  finding this cycle.** Full results now found via the 10-Q/8-K: Q3
+  2026 revenue **\$2,184.6M, down 5% YoY**; diluted EPS **\$2.80**
+  (\$2.81 per the 8-K's rounding) vs. \$2.84 a year earlier - essentially
+  flat-to-down, and below the ~\$3.01 consensus Benzinga had been
+  carrying. Segment detail is weaker still: aggregates shipments -3%,
+  asphalt mix -10%, **ready-mixed concrete -61%**, with gross profit
+  down in all three segments. **This is a real, confirmed negative
+  catalyst that contradicts the stock's own price action** (+7.12%/5d,
+  RSI 72.4, 2.37x volume) - to be explicit, this is NOT a repeat of the
+  2026-10-24 `screen_sp500`/`compute_stock_signals` cross-check bug
+  (both tools still agree exactly on VMC's price/volume-ratio); this is
+  a genuine divergence between confirmed fundamentals and market price
+  action, a different and legitimate thing to flag. **Stays at low
+  confidence**, but now for a sharper, confirmed reason: the earnings
+  print argues against the rally, not merely "unconfirmed."
+- **NCLH - still no catalyst found**, but one unconfirmed lead worth
+  logging: a search surfaced an undated headline ("Elliott Wants a
+  Norwegian Cruise Line Comeback. Citi Says It Won't Be That Easy") -
+  possible activist-investor involvement (Elliott Management) as an
+  alternative, non-earnings explanation for the rally, but with no date
+  and no independent confirmation found. **Stays at low confidence**;
+  worth a direct, dated check next cycle rather than treating this as
+  resolved.
+- **HII, WST** - unchanged from last night's confirmed Q3 beats
+  (record revenue/EPS for HII; EPS +57.3% YoY for WST). Still **medium**
+  with the same chasing-risk cautions (WST's RSI 81.8 remains the most
+  overbought reading this agent has recorded). Insider/13F unchanged
+  from last night's full write-ups, not re-pulled.
+
+### Bottom line
+
+A quiet cycle on the surface (identical screen, ongoing crypto
+stabilization) that turned up real, substantive news on refresh: three
+names (WEC, TXT, LHX) went from unconfirmed to confirmed-positive and
+move to medium confidence, while VMC's refresh found a confirmed
+**miss** that argues against its own rally - the most notable single
+finding today, flagged prominently as a real fundamentals/price
+divergence rather than a tool bug. **HII, WST, WEC, TXT, and LHX all
+now clear medium confidence** (five candidates, the most this agent has
+carried into "Today's picks" on a single day); VMC and NCLH stay low.
+Outcome tracking surfaced a real EUR600 BTC purchase that didn't cleanly
+match the ledger-matching logic's two defined patterns - flagged as a
+gap, not silently dropped - made independently of (not "following")
+this morning's explicit non-call on the Binance-hack situation, at a
+price above this agent's own quoted reference rate. This is advisory
+context only, not investment advice presented as certain - verify
+independently before acting on anything above.
