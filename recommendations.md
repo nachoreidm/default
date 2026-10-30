@@ -1531,3 +1531,112 @@ exchanges/platforms have material Binance counterparty exposure, and
 This is advisory context only, not investment advice presented as
 certain - especially today, verify independently and do not treat
 anything above as a signal to act on.
+
+## 2026-10-30 - follow-up: Binance hack reassessment (user-requested)
+
+**Advisory only. Nothing here executes - verify before acting.** This
+is a direct follow-up to the entry immediately above (commit `1236b5d`,
+2026-10-30 ~02:40 UTC) - read that one first; this entry only covers
+what's changed since. `git pull` found no new commits since
+`1236b5d`.
+
+### What's changed on the hack itself
+
+- **Binance now has its own official estimate: ~\$6.3B**, per a company
+  announcement - higher than every unconfirmed third-party figure from
+  the last entry (which topped out at \$5.91B from Chainalysis).
+  Binance explicitly warned the figure "may continue to increase as
+  tracing continues" - this is not yet final.
+- **Root cause identified**: Binance's initial investigation points to
+  a *compromised DevOps engineer's laptop*, not a leaked wallet private
+  key. This is new, load-bearing information, not just more time
+  passing - a single compromised employee device is a narrower,
+  more containable failure mode than a leaked master key or a
+  protocol-level exploit would have been, and points toward an
+  identifiable, fixable gap rather than an open-ended unknown.
+- **~\$3B now frozen on-chain** (up from ~\$2.5B in the last entry) -
+  more of the stolen funds have been traced and locked, a modestly
+  positive development.
+- **Binance has pledged to cover all customer losses.** This is a
+  pledge, not yet executed, and depends on Binance's own
+  (not independently, publicly audited here) balance sheet - it
+  reduces the risk of permanent depositor loss *if honored*, but isn't
+  itself confirmation that it can be.
+- **No contagion found.** A targeted WebSearch for exchange/platform
+  contagion, stablecoin de-pegs, or further liquidations tied to this
+  specific event found nothing dated to this week - results were all
+  old (2019-era) Binance hack coverage. Treat this as weak, not strong,
+  evidence of "no contagion" - the event is only ~1 day old and recent
+  coverage may simply not be well-indexed yet, not proof nothing is
+  happening.
+- No regulatory response was found either way.
+
+### Price action - ~13 hours of data now, vs. ~5 hours yesterday
+
+`compute_crypto_signals`'s Ticker calls worked cleanly for all 8 pairs
+this time - no repeat of yesterday's `EGeneral:No data` error. Can't
+confirm whether that was fixed or just transient Kraken-side congestion
+from the crash itself, but worth noting it resolved on its own either
+way.
+
+| Pair | Yesterday's post-crash close (~01:00 UTC) | Now (08:59 UTC) | Change since crash low | Still below pre-crash close by | RSI(14,4h) now |
+|---|---|---|---|---|---|
+| BTC/EUR | 68,489.6 | 69,585.1 | +1.60% | -3.82% | 36.1 |
+| ETH/EUR | 1,957.46 | 1,988.27 | +1.57% | -4.95% | 33.1 |
+| SOL/EUR | 83.78 | 86.87 | +3.69% | -2.76% | 39.5 |
+| XRP/EUR | 1.07822 | 1.12074 | +3.94% | -2.35% | 36.5 |
+| ADA/EUR | 0.166796 | 0.171578 | +2.87% | -5.32% | 35.7 |
+| LINK/EUR | 9.38386 | 9.82288 | +4.68% | -6.17% | 41.5 |
+| SUI/EUR | 0.7631 | 0.7885 | +3.33% | -5.34% | 40.2 |
+| LTC/EUR | 48.49 | 49.56 | +2.21% | -4.58% | 41.9 |
+
+All 8 pairs have bounced modestly off yesterday's post-crash lows
+(+1.6% to +4.7%), but all remain net negative versus their pre-crash
+levels (-2.4% to -6.2%) - a partial, incomplete recovery, not a
+round-trip. RSI readings sit in the mid-30s to low-40s across the
+board: moving up out of where the sharpest selling would show (below
+30) but still below neutral (50), consistent with "stabilizing, not
+yet confirmed reversed." Volume ratios are still elevated (2.0x-2.9x,
+`flag_above_2x` true on 6 of 8 pairs) - above-average activity is still
+present, not yet back to normal. No pair's `momentum_trigger` fired
+(still net negative over the 48h window on every pair).
+
+### Does this change yesterday's call?
+
+**No - still not rated as an actionable buying opportunity, and this
+is a genuine "still unresolved," not a forced verdict either way.**
+Being explicit about what's actually driving that, per the distinction
+this follow-up was asked to draw:
+
+- The identified root cause (a compromised laptop, not a leaked key or
+  protocol exploit) and Binance's compensation pledge are **real new
+  information that modestly reduces one kind of risk** - this reads
+  more like an identifiable, bounded operational-security failure than
+  an open-ended systemic unknown. That's not just "the price moved" -
+  it's new fact.
+- But the **confirmed loss figure getting larger** (Binance's own
+  \$6.3B vs. yesterday's unconfirmed \$5.91B ceiling), still explicitly
+  described as provisional, is also real new information, and it
+  points the other way.
+- The **price recovery is real but partial and short** (one overnight
+  session, +1.6-4.7% off the lows, still net negative vs. pre-crash) -
+  this is the "price moved" part, and per the request's own framing,
+  moving alone - without the above two confirmed informational
+  changes - would not be enough on its own to flip the call.
+- No contagion was found, but the search for it came back thin/old
+  rather than genuinely conclusive either way - absence of evidence
+  here is weak, not strong.
+
+Net: one piece of news cuts toward "more contained than it looked
+yesterday" (root cause, compensation pledge) and one cuts the other way
+(bigger confirmed number, still rising). Combined with only ~13 hours
+of partial price recovery, the honest read is that this remains
+genuinely unresolved rather than leaning either direction with
+confidence. Watching, not acting, is still the right call. What would
+actually move this: a final loss figure that stops growing and is
+credibly covered by Binance's own resources, continued absence of
+contagion over the next several days (not just hours), and price
+action that holds or extends the recovery across more than one
+session. This is advisory context only, not investment advice
+presented as certain - verify independently before acting on anything
+above.
