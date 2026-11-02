@@ -1789,3 +1789,160 @@ this morning's explicit non-call on the Binance-hack situation, at a
 price above this agent's own quoted reference rate. This is advisory
 context only, not investment advice presented as certain - verify
 independently before acting on anything above.
+
+## 2026-11-02 - daily cycle
+
+**Advisory only. Nothing here executes - verify before acting.** This
+is the normal 8am ET weekday trigger (v5, connector-permission-fixed
+session). `git pull` found no new code commits since the last entry
+(only the Notion-connector-permission CLAUDE.md update).
+
+### Outcome tracking - a real CRCLx buy, never mentioned by this agent
+
+Pulled the ledger with `start` set just after the last known real
+action (the 2026-10-30 09:13:42 UTC BTC purchase). 7 entries found:
+
+- **2 entries, 2026-11-01 17:31:45 UTC, `type: "staking"`**: tiny SOL/
+  ADA staking-reward accruals (fractions of a unit) - not a buy/sell
+  decision, correctly excluded.
+- **1 entry, 2026-11-01 08:36:33 UTC, `type: "transfer"`,
+  `subtype: "useraccounttransfer"`**: -200 ZEUR internal transfer - not
+  a buy/sell decision, correctly excluded.
+- **4 entries, 2026-10-30 17:56:34 UTC, same `refid`
+  (TSN5PG4-WJW2T-AHG76Q): a real tokenized-stock purchase.** Spent
+  EUR258.95 -> converted through ZUSD (288.7008) -> received **4 shares
+  of CRCLx** (tokenized Circle Internet Group stock), implied price
+  ~EUR64.74/share (~USD72.18/share). This matches the instructions'
+  `type: "receive"` + `aclass: "tokenized_asset"` pattern cleanly (no
+  repeat of the 2026-10-30 BTC Instant-Buy matching gap).
+  - **Advisory match: none - CRCL has never appeared anywhere in this
+    agent's output.** Checked `screen_sp500`'s every logged top-20 list
+    and every prior `recommendations.md` entry back to 2026-10-24 -
+    CRCL/Circle is not in today's or any prior top-20, was never
+    deepened, and was never on a Watch list. This is a real action taken
+    entirely independently of this agent's advice, not a "miss" against
+    a call that was never made - noted plainly per the instructions'
+    "note so rather than forcing a match" rule.
+
+### Crypto - quiet, fully normalized out of the Binance-hack aftermath
+
+| Pair | 1h/48h chg | 4h/48h chg | RSI(14,4h) | Vol ratio (24h vs 7d avg) | SMA state |
+|---|---|---|---|---|---|
+| BTC/EUR | -0.02% | -0.11% | 41.1 | 0.96x | fast<slow |
+| ETH/EUR | +1.02% | +1.08% | 49.1 | 1.38x | fast<slow |
+| SOL/EUR | -2.55% | -2.42% | 35.6 | 1.44x | fast<slow |
+| XRP/EUR | -0.42% | -0.66% | 40.8 | 1.22x | fast<slow |
+| ADA/EUR | -1.38% | -1.88% | 37.2 | 0.74x | fast<slow |
+| LINK/EUR | -3.18% | -3.18% | 43.3 | 0.64x | fast<slow |
+| SUI/EUR | -2.02% | -2.51% | 40.0 | 0.67x | fast<slow |
+| LTC/EUR | -0.71% | -1.61% | 40.2 | 0.73x | fast<slow |
+
+No pair's `momentum_trigger` fired and no RSI is anywhere near an
+extreme reading (33.1-49.1 - all solidly neutral, versus the mid-30s-
+to-low-40s "stabilizing, not confirmed reversed" read on 2026-10-30).
+No volume ratio flags above\_2x either. This reads as the Binance-hack
+aftermath finally fully normalizing, three days on - no pair needed a
+WebSearch refresh under the instructions' criteria (no momentum trigger,
+no RSI/volume extreme), so none was done; nothing here warrants a
+crypto candidate today.
+
+### Stocks - S&P 500 screen (top 20 of 505) - an entirely new top-20, unrelated to the 2026-10-29/30 names
+
+`screen_sp500` returned a completely different top-20 than the last
+several cycles (HII/WST/WEC/TXT/LHX/VMC/NCLH are all gone from the
+list) - expected, since today's cycle runs against Friday Oct 30's
+close, a new trading day with new movers. 8 names tied at the top score
+(4): **LLY, GD, REGN, KDP, EXC, VLTO, GPN, BALL** - all 8 deepened via
+`compute_stock_signals`, `get_insider_activity`, `get_institutional_
+13f_mentions`, and a WebSearch each (`screen_sp500`'s own `errors` field
+flagged `HOLX: no bars returned` - a single-ticker data gap, not a
+cross-tool disagreement, noted and moved past).
+
+**Cross-check**: price, `pct_change_5d`, `pct_change_20d`, and volume
+ratio all matched exactly between `screen_sp500` and
+`compute_stock_signals` for all 8 names - no repeat of the 2026-10-24
+bug. RSI values showed small (~0.1-1.4 point) differences between the
+two tools for every name (e.g. LLY: 77.84 vs 78.67) - consistent, minor,
+and in the same direction as the batch-vs-single-ticker calculation
+difference noted before; NOT the sign-flipping price/pct disagreement
+that was the actual 2026-10-24 bug, so not flagged as a data-integrity
+alarm. `compute_stock_signals`'s RSI used below as the more granular
+figure.
+
+- **LLY (Eli Lilly)** - \$1417.54, RSI 78.7, +10.82%/5d (+24.01%/20d),
+  volume 2.14x. **Confirmed strong Q3 beat+raise**: revenue \$24.4B
+  (+39% YoY, beat ~\$22.6B consensus), EPS beat, FY revenue guidance
+  raised to \$91-92B; Mounjaro +65% YoY, Zepbound US +48-49% YoY.
+  Insider: a same-day/same-price cluster of 4 directors acquiring
+  4-13 shares each @ \$1240.34 (Oct 19) - routine annual grant, same
+  pattern as HII's Oct 1 cluster. 13F: scattered/stale (oldest filing
+  2004, newest 2026-02, nothing issuer-specific recent). **Medium**,
+  real chasing-risk given RSI 78.7 - the most overbought name in this
+  batch after VLTO.
+- **GD (General Dynamics)** - \$372.59, RSI 74.1 (screen: 73.4),
+  +4.36%/5d (+12.32%/20d), volume 2.18x. **Confirmed beat+raise**: EPS
+  \$4.49 vs ~\$4.13-4.14 consensus (~5-9% beat), revenue \$14.6B beat
+  ~\$13.7B consensus, FY EPS guidance raised a third straight time to
+  \$17.20-17.30, backlog \$220.3B. Insider: routine director stock-grant
+  cluster (Sept 16, 8 directors, 10-1067 shares each @ \$356.69) - same
+  annual-grant pattern as LLY/HII. 13F: old filings only (2003-2026 span,
+  nothing issuer-specific recent). **Medium**, real chasing-risk - the
+  move already includes the post-earnings pop.
+- **REGN (Regeneron)** - \$927.89, RSI 78.1 (screen: 79.1), +14.88%/5d
+  (+27.73%/20d), volume **4.53x** (second-highest vol spike in this
+  batch). **Confirmed strong beat**: revenue +36% YoY to \$5.1B (beat
+  ~\$4.54B consensus), non-GAAP EPS \$20.07 (+70% YoY, beat ~\$16.19
+  consensus), stock reported up ~11.46% on the day; EYLEA HD +62%,
+  Libtayo +51%; expanded Sanofi collaboration (+\$1.0B upfront). Risk
+  noted in the same release: forecasts a low-to-mid-teens sequential Q4
+  decline in older-Eylea demand from biosimilar competition. Insider:
+  mostly routine option exercises (M) plus one small real director sale
+  (200 sh, 2026-07). 13F: old/scattered, nothing issuer-specific recent.
+  **Medium**, strong chasing-risk caution - this is the single biggest
+  confirmed one-day move in this batch, and RSI 78 is already very
+  extended.
+- **EXC (Exelon)** - \$46.16, RSI 73.0 (screen: 73.4), +3.64%/5d
+  (+13.08%/20d), volume 2.39x. **Confirmed beat**: adjusted operating
+  EPS \$0.87 vs \$0.80 consensus, revenue \$7.32B vs \$6.81B consensus
+  (+9.2% YoY); shares reported +2% premarket on the print. Caveat: GAAP
+  EPS actually fell to \$0.70 from \$0.86 YoY (one-time items), and FY
+  guidance was narrowed (\$2.85-2.91), not raised, unlike GD/VLTO.
+  Insider: routine director stock-grant clusters (Sept 30 and Jun 30,
+  both small, same-day/same-price pattern). 13F: scattered/old. **Medium**
+  - the least chasing-risk-extreme of this cycle's five picks (RSI the
+  lowest of the group), but the GAAP-EPS/guidance-narrowing caveat keeps
+  it capped at medium rather than any higher.
+- **VLTO (Veralto)** - \$111.10, RSI **80.4** (screen: 80.5, the most
+  overbought reading in today's batch), +7.50%/5d (+15.05%/20d), volume
+  2.58x. **Confirmed beat+raise**: adjusted EPS \$1.18 (+19.2% YoY),
+  sales +7.5%, adjusted operating margin +170bps, FY adjusted EPS
+  guidance raised to \$4.49-4.52. Insider: mostly routine CEO option
+  exercises (M, same \$381.92 strike repeated) plus one small CFO exercise
+  and one SVP director-grant batch - nothing alarming. 13F: scattered/old.
+  **Medium**, the strongest chasing-risk caution of this cycle's picks
+  given RSI 80.4 - a confirmed real beat, but the move is already fully
+  priced.
+
+**KDP, GPN, and BALL stay off "Today's picks" - momentum-only, no
+confirmed catalyst, capped by `MOMENTUM_ONLY_MAX_CONFIDENCE` (see Watch
+list below for why each is still worth tracking).**
+
+### Bottom line
+
+A fresh top-20 (zero overlap with the last several cycles' names) that
+turned up five real, independently confirmed earnings beats (LLY, GD,
+REGN, EXC, VLTO) - all capped at **medium** on chasing-risk grounds
+given RSI 73-80 across the board, with REGN and VLTO the most extended.
+Three names (KDP, BALL, GPN) stayed off the list: KDP and BALL both
+report Q3 earnings tomorrow (Nov 3, BMO) and are rallying into that
+print with no confirmed catalyst yet, and GPN's 8.29x volume spike (the
+single largest reading of the batch) has no confirmed news behind it at
+all - flagged prominently on the Watch list rather than silently
+dropped. Crypto stayed quiet and fully out of the Binance-hack
+aftermath - no pair close to a trigger. Outcome tracking surfaced a real
+CRCLx (Circle) tokenized-stock purchase that matched the ledger pattern
+cleanly but has zero prior mention anywhere in this agent's output -
+logged plainly as unmatched real activity, not forced into a false
+"advice followed" framing. This is advisory context only, not
+investment advice presented as certain - verify independently before
+acting on anything above.
