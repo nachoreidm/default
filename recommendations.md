@@ -1946,3 +1946,180 @@ logged plainly as unmatched real activity, not forced into a false
 "advice followed" framing. This is advisory context only, not
 investment advice presented as certain - verify independently before
 acting on anything above.
+
+## 2026-11-03 - daily cycle
+
+**Advisory only. Nothing here executes - verify before acting.** This
+is the normal 8am ET weekday trigger (v5, connector-permission-fixed
+session). `git pull` found no new commits since yesterday's entry.
+
+### Outcome tracking - a real KDPx buy (matches yesterday's Watch list) and a GEHCx sell closing out the 2026-10-29 pick
+
+Pulled the ledger with `start` set just after the last checked point
+(2026-11-01 17:31:45 UTC, from yesterday's entry). 9 entries found,
+resolving to 3 real events:
+
+- **2026-11-02 13:54:24 UTC, `type: "transfer"`, `subtype:
+  "useraccounttransfer"`**: -200 ZEUR - not a buy/sell decision,
+  correctly excluded.
+- **2026-11-02 14:31:57 UTC: bought 7 shares of `KDPx`** (tokenized
+  Keurig Dr Pepper), ~EUR229.01 total (~EUR32.72/share implied, via a
+  ZEUR->ZUSD->KDPx routing, same pattern as prior tokenized-stock buys).
+  **Lands ~1h43m after yesterday's digest** (`f3cdc82`), which put KDP
+  on the Watch list - momentum-flagged but held back from "Today's
+  picks" specifically because no confirmed Q3 catalyst existed yet (KDP's
+  print was due today, Nov 3, BMO). A real buy made ahead of a still-
+  unconfirmed print, not a case of "following a pick" - KDP was never in
+  "Today's picks," only the Watch list, and today's WebSearch (below)
+  still found no indexed Q3 KDP results as of this cycle's run.
+- **2026-11-02 19:01:50 UTC: sold ~3 shares of `GEHCx`** (tokenized GE
+  HealthCare), ~EUR211.55 proceeds. **Closes out the 2026-10-29 GEHC
+  position** (3 GEHCx bought that day ~EUR211.09, matching that day's
+  medium-confidence GEHC pick) - roughly breakeven over ~4 days
+  (+EUR0.46). Per the instructions, this agent only ever issues buy-side
+  candidates, so a sell is never scored as a "miss" against advice that
+  doesn't exist - logged plainly as a position close, not forced into a
+  pick-matching frame.
+
+### Crypto - still quiet, no momentum trigger, no extreme readings
+
+| Pair | 1h/48h chg | 4h/48h chg | RSI(14,4h) | Vol ratio (24h vs 7d avg) | SMA state |
+|---|---|---|---|---|---|
+| BTC/EUR | -1.17% | -1.37% | 40.0 | 1.00x | fast<slow |
+| ETH/EUR | +0.04% | -0.24% | 47.1 | 0.70x | fast<slow |
+| SOL/EUR | -2.56% | -2.62% | 35.5 | 1.22x | fast<slow |
+| XRP/EUR | +0.52% | +0.38% | 48.7 | 0.53x | fast<slow |
+| ADA/EUR | -1.81% | -2.02% | 41.4 | 1.88x | fast<slow |
+| LINK/EUR | -4.52% | -4.26% | 42.6 | 0.56x | fast<slow |
+| SUI/EUR | -2.01% | -2.12% | 45.2 | 0.47x | fast<slow |
+| LTC/EUR | -2.78% | -2.72% | 41.6 | 0.53x | fast<slow |
+
+No pair's `momentum_trigger` fired; no RSI is near an extreme (35.5-48.7,
+all neutral); no volume ratio flags above 2x (ADA closest at 1.88x, still
+under threshold). A continuation of the quiet, fully-normalized read
+from yesterday - nothing here met the criteria for a WebSearch refresh.
+
+### Stocks - S&P 500 screen (top 20 of 505) - fresh top-20 again, LLY the only holdover from yesterday
+
+`screen_sp500` returned a new top-20: CRH and IDXX tied at the top
+score (4); LLY, BRK.B, V, WMT, MA, COST, HD, AMGN, LIN, GILD, MCD, UNP,
+ACN, VRTX, SPGI, LMT, LOW, DUK all at score 3. LLY is the only holdover
+from yesterday's picks (still elevated, slight pullback: \$1410.99 vs
+\$1417.54, RSI 77.9 vs 78.7). `screen_sp500`'s `errors` field again
+flagged `HOLX: no bars returned` - the same single-ticker data gap as
+yesterday, not a cross-tool disagreement.
+
+Deepened the 8 names with the most extreme 5d/20d moves: **CRH, IDXX,
+ACN, LLY, LOW, WMT, MA, HD** (the other 12 score-3 names, including LMT
+- itself still elevated on 20d momentum alone, 0.72x volume, unrelated
+to any new catalyst, and the subject of this agent's one real LMTx
+position from 2026-10-26 - were left undeepened this cycle, consistent
+with narrowing to the most extreme readings rather than the full top-20).
+
+**Cross-check**: price, `pct_change_5d`, `pct_change_20d`, and volume
+ratio all matched exactly between `screen_sp500` and
+`compute_stock_signals` for all 8 deepened names - no repeat of the
+2026-10-24 bug. RSI showed the same small (~0.1-1.8pt) tool-to-tool
+difference as every prior cycle - not the price/pct-change
+disagreement that was the actual bug.
+
+- **CRH (CRH plc)** - \$96.59, RSI 75.9, +12.62%/5d (+15.54%/20d),
+  volume 2.03x. **The most notable finding this cycle - a real
+  fundamentals/price divergence.** Q3 results (Oct 29) are genuinely
+  ambiguous-to-negative: sources disagree on EPS (\$2.09 reported vs a
+  \$2.06-2.22 consensus range, so beat-or-miss depends on the source),
+  but one source reports FY26 guidance was **lowered** and Americas
+  Building Solutions adjusted EBITDA fell 18%. The stock had actually
+  **fallen 10% into the print** (as of Oct 22) and has since rallied
+  12.6%/5d with no confirmed post-earnings stock-reaction coverage found
+  explaining the move. Insider activity found (May 2026 director/officer
+  grants) is too old to be informative here. This reads like the
+  2026-10-30 VMC case - a real divergence between mixed/negative
+  fundamentals and price action, not a repeat of the 2026-10-24 tool
+  bug (both tools agree exactly on CRH's price/volume). **Low
+  confidence** - the earnings detail argues against chasing this rally.
+- **IDXX (IDEXX Laboratories)** - \$671.64, RSI 77.4 (screen: 76.7),
+  +19.67%/5d (+30.31%/20d), volume **3.60x** (highest in this batch).
+  **Confirmed strong beat**: Q3 EPS \$4.01 (+18% reported, +22%
+  comparable) vs \~\$3.71 consensus, reported Nov 2 BMO - directly
+  explains both the price move and the volume spike. Insider: routine
+  option exercises/sales (Kingsley, Emerson, Hooley), all dated well
+  before the print, no signal. 13F: thin/stale. **Medium**, real
+  chasing-risk given RSI 77.4 and the size of the already-realized move.
+- **ACN (Accenture)** - \$260.94, RSI 71.2 (screen: 71.0), +10.96%/5d
+  (**+34.92%/20d**, the largest 20d reading in this batch), volume
+  **0.88x - below average despite the size of the move**. The 20d move
+  traces to a confirmed, three-week-old catalyst (fiscal Q4 beat Oct 1,
+  stock +16-22% that day; an Oct 14 investor-day guidance reveal) - not
+  fresh news this cycle, which is consistent with today's sub-1x volume
+  (continuation/drift, not a new event). Caveat: bookings fell 2% in the
+  quarter and FY27 guidance leans on acquired rather than organic
+  revenue. **Notable insider signal**: CEO Julie Sweet made a real
+  **open-market purchase** of 2,100sh @ \$245.11 (Oct 26), and director
+  Paula Price bought 800sh @ \$249.81 the same day - genuine insider
+  buying, distinct from the routine tax-withholding sales (Burgum,
+  Sekido) also on file. 13F: thin/stale. **Medium** - confirmed
+  fundamentals reinforced by real insider buying, capped by the
+  bookings-growth caveat and RSI 71 (the least extreme of this batch,
+  but still elevated).
+- **LLY (Eli Lilly)** - \$1410.99, RSI 77.9 (screen: 76.2), +10.07%/5d
+  (+21.90%/20d), volume 1.27x. Unchanged from yesterday's write-up:
+  confirmed Q3 beat+raise (revenue \$24.4B, +39% YoY; FY guidance
+  raised). Second straight day in the top-20, RSI little changed.
+  **Medium**, same chasing-risk caution as yesterday.
+- **MA (Mastercard)** - \$658.10, RSI 76.5 (screen: 76.2), +7.91%/5d
+  (+16.15%/20d), volume 1.10x. **Confirmed beat**: Q3 EPS beat (non-GAAP
+  \$5.31 vs consensus, +2.7%), revenue \$9.81B vs \~\$9.67B consensus
+  (+14% YoY), shares reported +3-4% on the day to a 52-week high;
+  Goldman raised its price target to \$743. Insider: a same-day cluster
+  of C-suite "F" (tax-withholding) dispositions tied to equity vesting
+  (Miebach CEO, Mehra CBO, McLaughlin, Ling CFO, Huntsman - all Oct 1) -
+  routine, not open-market selling. 13F: thin/stale. **Medium**, real
+  chasing-risk given RSI 76.5.
+
+**LOW, WMT, HD, and CRH stay off "Today's picks"** (CRH for the
+negative-fundamentals reason above; LOW/WMT/HD as momentum-only - see
+Watch list below).
+
+- **LOW (Lowe's)**: no Q3 print yet (next report expected mid-to-late
+  November) and no catalyst found for the +10.08%/5d move - pure
+  momentum.
+- **WMT (Walmart)**: no Q3 print yet (next report Nov 19). The rally
+  (part of Walmart's best month since 1999 per one source) traces to a
+  soft catalyst - a Deutsche Bank upgrade (Oct 15, target to \$136) and
+  a sector rotation into staples - not an earnings beat. **Real insider
+  signal worth flagging**: CEO John Furner sold 7,089sh @ \$120.33 (Oct
+  15) and two EVPs also sold (Watkins 5,000sh @ \$115, Nicholas 1,600sh)
+  the same week the rally began - open-market sales, not tax-withholding
+  "F" codes. Combined with RSI 79.2 (the highest reading this cycle) and
+  a non-fundamental catalyst, this is a real caution worth carrying
+  forward, not just a missed-catalyst gap.
+- **HD (Home Depot)**: no Q3 print yet and no catalyst found for the
+  +7.11%/5d, +18.996%/20d move (~16.5% over the past month) beyond
+  analyst price-target raises (Evercore \$400, Melius \$397) - momentum
+  only.
+
+**Data gaps:** no order-book-imbalance signal; insufficient history for
+a 20/50 SMA crossover on any deepened ticker; `screen_sp500` again
+couldn't price HOLX. 13F mentions for all 8 names stayed the known
+noisy proxy.
+
+### Bottom line
+
+Four stocks clear medium confidence on confirmed earnings beats (IDXX,
+ACN, LLY, MA), with ACN's case reinforced by a genuine CEO/director
+open-market insider purchase - a rarer and more informative signal than
+the routine option-exercise/tax-withholding activity seen on the other
+names. CRH is this cycle's most notable flag: a real fundamentals/price
+divergence (mixed-to-negative Q3 detail, one source citing lowered FY26
+guidance, against a 12.6% 5-day rally) - kept at low confidence rather
+than forced into a pick, the same discipline applied to VMC on
+2026-10-30. LOW, WMT, and HD all rallied without a confirmed catalyst;
+WMT's case is sharpened by real CEO/EVP open-market insider selling into
+the move, worth tracking. Crypto stayed fully quiet, no pair near a
+trigger. Outcome tracking found two real actions: a KDPx buy that lands
+on yesterday's Watch-list KDP mention (bought ahead of a still-
+unconfirmed Q3 print), and a GEHCx sale that closes out the 2026-10-29
+medium-confidence GEHC buy roughly at breakeven. This is advisory
+context only, not investment advice presented as certain - verify
+independently before acting on anything above.
