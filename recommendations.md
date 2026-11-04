@@ -2123,3 +2123,191 @@ unconfirmed Q3 print), and a GEHCx sale that closes out the 2026-10-29
 medium-confidence GEHC buy roughly at breakeven. This is advisory
 context only, not investment advice presented as certain - verify
 independently before acting on anything above.
+
+## 2026-11-04 - daily cycle
+
+**Advisory only. Nothing here executes - verify before acting.** This
+is the normal 8am ET weekday trigger (v5, connector-permission-fixed
+session). `git pull` found no new commits since yesterday's entry.
+
+### Outcome tracking - no new real activity
+
+Pulled the ledger with `start` set just after the last checked point
+(2026-11-02 19:01:50 UTC, the GEHCx sell from yesterday's entry). 0
+entries found - no real buy/sell/transfer activity since then.
+
+### Crypto - mild positive bias, still nowhere near a trigger
+
+| Pair | 1h/48h chg | 4h/48h chg | RSI(14,4h) | Vol ratio (24h vs 7d avg) | SMA state |
+|---|---|---|---|---|---|
+| BTC/EUR | +0.51% | +0.76% | 52.0 | 1.33x | fast<slow |
+| ETH/EUR | +1.46% | +1.89% | 58.1 | 0.59x | fast<slow |
+| SOL/EUR | -0.88% | -0.42% | 44.7 | 0.63x | fast<slow |
+| XRP/EUR | +2.65% | +2.73% | 58.0 | 0.69x | fast<slow |
+| ADA/EUR | +0.48% | +0.71% | 48.2 | 0.43x | fast<slow |
+| LINK/EUR | -1.59% | -0.64% | 46.1 | 0.52x | fast<slow |
+| SUI/EUR | +2.51% | +2.49% | 54.2 | 0.54x | fast<slow |
+| LTC/EUR | -0.47% | -0.10% | 47.0 | 0.65x | fast<slow |
+
+No pair's `momentum_trigger` fired; RSI across all 8 is now solidly
+neutral (44.7-58.1) with a mild positive tilt (BTC/ETH/XRP/SUI all up a
+bit) - the first broadly-positive-leaning reading since the Binance-hack
+aftermath settled, but nowhere close to the 6% threshold on any pair.
+Nothing here met the criteria for a WebSearch refresh.
+
+### Stocks - S&P 500 screen (top 20 of 504) - FISV/DD new at the top, IDXX/REGN/LHX third+ day running
+
+`screen_sp500` returned another fresh top-20: FISV and DD tied at the
+top score (4); LLY (dropped from yesterday's deepened set, still in the
+universe but no longer top-20), BRK.B, SPGI, LMT, MRSH, GD, REGN, MAR,
+UPS, SPG, AON, KMB, PSA, IDXX, LHX, NDAQ, ROP, MSCI at score 3.
+`universe_size` ticked down to 504 from 505 (an index membership change,
+not a tool issue - not investigated further, out of scope for this
+cycle). `screen_sp500`'s `errors` field again flagged `HOLX: no bars
+returned` - the same recurring single-ticker gap, not a cross-tool
+disagreement.
+
+Deepened **FISV, DD, REGN, IDXX, KMB, LMT, LHX, MAR** - the two
+score-4 names plus the most extreme/notable score-3 readings, including
+KMB specifically because its flag looked anomalous (see below) and LMT
+because it's the subject of this agent's one real LMTx position.
+
+**Cross-check**: price, `pct_change_5d`, `pct_change_20d`, and volume
+ratio all matched exactly between `screen_sp500` and
+`compute_stock_signals` for all 8 deepened names - no repeat of the
+2026-10-24 bug. RSI showed the same small (~0.1-1.8pt) tool-to-tool
+difference as every prior cycle.
+
+- **FISV (Fiserv)** - \$58.40, RSI 78.1 (screen: 77.6), +22.02%/5d
+  (+28.89%/20d), volume 2.89x. **The most notable finding this cycle -
+  a real, fairly stark fundamentals/price divergence.** One source
+  (RTTNews) reports Fiserv's real Q3 2026 print **missed estimates on
+  weak margins with revenue down YoY** - GAAP revenue -1%, organic flat,
+  and a GAAP EPS figure of **-\$11.17** (a large loss, likely a
+  one-time charge - not independently confirmed what drove it,
+  flagged rather than guessed at); adjusted EPS \$1.75. The company did
+  affirm FY guidance and raise its cost-savings target. Separately, a
+  Quiver Quantitative piece attributes **today's** price action
+  specifically to a rebound tied to a cybersecurity-partnership
+  announcement, explicitly noting no single definitive catalyst behind
+  the move - i.e. the rally is NOT being read as a reaction to the
+  (weak) earnings print. A real divergence between a confirmed
+  miss/loss and a 22% 5-day rally driven by unrelated news - the same
+  pattern as CRH yesterday and VMC on 2026-10-30, now the third such
+  case. Insider: a Sept 30 director stock-grant cluster (9 directors,
+  routine, @ \$45.18 - well below the current \$58.40, pre-dating this
+  move). 13F: thin/stale. **Low confidence** - this is not a case for
+  chasing the rally.
+- **DD (DuPont)** - \$153.46, RSI **83.7** (screen: 82.3) - **the
+  single highest RSI this agent has recorded to date**, surpassing
+  WST's 81.8 (2026-10-30) and VLTO's 80.4 (2026-11-02). +10.66%/5d
+  (+17.07%/20d), volume 3.10x. No confirmed Q3 2026 actual results
+  found despite the date - the only hard data located is DuPont's own
+  Q3 **guidance** (issued with its Aug 4 Q2 report), which called for
+  EPS of \$1.80-1.90, *below* the \$1.93 consensus, and revenue
+  guidance also below estimate. No evidence the actual Q3 print is out
+  or what it said. Insider: routine director stock grants (Aug-Sept),
+  nothing fresh. 13F: scattered/old. **Low confidence / stays off
+  today's picks** - an unconfirmed catalyst paired with the most
+  extreme RSI reading this agent has ever logged is exactly the
+  chasing-risk case this agent exists to flag, not endorse.
+- **REGN (Regeneron)** - \$973.36, RSI 82.3 (screen: 82.7), +19.68%/5d
+  (+31.16%/20d), volume 1.11x - no fresh spike. Continuation of the
+  already-confirmed Oct 29 Q3 beat covered in the 2026-11-02 entry; no
+  new news found. RSI has climbed further since then (was 78.1 on
+  11/2) with no new catalyst - a third straight day of extension on
+  stale news. Insider: routine option exercises (Guarini, Brown, both
+  Oct 30) plus a real but recurring sale (McCourt, EVP Commercial,
+  1132sh @ \$869.43, Oct 30 - she sold before too, Sept 2, a periodic
+  pattern not a fresh alarm). 13F: old/scattered. **Medium**, the
+  chasing-risk caution is now sharper than two days ago given the
+  further, catalyst-free RSI climb.
+- **IDXX (IDEXX Laboratories)** - \$672.04, RSI 77.6 (screen: 76.8),
+  +19.39%/5d, **+32.64%/20d** (up from 30.31% yesterday), volume
+  **1.54x - down sharply from yesterday's 3.60x**. Second straight day
+  on the confirmed Nov 2 beat; the falling volume on a still-rising
+  price is consistent with a continuation/drift phase rather than fresh
+  buying interest - worth flagging as a possible fading-momentum
+  pattern. Insider/13F: nothing new. **Medium**, same confirmed-beat
+  basis as yesterday, same chasing-risk caution.
+- **LHX (L3Harris)** - \$277.67, RSI 75.9 (screen: 74.8), +6.55%/5d,
+  +18.85%/20d, volume 0.60x - below average. Real Q3 2026 results (one
+  source, Quiver Quantitative, not independently cross-confirmed):
+  revenue \$6.06B (+7% YoY), diluted GAAP EPS \$3.28 (+33% YoY),
+  appears to beat a \$3.05 EPS / \$5.94B revenue pre-report consensus
+  (comparison inferred by this agent, not stated outright in the
+  source); guidance reportedly raised. This is the same underlying
+  guidance-raise story this agent already flagged on 2026-10-30, now
+  with (single-sourced) hard numbers attached. Insider: COO St John
+  sold 720sh (Oct 23, real but modest), director Burritt got a routine
+  grant same day. 13F: thin/stale. **Medium**, real chasing-risk given
+  the below-average volume suggests this is drift on old news, not a
+  fresh signal.
+- **MAR (Marriott)** - \$416.38, RSI 77.3 (screen: 75.4), +5.57%/5d,
+  +16.80%/20d, volume 0.86x - below average. **Confirmed beat against
+  management's own guidance**: Q3 2026 adjusted diluted EPS \$3.02,
+  above the top of Marriott's own August guidance range (\$2.74-2.82);
+  worldwide RevPAR +6.5%; reported Nov 2 BMO - the freshest confirmed
+  catalyst in today's batch (2 days old vs. REGN/LHX's older news). No
+  stock-reaction coverage found, but the beat-vs-own-guidance is real.
+  Insider: periodic sales by Marriott-family 13(d)-group members
+  (Sept 8/25, large share counts, consistent with a long-standing
+  estate/trust disposition pattern, not a fresh operational signal) plus
+  a routine Nov 2 director grant. 13F: thin/stale. **Medium**, the
+  freshest of today's four picks.
+
+**FISV and DD stay off today's picks** for the reasons above - both on
+the Watch list below, FISV for the fundamentals/price divergence, DD
+for the unconfirmed-catalyst-plus-record-RSI combination.
+
+**KMB (Kimberly-Clark) - flagged but NOT a buying signal, a scoring
+nuance worth noting plainly.** \$104.46, RSI 50.1 (screen: 49.0,
+neutral - not overbought), **5-day change -3.63%** (a real decline),
+20-day change +8.27%, volume **3.63x** (the highest in today's batch).
+`screen_sp500`'s `momentum_flagged` triggers off the 20-day window
+alone, which is still positive from an earlier rally; the real story
+here is a heavy-volume **sell-off** over the last 5 days, the opposite
+of what a reader skimming the score table might assume. No dated
+November 2026 news found explaining the decline (search surfaced only
+older, unrelated KMB drops from 2025 and earlier in 2026). Logged here
+so this doesn't get mistaken for a bullish flag by anyone reading
+`screen_sp500`'s raw output directly - it is not on the Watch list as a
+near-miss buy candidate, it's a caution about the screen's own
+mechanics.
+
+**LMT (Lockheed Martin)** - briefly checked given this agent's real
+LMTx position: \$639, RSI 75.6, +1.47%/5d (cooling off from a hotter
+pace), +28.00%/20d, volume 0.64x. Confirmed the 20d move traces to the
+already-known Oct 22 Q3 beat (record \$292B backlog) plus an Oct 26
+Morgan Stanley upgrade - both now a week-plus old, and the 5-day change
+has settled to a modest +1.47%, consistent with the rally leveling off
+rather than a fresh development. Not deepened further; no new
+insider/13F pull since nothing has changed.
+
+**Data gaps:** no order-book-imbalance signal; insufficient history for
+a 20/50 SMA crossover on any deepened ticker; HOLX unpriceable again.
+13F mentions for all 8 names stayed the known noisy proxy.
+
+### Bottom line
+
+Four names clear medium confidence (REGN, IDXX, LHX, MAR), all on
+confirmed fundamentals, but three of the four (REGN, IDXX, LHX) are
+running on news that's now 2-6 days old with below-average or falling
+volume - continuation/drift rather than fresh buying, and REGN/IDXX
+both set new highs in their own 20-day move and RSI today without any
+new information. MAR is the freshest (Nov 2 beat vs. management's own
+guidance). This cycle's most notable flag is FISV: a real, confirmed
+Q3 miss/loss paired with a 22% rally attributed to unrelated news - the
+third fundamentals/price divergence this agent has caught in three
+cycles (after VMC on 2026-10-30 and CRH yesterday), kept at low
+confidence rather than forced into a pick. DD's record RSI (83.7, the
+highest this agent has recorded) with no confirmed catalyst at all is
+the other standout caution. KMB's case is different in kind - not a
+missed buy signal but a reminder that `screen_sp500`'s momentum flag
+can trigger on a stale 20-day window while the real 5-day story is a
+heavy-volume decline. Crypto ticked mildly positive across the board
+for the first time since the Binance-hack aftermath, but no pair is
+remotely close to a trigger. No real account activity since the
+2026-11-02 GEHCx sale. This is advisory context only, not investment
+advice presented as certain - verify independently before acting on
+anything above.
