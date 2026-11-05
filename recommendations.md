@@ -2311,3 +2311,187 @@ remotely close to a trigger. No real account activity since the
 2026-11-02 GEHCx sale. This is advisory context only, not investment
 advice presented as certain - verify independently before acting on
 anything above.
+
+## 2026-11-05 - daily cycle
+
+**Advisory only. Nothing here executes - verify before acting.** This
+is the normal 8am ET weekday trigger (v5, connector-permission-fixed
+session). `git pull` found no new commits since yesterday's entry.
+
+### Outcome tracking - no new real activity
+
+Pulled the ledger with the same `start` as yesterday (2026-11-02
+19:01:50 UTC, still the last real action - yesterday's pull from this
+point also found nothing). 0 entries found again.
+
+### Crypto - broadly positive across all 8 pairs for the first time, but nothing triggers
+
+| Pair | 1h/48h chg | 4h/48h chg | RSI(14,4h) | Vol ratio (24h vs 7d avg) | SMA state |
+|---|---|---|---|---|---|
+| BTC/EUR | +3.53% | +3.29% | 63.8 | 1.64x | fast<slow |
+| ETH/EUR | +5.76% | +5.08% | 68.0 | 1.03x | **fast>slow** |
+| SOL/EUR | +3.34% | +2.70% | 56.4 | 1.20x | fast<slow |
+| XRP/EUR | +2.60% | +2.75% | 66.7 | 1.11x | fast<slow |
+| ADA/EUR | +3.43% | +3.40% | 57.8 | 1.64x | fast<slow |
+| LINK/EUR | +2.54% | +3.23% | 55.9 | 0.91x | fast<slow |
+| SUI/EUR | +3.04% | +2.54% | 56.2 | 1.43x | fast<slow |
+| LTC/EUR | +1.74% | +2.41% | 53.6 | 0.89x | fast<slow |
+
+All 8 pairs are up over the last 48h for the first time since well
+before the Binance-hack aftermath - genuinely new territory for this
+cycle's recent run. **ETH is the standout**: +5.76%/1h-window change
+(closest of any pair to the 6% `momentum_trigger` threshold, though it
+didn't cross it), RSI 68.0 (the highest reading among the 8, edging
+toward overbought), and the first **bullish SMA crossover** (`fast_above_
+slow`) logged on any pair in recent memory - every other pair and every
+prior cycle this week has shown `fast_below_slow`. Still, `momentum_
+trigger` requires a 6% move and none of the 8 crossed it, so no
+candidate clears the bar. A WebSearch for a broad crypto-market catalyst
+turned up nothing dated to 2026-11-05 specifically - no confirmed news
+explains this move; noted plainly as an unconfirmed, broad-based uptick
+worth watching, not a trigger.
+
+### Stocks - S&P 500 screen (top 20 of 505) - every single name scored the maximum (4) today
+
+`screen_sp500` returned a top-20 where **all 20 names tied at the top
+score (4)** - HD, MCD, NEE, SYK, MMM, HCA, COR, GWW, D, PSA, BDX, MSCI,
+XYZ, ZTS, STE, BR, DD, ZBH, SWK, AIZ. This has not happened on any prior
+cycle - every previous day had at most 8-9 names at the top score, with
+the rest trailing at 3. `universe_size` is back to 505 (was 504
+yesterday - the index-membership change noted then reversed, not
+investigated further). `screen_sp500`'s `errors` field again flagged
+`HOLX: no bars returned` - the same recurring gap.
+
+Deepened **SWK, XYZ, MMM, DD, HD, ZTS, ZBH, GWW** - the most extreme
+readings plus two recurring names (DD, for the 4th straight day and now
+with a real print to check; HD, a second straight no-catalyst
+appearance).
+
+**Cross-check**: price, `pct_change_5d`, `pct_change_20d`, and volume
+ratio all matched exactly between `screen_sp500` and
+`compute_stock_signals` for all 8 deepened names - no repeat of the
+2026-10-24 bug. RSI showed the same small (~0.1-1.5pt) tool-to-tool
+difference as every prior cycle.
+
+- **MMM (3M)** - \$193.95, RSI 76.0 (screen: 75.2), +9.35%/5d
+  (+18.57%/20d), volume 2.97x. **Confirmed real beat+raise**: adjusted
+  EPS \$2.50 vs \~\$2.38-2.39 consensus, FY guidance raised to
+  \$9.10-9.15 (sources disagree on the exact report date - Oct 20 vs
+  Oct 27 - but agree on the figures); stock reportedly +4.9-6.6% on the
+  day; JPMorgan raised its target to \$191, Bernstein to \$197 (RBC held
+  Underperform at \$135). Insider: routine EVP option exercises
+  (Oct 2/9/30), nothing alarming. 13F: thin/stale. **Medium**, a
+  continuation of 2+ week-old news but a real confirmed catalyst.
+- **DD (DuPont) - yesterday's unconfirmed-catalyst flag now resolves
+  positively.** \$150.73, RSI 76.1 (screen: 74.8) - down sharply from
+  yesterday's record 83.7/82.3, +7.22%/5d, +13.78%/20d, volume 2.08x.
+  **Confirmed**: an SEC 8-K dated Nov 3, 2026, headlined "DuPont
+  Reports Third Quarter 2026 Results," states the company **exceeded
+  Q3 2026 guidance and raised full-year 2026 guidance** - the exact
+  real beat+raise this agent couldn't confirm yesterday. Notably, RSI
+  *eased* rather than extending further despite the confirmed good
+  news, consistent with the move having already run its course before
+  the print landed. Insider: routine Aug-Sept grants, nothing new. 13F:
+  scattered/old. **Medium** - now on solid confirmed footing, less
+  chasing-risk than yesterday's record-RSI reading.
+- **GWW (W.W. Grainger)** - \$1489.39, RSI 80.8 (screen: 79.9),
+  +8.57%/5d (+17.40%/20d), volume 2.61x. **Confirmed strong beat+raise**,
+  reported Nov 4: sales +11.3% to \$5.2B (+14.9% organic constant
+  currency), adjusted diluted EPS \$12.54 (+22.8% YoY), FY adjusted EPS
+  guidance raised to \$47-48; CEO cited "consistent execution." The
+  cleanest, freshest confirmed catalyst in today's batch. Insider:
+  routine Sept 1 director grants (well below current price, predates
+  the move) and an Oct 2 routine option exercise. 13F: thin/stale.
+  **Medium**, real chasing-risk given RSI 80.8, but the most solidly
+  confirmed pick today.
+
+**SWK, XYZ, HD, ZTS, and ZBH all stay off today's picks** - all five
+have a real caution attached (see Watch list below for the four most
+notable; ZBH's detail is below given the mixed real numbers behind it).
+
+- **ZBH (Zimmer Biomet)** - \$110.15, RSI 75.0 (screen: 74.6),
+  +13.01%/5d (+23.93%/20d), volume 2.42x. Real Q3 2026 results, reported
+  Nov 4: net sales \$2.063B (+3.1% reported, +3.7% constant currency),
+  but **diluted GAAP EPS fell 13.8% YoY to \$1.00**, and adjusted EPS
+  \$1.90 was flat YoY (not a beat, just in-line) - a genuinely mixed
+  real print that doesn't obviously justify a 13%/5d rally (most of
+  which predates the Nov 4 report itself). Insider: a Sept 30 routine
+  director-grant cluster plus two real but dated sales (Thornal, Group
+  President, 5,691sh @ \$92.95, Sept 11; Phipps, 3,000sh @ \$98.35,
+  Sept 4 - both well below the current price, not fresh). 13F: old. A
+  real fundamentals/price mismatch worth tracking, though softer than
+  the CRH/FISV cases this week since the numbers aren't an outright
+  miss, just unremarkable against the move.
+
+**Data gaps:** no order-book-imbalance signal; insufficient history for
+a 20/50 SMA crossover on any deepened ticker; HOLX unpriceable again.
+13F mentions for all 8 names stayed the known noisy proxy.
+
+### Watch list detail
+
+- **SWK (Stanley Black & Decker) - a new record RSI.** \$118.33, RSI
+  **84.96** (screen: 83.49) - the highest RSI this agent has ever
+  recorded, surpassing DD's 83.7 from yesterday (which has itself now
+  cooled to 76.1). +14.21%/5d, +32.70%/20d, volume 3.71x. SWK reported
+  Q3 2026 earnings Nov 4 (confirmed date), but no source found describes
+  the actual figures or the stock's reaction - an unconfirmed catalyst
+  paired with the single most extreme reading this agent has logged.
+  Insider: a Sept 22 director-grant cluster (8 directors, routine,
+  \$91.19 - well below current price) and routine exercises; nothing
+  fresh. 13F: thin/stale.
+- **XYZ (Block) - the rally precedes its own earnings.** \$87.63, RSI
+  70.9 (screen: 70.9), +13.88%/5d, +16.48%/20d, volume 3.70x. Block's
+  real Q3 2026 report is due **today, Nov 5, after market close** -
+  meaning this entire 5-day rally happened with no Q3 catalyst
+  confirmed at all. Insider: a director (Eisen) has sold a fixed 6,000
+  shares on an almost weekly cadence every week from Oct 2 through
+  Oct 28 (7 separate filings) - the regular size/cadence strongly
+  suggests a pre-scheduled 10b5-1 plan rather than fresh
+  information-driven selling, but it's still a real, repeated
+  insider-selling pattern during a rally, worth naming rather than
+  omitting. 13F: thin/stale.
+- **ZTS (Zoetis) - rallying into an unconfirmed print, after a recent
+  guidance cut.** \$89.20, RSI 77.8 (screen: 77.2), +13.20%/5d,
+  +22.06%/20d, volume 2.62x. Zoetis's Q3 2026 report is due today (Nov
+  5, BMO) and no actual results were found in search. The real caution:
+  its prior quarter (Q2, reported Aug 6) **cut full-year guidance**
+  materially (adjusted EPS guidance down from \$6.85-7.00 to
+  \$6.15-6.25; sales guidance down too) on a revenue miss - a genuine
+  recent negative data point this rally is running against, not just an
+  absence of news. Insider: a tiny Nov 3 director grant and an Oct 9
+  CEO/EVP cluster at a grant-date value far below the current price
+  (routine, not a signal). 13F: thin/stale.
+- **HD (Home Depot) - a persistent, still-unexplained rally.**
+  \$355.44, RSI 74.9 (screen: 74.4), +8.04%/5d, +20.30%/20d, volume
+  2.11x. This is HD's second appearance in three cycles with no
+  confirmed catalyst at all - its real fiscal Q3 report isn't due until
+  **Nov 17, 2026**, 12 days out. Insider: no change from 11/3's routine
+  tax-withholding cluster (Sept 20), nothing fresh. 13F: thin/stale.
+  Worth tracking specifically because the no-catalyst pattern has now
+  repeated.
+
+### Bottom line
+
+Every single name in today's top-20 scored the maximum (4) - a first
+for this agent, reflecting a market-wide rally rather than a handful of
+idiosyncratic movers. Three names clear medium confidence on solidly
+confirmed catalysts: MMM (2+ week-old beat+raise), DD (yesterday's
+unconfirmed flag now resolves positively via a real Nov 3 8-K, with RSI
+easing rather than extending), and GWW (the freshest and cleanest
+beat+raise today). Five more carry real, specific cautions rather than
+being endorsed: SWK's RSI (84.96) is now the highest this agent has
+ever recorded, with no confirmed catalyst at all; XYZ's rally precedes
+its own earnings (due tonight) and features a real, if likely
+pre-scheduled, pattern of repeated director selling; ZTS is rallying
+into an unconfirmed print on the heels of a real guidance cut last
+quarter; HD's no-catalyst rally has now repeated for a second cycle,
+12 days ahead of its real report; and ZBH's actual Q3 numbers (flat
+adjusted EPS, GAAP EPS down 13.8%) don't obviously support its 13%
+rally. Crypto turned broadly positive across all 8 pairs for the first
+time in this agent's recent run, with ETH closest to a trigger and the
+first bullish SMA crossover logged on any pair - but nothing crossed
+the 6% threshold and no confirmed catalyst was found, so no candidate
+clears the bar. No real account activity since the 2026-11-02 GEHCx
+sale. This is advisory context only, not investment advice presented
+as certain - verify independently before acting on anything above.
+
