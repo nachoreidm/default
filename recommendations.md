@@ -2495,3 +2495,188 @@ clears the bar. No real account activity since the 2026-11-02 GEHCx
 sale. This is advisory context only, not investment advice presented
 as certain - verify independently before acting on anything above.
 
+## 2026-11-06 - daily cycle
+
+**Advisory only. Nothing here executes - verify before acting.** This
+is the normal 8am ET weekday trigger (v5, connector-permission-fixed
+session). `git pull` found no new commits since yesterday's entry.
+
+### Outcome tracking - a currency conversion with no completed purchase visible yet
+
+Pulled the ledger with `start` set just after the last real action
+(2026-11-02 19:01:50 UTC). 3 entries found:
+
+- **2026-11-06 09:51:32 UTC, `type: "transfer"`, `subtype:
+  "useraccounttransfer"`**: -200 ZEUR - not a buy/sell decision,
+  correctly excluded.
+- **2026-11-06 09:19:05 UTC: a ZEUR->ZUSD currency conversion** -
+  spent EUR195.78, received USD216.5075. **No further leg (a spend of
+  that USD into any asset) appears in this pull** - unlike every prior
+  tokenized-stock purchase this agent has logged, which always shows a
+  4-leg pattern ending in a `receive`/`aclass: tokenized_asset` line.
+  Flagging this plainly as an open gap rather than assuming either a
+  completed buy or a dead end: the USD may simply be sitting
+  converted, or the purchase leg may complete after this pull and
+  would show up as a `tokenized_asset` receive in next cycle's ledger
+  window (if it does, it should still read as happening today,
+  2026-11-06, in the next cycle's reconciliation). Not logged as a buy
+  or a sell either way - there is no asset acquisition to match
+  against advice yet.
+
+### Crypto - a broad reversal to negative across all 8 pairs, no trigger
+
+| Pair | 1h/48h chg | 4h/48h chg | RSI(14,4h) | Vol ratio (24h vs 7d avg) | SMA state |
+|---|---|---|---|---|---|
+| BTC/EUR | -1.99% | -4.61% | 40.8 | 1.33x | fast<slow |
+| ETH/EUR | -2.28% | -7.06% | 42.1 | 1.00x | fast>slow |
+| SOL/EUR | -1.56% | -5.84% | 41.4 | 1.49x | fast<slow |
+| XRP/EUR | -5.54% | -8.31% | 33.9 | 1.51x | fast>slow |
+| ADA/EUR | -0.75% | -5.21% | 45.9 | 1.97x | fast<slow |
+| LINK/EUR | -1.33% | -5.70% | 44.3 | 0.90x | fast<slow |
+| SUI/EUR | -2.94% | -7.28% | 44.8 | 1.56x | fast<slow |
+| LTC/EUR | -1.94% | -5.04% | 44.9 | 1.24x | fast<slow |
+
+A sharp reversal from yesterday's broadly positive reading - every
+pair is now negative, several by more than 6% on the 4h/48h window
+(ETH -7.06%, XRP -8.31%, SUI -7.28%). `momentum_trigger` still shows
+`flagged: false` on all 8 - by design it only flags upward moves (per
+this agent's long-standing note), so a downside move of this size does
+not trigger regardless of magnitude. RSI is neutral-to-mild-oversold
+(33.9-45.9, XRP the lowest but not below the 30 extreme-oversold
+mark); volume ratios stay under 2x. A WebSearch for a crypto-market
+catalyst found only undated or clearly-older selloff coverage, nothing
+confirmed to 2026-11-06 specifically - noted as an unconfirmed, broad
+reversal, not a trigger (crypto has no equivalent of a stock's
+`momentum_trigger` floor for downside moves, so nothing here is
+flagged for action either way).
+
+### Stocks - S&P 500 screen (top 20 of 505) - APP's 55.8%/5d move the standout
+
+`screen_sp500` returned a fresh top-20: BRK.B, DUK, MSI, APP, CPAY, STE
+tied at the top score (4); COST, MCD, NEE, UNP, LOW, MDT, MCK, SO,
+MRSH, MAR, SPG, AJG, AON, ALL at score 3. `screen_sp500`'s `errors`
+field again flagged `HOLX: no bars returned`.
+
+Deepened **APP, CPAY, MSI, STE, BRK.B, DUK, UNP, SO** - the six score-4
+names plus two score-3 names that showed a real anomaly worth checking
+(UNP and SO both carry a *negative or flat* 5-day change while still
+flagged on a positive 20-day window and elevated volume - the same
+scoring artifact first spotted with KMB on 2026-11-04).
+
+**Cross-check**: price, `pct_change_5d`, `pct_change_20d`, and volume
+ratio all matched exactly between `screen_sp500` and
+`compute_stock_signals` for all 8 deepened names - no repeat of the
+2026-10-24 bug. RSI showed the same small tool-to-tool difference as
+every prior cycle.
+
+- **APP (AppLovin) - the standout name today.** \$356.10, RSI 71.7
+  (screen: 71.7), **+55.84%/5d** (+28.54%/20d), volume 3.64x.
+  **Confirmed real strong beat**: Q3 2026 revenue \$2,185M (+55% YoY -
+  a coincidental near-match to the 5-day price move, worth naming
+  explicitly so the two aren't conflated: one is revenue growth, the
+  other is the stock's price move), net income +72% YoY to \$1.44B,
+  diluted EPS \$4.30, reported Nov 4. Context: the stock had been at a
+  52-week low (\$225.19) as recently as Oct 30, down \~65% YTD - this
+  is a genuine rebound off depressed levels on real numbers, not
+  euphoria from an already-high base, which is consistent with RSI
+  only 71.7 despite the huge headline move. Insider: a large Oct 29
+  grant cluster to the CEO/CFO/CTO/CLO (standard annual equity awards,
+  "A" code at \$0 price - not open-market buying) plus an Aug 20
+  tax-withholding sale cluster - both routine. 13F: thin/stale.
+  **Medium** - a real, strong confirmed catalyst, but real chasing-risk
+  given the sheer size of the move; this agent could not independently
+  confirm the stock's exact post-earnings reaction percentage
+  (distinct from the revenue-growth figure), only that the real
+  5-day price data shows a 55.8% gain.
+- **MSI (Motorola Solutions)** - \$517.01, RSI 79.2 (screen: 79.6) -
+  the highest RSI in today's batch, +5.18%/5d, +16.40%/20d, volume
+  2.86x. A real SEC 8-K Q3 2026 press release confirms a record ending
+  backlog of \$16.6B (+14% YoY) and says the company **raised its
+  revenue and earnings outlook again** - a genuine beat+raise, though
+  search results conflated Q2 and Q3 figures badly enough that an
+  exact EPS/revenue number couldn't be pinned down with confidence.
+  Insider: a routine Sept 2 CEO option exercise (\$81.37, far below
+  current price) and other routine grants/sales. 13F: thin/stale.
+  **Medium**, real chasing-risk given RSI 79.2, confirmed but
+  imprecisely-sourced catalyst.
+
+**CPAY, STE, BRK.B, and DUK all stay off today's picks** - see Watch
+list below.
+
+**UNP and SO - a repeat of the KMB scoring nuance, not buy signals.**
+UNP: \$297.95, RSI 54.8 (neutral), **5-day change -1.99%** (a real
+decline) against a 20-day change of +7.05%, volume 2.24x - no dated
+news found explaining a decline; insider activity was all tiny routine
+dividend-reinvestment-style grants, nothing real. SO: \$93.34, RSI
+61.4 (neutral), 5-day change -0.39% (flat), 20-day change +8.32%,
+volume 2.24x - reported Q3 2026 Nov 5 but no confirmed actual results
+found, and two analysts (Barclays, Morgan Stanley) **cut price targets
+heading into the print** (to \$92 and \$84 respectively, the latter
+Underweight) - a real negative signal, not an absence of one. Both
+names are flagged by `screen_sp500`'s formula on a stale 20-day window
+while their real recent price action is flat-to-down - logged plainly
+so neither is mistaken for a near-miss buy candidate.
+
+**Data gaps:** no order-book-imbalance signal; insufficient history
+for a 20/50 SMA crossover on any deepened ticker; HOLX unpriceable
+again. `get_insider_activity` returned a tool error for BRK.B ("no SEC
+CIK found for ticker") - noted as a real data gap for this specific
+ticker format, not retried further this cycle. 13F mentions for all 8
+names stayed the known noisy proxy.
+
+### Watch list detail
+
+- **CPAY (Corpay)** - \$447, RSI 73.1 (screen: 73.7), +11.49%/5d,
+  +12.33%/20d, volume 3.56x. No confirmed Q3 2026 actual results found
+  - only Q2 (Aug 5) results and Q3 guidance (\$7.05-7.25 EPS, above a
+  \~\$6.96 consensus, a soft positive signal but not a result).
+  Insider: a large but routine Aug 21 CEO option exercise (450,000sh @
+  \$150.74) and other routine, dated sales/exercises. 13F: thin.
+- **STE (Steris)** - \$254.12, RSI 76.6 (screen: 75.6), +11.89%/5d,
+  +18.53%/20d, volume 2.26x. No confirmed result found for the current
+  reporting window - search results conflated STERIS's offset fiscal
+  calendar with calendar-year quarters, and no clean, dated Q3/fiscal-
+  Q2-2027 print turned up. Insider: routine Oct 1 CFO tax-withholding
+  sale and Aug director grants, nothing fresh. 13F: thin.
+- **BRK.B (Berkshire Hathaway)** - \$572.33, RSI 74.4 (screen: 75.2),
+  +5.50%/5d, +11.00%/20d, volume 2.04x. Real Q3 2026 earnings are **not
+  due until tomorrow, Nov 7** (multiple sources agree) - this rally
+  precedes any confirmed catalyst. One unconfirmed-date source
+  describes a KBW downgrade to sell-equivalent on valuation/
+  leadership-transition-risk grounds (Buffett stepped down as
+  executive chair in Sept 2026) - not relied on given the dating
+  uncertainty, but worth naming as a real risk factor circulating.
+  `get_insider_activity` failed for this ticker (see data gaps above).
+  13F: thin/old.
+- **DUK (Duke Energy)** - \$130.08, RSI 69.8 (screen: 70.4), +2.11%/5d
+  (the mildest 5-day move of today's deepened names), +11.51%/20d,
+  volume 2.06x. Confirmed to have reported Q3 2026 Nov 5, but no
+  confirmed actual figures found (only pre-report consensus). The
+  modest 5-day change suggests this is mostly a 20-day-window read, not
+  a fresh earnings pop. Insider: routine Oct director-grant cluster and
+  a small officer grant, nothing fresh. 13F: thin.
+
+### Bottom line
+
+APP is the real standout today: a genuine, strong confirmed beat
+(revenue +55% YoY, net income +72% YoY) landing on a stock that was at
+a 52-week low just a week ago - a real rebound story, not euphoria, and
+capped at medium only because this agent couldn't independently verify
+the exact post-earnings stock reaction percentage. MSI also clears
+medium on a real but imprecisely-sourced beat+raise, with the highest
+RSI (79.2) in today's batch as the chasing-risk caution. Four names
+(CPAY, STE, BRK.B, DUK) all had real earnings activity expected or
+reported but no confirmed actual results found - BRK.B notably hasn't
+reported at all yet (due tomorrow). UNP and SO repeat the KMB pattern
+from 2026-11-04: flagged by a stale 20-day window while their real
+5-day price action is flat-to-down, with SO additionally carrying two
+real analyst price-target cuts heading into its print. Crypto reversed
+sharply from yesterday's broad rally to a broad selloff - several pairs
+moved more than 6% on the 4h/48h window, but the trigger only fires on
+upside moves by design, so nothing here clears the bar either way.
+Outcome tracking found a real currency conversion (EUR to USD) with no
+completed asset purchase visible in this pull - flagged as an open gap
+to re-check next cycle rather than assumed one way or the other. This
+is advisory context only, not investment advice presented as certain -
+verify independently before acting on anything above.
+
