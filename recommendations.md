@@ -2680,3 +2680,205 @@ to re-check next cycle rather than assumed one way or the other. This
 is advisory context only, not investment advice presented as certain -
 verify independently before acting on anything above.
 
+## 2026-11-09 - daily cycle
+
+**Advisory only. Nothing here executes - verify before acting.** This
+is the normal 8am ET weekday trigger (v5, connector-permission-fixed
+session), first firing since Friday (weekend skipped, as designed).
+`git pull` found no new commits since Friday's entry.
+
+### Outcome tracking - three new entries, none a buy/sell; Friday's conversion gap still unresolved
+
+Pulled the ledger with the same `start` used Friday; re-confirmed the
+same 3 entries already logged in the 2026-11-06 entry (the -200 ZEUR
+transfer and the ZEUR->ZUSD conversion) plus **3 new entries since
+then**:
+
+- **2026-11-07 08:45:27 UTC, `type: "transfer"`**: -100 ZEUR - excluded.
+- **2026-11-07 12:44:11 UTC, `type: "transfer"`**: -150 ZEUR - excluded.
+- **2026-11-08 17:31:51 UTC, `type: "staking"`**: a tiny ADA reward
+  accrual - excluded.
+
+None are buy/sell decisions. **Friday's open gap remains unresolved**:
+no further leg (a USD spend into any asset) has appeared for the
+2026-11-06 ZEUR->ZUSD conversion through this cycle's pull either - the
+converted USD still shows no completed purchase. Carrying the gap
+forward again rather than assuming either outcome.
+
+### Crypto - a real, dated catalyst found at last: US regulatory-outlook concerns
+
+| Pair | 1h/48h chg | 4h/48h chg | RSI(14,4h) | Vol ratio (24h vs 7d avg) | SMA state |
+|---|---|---|---|---|---|
+| BTC/EUR | -2.45% | -2.27% | 30.6 | 0.48x | fast<slow |
+| ETH/EUR | -6.14% | -5.95% | 27.5 | 0.72x | fast<slow |
+| SOL/EUR | -4.49% | -4.27% | 31.2 | 0.81x | fast<slow |
+| XRP/EUR | -7.34% | -7.05% | **17.7** | 1.35x | fast<slow |
+| ADA/EUR | -3.92% | -3.53% | 37.5 | 0.32x | fast<slow |
+| LINK/EUR | -2.94% | -3.27% | 41.5 | 0.70x | fast<slow |
+| SUI/EUR | -4.45% | -4.15% | 37.9 | 0.65x | fast<slow |
+| LTC/EUR | -2.72% | -2.41% | 39.4 | 0.92x | fast<slow |
+
+The reversal first spotted 2026-11-06 has continued for a third
+session. XRP's RSI is now **17.7 - genuinely extreme oversold** (below
+the 30 floor this agent treats as notable, the first such reading
+logged), and ETH (27.5) and SOL (31.2) are also deep in oversold
+territory. `momentum_trigger` stays `flagged: false` on all 8 by
+design (downside-only moves never trigger it regardless of magnitude).
+**Unlike prior selloff cycles this week, a WebSearch today found a
+real, dated catalyst**: an RTTNews headline dated 2026-11-06,
+"Cryptos tumble as markets focus on U.S. regulatory outlook," and a
+separately-dated report from the same day describing XRP falling to
+an 11-week low, with "little to no demand" in spot XRP ETFs at the
+start of November - consistent with XRP posting the most extreme
+reading of the 8 pairs today. No pair crossed `momentum_trigger`'s
+6% floor (which only fires upward), so none clears the bar as a
+candidate, but this is worth carrying forward given how oversold XRP
+specifically has become.
+
+### Stocks - S&P 500 screen (top 20 of 505) - a genuinely confirmed, strong batch today
+
+`screen_sp500` returned a top-20 with no score-4 names today (score 3
+across the board) - BRK.B, MCD, MCK, APP, MSI, ABNB, SPG, CAH, EW,
+BDX, PSA, IDXX, ROP, GEHC, EXR, FISV, AEE, CPAY, AWK, VLTO.
+`screen_sp500`'s `errors` field again flagged `HOLX: no bars returned`.
+
+Deepened **APP, MSI, CPAY, FISV, VLTO, ABNB, EW, BRK.B** - a mix of
+continuing names (APP, MSI, CPAY, FISV, VLTO, all deepened on prior
+cycles) and two fresh entrants (ABNB, EW) plus BRK.B (still unconfirmed
+from Friday, now past its expected Nov 7 report date).
+
+**Cross-check**: price, `pct_change_5d`, `pct_change_20d`, and volume
+ratio all matched exactly between `screen_sp500` and
+`compute_stock_signals` for all 8 deepened names - no repeat of the
+2026-10-24 bug. RSI showed the same small tool-to-tool difference as
+every prior cycle.
+
+- **APP (AppLovin)** - \$391.22, RSI 76.4 (screen: 76.4), **+70.95%/5d**
+  (+44.43%/20d), volume 1.32x. Confirmed, now with much richer detail
+  than Friday's entry: the stock jumped 23.5% after-hours on the Nov 4
+  beat, then a further +30.4% in Nov 5's morning session - a real,
+  large, two-day confirmed reaction, not just this agent's own price
+  data. Context confirmed: APP was the worst-performing S&P 500 stock
+  in 2026 (down \~59.67% YTD before the jump, still \~49% YTD after) -
+  genuinely a rebound from depressed levels. **New real risk factor**:
+  a securities class action (covering purchasers between Feb 12 and
+  Aug 5, 2026) has a lead-plaintiff deadline of **Nov 16, 2026** -
+  worth carrying forward explicitly. Insider: no new activity since
+  the Oct 29 grant cluster already logged. 13F: thin/stale. <b>Medium</b>,
+  real confirmed catalyst, real chasing-risk given the size of the
+  move and the live legal overhang.
+- **CPAY (Corpay) - Friday's unconfirmed flag now resolves positively.**
+  \$455.16, RSI 75.0 (screen: 76.0), +11.21%/5d, +14.46%/20d, volume
+  1.58x. Confirmed via the company's own Nov 4 press release and SEC
+  8-K: revenue +18% to \$1,381.9M, GAAP net income +36% to \$378.4M
+  (\$5.66 diluted EPS), adjusted EPS \$7.54 (+32% YoY, beat a
+  \~\$7.19-7.20 consensus), organic revenue +11%, FY guidance raised
+  (revenue midpoint \$5.35B, adjusted EPS \$28.00). Stock-reaction
+  sources conflict (+10% vs -1.1%) - the fundamentals are not in
+  doubt even though the exact price reaction is. Insider: unchanged
+  routine Aug activity. 13F: thin. <b>Medium</b>, real confirmed
+  beat+raise.
+- **FISV (Fiserv) - a correction to the 2026-11-04 entry's read.**
+  \$62.88, RSI 81.8 (screen: 82.4), +21.09%/5d, +36.55%/20d, volume
+  0.86x - no fresh spike, consistent with continuation. **Worth
+  flagging plainly**: the 2026-11-04 entry read FISV's rally as a
+  fundamentals/price divergence (one source's claim of a confirmed Q3
+  miss/loss paired with an unrelated partnership-news rally). Today's
+  search instead describes the real driver as a genuine **earnings
+  beat** - results "edged past estimates on adjusted EPS and matched
+  on revenue," the company doubled its cost-savings target and
+  resumed buybacks, and the stock posted its best single-day gain in
+  over two decades (+12.5%, Nov 3) followed by a 6-day, +30.9% winning
+  streak; Goldman and Baird both raised price targets. This doesn't
+  necessarily mean the 2026-11-04 source was fabricated - GAAP and
+  adjusted results can diverge sharply (that entry cited a large GAAP
+  loss specifically) - but the weight of today's evidence points to a
+  real beat as the actual driver, not an unrelated rally on top of a
+  miss. Insider: no new activity. 13F: thin/stale. <b>Medium</b>, a
+  real (now better-confirmed) catalyst, strong chasing-risk given RSI
+  81.8.
+- **ABNB (Airbnb) - the freshest, most confirmed catalyst today.**
+  \$189.99, RSI 65.7 (screen: 66.2) - the least extreme reading in
+  today's batch, +11.03%/5d, +16.20%/20d, volume **2.63x** (the only
+  elevated volume name today). Confirmed via multiple sources: Q3 2026
+  revenue +19% to \$4.9B, gross booking value +21% to \$27.7B, GAAP
+  EPS \$3.16 (+43% YoY, beat consensus by 10.49%), guidance raised
+  (high-teens revenue growth, \~36% adjusted EBITDA margin), a new
+  \$12B buyback authorization. One source's headline called this a
+  "miss," but its own body contradicts the headline, describing the
+  stock as down only a fraction amid broad market weakness - the
+  substance clearly favors a real beat, and the headline/body conflict
+  is worth naming rather than silently picking a side. Insider: a
+  real but recurring CAO sale (pre-earnings, same periodic pattern as
+  prior quarters) and a routine, recurring RSU-conversion ("C" code)
+  for the Chief Strategy Officer. 13F: thin/stale. <b>Medium</b>, the
+  lowest chasing-risk of today's picks given the moderate RSI.
+- **EW (Edwards Lifesciences)** - \$102.14, RSI 77.6 (screen: 76.8),
+  +9.52%/5d, +18.23%/20d, volume 0.73x. Confirmed beat+raise: Q3 sales
+  +10.5% to \$1.72B, adjusted EPS \$0.80 (+19% YoY, beat consensus by
+  9.6%), TMTT segment +44%, FY guidance raised across the board. A real
+  nuance: the stock reportedly fell \~1% on the day of the print
+  itself (a "sell the news" reaction to an otherwise clean beat), but
+  the 5-day trend is clearly positive (+9.52%), so the one-day dip did
+  not hold. Insider: routine option exercises/tax-withholding sales
+  only. 13F: thin/stale. <b>Medium</b>, real chasing-risk given RSI
+  77.6.
+- **MSI (Motorola Solutions)** - \$514.51, RSI 75.6 (screen: 76.9) -
+  down from Friday's 79.2, +5.58%/5d, +15.28%/20d, volume 1.13x. Fourth
+  straight cycle on the already-confirmed (if imprecisely-sourced)
+  beat+raise from 2026-11-06; RSI cooling rather than extending
+  further suggests stabilization, not fresh buying. Insider: no new
+  activity. 13F: thin/stale. <b>Medium</b>, same basis as Friday, less
+  chasing-risk now that RSI has eased.
+
+**VLTO and BRK.B stay off today's picks** - see Watch list below.
+
+**Data gaps:** no order-book-imbalance signal; insufficient history
+for a 20/50 SMA crossover on any deepened ticker; HOLX unpriceable
+again. 13F mentions for all 8 names stayed the known noisy proxy.
+
+### Watch list detail
+
+- **VLTO (Veralto) - a second near-record RSI.** \$117.09, RSI
+  **84.42** (screen: 84.01) - the second-highest this agent has ever
+  recorded (just below SWK's 84.96 on 2026-11-05), +1.20%/5d (modest),
+  +19.24%/20d, volume 0.62x - low, no fresh spike. The underlying
+  catalyst (a strong Q3 print, Oct 29, plus a \$1.1B acquisition push
+  and a \$750M buyback authorization) is now nearly two weeks old; one
+  source reports zero insider purchases against five sales over the
+  past six months, which our own pull partially corroborates (only
+  routine low-strike option exercises found, no open-market buying).
+  Extreme RSI with a stale catalyst and no confirming insider activity
+  - the same pattern this agent has flagged for DD and SWK.
+- **BRK.B (Berkshire Hathaway) - still unconfirmed, now past its
+  expected report date.** \$570.89, RSI 72.3 (screen: 73.6), +2.66%/5d,
+  +10.30%/20d, volume 0.95x. Friday's entry noted Q3 earnings were due
+  Nov 7; today's search still only surfaced Q3 2025 results (clearly
+  mislabeled/outdated in several sources), with no confirmed 2026
+  figures found despite being two days past the expected date. Modest
+  price moves suggest no major surprise either way, but this remains
+  genuinely unconfirmed.
+
+### Bottom line
+
+A strong, well-confirmed batch today: APP, CPAY, ABNB, EW, and MSI all
+clear medium confidence on real, sourced beats (ABNB the freshest and
+least extended). FISV also clears medium, but this cycle found
+information that revises the 2026-11-04 entry's read of it as a
+fundamentals/price divergence - today's sources point to a genuine
+earnings beat as the real driver, not a miss papered over by unrelated
+news; both readings are preserved here rather than silently editing
+the earlier entry. VLTO is flagged for a second near-record RSI
+(84.42, just shy of SWK's 84.96) on a catalyst now two weeks stale.
+BRK.B remains unconfirmed, now past its expected report date. Crypto's
+multi-day selloff finally turned up a real, dated catalyst (US
+regulatory-outlook concerns, per an RTTNews headline dated 2026-11-06)
+rather than the unconfirmed/undated coverage of prior cycles, and XRP's
+RSI of 17.7 is the first genuinely extreme-oversold reading this agent
+has logged - still no trigger either way since the floor only fires
+upward. Outcome tracking found three new, routine entries (two
+transfers, one tiny staking accrual) and confirmed that Friday's
+currency-conversion gap remains unresolved. This is advisory context
+only, not investment advice presented as certain - verify
+independently before acting on anything above.
+
