@@ -2882,3 +2882,164 @@ currency-conversion gap remains unresolved. This is advisory context
 only, not investment advice presented as certain - verify
 independently before acting on anything above.
 
+## 2026-11-10 - daily cycle
+
+**Advisory only. Nothing here executes - verify before acting.** This
+is the normal 8am ET weekday trigger (v5, connector-permission-fixed
+session). `git pull` found no new commits since yesterday's entry.
+
+### Outcome tracking - no new real activity
+
+Pulled the ledger with `start` set just after yesterday's last entry
+(2026-11-08 17:31:51 UTC, the ADA staking accrual). 0 entries found -
+no real buy/sell/transfer activity since then, and no new leg has
+appeared for the still-open 2026-11-06 ZEUR->ZUSD conversion gap
+either.
+
+### Crypto - the selloff continues into a 4th session; no fresh catalyst found today
+
+| Pair | 1h/48h chg | 4h/48h chg | RSI(14,4h) | Vol ratio (24h vs 7d avg) | SMA state |
+|---|---|---|---|---|---|
+| BTC/EUR | -2.74% | -2.84% | 37.6 | 0.83x | fast<slow |
+| ETH/EUR | -7.12% | -7.22% | 29.5 | 1.18x | fast<slow |
+| SOL/EUR | -6.07% | -6.20% | 31.8 | 1.05x | fast<slow |
+| XRP/EUR | -7.93% | -7.24% | 27.3 | 1.14x | fast<slow |
+| ADA/EUR | -1.91% | -2.14% | 43.7 | 0.28x | fast<slow |
+| LINK/EUR | -3.22% | -3.33% | 40.8 | 0.75x | fast<slow |
+| SUI/EUR | -3.05% | -2.96% | 42.6 | 0.79x | fast<slow |
+| LTC/EUR | -1.87% | -1.68% | 43.8 | 0.88x | fast<slow |
+
+ETH, SOL, and XRP all now exceed 6% in magnitude on both windows -
+`momentum_trigger` still reads `flagged: false` for all 8 (downside
+moves never trigger it, regardless of size). RSI remains deeply
+oversold for ETH (29.5), SOL (31.8), and XRP (27.3) - XRP's reading
+has actually eased slightly from yesterday's 17.7 even as its price
+kept falling, a reminder that RSI and price can diverge. A WebSearch
+for a fresh catalyst found nothing dated to today specifically - only
+undated or clearly older selloff coverage - so yesterday's confirmed
+2026-11-06 regulatory-outlook catalyst is the most recent dated
+explanation still on record; this is a continuation of that story, not
+a new development. No pair crosses the 6% upward floor, so none
+clears the bar.
+
+### Stocks - S&P 500 screen (top 20 of 505) - BRK.B's earnings finally confirmed, and they're weak
+
+`screen_sp500` returned a top-20 led by FERG (score 4); BRK.B, DIS,
+MCD, LOW, APP, MSI, SPG, CAH, EW, BDX, PSA, IDXX, GEHC, MTD, EXR,
+FISV, AEE, CPAY, LH all at score 3. `screen_sp500`'s `errors` field
+again flagged `HOLX: no bars returned`.
+
+Deepened **FERG, BRK.B, APP, MSI, FISV, CPAY, LOW, DIS** - a new entrant
+(FERG) plus two others not checked recently (LOW, DIS), alongside
+continuing names and BRK.B (finally confirmed today).
+
+**Cross-check**: price, `pct_change_5d`, `pct_change_20d`, and volume
+ratio all matched exactly between `screen_sp500` and
+`compute_stock_signals` for all 8 deepened names - no repeat of the
+2026-10-24 bug.
+
+- **APP (AppLovin)** - \$410.00, RSI 77.7 (screen: 78.3), +66.99%/5d
+  (+50.58%/20d), volume 0.74x - no fresh spike, consolidating after
+  the huge move rather than extending further. No new dated coverage
+  found for Nov 9-10 specifically. The securities class-action
+  lead-plaintiff deadline (Feb 12-Aug 5, 2026 purchasers) is now just
+  **6 days away (Nov 16)** - worth flagging as it approaches. Insider:
+  no new activity since the Oct 29 grant cluster. 13F: thin/stale.
+  <b>Medium</b>, same confirmed basis as prior cycles, real
+  chasing-risk given the size of the move.
+- **MSI (Motorola Solutions)** - \$527.97, RSI 80.2 (screen: 80.8) -
+  re-accelerating from yesterday's 75.6, +7.53%/5d, +17.59%/20d,
+  volume 0.74x - low, no fresh spike despite the RSI pickup. Fifth
+  straight cycle on the already-confirmed beat+raise from 2026-11-06;
+  no new information found. Insider: no new activity. 13F: thin/stale.
+  <b>Medium</b>, real chasing-risk now that RSI is back above 80.
+- **FISV (Fiserv)** - \$63.52, RSI 82.8 (screen: 83.0), +8.77%/5d (down
+  from Monday's 21.09% as the post-earnings pop days roll out of the
+  5-day window), +36.13%/20d, volume 0.71x - low. Continuation of the
+  now-well-confirmed Nov 3 beat (see yesterday's correction to the
+  2026-11-04 entry). No new information found today. Insider: no new
+  activity. 13F: thin/stale. <b>Medium</b>, strong chasing-risk given
+  RSI 82.8.
+- **CPAY (Corpay)** - \$457.97, RSI 76.2 (screen: 76.8), +12.64%/5d
+  (up slightly from Monday's 11.21%), +14.75%/20d, volume 0.78x - low.
+  Continuation of the now-confirmed Nov 4 beat+raise. No new
+  information found. Insider: no new activity. 13F: thin/stale.
+  <b>Medium</b>, real chasing-risk given RSI 76.2.
+
+**FERG, BRK.B, LOW, and DIS all stay off today's picks** - see Watch
+list below.
+
+**Data gaps:** no order-book-imbalance signal; insufficient history
+for a 20/50 SMA crossover on any deepened ticker; HOLX unpriceable
+again. `get_insider_activity` failed again for BRK.B ("no SEC CIK
+found for ticker") - the same known gap, not retried further. 13F
+mentions for all 8 names stayed the known noisy proxy.
+
+### Watch list detail
+
+- **BRK.B (Berkshire Hathaway) - now confirmed, and the real numbers
+  are weak.** \$575.25, RSI 73.7 (screen: 75.3), +3.26%/5d, +10.50%/20d,
+  volume 1.05x. Real Q3 2026 results, released Nov 7: **operating
+  earnings fell 5.8% to \~\$12.7B** (vs \~\$13.5B a year earlier),
+  **net earnings fell \~28% to \~\$22.1B** (smaller stock-portfolio
+  gains than a year ago), and **insurance underwriting income fell
+  43%** (Geico cited for higher losses/costs). Partial offsets: BNSF
+  railroad earnings +19%, Berkshire Hathaway Energy +8%, \$9.6B in
+  buybacks, cash \~\$377.4B. This is a real, confirmed, mostly negative
+  print - operating and net earnings both down YoY - against a price
+  move that's only modestly positive (+3.26%/5d), not the outsized
+  rally this agent has flagged in prior divergence cases (CRH, FISV's
+  11/4 read, VMC). Worth naming as a genuine earnings-quality concern
+  rather than a buy signal of any kind. `get_insider_activity` still
+  fails for this ticker's format (see data gaps above).
+- **DIS (Walt Disney)** - \$119.12, RSI 69.9 (screen: 70.4), +4.33%/5d,
+  +9.71%/20d, volume 0.81x - below average. Rallying ahead of its real
+  fiscal Q4 2026 report, due **Nov 17** (not yet out) - consensus
+  normalized EPS \$1.69 vs \$1.11 a year earlier. Real, confirmed
+  contributing factor: one source reports ETFs bought \$56.5M of DIS
+  stock on Nov 3 alone, part of a \~9% one-month rally. Real caution:
+  reports of thousands of planned job cuts as part of a cost-cutting
+  push - a genuine tension with the rally narrative. **Real insider
+  sale found**: Horacio Gutierrez (SEVP, Chief Legal & Global Affairs
+  Officer) sold 20,552 shares @ \$120 on Nov 5 (filed Nov 6) - a
+  sizable, real, pre-earnings sale right near the current price.
+  13F: thin/old.
+- **FERG (Ferguson Enterprises)** - \$259.93, RSI 71.9 (screen: 70.4),
+  +7.41%/5d, +16.63%/20d, volume 2.48x - the only elevated-volume name
+  today. Sources disagree on the actual Q3 2026 report date (Nov 9 vs
+  Nov 30) and no confirmed actual results were found either way - only
+  the already-known Q2 beat (dividend hike, buybacks, guidance raise)
+  from August. Insider: a routine Oct 14 cluster of "F" (tax-withholding)
+  sales across multiple officers at \$222.86 (well below the current
+  price, predates this move) - nothing fresh. 13F: thin.
+- **LOW (Lowe's)** - \$232.10, RSI 72.8 (screen: 72.6), +8.77%/5d,
+  +22.97%/20d, volume 0.76x - below average. Still no confirmed fiscal
+  Q3 2026 print found - search results keep surfacing the Nov 2025
+  report mislabeled as "Q3 2026" by some data providers, a real source
+  of confusion worth flagging rather than mistaking for this year's
+  number. Insider: routine Sept 30 director-grant cluster, nothing
+  fresh. 13F: thin.
+
+### Bottom line
+
+Four names continue to clear medium confidence on catalysts confirmed
+in prior cycles (APP, MSI, FISV, CPAY) with no new information found
+today - APP's securities class-action deadline is now 6 days out,
+worth tracking explicitly. The most notable development today is
+BRK.B: its Q3 2026 earnings finally came out (Nov 7, after three days
+unconfirmed) and the real numbers are weak - operating earnings -5.8%,
+net earnings -28%, insurance underwriting -43% - against only a modest
+price gain, a genuine earnings-quality concern rather than anything to
+chase. DIS is rallying into its own Nov 17 report with a real
+contributing factor (confirmed ETF buying) but also a real caution (a
+sizable pre-earnings insider sale by its chief legal officer, plus
+reported job cuts). FERG and LOW both stay unconfirmed on their actual
+Q3 prints despite real reporting-date uncertainty in the sources.
+Crypto's selloff continued into a fourth session with ETH, SOL, and
+XRP all now exceeding 6% in magnitude (still never triggering, since
+the floor only fires upward) - no fresh catalyst was found today
+beyond the 2026-11-06 regulatory-outlook story already on record. No
+real account activity since the last entry. This is advisory context
+only, not investment advice presented as certain - verify
+independently before acting on anything above.
+
