@@ -3043,3 +3043,199 @@ real account activity since the last entry. This is advisory context
 only, not investment advice presented as certain - verify
 independently before acting on anything above.
 
+## 2026-11-11 - daily cycle
+
+**Advisory only. Nothing here executes - verify before acting.** This
+is the normal 8am ET weekday trigger (v5, connector-permission-fixed
+session). `git pull` found no new commits since yesterday's entry.
+
+### Outcome tracking - no new real activity
+
+Pulled the ledger with `start` set just after yesterday's checkpoint
+(2026-11-08 17:31:52 UTC, the ADA staking accrual - unchanged since
+yesterday's pull also found nothing new). 0 entries found - no real
+buy/sell/transfer activity since then, and no new leg has appeared for
+the still-open 2026-11-06 ZEUR->ZUSD conversion gap either.
+
+### Crypto - the 4-day selloff is easing, not reversing
+
+| Pair | 1h/48h chg | 4h/48h chg | RSI(14,4h) | Vol ratio (24h vs 7d avg) | SMA state |
+|---|---|---|---|---|---|
+| BTC/EUR | -0.72% | -1.50% | 43.0 | 1.07x | fast<slow |
+| ETH/EUR | -2.46% | -3.67% | 34.3 | 1.41x | fast<slow |
+| SOL/EUR | -2.56% | -4.03% | 38.0 | 1.48x | fast<slow |
+| XRP/EUR | -3.77% | -4.53% | 32.2 | 1.03x | fast<slow |
+| ADA/EUR | -0.88% | -2.83% | 46.5 | 0.39x | fast<slow |
+| LINK/EUR | -1.48% | -3.14% | 44.5 | 1.23x | fast<slow |
+| SUI/EUR | -0.49% | -3.41% | 47.6 | 0.79x | fast<slow |
+| LTC/EUR | -0.46% | -1.74% | 47.1 | 0.77x | fast<slow |
+
+All 8 pairs are still net negative on both windows but by a
+meaningfully smaller magnitude than yesterday, and every RSI reading
+has moved back toward neutral - XRP 32.2 (up from yesterday's 27.3),
+SOL 38.0 (up from 31.8), ETH 34.3 (up from 29.5). `momentum_trigger`
+remains `flagged: false` for all 8 (downside moves never trigger it,
+regardless of size, and today's moves are smaller than 6% besides).
+No fresh catalyst WebSearch run today - nothing in the easing itself
+warrants one, and no pair is at a new extreme that would call for
+one. Reads as the selloff stabilizing rather than reversing. None
+clears the bar.
+
+### Stocks - S&P 500 screen (top 20 of 505) - a new score-4 name (CLX) plus a cluster of "real 5d decline, inflated 20d window" cases
+
+`screen_sp500` returned a top-20 led by **CLX** (score 4, the first new
+score-4 entrant since FERG on 11-10); BRK.B, DIS, MCD, LOW, MCK, APP,
+MAR, MSI, HLT, RCL, SPG, CAH, GWW, EW, BDX, PSA, IDXX, NDAQ, GEHC all
+at score 3. `screen_sp500`'s `errors` field again flagged `HOLX: no
+bars returned`.
+
+Deepened **CLX, BRK.B, APP, MSI, RCL, DIS, IDXX, GEHC** - the new
+score-4 name, the three continuing confirmed-catalyst names, and four
+fresh names flagged on today's screen (RCL, IDXX, GEHC new to this
+log; DIS last deepened 11-10).
+
+**Cross-check**: price, `pct_change_5d`, `pct_change_20d`, and volume
+ratio all matched exactly between `screen_sp500` and
+`compute_stock_signals` for all 8 deepened names - no repeat of the
+2026-10-24 bug. RSI differed by up to ~1.9pt (BRK.B) between the two
+tools, within the known benign artifact range.
+
+- **CLX (Clorox)** - \$106.60, RSI 80.97 (screen: 80.25), +7.50%/5d,
+  +25.46%/20d, volume **2.66x** - a real spike, not a stale-window
+  artifact. Confirmed real catalyst: fiscal Q1 2027 results (reported
+  Nov 2) showed revenue of ~\$1.905B vs ~\$1.429B a year earlier and
+  net income of \$170M vs \$80M - a sizable headline beat, though one
+  outlet flagged the back half of the year now has to carry the
+  guidance (lapping distortions, rising inflation pushing guidance
+  toward the low end). Consensus rating is still "Hold." Insider: a
+  genuine open-market **buy** - director Breber Pierre R purchased
+  4,000 shares at \$100.06 on 2026-11-04 (filed 11-05), during the
+  rally - a real, if modest, vote of confidence, distinct from the
+  routine Oct 7 executive RSU-vesting cluster (code "A" at a flat
+  \$80.41 across six officers, not open-market purchases). 13F: no
+  useful matches (oldest/thinnest results yet - mostly 2009-2014
+  filings), standard noisy-proxy caveat. **Medium** - real earnings
+  beat, real volume, and a real insider buy all point the same way,
+  but RSI 80.97 after a 25%/20d run is genuine chasing risk, so capped
+  below high.
+- **MSI (Motorola Solutions)** - \$527.38, RSI 80.69 (screen: 80.19) -
+  re-accelerating again versus yesterday's already-elevated 80.2,
+  +6.11%/5d, +16.75%/20d, volume 0.75x - low. Sixth straight cycle on
+  the already-confirmed Nov 4 beat+guidance-raise+\$2B buyback
+  increase; today's search adds color (Q3 EPS \$4.69 vs \$4.44 est.,
+  revenue \$3.38B vs \$3.28B est., stock hit its highest close in a
+  year on Nov 5) but no new dated news. Insider: a mixed Nov 6 Form 4
+  cluster - CEO Brown, COO Molloy, and SVP Naik all filed routine
+  option exercises (code "M"), but CFO Winkler (2,406 sh @ \$513.25)
+  and General Counsel Niewiara (180 sh @ \$515.16) both filed genuine
+  **sales** the same day, during the rally - modest in size, likely
+  planned, but a real data point worth logging rather than omitting.
+  13F: thin/stale. **Medium**, real chasing-risk now that RSI has been
+  above 80 for a second straight cycle.
+- **APP (AppLovin)** - \$395.51, RSI 72.62 (screen: 73.18), +45.54%/5d
+  (down from yesterday's 66.99% as the initial post-earnings-spike
+  days roll out of the 5-day window), +50.85%/20d, volume 0.51x - low,
+  confirming the move is consolidating rather than extending. No fresh
+  dated coverage found beyond the already-confirmed Nov 4 Q3 beat
+  (revenue \$2.18B, +55% YoY). The securities class-action
+  lead-plaintiff deadline is now **5 days away (Nov 16)**. Insider: no
+  new activity beyond the already-logged Oct 29 grant cluster; one
+  item from search results (a CEO share sale mentioned in a
+  third-party aggregator) could not be confirmed in EDGAR's own data
+  and is not included on that basis. 13F: thin/stale. **Medium**, same
+  confirmed basis as prior cycles, real chasing-risk given the size of
+  the move.
+- **BRK.B (Berkshire Hathaway)** - \$583.34, RSI 76.17 (screen: 78.06),
+  +0.73%/5d (essentially flat), +10.83%/20d - `momentum_trigger` is
+  flagged on the 20d window, not the 5d, the same KMB-style scoring
+  nuance seen repeatedly on this log (most recently BRK.B itself on
+  11-06): the real week-over-week price action is barely moving even
+  though the screen's score reads as a momentum name. Today's search
+  adds detail on the already-logged Nov 7 Q3 report: \$9.6B of
+  buybacks in Q3 (more than double Q2's pace) and ~\$2B more in the
+  first four weeks of Q4, plus added stakes in Bending Spoons and
+  Lennar - a real sign of capital-deployment confidence that sits
+  oddly next to the weak headline operating/net-earnings numbers
+  already confirmed on 11-10 (operating -5.8%, net -28%, insurance
+  underwriting -43%). Both things are true at once: aggressive
+  buybacks and a soft quarter. No SEC CIK exists for "BRK.B" so
+  insider activity cannot be pulled (recurring, known limitation, not
+  retried). 13F: thin/stale. Not a pick - watch-list only, same
+  earnings-quality caution as 11-10.
+- **DIS (Walt Disney)** - \$119.21, RSI 69.63 (screen: 70.55),
+  +0.22%/5d (the rally has stalled since 11-10's +0.22% note was
+  actually today's number too - essentially unchanged week over
+  week), +9.38%/20d - another case of the stale-20d-window pattern.
+  Earnings-date sources disagree: most point to **Nov 17 BMO**
+  (confirmed per one outlet), but Earnings Whispers shows Nov 11 and
+  Wall Street Horizon lists Nov 12 as unconfirmed - genuine source
+  conflict, not resolved by this search. Consensus estimate is EPS
+  \$1.68 on revenue of \$25.2B (+12%). No new insider or 13F activity
+  found beyond what was already logged 11-10 (the pre-earnings legal-
+  officer sale). Not a pick - watch-list only pending a confirmed
+  earnings date.
+- **RCL (Royal Caribbean)** - \$339.85, RSI 71.02 (screen: 70.78),
+  +2.01%/5d, +23.89%/20d, volume 0.73x - low. Real fundamental
+  support: Q3 2026 beat adjusted EPS estimates and raised the full-year
+  outlook despite a revenue miss, targets 2027 EPS above \$20 on 4.5%
+  capacity growth, and announced a \$3B investment for a 50% stake in
+  Sandals and Beaches Resorts. Set against that: a genuine **cluster
+  of insider sales** - five separate Form 4 dispositions between
+  2026-10-28 and 2026-11-06 (director Wilhelmsen twice, director Fain,
+  and SVP/CLO Lake twice), all during the same rally the fundamentals
+  describe. None individually large, but five sales with zero
+  offsetting buys in under two weeks is a real counter-signal against
+  chasing the strength. 13F: thin/stale (Maplelane, Coatue, Freshford
+  - all from 2025 or earlier, nothing dated to this quarter). Not a
+  pick given the insider-selling cluster - flagged as a caution, not a
+  buy case, despite the real fundamentals.
+- **IDXX (IDEXX Laboratories)** - \$696.64, RSI 71.98 (screen: 71.46),
+  -0.27%/5d (real, slightly negative), +31.69%/20d (the largest
+  20d/5d gap of any name checked today), volume 0.41x - low, no fresh
+  buying. Another stale-20d-window case. No November-dated company
+  news found; the most recent earnings on record is Aug 4, 2026
+  (stale). One source notes IDXX closed down 4.0% on Nov 5 on
+  above-average volume with no identified cause - unexplained, worth
+  flagging rather than guessing at a reason. Insider: routine option
+  exercises and tax-withholding dispositions from several EVPs in
+  September, nothing resembling a buy signal. 13F: thin/stale (H&Q
+  Healthcare Investors, Sustainable Growth Advisers - all 2001-2014).
+  Not a pick - the nuance pattern plus an unexplained prior-week drop
+  argue against it.
+- **GEHC (GE HealthCare)** - \$83.65, RSI 73.99 (screen: 72.60),
+  -2.52%/5d (real, the largest decline of the eight deepened names),
+  +22.17%/20d, volume 0.54x - low. Another stale-20d-window case, and
+  the clearest one today: a real recent decline under an elevated
+  score. No November-dated catalyst found; most recent earnings on
+  record is Oct 28 (not independently reconfirmed today). One source
+  mentions a CFO change (William Grogan replacing Jay Saccaro) but its
+  date could not be confirmed. Insider activity shows a Sept 2026
+  cluster (CFO Grogan's \$0 "A" stock-award entry, consistent with a
+  CFO transition, plus routine Sept 3 tax-withholding dispositions
+  from the CEO and several other executives) - nothing recent or
+  buy-signal-shaped. 13F: thin/stale. Not a pick given the real 5-day
+  decline.
+
+### Bottom line
+
+Crypto's 4-day selloff is easing - all 8 pairs still negative but by a
+smaller margin than yesterday, with RSI climbing back toward neutral
+across the board - no fresh catalyst needed or found, this reads as
+stabilization rather than a new development. On the stock side, **CLX**
+is today's one genuinely new name: a confirmed earnings beat, a real
+volume spike, and - unusually for this log - a genuine open-market
+insider buy, all pointing the same direction, capped at medium only by
+an already-extreme RSI. **APP** and **MSI** both continue to clear
+medium confidence on catalysts confirmed in prior cycles, with MSI's
+RSI now elevated for a second straight day. Four names surfaced today
+with a real negative counter-signal and are explicitly NOT picks:
+**BRK.B** (soft headline earnings vs. aggressive buybacks - still an
+earnings-quality caution, not a reason to chase the 20d-driven score),
+**DIS** (rally stalled, earnings date genuinely unconfirmed across
+sources), **RCL** (strong fundamentals undercut by a real five-sale
+insider cluster with zero offsetting buys), and **GEHC**/**IDXX** (both
+a repeat of the stale-20d-window scoring nuance, with real 5-day
+declines under the hood). No real account activity since the last
+entry. This is advisory context only, not investment advice presented
+as certain - verify independently before acting on anything above.
+
