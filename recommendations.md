@@ -3239,3 +3239,203 @@ declines under the hood). No real account activity since the last
 entry. This is advisory context only, not investment advice presented
 as certain - verify independently before acting on anything above.
 
+## 2026-11-12 - daily cycle
+
+**Advisory only. Nothing here executes - verify before acting.** This
+is the normal 8am ET weekday trigger (v5, connector-permission-fixed
+session). `git pull` found no new commits since yesterday's entry.
+
+### Outcome tracking - a real KDPx sale, fully closing out the 2026-11-02 position
+
+Pulled the ledger with `start` set just after yesterday's checkpoint
+(2026-11-08 17:31:52 UTC). 4 entries found, resolving to 1 real event:
+
+- **2026-11-11 19:12:30 UTC: sold 7 shares of `KDPx`** (tokenized Keurig
+  Dr Pepper) for ~EUR238.65 total (~EUR34.09/share implied, via a
+  KDPx->ZUSD->ZEUR routing - the sell-side mirror of the usual buy
+  pattern). Balance after the sale is 0.000001 KDPx (rounding dust) -
+  this fully closes the position. It matches the 7 KDPx bought on
+  2026-11-02 at ~EUR32.72/share (logged that day) - a complete round
+  trip, ~9 days held, for an implied gain of roughly +4.2% before fees.
+  That 2026-11-02 buy landed on a Watch-list mention, not "Today's
+  picks" - KDP was momentum-flagged but held back for lack of a
+  confirmed catalyst at the time. This agent only ever issues buy-side
+  candidates, so a sell is never scored against advice that doesn't
+  exist; logged here plainly as the position's real outcome.
+
+### Crypto - RSI keeps drifting lower even as the coarser window turns flat-to-positive
+
+| Pair | 1h/48h chg | 4h/48h chg | RSI(14,4h) | Vol ratio (24h vs 7d avg) | SMA state |
+|---|---|---|---|---|---|
+| BTC/EUR | -0.87% | +0.20% | 37.5 | 0.56x | fast<slow |
+| ETH/EUR | -2.64% | +0.48% | 32.5 | 1.03x | fast<slow |
+| SOL/EUR | -1.84% | +0.79% | 35.8 | 0.93x | fast<slow |
+| XRP/EUR | -2.60% | +0.18% | 31.7 | 0.60x | fast<slow |
+| ADA/EUR | -2.37% | -0.31% | 39.3 | 0.71x | fast<slow |
+| LINK/EUR | -3.83% | -2.18% | 34.8 | 1.08x | fast<slow |
+| SUI/EUR | -2.16% | -0.58% | 39.4 | 0.81x | fast<slow |
+| LTC/EUR | -3.17% | -1.56% | 36.4 | 0.87x | fast<slow |
+
+A genuine split today: the finer 1h/48h window is still negative for
+all 8 (a fresh overnight dip), while the coarser 4h/48h window has
+flipped mildly positive for BTC, ETH, SOL, and XRP - a small intraday
+bounce that isn't yet enough to show up in the longer window. RSI(14,4h)
+nonetheless *fell* further for every pair versus yesterday (e.g. BTC
+43.0->37.5, ADA 46.5->39.3, LINK 44.5->34.8) since it's a trailing
+average and the latest candles are still below-average even where the
+raw price has ticked up. `momentum_trigger` remains `flagged: false`
+for all 8 (nothing crosses the +6% floor either way). A WebSearch for
+a fresh dated catalyst found nothing specific to today - results
+skewed to undated aggregator pages or clearly older (mid-2026)
+coverage - so no new story to report; this reads as continued
+choppiness within the same multi-day weak patch, not a new
+development. None clears the bar.
+
+### Stocks - S&P 500 screen (top 20 of 505) - a mostly new top-20 roster, and a real correction to yesterday's IDXX read
+
+`screen_sp500` returned a top-20 led by LLY (score 3, the highest
+score today - no score-4 name); BRK.B, COST, DIS, LOW, MCK, CME, APP,
+ICE, MAR, REGN, MSI, SPG, CAH, GWW, FAST, EW, BDX, IDXX, KDP all also
+at score 3. Most of yesterday's top-20 (CLX, RCL, GEHC, MCD, HLT, PSA,
+NDAQ) rolled off; BRK.B, DIS, LOW, MCK, APP, MSI, SPG, CAH, GWW, EW,
+BDX, and IDXX carried over. `screen_sp500`'s `errors` field again
+flagged `HOLX: no bars returned`.
+
+Deepened **BRK.B, APP, MSI, IDXX, LLY, REGN, ICE, KDP** - four
+continuing names plus three fresh score-3 entrants (LLY, REGN, ICE),
+plus KDP given today's real outcome-tracking event above.
+
+**Cross-check**: price, `pct_change_5d`, `pct_change_20d`, and volume
+ratio all matched exactly between `screen_sp500` and
+`compute_stock_signals` for all 8 deepened names - no repeat of the
+2026-10-24 bug. RSI differed by up to ~0.4pt, within the known benign
+range.
+
+- **IDXX (IDEXX Laboratories) - correcting yesterday's read.** \$702.59,
+  RSI 72.99 (screen: 72.20), +4.75%/5d (a real reversal from
+  yesterday's -0.27%), +28.40%/20d, volume 0.41x - low (no fresh spike
+  today specifically). Yesterday's entry called this a "stale-20d-
+  window nuance" with "no November-dated catalyst" and "most recent
+  earnings on record Aug 4" - **that was wrong**, a search-coverage
+  gap rather than a real data gap. Today's search found the real
+  driver: IDXX reported Q3 2026 results on **Nov 2** - adjusted EPS
+  \$3.96-3.98 vs \$3.72 consensus, revenue \$1.21B vs \$1.11B consensus,
+  and the FY2026 outlook raised for the third time - and the stock
+  jumped ~21.9-22% that single day. The 20d/5d gap is the real move
+  working its way out of the 5-day window, the same pattern seen
+  repeatedly with APP/MSI/FISV, not a scoring artifact. Insider:
+  routine option exercises/tax-withholding only, nothing fresh. 13F:
+  thin/stale (unchanged from 11-11). **Medium** - real, large,
+  dated catalyst now confirmed; capped below high because today's
+  volume shows no fresh buying and the bulk of the move already
+  happened 8 trading days ago.
+- **LLY (Eli Lilly)** - \$1437.29, RSI 70.71 (screen: 70.29), +5.32%/5d,
+  +14.84%/20d, volume 0.51x - low. Real catalyst: full-year revenue
+  guidance raised to \$91-92B, and Cantor Fitzgerald raised its price
+  target from \$1,440 to \$1,600 on Nov 2. Sources show the stock near
+  all-time highs, with some pullback between Nov 3 (\$1409) and Nov 9
+  (\$1359) before today's \$1437.29 - choppy but net higher. Insider:
+  mixed - CEO Ricks' Nov 3 disposal was a **gift** (code "G", no
+  market signal), but GC Hakim sold 5,000 sh @ \$1,402.52 on Nov 2, a
+  genuine sale during the rally. Several routine option-exercise
+  grants otherwise. 13F: thin/stale (mostly small, dated filers).
+  **Medium** - real guidance raise and analyst-target increase, but a
+  real insider sale alongside it and RSI above 70 argue against high.
+- **REGN (Regeneron)** - \$959.41, RSI 69.66 (screen: 70.02), +6.26%/5d,
+  +20.48%/20d, volume 1.06x. Real, large Q3 beat: revenue \$5.1B (+36%
+  YoY), adjusted EPS \$20.07 vs \$16.08 consensus, record segment sales
+  for Dupixent, EYLEA HD, and Libtayo. \$2.30B repurchased YTD through
+  Q3. Forward catalysts: an FDA decision on cemdisiran expected this
+  month, and a Jefferies healthcare conference presentation Nov 17.
+  Insider: one real sale (EVP Commercial McCourt, 1,132 sh @ \$869.43,
+  Oct 30), otherwise routine option exercises/gifts. 13F: thin/stale.
+  **Medium** - real, large, dated beat; capped by RSI near 70 and the
+  size of the 20d move already banked.
+- **APP (AppLovin)** - \$404.77, RSI 73.79 (screen: 74.37), +13.67%/5d
+  (down sharply from yesterday's 45.54% as the big post-earnings days
+  keep rolling out of the window), +44.93%/20d, volume 0.46x - low.
+  Seventh straight cycle on the already-confirmed Nov 4 beat; no fresh
+  dated coverage found today (search results were stale/undated).
+  Insider: no new activity since the Oct 29 grant cluster. 13F:
+  thin/stale. **Medium**, same confirmed basis, chasing-risk persists
+  even as the headline 5d number keeps shrinking.
+- **MSI (Motorola Solutions)** - \$535.22, RSI 82.61 (screen: 82.19) -
+  a new extreme, third straight cycle above 80 and the highest reading
+  yet, +3.52%/5d, +17.27%/20d, volume 0.53x - low. No fresh dated news
+  found today; search surfaced an undated \$1.5B D-Fend Solutions
+  acquisition and an Evercore ISI target raise to \$575 (from \$550),
+  neither confirmed to a specific November date. Insider: no new
+  activity since the Nov 6 mixed cluster already logged. 13F:
+  thin/stale. **Medium**, with the chasing-risk warning now
+  stronger than on any prior cycle given RSI 82.6.
+
+**BRK.B, ICE, and KDP stay off today's picks** - see Watch list detail
+below.
+
+**Data gaps:** no order-book-imbalance signal; insufficient history
+for a 20/50 SMA crossover on any deepened ticker; HOLX unpriceable
+again. `get_insider_activity` failed again for BRK.B ("no SEC CIK
+found for ticker") - the same known gap, not retried further. 13F
+mentions for all 8 names stayed the known noisy proxy, mostly decades-
+old or unrelated filers. Cross-check confirmed clean (see above).
+
+### Watch list
+
+- **BRK.B (Berkshire Hathaway)** - \$588.24, RSI 79.28, +2.78%/5d (a
+  real acceleration from yesterday's 0.73%), +11.90%/20d, volume
+  0.81x. No fresh dated company news confirmed today. One low-
+  reliability aggregator (relative-timestamped, not date-confirmed)
+  mentioned Berkshire "restarting stock buybacks after nearly two
+  years" and CEO Greg Abel "committing salary to buying company
+  stock" - plausible given the already-confirmed Nov 7 buyback
+  activity, but not independently verified to a specific date, so not
+  treated as a new confirmed catalyst. Still sits on the same
+  earnings-quality caution logged 11-10/11-11 (weak headline
+  operating/net earnings against aggressive capital deployment). No
+  SEC CIK for insider lookup (recurring, known).
+- **ICE (Intercontinental Exchange)** - \$180.59, RSI 72.65,
+  +3.79%/5d, +14.00%/20d, volume **1.34x** - the highest volume ratio
+  among today's deepened names. No fresh earnings or deal news found;
+  only a routine Nov 17 investor-conference presentation announcement.
+  Insider: a real same-day sell cluster on **Nov 4** - Chief Accounting
+  Officer Namkung, President Jackson, and Global Head of Clearing &
+  CRO King all filed Form 4 sales around \$175/share, the same pattern
+  of multi-insider selling-during-a-rally seen on RCL (11-11). 13F:
+  thin/stale (old/unrelated filers). Not a pick given the real insider-
+  selling cluster and lack of a fresh catalyst.
+- **KDP (Keurig Dr Pepper)** - \$38.25, RSI 69.89, +3.69%/5d,
+  +11.91%/20d, volume 0.50x. Real Q3 beat (adj. EPS \$0.66 vs ~\$0.62-
+  0.63 consensus) on Nov 3, but the stock actually **fell ~4.9%** that
+  day despite the beat, because full-year legacy-coffee growth
+  guidance was cut (to 3-5% from 4-6%) - a genuine "beat but guide
+  down" reaction. Since then it has rallied back toward its 52-week
+  high. Company also advanced its planned coffee/beverage business
+  separation (new Coffee-unit CEO named). Directly relevant context for
+  today's outcome-tracking event above (the user's 7-share KDPx
+  position, bought 11-02, was fully sold 11-11). Insider: no fresh
+  activity since the September RSU-vesting cluster already on record.
+  13F: thin/stale.
+
+### Bottom line
+
+Crypto stayed choppy rather than resolving either way - the 1h/48h
+window is still negative for all 8 pairs, a shorter 4h/48h window
+flipped mildly positive for four of them, and RSI kept drifting lower
+regardless; no fresh catalyst found and no trigger crossed. On stocks,
+today's real news was **IDXX**: yesterday's "stale-window, no catalyst"
+read was wrong, and a thorough search today surfaced the real Nov 2
+beat-and-raise (stock +~22% that day) driving the whole move - a
+correction worth being explicit about rather than quietly fixing.
+**LLY** and **REGN** both clear medium confidence today on real,
+large, dated Q3 beats with raised guidance/record sales respectively.
+**APP** and **MSI** continue on their already-confirmed catalysts,
+with MSI's RSI now at a fresh extreme (82.6) across a third straight
+cycle. **BRK.B** stays a watch-only earnings-quality caution, and
+**ICE** joins **RCL** (11-11) as a second real insider-selling-cluster-
+during-a-rally case this week - worth tracking as a pattern. The one
+real account action since the last entry was a full exit of the 7-share
+KDPx position (bought 11-02, sold 11-11, +~4.2% before fees) - KDP
+itself had a mixed "beat but guide down" week. This is advisory
+context only, not investment advice presented as certain - verify
+independently before acting on anything above.
+
