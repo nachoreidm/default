@@ -3439,3 +3439,191 @@ itself had a mixed "beat but guide down" week. This is advisory
 context only, not investment advice presented as certain - verify
 independently before acting on anything above.
 
+## 2026-11-13 - daily cycle
+
+**Advisory only. Nothing here executes - verify before acting.** This
+is the normal 8am ET weekday trigger (v5, connector-permission-fixed
+session). `git pull` found no new commits since yesterday's entry.
+
+### Outcome tracking - no new real activity
+
+Pulled the ledger with `start` set just after yesterday's last real
+event (2026-11-11 19:12:30 UTC, the KDPx sale). 1 entry found: a
+`type: "transfer"`, `subtype: "useraccounttransfer"` of -200 ZEUR on
+2026-11-12 - not a buy/sell decision, correctly excluded. No real
+trade/tokenized-equity activity since the last entry.
+
+### Crypto - a sharper leg down; BTC's RSI hits a new low for this log
+
+| Pair | 1h/48h chg | 4h/48h chg | RSI(14,4h) | Vol ratio (24h vs 7d avg) | SMA state |
+|---|---|---|---|---|---|
+| BTC/EUR | -5.48% | -5.90% | 27.2 | 1.60x | fast<slow |
+| ETH/EUR | -3.90% | -5.21% | 31.7 | 0.97x | fast<slow |
+| SOL/EUR | -3.24% | -4.54% | 38.3 | 1.09x | fast<slow |
+| XRP/EUR | -2.59% | -4.17% | 37.2 | 1.37x | fast<slow |
+| ADA/EUR | -2.05% | -3.57% | 45.1 | 1.58x | fast<slow |
+| LINK/EUR | -2.42% | -4.25% | 43.4 | 1.30x | fast<slow |
+| SUI/EUR | -2.81% | -4.54% | 44.8 | 0.97x | fast<slow |
+| LTC/EUR | -3.16% | -3.87% | 43.8 | 1.20x | fast<slow |
+
+The brief intraday bounce noted yesterday fully reversed - all 8 pairs
+are meaningfully more negative again on both windows. **BTC/EUR's RSI
+(27.2) is the lowest reading this log has recorded for BTC specifically**
+(previous low: 30.6 on 11-09) and its 4h/48h change (-5.90%) is the
+closest any pair has come to the 6% floor without crossing it -
+`momentum_trigger` only ever fires upward, so this stays `flagged:
+false` regardless of magnitude. A WebSearch for a fresh dated catalyst
+found nothing specific to today or this week - results were a mix of
+undated aggregator pages and clearly older (January/June 2026)
+selloff coverage - so no new story to report. None clears the bar.
+
+### Stocks - S&P 500 screen (top 20 of 505) - APP's momentum signal is now a stale-window case too
+
+`screen_sp500` returned a top-20 led by BRK.B (score 3, the highest
+score today - no score-4 name); COST, MCK, CME, APP, MSI, SPG, CAH,
+GWW, FAST, EW, BDX, IDXX, XEL, RSG, ROP, CBOE, FISV, EXR, CPAY all also
+at score 3. FISV and CPAY re-entered the top 20 (last seen 11-10);
+BRK.B, APP, MSI, and IDXX carried over from yesterday; CLX, LLY, REGN,
+ICE, KDP, DIS, RCL, GEHC, and all of yesterday's other names rolled
+off. `screen_sp500`'s `errors` field again flagged `HOLX: no bars
+returned`.
+
+Deepened **BRK.B, APP, MSI, IDXX, XEL, FISV, ROP, CBOE** - four
+continuing names plus four fresh/returning score-3 entrants.
+
+**Cross-check**: price, `pct_change_5d`, `pct_change_20d`, and volume
+ratio all matched exactly between `screen_sp500` and
+`compute_stock_signals` for all 8 deepened names - no repeat of the
+2026-10-24 bug. RSI differed by up to ~0.5pt, within the known benign
+range.
+
+- **CBOE (Cboe Global Markets)** - \$368.89, RSI 73.27 (screen: 72.78),
+  +4.42%/5d, +17.12%/20d, volume 1.10x. Real Q3 beat: revenue up 19%
+  YoY to \$1.36B, strong options volumes, and the S&P index-license
+  agreement secured through 2051 - a durable, multi-decade commercial
+  relationship, not a one-quarter number. Minor headwind: a \$1.4M
+  impairment winding down Trade Alert/FT Options (immaterial next to
+  the headline beat). Insider: a director gift (code "G", no market
+  signal) on Nov 4 and a routine Oct 12 option exercise; an older Aug
+  sale, not fresh. 13F: thin/stale (old/unrelated filers). **Medium** -
+  real, large, durable beat; capped below high by RSI in the low 70s
+  and no confirming insider buy.
+- **MSI (Motorola Solutions)** - \$530.40, RSI 76.99 (screen: 76.998) -
+  cooling from yesterday's extreme 82.6 but still elevated, +3.09%/5d
+  (down from 6.11%), +14.52%/20d, volume 0.47x - low. No fresh dated
+  news found today. Insider: no new activity since the Nov 6 mixed
+  cluster already logged. 13F: thin/stale. **Medium** - ninth straight
+  cycle on the confirmed Nov 4 beat+raise, with RSI now cooling rather
+  than extending, a healthier sign than yesterday's fresh extreme.
+- **IDXX (IDEXX Laboratories)** - \$698.02, RSI 71.22 (screen: 70.67),
+  +3.25%/5d (down slightly from 4.75%), +24.57%/20d, volume 0.61x -
+  low. Continuation of the confirmed Nov 2 beat-and-raise (corrected
+  into this log yesterday). No new information found today. Insider:
+  no new activity. 13F: thin/stale. **Medium**, same confirmed basis,
+  cooling slightly rather than extending.
+- **APP (AppLovin) - downgraded to Watch list, a new case of the
+  stale-20d-window pattern.** \$393.68, RSI 70.39 (screen: 70.45),
+  +0.63%/5d - now essentially flat, the post-earnings spike has fully
+  rolled out of the 5-day window - +47.93%/20d (still large because the
+  20d window still spans back to the Nov 4 spike), volume **0.30x** -
+  the lowest volume reading checked today, confirming no fresh
+  interest. This is the same pattern already logged repeatedly for
+  other names (BRK.B/DIS/GEHC/IDXX on 11-11, ROP below) - the *screen's*
+  momentum flag is now driven entirely by the stale 20d window, not
+  any real recent move, so it moves to the Watch list rather than
+  staying a "Today's pick" after eight straight cycles there. Insider:
+  no new activity since Oct 29. 13F: thin/stale.
+- **BRK.B (Berkshire Hathaway)** - \$589.83, RSI 79.56 (screen: 80.03),
+  +3.32%/5d (continuing to accelerate: 0.73%->2.78%->3.32% over the
+  last 3 cycles), +10.87%/20d, volume 0.89x. No fresh dated company
+  news confirmed today - the same unverified, relative-timestamped
+  aggregator claim about a buyback restart and CEO Abel's salary
+  commitment resurfaced again, still not tied to a specific date, so
+  still not treated as a new catalyst. Same earnings-quality caution
+  on record since 11-10. No SEC CIK for insider lookup (recurring,
+  known). Not a pick.
+- **XEL (Xcel Energy)** - \$81.50, RSI 69.30 (screen: 68.61), +2.30%/5d,
+  +6.80%/20d, volume **2.05x** - the only name above the 2x flag today.
+  Real, but mixed: a genuine Q3 beat (ongoing/GAAP EPS \$1.52, +9.4%
+  vs. consensus) and a new 2027 EPS outlook (\$4.48-4.62), but also a
+  real dilutive overhang - Xcel announced a plan in October to
+  potentially offer up to \$6B in new common stock, which plausibly
+  explains today's elevated volume better than the beat does. Insider:
+  CEO Frenzel's Nov 4 disposal was a gift (code "G", no market
+  signal); a routine Sept 30 director-grant cluster otherwise. 13F:
+  thin/stale (decades-old filers). Not a pick given the real dilution
+  overhang alongside the volume spike.
+- **FISV (Fiserv)** - \$61.50, RSI 72.04 (screen: 71.31), -2.19%/5d
+  (real, negative - the huge early-November rally is now reversing in
+  the 5-day window), +29.34%/20d, volume 0.77x. Real new detail on the
+  already-logged Nov 3 beat: the GAAP print included an \$11.17/share
+  loss from a \$6.45B noncash goodwill impairment charge, and the
+  company doubled its Project Elevate savings target to \$1B while
+  planning a \$500M Q4 buyback - real substance, but the stock is now
+  giving back some of the +26%-in-a-week move that followed. Insider:
+  a routine Sept 30 director-RSU-grant cluster at a flat price, nothing
+  fresh. 13F: thin/stale. Not a pick given the real 5-day decline.
+- **ROP (Roper Technologies)** - \$477.87, RSI 70.68 (screen: 70.58),
+  +0.27%/5d - essentially flat, +24.86%/20d - another real case of the
+  stale-20d-window pattern (same as APP above). No fresh dated news
+  found. Insider: a **real, large sale** - President & CEO Hunn sold
+  22,624 shares @ \$491.88 on Nov 5 (~\$11.1M) - by far the largest
+  single insider transaction size checked this cycle. Otherwise
+  routine CFO/CLO option exercises. 13F: thin/stale. Not a pick given
+  the stale-window pattern plus a substantial real insider sale.
+
+**BRK.B, APP, XEL, FISV, and ROP all stay off today's picks** - see
+Watch list detail below.
+
+**Data gaps:** no order-book-imbalance signal; insufficient history
+for a 20/50 SMA crossover on any deepened ticker; HOLX unpriceable
+again. `get_insider_activity` failed again for BRK.B ("no SEC CIK
+found for ticker") - the same known gap. 13F mentions for all 8 names
+stayed the known noisy proxy, mostly decades-old or unrelated filers.
+Cross-check confirmed clean (see above).
+
+### Watch list
+
+- **BRK.B (Berkshire Hathaway)** - real price acceleration for a third
+  straight cycle (+3.32%/5d), but still no confirmed fresh catalyst
+  beyond the same earnings-quality caution and an unverified buyback-
+  restart claim.
+- **APP (AppLovin)** - the post-earnings spike has fully rolled out of
+  the 5-day window (+0.63%/5d, volume 0.30x) - now a stale-20d-window
+  case rather than a real continuing momentum story, after eight
+  straight cycles as a pick.
+- **XEL (Xcel Energy)** - highest volume today (2.05x), but a real
+  \$6B dilutive share-offering overhang plausibly explains the volume
+  better than the Q3 beat does.
+- **FISV (Fiserv)** - real substance behind the already-logged Nov 3
+  beat (GAAP goodwill impairment, doubled savings target, new
+  buyback), but the stock is now giving back some of its post-earnings
+  rally (-2.19%/5d).
+- **ROP (Roper Technologies)** - another stale-20d-window case, plus a
+  genuine ~\$11.1M CEO stock sale on Nov 5 - the largest single
+  insider transaction checked this cycle.
+
+### Bottom line
+
+Crypto's choppiness resolved to the downside today: all 8 pairs are
+meaningfully more negative than yesterday on both windows, and BTC's
+RSI (27.2) is now the lowest this log has recorded for BTC
+specifically - still no trigger, since the floor only fires upward,
+and no fresh dated catalyst was found despite a dedicated search. On
+stocks, **CBOE** is today's one fresh name, clearing medium confidence
+on a real, durable Q3 beat (including a 2051 S&P license extension).
+**MSI** and **IDXX** continue at medium, both cooling slightly rather
+than extending - a healthier sign than yesterday's fresh RSI extremes.
+The more notable development is methodological: **APP** moves to the
+Watch list after eight straight cycles as a pick, now that its 5-day
+window has fully reset to flat and its momentum score is driven purely
+by the stale 20d window - the same pattern already seen on
+BRK.B/DIS/GEHC/IDXX, now applying to the name that originally drove
+this log's "chasing-risk" framing. **ROP** joins that same stale-
+window list with a substantial real insider sale (~\$11.1M) on top.
+**XEL** posted the day's only above-2x volume reading, but a real
+dilutive \$6B equity-offering overhang is the more likely explanation
+than its Q3 beat. No real account activity since the last entry. This
+is advisory context only, not investment advice presented as certain -
+verify independently before acting on anything above.
+
