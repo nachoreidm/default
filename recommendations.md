@@ -3627,3 +3627,244 @@ than its Q3 beat. No real account activity since the last entry. This
 is advisory context only, not investment advice presented as certain -
 verify independently before acting on anything above.
 
+## 2026-11-16 - daily cycle
+
+**Advisory only. Nothing here executes - verify before acting.** This
+is the normal 8am ET weekday trigger (v5, connector-permission-fixed
+session), first firing since Friday (weekend skipped, as designed).
+`git pull` found no new commits since Friday's entry.
+
+### Outcome tracking - the 2026-11-06 currency-conversion gap is resolved: no purchase was ever made
+
+Caught and fixed a checkpoint error before writing this section: the
+first `kraken_account_get_ledger` call this cycle used an incorrectly
+computed `start` (far too late - near "now" rather than just after
+Friday's last reconciled entry), which would have silently skipped
+several days. Re-ran with the correct `start` set just after Friday's
+last real action (2026-11-13 11:28:41 UTC, the -200 ZEUR transfer). 4
+entries found:
+
+- **2026-11-15 ~01:51:52 UTC, `type: "staking"`**: a tiny ADA reward
+  accrual (+0.00000002 ADA) - excluded.
+- **2026-11-14 17:05:00 UTC, `type: "transfer"`, `subtype:
+  "useraccounttransfer"`**: -200 ZEUR - not a buy/sell decision,
+  correctly excluded. This specific recurring transfer size/pattern has
+  now appeared repeatedly (11-06, 11-12, 11-14) - consistently excluded
+  each time as non-trade activity, not a pattern this agent interprets
+  further.
+- **2026-11-14 10:20:19 UTC: a ZUSD->ZEUR currency conversion** - spent
+  USD216.50, received EUR193.73. **This resolves the open gap first
+  flagged 2026-11-06**: that day, EUR195.78 was converted to
+  USD216.5075 with no further leg visible at the time, and every
+  subsequent cycle through 2026-11-13 re-confirmed no purchase leg had
+  appeared. This new entry is that same USD216.50 converting back to
+  EUR - **no tokenized-asset purchase was ever made with it**. The
+  round trip (EUR195.78 -> USD216.5075 -> EUR193.73) nets to a loss of
+  about EUR2.05 (~-1.0%) from FX movement/spread alone, with no asset
+  ever acquired. Logged plainly as the gap's real resolution: a dead
+  end, not a hidden purchase.
+
+None of today's 4 entries are a buy/sell decision to match against
+advice. No real trade/tokenized-equity activity since Friday.
+
+### Crypto - the selloff deepened over the weekend; ADA posts a record volume spike for this log
+
+| Pair | 1h/48h chg | 4h/48h chg | RSI(14,4h) | Vol ratio (24h vs 7d avg) | SMA state |
+|---|---|---|---|---|---|
+| BTC/EUR | -3.78% | -1.93% | 30.9 | 1.41x | fast<slow |
+| ETH/EUR | -4.89% | -1.76% | 35.5 | 1.27x | fast<slow |
+| SOL/EUR | -5.53% | -3.33% | 34.6 | 1.45x | fast<slow |
+| XRP/EUR | -3.55% | -1.57% | 40.0 | 0.96x | fast<slow |
+| ADA/EUR | -5.47% | -2.74% | 35.5 | **2.88x** | fast<slow |
+| LINK/EUR | -4.02% | -1.27% | 37.1 | 0.62x | fast<slow |
+| SUI/EUR | -5.81% | -2.65% | 37.4 | 1.75x | fast<slow |
+| LTC/EUR | **-7.17%** | -3.40% | 32.4 | 1.22x | fast<slow |
+
+Two genuine new extremes for this log: **LTC/EUR's 1h/48h change
+(-7.17%)** is the largest decline this log has recorded for LTC on that
+window (previous worst: -3.17%, 11-13), and **ADA/EUR's volume ratio
+(2.88x)** is the first time any crypto pair has crossed the 2x flag in
+this log (previous high: 1.97x, 11-06). Despite both, `momentum_trigger`
+stays `flagged: false` for all 8 - it only ever fires upward, regardless
+of magnitude. A WebSearch for ADA specifically found a real, dated
+explanation, though not for today: a CoinMarketCap summary attributes
+an 8% ADA drop on Nov 5 to broad market-wide deleveraging, not
+anything Cardano-specific, and notes ADA fell 24.5% over the 30 days to
+Nov 8 versus Bitcoin's 8.6% - the weakest major over that stretch. A
+general crypto-selloff WebSearch found nothing dated to this specific
+weekend. BTC's RSI (30.9) is actually less extreme than Friday's 27.2
+even though price fell further - the single worst period is rolling
+out of the 14-period lookback, a known RSI mechanic, not a
+contradiction. None clears the bar.
+
+### Stocks - S&P 500 screen (top 20 of 505) - MSI and IDXX join APP in the stale-20d-window pattern
+
+`screen_sp500` returned a top-20 led by BRK.B (score 3, the highest
+score today - no score-4 name, RSI 80.96 a new high for BRK.B); COST,
+KO, MCK, CME, APP, MSI, SPG, CAH, EW, BDX, IDXX, RSG, ROP, CBOE, FISV,
+EXR, AEE, CPAY, VLTO all also at score 3. KO and VLTO are new entrants;
+BRK.B, APP, MSI, IDXX, ROP, CBOE, and FISV carried over from Friday.
+`screen_sp500`'s `errors` field again flagged `HOLX: no bars returned`.
+
+Deepened **BRK.B, CBOE, MSI, IDXX, KO, COST, VLTO, EW** - four
+continuing names plus four fresh entrants.
+
+**Cross-check**: price, `pct_change_5d`, `pct_change_20d`, and volume
+ratio all matched exactly between `screen_sp500` and
+`compute_stock_signals` for all 8 deepened names - no repeat of the
+2026-10-24 bug. RSI differed by up to ~0.9pt (BRK.B), within the known
+benign range.
+
+- **CBOE (Cboe Global Markets)** - \$375.42, RSI 75.32 (screen: 74.77),
+  +6.42%/5d (a real further acceleration from Friday's already-strong
+  4.42%), +22.50%/20d, volume 0.81x. Still a genuinely extending story,
+  not a stale-window case - the Q3 beat (revenue +19% YoY to \$1.36B,
+  options ADV +14% to 21.3M contracts, S&P license through 2051)
+  continues to confirm. New detail found today: a \$14M incremental
+  credit-loss provision tied to CAT (Consolidated Audit Trail) notes
+  receivable in Q3 - a real but small item next to the headline beat.
+  Insider: no new activity since the Nov 4 gift already logged. 13F:
+  thin/stale. **Medium** - real, large, still-extending beat; capped
+  by RSI in the mid-70s.
+- **KO (Coca-Cola)** - \$99.25, RSI 73.79 (screen: 73.55), +3.35%/5d,
+  +6.24%/20d, volume 0.91x. Real Q3 beat: adjusted EPS \$0.91 vs \$0.88
+  consensus, revenue +7% YoY to \$13.4B vs \$12.92B consensus, and FY26
+  guidance raised (sources differ on exact framing - one cites EPS
+  raised to \$3.33 from \$3.27-3.30, another cites adjusted-earnings-
+  growth outlook raised to 8-9% from 7-8% - directionally consistent,
+  not reconciled further). Real caution: HSBC downgraded to "Hold"
+  after the rally, and management flagged the planned sale of
+  Coca-Cola Beverages Africa as a headwind to 2027 results, plus
+  rising logistics/transportation costs. 13F found something more
+  substantive than the usual noise: **Berkshire Hathaway itself**
+  (CIK 0001067983) has filed 13F-HR mentioning Coca-Cola repeatedly and
+  recently (most recently Aug 14, 2026) - a well-known, longstanding
+  real holder, not a fresh buy signal, but a credible one; same noisy-
+  proxy caveat still applies (mentions, not a net-flow figure).
+  Insider: routine option exercises (EVPs Quan, Perez), no real
+  sale/buy signal. **Medium** - real beat, real guidance raise, a real
+  (if mixed) analyst reaction, and a credible (if longstanding) 13F
+  holder; capped below high by the HSBC downgrade and the 2027
+  Africa-sale headwind.
+- **COST (Costco)** - \$1,106.21, RSI 77.16 (screen: 76.07), +3.75%/5d,
+  +11.12%/20d, volume 0.73x. Real strength: October net sales +12.6%
+  YoY to \$24.50B, comp sales +11.1% (+7.3% ex-gas/FX), a quarterly
+  dividend declared (\$1.47/share, paid Nov 13), and two real analyst
+  target raises (JPMorgan to \$1,150 from \$1,020 on Nov 5; Tigress to
+  \$1,250 from \$1,065 on Oct 15). Real caution: two genuine insider
+  **sales** during the rally - EVP George sold 756 sh @ \$1,096.01 (Nov
+  12) and EVP Jones sold 900 sh @ \$1,083.95 (Nov 11) - modest size
+  relative to the company, but real. 13F: one small, obscure recent
+  filer (ZEGA Investments, Nov 4), nothing substantive. **Medium** -
+  real, broad-based sales strength and real analyst upgrades; capped
+  by RSI in the high 70s and the two real insider sales.
+- **EW (Edwards Lifesciences)** - \$107.15, RSI 79.66 (screen: 80.33),
+  +2.33%/5d, +22.85%/20d, volume 0.65x. Real Q3 beat-and-raise (Nov 4):
+  sales +10.5% to \$1.72B (+11.2% constant currency), adjusted EPS
+  \$0.80 vs \$0.74 consensus, TMTT segment +44%, full-year outlook
+  raised. Real forward-looking caution found today: coverage frames
+  this as a name "priced for good news" going into the print rather
+  than a contrarian setup, and flags a live debate over whether TAVR
+  share gains have plateaued as moderate-AS becomes "the next
+  question" for the franchise - a real, unresolved strategic question,
+  not a one-day data point. Insider: routine CEO/CVP option exercises
+  (Zovighian, Bobo, Lippis), nothing resembling a sale or buy signal.
+  13F: thin/stale. **Medium** - real, large, confirmed beat; capped by
+  RSI near 80 and the real "what's next for growth" debate.
+- **BRK.B (Berkshire Hathaway) - stays watch-only.** \$592.94, RSI
+  81.82 (screen: 80.96) - a new high for BRK.B in this log, +3.08%/5d
+  (a fourth straight cycle of acceleration: 0.73%->2.78%->3.32%->3.08%,
+  essentially holding), +11.41%/20d, volume 0.76x. The unverified
+  buyback-restart/Abel-salary-commitment claim resurfaced again today,
+  now alongside a new, more specific (but still unconfirmed to an
+  exact date) claim that Berkshire "invested \$16.8 billion in two
+  days" under CEO Greg Abel. Three cycles running on the same kind of
+  claim, from the same lower-reliability aggregator type, is starting
+  to look plausible given it's directionally consistent with the
+  already-confirmed Nov 7 buyback activity - but still not independently
+  dated/confirmed, so still not treated as a fresh catalyst. Same
+  earnings-quality caution on record since 11-10. No SEC CIK for
+  insider lookup.
+- **MSI (Motorola Solutions) - moved to Watch list, now a stale-20d-
+  window case like APP.** \$531.20, RSI 76.98 (screen: 77.27),
+  +0.61%/5d - now essentially flat (down from 3.09% Friday, 6.11% the
+  day before), +15.76%/20d, volume 0.42x - low. Same mechanical pattern
+  flagged on APP yesterday: the Nov 4 beat+raise+buyback is now 8
+  trading days old and has fully rolled out of the 5-day window. No
+  fresh dated news found today. Not a pick for the same reason APP
+  wasn't yesterday.
+- **IDXX (IDEXX Laboratories) - moved to Watch list.** \$704.23, RSI
+  71.91 (screen: 71.56), -0.34%/5d (flipped negative), +26.71%/20d,
+  volume 0.56x. Same stale-20d-window mechanics as MSI above. New real
+  caution found today: BofA cut its price target to \$660 (from \$790),
+  keeping a Neutral rating - a target now *below* the current \$704
+  price, despite the real Nov 2 beat-and-raise this log corrected into
+  record on 11-12. Insider: no new activity. 13F: thin/stale.
+- **VLTO (Veralto)** - \$118.25, RSI 80.43 (screen: 79.77), +0.16%/5d -
+  essentially flat, +17.70%/20d - another real stale-20d-window case:
+  the real Oct 29 Q3 beat (stock +6.77% that day) has fully rolled out
+  of the 5-day window. Insider: a websearch aggregator reports "none of
+  the insider trades were purchases and 5 were sales" over the past 6
+  months - a real, if longer-window, all-sell pattern; this cycle's own
+  `get_insider_activity` pull shows mostly routine option
+  exercises/tax-withholding in the most recent 10 filings, not
+  additional fresh sales. 13F: thin/stale. Not a pick given the stale
+  window and the longer-window all-sell insider pattern.
+
+**BRK.B, MSI, IDXX, VLTO, APP, ROP, and FISV all stay off today's
+picks** - see Watch list detail below.
+
+**Data gaps:** no order-book-imbalance signal; insufficient history
+for a 20/50 SMA crossover on any deepened ticker; HOLX unpriceable
+again. 13F mentions for most names stayed the known noisy proxy, with
+KO's Berkshire match a notable (if still non-quantitative) exception.
+Cross-check confirmed clean (see above).
+
+### Watch list
+
+- **BRK.B (Berkshire Hathaway)** - a new RSI high (81.82) and a
+  fourth straight cycle of accelerating 5d gains, but still the same
+  earnings-quality caution plus an increasingly specific but still
+  unconfirmed buyback/capital-deployment claim ("\$16.8B in two days").
+- **MSI (Motorola Solutions)** - joins APP in the stale-20d-window
+  pattern: 5d has fully flattened (0.61%) 8 trading days after its
+  confirmed Nov 4 catalyst.
+- **IDXX (IDEXX Laboratories)** - same stale-window mechanics, plus a
+  new real caution: a BofA price-target cut to \$660, below the current
+  \$704 price.
+- **VLTO (Veralto)** - another stale-20d-window case (its real Oct 29
+  beat has rolled out of the 5-day window), plus a reported 6-month
+  pattern of insider sales with zero purchases.
+- **APP (AppLovin)** - unchanged from Friday: still flat on the 5-day
+  window, still no fresh catalyst.
+- **ROP (Roper Technologies)** - unchanged from Friday: still a stale-
+  window case with the \$11.1M CEO sale on record.
+- **FISV (Fiserv)** - no fresh information today; still digesting its
+  post-Nov-3-earnings rally.
+
+### Bottom line
+
+Crypto's selloff deepened over the weekend rather than stabilizing:
+two genuine new log extremes (LTC's steepest-ever 1h/48h decline at
+-7.17%, ADA's first-ever above-2x volume reading at 2.88x), with ADA's
+weakness tied to a real but several-days-old deleveraging story, not a
+fresh development - still no trigger, since the floor only fires
+upward. On stocks, the notable development is structural: **MSI** and
+**IDXX** both joined **APP** in the stale-20d-window pattern this
+cycle, as their real confirmed catalysts roll past the 5-day window
+without fresh follow-through - worth watching whether this becomes the
+normal lifecycle for every momentum name on this screen (confirmed
+catalyst -> several cycles as a pick -> stale-window Watch-list entry)
+rather than a one-off. Four fresh names cleared medium confidence on
+real, dated, substantive catalysts: **CBOE** (still genuinely
+extending, not stale), **KO** (real beat+raise, plus a credible if
+longstanding Berkshire 13F holder), **COST** (real sales strength and
+analyst upgrades, tempered by two real insider sales), and **EW** (real
+beat-and-raise, tempered by a real forward debate on TAVR durability).
+Also resolved today: the **2026-11-06 currency-conversion gap**, open
+for ten days across multiple cycles, turned out to be a dead end - the
+USD was converted back to EUR with no asset ever purchased, at a small
+net FX loss. This is advisory context only, not investment advice
+presented as certain - verify independently before acting on anything
+above.
+
