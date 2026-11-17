@@ -3868,3 +3868,185 @@ net FX loss. This is advisory context only, not investment advice
 presented as certain - verify independently before acting on anything
 above.
 
+## 2026-11-17 - daily cycle
+
+**Advisory only. Nothing here executes - verify before acting.** This
+is the normal 8am ET weekday trigger (v5, connector-permission-fixed
+session). `git pull` found no new commits since yesterday's entry.
+
+### Outcome tracking - no new real activity
+
+Pulled the ledger with `start` set just after yesterday's last
+reconciled entry. The pull re-surfaced one already-logged entry (the
+ADA staking accrual, now dated precisely to 2026-11-15 17:31:52 UTC -
+yesterday's entry had approximated its time; harmless since it was
+excluded either way) plus one genuinely new entry: **2026-11-16
+19:09:13 UTC, `type: "transfer"`, `subtype: "useraccounttransfer"`**:
+-200 ZEUR - not a buy/sell decision, correctly excluded. This specific
+recurring transfer (11-06, 11-12, 11-14, now 11-16) continues on an
+roughly-every-2-day cadence; still just noted, not interpreted further.
+No real trade/tokenized-equity activity since the last entry.
+
+### Crypto - the selloff is stabilizing; first broadly positive 4h/48h reading in days
+
+| Pair | 1h/48h chg | 4h/48h chg | RSI(14,4h) | Vol ratio (24h vs 7d avg) | SMA state |
+|---|---|---|---|---|---|
+| BTC/EUR | -0.88% | +0.42% | 38.5 | 0.93x | fast<slow |
+| ETH/EUR | -0.83% | +0.64% | 40.0 | 1.17x | fast<slow |
+| SOL/EUR | +0.81% | +3.20% | 46.6 | 1.26x | fast<slow |
+| XRP/EUR | +0.20% | +1.42% | 47.1 | 0.64x | fast<slow |
+| ADA/EUR | -1.03% | +1.04% | 42.6 | 0.98x | fast<slow |
+| LINK/EUR | -0.94% | +0.60% | 44.2 | 0.51x | fast<slow |
+| SUI/EUR | -0.06% | +2.15% | 45.9 | 0.51x | fast<slow |
+| LTC/EUR | -1.06% | +0.64% | 41.6 | 0.78x | fast<slow |
+
+A real shift: the coarser 4h/48h window is now positive for all 8
+pairs - the first time that's happened broadly in this log since the
+selloff began - while the finer 1h/48h window is only mildly negative
+(SOL and XRP are positive there too). RSI has climbed back into the
+38-47 range across the board, well off the deeply oversold readings
+of 11-13/11-16. No pair is close to the 6% floor either way, so
+`momentum_trigger` stays `false` for all 8 regardless. Given nothing
+hit an extreme today, no dedicated catalyst WebSearch was run - this
+reads as a genuine stabilization, not a development requiring an
+explanation. None clears the bar.
+
+### Stocks - S&P 500 screen (top 20 of 505) - a new score-4 name (CHD) with an unexplained volume spike
+
+`screen_sp500` returned a top-20 led by **CHD** (score 4, the first
+new score-4 entrant since CLX on 11-11); BRK.B, COST, PG, KO, CB, MCK,
+CME, APP, MSI, SPG, CAH, GWW, EW, BDX, IDXX, RSG, ROP, ED, CBOE all at
+score 3. CHD, PG, CB, and ED are new entrants; BRK.B, COST, KO, APP,
+MSI, IDXX, ROP, EW, and CBOE carried over from yesterday.
+`screen_sp500`'s `errors` field again flagged `HOLX: no bars returned`.
+
+Deepened **CHD, PG, CB, ED, COST, KO, CBOE, APP** - the new score-4
+name, three fresh score-3 entrants, and four continuing names.
+
+**Cross-check**: price, `pct_change_5d`, `pct_change_20d`, and volume
+ratio all matched exactly between `screen_sp500` and
+`compute_stock_signals` for all 8 deepened names - no repeat of the
+2026-10-24 bug. RSI differed by up to ~1.1pt (CBOE), within the known
+benign range.
+
+- **PG (Procter & Gamble)** - \$173.02, RSI 71.55 (screen: 72.17),
+  +2.59%/5d, +8.60%/20d, volume 1.65x. Real catalyst: fiscal Q1 2027
+  EPS \$1.88 beat the \$1.86 consensus, and FY26 sales/profit guidance
+  was raised. A real, imminent catalyst is 2 days out: PG's Investor
+  Day is Nov 19, with CEO Jejurikar and CFO Schulten presenting
+  strategy. Real caution: a genuine insider-selling **cluster** -
+  four different business-unit CEOs/executives filed real sales in the
+  past ~3 weeks (Baby/Feminine Care CEO Abd El Hak, Grooming CEO
+  Santos de Azevedo, Health Care CEO Gama, CHRO Purushothaman), the
+  same multi-insider-selling-during-a-rally pattern seen on RCL/ICE.
+  13F: thin/stale. **Medium** - real beat, real raise, a real
+  near-term catalyst; capped by the real 4-person insider-sell
+  cluster.
+- **COST (Costco)** - \$1,113.74, RSI 78.15 (screen: 77.16), +4.46%/5d
+  (continuing to extend, up from yesterday's 3.75%), +11.98%/20d,
+  volume 1.23x. No new dated information found today beyond what's
+  already on record (Oct sales +12.6% YoY, two analyst target raises).
+  Insider: no new activity since the two Nov 11-12 sales already
+  logged. 13F: thin/stale. **Medium** - still genuinely extending,
+  same confirmed basis as yesterday.
+- **KO (Coca-Cola)** - \$99.48, RSI 73.63 (screen: 74.08), +2.65%/5d
+  (essentially unchanged from yesterday's 2.65%), +6.41%/20d, volume
+  1.03x. No new dated information found today. Insider: no new
+  activity. 13F: thin/stale (unchanged - Berkshire's confirmed holding
+  still the one notable mention). **Medium**, same confirmed basis.
+- **CBOE (Cboe Global Markets)** - \$377.50, RSI 76.50 (screen: 75.40),
+  +3.48%/5d (cooling slightly from yesterday's 6.42% as the biggest-up
+  day rolls toward the edge of the window), +19.84%/20d, volume 0.95x.
+  No new dated information found today - the already-confirmed Q3 beat
+  (revenue +19% YoY, S&P license through 2051) remains the basis.
+  Insider: no new activity. 13F: thin/stale. **Medium**, same
+  confirmed basis, cooling slightly rather than extending further.
+- **CB (Chubb)** - \$381.28, RSI 70.42 (screen: 70.13), +3.30%/5d,
+  +6.58%/20d, volume 1.11x. Real, large, already-confirmed Q3 beat
+  (reported Oct 20, not previously logged on this branch): core
+  operating income \$2.98B (\$7.66/share) vs \$6.53 consensus - a
+  beat of roughly 17% - P&C combined ratio improved to 84.1%, record
+  adjusted net investment income of \$1.89B, and \$1.6B returned to
+  shareholders in the quarter. No fresh November-dated news found,
+  but the beat itself is substantial and the 5-day window is still
+  real, positive price action consistent with it. Insider: CEO
+  Greenberg's large (291,163 sh) disposal was a **gift** (code "G",
+  no market signal, and oddly filed Nov 2 for a May 28 transaction -
+  a late filing, not a fresh event); other sales on record (Connors,
+  Wayland) are from July/August, not fresh. 13F: thin/stale. **Medium**
+  - real, large, substantial beat; capped by RSI near 70 and the lack
+  of any fresh November catalyst to extend the case.
+- **CHD (Church & Dwight) - real volume spike, no catalyst confirmed.**
+  \$114.74, RSI 72.41 (screen: 72.12), +2.67%/5d, +8.29%/20d, volume
+  **2.39x** - the only above-2x stock volume reading today. A thorough
+  WebSearch found no dated catalyst explaining the move - only a
+  routine Nov 13 ex-dividend date (\$0.308/share) within the 5-day
+  window, which would not typically drive a volume spike of this size.
+  Insider activity is also unhelpful: a Nov 13 cluster of three
+  "acquired" filings (CEO Dierker, EVPs Linares and Buchert) at a flat
+  \$113/share with odd fractional share counts (23-38 shares) looks
+  like automatic dividend-reinvestment-plan purchases, not a
+  discretionary buy signal. 13F: thin/stale. **Not a pick** - a real,
+  unexplained volume spike is a data point worth flagging, not a
+  reason to recommend without a confirmed story behind it.
+- **ED (Consolidated Edison)** - \$121.88, RSI 70.88 (screen: 70.08),
+  +2.18%/5d, +8.84%/20d, volume 1.38x. Real but mixed Q3 (reported
+  Nov 5): EPS \$2.06 **missed** the \$2.07 consensus slightly while
+  revenue beat (\$4.91B vs \$4.77B consensus); FY26 guidance narrowed
+  to \$6.05-6.15 (from \$6.00-6.20) - a narrowing, not a clean raise.
+  Real forward item: a confirmed \$38B 2026-2030 capital-investment
+  plan. Insider: routine small director/VP dividend-reinvestment-style
+  purchases at market price, nothing discretionary. 13F: thin/stale.
+  Not a pick given the real EPS miss, however slight.
+- **APP (AppLovin)** - \$415.22, RSI 72.58 (screen: 73.41), +4.98%/5d -
+  a real reacceleration from yesterday's flat 0.63%, +52.40%/20d,
+  volume 0.55x - still low, no fresh buying behind the reacceleration.
+  No new dated catalyst found despite a dedicated search. Given the
+  lack of any confirmed fresh story and continued low volume, this
+  reacceleration is flagged but not treated as grounds to move back to
+  "Today's picks" - worth re-checking next cycle to see if it's real
+  continuation or noise.
+
+**CHD, ED, APP, BRK.B, MSI, IDXX, ROP, and FISV all stay off today's
+picks** - see Watch list detail below.
+
+**Data gaps:** no order-book-imbalance signal; insufficient history
+for a 20/50 SMA crossover on any deepened ticker; HOLX unpriceable
+again. 13F mentions for all 8 names stayed the known noisy proxy.
+Cross-check confirmed clean (see above).
+
+### Watch list
+
+- **CHD (Church & Dwight)** - the day's only above-2x stock volume
+  reading, but no catalyst found to explain it - a real data point,
+  not a buy case.
+- **ED (Consolidated Edison)** - a real but mixed Q3 (slight EPS miss,
+  revenue beat, guidance narrowed rather than cleanly raised).
+- **APP (AppLovin)** - a real reacceleration on the 5-day window
+  (0.63% -> 4.98%) but still no fresh catalyst and still-low volume;
+  worth re-checking, not yet a pick.
+- **BRK.B / MSI / IDXX / ROP / FISV** - unchanged from yesterday: no
+  fresh information found for any of them today.
+
+### Bottom line
+
+Crypto showed a genuine, broad stabilization today - the coarser
+4h/48h window turned positive for all 8 pairs for the first time in
+this log since the selloff began, and RSI climbed back toward neutral
+across the board - still no trigger, and nothing extreme enough to
+warrant a dedicated catalyst search. On stocks, five names cleared
+medium confidence on real, substantial bases: **PG** (real beat+raise
+plus an imminent Investor Day, capped by a genuine 4-executive
+insider-sell cluster), **COST** and **KO** (both continuing on
+unchanged, still-real bases), **CBOE** (continuing but cooling
+slightly), and **CB** (a real, large, ~17% EPS beat not previously
+logged on this branch, though lacking any fresh November news). The
+most interesting non-pick is **CHD**: a real, unexplained 2.39x volume
+spike with no catalyst a thorough search could surface - logged
+plainly as an open question rather than force-fit into either a buy
+case or a dismissal. **APP** also reaccelerated on real price action
+(5d: 0.63% -> 4.98%) without a fresh catalyst or volume to confirm it,
+worth watching next cycle. No real account activity since the last
+entry. This is advisory context only, not investment advice presented
+as certain - verify independently before acting on anything above.
+
