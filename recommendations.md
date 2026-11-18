@@ -4050,3 +4050,210 @@ worth watching next cycle. No real account activity since the last
 entry. This is advisory context only, not investment advice presented
 as certain - verify independently before acting on anything above.
 
+## 2026-11-18 - daily cycle
+
+**Advisory only. Nothing here executes - verify before acting.** This
+is the normal 8am ET weekday trigger (v5, connector-permission-fixed
+session). `git pull` found no new commits since yesterday's entry.
+
+### Outcome tracking - a real crypto buy: 300 XRP, not tied to any specific "Today's pick"
+
+Pulled the ledger with `start` set just after yesterday's last
+reconciled entry. 2 entries found, resolving to 1 real event:
+
+- **2026-11-18 10:38:36 UTC: bought 300 XRP** for ~EUR277.34 total
+  (~EUR0.9245/share implied, a direct ZEUR->XRP spot trade, `type:
+  "receive"`/`"spend"` sharing one `refid`, no third leg - the simpler
+  2-leg pattern this log's real crypto trades (as opposed to tokenized-
+  stock buys) actually take). XRP has never been a crypto "Today's
+  pick" in this log - `momentum_trigger` only fires on upward moves of
+  6%+, and XRP has never crossed that threshold - but it has been
+  repeatedly and explicitly flagged across many cycles for extreme
+  oversold RSI readings (a 17.7 record low on 11-09, still-depressed
+  readings through 11-13/11-16). This buy landed during the multi-day
+  recovery this log has also been tracking: XRP's RSI climbed from 40.0
+  (11-16) to 47.1 (11-17) to 53.3 today, with today's crypto table
+  (below) showing XRP's best short-window reading yet. Not a case of
+  "following a pick" since none existed to follow - logged plainly as
+  a real action consistent with the broader oversold-recovery narrative
+  this log has documented, not matched to any specific advisory line.
+
+### Crypto - a broad recovery continues; SOL comes closer to the upward floor than any pair has before
+
+| Pair | 1h/48h chg | 4h/48h chg | RSI(14,4h) | Vol ratio (24h vs 7d avg) | SMA state |
+|---|---|---|---|---|---|
+| BTC/EUR | +0.58% | -0.04% | 41.0 | 0.83x | fast<slow |
+| ETH/EUR | +0.53% | -0.66% | 41.8 | 1.01x | fast<slow |
+| SOL/EUR | +5.83% | +5.57% | 51.7 | 0.92x | fast<slow |
+| XRP/EUR | +4.54% | +3.98% | 53.3 | 0.50x | fast<slow |
+| ADA/EUR | +1.98% | +0.99% | 43.5 | 1.20x | fast<slow |
+| LINK/EUR | +1.50% | +0.50% | 44.6 | 1.02x | fast<slow |
+| SUI/EUR | +2.41% | +1.55% | 45.4 | 0.58x | fast<slow |
+| LTC/EUR | +0.45% | -0.12% | 40.2 | 0.68x | fast<slow |
+
+The recovery that began stabilizing yesterday is now broad and real:
+6 of 8 pairs are positive on the 1h/48h window, and RSI has climbed
+into the 40-54 range across the board - the healthiest readings in
+this log in well over a week. **SOL/EUR came the closest any pair has
+ever come to the upward 6% floor** (+5.83% on 1h/48h, +5.57% on
+4h/48h) without actually crossing it on either window -
+`momentum_trigger` correctly stays `flagged: false` since both must
+clear 6%, but this is worth flagging as a genuine near-miss, not
+business as usual. No pair's reading was extreme enough today to
+warrant a dedicated catalyst WebSearch. None clears the bar.
+
+### Stocks - S&P 500 screen (top 20 of 505) - a broad RSI pullback across the whole screen; two real, unexplained volume spikes
+
+`screen_sp500` returned a top-20 led by BRK.B, COST, CAH, EW, ED,
+VLTO, VRSK, TSN, SWK, AIZ, CLX all at score 3, with LLY, JNJ, WMT, PG,
+KO, HD, GE, GILD all down at score 2 - a real, broad RSI pullback
+versus yesterday (BRK.B alone fell from 80.86 to 73.16; most names
+now sit in the 55-76 range rather than 70-82). ED, VRSK, SWK, TSN,
+AIZ, and DPZ are new or returning entrants; CLX returns after dropping
+off since 11-13; BRK.B, COST, EW, and VLTO carried over. `screen_sp500`'s
+`errors` field again flagged `HOLX: no bars returned`.
+
+Deepened **ED, VRSK, SWK, TSN, DPZ, COST, BRK.B, CLX** - two real
+above-2x-volume names, two real movers (one up, one down), two fresh
+earnings-driven names, and two continuing names.
+
+**Cross-check**: price, `pct_change_5d`, `pct_change_20d`, and volume
+ratio all matched exactly between `screen_sp500` and
+`compute_stock_signals` for all 8 deepened names - no repeat of the
+2026-10-24 bug. RSI differed by up to ~1.1pt (ED), within the known
+benign range.
+
+- **TSN (Tyson Foods)** - \$63.65, RSI 76.51 (screen: 75.17), +6.31%/5d,
+  +13.86%/20d, volume 0.92x. Real, substantial, dated catalyst:
+  fiscal Q4/FY2026 results reported Nov 16 (2 days ago) - the stock
+  jumped ~7-9% that day, and a quarterly dividend raise was announced.
+  Real caution found in the same release: adjusted EPS of \$0.61
+  **missed** the \$0.65 consensus (sources disagree on framing - some
+  call the quarter a beat on other metrics, but the headline adjusted
+  number missed), and FY2027 guidance is genuinely cautious - sales
+  guided down 3.5-5.5% on lower beef volumes, with the beef segment's
+  range spanning a \$300M loss to a \$100M profit. Insider: no fresh
+  activity (most recent real entries are from July/February). 13F:
+  thin/stale. **Medium** - a real, substantial rally with a real
+  dividend raise; capped by the real adjusted-EPS miss and genuinely
+  cautious forward guide.
+- **DPZ (Domino's Pizza)** - \$349.86, RSI 72.48 (screen: 70.28),
+  +6.47%/5d, +12.44%/20d, volume 1.21x. Real Q3 beat (reported
+  mid-October, still working through the 5-day window): diluted EPS
+  \$4.60 vs a \$4.33-4.38 consensus range, revenue +3.4% to \$1.19B.
+  Real caution: US same-store sales grew only 0.3%, versus 5.2% a year
+  earlier - one analysis argues the EPS gain reflects internal
+  profitability rather than real demand strength, a genuine
+  fundamental concern under a real headline beat. Insider: one real,
+  modest sale (CMO Trumbull, 370 sh @ \$329.91, Nov 10). 13F: thin/stale.
+  **Medium** - real beat and real price strength; capped by the real
+  same-store-sales deceleration underneath it.
+- **COST (Costco)** - \$1,110.08, RSI 76.26 (screen: 75.39), +2.07%/5d
+  (cooling from 4.46% yesterday), +11.20%/20d, volume 1.42x. No new
+  dated information found today beyond what's already on record.
+  Insider: no new activity since the two Nov 11-12 sales already
+  logged. **Medium**, same confirmed basis, cooling rather than
+  extending.
+- **ED (Consolidated Edison) - real volume spike, no catalyst
+  confirmed.** \$119.23, RSI 61.05 (screen: 59.72), +0.03%/5d -
+  essentially flat, +6.63%/20d, volume **2.92x** - the highest reading
+  of today's deepened names. A real, routine ex-dividend date fell
+  today (Nov 18) and two real analyst target raises are on record
+  (Wells Fargo to Overweight/\$118, Mizuho to \$124/Neutral) - neither,
+  individually or together, obviously explains a spike this large.
+  Insider: routine dividend-reinvestment-style purchases only, nothing
+  discretionary. 13F: thin/stale. **Not a pick** - a second real,
+  partially-unexplained volume spike this week (after CHD on 11-17),
+  logged plainly rather than force-fit into a story.
+- **VRSK (Verisk Analytics) - mixed earnings reporting plus a fresh
+  insider sale.** \$205.31, RSI 58.19 (screen: 57.70), -0.33%/5d,
+  +6.74%/20d, volume **2.55x**. Reported Q3 on Nov 5; sources genuinely
+  disagree on the result - one headline says adjusted EBITDA/revenue
+  growth with FY26 outlook confirmed, another says a revenue miss and
+  an outlook cut, alongside a confirmed \$100M accelerated share
+  buyback. An Argus downgrade (Buy->Hold) is on record but undated.
+  Insider: a real, very fresh sale - CFO Mann sold 400 sh @ \$211 on
+  Nov 16, filed the same day - plus CHRO Holzer's 888-share sale on
+  Nov 12. 13F: thin/stale. Not a pick given the genuinely conflicting
+  earnings reporting and the fresh CFO sale.
+- **SWK (Stanley Black & Decker) - real decline and volume, no
+  catalyst found.** \$108.81, RSI 55.20 (screen: 55.50), **-5.89%/5d**
+  (the largest real decline checked today), +14.01%/20d, volume
+  2.09x. A thorough search found no Q3 2026 report or any November-
+  dated news at all for SWK - the most recent results on record are
+  Q2 (July 29, a beat) - so this real decline and volume spike have no
+  confirmed explanation from available sources, a genuine data gap
+  rather than a quiet or default conclusion either way. Insider: no
+  real fresh activity (a routine Nov 6 option exercise, older Sept
+  director grants). 13F: thin/stale. Not a pick given the real
+  negative price action with no catalyst to weigh it against.
+- **BRK.B (Berkshire Hathaway) - real reversal after 5 days of
+  acceleration.** \$586.76, RSI 73.45 (screen: 73.16), **-0.25%/5d** -
+  the first negative 5d reading for BRK.B in this log in over two
+  weeks, after a run of 0.73% -> 2.78% -> 3.32% -> 3.08% ->
+  (now negative), +8.86%/20d, volume 1.00x. No fresh dated news found
+  today. No SEC CIK for insider lookup. Not a pick - this reads as the
+  real end of the acceleration streak tracked across the last several
+  cycles, not a new negative catalyst.
+- **CLX (Clorox) - returns to the screen, now a stale-20d-window
+  case.** \$106.70, RSI 72.29 (screen: 71.28), -0.15%/5d - essentially
+  flat, +25.87%/20d (still large only because the window still spans
+  back to the Nov 2 earnings-driven spike), volume 0.60x - low. The
+  real Nov 2 beat (first logged 11-11, when CLX was a medium-confidence
+  pick with a real insider buy) has now fully rolled out of the
+  5-day window - the same mechanical pattern seen on APP/MSI/IDXX/ROP.
+  No fresh information found. Not a pick for the same structural
+  reason as those names.
+
+**ED, VRSK, SWK, BRK.B, and CLX all stay off today's picks** - see
+Watch list detail below.
+
+**Data gaps:** no order-book-imbalance signal; insufficient history
+for a 20/50 SMA crossover on any deepened ticker; HOLX unpriceable
+again. 13F mentions for all 8 names stayed the known noisy proxy, all
+decades-old or unrelated filers this cycle - no substantive match like
+KO/Berkshire this time. Cross-check confirmed clean (see above).
+
+### Watch list
+
+- **ED (Consolidated Edison)** - the week's second real, unexplained
+  volume spike (2.92x, after CHD on 11-17) - a routine ex-dividend date
+  and two analyst target raises don't obviously add up to a move this
+  size.
+- **VRSK (Verisk Analytics)** - genuinely conflicting earnings
+  reporting (beat-and-confirmed vs. miss-and-cut, depending on the
+  source) plus a fresh, same-day-filed CFO stock sale.
+- **SWK (Stanley Black & Decker)** - the day's largest real decline
+  (-5.89%/5d) with elevated volume (2.09x) and no Q3 report or any
+  November news found anywhere - a genuine, unresolved data gap.
+- **BRK.B (Berkshire Hathaway)** - its five-cycle acceleration streak
+  broke today (5d flips to -0.25%); no fresh negative catalyst found,
+  reads as the streak's natural end rather than new bad news.
+- **CLX (Clorox)** - back on the screen as a new stale-20d-window
+  case, the same mechanical pattern now seen on five different names
+  this log.
+
+### Bottom line
+
+Crypto's recovery, first spotted stabilizing yesterday, is now broad
+and real: 6 of 8 pairs posted positive 1h/48h readings and RSI climbed
+into healthy territory across the board, with SOL coming closer to
+the upward 6% floor than any pair has in this log without actually
+crossing it. The real account event today was a 300-XRP buy - not
+tied to any specific advisory pick (crypto has none that clear the
+bar), but squarely consistent with the oversold-recovery story this
+log has tracked for over a week. On stocks, **TSN** and **DPZ** both
+clear medium confidence on real, dated earnings beats, each with a
+real, genuine caution underneath (TSN's adjusted-EPS miss and cautious
+FY27 beef guide; DPZ's same-store-sales deceleration) - and **COST**
+continues on its unchanged basis. The more interesting development is
+structural: **two more real, unexplained volume spikes** surfaced
+today (ED at 2.92x, VRSK at 2.55x, on top of CHD's 2.39x yesterday) -
+three in two cycles - worth watching as a pattern rather than three
+isolated coincidences. **SWK** adds a real, large decline with no
+catalyst found anywhere, a genuine data gap. **BRK.B**'s five-cycle
+acceleration streak finally broke, and **CLX** became the fifth name
+in this log to show the stale-20d-window pattern. This is advisory
+context only, not investment advice presented as certain - verify
+independently before acting on anything above.
+
