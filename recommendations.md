@@ -4257,3 +4257,190 @@ in this log to show the stale-20d-window pattern. This is advisory
 context only, not investment advice presented as certain - verify
 independently before acting on anything above.
 
+## 2026-11-19 - daily cycle
+
+**Advisory only. Nothing here executes - verify before acting.** This
+is the normal 8am ET weekday trigger (v5, connector-permission-fixed
+session). `git pull` found no new commits since yesterday's entry.
+
+### Outcome tracking - no new real activity
+
+Pulled the ledger with `start` set just after yesterday's last real
+event (2026-11-18 10:38:36 UTC, the XRP buy). 0 entries found. No real
+trade/tokenized-equity activity since the last entry.
+
+### Crypto - the recovery continues, calmer than yesterday; nothing extreme
+
+| Pair | 1h/48h chg | 4h/48h chg | RSI(14,4h) | Vol ratio (24h vs 7d avg) | SMA state |
+|---|---|---|---|---|---|
+| BTC/EUR | -1.71% | -0.22% | 42.7 | 0.80x | fast<slow |
+| ETH/EUR | -0.89% | +1.22% | 45.9 | 0.77x | fast<slow |
+| SOL/EUR | +1.61% | +3.28% | 53.0 | 0.70x | fast<slow |
+| XRP/EUR | +1.73% | +2.98% | 53.5 | 0.68x | fast<slow |
+| ADA/EUR | -0.58% | +1.40% | 47.0 | 1.36x | fast<slow |
+| LINK/EUR | -1.12% | +1.08% | 44.6 | 0.97x | fast<slow |
+| SUI/EUR | -0.91% | +1.60% | 45.4 | 0.57x | fast<slow |
+| LTC/EUR | -1.51% | +0.62% | 44.5 | 1.00x | fast<slow |
+
+A calmer continuation of yesterday's recovery - RSI sits in the 43-54
+range across the board, none of yesterday's near-miss urgency (SOL's
+4h/48h eased from +5.57% to +3.28%). `momentum_trigger` stays `false`
+for all 8; nothing extreme enough today to warrant a dedicated
+catalyst search. None clears the bar.
+
+### Stocks - S&P 500 screen (top 20 of 505) - UnitedHealth's real, sector-wide regulatory shock dominates the screen
+
+`screen_sp500` returned a top-20 led by CAH, EW, BDX, OKTA, VLTO, DRI,
+EIX, TSCO, TSN, CLX, DPZ all at score 3, with AMZN, AVGO, COST, **UNH**,
+GE, GILD, DIS, MCD, ANET all at score 2. OKTA, DRI, EIX, TSCO are new
+entrants; TSN, CLX, DPZ carried over. **UNH is the real story of the
+day** despite its modest score-2 ranking - `momentum_flagged: false`
+only because the screen's momentum trigger fires upward exclusively,
+and this is a genuine, severe, real decline. `screen_sp500`'s `errors`
+field again flagged `HOLX: no bars returned`.
+
+Deepened **UNH, OKTA, TSCO, EIX, DRI, TSN, DPZ, CLX** - the real crash
+story, three fresh names, and three continuing names.
+
+**Cross-check**: price, `pct_change_5d`, `pct_change_20d`, and volume
+ratio all matched exactly between `screen_sp500` and
+`compute_stock_signals` for all 8 deepened names - no repeat of the
+2026-10-24 bug. RSI differed by up to ~1.5pt (TSN), within the known
+benign range.
+
+- **UNH (UnitedHealth Group) - a real, confirmed, sector-wide
+  regulatory shock, not a buy case.** \$349.91, RSI 28.75 (screen:
+  28.45 - deeply oversold), **-13.63%/5d**, -17.66%/20d, volume
+  **3.65x**. A real, dated, confirmed catalyst: on Nov 18, CMS
+  proposed expanding Medicare Advantage audits to allow regulators to
+  extrapolate findings across broader groups of payments, potentially
+  increasing recoveries from insurers over prior years - a real
+  structural threat to MA-exposed insurer economics, not a rumor.
+  Political pressure compounded it: Senator Warren renewed calls to
+  break up large vertically-integrated health conglomerates. This is
+  real and sector-wide, not UNH-specific - Humana fell nearly 13% the
+  same day, and the broader managed-care sector moved in tandem. The
+  decline extends a 5.4% drop on Nov 17, so this is now a 2-day,
+  ~18% cumulative move. Insider: no fresh activity - CEO (UHC unit)
+  Noel's Nov 11 disposal was tax-withholding (code "F"), not a sale
+  signal; routine Oct 1 director grants otherwise. 13F: thin/stale.
+  **Not a pick, and not treated as a contrarian buy-the-dip case
+  either** - the catalyst is real, structural, and industry-wide, with
+  genuinely uncertain company-specific exposure; logged prominently as
+  the most significant real development checked this cycle, not as
+  encouragement to act on it either way.
+- **TSN (Tyson Foods)** - \$64.25, RSI 77.93 (screen: 76.43), +8.42%/5d
+  (continuing to extend, up from yesterday's 6.31%), +12.58%/20d,
+  volume 0.93x. No new dated information found today beyond the
+  already-confirmed Nov 16 report (adjusted EPS miss, cautious FY27
+  beef guide, real dividend raise) logged yesterday. Insider: no fresh
+  activity. **Medium** - still genuinely extending on the same real,
+  partially-cautionary basis.
+- **DPZ (Domino's Pizza)** - \$353.54, RSI 74.54 (screen: 72.00),
+  +6.09%/5d (holding steady, down slightly from 6.47%), +11.28%/20d,
+  volume 0.83x. No new information today beyond the already-confirmed
+  Q3 beat and real same-store-sales deceleration logged yesterday.
+  Insider: no fresh activity. **Medium**, same confirmed basis.
+- **OKTA (Okta) - a real bounce off a recent crash, not a fresh
+  catalyst.** \$195.61, RSI 51.97 (screen: 52.40), +7.16%/5d,
+  **-2.84%/20d** - a real negative 20d figure alongside a positive 5d,
+  the inverse of the usual stale-window pattern (a recent bounce
+  against a worse prior decline, not an old spike rolling out), volume
+  **2.18x**. Sources confirm Okta's worst day of the past year was
+  Nov 2 (-11.2%) - today's move reads as a real partial recovery from
+  that crash, not a new positive story. Next earnings is confirmed
+  Dec 1 (not imminent). Insider: real sales exist (CAO Ninan, CEO
+  McKinnon) but both are from September/October, not fresh. 13F: a
+  genuinely recent filer - Coatue Management's 13F mentioning Okta was
+  filed Nov 16 - but per the standing caveat this is a mention, not a
+  flow figure. Not a pick - a real bounce without a confirmed fresh
+  catalyst behind it.
+- **TSCO (Tractor Supply) - real, genuinely mixed signals.**
+  \$39.01, RSI 72.05 (screen: 70.84), +6.50%/5d, +12.32%/20d, volume
+  1.51x. Real positive: a Q3 beat (43c vs 41c consensus) with
+  reaffirmed FY26 guidance, which drove a real same-day rally. Real
+  negative, same period: operating margin down ~10% YoY on higher
+  transportation/fuel costs, pricing investments, and new-distribution-
+  center startup costs, plus an undated report that the company
+  withdrew its long-term financial framework. Insider: no fresh
+  activity (a routine Sept 30 CFO RSU grant). 13F: **data gap** - SEC
+  EDGAR's full-text search returned an HTTP 500 for this name; not
+  retried further, logged as a genuine tool failure rather than
+  assumed empty. Not a pick given the real margin erosion alongside
+  the real beat.
+- **EIX (Edison International) - real, substantial negative overhang
+  outweighs today's bounce.** \$63.01, RSI 76.08 (screen: 70.46),
+  +5.03%/5d, +8.83%/20d, volume 1.04x. Real, ongoing negative story:
+  persistent California wildfire liability and regulatory uncertainty,
+  two sequential Mizuho downgrades/target cuts (most recently to \$63
+  on Nov 2 - essentially at today's price), and a reportedly failed
+  wildfire-reform push with a Nov 15 special-session deadline this
+  search could not confirm as resolved either way. Real Q3: a revenue
+  miss against an EPS beat, guidance reaffirmed. Today's real +5.03%
+  bounce runs counter to that negative narrative with no fresh
+  positive catalyst found to explain it. Insider: a director's two
+  small, recurring sales (500 sh each, April and October patterns),
+  nothing fresh. 13F: thin/stale. Not a pick - the real negative
+  overhang outweighs an unexplained bounce.
+- **DRI (Darden Restaurants)** - \$239.22, RSI 72.29 (screen: 72.76),
+  +4.97%/5d, +9.96%/20d, volume 1.31x. No earnings in November - next
+  report is Dec 17; the last real report (Q1, September) showed a
+  slight EPS beat on an adjusted basis but a revenue miss and reaffirmed
+  FY27 guidance, already dated. Today's real move has no fresh
+  catalyst found. Insider: one real sale (Group President Martin,
+  2,209 sh @ \$202.61, Oct 6) - not fresh. 13F: thin/stale. Not a pick
+  given the lack of any confirmed fresh catalyst.
+- **CLX (Clorox)** - \$108.39, RSI 75.14 (screen: 73.31), +0.18%/5d -
+  still essentially flat, +22.25%/20d - the same stale-20d-window case
+  logged yesterday, continuing. No fresh information. Not a pick for
+  the same structural reason as yesterday.
+
+**UNH, OKTA, TSCO, EIX, DRI, and CLX all stay off today's picks** -
+see Watch list detail below.
+
+**Data gaps:** no order-book-imbalance signal; insufficient history
+for a 20/50 SMA crossover on any deepened ticker; HOLX unpriceable
+again. TSCO's 13F lookup failed with a genuine SEC EDGAR server error
+(HTTP 500), not retried. 13F mentions otherwise stayed the known noisy
+proxy, with Coatue's fresh Okta filing a notable (if still non-
+quantitative) exception. Cross-check confirmed clean (see above).
+
+### Watch list
+
+- **UNH (UnitedHealth Group)** - the most significant real development
+  checked this cycle: a 2-day, ~18% cumulative decline on a confirmed,
+  sector-wide CMS Medicare Advantage audit proposal, not a UNH-specific
+  problem. Deeply oversold (RSI 28.8) but not treated as a buy-the-dip
+  case given the genuinely uncertain, structural nature of the threat.
+- **OKTA (Okta)** - a real bounce off its own worst day of the past
+  year (Nov 2, -11.2%), not a fresh positive catalyst.
+- **TSCO (Tractor Supply)** - a real Q3 beat set against real margin
+  erosion (operating margin -10% YoY) - genuinely mixed, not a clean
+  case either way.
+- **EIX (Edison International)** - a real bounce (+5.03%/5d) against a
+  real, substantial negative overhang (wildfire liability, sequential
+  analyst downgrades) that this search could not resolve either way.
+- **DRI (Darden Restaurants)** - a real move with no confirmed fresh
+  catalyst; next earnings isn't until Dec 17.
+- **CLX (Clorox)** - unchanged stale-20d-window case from yesterday.
+
+### Bottom line
+
+Crypto's recovery continued calmly today - RSI holding in healthy
+40s-50s territory across all 8 pairs, no near-misses or extremes like
+yesterday's SOL reading. Stocks were dominated by one real story:
+**UnitedHealth's 2-day, ~18% cumulative decline on a confirmed,
+sector-wide CMS Medicare Advantage audit proposal** - a genuine
+structural threat to managed-care economics (Humana fell in tandem),
+not a company-specific rumor, and not treated as a contrarian buy
+candidate given how uncertain the actual company-level exposure still
+is. **TSN** and **DPZ** continue to clear medium confidence on their
+unchanged, already-documented bases. Everything else checked today
+came with a real but genuinely mixed or unconfirmed story -
+**OKTA**'s bounce off its own recent crash, **TSCO**'s real beat
+against real margin erosion, **EIX**'s bounce against real wildfire-
+liability overhang, and **DRI**'s unexplained move - none clean enough
+to call a pick. No real account activity since the last entry. This is
+advisory context only, not investment advice presented as certain -
+verify independently before acting on anything above.
+
