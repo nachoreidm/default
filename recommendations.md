@@ -4444,3 +4444,211 @@ to call a pick. No real account activity since the last entry. This is
 advisory context only, not investment advice presented as certain -
 verify independently before acting on anything above.
 
+## 2026-11-20 - daily cycle
+
+**Advisory only. Nothing here executes - verify before acting.** This
+is the normal 8am ET weekday trigger (v5, connector-permission-fixed
+session). `git pull` found no new commits since yesterday's entry.
+
+### Outcome tracking - a real purchase of tokenized pre-IPO Anthropic exposure, in a new ledger pattern this log hasn't seen before
+
+Pulled the ledger with `start` set just after yesterday's last real
+event (2026-11-18 10:38:36 UTC, the XRP buy - yesterday's pull found 0
+new entries, so the checkpoint hadn't moved). 7 entries found,
+resolving to 1 real event:
+
+- **2026-11-19 16:54:14-15 UTC: bought 3.992105928 shares of `ANT`**
+  for a combined \~USD440.27 (\~USD110.29/share implied), funded by a
+  EUR195.78-style conversion (\$405.06 ZEUR -> \$440.2802 ZUSD) into
+  two separate equity-purchase legs. A \$0.01 ZUSD `equityfee`
+  (`subtype: "consolidatedaudittrailfee"` - a routine CAT regulatory
+  fee, not a trade decision) followed later the same window.
+  **`ANT` is Kraken's xStocks ticker for Anthropic** (the "x" suffix
+  is stripped in this ledger view, same convention as LMTx/PLTRx) -
+  confirmed via Kraken's own IPO-access page, which describes xStocks
+  pre-IPO tokens as synthetic, price-exposure-only instruments issued
+  by Backed Assets (JE) Limited, carrying no voting rights or legal
+  claim to the underlying private company. **This is a new ledger
+  pattern for this log**: every prior tokenized-stock buy showed
+  `type: "receive"`/`aclass: "tokenized_asset"`; this one shows
+  explicit `type: "trade"`/`subtype: "tradeequities"`/`aclass:
+  "equity"` legs instead - a different (likely newer, IPO-specific)
+  Kraken ledger representation for the same kind of real purchase,
+  worth remembering for future reconciliation. Anthropic is a private,
+  pre-IPO company and was never in scope for this agent's S&P 500
+  screen or its 8-pair crypto universe - there is no advisory line to
+  match this against, the same structural situation as the XRP buy
+  logged 11-18. Logged plainly as a real action outside this agent's
+  coverage, not matched to any pick.
+
+No other entries this pull were buy/sell decisions to match against
+advice.
+
+### Crypto - the recovery reverses; LTC sets a new log-low RSI
+
+| Pair | 1h/48h chg | 4h/48h chg | RSI(14,4h) | Vol ratio (24h vs 7d avg) | SMA state |
+|---|---|---|---|---|---|
+| BTC/EUR | -3.51% | -1.99% | 33.2 | 0.76x | fast<slow |
+| ETH/EUR | -2.60% | -1.03% | 37.2 | 0.93x | fast<slow |
+| SOL/EUR | -3.43% | -2.37% | 38.8 | 0.81x | fast<slow |
+| XRP/EUR | -3.13% | -2.42% | 41.5 | 0.41x | fast<slow |
+| ADA/EUR | -3.72% | -2.45% | 32.7 | 1.19x | fast<slow |
+| LINK/EUR | -3.53% | -2.63% | 32.5 | 0.98x | fast<slow |
+| SUI/EUR | -5.17% | -4.05% | 31.8 | 0.49x | fast<slow |
+| LTC/EUR | **-6.10%** | -5.51% | **27.1** | 0.90x | fast<slow |
+
+The 2-day recovery (11-17 through 11-19) reversed hard: all 8 pairs
+are meaningfully negative again, and **LTC/EUR's RSI (27.1) is a new
+log-low for LTC specifically** (previous low: 32.4, on 11-18) - close
+to but still above BTC's all-time log-low of 27.2 (11-13). LTC's
+1h/48h change (-6.10%) is technically past the 6% magnitude threshold,
+but `momentum_trigger` only ever fires on upward moves, so this stays
+`flagged: false` regardless, same as every prior downside breach. A
+WebSearch for a dated catalyst found nothing specific to today - only
+undated or clearly older (Jan/Feb 2026) selloff coverage. None clears
+the bar.
+
+### Stocks - S&P 500 screen (top 20 of 505) - a real cybersecurity-earnings cluster alongside UNH's deepening crash
+
+`screen_sp500` returned a top-20 led by PANW, OKTA, EIX, TSN, DPZ, PNR
+all at score 3, with AVGO, LLY, COST, GE, **UNH**, CRWD, DIS, GILD,
+ANET, MCD, MCK, LOW, APP, EQIX all at score 2 - broad real weakness
+across much of the screen today. PANW and PNR are new entrants; OKTA,
+EIX, TSN, DPZ carried over; CRWD returns to score-2. **UNH's decline
+has deepened further** - now -18.89%/5d (was -13.63% yesterday),
+RSI 24.17 (even more oversold than yesterday's 28.75). `screen_sp500`'s
+`errors` field again flagged `HOLX: no bars returned`.
+
+Deepened **PANW, OKTA, UNH, PNR, CRWD, EIX, TSN, DPZ** - a fresh
+score-4-caliber earnings story, a real negative-catalyst name, UNH's
+continuing crash, and four continuing names.
+
+**Cross-check**: price, `pct_change_5d`, `pct_change_20d`, and volume
+ratio all matched exactly between `screen_sp500` and
+`compute_stock_signals` for all 8 deepened names - no repeat of the
+2026-10-24 bug. RSI differed by up to ~0.6pt (UNH), within the known
+benign range.
+
+- **PANW (Palo Alto Networks)** - \$361.73, RSI 55.09 (screen: 54.59),
+  +12.25%/5d, -4.95%/20d, volume **2.64x**. Real, substantial, dated
+  catalyst: fiscal Q1 2027 results (Nov 18) - revenue \$3.44B (+39%
+  YoY), Next-Gen Security ARR +66% to \$9.73B, non-GAAP EPS \$1.05 vs
+  \$0.97 consensus, and materially raised FY27 revenue guidance
+  (\$14.52-14.57B). Plus a real \$4.5B all-stock acquisition of
+  Applied Compute, an AI model platform. Sources genuinely disagree on
+  the immediate stock reaction (one reports +11% after-hours, another
+  reports -9.3% the next session) - net result over the 5-day window
+  is clearly positive regardless. Insider: a large Nov 1 RSU-grant
+  cluster across the C-suite (CEO Arora alone: 1,056,783 sh) is
+  routine compensation, not a signal; one real but modest sale
+  (President Jenkins, 1,200 sh @ \$347.97, Nov 3). 13F: thin/stale.
+  **Medium** - real, large, substantial beat+raise+acquisition;
+  capped by the genuinely conflicting reaction reports and real
+  chasing-risk after the 20d window's negative starting point.
+- **TSN (Tyson Foods)** - \$63.86, RSI 75.46 (screen: 73.78), +8.57%/5d
+  (holding near yesterday's 8.42%), +12.63%/20d, volume 0.66x. No new
+  information today beyond the already-confirmed Nov 16 report.
+  **Medium**, same confirmed basis.
+- **DPZ (Domino's Pizza)** - \$352.28, RSI 72.92 (screen: 70.45),
+  +3.09%/5d (cooling from 6.09%), +12.33%/20d, volume 1.10x. No new
+  information today. **Medium**, same confirmed basis, cooling.
+- **UNH (UnitedHealth Group) - the crash deepens further, still not a
+  pick.** \$330.48, RSI 24.51 (screen: 24.17 - now the most oversold
+  reading this log has recorded for any stock), **-18.89%/5d**
+  (worsened from -13.63% yesterday), -20.95%/20d, volume **3.03x**. No
+  new dated news found today beyond the already-confirmed CMS
+  Medicare Advantage audit proposal and political pressure logged
+  yesterday - the decline appears to be continuing on that same real,
+  structural, sector-wide basis rather than a fresh development.
+  Insider: no fresh activity. **Not a pick, and still not treated as a
+  contrarian buy-the-dip case** - same reasoning as yesterday, now
+  with an even more extreme oversold reading.
+- **CRWD (CrowdStrike) - a real negative catalyst plus a sustained,
+  real insider-selling pattern.** \$243.46, RSI 53.43 (screen: 53.50),
+  +7.44%/5d, -5.48%/20d, volume 1.54x. Real negative catalyst already
+  on record: shares sank \~9.9% on Nov 5, two days after CrowdStrike
+  unveiled an "AI Kill Switch" and agreed to acquire Fiddler AI and
+  Dreadnode for a combined \~\$495M (roughly a tenth of its cash) -
+  real analyst concern that the premium valuation leaves little
+  cushion for capital-allocation surprises. Today's 5d gain is a real
+  partial recovery from that drop, not a new positive story. Insider:
+  a genuine, sustained pattern - CEO Kurtz has filed **seven separate
+  real sales** between Nov 2 and Nov 17 (675 to 1,870 shares each,
+  \$215-\$248/share), plus one sale each from a director and the CFO
+  on Nov 2 - a real, repeated selling cadence (plausibly a 10b5-1
+  plan, but still worth weighting as a real signal). 13F: an
+  individual filer (Somerville Kurt F) has filed three times in 2026,
+  most recently Nov 12 - recent but still just a mention. Not a pick
+  given the real negative catalyst and the sustained insider-selling
+  pattern.
+- **PNR (Pentair)** - \$68.68, RSI 64.08 (screen: 63.34), +0.56%/5d -
+  essentially flat, +24.20%/20d - a real stale-20d-window case (the
+  real move is in the aging window, not the current 5 days), volume
+  **2.74x**. Real, confirmed detail found today: Bob Hau became EVP &
+  CFO effective Nov 1, 2026, a real permanent appointment replacing
+  interim CFO Fishman - consistent with the insider data (Hau's first
+  real grant filed Nov 2; Fishman's entries stop after September).
+  Real Q3 beat (adjusted EPS \$1.18-1.24 vs \~\$1.07-1.18 consensus
+  depending on source) with a raised 2026 sales forecast, but the
+  stock is down \~49% over the past year per one source - a real
+  longer-term weak spot underneath this quarter's beat. Not a pick
+  given the flat 5-day window despite the volume spike.
+- **EIX (Edison International)** - \$63.02, RSI 76.04 (screen: 70.44),
+  +4.72%/5d (holding near yesterday's 5.03%), +9.89%/20d, volume
+  1.22x. No new information today beyond the already-logged real
+  wildfire-liability overhang and sequential Mizuho downgrades. Not a
+  pick for the same reason as yesterday.
+- **OKTA (Okta)** - \$206.85, RSI 58.28 (screen: 57.64), +13.11%/5d
+  (unchanged from yesterday - the 5-day window now holds the same
+  move both days), -2.91%/20d, volume 2.25x. No fresh dated catalyst
+  found today despite a dedicated search -
+  still reads as the real bounce off Okta's Nov 2 crash (-11.2% that
+  day), not a new positive story. Not a pick for the same reason as
+  yesterday.
+
+**UNH, CRWD, PNR, EIX, and OKTA all stay off today's picks** - see
+Watch list detail below.
+
+**Data gaps:** no order-book-imbalance signal; insufficient history
+for a 20/50 SMA crossover on any deepened ticker; HOLX unpriceable
+again. 13F mentions stayed the known noisy proxy for all 8 names.
+Cross-check confirmed clean (see above).
+
+### Watch list
+
+- **UNH (UnitedHealth Group)** - the crash deepened further (-18.89%
+  /5d, RSI 24.2 - the most oversold reading this log has recorded for
+  any stock), still on the same real, structural, sector-wide CMS
+  audit catalyst - still not treated as a buy-the-dip case.
+- **CRWD (CrowdStrike)** - a real bounce off a real Nov 5 selloff
+  (AI-agent-policing acquisition controversy), undercut by a
+  sustained, 7-sale real insider-selling pattern from the CEO alone.
+- **PNR (Pentair)** - a real, confirmed CFO change (Bob Hau, Nov 1)
+  and Q3 beat, but flat on the 5-day window despite a 2.74x volume
+  spike - a real stale-window case.
+- **EIX / OKTA** - unchanged from yesterday's write-up; no fresh
+  information found for either today.
+
+### Bottom line
+
+Crypto's brief recovery reversed hard today - all 8 pairs meaningfully
+negative again, and LTC posted a new log-low RSI (27.1) for itself
+specifically, though still shy of BTC's own record (27.2, 11-13); no
+dated catalyst was found for today's reversal. Stocks saw a real
+cybersecurity-earnings cluster: **PANW** clears medium confidence on a
+large, substantial, confirmed beat+raise+acquisition, while **CRWD**
+stays off the list given a real negative catalyst (the AI-agent-
+policing acquisition selloff) compounded by a genuinely sustained CEO
+insider-selling pattern. **TSN** and **DPZ** continue on unchanged
+bases. The dominant real story remains **UNH**, whose crash deepened
+further to a 3-day, RSI-24 extreme on the same confirmed, structural,
+sector-wide CMS audit catalyst - still deliberately not treated as a
+contrarian opportunity given how uncertain the real company-level
+exposure remains. The real account event this cycle was a purchase of
+**tokenized pre-IPO Anthropic exposure (`ANT`/xStocks)**, surfacing a
+new ledger pattern (`tradeequities`/`aclass: equity`) this log hadn't
+seen before - outside this agent's coverage entirely, logged plainly
+rather than matched to any pick. This is advisory context only, not
+investment advice presented as certain - verify independently before
+acting on anything above.
+
