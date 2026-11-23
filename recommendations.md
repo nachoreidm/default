@@ -4652,3 +4652,229 @@ rather than matched to any pick. This is advisory context only, not
 investment advice presented as certain - verify independently before
 acting on anything above.
 
+## 2026-11-23 - daily cycle
+
+**Advisory only. Nothing here executes - verify before acting.** This
+is the normal 8am ET weekday trigger (v5, connector-permission-fixed
+session), the second weekend-skip of this log. `git pull` found no new
+commits since Friday's entry. Noted, and declined to use, a newly-
+connected "Coinversa Pulse" (Hyperliquid perp/market-analytics) MCP
+server - outside this agent's documented crypto-spot/S&P-500/EDGAR
+scope, not touched.
+
+### Outcome tracking - no new real activity
+
+Pulled the ledger with `start` set just after Friday's last reconciled
+entry (2026-11-20 01:13:32 UTC, the CAT equityfee). 2 entries found over
+the weekend, both excluded as non-trade: a small ADA staking reward
+(dust) and the recurring -200 ZEUR account transfer. No real crypto or
+tokenized-equity buy/sell activity to match against Friday's advice.
+
+### Crypto - a genuine, broad 48h recovery, but no pair clears the floor
+
+| Pair | 1h/48h chg | 4h/48h chg | RSI(14,4h) | Vol ratio (24h vs 7d avg) | SMA state |
+|---|---|---|---|---|---|
+| BTC/EUR | +4.22% | +2.45% | 51.91 | 0.63x | fast<slow |
+| ETH/EUR | +3.64% | +2.43% | 51.69 | 0.55x | fast<slow |
+| SOL/EUR | +4.64% | +3.01% | 57.40 | 0.58x | fast<slow |
+| XRP/EUR | +3.98% | +1.95% | 52.57 | 0.45x | fast<slow |
+| ADA/EUR | +3.45% | +1.19% | 49.83 | 0.57x | fast<slow |
+| LINK/EUR | +5.46% | +4.37% | 57.52 | 1.21x | fast<slow |
+| SUI/EUR | **+5.74%** | +4.04% | 51.61 | 0.61x | fast<slow |
+| LTC/EUR | +3.78% | +2.55% | 49.36 | 1.04x | fast<slow |
+
+All 8 pairs are real and meaningfully positive for the first time since
+the 11-17/11-19 recovery reversed on 11-20 - a genuine broad bounce, not
+an isolated name. **LINK (+5.46%) and SUI (+5.74%) are real near-misses**
+on the 6% floor, SUI closer than any pair since SOL's 11-18 near-miss.
+SUI's order-book is also real and notably bid-skewed (top-10 imbalance
++0.74, by far the most lopsided reading this log has recorded for any
+pair) - a genuine signal worth naming even though `momentum_trigger`
+doesn't use order-book data. No pair's RSI is extreme in either
+direction (all 49-57, squarely neutral) and all 8 remain `fast<slow` on
+the 20/50 SMA - this is a recovery still below its own trend, not a
+breakout. A WebSearch for a dated crypto-wide catalyst found nothing
+specific to 11-22/11-23 - the broad move reads as a real relief bounce
+off the 11-20 AI-selloff lows (see Stocks below) rather than a
+crypto-specific story. `momentum_trigger` stays `false` for all 8 -
+none clears the 6% floor.
+
+### Stocks - S&P 500 screen (top 20 of 505) - the real Nov 20 AI-selloff aftermath, across financials and tech
+
+`screen_sp500` returned a top-20 led by EXR, VLTO, CPAY, GPN, TSN at
+score 3, with WMT, COST, HD, **PLTR**, GE, **PANW**, **NFLX**, **GS**,
+DIS, MCD, VZ, **C**, TJX, T, MCK all at score 2. `errors` again flagged
+`HOLX: no bars returned`. This screen is dominated by the real,
+confirmed fallout from Friday's broad AI-repricing selloff (see below)
+rather than any single-name story.
+
+**Real market-wide context, confirmed via WebSearch**: Friday 11-20 was
+a genuine, large, broad selloff - sources disagree on exact closing
+numbers, but all agree the Nasdaq fell roughly 4.5-5.6% and the S&P 500
+around 3-3.7%, the Nasdaq 100's worst week since March 2020, driven by
+reports of an SEC accounting probe into Nvidia (-10 to -13% that day),
+a slide in newly-IPO'd Anthropic shares, and a broader "AI capex
+repricing" narrative (slowing data-center buildouts, hawkish Fed
+commentary, funding-source concerns). This is real, confirmed,
+macro/sector-wide - it is the dominant explanation for most of today's
+deepened names, not a company-specific flaw in each one.
+
+Deepened **PLTR, GS, NFLX, C, PANW, TSN, CPAY, GPN** - the four deepest,
+most heavily-volumed real declines (PLTR/GS/NFLX/C, all RSI 26-29, all
+2x+ volume) plus four continuing/new screen leaders.
+
+**Cross-check**: price, `pct_change_5d`/`pct_change_20d`, and volume
+ratio all matched exactly between `screen_sp500` and
+`compute_stock_signals` for all 8 deepened names - no repeat of the
+2026-10-24 bug. RSI differed by up to ~1.6pt (TSN), within the known
+benign range.
+
+- **PLTR (Palantir) - real oversold reading, but real reasons not to
+  treat it as a buy.** \$143.49, RSI 26.29 (screen: 26.49), **-10.54%
+  /5d**, -27.84%/20d, volume **2.22x**. Real backdrop: Q3 (Nov 2)
+  revenue +96% YoY with raised FY26 guidance, but the stock fell anyway
+  on valuation concerns (one analyst called the risk/reward at ~83x
+  2026 revenue estimates unfavorable) and has been sliding since,
+  compounded now by the broad 11-20 AI selloff. Insider: a real,
+  sustained multi-insider selling pattern - directors Moore (Nov 13,
+  Oct 15) and Stat (Nov 2, Oct 8), director Woersching (Oct 9), and
+  co-founder Taylor (Oct 8) all sold across October-November, alongside
+  large routine compensation grants. **Not a pick** - a real oversold
+  reading sitting on top of a real stretched-valuation story and a real
+  multi-insider selling pattern is the opposite of a confirmation case.
+- **GS (Goldman Sachs) - real oversold reading, no red flags found.**
+  \$790.69, RSI 29.14 (screen: 29.32), **-11.31%/5d**, -11.48%/20d,
+  volume **2.15x**. No negative company-specific news found - Q3 was
+  solid and CEO Solomon spoke positively about AI-financing demand and
+  a possible Anthropic-IPO advisory role; the decline reads as pure
+  participation in the broad 11-20 selloff rather than a GS-specific
+  problem. Insider: routine - a CEO/President/CFO/EVP/CAO option-
+  exercise cluster all dated Oct 23 (a scheduled vesting date), plus two
+  small real CAO sales. 13F: search for "Goldman Sachs" returns mostly
+  GS's own asset-management-arm filings (a self-match artifact of
+  searching a company name that is itself a major 13F filer), not
+  genuine third-party mentions - a real methodological caveat worth
+  naming, distinct from the usual noisy-proxy one. **Not a pick** - no
+  confirmed bullish catalyst, just a real oversold reading inside a
+  real macro selloff.
+- **NFLX (Netflix) - a real, longer-running decline, not just today's
+  selloff.** \$56.73, RSI 28.41 (screen: 27.55), **-6.62%/5d**, -11.22%
+  /20d, volume **2.06x**. Real and structural: shares have been
+  grinding to multi-year lows for weeks (below \$60 since mid-November,
+  down from \$124 a year ago), driven by a lowered FY26 ad-revenue
+  outlook and multiple compression rather than a single catalyst -
+  genuinely debated (one commentator cited 16x forward earnings as
+  cheap after a 50% drop) but not resolved. Insider: a real, sizable
+  Co-CEO Peters sale (27,312 sh @ \$63.62, Nov 9) - notable because he
+  sold near what are now the stock's recent highs, days before the
+  price kept falling to the current \$56-57 range - plus mostly routine
+  Nov 3 option exercises. **Not a pick** - a real structural growth
+  concern plus a poorly-timed-in-hindsight insider sale argue against
+  treating this oversold reading as a bounce setup.
+- **C (Citigroup) - real oversold reading, no red flags found.**
+  \$110.62, RSI 27.02 (screen: 27.59), **-8.82%/5d**, -8.61%/20d, volume
+  **2.02x**. No negative company-specific news found - Q3 beat revenue
+  estimates (+7.9% YoY), the quarterly dividend was raised 12% after
+  clearing the 2026 stress test, and consensus still projects 43.5%
+  YoY earnings growth this year. Reads as broad-selloff participation,
+  same as GS. Insider: one real, fresh director sale (Henry, 1,700 sh,
+  Nov 18 - two days before the selloff deepened further) against a
+  routine Oct 1 board-grant cycle. 13F: all matches are old Citigroup
+  self-filings (pre-2018), not useful. **Not a pick** for the same
+  reason as GS - no confirmed bullish catalyst beyond the broad
+  selloff.
+- **PANW (Palo Alto Networks) - Friday's acknowledged uncertainty has
+  now resolved negatively.** \$343.32, RSI 48.44 (screen: 48.83),
+  +8.61%/5d, **-12.07%/20d**, volume 1.34x (below the 2x flag this
+  time). Friday's entry flagged genuinely conflicting reports on the
+  Nov 18 earnings reaction (one source: +11% after-hours; another: -9.3%
+  the next session) and called it medium confidence on a beat+raise
+  +acquisition basis. That conflict is now resolved: a dedicated search
+  today found real, confirmed coverage of a ~10% one-day drop tied to a
+  surprise quarterly GAAP loss and deal structures dragging the profit
+  outlook, despite the real revenue beat and raised guidance - the 20d
+  window has gone from -4.95% (Friday) to -12.07% today as the initial
+  pop fully reversed. **No longer a pick** - this was a real, confirmed
+  earnings-reaction reversal, not a stale-window artifact.
+- **TSN (Tyson Foods) - a real catalyst aging out of the window; fading
+  fast.** \$65.12, RSI 78.11 (screen: 76.52 - still extremely
+  overbought), +1.83%/5d (down sharply from Friday's 8.57%), **+15.46%
+  /20d**, volume 1.43x. `momentum_trigger` fires, but only via the 20d
+  leg - a textbook case of this log's recurring "stale-20d-window"
+  pattern: the real catalyst (the Nov 16 FY26 beat, despite a soft
+  FY27 beef-driven guidance cut) is aging out of the 5-day window while
+  the stock gives back its initial pop. No new information found today.
+  **Not a pick** - moved to Watch list.
+- **CPAY (Corpay) - same stale-window mechanism, manifesting as a real
+  decline.** \$429.84, RSI 49.29 (screen: 49.00, neutral - not
+  oversold), **-6.91%/5d**, +7.54%/20d, volume **2.30x**.
+  `momentum_trigger` fires via the 20d leg only. The real catalyst (a
+  confirmed Q3 beat+raise, ~8.3% pop, reported before Nov 13) is now
+  over a week old; today's decline reads as broad-selloff participation
+  in a name that had run up 65.8% over the trailing year, not a fresh
+  negative development - no company-specific bad news found. Insider:
+  nothing fresher than August (CEO Clarke's large Aug 21 option
+  exercise, two director sales). 13F: a small, recurring filer
+  (Philadelphia Investment Partners, most recently Nov 9) plus one
+  notable name - Rokos Capital Management, a global macro hedge fund -
+  mentioned in a May 2026 filing; still just the standard noisy-mention
+  proxy, not a clean signal. **Not a pick.**
+- **GPN (Global Payments) - a real M&A-rumor whipsaw, not a clean
+  technical signal.** \$91.83, RSI 52.57 (screen: 52.71, neutral),
+  +2.24%/5d, +12.18%/20d, volume **2.69x**. `momentum_trigger` fires via
+  the 20d leg, but the real driver is a confirmed take-private rumor
+  cycle: GPN fell ~12% on Nov 12 on reports of CD&R/GTCR take-private
+  interest, partially rebounded Nov 13, and (per the latest headline
+  found) those same parties have reportedly since dropped the pursuit.
+  The elevated 20d change and today's volume spike both look like
+  residual M&A-headline noise rather than a fundamental or momentum
+  signal - explicitly **not treated as comparable to the other names
+  tonight's screen flagged**. No fresh insider activity; 13F thin/stale.
+  **Not a pick.**
+
+**All 8 deepened names stay off today's picks** - see Watch list detail
+below for TSN specifically (the only one with a near-term technical
+setup worth tracking).
+
+**Data gaps:** no order-book-imbalance signal for any stock (Alpaca
+free/IEX tier); insufficient history for a 20/50 SMA crossover on any
+deepened ticker; HOLX unpriceable again. 13F mentions stayed the known
+noisy proxy for all names checked, plus a real additional caveat
+specific to GS today (searching a company name that is itself a major
+13F filer surfaces mostly its own self-filings, not third-party
+mentions). Cross-check confirmed clean (see above).
+
+### Watch list
+
+- **TSN (Tyson Foods)** - a real Nov 16 earnings catalyst fading fast
+  (5d momentum down from +8.57% to +1.83% in three sessions) while RSI
+  stays extremely overbought (78) on the aging 20-day window - the
+  stale-20d-window pattern, worth tracking for when the 20d window
+  finally catches up to the real, now-flat 5-day action.
+- **LINK/SUI (crypto)** - real, broad 48h recovery across all 8 pairs,
+  with LINK (+5.46%) and SUI (+5.74%) the closest real near-misses on
+  the 6% floor; SUI's order-book is also genuinely the most bid-skewed
+  reading this log has recorded (+0.74 top-10 imbalance).
+
+### Bottom line
+
+A quiet, no-pick day by design, not by omission: crypto staged a real,
+broad 48h recovery across all 8 pairs (LINK and SUI the closest real
+near-misses, SUI's order book notably bid-heavy) but none cleared the
+6% floor. The stock screen was dominated by the real, confirmed fallout
+from Friday's broad AI-repricing selloff (Nasdaq -4.5%+ that day,
+Nvidia's SEC-probe-driven plunge, a sliding Anthropic post-IPO) -
+**PLTR, GS, NFLX, and C** all show real, deep, 2x+-volume oversold
+readings, but none earned a buy case: GS and C show no red flags beyond
+pure macro participation, while PLTR (stretched valuation plus a real
+multi-insider selling pattern) and NFLX (a real structural ad-revenue
+slowdown plus a poorly-timed Co-CEO sale) have real reasons layered on
+top to stay cautious. **PANW's** Friday-acknowledged earnings-reaction
+uncertainty resolved negatively - a real, confirmed post-earnings
+reversal, now also not a pick. **TSN, CPAY, and GPN** all cleared the
+screen's score mainly through the same real "stale-20d-window"
+mechanism (TSN and CPAY) or M&A-rumor-cycle residue (GPN), not fresh
+signal. No real account activity to reconcile against Friday's advice.
+This is advisory context only, not investment advice presented as
+certain - verify independently before acting on anything above.
+
