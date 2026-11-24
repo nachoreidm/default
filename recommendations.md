@@ -4878,3 +4878,226 @@ signal. No real account activity to reconcile against Friday's advice.
 This is advisory context only, not investment advice presented as
 certain - verify independently before acting on anything above.
 
+## 2026-11-24 - daily cycle
+
+**Advisory only. Nothing here executes - verify before acting.** This
+is the normal 8am ET weekday trigger (v5, connector-permission-fixed
+session). `git pull` found no new commits since yesterday's entry.
+
+### Outcome tracking - a real new NVDAx purchase, unmatched to any pick
+
+Pulled the ledger with the same `start` used yesterday (just after
+2026-11-20 01:13:32 UTC) to be safe about the exact checkpoint. 7
+entries came back; 2 were already reported in yesterday's entry (a
+-200 ZEUR transfer at ~2026-11-22 09:12 UTC and an ADA staking-reward
+dust amount at ~2026-11-22 17:32 UTC, both excluded as non-trade) and 2
+are genuinely new since then:
+
+- **2026-11-23 ~14:30 UTC: bought 4.000000 shares of `NVDAx`** for
+  \~\$676.47 total (\~\$169.12/share implied), funded by a
+  EUR618.57 -> USD676.4743 conversion. `NVDAx` is the same kind of
+  Kraken tokenized-equity ticker this log has seen before (LMTx, PLTRx,
+  KDPx) - the "x" suffix strips to the real underlying ticker, **NVDA**
+  - and this entry uses the older, already-known `type: "receive"`/
+  `aclass: "tokenized_asset"` pattern (not the newer `tradeequities`
+  pattern seen on the ANT purchase). **This real purchase has no
+  advisory pick to match against** - NVDA was not deepened or picked in
+  yesterday's (11-23) cycle, which covered PLTR/GS/NFLX/C/PANW/TSN/
+  CPAY/GPN, not NVDA. Logged plainly as a real action outside
+  yesterday's coverage, not matched to any pick. Worth noting given
+  today's screen (below): NVDA itself crossed this log's momentum floor
+  today on a real bounce, but sits on top of a genuinely serious,
+  unresolved corporate/regulatory overhang (see the NVDA write-up) -
+  exactly the kind of position this log would flag as risky, not a
+  reason to second-guess a trade already made.
+- **2026-11-23 ~21:25 UTC: -200 ZEUR transfer** - the same recurring
+  account transfer seen on prior cycles, excluded as non-trade.
+
+### Crypto - a genuine cooldown; no pair notable
+
+| Pair | 1h/48h chg | 4h/48h chg | RSI(14,4h) | Vol ratio (24h vs 7d avg) | SMA state |
+|---|---|---|---|---|---|
+| BTC/EUR | -0.68% | -0.77% | 45.44 | 0.98x | fast<slow |
+| ETH/EUR | -0.27% | -0.93% | 46.60 | 1.04x | fast<slow |
+| SOL/EUR | +1.02% | +0.86% | 47.29 | 1.01x | fast<slow |
+| XRP/EUR | +1.25% | +1.05% | 47.80 | 1.18x | fast<slow |
+| ADA/EUR | +1.19% | +1.68% | 50.03 | 1.66x | fast<slow |
+| LINK/EUR | +2.47% | +2.34% | 54.54 | 1.10x | fast<slow |
+| SUI/EUR | +0.23% | +0.52% | 46.17 | 1.95x | fast<slow |
+| LTC/EUR | +3.75% | +3.52% | 50.00 | 1.28x | fast<slow |
+
+A genuinely quiet day after yesterday's broad recovery - all 8 pairs
+sit in a tight, neutral RSI band (45-54) with small, mixed-sign moves,
+none close to the 6% floor. The one real, mildly notable reading is
+**SUI's volume (1.95x, just under the 2x flag) on an essentially flat
+price (+0.23%/+0.52%)** - real but not large enough to flag, and SUI's
+order-book imbalance (not shown in the table) has cooled from
+yesterday's extreme +0.74 reading. No WebSearch run - nothing crossed
+the bar worth searching for. `momentum_trigger` stays `false` for all 8.
+
+### Stocks - S&P 500 screen (top 20 of 505) - a quiet screen apart from a real AI-selloff-recovery cluster
+
+`screen_sp500` returned a top-20 with **no score-3 names at all today**
+- a genuinely calmer screen than recent cycles - led at score 2 by
+NVDA, LLY, WMT, COST, PG, HD, GE, **INTC**, **PANW**, GILD, DIS, MCD,
+WELL, **TJX**, T, LOW, MDT, MCK, **APP**, MRSH. `errors` again flagged
+`HOLX: no bars returned`.
+
+Deepened **NVDA, INTC, PANW, TJX, APP** - the five names whose 5-day or
+20-day windows cross the 6% `momentum_trigger` floor, spanning a real
+continuation of the Nov 20 AI-selloff recovery (NVDA, INTC, PANW) and
+two separate stories (TJX's own earnings pop; APP's stale-window
+carryover).
+
+**Cross-check**: price, `pct_change_5d`/`pct_change_20d`, and volume
+ratio all matched exactly between `screen_sp500` and
+`compute_stock_signals` for all 5 deepened names - no repeat of the
+2026-10-24 bug. RSI differed by up to ~1.8pt (INTC), within the known
+benign range.
+
+- **NVDA (Nvidia) - a real bounce sitting on top of a genuinely
+  serious, unresolved overhang. Not a pick despite crossing the
+  momentum floor.** \$165.05, RSI 42.71 (screen: 42.91), **+6.17%/5d**
+  (real, crosses the floor), -24.27%/20d, volume 1.73x (just under the
+  2x flag). Real, significant, previously-undocumented-on-this-log
+  backdrop found today: CEO Jensen Huang resigned (board accepted the
+  resignation \~Nov 11-12) after personal-relationship issues came to
+  light; the SEC opened a civil inquiry (\~Nov 17, unconfirmed by
+  either side) into whether NVDA's disclosures misled investors,
+  centered on Asia relationships and a dropped Singapore-revenue line
+  item; California's AG is separately looking into the matter; at
+  least two lawsuits (including a derivative suit against the board)
+  have been filed since Nov 8. This is the real, confirmed root cause
+  of the broad 11-20 AI-selloff logged yesterday - not just a sector
+  rotation. Insider: nothing fresh and alarming - a modest real sale by
+  EVP/General Counsel Teter (1,434 sh @ \$146.03, Nov 19), two large
+  Director Coxe stock *gifts* (500,000 sh each, Nov 4 and Oct 7 - not
+  market sales), and an older (Sept 18) large real sale by director
+  Stevens (1,356,000 sh @ \$219.72, well before the crash). 13F: the
+  "NVIDIA" name search returned filers (Blankinship & Foster, Oak Grove
+  Capital) with no obvious connection to NVDA - a real, extra-noisy
+  instance of the standard proxy caveat, likely a weak name match
+  rather than genuine mentions. **Not a pick** - a real, unresolved
+  CEO-resignation/SEC-probe/lawsuit cluster is a reason for caution, not
+  confirmation, regardless of the real bounce.
+- **INTC (Intel) - two real, fresh positive catalysts on top of a
+  severely crashed stock, plus real, repeated CEO buying.** \$59.66,
+  RSI 38.21 (screen: 39.98), **+8.14%/5d**, -36.36%/20d, volume 1.41x.
+  Real backdrop: shares crashed 28.6% the day after Oct 29 earnings (a
+  weak FY Q4 outlook), bottoming \~59% below the Sept high by Nov 5;
+  since then, a real Nov 18 restructuring announcement and a real Nov
+  19 manufacturing-customer-win announcement (+\~4.6% that day) both
+  landed as fresh, dated positive catalysts, on top of real layoffs
+  this week. Insider: a real, repeated signal - **CEO Tan Lip Bu has
+  made two real open-market purchases** (105,263 sh @ \$95, Aug 11; and
+  150,000 sh @ \$64.73, Nov 2) - buying through the stock's decline at
+  two very different price points, a genuine conviction signal, not
+  routine. 13F: the "Intel" search returned only pre-2005 filers
+  (Botty Investors, Loring Wolcott & Coolidge) - stale, no real recent
+  signal either way. **Medium** - real, fresh, dated catalysts plus a
+  real, repeated insider-buying pattern from the CEO; capped at medium
+  given the stock remains deeply negative on the 20-day window and RSI
+  is still below neutral, not an extreme oversold confirmation.
+- **PANW (Palo Alto Networks) - a real further bounce, but a genuine
+  whipsaw, not a trusted signal.** \$353.43, RSI 51.50 (screen: 51.85),
+  **+14.27%/5d**, -12.02%/20d, volume 0.98x. This is the same name that
+  went from Friday's acknowledged-conflicting earnings reaction, to
+  Saturday's confirmed real post-earnings reversal (-12.07%/20d
+  logged 11-23), to today's further real +14.27%/5d bounce - a
+  genuine three-stage whipsaw within a single 5-day window. No fresh
+  dated news found today beyond what's already logged; insider and 13F
+  unchanged from the 11-23 write-up (routine Nov 1 grant cluster, one
+  modest real Jenkins sale; 13F thin/stale). **Not a pick** - the
+  repeated direction reversals inside one window argue for treating
+  this as noise rather than a signal either way, not for chasing the
+  latest leg.
+- **TJX (TJX Companies) - a real, clean fiscal Q3 beat+raise, plus a
+  real, fresh director purchase. The cleanest candidate on today's
+  screen.** \$139.25, RSI 52.70 (screen: 51.74), **+7.24%/5d** (a real
+  current-window move, not a stale-20d artifact - the 20d change is
+  only -0.68%), volume 0.73x (below average - the move happened on
+  lighter-than-usual volume). Real, confirmed, dated catalyst: fiscal
+  Q3 2026 results (reported \~Nov 18) - net sales \$16.0B (+6% YoY,
+  beating \~\$15.8B consensus), comp sales +4-5%, adjusted EPS \$1.34
+  (in line to above consensus), with FY26 and Q4 guidance both raised;
+  shares reportedly reached fresh all-time highs on the print (sources
+  disagree on the exact one-day move, 6-11%). Insider: a real, fresh,
+  notable signal - **director Pintoff bought 1,427 sh @ \$140.03 on Nov
+  20**, right in the middle of the broad market selloff - a real
+  purchase at a price close to today's, not a sale. 13F: thin/stale
+  (Saranac Partners, Wedgewood Partners - mostly 2016-2017). **Medium**
+  - a real, clean, confirmed beat+raise plus a real, fresh insider buy
+  timed into broad-market weakness; capped at medium per this log's
+  momentum-confirmation ceiling despite the clean setup, and the
+  below-average volume is a real, if minor, soft point.
+- **APP (AppLovin) - the stale-20d-window pattern again; today's real
+  5-day move is actually negative.** \$373.92, RSI 57.07 (screen:
+  57.49), **-6.27%/5d** (a real decline), +42.27%/20d, volume 1.13x.
+  `momentum_trigger` fires only via the 20d leg - the real move
+  (whatever drove the +42% 20-day gain) is aging out of the window
+  while the current 5 days are genuinely negative. Insider: a real Nov
+  2 routine RSU-grant cluster (CEO Foroughi, CFO Stumpf, CTO Ge, CLO
+  Cacovean, all at \$0 - compensation, not market activity) and an
+  older real Aug 20 tax-withholding-sale cluster at \$308.77 - nothing
+  fresh. 13F: a real, somewhat more substantive mention than usual -
+  **Coatue Management**, a sizable, well-known tech-focused hedge fund,
+  appears three times (Nov 2025, Feb 2026, May 2026) - still just the
+  standard mention-proxy caveat, not a clean net-buy figure. **Not a
+  pick** - the real signal here is a decline, not a breakout.
+
+**All 5 deepened names stay off today's picks** - NVDA given the real,
+serious, unresolved overhang; PANW given the real intra-window
+whipsaw; APP given the real negative 5-day move underneath a stale 20d
+flag. **INTC and TJX are the two real, clean, dual-confirmed candidates
+(fresh dated catalyst + fresh real insider signal) but both stay capped
+at medium and neither clears a bar for "today's picks" on their own
+merits beyond that cap** - see Bottom line.
+
+**Data gaps:** no order-book-imbalance signal for stocks (Alpaca
+free/IEX tier); insufficient history for a 20/50 SMA crossover on any
+deepened ticker; HOLX unpriceable again. 13F mentions stayed the known
+noisy proxy for all 5 names, with a real extra-noisy instance on NVDA
+specifically (weak name-match filers, no obvious NVDA connection).
+Cross-check confirmed clean (see above).
+
+### Watch list
+
+- **INTC (Intel)** - two real, fresh positive catalysts (a Nov 18
+  restructuring announcement, a Nov 19 manufacturing-customer win)
+  plus a real, repeated CEO insider-buying pattern (two open-market
+  purchases at \$95 and \$64.73), stabilizing after a severe post-
+  earnings crash. Medium-confidence basis, worth tracking for
+  confirmation.
+- **TJX (TJX Companies)** - a real, clean fiscal Q3 beat+raise plus a
+  real, fresh director purchase (Nov 20, into broad-market weakness).
+  Medium-confidence basis, the cleanest setup on today's screen.
+- **NVDA (Nvidia)** - a real bounce (+6.17%/5d) sitting on top of a
+  genuinely serious, newly-surfaced overhang: CEO Huang's resignation,
+  an SEC civil inquiry into NVDA's disclosures, a California AG look,
+  and multiple lawsuits since Nov 8. Watching for resolution either
+  way, not treated as a buy signal.
+
+### Bottom line
+
+A genuinely quiet crypto day (all 8 pairs neutral, none near the 6%
+floor) alongside a calmer stock screen with no score-3 names at all.
+The real story today is **NVDA**: its real +6.17%/5d bounce is the
+first this log has examined closely enough to surface the actual root
+cause of the 11-20 AI-selloff - CEO Jensen Huang's resignation, a new
+SEC civil inquiry into NVDA's own disclosures, a California AG look,
+and multiple lawsuits since Nov 8 - a genuinely serious, unresolved
+corporate/regulatory cluster that argues firmly against treating the
+bounce as a buy signal. **INTC** and **TJX** are the two real, cleaner
+candidates today (fresh dated catalysts plus fresh real insider-buying
+signals on both), but both stay capped at medium and move to the Watch
+list rather than today's picks. **PANW** continues a genuine three-
+stage whipsaw within a single 5-day window and **APP** repeats the
+familiar stale-20d-window pattern with an actually-negative current
+move. The real account event this cycle was a purchase of **4 NVDAx
+(tokenized Nvidia stock)** on 2026-11-23, unmatched to any prior pick
+(NVDA wasn't deepened in yesterday's cycle) - logged plainly, with the
+real overhang above worth the account holder's own attention regardless
+of this log's picks. This is advisory context only, not investment
+advice presented as certain - verify independently before acting on
+anything above.
+
