@@ -5101,3 +5101,163 @@ of this log's picks. This is advisory context only, not investment
 advice presented as certain - verify independently before acting on
 anything above.
 
+## 2026-11-25 - daily cycle
+
+**Advisory only. Nothing here executes - verify before acting.** This
+is the normal 8am ET weekday trigger (v5, connector-permission-fixed
+session). `git pull` found no new commits since yesterday's entry.
+
+### Outcome tracking - no new real activity
+
+Pulled the ledger with `start` set just after yesterday's last
+reconciled entry (2026-11-23 21:25:11 UTC, the recurring ZEUR
+transfer). 0 entries found - no real account activity since yesterday.
+
+### Crypto - a genuine, broad give-back; no catalyst found
+
+| Pair | 1h/48h chg | 4h/48h chg | RSI(14,4h) | Vol ratio (24h vs 7d avg) | SMA state |
+|---|---|---|---|---|---|
+| BTC/EUR | -4.32% | -7.13% | 36.99 | 0.79x | fast<slow |
+| ETH/EUR | -4.77% | -7.99% | 36.68 | 0.70x | fast<slow |
+| SOL/EUR | **-6.47%** | -11.12% | 37.41 | 0.71x | fast<slow |
+| XRP/EUR | -3.36% | -8.90% | 41.85 | 0.82x | fast<slow |
+| ADA/EUR | -3.85% | -9.59% | 38.38 | 0.60x | fast<slow |
+| LINK/EUR | -3.27% | -7.58% | 40.07 | 0.64x | **fast>slow (bullish cross)** |
+| SUI/EUR | -5.71% | -12.47% | 37.89 | 0.86x | fast<slow |
+| LTC/EUR | -1.77% | -6.24% | 43.45 | 1.35x | fast<slow |
+
+A real, broad reversal after yesterday's calm - all 8 pairs meaningfully
+negative again, several by a large margin on the 4h/48h window (-6% to
+-12%). **SOL's 1h/48h change (-6.47%) is a real downside breach of the
+6% magnitude threshold**, same as every prior downside breach,
+`momentum_trigger` stays `false` by design (upward-only). One real,
+notable anomaly: **LINK's 20/50 SMA just crossed bullish this candle**
+(`fast_above_slow`, `crossed_this_candle: true`) despite LINK's own
+real price decline today - a genuine lagging-indicator/price
+contradiction worth naming rather than smoothing over; it reflects the
+moving averages catching up to the 11-22/11-23 recovery, not a signal
+about today's drop. SUI (+0.50) and LTC (+0.54) both carry real,
+continuing bid-skewed order books despite the price declines - buyers
+are still present even as price falls. A dedicated WebSearch for a
+dated catalyst found nothing specific to 11-25 - logged as a real,
+broad move with no identified cause, not forced into a narrative.
+
+### Stocks - S&P 500 screen (top 20 of 505) - two real, clean breakouts (DLTR, AMGN); WMT's rally meets real insider selling
+
+`screen_sp500` returned a top-20 led by WMT, BDX, DLTR, AIZ, DPZ at
+score 3, with LLY, BRK.B, MA, COST, PG, KO, HD, AMGN, GILD, DIS, MCD,
+VZ, PEP, WELL, T at score 2. `errors` again flagged `HOLX: no bars
+returned`.
+
+Deepened **DLTR, AMGN, WMT** - the two real, current-window 6%+ movers
+(DLTR, AMGN) plus WMT, the broader session's other real earnings-driven
+strength story.
+
+**Cross-check**: price, `pct_change_5d`/`pct_change_20d`, and volume
+ratio all matched exactly between `screen_sp500` and
+`compute_stock_signals` for all 3 deepened names - no repeat of the
+2026-10-24 bug. RSI differed by up to ~2.9pt (WMT), within the known
+benign range.
+
+- **DLTR (Dollar Tree) - a real, fresh, confirmed beat+raise on real
+  elevated volume.** \$154.65, RSI 69.28 (screen: 68.45), **+8.57%/5d**
+  (a real current-window move, not stale - the 20d change, +21.60%, is
+  itself mostly this same week's real move), volume **2.83x**. Real,
+  confirmed, dated catalyst: Q3 fiscal 2026 results (reported
+  before-market Nov 24, per the company's own release) - revenue +6.9%
+  YoY to \$5.1B, comp sales +4.6%, adjusted EPS \$1.16 (a modest beat
+  vs \~\$1.14 consensus - one third-party source's much larger "12%
+  beat" figure turned out to mismatch last year's Q3 numbers, not this
+  quarter's, so treat the beat itself as modest, not dramatic), raised
+  FY2026 adjusted EPS outlook to \$8.05-\$8.25, Q4 comp-sales guide of
+  3-4%. A real \$2.5B buyback authorization is also in effect. Worth
+  naming the real tension: the headline EPS beat is described as
+  modest, while today's price/volume reaction (+8.57%/5d, 2.83x) is
+  large - likely reflects the raise and buyback as much as the beat
+  itself, not a clean one-to-one reaction. Insider: nothing fresh this
+  week - real but routine tax-withholding sales (CMO Beebe, Chief
+  Retail Officer Konrad, CAO Maheshwari, all Oct) and two older real
+  sales (director Stahl, Sept; CIO Aflatooni, Aug), nothing alarming.
+  13F: stale (Maplelane Capital 2022, Investors Trust Co pre-2005).
+  **Medium** - real, fresh, confirmed beat+raise plus a real buyback,
+  on real elevated volume, with no insider red flags; capped at medium
+  per this log's momentum-confirmation ceiling.
+- **AMGN (Amgen) - a real, fresh acceleration of an already-recovering
+  post-earnings story.** \$473.94, RSI 61.59 (screen: 62.19),
+  **+6.77%/5d** (a real current-window move - the 20d change is only
+  +4.89%, so this is a fresh acceleration, not a stale-window artifact),
+  volume 1.19x. Real backdrop: Q3 2026 results (Nov 3) beat consensus
+  (adjusted EPS \$6.45 vs \~\$6.07, revenue \$10.37B) but shares
+  actually *fell* 2.2% on the earnings-day reaction itself (to \$453) -
+  today's price (\$473.94) is a real, multi-week recovery and
+  extension well past that level, with Repatha's real +37% sales
+  growth as an underlying driver. No fresh negative news found.
+  Insider: a real, routine Nov 6 director RSU-grant cluster (all \$0,
+  annual grant cycle) and one older real sale (SVP Khosla, Aug) -
+  nothing fresh or alarming. 13F: stale (Thurston Springer Miller Herd
+  & Titak 2024, Visium Asset Management 2007). **Medium** - a real,
+  fresh, current-window acceleration on top of a real, confirmed
+  underlying beat, with moderate (not extreme) RSI and no red flags;
+  capped at medium per the standing ceiling.
+- **WMT (Walmart) - a real earnings beat meets a real, sustained
+  executive-selling pattern at an extreme RSI. Not a pick.** \$132.31,
+  RSI 74.44 (screen: 71.59 - genuinely extreme either way), +3.89%/5d
+  (below the 6% floor - the score-3 flag comes from the RSI-extreme and
+  20d legs, not a fresh 5-day breach), +11.40%/20d, volume 0.91x. Real,
+  confirmed catalyst: fiscal Q3 2027 results (Nov 19) - revenue
+  \$188.8B (+5.2% YoY), adjusted EPS \$0.65 vs \$0.64 consensus, a
+  third consecutive full-year guidance raise, e-commerce +17% - net
+  income was actually down 19.5% YoY, a real counterpoint worth noting
+  even though adjusted EPS beat. Insider: a real, fairly heavy, fresh
+  selling cluster right into the post-earnings highs - **CEO Furner
+  sold 400 sh @ \$127.49 (Nov 20)**, EVP Nicholas sold (Nov 19), EVP
+  Bartlett sold a real, large 18,900 sh @ \$127.36 (Nov 19, plus an
+  earlier 3,346 sh sale Nov 2), and CTO Kumar sold a real, large
+  166,342 sh @ \$123.21 (Oct 30) - a genuine, sustained multi-insider
+  selling pattern including the CEO, landing right at the stock's
+  highs. **Not a pick** - an extremely overbought RSI (74) combined
+  with a real, sustained C-suite selling pattern argues for caution
+  despite the real, confirmed earnings beat+raise.
+
+**WMT stays off today's picks; DLTR and AMGN clear confidence** - see
+Bottom line.
+
+**Data gaps:** no order-book-imbalance signal for stocks (Alpaca
+free/IEX tier); insufficient history for a 20/50 SMA crossover on any
+deepened ticker; HOLX unpriceable again. 13F mentions stayed the known
+noisy proxy for all 3 names, all genuinely stale (no filer more recent
+than 2024). Cross-check confirmed clean (see above).
+
+### Watch list
+
+- **WMT (Walmart)** - a real, confirmed Q3 beat+raise (third
+  consecutive guidance raise this fiscal year) undercut by an extreme
+  RSI (74) and a real, sustained multi-insider selling pattern
+  (CEO Furner, several EVPs, the CTO) right into the post-earnings
+  highs - watching for whether the selling continues.
+- **LINK (crypto)** - a real, lagging bullish 20/50 SMA crossover
+  despite today's own real price decline (-3.27%/-7.58%) - a genuine
+  contradiction between the moving-average signal and the immediate
+  price action, worth tracking for which one resolves it.
+
+### Bottom line
+
+A real, broad crypto give-back today (all 8 pairs meaningfully
+negative, SOL's -6.47%/1h-48h a real downside breach that
+`momentum_trigger` never flags by design) with no identified catalyst -
+logged as a genuine open question, not forced into a story - alongside
+a real, notable contradiction on LINK (a bullish SMA crossover landing
+on a down day). The stock screen produced this log's first two
+same-day picks in a while: **DLTR** (a real, fresh, confirmed Q3
+beat+raise plus a \$2.5B buyback, on real 2.83x volume, no insider red
+flags) and **AMGN** (a real, fresh acceleration of an already-
+recovering post-earnings story, Repatha's real growth underneath it,
+no red flags) - both capped at medium per this log's standing ceiling.
+**WMT** shows the same kind of real earnings beat+raise but stays off
+picks given the combination of an extreme RSI (74) and a real,
+sustained, multi-insider selling pattern including the CEO - a genuine
+reason for caution, not a reason to discount the real beat itself. No
+real account activity to reconcile against yesterday's advice. This is
+advisory context only, not investment advice presented as certain -
+verify independently before acting on anything above.
+
