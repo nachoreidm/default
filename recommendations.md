@@ -5261,3 +5261,165 @@ real account activity to reconcile against yesterday's advice. This is
 advisory context only, not investment advice presented as certain -
 verify independently before acting on anything above.
 
+## 2026-11-26 - daily cycle
+
+**Advisory only. Nothing here executes - verify before acting.** This
+is the normal 8am ET weekday trigger (v5, connector-permission-fixed
+session). `git pull` found no new commits since yesterday's entry.
+
+### Outcome tracking - no new real activity
+
+Pulled the ledger with `start` set just after the last reconciled
+entry (2026-11-23 21:25:11 UTC, the recurring ZEUR transfer - the same
+checkpoint used yesterday, since yesterday's pull also found nothing
+new). 0 entries found - no real account activity since 11-23.
+
+### Crypto - a real, broad recovery; LTC crosses the momentum floor
+
+| Pair | 1h/48h chg | 4h/48h chg | RSI(14,4h) | Vol ratio (24h vs 7d avg) | SMA state |
+|---|---|---|---|---|---|
+| BTC/EUR | +0.32% | +1.64% | 51.90 | 0.96x | fast<slow |
+| ETH/EUR | -0.23% | +1.36% | 51.16 | 0.75x | fast<slow |
+| SOL/EUR | +0.11% | +2.61% | 51.56 | 1.09x | fast<slow |
+| XRP/EUR | +2.51% | +4.07% | 55.21 | 0.75x | fast<slow |
+| ADA/EUR | +1.91% | +3.65% | 55.20 | 0.94x | fast<slow |
+| LINK/EUR | +3.00% | +5.15% | 60.73 | 0.80x | fast>slow |
+| SUI/EUR | +1.99% | +4.40% | 52.70 | 0.85x | fast<slow |
+| LTC/EUR | **+6.89%** | **+8.65%** | 63.83 | 1.07x | **fast>slow (bullish cross)** |
+
+A real, broad recovery after yesterday's give-back - 7 of 8 pairs
+positive, and **LTC/EUR clears the 6% `momentum_trigger` floor on both
+legs for the first time in this log's recent cycles**, confirmed by a
+real, simultaneous bullish 20/50 SMA crossover (`crossed_this_candle:
+true`). A dedicated WebSearch found **no LTC-specific catalyst**: the
+real story found was LTC's mid-November crash to a \$42.63 low on
+Nov 15 (its lowest since early July, down \~46% from January's \$84.89
+high) attributed to broad crypto weakness and Fed rate-hike
+expectations, not anything LTC-specific - today's bounce reads as a
+real, partial recovery off that low, not a resolved new catalyst.
+**Medium** (momentum-only per this log's standing cap, but genuinely
+confirmed by a real SMA crossover, unlike a bare price spike) -
+`momentum_trigger` + SMA confirmation is the clearest signal on
+today's whole screen, crypto or stock. LINK (`fast>slow`, no crossover
+today - already crossed 11-25) continues the same real recovery theme
+but doesn't itself clear the 6% floor.
+
+### Stocks - S&P 500 screen (top 20 of 505) - three real moves, none with a confirmed catalyst
+
+`screen_sp500` returned a top-20 led by **WTW** (score 4, the highest
+seen in this log), WMT, MRSH, MSI, ORLY, BDX, EXR, VLTO, **HPQ**, TSCO,
+AIZ, **BAX**, CLX, DPZ, PNR at score 3, with BRK.B, COST, PG, PLTR, HD
+at score 2. `errors` again flagged `HOLX: no bars returned`.
+
+Deepened **WTW, HPQ, BAX** - the three highest-score, real 2x+-volume
+movers - plus a brief carryover check on **WMT** (continuing from
+yesterday, no re-deepening needed).
+
+**Cross-check**: price, `pct_change_5d`/`pct_change_20d`, and volume
+ratio all matched exactly between `screen_sp500` and
+`compute_stock_signals` for all 4 names checked - no repeat of the
+2026-10-24 bug. RSI differed by up to ~0.9pt (WTW), within the known
+benign range.
+
+- **WTW (Willis Towers Watson) - a real, elevated-volume move with no
+  confirmed catalyst found.** \$352.56, RSI 72.19 (screen: 72.16),
+  **+6.43%/5d** (crosses the floor), +9.92%/20d, volume **2.44x**. A
+  dedicated WebSearch found nothing dated more recently than Nov 13
+  (a 2% gain that day) - older context only (the FlowStone and Cushon
+  acquisitions, a Zurich/Radar partnership, both from earlier in the
+  year). **No confirmed catalyst for today's specific move** - logged
+  as a real, open question, not forced into a story. Insider: a real,
+  large Nov 17 cluster of routine RSU/equity grants across the whole
+  C-suite (CEO Hess, CFO Krasner, COO Faber, CHRO Banas, General
+  Counsel Furman, and others - all \$0, the annual grant cycle) plus
+  one real, modest CFO sale (Krasner, 1,525 sh @ \$337.48, Nov 13) -
+  nothing alarming. 13F: **Altrinsic Global Advisors** is a real,
+  recurring, recent filer (most recently Nov 16, 2026) - still just
+  the standard noisy mention-proxy, not a clean net-buy figure. **Not
+  a pick** - real elevated volume and a real floor-crossing move, but
+  no catalyst to confirm it.
+- **HPQ (HP Inc) - a real, large move around a confirmed earnings date
+  with an unconfirmed result, plus a real open question about the
+  CEO.** \$31.15, RSI 56.86 (screen: 57.46), **+11.97%/5d** (a real,
+  fresh move - the 20d change is actually -2.14%, so this is
+  genuinely new, not stale), volume **2.66x**. HP's fiscal Q4 2026
+  results were confirmed scheduled for Nov 24 (a call at 5pm ET) but a
+  dedicated WebSearch found **no coverage of the actual results** - a
+  real data gap, not assumed to be good news just because the price
+  moved up. Separately, a real, notable item surfaced only in the
+  insider data: a Nov 3 Form 4 lists **"BROUSSARD BRUCE D, Interim
+  CEO"** - a real indicator of a leadership transition at HP that this
+  log has not previously tracked and that the WebSearch did not
+  surface or confirm. Other insider activity (large Nov 17 routine
+  grants to the Chief Commercial and Chief Legal Officers, real older
+  real sales by the Chief Commercial Officer in Aug/Oct at much lower
+  prices) is not alarming on its own. 13F: Berkshire Hathaway mentions
+  are all 2022-2023, stale. **Not a pick** - too many real open
+  questions (the actual Q4 results, the CEO transition) to treat
+  today's real price move as a confirmed signal either way.
+- **BAX (Baxter International) - a real move, no fresh catalyst
+  found.** \$27.26, RSI 63.61 (screen: 62.63), **+7.37%/5d**, +16.00%
+  /20d, volume **2.09x**. The real, already-known story (a Q3 beat
+  with a raised FY26 outlook) is now several weeks old, and one
+  source described the stock as roughly flat since late July given
+  investor focus on 2027 margin-compression concerns - that framing
+  doesn't match today's real, fresh move, and no WebSearch result was
+  dated recently enough to explain it. Insider: real but older (Sept)
+  routine tax-withholding sales across several executives (CEO Hider
+  included), nothing fresh this week. 13F: fully stale (2015 and
+  earlier). **Not a pick** - a real move without a real, dated
+  explanation.
+- **WMT (Walmart) - carryover, no new information.** \$131.94, RSI
+  73.08 (still extreme), +4.68%/5d (ticked up slightly from
+  yesterday's 3.89%, still below the floor), +8.82%/20d, volume 0.87x.
+  Same real caution as yesterday's full write-up (extreme RSI, a real
+  sustained multi-insider selling pattern including the CEO) - not
+  re-checked in full today, still not a pick.
+
+**None of today's three deepened stock names clear confidence** - all
+three are real, volume-confirmed moves without a dated catalyst to
+explain them, a genuinely different pattern from yesterday's clean
+DLTR/AMGN beats.
+
+**Data gaps:** no order-book-imbalance signal for stocks (Alpaca
+free/IEX tier); insufficient history for a 20/50 SMA crossover on any
+deepened ticker; HOLX unpriceable again. 13F mentions stayed the known
+noisy proxy for all names checked. HPQ's actual Q4 fiscal 2026 earnings
+result and HP's apparent CEO transition are both real, open data gaps
+- not found via WebSearch, surfaced only incidentally via the insider
+feed. Cross-check confirmed clean (see above).
+
+### Watch list
+
+- **WTW / HPQ / BAX (stocks)** - three real, volume-confirmed moves
+  (all 2x+ volume) today with no dated catalyst found for any of
+  them - worth tracking for whether news catches up, especially HPQ
+  given its confirmed-but-unreported Nov 24 earnings date and the real
+  open question about an "Interim CEO" surfaced only in its insider
+  filings.
+- **WMT (Walmart)** - unchanged from yesterday: a real Q3 beat+raise
+  undercut by an extreme RSI and a real, sustained multi-insider
+  selling pattern including the CEO.
+
+### Bottom line
+
+Crypto staged a real, broad recovery today, and **LTC** became the
+first crypto pair to clear the 6% `momentum_trigger` floor in several
+recent cycles, confirmed by a genuine, simultaneous bullish SMA
+crossover - a real technical signal, capped at medium per this log's
+standing rule since no LTC-specific catalyst was found (the broader
+story is a partial bounce off LTC's own Nov 15 crash to a four-month
+low). The stock screen produced a real, odd pattern today: three
+separate names (**WTW, HPQ, BAX**) posted real, 2x+-volume moves
+crossing or near the 6% floor, and none of them came with a dated
+catalyst a WebSearch could confirm - including **HPQ**, whose
+confirmed Nov 24 earnings date produced no findable coverage of the
+actual results, and whose insider filings surfaced a real, unconfirmed
+leadership-transition signal ("Interim CEO") this log hadn't tracked
+before. All three stay off today's picks precisely because the
+real price action outran the available explanation, not because
+anything found was negative. **WMT** continues unchanged from
+yesterday's caution. No real account activity to reconcile. This is
+advisory context only, not investment advice presented as certain -
+verify independently before acting on anything above.
+
