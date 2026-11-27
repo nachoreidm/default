@@ -5423,3 +5423,135 @@ yesterday's caution. No real account activity to reconcile. This is
 advisory context only, not investment advice presented as certain -
 verify independently before acting on anything above.
 
+## 2026-11-27 - daily cycle
+
+**Advisory only. Nothing here executes - verify before acting.** This
+is the normal 8am ET weekday trigger (v5, connector-permission-fixed
+session), the day after Thanksgiving (2026-11-26 was the holiday - US
+markets closed; this is a half-day session for stocks, crypto trades
+24/7 regardless). `git pull` found no new commits since yesterday's
+entry.
+
+### Outcome tracking - no new real activity
+
+Pulled the ledger with `start` set just after the last reconciled
+entry (2026-11-23 21:25:11 UTC - unchanged checkpoint, since both
+11-25 and 11-26 found nothing new). 0 entries found - no real account
+activity since 11-23.
+
+### A real data-staleness finding, not a repeat of the 2026-10-24 bug - flagged prominently per standing instructions
+
+`screen_sp500`'s output today is **numerically identical** to
+yesterday's (11-26) pull for every ticker that appears in both -
+price, `pct_change_5d`, `pct_change_20d`, and `volume_ratio` all match
+to the full precision returned (e.g. WTW: \$352.56, +6.429994566...%,
++9.924235338...%, 2.4447191127...x, bit-for-bit the same both days);
+only `rsi_14_1d` differs by a few thousandths (e.g. WTW 70.1651 vs
+70.1590), consistent with RSI alone incorporating a fractionally
+different live quote on top of otherwise-identical completed daily
+bars. **Root cause, not a bug**: 2026-11-26 was Thanksgiving - US
+equity markets were closed, so no new daily bar posted - and this
+cycle ran at \~7:50am ET on 11-27, before today's 9:30am ET open.
+Alpaca's most recent *complete* daily bar is therefore still 11-25's
+close for both yesterday's and today's pulls - there is genuinely no
+new stock-side information to report. This is **not** the 2026-10-24
+screen\_sp500/compute\_stock\_signals cross-tool disagreement bug
+(that was two tools disagreeing on the *same* day's data; this is one
+tool correctly returning the *same real* data twice because no new
+trading day has actually completed) - but it's flagged prominently
+per this cycle's standing instruction all the same, since an
+unexplained identical repeat is exactly the kind of thing that
+deserves scrutiny before being waved off. **Consequence for this
+entry**: no stock-side deep dives today - re-running WTW/HPQ/BAX
+(yesterday's three unexplained movers) against the identical stale
+numbers would just repeat yesterday's write-up under a false
+appearance of fresh confirmation. They stay exactly where yesterday's
+entry left them (real, 2x+-volume moves, still no dated catalyst
+found, still not picks) until a real new trading day's bar is
+available - likely tomorrow's cycle.
+
+### Crypto - a real, broad, confirmed altcoin rally; 6 of 8 pairs clear the momentum floor
+
+| Pair | 1h/48h chg | 4h/48h chg | RSI(14,4h) | Vol ratio (24h vs 7d avg) | SMA state |
+|---|---|---|---|---|---|
+| BTC/EUR | +4.76% | +5.49% | 58.98 | 0.44x | fast<slow |
+| ETH/EUR | +4.42% | +4.43% | 55.68 | 0.47x | fast<slow |
+| SOL/EUR | **+7.53%** | **+7.80%** | 61.52 | 0.41x | fast<slow |
+| XRP/EUR | **+7.31%** | **+7.94%** | 61.32 | 0.54x | **fast>slow (bullish cross)** |
+| ADA/EUR | **+9.34%** | **+10.02%** | 61.82 | 0.58x | fast>slow |
+| LINK/EUR | **+10.22%** | **+10.05%** | 67.11 | 0.70x | fast>slow |
+| SUI/EUR | **+9.08%** | **+9.59%** | 59.27 | 0.51x | fast<slow |
+| LTC/EUR | **+10.76%** | **+10.40%** | 69.02 | 1.15x | fast>slow |
+
+**The broadest, largest real crypto rally this log has recorded**: 6
+of 8 pairs clear the 6% `momentum_trigger` floor on both legs
+simultaneously (SOL, XRP, ADA, LINK, SUI, LTC); only BTC and ETH fall
+just short (both real, both in the 4-5.5% range). A dedicated
+WebSearch found a real, dated, confirmed macro catalyst: reports dated
+around 11-26/11-27 describe Bitcoin reclaiming the \$60K level (total
+crypto market cap back to \~\$2.08T) after a bounce attributed to
+falling US bond yields and falling oil prices, with altcoins
+(including LTC by name) leading the recovery and the Fear & Greed
+Index having sat at an extreme-fear reading of 8 beforehand - a
+textbook sentiment-extreme-precedes-rebound setup, not a crypto-
+specific news event. This is a real, confirmed, broad relief rally off
+the deeply oversold conditions this log tracked through mid-to-late
+November (BTC's RSI 27.2 record low on 11-13, LTC's own RSI 27.1
+record low on 11-20), not an isolated name. **XRP's real, simultaneous
+bullish SMA crossover** adds a second confirming technical signal on
+top of the price move; ADA, LINK, and LTC are already `fast>slow`
+from recent days. One real, worth-naming tension: **SOL's and ADA's
+order books are both real and ask-heavy** (SOL -0.56, ADA -0.51)
+despite their sharp real price gains - possibly real profit-taking
+pressure building into the rally, not visible in price/RSI alone.
+**Medium** confidence for all 6 (momentum-only per this log's standing
+cap, though genuinely confirmed today by a real, dated, sentiment-
+and-macro-driven catalyst, not a bare technical spike) - **BTC and
+ETH stay real near-misses**, worth the Watch list.
+
+### Stocks - no new information (see data-staleness note above)
+
+`screen_sp500` top-20 is identical to yesterday's: WTW (score 4), WMT,
+MRSH, MSI, ORLY, BDX, EXR, VLTO, HPQ, TSCO, AIZ, BAX, CLX, DPZ, PNR at
+score 3, BRK.B, COST, PG, PLTR, HD at score 2 - same tickers, same
+numbers, same `errors: HOLX: no bars returned`. No new deep dives run
+today; yesterday's WTW/HPQ/BAX write-ups and the WMT caution stand
+unchanged. No stock picks today, for the same reasons as yesterday.
+
+### Watch list
+
+- **BTC/ETH (crypto)** - real near-misses on today's broad rally
+  (+4.76%/+5.49% and +4.42%/+4.43% respectively) - the two largest-cap
+  pairs lagging the altcoin-led move rather than leading it.
+- **SOL/ADA order-book tension** - both show real, sharp price gains
+  alongside real ask-heavy order books (SOL -0.56, ADA -0.51),
+  possibly real profit-taking building into the rally - worth
+  watching for whether the rally holds.
+- **WTW / HPQ / BAX (stocks)** - unchanged from yesterday: three real,
+  volume-confirmed moves with no dated catalyst found, including
+  HPQ's unconfirmed Nov 24 earnings result and an unconfirmed
+  "Interim CEO" signal.
+- **WMT (Walmart)** - unchanged: a real Q3 beat+raise undercut by an
+  extreme RSI and a real, sustained multi-insider selling pattern
+  including the CEO.
+
+### Bottom line
+
+Today's real story is entirely on the crypto side: a broad, confirmed
+relief rally - 6 of 8 pairs clearing the 6% momentum floor
+simultaneously, the largest such cluster this log has recorded - tied
+to a real, dated macro catalyst (falling bond yields and oil prices,
+an extreme-fear sentiment reading reversing) rather than any single
+coin's news. **SOL, XRP, ADA, LINK, SUI, and LTC** all clear medium
+confidence on that basis; BTC and ETH are real near-misses. The stock
+side produced a genuine non-event worth documenting carefully rather
+than glossing over: 2026-11-26 was Thanksgiving (US markets closed),
+and this cycle ran before today's open, so `screen_sp500`'s numbers
+are the same completed-bar data as yesterday's pull, not a silent
+repeat of the 2026-10-24 cross-tool bug - no new stock information
+exists yet to report, and yesterday's WTW/HPQ/BAX/WMT write-ups stand
+unchanged rather than being redundantly re-run against identical
+numbers. No real account activity to reconcile. This is advisory
+context only, not investment advice presented as certain - verify
+independently before acting on anything above.
+
